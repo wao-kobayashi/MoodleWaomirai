@@ -9,25 +9,25 @@ mixin enrol-lesson-month
     h2.enrol-title 2026年#{currentMonth}月の授業
     .enrol-subtitle|※授業は各レベルのいずれかを受講可能です。
     // 各教科の授業情報を表示
-    .enrol-section-basesubject-thismonth-lesson
+    .enrol-section-basesubject-thismonth-lesson(data-category=enrolpage.category)
       each subject in thisMonthLessons[enrolpage.category]
         .enrol-section-basesubject-thismonth-lesson-grid-level
             span.title|レベル
-            span.large= subject.level 
+            span.large= subject.level
             // 対象学年
             span|(
-            span= subject.grade 
+            span= subject.grade
             span|)
-        .enrol-section-basesubject-thismonth-lesson-grid
+        .enrol-section-basesubject-thismonth-lesson-grid(data-level=subject.level)
             // レベル情報を表示
             // 各レッスン情報を表示
-            each lesson in subject.lessons
-                .enrol-section-basesubject-thismonth-lesson-grid-lesson
+            each lesson, lessonIndex in subject.lessons
+                .enrol-section-basesubject-thismonth-lesson-grid-lesson(data-week=lessonIndex + 1)
                     // レッスンの週
                     .enrol-section-basesubject-thismonth-lesson-grid-lesson-banner
                         img(src=lesson.banner)
                     // レッスン説明
-                    .enrol-section-basesubject-thismonth-lesson-grid-lesson-text= lesson.text 
+                    .enrol-section-basesubject-thismonth-lesson-grid-lesson-text= lesson.text
 
 //年間の授業カリキュラム
 mixin enrol-lesson-year

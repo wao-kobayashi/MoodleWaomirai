@@ -1544,3 +1544,12 @@
       }
     ]
   };
+
+//- 「今月の授業」自動更新用に、現在カテゴリのカリキュラムを実行時JSへ渡す（哲学・科学・経済のみ）
+script.
+  window.WAO_ENROL = {
+    year: 2026,
+    thumbBase: 'https://waomirai.com/lp/assets/class-thumbnails/2026/',
+    category: '#{enrolpage.category}',
+    curriculum: !{JSON.stringify(yearCurriculum[enrolpage.category])}
+  };
