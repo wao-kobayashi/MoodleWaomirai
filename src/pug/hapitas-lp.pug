@@ -3,6 +3,8 @@ html(lang="jp")
   head
     title ワオ未来塾
     link(href="static/css/sass/waomirai-hapitas-lp.css?undefined", rel="stylesheet")
+    script(src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js", integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==", crossorigin="anonymous", referrerpolicy="no-referrer")
+    script(src="static/js/hapitas-lp.js")
     meta(name="viewport", content="width=device-width, initial-scale=1,minimum-scale=1.0, maximum-scale=1.0, user-scalable=no")
     meta(charset="UTF-8")
   body
@@ -10,32 +12,68 @@ html(lang="jp")
        div 
         img(src='https://go.waomirai.com/hapitas2024/image/miraijukutop.png')
        section.hapitas-section.hapitas-section-gray
-         p|ワオ未来塾とは 
+         h2.underline|ワオ未来塾とは 
+         .hapitas-section-text 
+           p|これからの子供の教育に必要になる能力を身に着けられる塾です。［哲学（思考力）］［科学リテラシー］［経済（お金）］［グローバル英語］［クリエイティブ・プログラミング］などこれからの未来に必要な能力を楽しく受講できます
        section.hapitas-section
-         p|サービスの特徴 
+         h2.underline|サービスの特徴 
        section.hapitas-section.hapitas-section-gray
          h2.underline|授業動画を見てポイントをゲット！
          .hapitas-section-group 
            h2|ポイントもらうまでの簡単3ステップ
-           .hapitas-section-group-merit
-              .hapitas-section-group-merit-child 
-                .hapitas-section-group-merit-child-number 
+           .hapitas-section-group-step
+              .hapitas-section-group-step-child 
+                .hapitas-section-group-step-child-number 
                   |01
-                .hapitas-section-group-merit-child-img 
+                .hapitas-section-group-step-child-img 
                   img(src='https://go.waomirai.com/hapitas2024/image/playbutton.png')                
-                .hapitas-section-group-merit-child-text 
+                .hapitas-section-group-step-child-text 
                   |動画を見る
-              .hapitas-section-group-merit-child 
-                .hapitas-section-group-merit-child-number 
+              .hapitas-section-group-step-child 
+                .hapitas-section-group-step-child-number 
                   |02
-                .hapitas-section-group-merit-child-img 
+                .hapitas-section-group-step-child-img 
                   img(src='https://go.waomirai.com/hapitas2024/image/playbutton.png')               
-                .hapitas-section-group-merit-child-text 
+                .hapitas-section-group-step-child-text 
                   |フォームを入力する
-              .hapitas-section-group-merit-child 
-                .hapitas-section-group-merit-child-number 
+              .hapitas-section-group-step-child 
+                .hapitas-section-group-step-child-number 
                   |03
-                .hapitas-section-group-merit-child-img 
+                .hapitas-section-group-step-child-img 
                   img(src='https://go.waomirai.com/hapitas2024/image/playbutton.png')                   
-                .hapitas-section-group-merit-child-text 
+                .hapitas-section-group-step-child-text 
                   |ポイントゲット
+         .hapitas-section-group 
+           h2|経済/科学/哲学の授業からお選びいただけます
+           .hapitas-section-group-tab 
+              a.hapitas-section-group-tab-child#tab-economiy.active
+                |経済
+              a.hapitas-section-group-tab-child#tab-philosophy
+                |科学
+              a.hapitas-section-group-tab-child#tab-science
+                |哲学               
+           .hapitas-section-group-tab-content.tab-content-economiy
+              #tab-content-economiy
+                .tab-content-child
+                  h3|①動画を見る(約45分)
+                  div
+                    iframe(width="560", height="315", src="https://www.youtube.com/embed/YdspZBJ2blE?si=0fAPDtcfFbyXYoU1", title="YouTube video player", frameborder="0", allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share", referrerpolicy="strict-origin-when-cross-origin", allowfullscreen)
+                  h3|②動画を見終えたらフォームを入力する  
+                  .hapitas-section-group-tab-content-form
+                    p|フォーム
+              #tab-content-philosophy(style='display:none;')
+                .tab-content-child
+                  h3|①動画を見る(約45分)
+                  div
+                    iframe(width="560", height="315", src="https://www.youtube.com/embed/Bh-OmxiwS2k?si=0fAPDtcfFbyXYoU1", title="YouTube video player", frameborder="0", allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share", referrerpolicy="strict-origin-when-cross-origin", allowfullscreen)
+                  h3|②動画を見終えたらフォームを入力する  
+                  .hapitas-section-group-tab-content-form
+                    p|フォーム
+              #tab-content-science(style='display:none;')
+                .tab-content-child
+                  h3|①動画を見る(約45分)
+                  div
+                    iframe(width="560", height="315", src="https://www.youtube.com/embed/CxaMmU2VAbA?si=0fAPDtcfFbyXYoU1", title="YouTube video player", frameborder="0", allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share", referrerpolicy="strict-origin-when-cross-origin", allowfullscreen)
+                  h3|②動画を見終えたらフォームを入力する  
+                  .hapitas-section-group-tab-content-form
+                    p|フォーム
