@@ -14,7 +14,7 @@ const rename = require('gulp-rename');
 
 const srcpaths = {
     scss: './src/**/*.scss',
-    sass: './src/sass/**/*.sass',
+    sass: './src/**/*.sass',
     jsx: './src/jsx/**/*.js',
     jade: './src/jade/**/*.jade',
     pug: './src/pug/*.pug'

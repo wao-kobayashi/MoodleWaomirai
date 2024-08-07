@@ -1,1 +1,65 @@
-_hapitas-lp
+$pc-pcmax-width:1000px;
+$font-size-l:24px;
+$font-size-m:18px;
+$font-size-s:14px;
+$font-size-ss:10px;
+
+.hapitas-section{
+    padding: 45px 0;
+}
+
+.hapitas-section-gray{
+    background: $cl-graylight;
+}
+h2{
+    margin: 0 auto;
+    text-align: center;
+    font-size: $font-size-l;
+}
+
+.hapitas-section-group-merit{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 1fr;
+    grid-column-gap: 40px;
+    grid-row-gap: 0px;
+    max-width: $pc-pcmax-width;
+    margin: 0 auto;
+    padding: 0 20px;
+    .hapitas-section-group-merit-child {
+        border: 1px solid $cl-main-orange;
+        padding: 45px 0 0;
+        position: relative;
+        border-radius: 4px;
+        margin: 45px 0 0;
+        background: white;
+        .hapitas-section-group-merit-child-img {
+            width: 80px;
+            margin: 30px auto;
+        }
+        .hapitas-section-group-merit-child-number {
+            position: absolute;
+            top: -20px;
+            left: 0;
+            right: 0;
+            margin: auto;
+            text-align: center;
+            display: block;
+            background: $cl-main-orange;
+            width: 40px;
+            height: 40px;
+            border-radius: 100px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+        }
+        .hapitas-section-group-merit-child-text {
+            text-align: center;
+            color:$cl-black;
+            margin: 0 0 30px;
+            font-weight: bold;
+            font-size: $font-size-m;
+        }
+    }
+}
