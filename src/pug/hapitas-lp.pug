@@ -33,15 +33,24 @@ html(lang="jp")
     meta(name="viewport", content="width=device-width, initial-scale=1,minimum-scale=1.0, maximum-scale=1.0, user-scalable=no")
     meta(charset="UTF-8")
   body
-    .wrapper-hapitas
+    header
+      .header-left 
+        img(src='https://go.waomirai.com/l/1026513/2024-08-08/gzqmq/1026513/1723103182E5MU9Ijy/waomirai_logo__1_.svg')
+      .header-right 
+        a(href="#cv") 
+          img(src='https://go.waomirai.com/l/1026513/2024-08-08/gzqpq/1026513/1723104004R6avPR6z/btn_cv.svg')
+    .wrapper-hapitas 
        div 
-        img(src='https://go.waomirai.com/hapitas2024/image/miraijukutop.png')
+        .pcimage 
+          img(src='https://go.waomirai.com/hapitas2024/image/miraijukutop.png')
+        .spimage 
+          img(src='https://go.waomirai.com/l/1026513/2024-08-08/gzqq7/1026513/1723107164ymWVzpZK/mv_sp.jpg')
        .cv-hapitas 
           a.cv-hapitas-button(href="#cv") 
             .cv-hapitas-button-top 
               |今だけ！期間限定
             .cv-hapitas-button-main 
-              |授業動画を見てポイントをGET!
+              |授業動画(無料)を見てポイントをGET!
 
        section.hapitas-section.hapitas-section-gray
          h2.underline|ワオ未来塾とは 
@@ -81,7 +90,10 @@ html(lang="jp")
                  .hapitas-section-about-child-text 
                     |ワオ未来塾のオンライン・ライブ授業は生配信形式で行われ、選択問題への回答やリアクションボタンで積極的に授業に参加できます。
        section.hapitas-section
-         h2.underline|ワオ未来塾の5つの「新しい教科」
+         h2.underline
+          |ワオ未来塾の
+          br.spimage
+          |5つの「新しい教科」
          .hapitas-section-subject 
             .hapitas-section-subject-child.philosophy 
               .hapitas-section-subject-child-img 
@@ -124,31 +136,45 @@ html(lang="jp")
                   .hapitas-section-subject-child-text-small
                     |子どもの習いごとで終わらせない
        section.hapitas-section.hapitas-section-gray#cv
-         h2.underline|授業動画を見てポイントをゲット！
+         h2.underline
+           |授業動画(無料)を見て
+           br.spimage
+           |ポイントをゲット！
          .hapitas-section-group 
-           h2|ポイントもらうまでの簡単3ステップ
+           h2
+            |ポイントもらうまでの
+            br.spimage
+            |簡単3ステップ
            .hapitas-section-group-step
               .hapitas-section-group-step-child 
                 .hapitas-section-group-step-child-number 
                   |01
                 .hapitas-section-group-step-child-img 
                   img(src='https://go.waomirai.com/l/1026513/2024-08-08/gzqhj/1026513/1723095306jgCosoEa/img_step01.png')                
-                .hapitas-section-group-step-child-text 
-                  |動画を見る
+                .hapitas-section-group-step-child-text
+                  .hapitas-section-group-step-child-text-main
+                    |動画を見る
               .hapitas-section-group-step-child 
                 .hapitas-section-group-step-child-number 
                   |02
                 .hapitas-section-group-step-child-img 
                   img(src='https://go.waomirai.com/l/1026513/2024-08-08/gzqhf/1026513/1723095305nYVQRbd5/img_step02.png')               
-                .hapitas-section-group-step-child-text 
-                  |フォームを入力する
+                .hapitas-section-group-step-child-text
+                  .hapitas-section-group-step-child-text-main
+                    |フォームを入力する
               .hapitas-section-group-step-child 
                 .hapitas-section-group-step-child-number 
                   |03
                 .hapitas-section-group-step-child-img 
                   img(src='https://go.waomirai.com/l/1026513/2024-08-08/gzqhm/1026513/1723095306sBZOadze/img_step03.png')                   
-                .hapitas-section-group-step-child-text 
-                  |ポイントゲット
+                .hapitas-section-group-step-child-text
+                  .hapitas-section-group-step-child-text-main
+                    |ポイントゲット
+                    br
+                  .hapitas-section-group-step-child-text-span
+                      |※ハピタスで受信した判定結果データに基づき、
+                      br
+                      |有効と判定された場合
          .hapitas-section-group 
            h2|経済/科学/哲学の授業からお選びいただけます
            .hapitas-section-group-tab 

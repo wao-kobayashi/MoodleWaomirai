@@ -4,6 +4,48 @@ $font-size-l:24px;
 $font-size-m:18px;
 $font-size-s:14px;
 $font-size-ss:10px;
+$header-height:70px;
+$header-height-mobile:45px;
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    background: white;
+    padding: 10px;
+    z-index: 10;
+    height: $header-height;
+    box-shadow: 0px 10px 18px -10px rgba(0, 0, 0, 0.1);
+    @include responsive-style(768px) {
+        padding: 5px;
+        height: $header-height-mobile;
+    }
+    .header-left img {
+        height: 30px;
+        @include responsive-style(768px) {
+            height: 15px;
+        }
+    }
+    .header-right img {
+        height: 50px;
+        border-radius: 6px;
+        @include responsive-style(768px) {
+            height: 30px;
+            border-radius: 3px;
+        }
+    }
+}
+
+.wrapper-hapitas {
+    margin-top: $header-height;
+    @include responsive-style(768px) {
+        margin-top: $header-height-mobile;
+    }
+}
+
 h2 {
     margin: 0 auto 30px;
     text-align: center;
@@ -37,9 +79,9 @@ h2.underline:after {
     display: inline-flex;
     justify-content: center;
     height: 73px;
-    padding: 20px;
+    padding: 20px 10px;
     color: white;
-    width: 90%;
+    width: 95%;
     max-width: 400px;
     margin: 20px auto;
     position: relative;
@@ -48,6 +90,9 @@ h2.underline:after {
     border: white 2px solid;
     cursor: pointer !important;
     animation: fuwafuwa-button 2s 0s infinite;
+    @include responsive-style(768px) {
+        height: 68px;
+    }
     &:hover {
         opacity: 0.8;
     }
@@ -60,6 +105,9 @@ h2.underline:after {
         font-size: 20px;
         font-weight: bold;
         margin: 4px 0 0;
+        @include responsive-style(768px) {
+            font-size: 18px;
+        }
     }
 }
 
@@ -74,11 +122,15 @@ h2.underline:after {
         text-align: center;
         line-height: 1.5 !important;
         font-size: $font-size-m;
+        @include responsive-style(768px) {
+            text-align: left;
+            padding: 0 20px;
+        }
     }
 }
 
 .hapitas-section-gray {
-    background: $cl-graylight;
+    background: $cl-graylightest;
 }
 
 .hapitas-section-about {
@@ -249,11 +301,24 @@ h2.underline:after {
             font-size: $font-size-l;
         }
         .hapitas-section-group-step-child-text {
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            height: 70px;
+        }
+        .hapitas-section-group-step-child-text-main {
             text-align: center;
             color: $cl-black;
-            margin: 0 0 30px;
             font-weight: bold;
             font-size: 20px;
+            line-height: 1;
+        }
+        .hapitas-section-group-step-child-text-span {
+            font-size: 10px;
+            color: $cl-graylight;
+            line-height: 1.3;
+            margin: 9px 0 0;
+            text-align: center;
         }
     }
 }
