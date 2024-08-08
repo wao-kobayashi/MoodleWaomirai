@@ -1,17 +1,21 @@
 $pc-pcmax-width:1000px;
+$font-size-xl:30px;
 $font-size-l:24px;
-$font-size-m:18px;
+$font-size-m:14px;
 $font-size-s:14px;
 $font-size-ss:10px;
-
-h2{
-    margin: 0 auto 20px;
+h2 {
+    margin: 0 auto 30px;
     text-align: center;
     font-size: $font-size-l;
     letter-spacing: 1.5px;
 }
 
-h2.underline:after{
+h2.underline {
+    font-size: $font-size-xl;
+}
+
+h2.underline:after {
     display: block;
     width: 60px;
     height: 3px;
@@ -20,46 +24,190 @@ h2.underline:after{
     margin: 14px auto 0px;
 }
 
-.hapitas-section{
-    padding: 90px 0;
+.cv-hapitas {
+    width: 100%;
+    background: $cl-main-orange;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cv-hapitas-button {
+    background: #005c3f;
+    display: inline-flex;
+    justify-content: center;
+    height: 73px;
+    padding: 20px;
+    color: white;
+    width: 400px;
+    margin: 30px auto;
+    position: relative;
+    text-decoration: none;
+    border-radius: 8px;
+    border: white 2px solid;
+    cursor: pointer !important;
+    .cv-hapitas-button-top {
+        position: absolute;
+        top: 3px;
+    }
+    .cv-hapitas-button-main {
+        font-size: 20px;
+        font-weight: bold;
+        margin: 4px 0 0;
+    }
+}
+
+.hapitas-section {
+    padding: 75px 0;
     .hapitas-section-group {
         margin: 60px auto 90px;
     }
-    .hapitas-section-text p{
-        max-width: 600px;
-        margin: 0 auto;
+    .hapitas-section-text p {
+        max-width: 800px;
+        margin: 0 auto 30px;
+        text-align: center;
         line-height: 1.5 !important;
         font-size: $font-size-m;
     }
 }
 
-.hapitas-section-gray{
+.hapitas-section-gray {
     background: $cl-graylight;
 }
 
-
-
-
-
-.hapitas-section-group-step{
+.hapitas-section-about {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: 1fr;
-    grid-column-gap: 40px;
+    grid-column-gap: 25px;
+    grid-row-gap: 30px;
+    max-width: $pc-pcmax-width;
+    margin: 0 auto;
+    padding: 0 20px;
+    @include responsive-style(768px) {
+        grid-template-columns: repeat(1, 1fr);
+    }
+    .hapitas-section-about-child {
+        border: 2px solid $cl-main-orange;
+        padding: 0px 0 0;
+        position: relative;
+        border-radius: 10px;
+        margin: 0px 0 0;
+        background: white;
+        overflow: hidden;
+        .hapitas-section-about-child-title {
+            padding: 15px 0 20px;
+            background: #FDF7EE;
+            text-align: center;
+            margin: 0 0 15px;
+            .hapitas-section-about-child-title-sub {
+                font-size: $font-size-s;
+                font-weight: 400;
+                line-height: 1;
+                letter-spacing: 1px;
+                margin: 0 0 5px;
+            }
+            .hapitas-section-about-child-title-main {
+                font-size: $font-size-l;
+                font-weight: 900;
+                line-height: 1;
+                letter-spacing: 2px;
+            }
+        }
+        .hapitas-section-about-child-img {
+            margin: 0 15px;
+        }
+        .hapitas-section-about-child-text {
+            margin: -7px 15px 25px;
+            line-height: 1.5 !important;
+            font-size: $font-size-s;
+        }
+    }
+}
+
+.hapitas-section-subject {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 1fr;
+    grid-column-gap: 25px;
+    grid-row-gap: 50px;
+    max-width: $pc-pcmax-width;
+    margin: 60px auto 0;
+    padding: 0 20px;
+    @include responsive-style(768px) {
+        grid-template-columns: repeat(1, 1fr);
+    }
+    .hapitas-section-subject-child {
+        padding: 0px 0 0;
+        position: relative;
+        border-radius: 10px;
+        margin: 0px 0 0;
+        position: relative;
+        &.philosophy {
+            background: $cl-philosophy;
+        }
+        &.science {
+            background: $cl-science;
+        }
+        &.economiy {
+            background: $cl-economiy;
+        }
+        &.english {
+            background: $cl-english;
+        }
+        &.programming {
+            background: $cl-programming;
+        }
+    }
+    .hapitas-section-subject-child-img img {
+        position: absolute;
+        left: 0px;
+        right: 0px;
+        width: calc(100% - 30px);
+        top: -20px;
+        margin: auto;
+        border-radius: 8px;
+        height: 180px;
+        object-fit: cover;
+    }
+    .hapitas-section-subject-child-text {
+        padding: 170px 20px 20px;
+        .hapitas-section-subject-child-text-large {
+            font-weight: 800;
+            color: white;
+            font-size: $font-size-l;
+            line-height: 1.3;
+        }
+        .hapitas-section-subject-child-text-small {
+            color: white;
+            font-size: $font-size-s;
+            margin: 7px 0 0;
+        }
+    }
+}
+
+.hapitas-section-group-step {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 1fr;
+    grid-column-gap: 25px;
     grid-row-gap: 0px;
     max-width: $pc-pcmax-width;
     margin: 0 auto;
     padding: 0 20px;
+    @include responsive-style(768px) {
+        grid-template-columns: repeat(1, 1fr);
+    }
     .hapitas-section-group-step-child {
         border: 2px solid $cl-main-orange;
         padding: 45px 0 0;
         position: relative;
         border-radius: 10px;
-        margin: 45px 0 0;
+        margin: 0px 0 0;
         background: white;
         .hapitas-section-group-step-child-img {
-            width: 100px;
-            margin: 50px auto;
+            width: 80%;
+            margin: 0px auto;
         }
         .hapitas-section-group-step-child-number {
             position: absolute;
@@ -81,16 +229,15 @@ h2.underline:after{
         }
         .hapitas-section-group-step-child-text {
             text-align: center;
-            color:$cl-black;
+            color: $cl-black;
             margin: 0 0 30px;
             font-weight: bold;
             font-size: $font-size-m;
-           
         }
     }
 }
 
-.hapitas-section-group-tab{
+.hapitas-section-group-tab {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: 1fr;
@@ -99,7 +246,10 @@ h2.underline:after{
     max-width: $pc-pcmax-width;
     margin: 0 auto;
     padding: 0 20px;
-    .hapitas-section-group-tab-child{
+    @include responsive-style(768px) {
+        grid-column-gap: 15px;
+    }
+    .hapitas-section-group-tab-child {
         text-align: center;
         display: flex;
         justify-content: center;
@@ -109,8 +259,9 @@ h2.underline:after{
         font-size: $font-size-m;
         font-weight: bold;
         position: relative;
-        &.active{
-            &:after{
+        cursor: pointer !important;
+        &.active {
+            &:after {
                 content: "";
                 display: block;
                 height: 0px;
@@ -122,43 +273,43 @@ h2.underline:after{
                 right: 0;
                 margin: auto;
             }
-        } 
+        }
     }
-    #tab-economiy{
-        border:3px $cl-economiy solid;
-        color:$cl-economiy;
-        background: white;  
-        &.active{
-            color:white !important;
+    #tab-economiy {
+        border: 3px $cl-economiy solid;
+        color: $cl-economiy;
+        background: white;
+        &.active {
+            color: white !important;
             background: $cl-economiy !important;
-            &:after{
+            &:after {
                 border-top-color: $cl-economiy;
             }
-        } 
+        }
     }
-    #tab-philosophy{
-        border:3px $cl-philosophy solid;
-        color:$cl-philosophy;
-        background: white;  
-        &.active{
-            color:white !important;
-            background:$cl-philosophy !important;
-            &:after{
+    #tab-philosophy {
+        border: 3px $cl-philosophy solid;
+        color: $cl-philosophy;
+        background: white;
+        &.active {
+            color: white !important;
+            background: $cl-philosophy !important;
+            &:after {
                 border-top-color: $cl-philosophy;
             }
-        } 
+        }
     }
-    #tab-science{
-        border:3px $cl-science solid;
-        color:$cl-science;
-        background: white;  
-        &.active{
-            color:white !important;
-            background:$cl-science !important;
-            &:after{
+    #tab-science {
+        border: 3px $cl-science solid;
+        color: $cl-science;
+        background: white;
+        &.active {
+            color: white !important;
+            background: $cl-science !important;
+            &:after {
                 border-top-color: $cl-science;
             }
-        } 
+        }
     }
 }
 
@@ -167,31 +318,30 @@ h2.underline:after{
     margin: 20px auto 0;
     border-radius: 10px;
     background: white;
-    // &.tab-content-economiy{
-    //     border:3px solid $cl-economiy;
-    // }
-    // &.tab-content-philosophy{
-    //     border:3px solid $cl-philosophy;
-    // }
-    // &.tab-content-science{
-    //     border:3px solid $cl-science;
-    // }
+    @include responsive-style(768px) {
+        background: transparent;
+    }
 }
 
-.tab-content-child{
-    width: 700px;
+.tab-content-child {
+    max-width: 700px;
+    width: 100%;
     margin: 0px auto 20px;
-    h3{
+    padding: 0px 20px;
+    h3 {
         margin: 0px auto 15px;
         padding: 45px 0 0;
         text-align: center;
         font-size: $font-size-l;
+        @include responsive-style(768px) {
+            padding: 15px 0 0;
+        }
     }
-    iframe{
+    iframe {
         width: 100%;
         aspect-ratio: 16 / 9;
     }
-    .hapitas-section-group-tab-content-form{
+    .hapitas-section-group-tab-content-form {
         padding-bottom: 120px;
         text-align: center;
     }

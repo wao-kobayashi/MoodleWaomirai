@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css?family=Noto+Sans+JP:400,500,700");
+@import url("https://fonts.googleapis.com/css?family=Noto+Sans+JP:400,500,700,900");
 body {
   font-family: "Noto Sans JP", sans-serif;
 }
@@ -79,10 +79,14 @@ select {
   }
 }
 h2 {
-  margin: 0 auto 20px;
+  margin: 0 auto 30px;
   text-align: center;
   font-size: 24px;
   letter-spacing: 1.5px;
+}
+
+h2.underline {
+  font-size: 30px;
 }
 
 h2.underline:after {
@@ -94,44 +98,209 @@ h2.underline:after {
   margin: 14px auto 0px;
 }
 
+.cv-hapitas {
+  width: 100%;
+  background: #ee7a00;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.cv-hapitas-button {
+  background: #005c3f;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  height: 73px;
+  padding: 20px;
+  color: white;
+  width: 400px;
+  margin: 30px auto;
+  position: relative;
+  text-decoration: none;
+  border-radius: 8px;
+  border: white 2px solid;
+  cursor: pointer !important;
+}
+.cv-hapitas-button .cv-hapitas-button-top {
+  position: absolute;
+  top: 3px;
+}
+.cv-hapitas-button .cv-hapitas-button-main {
+  font-size: 20px;
+  font-weight: bold;
+  margin: 4px 0 0;
+}
+
 .hapitas-section {
-  padding: 90px 0;
+  padding: 75px 0;
 }
 .hapitas-section .hapitas-section-group {
   margin: 60px auto 90px;
 }
 .hapitas-section .hapitas-section-text p {
-  max-width: 600px;
-  margin: 0 auto;
+  max-width: 800px;
+  margin: 0 auto 30px;
+  text-align: center;
   line-height: 1.5 !important;
-  font-size: 18px;
+  font-size: 14px;
 }
 
 .hapitas-section-gray {
   background: #f0f2f3;
 }
 
+.hapitas-section-about {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 1fr;
+  grid-column-gap: 25px;
+  grid-row-gap: 30px;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+@media screen and (max-width: 768px) {
+  .hapitas-section-about {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+.hapitas-section-about .hapitas-section-about-child {
+  border: 2px solid #ee7a00;
+  padding: 0px 0 0;
+  position: relative;
+  border-radius: 10px;
+  margin: 0px 0 0;
+  background: white;
+  overflow: hidden;
+}
+.hapitas-section-about .hapitas-section-about-child .hapitas-section-about-child-title {
+  padding: 15px 0 20px;
+  background: #FDF7EE;
+  text-align: center;
+  margin: 0 0 15px;
+}
+.hapitas-section-about .hapitas-section-about-child .hapitas-section-about-child-title .hapitas-section-about-child-title-sub {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: 1px;
+  margin: 0 0 5px;
+}
+.hapitas-section-about .hapitas-section-about-child .hapitas-section-about-child-title .hapitas-section-about-child-title-main {
+  font-size: 24px;
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: 2px;
+}
+.hapitas-section-about .hapitas-section-about-child .hapitas-section-about-child-img {
+  margin: 0 15px;
+}
+.hapitas-section-about .hapitas-section-about-child .hapitas-section-about-child-text {
+  margin: -7px 15px 25px;
+  line-height: 1.5 !important;
+  font-size: 14px;
+}
+
+.hapitas-section-subject {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 1fr;
+  grid-column-gap: 25px;
+  grid-row-gap: 50px;
+  max-width: 1000px;
+  margin: 60px auto 0;
+  padding: 0 20px;
+}
+@media screen and (max-width: 768px) {
+  .hapitas-section-subject {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+.hapitas-section-subject .hapitas-section-subject-child {
+  padding: 0px 0 0;
+  position: relative;
+  border-radius: 10px;
+  margin: 0px 0 0;
+  position: relative;
+}
+.hapitas-section-subject .hapitas-section-subject-child.philosophy {
+  background: #FCAF17;
+}
+.hapitas-section-subject .hapitas-section-subject-child.science {
+  background: #B6D43E;
+}
+.hapitas-section-subject .hapitas-section-subject-child.economiy {
+  background: #28AFE7;
+}
+.hapitas-section-subject .hapitas-section-subject-child.english {
+  background: #AA68AA;
+}
+.hapitas-section-subject .hapitas-section-subject-child.programming {
+  background: #EE242C;
+}
+.hapitas-section-subject .hapitas-section-subject-child-img img {
+  position: absolute;
+  left: 0px;
+  right: 0px;
+  width: calc(100% - 30px);
+  top: -20px;
+  margin: auto;
+  border-radius: 8px;
+  height: 180px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.hapitas-section-subject .hapitas-section-subject-child-text {
+  padding: 170px 20px 20px;
+}
+.hapitas-section-subject .hapitas-section-subject-child-text .hapitas-section-subject-child-text-large {
+  font-weight: 800;
+  color: white;
+  font-size: 24px;
+  line-height: 1.3;
+}
+.hapitas-section-subject .hapitas-section-subject-child-text .hapitas-section-subject-child-text-small {
+  color: white;
+  font-size: 14px;
+  margin: 7px 0 0;
+}
+
 .hapitas-section-group-step {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: 1fr;
-  grid-column-gap: 40px;
+  grid-column-gap: 25px;
   grid-row-gap: 0px;
   max-width: 1000px;
   margin: 0 auto;
   padding: 0 20px;
+}
+@media screen and (max-width: 768px) {
+  .hapitas-section-group-step {
+    grid-template-columns: repeat(1, 1fr);
+  }
 }
 .hapitas-section-group-step .hapitas-section-group-step-child {
   border: 2px solid #ee7a00;
   padding: 45px 0 0;
   position: relative;
   border-radius: 10px;
-  margin: 45px 0 0;
+  margin: 0px 0 0;
   background: white;
 }
 .hapitas-section-group-step .hapitas-section-group-step-child .hapitas-section-group-step-child-img {
-  width: 100px;
-  margin: 50px auto;
+  width: 80%;
+  margin: 0px auto;
 }
 .hapitas-section-group-step .hapitas-section-group-step-child .hapitas-section-group-step-child-number {
   position: absolute;
@@ -162,7 +331,7 @@ h2.underline:after {
   color: #000000;
   margin: 0 0 30px;
   font-weight: bold;
-  font-size: 18px;
+  font-size: 14px;
 }
 
 .hapitas-section-group-tab {
@@ -174,6 +343,11 @@ h2.underline:after {
   max-width: 1000px;
   margin: 0 auto;
   padding: 0 20px;
+}
+@media screen and (max-width: 768px) {
+  .hapitas-section-group-tab {
+    grid-column-gap: 15px;
+  }
 }
 .hapitas-section-group-tab .hapitas-section-group-tab-child {
   text-align: center;
@@ -188,9 +362,10 @@ h2.underline:after {
           align-items: center;
   border-radius: 100px;
   height: 50px;
-  font-size: 18px;
+  font-size: 14px;
   font-weight: bold;
   position: relative;
+  cursor: pointer !important;
 }
 .hapitas-section-group-tab .hapitas-section-group-tab-child.active:after {
   content: "";
@@ -247,16 +422,28 @@ h2.underline:after {
   border-radius: 10px;
   background: white;
 }
+@media screen and (max-width: 768px) {
+  .hapitas-section-group-tab-content {
+    background: transparent;
+  }
+}
 
 .tab-content-child {
-  width: 700px;
+  max-width: 700px;
+  width: 100%;
   margin: 0px auto 20px;
+  padding: 0px 20px;
 }
 .tab-content-child h3 {
   margin: 0px auto 15px;
   padding: 45px 0 0;
   text-align: center;
   font-size: 24px;
+}
+@media screen and (max-width: 768px) {
+  .tab-content-child h3 {
+    padding: 15px 0 0;
+  }
 }
 .tab-content-child iframe {
   width: 100%;
