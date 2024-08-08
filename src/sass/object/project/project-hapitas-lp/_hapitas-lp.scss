@@ -1,7 +1,7 @@
 $pc-pcmax-width:1000px;
 $font-size-xl:30px;
 $font-size-l:24px;
-$font-size-m:14px;
+$font-size-m:18px;
 $font-size-s:14px;
 $font-size-ss:10px;
 h2 {
@@ -39,16 +39,22 @@ h2.underline:after {
     height: 73px;
     padding: 20px;
     color: white;
-    width: 400px;
-    margin: 30px auto;
+    width: 90%;
+    max-width: 400px;
+    margin: 20px auto;
     position: relative;
     text-decoration: none;
     border-radius: 8px;
     border: white 2px solid;
     cursor: pointer !important;
+    animation: fuwafuwa-button 2s 0s infinite;
+    &:hover {
+        opacity: 0.8;
+    }
     .cv-hapitas-button-top {
         position: absolute;
-        top: 3px;
+        top: 6px;
+        font-size: 12px;
     }
     .cv-hapitas-button-main {
         font-size: 20px;
@@ -88,7 +94,8 @@ h2.underline:after {
         grid-template-columns: repeat(1, 1fr);
     }
     .hapitas-section-about-child {
-        border: 2px solid $cl-main-orange;
+        // border: 2px solid $cl-main-orange;
+        box-shadow: 0 0 15px rgba(50, 50, 70, .15);
         padding: 0px 0 0;
         position: relative;
         border-radius: 10px;
@@ -143,20 +150,31 @@ h2.underline:after {
         border-radius: 10px;
         margin: 0px 0 0;
         position: relative;
+        box-shadow: 0 0 30px rgba(50, 50, 70, .15);
         &.philosophy {
-            background: $cl-philosophy;
+            .hapitas-section-subject-child-text {
+                border-left: $cl-philosophy solid 4px;
+            }
         }
         &.science {
-            background: $cl-science;
+            .hapitas-section-subject-child-text {
+                border-left: $cl-science solid 4px;
+            }
         }
         &.economiy {
-            background: $cl-economiy;
+            .hapitas-section-subject-child-text {
+                border-left: $cl-economiy solid 4px;
+            }
         }
         &.english {
-            background: $cl-english;
+            .hapitas-section-subject-child-text {
+                border-left: $cl-english solid 4px;
+            }
         }
         &.programming {
-            background: $cl-programming;
+            .hapitas-section-subject-child-text {
+                border-left: $cl-programming solid 4px;
+            }
         }
     }
     .hapitas-section-subject-child-img img {
@@ -171,15 +189,17 @@ h2.underline:after {
         object-fit: cover;
     }
     .hapitas-section-subject-child-text {
-        padding: 170px 20px 20px;
+        padding: 0px 15px 0px;
+        margin: 180px 20px 20px;
+        border-left: #000 solid 4px;
         .hapitas-section-subject-child-text-large {
             font-weight: 800;
-            color: white;
+            color: #000;
             font-size: $font-size-l;
             line-height: 1.3;
         }
         .hapitas-section-subject-child-text-small {
-            color: white;
+            color: #000;
             font-size: $font-size-s;
             margin: 7px 0 0;
         }
@@ -191,7 +211,7 @@ h2.underline:after {
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: 1fr;
     grid-column-gap: 25px;
-    grid-row-gap: 0px;
+    grid-row-gap: 40px;
     max-width: $pc-pcmax-width;
     margin: 0 auto;
     padding: 0 20px;
@@ -199,7 +219,8 @@ h2.underline:after {
         grid-template-columns: repeat(1, 1fr);
     }
     .hapitas-section-group-step-child {
-        border: 2px solid $cl-main-orange;
+        // border: 2px solid $cl-main-orange;
+        box-shadow: 0 0 15px rgba(50, 50, 70, .15);
         padding: 45px 0 0;
         position: relative;
         border-radius: 10px;
@@ -232,7 +253,7 @@ h2.underline:after {
             color: $cl-black;
             margin: 0 0 30px;
             font-weight: bold;
-            font-size: $font-size-m;
+            font-size: 20px;
         }
     }
 }
@@ -344,5 +365,32 @@ h2.underline:after {
     .hapitas-section-group-tab-content-form {
         padding-bottom: 120px;
         text-align: center;
+    }
+}
+
+@keyframes fuwafuwa-button {
+    0% {
+        scale: 1;
+        transform: scale(1)
+    }
+    8% {
+        scale: 1.04;
+        transform: scale(1.04)
+    }
+    17% {
+        scale: 1;
+        transform: scale(1)
+    }
+    25% {
+        scale: 1.02;
+        transform: scale(1.02)
+    }
+    38% {
+        scale: 1;
+        transform: scale(1)
+    }
+    100% {
+        scale: 1;
+        transform: scale(1)
     }
 }
