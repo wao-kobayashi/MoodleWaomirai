@@ -1,77 +1,22 @@
-/*************
-font-family
-************/
-
-// @font-face {
-//   font-family: "mplus-2c-regular";
-//   src: font-url("mplus-2c-regular.eot") format("eot"), font-url("mplus-2c-regular.woff2") format("woff2"), font-url("mplus-2c-regular.woff") format("woff");
-// }
-// @font-face {
-//   font-family: "mplus-2c-bold";
-//   src: font-url("mplus-2c-bold.eot") format("eot"), font-url("mplus-2c-bold.woff2") format("woff2"), font-url("mplus-2c-bold.woff") format("woff");
-// }
-// @font-face {
-//   font-family: "k-3";
-//   src: font-url("koburinaStdW3.woff") format("woff");
-// }
-// @font-face {
-//   font-family: "k-6";
-//   src: font-url("koburinaStdW6.woff") format("woff");
-// }
-// @font-face {
-//   font-family: "koburina";
-//   src: font-url("koburinaStdW3.woff") format("woff");
-//   font-display: swap;
-//   font-weight: normal;
-//   font-style: normal;
-// }
-// @font-face {
-//   font-family: "koburina";
-//   src: font-url("koburinaStdW6.woff") format("woff");
-//   font-display: swap;
-//   font-weight: bold;
-//   font-style: normal;
-// }
-@keyframes fuwafuwa {
-  0% {
-    -webkit-transform: translate(0, 0);
-  }
-  30% {
-    -webkit-transform: translate(0, -10px);
-  }
-  70% {
-    -webkit-transform: translate(0, 0);
-  }
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans+JP:400,500,700,900');
+body {
+    font-family: 'Noto Sans JP', sans-serif;
 }
 
-.sp-hidden {
-  @include mq-down(tablet) {
-    display: none !important;
-  }
-  @include mq-down(desktop) {
-    display: block !important;
-  }
+@media screen and (max-width: 3000px)and (min-width: 768px) {
+    .spimage {
+        display: none !important;
+    }
+    .pcimage {
+        display: inherit;
+    }
 }
 
-.pc-hidden {
-  @include mq-down(tablet) {
-    display: block !important;
-  }
-  @include mq-down(desktop) {
-    display: none !important;
-  }
-}
-
-.u-st-medium {
-  font-weight: 300;
-  font-family: "k-3";
-}
-
-.u-st-bold {
-  font-weight: bold;
-  font-family: "k-6";
-}
-
-.u-ls-minus-s {
-  letter-spacing: -0.5px;
+@media screen and (max-width: 767px) {
+    .spimage {
+        display: inherit;
+    }
+    .pcimage {
+        display: none !important;
+    }
 }
