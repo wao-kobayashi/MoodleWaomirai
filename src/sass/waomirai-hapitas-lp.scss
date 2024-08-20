@@ -1,5 +1,6 @@
-@import "foundation/_base";
-@import "foundation/_mixin";
-@import "foundation/_constant";
-@import "foundation/_reset";
-@import "object/project/project-hapitas-lp/_hapitas-lp";
+@import "foundation/_base"; //ベースのcss、フォントなどの定義
+@import "foundation/_mixin"; //よく使う関数など定義したもの
+@import "foundation/_constant"; //色などの変数定義
+@import "foundation/_reset"; //デフォルトのスタイルをリセットしたもの
+@import "object/project/project-hapitas-lp/_hapitas-lp"; //ハピタスLPの本体のcss
+@import "object/project/project-hapitas-lp/_hapitas-lp-thanks"; //ハピタスLPの本体の完了ページ

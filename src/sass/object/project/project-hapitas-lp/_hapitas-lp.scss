@@ -127,6 +127,12 @@ h2.underline:after {
             padding: 0 20px;
         }
     }
+    .hapitas-section-copyright {
+        text-align: center;
+        margin: -30px auto 150px;
+        color: $cl-graylight;
+        font-size: $font-size-s;
+    }
 }
 
 .hapitas-section-gray {

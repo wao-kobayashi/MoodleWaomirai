@@ -1,0 +1,41 @@
+#thanks-hapitas {
+    background: $cl-graylightest;
+}
+
+.thanks-wrapper {
+    h1 {
+        width: 240px;
+        margin: 30px auto;
+    }
+    .thanks-wrapper-content {
+        max-width: 600px;
+        width: 90%;
+        margin: 0 auto;
+        background: white;
+        border-radius: 10px;
+        padding: 45px 20px;
+        text-align: center;
+        @include responsive-style(768px) {
+            padding: 30px 20px;
+            text-align: left;
+        }
+        .thanks-wrapper-content-title {
+            font-size: $font-size-l;
+            font-weight: 500;
+            color: $cl-gray;
+        }
+        .thanks-wrapper-content-text {
+            color: $cl-gray;
+            font-size: $font-size-m;
+            font-weight: 400;
+            margin: 20px 0 0;
+            line-height: 1.75;
+        }
+    }
+    .thanks-copyright {
+        text-align: center;
+        margin: 30px auto 90px;
+        color: $cl-graylight;
+        font-size: $font-size-s;
+    }
+}
