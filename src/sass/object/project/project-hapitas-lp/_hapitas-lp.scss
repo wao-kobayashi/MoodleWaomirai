@@ -429,6 +429,13 @@ h2.underline:after {
             padding: 15px 0 0;
         }
     }
+    h3.movie-form {
+        margin: 0px auto -20px !important;
+        position: relative;
+        @include responsive-style(768px) {
+            margin: 0px auto 15px !important;
+        }
+    }
     iframe {
         width: 100%;
         aspect-ratio: 16 / 9;
