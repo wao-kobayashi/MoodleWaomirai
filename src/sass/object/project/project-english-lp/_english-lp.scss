@@ -3,6 +3,7 @@
     background: $cl-waogreen !important;
     box-shadow: 0 4px 0 #002118;
     animation: lp-cta__btn 3s infinite;
+    margin: 0 auto 90px;
     // @include min-responsive-style(768px) {
     //   transform: scale(1.1);
     // }
@@ -17,4 +18,14 @@
         box-shadow: none;
         transform: translateY(4px)
     }
+}
+
+.schedule{
+    max-width: 842px;
+    width: 100%;
+    padding: 40px 0;
+}
+
+figure{
+    margin: 20px auto 0;
 }

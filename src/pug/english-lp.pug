@@ -1,3 +1,65 @@
+mixin schedule 
+  section.schedule
+    h3.mincho.fs-s.fw-500.purpleT.textCenter.mb-30 授業コース
+      br
+      span.fs-xs|ー2つのステージから世界をひろげていくライブレッスンー
+    div(style='margin:20px auto 0;')
+      p.maingrayT.gothic.fs-xxs 
+        |英語初挑戦なら、LEVEL1:LOCAL STAGEで自分の周りに焦点を当てて会話スキルを身につけましょう。英語が少し話せるなら、LEVEL2:NATION STAGEで日本について説明できるフレーズを身につけていきます。  体験授業では両方のステージを受講することができ、体験授業終了後にどちらかのステージを選択することができます。まずは両方受講し自分に合ったステージを決めましょう。
+  section.schedule
+    h3.mincho.fs-s.fw-500.purpleT.textCenter.mb-20
+      |授業スケジュール
+    div(style='margin:20px auto 0;')
+      p.maingrayT.gothic.fs-xxs 
+        |授業は平日に2回受講する「平日スタイル」と、土曜にまとめて受講する「土曜スタイル」を選択可能！　どちらも都合がつかない場合は、アーカイブで授業を受けることができます。
+    figure.wp-block-table.is-style-regular(style="font-size:16px")
+      table
+          tbody
+            tr
+              td.has-text-align-center(data-align="center")
+              td.has-text-align-center(data-align="center")
+                strong LEVEL1:LOCAL STAGE
+              td.has-text-align-center(data-align="center")
+                strong LEVEL2:NATION LEVEL
+            tr
+              td.has-text-align-center(data-align="center") 月
+              td.has-text-align-center(data-align="center")
+              td.has-text-align-center(data-align="center")
+            tr
+              td.has-text-align-center(data-align="center") 火★
+              td.has-text-align-center(data-align="center") ［前半］17:00-17:25
+              td.has-text-align-center(data-align="center") ［前半］ 17:40-18:05
+            tr
+              td.has-text-align-center(data-align="center") 水
+              td.has-text-align-center(data-align="center")
+              td.has-text-align-center(data-align="center")
+            tr
+              td.has-text-align-center(data-align="center") 木
+              td.has-text-align-center(data-align="center") ［後半］17:00-17:25
+              td.has-text-align-center(data-align="center") ［後半］ 17:40-18:05
+            tr
+              td.has-text-align-center(data-align="center") 金
+              td.has-text-align-center(data-align="center")
+              td.has-text-align-center(data-align="center")
+            tr
+              td.has-text-align-center(data-align="center") 土
+              td.has-text-align-center(data-align="center") ［前半］17:30-17:55
+                br
+                | ［後半］18:05-18:30
+              td.has-text-align-center(data-align="center") ［前半］ 19:00-19:25
+                br
+                | ［後半］ 19:35-20:00
+            tr
+              td.has-text-align-center(data-align="center") 日
+              td.has-text-align-center(data-align="center")
+              td.has-text-align-center(data-align="center")
+    .wp-block-spacer(style="height:16px", aria-hidden="true")
+    p.has-text-align-right ★翌週用のトレーニング動画配信日
+    p.has-text-align-right ※火・木曜配信と土曜配信は同じ内容です
+mixin formcv
+  div#cv-pc
+  p|フォーム系
+
 doctype html
 html
   head
@@ -14,8 +76,6 @@ html
     meta(name="viewport", content="width=device-width,initial-scale=1")
     meta(property="og:image", content="https://go.waomirai.com/image/oggreen")
     script(src="https://kit.fontawesome.com/bc1aaa30bf.js", crossorigin="anonymous")
-    link(href="https://go.waomirai.com/image/bluecross.png", rel="shortcut icon")
-
     link(rel="stylesheet", href="https://go.waomirai.com/global-english/mobile.css", media="screen and (max-width: 599px)")
     link(rel="stylesheet", href="https://go.waomirai.com/global-english/desktop.css", media="screen and (min-width: 600px)")
     link(href="static/css/sass/english-lp.css?time=aa", rel="stylesheet")
@@ -85,8 +145,8 @@ html
         h1.purpleT.fs-xs.fw-900.textCenter.mt-50(style="margin-bottom: 25px;")
           p オンラインで気軽に受講
           span.fs-s グローバル英語講座
-        a(href="#cv")
-          button.m0a.whiteT.purpleB.fs-xs.applyBtn 10月の授業を無料で受講！
+        a(href="#cv-pc")
+          button.m0a.whiteT.purpleB.fs-xs.applyBtn 無料体験授業はこちら！
         a(href="https://waomirai.com/", target="_blank")
           img.miraiLogo.m0a(src="https://go.waomirai.com/logo/waomirai/basicclear", style="margin-top: 36.55px;")
       section#introduction.relative
@@ -102,8 +162,8 @@ html
           div
           div
       section#solution.relative
-        a(href="#cv")
-          button.m0a.whiteT.purpleB.fs-xs.applyBtn 10月の授業を無料で受講！
+        a(href="#cv-pc")
+          button.m0a.whiteT.purpleB.fs-xs.applyBtn 無料体験授業はこちら！
         h3.mincho.fw-500.fs-m.textCenter(style="margin-top: 48px;") それを解決する英会話学習法が
           br
           | “グローバル英語講座”！
@@ -126,8 +186,8 @@ html
               div
           .right.absolute(style="right: 0;")
             img(src="https://go.waomirai.com/english/image/girl2", width="512px")
-        a(href="#cv")
-          button.m0a.whiteT.purpleB.fs-xs.applyBtn 10月の授業を無料で受講！
+        a(href="#cv-pc")
+          button.m0a.whiteT.purpleB.fs-xs.applyBtn 無料体験授業はこちら！
         .flex.skills(style="margin-top:140px;")
           .skill.rotate340.flex
             .square.purpleB(style="display: flex; align-items: end; justify-content: end;")
@@ -170,8 +230,8 @@ html
           .skillText.relative
             h3(class="noto-sans_cjk fs-s fw-900") 毎日10分を日課に！
             p.gothic.fw-300.fs-xxs.maingrayT(style="width: 512px;") 毎日10分間の動画自主トレーニングを通じて、学習成果を強化します。継続的な努力によって、”英語の口”を定着させて、自信をつけていきましょう！
-        a(href="#cv")
-          button.m0a.whiteT.purpleB.fs-xs.applyBtn 10月の授業を無料で受講！
+        a(href="#cv-pc")
+          button.m0a.whiteT.purpleB.fs-xs.applyBtn 無料体験授業はこちら！
         .flex(style="margin: auto 77px; margin-top: 63.99px; margin-bottom: 64.01px;")
           img(src="https://go.waomirai.com/english/image/letstalk", width="435.73px", height="250.54px", style="margin-right: 34.27px;")
           img(src="https://go.waomirai.com/english/image/englishfamily", width="435.73px", height="250.54px")
@@ -188,9 +248,12 @@ html
           p.maingrayT.gothic.fs-xxs ●ハッとさせられることが多々あり、英会話学習に対する意識が変わりました。
           p.maingrayT.gothic.fs-xxs ●おうち英語をずっとやっているので、何かもっと楽しく取り組めるヒントがあればと思い参加しました。
           p.maingrayT.gothic.fs-xxs ●子どもにはもちろんだけど、自分が習いたい！と思うほど、素敵なセミナーでした。 ありがとうございました！
+      section
+        +schedule
         .yellowBack.relative
-          a(href="#cv", style="position: absolute; top: -31px; left: 50%; transform: translateX(-50%);")
-            button.m0a.whiteT.purpleB.fs-xs.applyBtn 10月の授業を無料で受講！
+          a(href="#cv-pc")
+            button.m0a.whiteT.purpleB.fs-xs.applyBtn 無料体験授業はこちら！
+
       section#teacher.relative
         .slash
           div
@@ -219,11 +282,15 @@ html
           div 入会金
           div 不要
           div 6,600円（税込）/月額
-        .relative.whiteBack
-          a(href="#cv", style="position: absolute; top: -31px; left: 50%; transform: translateX(-50%);")
-            button.m0a.whiteT.purpleB.fs-xs.applyBtn 10月の授業を無料で受講！
-      #cv 
-       p|コンバージョンエリア
+          p(style='margin:10px 0 0; font-size:14px; display:block; width:100%; text-align:center;')
+           |※入会当月の授業は無料で受講可能です。
+        .relative
+          a(href="#cv-pc")
+            button.m0a.whiteT.purpleB.fs-xs.applyBtn 無料体験授業はこちら！
+
+      section
+        #cv-pc
+        +formcv
       footer
         a(href="https://waomirai.com/", target="_blank")
           img(src="https://go.waomirai.com/logo/waomirai/basicclear", width="416.15px", height="47.05px")
@@ -271,8 +338,8 @@ html
         h1.purpleT.fs-xs.fw-900.textCenter.mt-50(style="margin-bottom: 25px;")
           p オンラインで気軽に受講
           p.fs-s グローバル英語講座
-        a(href="#cv")
-          button.m0a.whiteT.purpleB.fs-xs.applyBtn 10月の授業を無料で受講！
+        a(href="#cv-sp")
+          button.m0a.whiteT.purpleB.fs-xs.applyBtn 無料体験授業はこちら！
         a(href="https://waomirai.com/", target="_blank")
           img.miraiLogo.m0a(src="https://go.waomirai.com/logo/waomirai/basicclear", style="margin-top: 36.55px;")
       section#introduction.relative
@@ -287,8 +354,8 @@ html
           | 理由のひとつは文法脳
         p.gothic.fw-300.fs-xxs.m0a.mt-40(style="margin-bottom: 47px; width: 342px;") 疑問文だからまずWhatがきて…先頭は大文字で…のように、文法から考えてしまいがちです。でも残念ながら、それではテストでは得点できても、英語は話せるようにならないし、聞けるようにはなりません。
       section#solution.relative
-        a(href="#cv")
-          button.m0a.whiteT.purpleB.fs-xs.applyBtn 10月の授業を無料で受講！
+        a(href="#cv-sp")
+          button.m0a.whiteT.purpleB.fs-xs.applyBtn 無料体験授業はこちら！
         h3.mincho.fw-500.fs-m.textCenter(style="margin-top: 48px;") それを解決する
           br
           | 英会話学習法が
@@ -313,8 +380,8 @@ html
               | 真に「話せる英語」を
               br
               | 身につける！
-        a(href="#cv")
-          button.m0a.whiteT.purpleB.fs-xs.applyBtn 10月の授業を無料で受講！
+        a(href="#cv-sp")
+          button.m0a.whiteT.purpleB.fs-xs.applyBtn 無料体験授業はこちら！
         .skills.relative
           .flex.skill
             div
@@ -350,8 +417,8 @@ html
             .skillText.relative(style="top:-150px;")
               h3(class="noto-sans_cjk fs-s fw-900") 毎日10分を日課に！
               p.gothic.fw-300.fs-xxs.maingrayT(style="width: 255px;") 毎日10分間の動画自主トレーニングを通じて、学習成果を強化します。継続的な努力によって、”英語の口”を定着させて、自信をつけていきましょう！
-        a(href="#cv")
-          button.m0a.whiteT.purpleB.fs-xs.applyBtn(style="margin-bottom: 63.97px;") 10月の授業を無料で受講！
+        a(href="#cv-sp")
+          button.m0a.whiteT.purpleB.fs-xs.applyBtn(style="margin-bottom: 63.97px;") 無料体験授業はこちら！
         .w-fc.m0a.mb-40
           img.mb-40(src="https://go.waomirai.com/english/image/letstalk", width="100%")
           img(src="https://go.waomirai.com/english/image/englishfamily", width="100%")
@@ -371,8 +438,10 @@ html
           p.maingrayT.gothic.fs-xxs ●おうち英語をずっとやっているので、何かもっと楽しく取り組めるヒントがあればと思い参加しました。
           p.maingrayT.gothic.fs-xxs ●子どもにはもちろんだけど、自分が習いたい！と思うほど、素敵なセミナーでした。 ありがとうございました！
         .yellowBack.relative
-          a(href="#cv", style="position: absolute; top: -31px; left: 50%; transform: translateX(-50%);")
-            button.m0a.whiteT.purpleB.fs-xs.applyBtn 10月の授業を無料で受講！
+          a(href="#cv-sp", style="position: absolute; top: -31px; left: 50%; transform: translateX(-50%);")
+            button.m0a.whiteT.purpleB.fs-xs.applyBtn 無料体験授業はこちら！
+      section
+        +schedule
       section#teacher.relative
         .slash
           div
@@ -400,9 +469,11 @@ html
           div 不要
           div 6,600円（税込）/月額
         .relative.whiteBack
-          a(href="#cv", style="position: absolute; top: -31px; left: 50%; transform: translateX(-50%);")
-            button.m0a.whiteT.purpleB.fs-xs.applyBtn 10月の授業を無料で受講！
-
+          a(href="#cv-sp", style="position: absolute; top: -31px; left: 50%; transform: translateX(-50%);")
+            button.m0a.whiteT.purpleB.fs-xs.applyBtn 無料体験授業はこちら！
+      section
+        #form-sp
+        +formcv
       footer
         a(href="https://waomirai.com/", target="_blank")
           img.m0a(src="https://go.waomirai.com/logo/waomirai/basicclear", width="340px", height="38.44px", style="margin-bottom: 30.56px;")
