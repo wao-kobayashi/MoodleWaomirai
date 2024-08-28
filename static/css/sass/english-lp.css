@@ -1,0 +1,38 @@
+.applyBtn {
+  width: 330px !important;
+  background: #005C3F !important;
+  -webkit-box-shadow: 0 4px 0 #002118;
+          box-shadow: 0 4px 0 #002118;
+  -webkit-animation: lp-cta__btn 3s infinite;
+          animation: lp-cta__btn 3s infinite;
+}
+
+@-webkit-keyframes lp-cta__btn {
+  0%, 55%, 65%, 70%, 80% {
+    -webkit-box-shadow: 0 4px 0 #002118;
+            box-shadow: 0 4px 0 #002118;
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+  60%, 75% {
+    -webkit-box-shadow: none;
+            box-shadow: none;
+    -webkit-transform: translateY(4px);
+            transform: translateY(4px);
+  }
+}
+
+@keyframes lp-cta__btn {
+  0%, 55%, 65%, 70%, 80% {
+    -webkit-box-shadow: 0 4px 0 #002118;
+            box-shadow: 0 4px 0 #002118;
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+  60%, 75% {
+    -webkit-box-shadow: none;
+            box-shadow: none;
+    -webkit-transform: translateY(4px);
+            transform: translateY(4px);
+  }
+}

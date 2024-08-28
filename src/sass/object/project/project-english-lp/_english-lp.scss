@@ -1,0 +1,20 @@
+.applyBtn{
+    width: 330px !important;
+    background: $cl-waogreen !important;
+    box-shadow: 0 4px 0 #002118;
+    animation: lp-cta__btn 3s infinite;
+    // @include min-responsive-style(768px) {
+    //   transform: scale(1.1);
+    // }
+}
+@keyframes lp-cta__btn {
+    0%,55%,65%,70%,80% {
+        box-shadow: 0 4px 0 #002118;
+        transform: translateY(0)
+    }
+
+    60%,75% {
+        box-shadow: none;
+        transform: translateY(4px)
+    }
+}
