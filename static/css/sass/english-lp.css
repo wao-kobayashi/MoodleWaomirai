@@ -4695,6 +4695,9 @@ html :where(.is-position-sticky) {
 figure {
   margin: 20px auto 0;
 }
+figure table {
+  font-family: "Yu Gothic", 游ゴシック, YuGothic, "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", メイリオ, Meiryo, sans-serif;
+}
 @media screen and (max-width: 768px) {
   figure table {
     font-size: 12px;
@@ -4719,12 +4722,18 @@ header {
     padding: 0 14px;
   }
 }
+@media screen and (max-width: 768px) {
+  header div {
+    width: 146px;
+  }
+}
 header div img {
   height: 24px;
   margin: 0 !important;
 }
 @media screen and (max-width: 768px) {
   header div img {
+    width: 146px;
     height: 22px;
   }
 }
@@ -4734,7 +4743,7 @@ header div img {
 }
 #fv-top-sp img {
   width: 100% !important;
-  margin: 0 0 30px !important;
+  margin: 0 0 10px !important;
 }
 
 #fv-top-pc {
@@ -4822,4 +4831,8 @@ header div img {
 
 #teacher {
   padding-bottom: 60px;
+}
+
+.has-text-align-right {
+  font-family: "Yu Gothic", 游ゴシック, YuGothic, "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", メイリオ, Meiryo, sans-serif;
 }

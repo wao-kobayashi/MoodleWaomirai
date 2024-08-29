@@ -40,6 +40,7 @@ $lp-yellow:#FFDE53;
 figure {
     margin: 20px auto 0;
     table {
+        font-family: "Yu Gothic", 游ゴシック, YuGothic, "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", メイリオ, Meiryo, sans-serif;
         @include responsive-style(768px) {
             font-size: 12px;
         }
@@ -57,11 +58,17 @@ header {
         height: 42px;
         padding: 0 14px;
     }
-    div img {
-        height: 24px;
-        margin: 0 !important;
+    div {
         @include responsive-style(768px) {
-            height: 22px;
+            width: 146px;
+        }
+        img {
+            height: 24px;
+            margin: 0 !important;
+            @include responsive-style(768px) {
+                width: 146px;
+                height: 22px;
+            }
         }
     }
 }
@@ -70,7 +77,7 @@ header {
     background: white;
     img {
         width: 100% !important;
-        margin: 0 0 30px !important;
+        margin: 0 0 10px !important;
     }
 }
 
@@ -147,4 +154,8 @@ header {
 
 #teacher {
     padding-bottom: 60px;
+}
+
+.has-text-align-right {
+    font-family: "Yu Gothic", 游ゴシック, YuGothic, "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", メイリオ, Meiryo, sans-serif;
 }
