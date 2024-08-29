@@ -1,3 +1,8 @@
+
+mixin header
+      header 
+           div 
+              img(src="https://go.waomirai.com/l/1026513/2024-08-08/gzqmq/1026513/1723103182E5MU9Ijy/waomirai_logo__1_.svg")
 mixin schedule 
   section.schedule
     h3.mincho.fs-s.fw-500.purpleT.textCenter.mb-30 授業コース
@@ -56,9 +61,17 @@ mixin schedule
     .wp-block-spacer(style="height:16px", aria-hidden="true")
     p.has-text-align-right ★翌週用のトレーニング動画配信日
     p.has-text-align-right ※火・木曜配信と土曜配信は同じ内容です
+mixin intro-queestion 
+  section#intro-queestion 
+    div 
+      |「今晩、何食べる？」
+      br
+      |って英語で3秒以内に
+      br
+      |言えますか？
 mixin formcv
-  div#cv-pc
-  p|フォーム系
+  //- div#cv-pc
+  //- p|フォーム系
 
 doctype html
 html
@@ -79,6 +92,7 @@ html
     link(rel="stylesheet", href="https://go.waomirai.com/global-english/mobile.css", media="screen and (max-width: 599px)")
     link(rel="stylesheet", href="https://go.waomirai.com/global-english/desktop.css", media="screen and (min-width: 600px)")
     link(href="static/css/sass/english-lp.css?time=aa", rel="stylesheet")
+    link(rel="shortcut icon", type="image/png", href="https://go.waomirai.com/logo/fabicon")
     title ワオ未来塾　グローバル英語
     script.
       (function(d) {
@@ -104,51 +118,30 @@ html
       if(window.attachEvent) { window.attachEvent('onload', async_load); }
       else { window.addEventListener('load', async_load, false); }
       })();
+    script(src="static/js/jquery.js")
   body
     // Google Tag Manager (noscript)
     noscript
       iframe(src="https://www.googletagmanager.com/ns.html?id=GTM-W3X8CG9C", height="0", width="0", style="display:none;visibility:hidden")
     // End Google Tag Manager (noscript)
+    .fixed-button(style='display:none;')
+      a(href="#cv-pc")
+         button.m0a.whiteT.purpleB.fs-xs.applyBtn 無料体験授業はこちら！
     #desktopLayouts
-      section#top.relative
-        .slash
+      +header
+      section#fv-top-pc
+        .fv-left
           div
+            img(src="https://storage.pardot.com/1026513/17248937372378SnIT/txt_mv_fv.png")
           div
-        .slash
+            a(href="#cv-pc")
+              button.m0a.whiteT.purpleB.fs-xs.applyBtn 無料体験授業はこちら！
           div
-          div
-        .slash
-          div
-          div
-        .slash
-          div
-          div
-        .slash
-          div
-          div
-        .slash
-          div
-          div
-        .rhombus.purpleB(style="transform: rotate(304deg); position: absolute; right: -20%; bottom: 40%;")
-        p.mincho.fw-900.fs-xl.rotate340.lh-1.mt-m50
-          span.gothic.fw-900 口
-          | が
-          br
-          span.inlineBlock
-            span.fs-xxl 英語
-            | に
-          | なる!
-        h3.mincho.fw-500.fs-l.rotate340.m0a.w-fc.mt-50 「今晩、何食べる？」って
-          br
-          | 英語で言えますか？
-        p(class="fot-ud_kakugoL fw-900 fs-xs rotate90 w-fc m0a mt-50") 〉 〉
-        h1.purpleT.fs-xs.fw-900.textCenter.mt-50(style="margin-bottom: 25px;")
-          p オンラインで気軽に受講
-          span.fs-s グローバル英語講座
-        a(href="#cv-pc")
-          button.m0a.whiteT.purpleB.fs-xs.applyBtn 無料体験授業はこちら！
-        a(href="https://waomirai.com/", target="_blank")
-          img.miraiLogo.m0a(src="https://go.waomirai.com/logo/waomirai/basicclear", style="margin-top: 36.55px;")
+            svg#svg-top(xmlns="http://www.w3.org/2000/svg", xmlns:xlink="http://www.w3.org/1999/xlink", viewBox="0 0 100 100", preserveAspectRatio="none")
+              path(d="M0,100 L0,0 70,0 Z", fill="#FFE841")
+        .fv-right 
+          img(src="https://storage.pardot.com/1026513/1724894045gZUiZdG9/img_fv_pc.png")
+      +intro-queestion 
       section#introduction.relative
         .girl
           .rhombus.purpleB(style="top: 30%; left: -5%;")
@@ -250,7 +243,7 @@ html
           p.maingrayT.gothic.fs-xxs ●子どもにはもちろんだけど、自分が習いたい！と思うほど、素敵なセミナーでした。 ありがとうございました！
       section
         +schedule
-        .yellowBack.relative
+        .relative
           a(href="#cv-pc")
             button.m0a.whiteT.purpleB.fs-xs.applyBtn 無料体験授業はこちら！
 
@@ -308,40 +301,13 @@ html
         a(href="https://www.wao-corp.com/", target="_blank")
           img(src="https://go.waomirai.com/logo/wao/yokobasic", width="512.41px", height="132.01px")
     #mobileLayouts
-      section#top.relative
-        .slash
-          div
-          div
-        .slash
-          div
-          div
-        .slash
-          div
-          div
-        .slash
-          div
-          div
-        .triangle.triangleRight.absolute(style="top: 140px; right: 0;")
-        p.mincho.fw-900.fs-xl.rotate340.lh-1.ml-20
-          span.gothic.fw-900 口
-          | が
-          br
-          span.inlineBlock
-            span.fs-xxl 英語
-            | に
-          | なる!
-        h3.mincho.fw-500.fs-l.rotate340.m0a.w-fc.textCenter.mt-50
-          span.inlineBlock 「今晩、何食べる？」
-          span.inlineBlock って英語で3秒以内に
-          span.inlineBlock 言えますか？
-        p(class="fot-ud_kakugoL fw-900 fs-xs rotate90 w-fc m0a mt-50") 〉 〉
-        h1.purpleT.fs-xs.fw-900.textCenter.mt-50(style="margin-bottom: 25px;")
-          p オンラインで気軽に受講
-          p.fs-s グローバル英語講座
+      +header
+      section#fv-top-sp
+        div
+         img(src="https://go.waomirai.com/l/1026513/2024-08-28/h2b5v/1026513/17248927400g3b3Ard/fv_sp.png")
         a(href="#cv-sp")
           button.m0a.whiteT.purpleB.fs-xs.applyBtn 無料体験授業はこちら！
-        a(href="https://waomirai.com/", target="_blank")
-          img.miraiLogo.m0a(src="https://go.waomirai.com/logo/waomirai/basicclear", style="margin-top: 36.55px;")
+      +intro-queestion 
       section#introduction.relative
         .girl.relative
           .triangle.triangleLeft.absolute(style="top: 30%;")
@@ -437,7 +403,7 @@ html
           p.maingrayT.gothic.fs-xxs ●ハッとさせられることが多々あり、英会話学習に対する意識が変わりました。
           p.maingrayT.gothic.fs-xxs ●おうち英語をずっとやっているので、何かもっと楽しく取り組めるヒントがあればと思い参加しました。
           p.maingrayT.gothic.fs-xxs ●子どもにはもちろんだけど、自分が習いたい！と思うほど、素敵なセミナーでした。 ありがとうございました！
-        .yellowBack.relative
+        .relative
           a(href="#cv-sp", style="position: absolute; top: -31px; left: 50%; transform: translateX(-50%);")
             button.m0a.whiteT.purpleB.fs-xs.applyBtn 無料体験授業はこちら！
       section
@@ -468,7 +434,7 @@ html
           div 入会金
           div 不要
           div 6,600円（税込）/月額
-        .relative.whiteBack
+        .relative
           a(href="#cv-sp", style="position: absolute; top: -31px; left: 50%; transform: translateX(-50%);")
             button.m0a.whiteT.purpleB.fs-xs.applyBtn 無料体験授業はこちら！
       section
@@ -490,3 +456,14 @@ html
             i.fa-brands.fa-tiktok
         a(href="https://www.wao-corp.com", target="_blank")
           img(src="https://go.waomirai.com/logo/wao/yokobasic", width="328.85px", height="84.72px")
+    script.
+      $(function () {
+              var pagetop = $('.fixed-button'); // 要素のキャッシュ
+              $(window).on('scroll', function () {
+                  if ($(this).scrollTop() > 250) {
+                    pagetop.fadeIn();
+                  } else {
+                    pagetop.fadeOut();
+                  }
+              });
+            });
