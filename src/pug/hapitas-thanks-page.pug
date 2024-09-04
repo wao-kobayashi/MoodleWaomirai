@@ -19,7 +19,7 @@ html(lang="jp")
       turl = Object.keys(KEYS).reduce(function(url, k){ var vk = KEYS[k][0] + PV; var tk = KEYS[k][1] + PV; var v = "", t = ""; if(cks[vk]){ v = cks[vk]; if(cks[tk]) t = cks[tk]; }else if(localStorage.getItem(vk)){ v = localStorage.getItem(vk); t = "ls"; } if(v) url += "&" + k + "=" + v; if(t) url += "&" + KEYS[k][2] + "=" + t; return url; }, turl);
       var xhr = new XMLHttpRequest(); xhr.open("GET", turl); xhr.send(); })();
     link(href="static/css/sass/waomirai-hapitas-lp.css?undefined", rel="stylesheet")
-    script(src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js", integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==", crossorigin="anonymous", referrerpolicy="no-referrer")
+    script(src="https://storage.pardot.com/1026513/1724120256yHSJnr8r/jquery_3.7.1.min.js", integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==", crossorigin="anonymous", referrerpolicy="no-referrer")
     script(src="static/js/hapitas-lp.js")
     meta(name="viewport", content="width=device-width, initial-scale=1,minimum-scale=1.0, maximum-scale=1.0, user-scalable=no")
     meta(charset="UTF-8")
