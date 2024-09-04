@@ -17,7 +17,7 @@ const srcpaths = {
     sass: './src/**/*.sass',
     jsx: './src/jsx/**/*.js',
     jade: './src/jade/**/*.jade',
-    pug: './src/**/*.pug'
+    pug: './src/pug/**/*.pug'
 };
 
 const dstpaths = {
