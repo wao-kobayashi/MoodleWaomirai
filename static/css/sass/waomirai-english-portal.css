@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css?family=Noto+Sans+JP:400,500,700,900");
+@import url("https://fonts.googleapis.com/css2?family=Sen:wght@400..800&display=swap");
 body {
   font-family: "Noto Sans JP", sans-serif;
 }
@@ -96,4 +97,174 @@ select {
 }
 header {
   position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 99;
+  background: #f0f2f3;
+  width: 100%;
+}
+header h1.header-logo {
+  margin: 30px 0 20px 30px;
+  width: 190px;
+}
+header .header-tab {
+  margin: 10px 0 0 30px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+header .header-tab .header-tab-child {
+  margin: 0 20px 0 0;
+  border-radius: 10px 10px 0 0;
+  background: #005C3F;
+  padding: 10px;
+  width: 270px;
+}
+header .header-tab .header-tab-child.level-2 {
+  background: white;
+}
+header .header-tab .header-tab-child.level-2 .header-tab-child-content {
+  background: #AA68AA;
+  color: white;
+}
+header .header-tab .header-tab-child .header-tab-child-content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background: white;
+  border-radius: 10px;
+  padding: 11px 10px;
+  color: #005C3F;
+}
+header .header-tab .header-tab-child .header-tab-child-content .header-tab-child-text {
+  font-family: "Sen", "Noto Sans JP", sans-serif;
+  font-weight: 500;
+}
+header .header-tab .header-tab-child img {
+  width: 24px;
+  margin: 0 4px 0 0;
+}
+header .header-navi {
+  width: 100%;
+  background: #005C3F;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 15px 30px;
+  cursor: pointer;
+}
+header .header-navi .header-navi-child {
+  margin: 0 40px 0 0;
+  color: white;
+}
+
+section {
+  padding: 230px 0 80px;
+}
+
+.section-wao-english-color {
+  background: #E9F4F0;
+}
+
+.section-wao-english h2 {
+  text-align: center;
+  font-size: 33px;
+  color: #000000;
+  margin: 0 auto 15px;
+}
+
+.section-wao-english-group {
+  background: white;
+  max-width: 750px;
+  width: 100%;
+  border-radius: 10px;
+  padding: 30px 40px;
+  margin: 0 auto 30px;
+}
+.section-wao-english-group h3 {
+  color: #333333;
+  font-size: 25px;
+  margin: 0 0 20px;
+}
+
+.section-wao-english-group-box-course {
+  -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, .15);
+          box-shadow: 0 0 10px rgba(0, 0, 0, .15);
+  padding: 20px;
+}
+.section-wao-english-group-box-course h4 {
+  font-size: 25px;
+  color: #333333;
+}
+
+.section-wao-english-group-box-course-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: 1fr;
+  grid-column-gap: 30px;
+  grid-row-gap: 0px;
+}
+.section-wao-english-group-box-course-grid .section-wao-english-group-box-course-child-date {
+  font-family: "Sen", "Noto Sans JP", sans-serif;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  margin: 0 0 4px;
+}
+.section-wao-english-group-box-course-grid .section-wao-english-group-box-course-child-date .section-wao-english-group-box-course-child-date-day {
+  font-size: 30px;
+  font-weight: 500;
+  letter-spacing: 2px;
+  margin: 0 0 -7px 0;
+}
+.section-wao-english-group-box-course-grid .section-wao-english-group-box-course-child-date .section-wao-english-group-box-course-child-date-week {
+  margin: 0 10px 0 5px;
+}
+
+.level-2 header .header-tab .header-tab-child.level-1 {
+  background: white !important;
+}
+.level-2 header .header-tab .header-tab-child.level-1 .header-tab-child-content {
+  background: #005C3F;
+  color: white !important;
+}
+.level-2 header .header-tab .header-tab-child .header-tab-child-content {
+  color: #005C3F;
+}
+.level-2 header .header-tab .header-tab-child.level-2.level-2 {
+  background: #AA68AA !important;
+}
+.level-2 header .header-tab .header-tab-child.level-2.level-2 .header-tab-child-content {
+  background: white;
+  color: #AA68AA !important;
+}
+.level-2 header .header-tab .header-tab-child.level-2 .header-tab-child-content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background: white;
+  border-radius: 10px;
+  padding: 11px 10px;
+  color: #005C3F;
+}
+.level-2 header .header-navi {
+  background: #AA68AA;
+}
+.level-2 .section-wao-english-color {
+  background: #EAE4EA;
 }

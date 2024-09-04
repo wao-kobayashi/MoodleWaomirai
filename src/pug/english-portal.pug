@@ -8,7 +8,7 @@ html(lang="jp")
        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
        })(window,document,'script','dataLayer','GTM-W3X8CG9C');
-    link(href="static/css/sass/waomirai-hapitas-lp.css?undefined", rel="stylesheet")
+    link(href="static/css/sass/waomirai-english-portal.css?undefined", rel="stylesheet")
     script(src="https://storage.pardot.com/1026513/1724128460RuzGLFou/jquery_3.7.1.js")
     script(src="static/js/hapitas-lp.js")
     meta(name="viewport", content="width=device-width, initial-scale=1,minimum-scale=1.0, maximum-scale=1.0, user-scalable=no")
@@ -19,16 +19,19 @@ html(lang="jp")
         img(src='https://go.waomirai.com/l/1026513/2024-08-08/gzqmq/1026513/1723103182E5MU9Ijy/waomirai_logo__1_.svg')
       .header-tab 
         .header-tab-child.level-1
+          .header-tab-child-content
            .header-tab-child-img 
-              |画像
+              img(src='https://go.waomirai.com/l/1026513/2024-09-04/h2nnj/1026513/1725437103MZJJzMzO/icn_level_1.png')
            .header-tab-child-text 
               |英語初挑戦 Level 1
         .header-tab-child.level-2 
+          .header-tab-child-content
            .header-tab-child-img 
-              |画像
+               img(src='	https://go.waomirai.com/l/1026513/2024-09-04/h2nnm/1026513/172543712855WJ9sGo/icn_level_2.png')
            .header-tab-child-text 
               |英語が少し喋れる Level 2
       .header-navi
+ 
         .header-navi-child 
           a(hret="#")
             |レッスンの受講方法
@@ -39,20 +42,60 @@ html(lang="jp")
           a(hret="#")
             |レッスンアーカイブ(録画)
     section.section-wao-english.section-wao-english-color 
-       h2|Level1のレッスンの受講方法
+       h2.howto-lesson|Level1のレッスンの受講方法
        .section-wao-english-group 
          h3
           |①今週のオンラインレッスンのスケジュールを確認する
          .section-wao-english-group-box 
             .section-wao-english-group-box-course 
-              div 
-                |この辺にコース
+              h4|平日コース
+              .section-wao-english-group-box-course-grid
+                .section-wao-english-group-box-course-child 
+                    .section-wao-english-group-box-course-child-date
+                      .section-wao-english-group-box-course-child-date-day 
+                        |10/1
+                      .section-wao-english-group-box-course-child-date-week
+                        |火 
+                      .section-wao-english-group-box-course-child-date-week-time 
+                        |17:00-17:25
+                    .section-wao-english-group-box-course-child-thumb
+                      img(src='https://go.waomirai.com/l/1026513/2024-09-04/h2nrq/1026513/17254398679oem2mS3/thumbnail_lesson.png')
+                    .section-wao-english-group-box-course-child-detail 
+                      .section-wao-english-group-box-course-child-detail-title
+                      .section-wao-english-group-box-course-child-detail-text
+                .section-wao-english-group-box-course-child 
+                    .section-wao-english-group-box-course-child-date
+                      .section-wao-english-group-box-course-child-date-day 
+                        |10/1
+                      .section-wao-english-group-box-course-child-date-week
+                        |火 
+                      .section-wao-english-group-box-course-child-date-week-time 
+                        |17:00-17:25
+                    .section-wao-english-group-box-course-child-thumb
+                      img(src='https://go.waomirai.com/l/1026513/2024-09-04/h2nrq/1026513/17254398679oem2mS3/thumbnail_lesson.png')
+                    .section-wao-english-group-box-course-child-detail 
+                      .section-wao-english-group-box-course-child-detail-title
+                      .section-wao-english-group-box-course-child-detail-text               
+
             .section-wao-english-group-box-course-or 
                p  
                  |or
             .section-wao-english-group-box-course 
-              div 
-                |この辺にコース
+              h4|休日コース
+              .section-wao-english-group-box-course-grid
+                .section-wao-english-group-box-course-child 
+                    .section-wao-english-group-box-course-child-date
+                      .section-wao-english-group-box-course-child-date-day 
+                        |10/1
+                      .section-wao-english-group-box-course-child-date-week
+                        |火 
+                      .section-wao-english-group-box-course-child-date-week-time 
+                        |17:00-17:25
+                    .section-wao-english-group-box-course-child-thumb
+                      img(src='https://go.waomirai.com/l/1026513/2024-09-04/h2nrq/1026513/17254398679oem2mS3/thumbnail_lesson.png')
+                    .section-wao-english-group-box-course-child-detail 
+                      .section-wao-english-group-box-course-child-detail-title
+                      .section-wao-english-group-box-course-child-detail-text
        .section-wao-english-group 
          h3
           |②時間になったらレッスン(オンライン)に参加する
@@ -73,4 +116,16 @@ html(lang="jp")
          p 
           |下記URLからご参加いただけます。PCまたはタブレットの環境が推奨です。全てのレッスンが共通のURLとなります。
          div 
-            iframe(src="https://vimeo.com/showcase/11296073/embed", allowfullscreen, frameborder="0", style="position:absolute;top:0;left:0;width:100%;height:100%;")
+            //- iframe(src="https://vimeo.com/showcase/11296073/embed", allowfullscreen, frameborder="0", style="position:absolute;top:0;left:0;width:100%;height:100%;")
+    script. 
+          $(document).ready(function() {
+            $('.level-1').on('click', function() {
+                $('body').removeClass('level-2').addClass('level-1');
+                $('.howto-lesson').text('Level1のレッスンの受講方法');
+            });
+
+            $('.level-2').on('click', function() {
+                $('body').removeClass('level-1').addClass('level-2');
+                $('.howto-lesson').text('Level2のレッスンの受講方法');
+            });
+        });
