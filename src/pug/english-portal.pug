@@ -13,7 +13,7 @@ html(lang="jp")
     script(src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js")
     meta(name="viewport", content="width=device-width, initial-scale=1,minimum-scale=1.0, maximum-scale=1.0, user-scalable=no")
     meta(charset="UTF-8")
-  body
+  body#english-portal
     header
       h1.header-logo
         img(src='https://go.waomirai.com/l/1026513/2024-08-08/gzqmq/1026513/1723103182E5MU9Ijy/waomirai_logo__1_.svg')
@@ -35,7 +35,7 @@ html(lang="jp")
               |英語が少し喋れる 
               br.spimage
               |LEVEL 2
-        .header-speech-tr(style='display:none;')
+        .header-speech-tr
           |ここで受講レベルを変更できます。
           br
           |無料期間中はどちらのレベルも受講可能です
@@ -187,33 +187,7 @@ html(lang="jp")
                         |九九のように忘れない英語が身につく。
                         br
                         |英語独特の強弱も同時にマスター
-            .section-wao-english-group-box-course-or 
-               p  
-                 |or
-            .section-wao-english-group-box-course 
-              h4|土曜コース
-              .section-wao-english-group-box-course-grid
-                .section-wao-english-group-box-course-child 
-                    .section-wao-english-group-box-course-child-date
-                      .section-wao-english-group-box-course-child-date-day 
-                        |10/5
-                      .section-wao-english-group-box-course-child-date-week
-                        |土
-                      .section-wao-english-group-box-course-child-date-week-time 
-                        |19:00-20:00
-                    .section-wao-english-group-box-course-child-thumb
-                       .section-wao-english-group-box-course-child-thumb-label.level-label.level-color
-                          |LEVEL 2
-                       .section-wao-english-group-box-course-child-thumb-img
-                          img(src='https://go.waomirai.com/l/1026513/2024-09-04/h2qmq/1026513/1725500221od8IlZut/thumb_mix.png')
-                    .section-wao-english-group-box-course-child-detail 
-                      .section-wao-english-group-box-course-child-detail-title
-                        |【
-                        span.level-label
-                          |LEVEL2
-                        |】ひらがなEnglish＆カタマリズムEnglish
-                      .section-wao-english-group-box-course-child-detail-text
-                        |平日コースの2つのレッスンを前編後編に分けて実施します
+
        .section-wao-english-group 
          h3
           |②時間になったらレッスン(オンライン)に参加する
@@ -240,13 +214,14 @@ html(lang="jp")
            |※ カメラ映像は先生にだけ表示され他の方には見えません
        .section-wao-english-group 
          h3
-          |③レッスンがない日も動画でトレーニング！
+          |ああ③レッスンがない日も動画でトレーニング！
          p 
           |歌や九九を覚えるように、リズムと音で楽しく英語のフレーズを覚えましょう。
+          
          .iframe-container
              iframe(src="https://vimeo.com/showcase/11296073/embed", allowfullscreen, frameborder="0", style="position:absolute;top:0;left:0;width:100%;height:100%;")
 
-    section.section-wao-english#section-2
+    section.section-wao-english#section-2.section-wao-english-white
        h2.howto-lesson
          |レッスンスケジュール     
        p.section-wao-english-p
@@ -267,6 +242,8 @@ html(lang="jp")
        .section-wao-english-group 
           .iframe-container
                 iframe(src="https://vimeo.com/showcase/11296073/embed", allowfullscreen, frameborder="0", style="position:absolute;top:0;left:0;width:100%;height:100%;")         
+    footer 
+       p|フッター
     script.
         //cookieの処理
         $(document).ready(function() {
@@ -309,7 +286,6 @@ html(lang="jp")
           });
          }
         function switchToLevel2() {
-          $('.header-speech-tr').fadeOut();
           $('.content-level-1').hide();
           $('.content-level-2').show();
           $('body').removeClass('level-1').addClass('level-2');
@@ -317,11 +293,16 @@ html(lang="jp")
           $('.level-color').css({
               'background': '#AA68AA'
            });
+          $('body').css({
+          'background': '#EAE4EA'
+          });
          }
         $('.level-1').on('click', function() {
+          $('.header-speech-tr').fadeOut();
           switchToLevel1();
         });
         $('.level-2').on('click', function() {
+          $('.header-speech-tr').fadeOut();
           switchToLevel2();
         });
         function executeFunctionBasedOnURL() {

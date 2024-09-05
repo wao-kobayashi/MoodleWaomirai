@@ -3,4 +3,6 @@
 @import "foundation/_mixin"; //よく使う関数など定義したもの
 @import "foundation/_constant"; //色などの変数定義
 @import "foundation/_reset"; //デフォルトのスタイルをリセットしたもの
-@import "object/project/project-english-portal/_english-portal"; //
+@import "object/project/project-english-portal/_english-portal"; //学習ページ
+@import "object/project/project-english-portal/_english-login"; //ログイン
+@import "object/project/project-english-portal/_english-tutorial"; //チュートリアル

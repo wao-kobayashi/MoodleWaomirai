@@ -23,6 +23,9 @@ $header-height-mobile:158px;
 body {
     color: $cl-gray;
     font-family: "Lato", 'Noto Sans JP', sans-serif;
+}
+
+body#english-portal {
     padding-top: $header-height;
     @include responsive-style(768px) {
         padding-top: $header-height-mobile;
@@ -153,6 +156,10 @@ section {
 
 .section-wao-english-color {
     background: #E9F4F0;
+}
+
+.section-wao-english-white {
+    background: white;
 }
 
 .section-wao-english {
@@ -294,6 +301,10 @@ section {
     cursor: pointer;
 }
 
+footer {
+    background: white;
+}
+
 //level-2になった時の処理
 .level-2 {
     header {
@@ -342,4 +353,9 @@ section {
     max-width: 100%;
     background: #000;
     margin: 20px 0 0;
+}
+
+footer {
+    padding: 80px 0;
+    text-align: center;
 }

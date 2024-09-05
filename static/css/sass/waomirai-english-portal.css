@@ -100,10 +100,13 @@ select {
 body {
   color: #333333;
   font-family: "Lato", "Noto Sans JP", sans-serif;
+}
+
+body#english-portal {
   padding-top: 158px;
 }
 @media screen and (max-width: 768px) {
-  body {
+  body#english-portal {
     padding-top: 158px;
   }
 }
@@ -287,6 +290,10 @@ section {
   background: #E9F4F0;
 }
 
+.section-wao-english-white {
+  background: white;
+}
+
 .section-wao-english h2 {
   text-align: center;
   font-size: 30px;
@@ -436,6 +443,10 @@ section {
   cursor: pointer;
 }
 
+footer {
+  background: white;
+}
+
 .level-2 header .header-tab .header-tab-child.level-1 {
   background: white !important;
 }
@@ -473,4 +484,87 @@ section {
   max-width: 100%;
   background: #000;
   margin: 20px 0 0;
+}
+
+footer {
+  padding: 80px 0;
+  text-align: center;
+}
+
+.login-announcement {
+  width: 100%;
+  background: #E9F4F0;
+  color: #005C3F;
+  padding: 10px;
+  text-align: center;
+  border-top: 1px solid #005C3F;
+  border-bottom: 1px solid #005C3F;
+  font-size: 15px;
+}
+@media screen and (max-width: 768px) {
+  .login-announcement {
+    font-size: 12px;
+  }
+}
+
+.login-block {
+  margin: 180px auto 0;
+  text-align: center;
+}
+.login-block .login-block-logo img {
+  width: 280px;
+  margin: 0 auto 30px;
+}
+.login-block #passwordForm {
+  width: 350px;
+  margin: 0 auto;
+}
+.login-block input {
+  width: 100%;
+  display: block;
+  margin: 0 auto 0px;
+  padding: 4px 6px;
+  height: 45px;
+  font-size: 15px;
+}
+@media screen and (max-width: 768px) {
+  .login-block input {
+    font-size: 12px;
+  }
+}
+.login-block input.error {
+  border: 1px solid #cc0000;
+  background: #FFE6E6;
+}
+.login-block button {
+  width: 100%;
+  display: block;
+  height: 45px;
+  margin: 30px auto;
+  background: #005C3F;
+  color: white;
+  border: none;
+  letter-spacing: 1px;
+  font-size: 15px;
+}
+@media screen and (max-width: 768px) {
+  .login-block button {
+    font-size: 12px;
+  }
+}
+.login-block .error-label {
+  font-size: 15px;
+  color: #cc0000;
+  margin: 4px 0 0;
+  text-align: left;
+}
+@media screen and (max-width: 768px) {
+  .login-block .error-label {
+    font-size: 12px;
+  }
+}
+
+.login-announcement {
+  width: 100%;
+  background: #E9F4F0;
 }

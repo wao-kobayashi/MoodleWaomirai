@@ -1,0 +1,38 @@
+<!DOCTYPE html><html lang="jp"><head><title>%%title%%</title><script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-W3X8CG9C');</script><link href="static/css/sass/waomirai-english-portal.css?undefined" rel="stylesheet"><script src="https://storage.pardot.com/1026513/1724128460RuzGLFou/jquery_3.7.1.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1,minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"><meta charset="UTF-8"></head><body><div class="login-announcement"><p>10月中はレッスンが全て無料、予約不要でレッスンを受けられます</p></div><div class="login-block"> <div class="login-block-logo"> <img src="https://go.waomirai.com/l/1026513/2024-08-08/gzqmq/1026513/1723103182E5MU9Ijy/waomirai_logo__1_.svg"></div><form id="passwordForm"><input id="passwordInput" type="password" placeholder="パスワードを入力してください" required><div class="error-label" style="display:none;">パスワードが違います</div><button type="submit">ログイン</button></form></div><script>$(document).ready(function() {
+    var cookieName = 'visited';
+    var sessionKey = 'sessionVisited';
+    if ($.cookie(cookieName)) {
+        $("#passwordInput").val("mirai");
+    }
+    // 初回訪問か再訪問かをチェック
+    $("#passwordForm").on("submit", function(event) {
+        event.preventDefault();
+        const correctPassword = "mirai"; // 正しいパスワードを設定
+        const enteredPassword = $("#passwordInput").val();
+
+        if (enteredPassword === correctPassword) {
+            // クッキーが存在するかどうかを確認
+            if ($.cookie(cookieName)) {
+                // 再訪問時：Bのページにリダイレクト
+                //- window.location.href = "/english-portal.html"; // 再訪問時のリダイレクト先
+                window.location.href = "/english-portal-tutorial.html"; // 初回訪問時のリダイレクト先
+            } else {
+                // 初回訪問時：Aのページにリダイレクト
+                window.location.href = "/english-portal-tutorial.html"; // 初回訪問時のリダイレクト先
+
+                // 初回訪問後、セッションストレージとクッキーに記録
+                sessionStorage.setItem(sessionKey, 'true');
+                $.cookie(cookieName, 'true', { expires: 7 }); // クッキーの有効期限を7日に設定
+            }
+        } else {
+          $("#passwordInput").addClass("error");
+          $(".error-label").show();
+          
+
+        }
+    });
+});</script></body></html>
