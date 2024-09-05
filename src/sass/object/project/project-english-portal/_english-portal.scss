@@ -324,6 +324,7 @@ footer {
             .header-tab-child.level-2 {
                 &.level-2 {
                     background: $cl-english !important;
+                    border-bottom: 1px $cl-english solid!important;
                     .header-tab-child-content {
                         background: white;
                         color: $cl-english !important;

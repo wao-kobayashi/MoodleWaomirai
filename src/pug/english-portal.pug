@@ -137,7 +137,7 @@ html(lang="jp")
                       .section-wao-english-group-box-course-child-detail-text
                         |平日コースの2つのレッスンを前編後編に分けて実施します
          //level-2
-         .section-wao-english-group-box.content-level-2 
+         .section-wao-english-group-box.content-level-2(style='display:none;')
             .section-wao-english-group-box-course 
               h4|平日コース
               .section-wao-english-group-box-course-grid
@@ -199,7 +199,7 @@ html(lang="jp")
                 a.level-color(onclick="alert('LEVEL 1のzoomへ');")
                   |オンラインレッスンに参加する(zoom)
          //level2のzoom
-         .content-level-2 
+         .content-level-2(style='display:none;')
           .section-wao-english-group-zoom
               a.level-color(onclick="alert('LEVEL 2のzoomへ');")
                 |オンラインレッスンに参加する(zoom)
@@ -214,7 +214,7 @@ html(lang="jp")
            |※ カメラ映像は先生にだけ表示され他の方には見えません
        .section-wao-english-group 
          h3
-          |ああ③レッスンがない日も動画でトレーニング！
+          |③レッスンがない日も動画でトレーニング！
          p 
           |歌や九九を覚えるように、リズムと音で楽しく英語のフレーズを覚えましょう。
           
@@ -233,7 +233,7 @@ html(lang="jp")
 
           .content-level-1.
               <iframe src="https://calendar.google.com/calendar/embed?height=525&amp;wkst=2&amp;ctz=Asia%2FTokyo&amp;bgcolor=%23ffffff&amp;showCalendars=0&amp;src=ZmI4ODJhODAzNTAzZjMwOTk1YjVhNWI0ZjY0ODA5NzNjM2EwZGNkNzNlNGI4MTRmMzhmYmEyOWI5YzZlMGZkMkBncm91cC5jYWxlbmRhci5nb29nbGUuY29t&amp;color=%237CB342" style="border-width:0; height: 700px;" width="100%" frameborder="0" scrolling="no"></iframe>
-          .content-level-2.
+          .content-level-2(style='display:none;').
               <iframe src="https://calendar.google.com/calendar/embed?height=525&amp;wkst=2&amp;ctz=Asia%2FTokyo&amp;bgcolor=%23ffffff&amp;showCalendars=0&amp;src=ZjNhMWY3NmNhZGJjNTZlYmI3OGU0YWYzNTFiY2M3NzIzYTdjZjJkODIyYzQ2MTIyYzQzYzFkM2IwZDkxNTA3ZEBncm91cC5jYWxlbmRhci5nb29nbGUuY29t&amp;color=%23E4C441" style="border-width:0; height: 700px;" width="100%" frameborder="0" scrolling="no"></iframe>
     section.section-wao-english.section-wao-english-color#section-3
        h2.howto-lesson
@@ -324,8 +324,6 @@ html(lang="jp")
       $(window).scroll(function() {
         // スクロール量を取得
         var scroll = $(window).scrollTop();
-        $('.content-level-1').show();
-        $('.content-level-2').hide();
         // 200px以上スクロールしたらロゴのサイズとマージンを変更
         if (scroll >= 100) {
           $('.header-logo').css({
