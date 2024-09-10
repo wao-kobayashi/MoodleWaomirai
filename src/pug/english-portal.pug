@@ -196,13 +196,17 @@ html(lang="jp")
          //level1のzoom
          .content-level-1 
           .section-wao-english-group-zoom
-                a.level-color(onclick="alert('LEVEL 1のzoomへ');")
-                  |オンラインレッスンに参加する(zoom)
+                a(onclick="alert('LEVEL 1のzoomへ');")
+                  |オンラインレッスンに
+                  br.spimage
+                  |参加する(zoom)
          //level2のzoom
          .content-level-2(style='display:none;')
           .section-wao-english-group-zoom
-              a.level-color(onclick="alert('LEVEL 2のzoomへ');")
-                |オンラインレッスンに参加する(zoom)
+              a(onclick="alert('LEVEL 2のzoomへ');")
+                |オンラインレッスンに
+                br.spimage
+                |参加する(zoom)
          .section-wao-english-group-note 
            |※ 
            a(href="https://zoom.us/ja/download", target='_blank')
@@ -242,8 +246,47 @@ html(lang="jp")
        .section-wao-english-group 
           .iframe-container
                 iframe(src="https://vimeo.com/showcase/11296073/embed", allowfullscreen, frameborder="0", style="position:absolute;top:0;left:0;width:100%;height:100%;")         
-    footer 
-       p|フッター
+    footer
+      .wao-footer
+       .wao-footer-left 
+          .wao-footer-left-logo 
+             img(src='https://go.waomirai.com/l/1026513/2024-09-09/h313m/1026513/1725935757PmiJf0LH/logo_waomirai_white.svg')
+          .wao-footer-left-sns
+            .wao-footer-left-sns-icon 
+               a(href='https://www.youtube.com/@waomiraijuku_Team', target='_blank')
+                  img(src='https://go.waomirai.com/l/1026513/2024-09-09/h313j/1026513/1725935756zpTbsJMM/icon_youtube.svg')
+            .wao-footer-left-sns-icon 
+               a(href='https://x.com/waomiraijuku', target='_blank')
+                  img(src='https://go.waomirai.com/l/1026513/2024-09-09/h313q/1026513/1725935757Fs3bpzEY/icon_twitter.svg')
+       .wao-footer-right 
+          .wao-footer-right-list
+            .wao-footer-right-list-title 
+               |ワオ未来塾の特徴
+            ul.wao-footer-right-list-links 
+               li
+                 a(href='https://waomirai.com/school/', target='_blank')
+                   |学習拠点
+               li
+                 a(href='https://waomirai.com/company/', target='_blank')
+                   |運営会社
+          .wao-footer-right-list
+            .wao-footer-right-list-title 
+               |入会ガイド
+            ul.wao-footer-right-list-links 
+               li
+                 a(href='https://waomirai.com/guide/environment/', target='_blank')
+                   |受講に必要な環境
+               li
+                 a(href='https://waomirai.com/guide/fee/', target='_blank')
+                   |会費とお支払い方法について
+               li
+                 a(href='https://waomirai.com/guide/faq/', target='_blank')
+                   |よくある質問
+               li
+                 a(href='https://go.waomirai.com/contact', target='_blank')
+                   |お問い合わせ 
+      .wao-footer-copyright 
+         |© ワオ・コーポレーション All rights reserved.
     script.
         //cookieの処理
         $(document).ready(function() {
@@ -322,14 +365,15 @@ html(lang="jp")
         });
     script. 
       $(window).scroll(function() {
+        if ($(window).width() >= 768) {
         // スクロール量を取得
         var scroll = $(window).scrollTop();
         // 200px以上スクロールしたらロゴのサイズとマージンを変更
         if (scroll >= 100) {
           $('.header-logo').css({
-            'width': '150px',
-            'margin-top': '10px',
-            'margin-bottom': '12px'
+            'width': '180px',
+            'padding-top': '15px',
+            'padding-bottom': '0px'
             
           });
         }  
@@ -339,9 +383,10 @@ html(lang="jp")
          else {
           // 200px未満の場合は元のサイズに戻す
           $('.header-logo').css({
-            'width': '180px',
-            'margin-top': '22px',
-            'margin-bottom': '18px'
+            'width': '220px',
+            'padding-top': '22px',
+            'padding-bottom': '0px'
           });
+          }
         }
       });

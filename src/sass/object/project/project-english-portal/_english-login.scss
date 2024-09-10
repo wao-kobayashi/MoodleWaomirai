@@ -10,8 +10,14 @@
 }
 
 .login-block {
-    margin: 180px auto 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
     text-align: center;
+    height: 180px;
     .login-block-logo img {
         width: 280px;
         margin: 0 auto 30px;
@@ -19,6 +25,7 @@
     #passwordForm {
         width: 350px;
         margin: 0 auto;
+        text-align: center;
     }
     input {
         width: 100%;

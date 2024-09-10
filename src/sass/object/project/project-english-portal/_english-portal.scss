@@ -6,6 +6,7 @@ $font-size-s:12px;
 $font-size-ss:10px;
 $header-height:158px;
 $header-height-mobile:158px;
+$pcmax-width:900px;
 @mixin font-size-m {
     font-size: 15px;
     @include responsive-style(768px) {
@@ -28,7 +29,7 @@ body {
 body#english-portal {
     padding-top: $header-height;
     @include responsive-style(768px) {
-        padding-top: $header-height-mobile;
+        padding-top: 0;
     }
 }
 
@@ -39,16 +40,19 @@ header {
     z-index: 99;
     background: $cl-graylightest;
     width: 100%;
+    @include responsive-style(768px) {
+        position: relative;
+    }
     h1.header-logo {
-        margin: 22px 0 18px 30px;
-        width: 180px;
+        padding: 22px 0 5px 30px;
+        width: 220px;
         @include responsive-style(768px) {
-            margin: 17px 0 15px 10px;
-            width: 150px;
+            padding: 17px 0 05px 10px;
+            width: 180px;
         }
     }
     .header-tab {
-        margin: 10px 0 0 30px;
+        margin: 15px 0 0 30px;
         display: flex;
         align-items: center;
         @include responsive-style(768px) {
@@ -98,16 +102,22 @@ header {
         width: 100%;
         background: $cl-waogreen;
         display: flex;
-        padding: 10px 30px;
         cursor: pointer;
         flex-wrap: wrap;
+        padding: 10px 30px;
+        @include responsive-style(768px) {
+            padding: 7px 0px 10px 15px;
+        }
         .header-navi-child a {
             margin: 0 40px 0 0;
             color: white;
-            @include font-size-s;
+            font-size: 12px;
+            @include responsive-style(768px) {
+                font-size: 10px;
+            }
             text-decoration: none;
             @include responsive-style(768px) {
-                margin: 0 20px 0 0;
+                margin: 0 15px 0 0;
             }
         }
     }
@@ -121,6 +131,12 @@ header {
     border-radius: 7px;
     animation: moveAround 1.3s 1;
     position: relative;
+    @include responsive-style(768px) {
+        position: absolute;
+        right: 10px;
+        bottom: -10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, .5);
+    }
     &:before {
         content: '';
         position: absolute;
@@ -132,6 +148,16 @@ header {
         border-right: 7px solid $cl-graylight;
         border-top: 7px solid transparent;
         border-bottom: 7px solid transparent;
+        @include responsive-style(768px) {
+            top: -18px !important;
+            left: 0px;
+            right: 0px;
+            margin: auto;
+            border-bottom: 18px solid $cl-graylight;
+            border-left: 18px solid transparent;
+            border-right: 18px solid transparent;
+            z-index: 9;
+        }
     }
 }
 
@@ -178,11 +204,11 @@ section {
 
 .section-wao-english-group {
     background: white;
-    max-width: 800px;
+    max-width: $pcmax-width;
     width: 100%;
     border-radius: 10px;
-    margin: 0 auto 30px;
-    padding: 30px 40px;
+    margin: 0 auto 45px;
+    padding: 45px 40px;
     @include responsive-style(768px) {
         width: calc(100% - 40px);
         padding: 20px 15px;
@@ -251,6 +277,17 @@ section {
             margin: 0 10px 0 5px;
             letter-spacing: 2px;
             font-size: $font-size-m;
+            display: inline-block;
+            background: $cl-waogreen;
+            border-radius: 100px;
+            width: 27px;
+            height: 27px;
+            line-height: 1.8;
+            padding: 0 0 0 3px;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            text-align: center;
         }
         .section-wao-english-group-box-course-child-date-week-time {
             letter-spacing: 2px;
@@ -288,28 +325,33 @@ section {
 }
 
 //②レッスン参加：コース
-.section-wao-english-group-zoom a {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: $cl-waogreen;
-    padding: 15px 20px;
-    color: white;
-    border-radius: 8px;
-    margin: 20px auto;
-    cursor: pointer;
-}
-
-footer {
-    background: white;
+.section-wao-english-group-zoom {
+    &:hover {
+        opacity: 0.5;
+    }
+    a {
+        font-size: $font-size-l;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: $cl-main-orange;
+        box-shadow: 0 5px 0 #bd5800;
+        padding: 20px 20px;
+        color: white;
+        border-radius: 8px;
+        margin: 40px auto;
+        cursor: pointer;
+        font-weight: bold;
+        text-align: center;
+    }
 }
 
 //level-2になった時の処理
 .level-2 {
     header {
         .header-tab {
-            .header-tab-child {
+            p .header-tab-child {
                 &.level-1 {
                     background: white !important;
                     .header-tab-child-content {
@@ -343,6 +385,9 @@ footer {
     .section-wao-english-color {
         background: #EAE4EA;
     }
+    .section-wao-english-group-box-course-child-date-week {
+        background: $cl-english !important;
+    }
 }
 
 .iframe-container {
@@ -357,6 +402,112 @@ footer {
 }
 
 footer {
-    padding: 80px 0;
+    padding: 60px 0 90px;
     text-align: center;
+    background: $cl-gray;
+    color: white;
+    font-size: 14px;
+    @include responsive-style(768px) {
+        font-size: 14px;
+        padding: 60px 0 150px;
+    }
+    text-align: left;
+    letter-spacing: 1px;
+    line-height: 1.5;
+    a {
+        color: white;
+        text-decoration: none;
+    }
+}
+
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css");
+.wao-footer {
+    width: calc(100% - 80px);
+    // max-width: $pcmax-width;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 0 90px;
+    @include responsive-style(768px) {
+        display: block;
+        width: calc(100% - 40px);
+    }
+}
+
+.wao-footer-left-logo img {
+    width: 200px;
+}
+
+.wao-footer-left-sns {
+    display: flex;
+    margin: 32px 0 0;
+    @include responsive-style(768px) {
+        margin: 18px 0 0;
+    }
+    .wao-footer-left-sns-icon a {
+        background: rgba(255, 255, 255, 0.1);
+        width: 38px;
+        height: 38px;
+        border-radius: 100px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0 15px 0 0;
+         :hover {
+            opacity: 0.5;
+        }
+        img {
+            width: 17px;
+        }
+    }
+}
+
+.wao-footer-right {
+    display: flex;
+    @include responsive-style(768px) {
+        display: block;
+    }
+    .wao-footer-right-list:first-child {
+        margin: 0 105px 0 0;
+    }
+    .wao-footer-right-list {
+        @include responsive-style(768px) {
+            margin: 75px 0 0 !important;
+        }
+    }
+    .wao-footer-right-list-title {
+        font-weight: bold;
+        margin: 0 0 20px;
+        @include responsive-style(768px) {
+            margin: 0 0 20px;
+        }
+    }
+    .wao-footer-right-list-links li {
+        margin: 0 0 20px;
+        &:before {
+            font-family: "Font Awesome 5 Free" !important;
+            content: "\f054";
+            font-weight: bold;
+            position: absolute;
+        }
+    }
+    .wao-footer-right-list-links li a {
+        font-weight: 300;
+        position: relative;
+        padding: 0 0 0 20px;
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+}
+
+.wao-footer-copyright {
+    color: $cl-graylight;
+    @include font-size-s;
+    width: calc(100% - 80px);
+    // max-width: $pcmax-width;
+    margin: 0 auto;
+    @include responsive-style(768px) {
+        width: calc(100% - 40px);
+    }
 }

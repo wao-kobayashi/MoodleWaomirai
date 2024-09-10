@@ -32,10 +32,14 @@
         z-index: 2;
         display: inline-table;
         background: white;
-        width: 500px;
+        max-width: 500px;
+        width: 90%;
         text-align: center;
-        padding: 50px 30px 70px;
         border-radius: 10px;
+        padding: 50px 30px 70px;
+        @include responsive-style(768px) {
+            padding: 50px 15px 70px;
+        }
     }
     
     .english-tutorial-modal-title {
@@ -51,6 +55,9 @@
         grid-template-rows: 1fr;
         grid-column-gap: 20px;
         grid-row-gap: 0px;
+        @include responsive-style(768px) {
+            grid-column-gap: 15px;
+        }
         .english-tutorial-modal-select-button:hover {
             opacity: 0.7;
         }
