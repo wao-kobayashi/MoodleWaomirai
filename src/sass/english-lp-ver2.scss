@@ -9,4 +9,5 @@ body {
 @import "foundation/_constant"; //色などの変数定義
 @import "foundation/_wpstyle"; //色などの変数定義
 @import "foundation/_reset"; //デフォルトのスタイルをリセットしたもの
-@import "object/project/project-english-lp-ver2/_english-lp-ver2"; //ハピタスLPの本体のcss
+@import "object/project/project-english-lp-ver2/_english-lp-ver2-mixins-colors";
+@import "object/project/project-english-lp-ver2/_english-lp-ver2-main";

@@ -4,10 +4,6 @@ body {
   font-family: "Noto Sans JP", sans-serif;
 }
 
-body {
-  font-family: "Noto Sans JP", sans-serif;
-}
-
 @media screen and (max-width: 3000px) and (min-width: 768px) {
   .spimage {
     display: none !important;
@@ -99,6 +95,11 @@ select {
     scroll-behavior: auto !important;
   }
 }
+body {
+  font-family: "Noto Sans JP", sans-serif;
+  color: #333333;
+}
+
 header {
   position: fixed;
   top: 0;
