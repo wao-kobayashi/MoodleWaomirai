@@ -1,4 +1,16 @@
-$section-maxwidth:1020px;
+$section-maxwidth:1200px;
+$section-middlewidth:800px;
+$english-yellow:#F6E245;
+@mixin section-maxwidth {
+    max-width: 1200px;
+    padding: 0 30px;
+}
+
+@mixin section-middlewidth {
+    max-width: 800px;
+    padding: 0 30px;
+}
+
 @mixin font-size-s {
     font-size: 12px;
     @include responsive-style(768px) {
@@ -8,6 +20,13 @@ $section-maxwidth:1020px;
 
 @mixin font-size-m {
     font-size: 18px;
+    @include responsive-style(768px) {
+        font-size: 12px;
+    }
+}
+
+@mixin font-size-l {
+    font-size: 24px;
     @include responsive-style(768px) {
         font-size: 12px;
     }
@@ -36,8 +55,17 @@ $section-maxwidth:1020px;
     }
 }
 
+@keyframes rotate {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
 .lp-section-bgyellow {
-    background: #F6E245;
+    background: $english-yellow;
 }
 
 .lp-section-bgpaleyellow {
@@ -62,8 +90,9 @@ $section-maxwidth:1020px;
     position: relative;
     text-align: center;
     height: 70px;
+    margin: 0 auto 30px;
     h2 {
-        padding: 30px;
+        // padding: 30px;
         z-index: 1;
         position: relative;
         line-height: 1;
@@ -80,7 +109,7 @@ $section-maxwidth:1020px;
     }
     .lp-section-title-txt {
         position: absolute;
-        top: -80px;
+        top: -90px;
         left: 0;
         right: 0;
         margin: auto;
@@ -100,4 +129,5 @@ $section-maxwidth:1020px;
     @include font-size-m;
     position: relative;
     margin: 30px auto 0;
+    @include section-maxwidth;
 }

@@ -47,8 +47,8 @@
     grid-column-gap: 45px;
     grid-row-gap: 45px;
     width: 100%;
-    max-width: $section-maxwidth;
     margin: 60px auto 0;
+    @include section-maxwidth;
     .lp-section-reason-left {
         .lp-section-reason-left-number {
             font-size: 50px;
@@ -70,14 +70,176 @@
     }
 }
 
-.lp-section-voice-box {
+//スケジュール
+.lp-section-schedule {
+    width: 100%;
+    margin: 30px auto 0;
+    @include section-maxwidth;
+    table {
+        background: white;
+    }
+}
+
+//学習の流れ
+.lp-section-study-process {
+    width: 100%;
+    /* ビューポート幅いっぱいに広げる */
+    overflow-x: scroll;
+    /* 横方向にスクロール可能にする */
+    white-space: nowrap;
+    /* 子要素を横並びにする */
+    position: relative;
+    div {
+        display: inline-block;
+        /* 横並びにするための設定 */
+        width: 200px;
+        height: 150px;
+        background-color: #3498db;
+        margin: 10px;
+        color: white;
+        font-size: 24px;
+        text-align: center;
+        line-height: 150px;
+    }
+}
+
+//コース
+.lp-section-course-box {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: auto;
-    grid-column-gap: 45px;
+    grid-column-gap: 30px;
     width: 100%;
-    max-width: $section-maxwidth;
-    margin: 45px auto 0;
+    margin: 30px auto 0;
+    @include section-maxwidth;
+}
+
+.lp-section-voice-box {
+    display: grid;
+    grid-template-columns: 180px 1fr;
+    grid-column-gap: 30px;
+    width: 100%;
+    margin: 30px auto 0;
+    @include section-middlewidth;
+    .lp-section-voice-box-image img {
+        // width: 80px;
+        // height: 80px;
+        border-radius: 100px;
+    }
+}
+
+.lp-section-price {
+    @include section-middlewidth;
+    margin: 30px auto 18px;
+    position: relative;
+    .lp-section-price-box {
+        box-shadow: 0 0 30px rgba(50, 50, 70, .15);
+        display: flex;
+        align-items: center;
+        height: 120px;
+        position: relative;
+        background: white;
+    }
+    .lp-section-price-box-left {
+        background: $cl-english;
+        display: flex;
+        align-items: center;
+        flex: 1;
+        padding: 0px 0 0 0px;
+        height: 120px;
+        .lp-section-price-box-left-text {
+            padding: 0 0 0 90px;
+            width: calc(100% - 10px);
+            text-align: center;
+            color: white;
+            @include font-size-m;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+        .lp-section-price-box-left-badge-wrap {
+            position: relative;
+            transform: translateX(30px);
+        }
+        .lp-section-price-box-left-badge-text {
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            margin: auto;
+            width: 45px;
+            height: 45px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .lp-section-price-box-left-badge {
+            position: absolute;
+            animation: rotate 4s linear infinite;
+        }
+        .lp-section-price-box-left-badge,
+        .lp-section-price-box-left-badge:before,
+        .lp-section-price-box-left-badge:after,
+        .lp-section-price-box-left-badge-body,
+        .lp-section-price-box-left-badge-body:before {
+            position: absolute;
+            background-color: $english-yellow;
+            width: 45px;
+            height: 45px;
+            // left: 0;
+            top: 0;
+            bottom: 0;
+            margin: auto;
+        }
+        .lp-section-price-box-left-badge:before {
+            transform: rotate(22deg);
+            content: '';
+        }
+        .lp-section-price-box-left-badge:after {
+            transform: rotate(-22deg);
+            content: '';
+        }
+        .lp-section-price-box-left-badge-body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            z-index: 1;
+        }
+        .lp-section-price-box-left-badge-body:before {
+            transform: rotate(45deg);
+            content: '';
+            z-index: -1;
+        }
+    }
+    .lp-section-price-box-right {
+        flex: 1;
+        display: flex;
+        justify-content: center;
+        align-items: flex-end;
+        color: $cl-english;
+        background: white;
+        @include font-size-xl;
+        font-weight: 600;
+        line-height: 1;
+        .lp-section-price-box-right-small {
+            @include font-size-m;
+        }
+    }
+}
+
+.lp-section-price-note {
+    @include section-middlewidth;
+    margin: 0 auto;
+    color: $cl-graylight;
+    line-height: 1.8;
+    text-align: right;
+    @include font-size-s;
+}
+
+.lp-section-trial-flow {
+    width: 100%;
+    margin: 30px auto 0;
+    @include section-maxwidth;
 }
 
 .lp-cv {
@@ -173,4 +335,38 @@
             }
         }
     }
+}
+
+.lp-section-faq {
+    @include section-middlewidth;
+    margin: 0px auto 90px;
+    display: flex;
+    .lp-section-faq-left {
+        color: $cl-english;
+        width: 42px;
+        @include font-size-xl;
+        line-height: 1;
+        font-weight: 500;
+    }
+    .lp-section-faq-right {
+        flex: 1;
+        padding: 6px 0 0;
+        .lp-section-faq-right-title {
+            @include font-size-m;
+            font-weight: bold;
+        }
+        .lp-section-faq-right-txt {
+            @include font-size-m;
+            margin: 10px 0 0;
+        }
+    }
+}
+
+footer {
+    width: 100%;
+    padding: 30px;
+    text-align: center;
+    background: $cl-gray;
+    color: white;
+    height: 200px;
 }
