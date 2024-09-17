@@ -1,0 +1,151 @@
+@mixin font-size-s {
+    font-size: 12px;
+    @include responsive-style(768px) {
+        font-size: 11.5px;
+    }
+}
+
+@mixin font-size-m {
+    font-size: 18px;
+    @include responsive-style(768px) {
+        font-size: 12px;
+    }
+}
+
+@mixin font-size-xl {
+    font-size: 30px;
+    @include responsive-style(768px) {
+        font-size: 30px;
+    }
+}
+
+@keyframes lp-cta__btn {
+    0%,
+    55%,
+    65%,
+    70%,
+    80% {
+        box-shadow: 0 4px 0 #9D4E00;
+        transform: translateY(0)
+    }
+    60%,
+    75% {
+        box-shadow: none;
+        transform: translateY(4px)
+    }
+}
+
+.lp-section-bgyellow {
+    background: #F6E245;
+}
+
+.lp-section-bgpaleyellow {
+    background: #FCF8EF;
+}
+
+.lp-section-bglightgray {
+    background: #F5F5F5;
+}
+
+.lp-section-bgwhite {
+    background: white;
+}
+
+.lp-cv {
+    background: no-repeat url('https://go.waomirai.com/l/1026513/2024-09-16/h3lq7/1026513/1726536768s06QoDHu/bgwao.jpg')center center;
+    padding: 90px 0 105px;
+    text-align: center;
+    .lp-cv-title-text {
+        text-align: center;
+        @include font-size-xl;
+        color: white;
+        font-weight: 700;
+        line-height: 1.3;
+    }
+    .lp-cv-title-note {
+        @include font-size-s;
+        text-align: center;
+        color: white;
+        margin: 5px 0 0;
+    }
+    .lp-cv-lessonday {
+        margin: 30px 0 0;
+        .lp-cv-lessonday-title {
+            @include font-size-m;
+            text-align: center;
+            color: white;
+            margin: 0 auto 7px;
+        }
+        .lp-cv-lessonday-time {
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+        }
+        .lp-cv-lessonday-time-day {
+            font-size: 60px;
+            color: white;
+            line-height: 0.8;
+            .lp-cv-lessonday-time-day-monthday {
+                font-weight: 600;
+            }
+            .lp-cv-lessonday-time-day-slash {
+                font-weight: 300;
+            }
+        }
+        .lp-cv-lessonday-time-week {
+            display: inline-flex;
+            width: 30px;
+            height: 30px;
+            color: #262626;
+            align-items: center;
+            justify-content: center;
+            background: white;
+            border-radius: 100px;
+            font-size: 18px;
+            font-weight: 600;
+            margin: 0 0 0 5px;
+        }
+        .lp-cv-lessonday-time-hourrange {
+            font-size: 40px;
+            font-weight: 500;
+            line-height: 0.8;
+            color: white;
+            margin: 0 0 0 8px;
+        }
+    }
+    .lp-cv-button {
+        margin: 20px auto 0;
+        a {
+            padding: 20px 65px;
+            background: $cl-main-orange !important;
+            box-shadow: 0 4px 0 #9D4E00;
+            animation: lp-cta__btn 3s infinite;
+            display: inline-flex;
+            margin: 0 auto;
+            border-radius: 6px;
+            flex-direction: row;
+            text-decoration: none;
+            .lp-cv-button-sub {
+                padding: 1px 8px;
+                border-radius: 100px;
+                background: #9D4E00;
+                font-size: 10px;
+                display: inline-flex;
+                justify-content: center;
+                align-items: center;
+                color: white;
+                line-height: 1;
+            }
+            .lp-cv-button-main {
+                @include font-size-m;
+                color: white;
+                font-weight: 500;
+                margin: 0 0 0 7px;
+            }
+        }
+    }
+}
+
+.lp-section {
+    padding: 60px 0;
+}
