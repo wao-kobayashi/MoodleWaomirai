@@ -15,7 +15,9 @@ html(lang="jp")
     meta(charset="UTF-8")
   body
     .login-announcement
-       p|10月中はレッスンが全て無料、予約不要でレッスンを受けられます
+       p|10月中はレッスンが全て無料、
+        br.spimage
+        |予約不要でレッスンを受けられます
     .login-block 
        .login-block-logo 
          img(src='https://go.waomirai.com/l/1026513/2024-08-08/gzqmq/1026513/1723103182E5MU9Ijy/waomirai_logo__1_.svg')
@@ -43,14 +45,14 @@ html(lang="jp")
                     if ($.cookie(cookieName)) {
                         // 再訪問時：Bのページにリダイレクト
                         //- window.location.href = "/english-portal.html"; // 再訪問時のリダイレクト先
-                        window.location.href = "/english-portal-tutorial.html"; // 初回訪問時のリダイレクト先
+                        window.location.href = "https://go.waomirai.com/english-learn-portal"; // 初回訪問時のリダイレクト先
                     } else {
                         // 初回訪問時：Aのページにリダイレクト
-                        window.location.href = "/english-portal-tutorial.html"; // 初回訪問時のリダイレクト先
+                        window.location.href = "https://go.waomirai.com/english-learn-tutotial"; // 初回訪問時のリダイレクト先
 
                         // 初回訪問後、セッションストレージとクッキーに記録
                         sessionStorage.setItem(sessionKey, 'true');
-                        $.cookie(cookieName, 'true', { expires: 7 }); // クッキーの有効期限を7日に設定
+                        $.cookie(cookieName, 'true', { expires: 999 }); // クッキーの有効期限を7日に設定
                     }
                 } else {
                   $("#passwordInput").addClass("error");
