@@ -98,6 +98,7 @@ $english-yellow:#F6E245;
         line-height: 1;
         @include font-size-xl;
         text-align: center;
+        color: $cl-gray;
         .purple-large {
             color: $cl-english;
             font-size: 60px;
