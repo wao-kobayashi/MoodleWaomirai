@@ -17,7 +17,7 @@ const srcpaths = {
     sass: './src/**/*.sass',
     jsx: './src/jsx/**/*.js',
     jade: './src/jade/**/*.jade',
-    pug: './src/pug/*.pug'
+    pug: './src/pug/**/*.pug'
 };
 
 const dstpaths = {
@@ -65,13 +65,13 @@ function scss() {
 
 function browserifyTask() {
     return browserify({
-        entries: './src/jsx/melon-soda-kai.js',
-    })
-    .transform(babelify)
-    .bundle()
-    .pipe(source("melon-soda-kai.js"))
-    .pipe(gulp.dest(dstpaths.js))
-    .pipe(browserSync.stream());
+            entries: './src/jsx/melon-soda-kai.js',
+        })
+        .transform(babelify)
+        .bundle()
+        .pipe(source("melon-soda-kai.js"))
+        .pipe(gulp.dest(dstpaths.js))
+        .pipe(browserSync.stream());
 }
 
 exports.default = gulp.series(serve);

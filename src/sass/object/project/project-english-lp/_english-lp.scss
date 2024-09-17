@@ -91,15 +91,37 @@ header {
         flex-direction: column;
         align-items: flex-start;
         padding: 128px 0 30px;
+        @include responsive-style(900px) {
+            padding: 100px 0 0px;
+        }
+        .fv-left-button {
+            position: relative;
+            z-index: 2;
+            @include responsive-style(900px) {
+                transform: scale(0.9);
+                transform-origin: left center;
+            }
+            @include responsive-style(750px) {
+                transform: scale(0.8);
+                transform-origin: left center;
+            }
+        }
         img {
             width: 363px;
             margin: 0 0 60px;
             position: relative;
             z-index: 2;
+            @include responsive-style(900px) {
+                width: 300px;
+            }
+            @include responsive-style(750px) {
+                width: 275px;
+            }
         }
         a {
             position: relative;
             z-index: 2;
+            button {}
         }
         svg {
             width: 100%;
@@ -118,12 +140,41 @@ header {
             bottom: 0;
             margin: auto;
             width: 527px;
+            @include responsive-style(900px) {
+                width: 450px;
+            }
+            @include responsive-style(750px) {
+                width: 375px;
+            }
+        }
+    }
+    .fv-pc-b {
+        img {
+            width: 100%;
+            margin: 0 !important;
+            padding: 0 !important;
+        }
+    }
+}
+
+#fv-top-pc-b {
+    background: $lp-yellow;
+    padding: 0px 0px;
+    margin: 0 0 0px;
+    position: relative;
+    .fv-pc-b {
+        img {
+            width: 100%;
+            margin: 0 !important;
+            padding: 0 !important;
         }
     }
 }
 
 #desktopLayouts {
     box-shadow: 0px 2px 7px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 1000px;
 }
 
 #intro-queestion div {
