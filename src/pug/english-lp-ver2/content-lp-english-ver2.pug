@@ -3,15 +3,15 @@
 noscript
   iframe(src="https://www.googletagmanager.com/ns.html?id=GTM-W3X8CG9C", height="0", width="0", style="display:none;visibility:hidden")
 // End Google Tag Manager (noscript)
-//- header 
-//-       div 
-//-         img(src="https://go.waomirai.com/l/1026513/2024-08-08/gzqmq/1026513/1723103182E5MU9Ijy/waomirai_logo__1_.svg")
+header 
+      div 
+        img(src="https://go.waomirai.com/l/1026513/2024-08-08/gzqmq/1026513/1723103182E5MU9Ijy/waomirai_logo__1_.svg")
 .english-fv 
   .english-fv-img 
      img(src="https://storage.pardot.com/1026513/1726558673eP3mDu3d/fv_____3.png")
   .english-fv-absolute
    .lp-cv-button 
-      a(href=linkUrl)   
+      a(href=linkUrl,onclick="gtag('event', 'click', {'event_category': 'click','event_label': 'click-english-lp-button'});" target='_blank')   
        .english-fv-absolute-cvtop 
           |9/30までに申し込むと10月中は無料
        .lp-cv-button-main
@@ -63,7 +63,10 @@ section.lp-section-intro.lp-section-bgyellow
       |グローバル英語で
       br.spimage
       |そのお悩み解決します！
-section.lp-section.lp-section-bgwhite
+section.lp-section-intro-after.lp-section-bgwhite
+  .lp-section-intro-after-svg
+    svg(viewBox="0 0 100 100", preserveAspectRatio="none")
+        path(d="M100,0 L50,100 0,0 Z", fill="#F6E245")
   .lp-section-title-bgdecoration
     h2
      |グローバル英語で
@@ -109,6 +112,14 @@ section.lp-section.lp-section-bgwhite
         |興味を引く内容満載のオリジナル教材で、英語の世界がぐんと広がります。グローバルのEnglishはひらがなで英語を喋るひらがなEnglishや「カタマリ」で覚えます。さらにこれをリズムに載せて練習するので、英語が楽しく忘れにくくなります。
     .lp-section-reason-right 
         img(src='https://storage.pardot.com/1026513/17265606905VY2ONtO/img_3reason_03.png') 
+section.lp-section.lp-section-bglightgray
+  .lp-section-title-bgdecoration
+    h2|3分でわかるグローバル英会話
+    .lp-section-title-txt
+      |Movie
+  .lp-section-movie 
+    div(style="padding:56.25% 0 0 0;position:relative;")
+      iframe(src="https://player.vimeo.com/video/930561537?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479", frameborder="0", allow="autoplay; fullscreen; picture-in-picture; clipboard-write", style="position:absolute;top:0;left:0;width:100%;height:100%;", title="3分でわかる！新感覚英会話レッスン ワオ未来塾 グローバル英語")
 section.lp-section.lp-section-bgpaleyellow
   .lp-section-title-bgdecoration
     h2|授業コース
@@ -282,7 +293,7 @@ div.lp-cv
           .lp-cv-lessonday-time-hourrange
               |17:00~17:25
     .lp-cv-button 
-       a(href=linkUrl)
+       a(href=linkUrl,onclick="gtag('event', 'click', {'event_category': 'click','event_label': 'click-english-lp-button'});", target='_blank')   )
            .lp-cv-button-sub 
               |かんたん1分
            .lp-cv-button-main
@@ -311,7 +322,20 @@ section.lp-section
     
   
 footer 
-  |この辺にフッター
+  ul 
+   li 
+    a(href="https://www.wao-corp.com/", target='_blank')
+     |会社概要
+   li 
+    a(href="https://www.wao-corp.com/kojin/", target='_blank')
+     |プライバシーポリシー
+   li
+    a(href="https://go.waomirai.com/shotororihiki", target='_blank')
+     |特定商取引に基づく表記
+  .footer-logo 
+    img(src='https://go.waomirai.com/l/1026513/2024-09-09/h313m/1026513/1725935757PmiJf0LH/logo_waomirai_white.svg')
+  .footer-copyright
+    |© ワオ・コーポレーション All rights reserved.
 .fixed-button(style='display:none;')
           .lp-cv-button 
               a(href=linkUrl,onclick="gtag('event', 'click', {'event_category': 'click','event_label': 'click-english-lp-button'});" target='_blank')   

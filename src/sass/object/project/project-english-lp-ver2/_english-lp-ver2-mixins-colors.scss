@@ -135,10 +135,11 @@ $english-yellow:#F6E245;
 
 .lp-section-text {
     width: 100%;
-    max-width: $section-maxwidth;
+    // max-width: $section-maxwidth;
     line-height: 1.5;
     @include font-size-m;
     position: relative;
     margin: 30px auto 0;
-    @include section-maxwidth;
+    // @include section-maxwidth;
+    @include section-middlewidth;
 }

@@ -223,7 +223,7 @@ header {
 
 //イントロ部分
 .lp-section-intro {
-    padding: 10px 0 45px;
+    padding: 10px 0 0px;
     .lp-section-title-h2 {
         @include font-size-xl;
         font-weight: bold;
@@ -278,6 +278,18 @@ header {
     }
 }
 
+.lp-section-intro-after {
+    padding: 0 0 120px;
+    .lp-section-intro-after-svg svg {
+        width: 100%;
+        margin: 0 auto 60px;
+        height: 100px;
+        @include responsive-style(768px) {
+            height: 60px;
+        }
+    }
+}
+
 //グローバル英語で英語が身に付く3つの理由
 .lp-section-reason {
     display: grid;
@@ -319,11 +331,19 @@ header {
     }
 }
 
+.lp-section-movie {
+    @include section-middlewidth;
+    margin: -30px auto 0;
+    iframe {
+        box-shadow: 0 0 30px rgba(50, 50, 70, .15);
+    }
+}
+
 //スケジュール
 .lp-section-schedule {
     width: 100%;
     margin: 30px auto 0;
-    @include section-maxwidth;
+    @include section-middlewidth;
     table {
         background: white;
     }
@@ -398,7 +418,7 @@ header {
     grid-column-gap: 30px;
     width: 100%;
     margin: 30px auto 0;
-    @include section-maxwidth;
+    @include section-middlewidth;
     @include responsive-style(768px) {
         grid-template-columns: 1fr;
         grid-template-rows: repeat(2, 1fr);
@@ -702,9 +722,30 @@ header {
 
 footer {
     width: 100%;
-    padding: 30px;
+    padding: 60px 0px 0px;
     text-align: center;
-    background: $cl-gray;
+    background: $cl-black;
     color: white;
-    height: 200px;
+    ul {
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+    li {
+        list-style: none;
+        padding: 10px 0;
+        a {
+            color: white;
+            text-decoration: none;
+            @include font-size-m;
+        }
+    }
+    .footer-logo img {
+        width: 170px;
+        margin: 60px auto 45px;
+    }
+    .footer-copyright {
+        width: 100%;
+        border-top: 1px solid #fff;
+        padding: 15px 0 15px;
+    }
 }

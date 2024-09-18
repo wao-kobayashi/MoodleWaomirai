@@ -4573,22 +4573,16 @@ select {
 
 .lp-section-text {
   width: 100%;
-  max-width: 1200px;
   line-height: 1.5;
   font-size: 16px;
   position: relative;
   margin: 30px auto 0;
-  max-width: 1200px;
+  max-width: 800px;
   padding: 0 30px;
 }
 @media screen and (max-width: 768px) {
   .lp-section-text {
     font-size: 16px;
-  }
-}
-@media screen and (max-width: 768px) {
-  .lp-section-text {
-    padding: 0 20px;
   }
 }
 
@@ -4857,7 +4851,7 @@ header div img {
 }
 
 .lp-section-intro {
-  padding: 10px 0 45px;
+  padding: 10px 0 0px;
 }
 .lp-section-intro .lp-section-title-h2 {
   font-size: 34px;
@@ -4937,6 +4931,20 @@ header div img {
   }
 }
 
+.lp-section-intro-after {
+  padding: 0 0 120px;
+}
+.lp-section-intro-after .lp-section-intro-after-svg svg {
+  width: 100%;
+  margin: 0 auto 60px;
+  height: 100px;
+}
+@media screen and (max-width: 768px) {
+  .lp-section-intro-after .lp-section-intro-after-svg svg {
+    height: 60px;
+  }
+}
+
 .lp-section-reason {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -4997,16 +5005,21 @@ header div img {
   }
 }
 
+.lp-section-movie {
+  max-width: 800px;
+  padding: 0 30px;
+  margin: -30px auto 0;
+}
+.lp-section-movie iframe {
+  -webkit-box-shadow: 0 0 30px rgba(50, 50, 70, .15);
+          box-shadow: 0 0 30px rgba(50, 50, 70, .15);
+}
+
 .lp-section-schedule {
   width: 100%;
   margin: 30px auto 0;
-  max-width: 1200px;
+  max-width: 800px;
   padding: 0 30px;
-}
-@media screen and (max-width: 768px) {
-  .lp-section-schedule {
-    padding: 0 20px;
-  }
 }
 .lp-section-schedule table {
   background: white;
@@ -5085,13 +5098,8 @@ header div img {
   grid-column-gap: 30px;
   width: 100%;
   margin: 30px auto 0;
-  max-width: 1200px;
+  max-width: 800px;
   padding: 0 30px;
-}
-@media screen and (max-width: 768px) {
-  .lp-section-course-box {
-    padding: 0 20px;
-  }
 }
 @media screen and (max-width: 768px) {
   .lp-section-course-box {
@@ -5551,9 +5559,35 @@ header div img {
 
 footer {
   width: 100%;
-  padding: 30px;
+  padding: 60px 0px 0px;
   text-align: center;
-  background: #333333;
+  background: #000000;
   color: white;
-  height: 200px;
+}
+footer ul {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+footer li {
+  list-style: none;
+  padding: 10px 0;
+}
+footer li a {
+  color: white;
+  text-decoration: none;
+  font-size: 16px;
+}
+@media screen and (max-width: 768px) {
+  footer li a {
+    font-size: 16px;
+  }
+}
+footer .footer-logo img {
+  width: 170px;
+  margin: 60px auto 45px;
+}
+footer .footer-copyright {
+  width: 100%;
+  border-top: 1px solid #fff;
+  padding: 15px 0 15px;
 }
