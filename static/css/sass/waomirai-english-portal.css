@@ -363,6 +363,9 @@ section {
   font-size: 12px;
   color: #999;
 }
+.section-wao-english-group .section-wao-english-group-notice {
+  color: #fa3e3e;
+}
 
 .section-wao-english-group-box-course {
   -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, .15);
@@ -499,14 +502,14 @@ section {
   text-align: center;
 }
 
-.level-2 header .header-tab p .header-tab-child.level-1 {
+.level-2 header .header-tab .header-tab-child.level-1 {
   background: white !important;
 }
-.level-2 header .header-tab p .header-tab-child.level-1 .header-tab-child-content {
+.level-2 header .header-tab .header-tab-child.level-1 .header-tab-child-content {
   background: #005C3F;
   color: white !important;
 }
-.level-2 header .header-tab p .header-tab-child .header-tab-child-content {
+.level-2 header .header-tab .header-tab-child .header-tab-child-content {
   color: #005C3F;
 }
 .level-2 header .header-tab .header-tab-child.level-2.level-2 {
@@ -811,6 +814,11 @@ footer a {
   font-size: 24px;
   font-weight: 500;
   margin: 0 auto 20px;
+}
+@media screen and (max-width: 768px) {
+  .english-tutorial-modal-title {
+    font-size: 20px;
+  }
 }
 
 .english-tutorial-modal-select {

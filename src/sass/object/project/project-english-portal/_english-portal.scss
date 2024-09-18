@@ -71,7 +71,7 @@ header {
             &.level-2 {
                 background: white;
                 .header-tab-child-content {
-                    background: $cl-english-level2;
+                    background: $cl-english;
                     color: white;
                 }
             }
@@ -223,6 +223,9 @@ section {
         font-size: $font-size-s;
         color: $cl-graylight;
     }
+    .section-wao-english-group-notice {
+        color: $cl-notice;
+    }
 }
 
 .section-wao-english-group-box-course {
@@ -351,7 +354,7 @@ section {
 .level-2 {
     header {
         .header-tab {
-            p .header-tab-child {
+            .header-tab-child {
                 &.level-1 {
                     background: white !important;
                     .header-tab-child-content {

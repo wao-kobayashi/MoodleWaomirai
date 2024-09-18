@@ -1,3 +1,12 @@
+body {
+    font-family: "Jost", 'Noto Sans JP', sans-serif;
+    color: $cl-gray;
+}
+
+#english-lp-ver2 {
+    overflow-x: hidden;
+}
+
 header {
     height: 60px;
     background: white;
@@ -29,6 +38,13 @@ header {
     right: 20px;
     bottom: 20px;
     z-index: 99;
+    @include responsive-style(768px) {
+        width: 320px;
+        left: 0;
+        right: 0;
+        bottom: 20px;
+        margin: auto;
+    }
     .lp-cv-button {
         a {
             padding: 20px 85px;
@@ -41,6 +57,11 @@ header {
             flex-direction: row;
             text-decoration: none;
             position: relative;
+            justify-content: center;
+            @include responsive-style(768px) {
+                width: 320px;
+                padding: 20px 0px;
+            }
             .english-fv-absolute-cvtop {
                 position: absolute;
                 left: 0;
@@ -79,6 +100,9 @@ header {
 
 .english-fv {
     position: relative;
+    @include responsive-style(768px) {
+        display: none;
+    }
     .english-fv-img {
         img {
             height: 95vh;
@@ -93,6 +117,9 @@ header {
         top: 62%;
         @include min-responsive-style(1200px) {
             top: 65%;
+        }
+        @include responsive-style(768px) {
+            display: none !important;
         }
         .lp-cv-button {
             a {
@@ -213,6 +240,15 @@ header {
         width: 100%;
         max-width: 1000px;
         margin: 0 auto;
+        @include responsive-style(768px) {
+            flex-direction: column;
+            align-items: center;
+        }
+        .lp-section-intro-columns-box {
+            @include responsive-style(768px) {
+                margin: 0 auto 45px;
+            }
+        }
         .lp-section-intro-columns-box-title {
             text-align: center;
             font-weight: bold;
@@ -224,6 +260,7 @@ header {
             text-align: center;
             img {
                 margin: 0 auto;
+                @include responsive-style(768px) {}
             }
         }
     }
@@ -251,6 +288,9 @@ header {
     width: 100%;
     margin: 60px auto 0;
     @include section-maxwidth;
+    @include responsive-style(768px) {
+        display: block;
+    }
     .lp-section-reason-left {
         .lp-section-reason-left-number {
             font-size: 50px;
@@ -264,10 +304,17 @@ header {
             font-weight: bold;
             color: $cl-gray;
             line-height: 1.5;
-            margin: 0 0 20px;
+            margin: 0 0 25px;
+            @include responsive-style(768px) {
+                margin: 0 0 10px;
+            }
         }
         .lp-section-reason-left-text {
             @include font-size-m;
+            line-height: 1.75;
+            @include responsive-style(768px) {
+                margin: 0 0 10px;
+            }
         }
     }
 }
@@ -307,6 +354,9 @@ header {
         // margin: 0 10px;
         text-align: center;
         box-shadow: 0 0 30px rgba(50, 50, 70, .15);
+    }
+    .lp-section-study-process-img-noshadow {
+        box-shadow: none !important;
     }
     .lp-section-study-process-arrow {
         width: 15px;
@@ -349,6 +399,12 @@ header {
     width: 100%;
     margin: 30px auto 0;
     @include section-maxwidth;
+    @include responsive-style(768px) {
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(2, 1fr);
+        grid-column-gap: 0px;
+        grid-row-gap: 10px;
+    }
 }
 
 .lp-section-voice-box {
@@ -358,10 +414,20 @@ header {
     width: 100%;
     margin: 30px auto 0;
     @include section-middlewidth;
+    @include responsive-style(768px) {
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(2, 1fr);
+        grid-column-gap: 0px;
+        grid-row-gap: 30px;
+    }
     .lp-section-voice-box-image img {
         // width: 80px;
         // height: 80px;
         border-radius: 100px;
+        @include responsive-style(768px) {
+            width: 60%;
+            margin: 0 auto;
+        }
     }
 }
 
@@ -376,6 +442,10 @@ header {
         height: 120px;
         position: relative;
         background: white;
+        @include responsive-style(768px) {
+            height: auto;
+            display: block;
+        }
     }
     .lp-section-price-box-left {
         background: $cl-english;
@@ -384,6 +454,9 @@ header {
         flex: 1;
         padding: 0px 0 0 0px;
         height: 120px;
+        @include responsive-style(768px) {
+            height: 90px;
+        }
         .lp-section-price-box-left-text {
             padding: 0 0 0 90px;
             width: calc(100% - 10px);
@@ -459,6 +532,9 @@ header {
         @include font-size-xl;
         font-weight: 600;
         line-height: 1;
+        @include responsive-style(768px) {
+            padding: 30px 0;
+        }
         .lp-section-price-box-right-small {
             @include font-size-m;
         }
@@ -472,6 +548,9 @@ header {
     line-height: 1.8;
     text-align: right;
     @include font-size-s;
+    @include responsive-style(768px) {
+        text-align: center;
+    }
 }
 
 .lp-section-trial-flow {
@@ -514,6 +593,9 @@ header {
             font-size: 60px;
             color: white;
             line-height: 0.8;
+            @include responsive-style(768px) {
+                font-size: 50px;
+            }
             .lp-cv-lessonday-time-day-monthday {
                 font-weight: 600;
             }
@@ -533,6 +615,10 @@ header {
             font-size: 18px;
             font-weight: 600;
             margin: 0 0 0 5px;
+            @include responsive-style(768px) {
+                width: 25px;
+                height: 25px;
+            }
         }
         .lp-cv-lessonday-time-hourrange {
             font-size: 40px;
@@ -540,6 +626,9 @@ header {
             line-height: 0.8;
             color: white;
             margin: 0 0 0 8px;
+            @include responsive-style(768px) {
+                font-size: 32px;
+            }
         }
     }
     .lp-cv-button {
@@ -554,6 +643,10 @@ header {
             border-radius: 6px;
             flex-direction: row;
             text-decoration: none;
+            @include responsive-style(768px) {
+                width: 90%;
+                padding: 20px 40px;
+            }
             .lp-cv-button-sub {
                 padding: 1px 8px;
                 border-radius: 100px;
@@ -577,14 +670,21 @@ header {
 
 .lp-section-faq {
     @include section-middlewidth;
-    margin: 0px auto 90px;
     display: flex;
+    margin: 0px auto 90px;
+    @include responsive-style(768px) {
+        margin: 0px auto 60px;
+    }
     .lp-section-faq-left {
         color: $cl-english;
         width: 42px;
         @include font-size-xl;
         line-height: 1;
         font-weight: 500;
+        @include responsive-style(768px) {
+            line-height: 1.5;
+            width: 37px;
+        }
     }
     .lp-section-faq-right {
         flex: 1;
