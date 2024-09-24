@@ -4446,6 +4446,9 @@ select {
     scroll-behavior: auto !important;
   }
 }
+/* width */
+/* fontsize */
+/* animation */
 @-webkit-keyframes lp-cta__btn {
   0%, 55%, 65%, 70%, 80% {
     -webkit-box-shadow: 0 4px 0 #9D4E00;
@@ -4494,6 +4497,34 @@ select {
             transform: rotate(360deg);
   }
 }
+@-webkit-keyframes bounce-swipe {
+  0%, 30%, 60%, 80%, 100% {
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+  }
+  15% {
+    -webkit-transform: translateX(30px);
+    transform: translateX(30px);
+  }
+  45% {
+    -webkit-transform: translateX(15px);
+    transform: translateX(15px);
+  }
+}
+@keyframes bounce-swipe {
+  0%, 30%, 60%, 80%, 100% {
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+  }
+  15% {
+    -webkit-transform: translateX(30px);
+    transform: translateX(30px);
+  }
+  45% {
+    -webkit-transform: translateX(15px);
+    transform: translateX(15px);
+  }
+}
 .lp-section-bgyellow {
   background: #F6E245;
 }
@@ -4524,7 +4555,8 @@ select {
 }
 @media screen and (max-width: 768px) {
   .lp-section-title-bgdecoration {
-    height: 55px;
+    height: 40px;
+    margin: 0 auto 10px;
   }
 }
 .lp-section-title-bgdecoration h2 {
@@ -4574,7 +4606,7 @@ select {
 .lp-section-text {
   width: 100%;
   line-height: 1.5;
-  font-size: 16px;
+  font-size: 17px;
   position: relative;
   margin: 30px auto 0;
   max-width: 800px;
@@ -4583,6 +4615,11 @@ select {
 @media screen and (max-width: 768px) {
   .lp-section-text {
     font-size: 16px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .lp-section-text {
+    margin: 0px auto 0;
   }
 }
 
@@ -4670,8 +4707,6 @@ header div img {
 }
 .fixed-button .lp-cv-button a .english-fv-absolute-cvtop {
   position: absolute;
-  left: 0;
-  right: 0;
   margin: auto;
   top: -14px;
   background: white;
@@ -4689,7 +4724,7 @@ header div img {
   }
 }
 .fixed-button .lp-cv-button a .lp-cv-button-main {
-  font-size: 16px;
+  font-size: 17px;
   color: white;
   font-weight: 500;
   padding: 3px 0 0;
@@ -4700,39 +4735,31 @@ header div img {
   }
 }
 
-.english-fv {
+.english-fvpc {
   position: relative;
-}
-@media screen and (max-width: 768px) {
-  .english-fv {
-    display: none;
-  }
-}
-.english-fv .english-fv-img img {
-  height: 95vh;
+  height: 665px;
+  background: url("https://go.waomirai.com/l/1026513/2024-09-18/h3sjm/1026513/1726714993ipa96aru/fv_pc.jpg");
+  background-size: 1600px;
+  background-repeat: no-repeat;
   width: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
-  -o-object-position: 100% 0%;
-     object-position: 100% 0%;
-}
-.english-fv .english-fv-absolute {
-  position: absolute;
-  left: 7%;
-  top: 62%;
-}
-@media screen and (min-width: 1200px) {
-  .english-fv .english-fv-absolute {
-    top: 65%;
-  }
 }
 @media screen and (max-width: 768px) {
-  .english-fv .english-fv-absolute {
-    display: none !important;
+  .english-fvpc {
+    height: auto;
+    background: none;
   }
 }
-.english-fv .english-fv-absolute .lp-cv-button a {
-  padding: 20px 85px;
+.english-fvpc .english-fvpc-absolute {
+  position: absolute;
+  left: 4%;
+  top: 20%;
+}
+.english-fvpc .english-fvpc-absolute .english-fvpc-maintext img {
+  width: 430px;
+  margin: 0 0 50px;
+}
+.english-fvpc .english-fvpc-absolute .lp-cv-button a {
+  padding: 25px 85px;
   background: #ee7a00 !important;
   -webkit-box-shadow: 0 4px 0 #9D4E00;
           box-shadow: 0 4px 0 #9D4E00;
@@ -4750,7 +4777,7 @@ header div img {
   text-decoration: none;
   position: relative;
 }
-.english-fv .english-fv-absolute .lp-cv-button a .english-fv-absolute-cvtop {
+.english-fvpc .english-fvpc-absolute .lp-cv-button a .english-fv-absolute-cvtop {
   position: absolute;
   left: 0;
   right: 0;
@@ -4761,65 +4788,67 @@ header div img {
   border-radius: 100px;
   color: #ee7a00;
   text-align: center;
-  padding: 5px 13px;
-  display: table;
+  padding: 3px 13px;
+  display: block;
+  width: 240px;
   font-size: 12px;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 @media screen and (max-width: 768px) {
-  .english-fv .english-fv-absolute .lp-cv-button a .english-fv-absolute-cvtop {
+  .english-fvpc .english-fvpc-absolute .lp-cv-button a .english-fv-absolute-cvtop {
     font-size: 11.5px;
   }
 }
-.english-fv .english-fv-absolute .lp-cv-button a .lp-cv-button-main {
-  font-size: 16px;
+.english-fvpc .english-fvpc-absolute .lp-cv-button a .lp-cv-button-main {
+  font-size: 17px;
   color: white;
   font-weight: 500;
   padding: 3px 0 0;
 }
 @media screen and (max-width: 768px) {
-  .english-fv .english-fv-absolute .lp-cv-button a .lp-cv-button-main {
+  .english-fvpc .english-fvpc-absolute .lp-cv-button a .lp-cv-button-main {
     font-size: 16px;
   }
 }
-.english-fv .english-fv-absolute .english-fv-absolute-next-lesson {
+.english-fvpc .english-fvpc-absolute-next-lesson {
   position: absolute;
-  padding: 20px 20px 20px 20px;
+  bottom: 0;
+  width: 100%;
+  padding: 20px 20px 20px 4%;
   margin: 43px 0 0;
   background: rgba(0, 0, 0, .7);
 }
-.english-fv .english-fv-absolute .lp-cv-lessonday-time {
+.english-fvpc .english-fvpc-absolute-next-lesson .lp-cv-lessonday-time {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: end;
       -ms-flex-align: end;
           align-items: flex-end;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
 }
-.english-fv .english-fv-absolute .lp-cv-lessonday-time-title {
+.english-fvpc .english-fvpc-absolute-next-lesson .lp-cv-lessonday-time-title {
   color: white;
-  font-size: 12px;
-  width: 100px;
+  font-size: 17px;
 }
 @media screen and (max-width: 768px) {
-  .english-fv .english-fv-absolute .lp-cv-lessonday-time-title {
-    font-size: 11.5px;
+  .english-fvpc .english-fvpc-absolute-next-lesson .lp-cv-lessonday-time-title {
+    font-size: 16px;
   }
 }
-.english-fv .english-fv-absolute .lp-cv-lessonday-time-day {
+.english-fvpc .english-fvpc-absolute-next-lesson .lp-cv-lessonday-time-day {
   font-size: 50px;
   color: white;
   line-height: 0.8;
 }
-.english-fv .english-fv-absolute .lp-cv-lessonday-time-day .lp-cv-lessonday-time-day-monthday {
+.english-fvpc .english-fvpc-absolute-next-lesson .lp-cv-lessonday-time-day .lp-cv-lessonday-time-day-monthday {
   font-weight: 600;
 }
-.english-fv .english-fv-absolute .lp-cv-lessonday-time-day .lp-cv-lessonday-time-day-slash {
+.english-fvpc .english-fvpc-absolute-next-lesson .lp-cv-lessonday-time-day .lp-cv-lessonday-time-day-slash {
   font-weight: 300;
 }
-.english-fv .english-fv-absolute .lp-cv-lessonday-time-week {
+.english-fvpc .english-fvpc-absolute-next-lesson .lp-cv-lessonday-time-week {
   display: -webkit-inline-box;
   display: -ms-inline-flexbox;
   display: inline-flex;
@@ -4838,7 +4867,7 @@ header div img {
   font-weight: 600;
   margin: 0 0 0 5px;
 }
-.english-fv .english-fv-absolute .lp-cv-lessonday-time-hourrange {
+.english-fvpc .english-fvpc-absolute-next-lesson .lp-cv-lessonday-time-hourrange {
   font-size: 32px;
   font-weight: 500;
   line-height: 0.8;
@@ -4846,12 +4875,168 @@ header div img {
   margin: 0 0 0 8px;
 }
 
+.english-fv-sp {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+.english-fv-sp .english-fvsp-bg {
+  position: relative;
+}
+.english-fv-sp .english-fvsp-bg .english-fvsp-maintxt {
+  position: absolute;
+  top: 200px;
+  width: 90%;
+  left: 5%;
+  right: 0;
+}
+.english-fv-sp .english-fvsp-bg .english-fvsp-maintxt img {
+  text-align: center;
+}
+.english-fv-sp .english-fvsp-bg .english-fvsp-bg-img img {
+  padding: 0 0 100px;
+  width: 100%;
+}
+.english-fv-sp .english-fvsp-wrap {
+  width: 90%;
+  margin: 40px auto 60px;
+}
+.english-fv-sp .english-fvsp-nextlesson {
+  border: #AA68AA 1px solid;
+  width: 100%;
+  padding: 15px 10px;
+  margin: 0px auto 30px;
+}
+.english-fv-sp .english-fvsp-nextlesson .lp-cv-lessonday-time-title {
+  color: #AA68AA;
+  font-size: 17px;
+  margin: 0 0 5px;
+}
+@media screen and (max-width: 768px) {
+  .english-fv-sp .english-fvsp-nextlesson .lp-cv-lessonday-time-title {
+    font-size: 16px;
+  }
+}
+.english-fv-sp .english-fvsp-nextlesson .lp-cv-lessonday-time {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+}
+.english-fv-sp .english-fvsp-nextlesson .lp-cv-lessonday-time-day {
+  font-size: 35px;
+  color: #AA68AA;
+  line-height: 0.8;
+}
+.english-fv-sp .english-fvsp-nextlesson .lp-cv-lessonday-time-day .lp-cv-lessonday-time-day-monthday {
+  font-weight: 600;
+}
+.english-fv-sp .english-fvsp-nextlesson .lp-cv-lessonday-time-day .lp-cv-lessonday-time-day-slash {
+  font-weight: 300;
+}
+.english-fv-sp .english-fvsp-nextlesson .lp-cv-lessonday-time-week {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  width: 33px;
+  height: 33px;
+  color: white;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background: #AA68AA;
+  border-radius: 100px;
+  font-size: 18px;
+  font-weight: 600;
+  margin: 0 0 0 5px;
+}
+.english-fv-sp .english-fvsp-nextlesson .lp-cv-lessonday-time-hourrange {
+  font-size: 30px;
+  font-weight: 500;
+  line-height: 0.8;
+  color: #AA68AA;
+  margin: 0 0 0 8px;
+}
+.english-fv-sp .lp-cv-button {
+  margin: 0px auto 30px;
+  text-align: center;
+}
+.english-fv-sp .lp-cv-button a {
+  width: 100%;
+  background: #ee7a00 !important;
+  -webkit-box-shadow: 0 4px 0 #9D4E00;
+          box-shadow: 0 4px 0 #9D4E00;
+  -webkit-animation: lp-cta__btn 3s infinite;
+          animation: lp-cta__btn 3s infinite;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  margin: 0 auto;
+  border-radius: 6px;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  text-decoration: none;
+  position: relative;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding: 20px;
+}
+.english-fv-sp .lp-cv-button a .english-fv-absolute-cvtop {
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: auto;
+  top: -14px;
+  background: white;
+  border: 1px solid #ee7a00;
+  border-radius: 100px;
+  color: #ee7a00;
+  text-align: center;
+  padding: 3px 13px;
+  display: block;
+  width: 240px;
+  font-size: 12px;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+@media screen and (max-width: 768px) {
+  .english-fv-sp .lp-cv-button a .english-fv-absolute-cvtop {
+    font-size: 11.5px;
+  }
+}
+.english-fv-sp .lp-cv-button a .lp-cv-button-main {
+  font-size: 24px;
+  color: white;
+  font-weight: 500;
+  padding: 3px 0 0;
+  text-align: center;
+}
+@media screen and (max-width: 768px) {
+  .english-fv-sp .lp-cv-button a .lp-cv-button-main {
+    font-size: 20px;
+  }
+}
+
 .lp-section {
   padding: 120px 0;
 }
+@media screen and (max-width: 768px) {
+  .lp-section {
+    padding: 75px 0;
+  }
+}
 
 .lp-section-intro {
-  padding: 10px 0 0px;
+  padding: 60px 0 0px;
 }
 .lp-section-intro .lp-section-title-h2 {
   font-size: 34px;
@@ -4861,7 +5046,7 @@ header div img {
   position: relative;
   line-height: 1.5;
   text-align: center;
-  margin: 0 auto 30px;
+  margin: 0 auto 45px;
 }
 @media screen and (max-width: 768px) {
   .lp-section-intro .lp-section-title-h2 {
@@ -4934,10 +5119,17 @@ header div img {
 .lp-section-intro-after {
   padding: 0 0 120px;
 }
+@media screen and (max-width: 768px) {
+  .lp-section-intro-after {
+    padding: 0 0 75px;
+  }
+}
 .lp-section-intro-after .lp-section-intro-after-svg svg {
   width: 100%;
-  margin: 0 auto 60px;
   height: 100px;
+  margin: -1px auto 60px;
+  z-index: 99;
+  position: relative;
 }
 @media screen and (max-width: 768px) {
   .lp-section-intro-after .lp-section-intro-after-svg svg {
@@ -4991,7 +5183,7 @@ header div img {
   }
 }
 .lp-section-reason .lp-section-reason-left .lp-section-reason-left-text {
-  font-size: 16px;
+  font-size: 17px;
   line-height: 1.75;
 }
 @media screen and (max-width: 768px) {
@@ -5004,11 +5196,19 @@ header div img {
     margin: 0 0 10px;
   }
 }
+.lp-section-reason .lp-section-reason-leftimg {
+  margin: 10px auto 20px;
+}
 
 .lp-section-movie {
   max-width: 800px;
   padding: 0 30px;
   margin: -30px auto 0;
+}
+@media screen and (max-width: 768px) {
+  .lp-section-movie {
+    margin: 0px auto 0;
+  }
 }
 .lp-section-movie iframe {
   -webkit-box-shadow: 0 0 30px rgba(50, 50, 70, .15);
@@ -5034,13 +5234,18 @@ header div img {
   /* 子要素を横並びにする */
   position: relative;
   margin: -30px 0 0;
-  height: 320px;
+  height: 340px;
+}
+@media screen and (max-width: 768px) {
+  .lp-section-study-process {
+    margin: 0px 0 0;
+  }
 }
 .lp-section-study-process div:first-child {
   margin: 0 0 0 60px;
 }
 .lp-section-study-process div:last-child {
-  margin: 0 250px 0 0px;
+  margin: 0 400px 0 0px;
 }
 .lp-section-study-process .lp-section-study-process-img {
   display: inline-block;
@@ -5092,6 +5297,18 @@ header div img {
           box-shadow: 0 0 30px rgba(50, 50, 70, .15);
 }
 
+.lp-section-scroll {
+  height: 50px;
+  margin: 15px auto 15px;
+}
+.lp-section-scroll img {
+  text-align: center;
+  width: 120px;
+  margin: 0px auto 0;
+  -webkit-animation: bounce-swipe 3s infinite;
+          animation: bounce-swipe 3s infinite;
+}
+
 .lp-section-course-box {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -5121,6 +5338,7 @@ header div img {
 }
 @media screen and (max-width: 768px) {
   .lp-section-voice-box {
+    margin: 0px auto 0;
     grid-template-columns: 1fr;
     grid-template-rows: repeat(2, 1fr);
     grid-column-gap: 0px;
@@ -5142,6 +5360,11 @@ header div img {
   padding: 0 30px;
   margin: 30px auto 18px;
   position: relative;
+}
+@media screen and (max-width: 768px) {
+  .lp-section-price {
+    margin: 0px auto 18px;
+  }
 }
 .lp-section-price .lp-section-price-box {
   -webkit-box-shadow: 0 0 30px rgba(50, 50, 70, .15);
@@ -5186,7 +5409,7 @@ header div img {
   width: calc(100% - 10px);
   text-align: center;
   color: white;
-  font-size: 16px;
+  font-size: 17px;
   font-weight: bold;
   letter-spacing: 1px;
 }
@@ -5218,11 +5441,12 @@ header div img {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  font-weight: bold;
 }
 .lp-section-price .lp-section-price-box-left .lp-section-price-box-left-badge {
   position: absolute;
-  -webkit-animation: rotate 4s linear infinite;
-          animation: rotate 4s linear infinite;
+  -webkit-animation: rotate 10s linear infinite;
+          animation: rotate 10s linear infinite;
 }
 .lp-section-price .lp-section-price-box-left .lp-section-price-box-left-badge,
 .lp-section-price .lp-section-price-box-left .lp-section-price-box-left-badge:before,
@@ -5299,7 +5523,7 @@ header div img {
   }
 }
 .lp-section-price .lp-section-price-box-right .lp-section-price-box-right-small {
-  font-size: 16px;
+  font-size: 17px;
 }
 @media screen and (max-width: 768px) {
   .lp-section-price .lp-section-price-box-right .lp-section-price-box-right-small {
@@ -5329,13 +5553,18 @@ header div img {
 
 .lp-section-trial-flow {
   width: 100%;
-  margin: 30px auto 0;
+  margin: 0px auto 0;
   max-width: 1200px;
   padding: 0 30px;
 }
 @media screen and (max-width: 768px) {
   .lp-section-trial-flow {
     padding: 0 20px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .lp-section-trial-flow {
+    margin: 0px auto 0;
   }
 }
 
@@ -5370,8 +5599,33 @@ header div img {
 .lp-cv .lp-cv-lessonday {
   margin: 30px 0 0;
 }
+.lp-cv .lp-cv-lessonday .lp-cv-lessonday-time-week {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  width: 30px;
+  height: 30px;
+  color: #333333;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background: white;
+  border-radius: 100px;
+  font-size: 18px;
+  font-weight: 600;
+  margin: 0 0 0 5px;
+}
+@media screen and (max-width: 768px) {
+  .lp-cv .lp-cv-lessonday .lp-cv-lessonday-time-week {
+    width: 25px;
+    height: 25px;
+  }
+}
 .lp-cv .lp-cv-lessonday .lp-cv-lessonday-title {
-  font-size: 16px;
+  font-size: 17px;
   text-align: center;
   color: white;
   margin: 0 auto 7px;
@@ -5408,31 +5662,6 @@ header div img {
 .lp-cv .lp-cv-lessonday .lp-cv-lessonday-time-day .lp-cv-lessonday-time-day-slash {
   font-weight: 300;
 }
-.lp-cv .lp-cv-lessonday .lp-cv-lessonday-time-week {
-  display: -webkit-inline-box;
-  display: -ms-inline-flexbox;
-  display: inline-flex;
-  width: 30px;
-  height: 30px;
-  color: #262626;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  background: white;
-  border-radius: 100px;
-  font-size: 18px;
-  font-weight: 600;
-  margin: 0 0 0 5px;
-}
-@media screen and (max-width: 768px) {
-  .lp-cv .lp-cv-lessonday .lp-cv-lessonday-time-week {
-    width: 25px;
-    height: 25px;
-  }
-}
 .lp-cv .lp-cv-lessonday .lp-cv-lessonday-time-hourrange {
   font-size: 40px;
   font-weight: 500;
@@ -5449,7 +5678,7 @@ header div img {
   margin: 20px auto 0;
 }
 .lp-cv .lp-cv-button a {
-  padding: 20px 65px;
+  padding: 20px 60px;
   background: #ee7a00 !important;
   -webkit-box-shadow: 0 4px 0 #9D4E00;
           box-shadow: 0 4px 0 #9D4E00;
@@ -5465,11 +5694,14 @@ header div img {
       -ms-flex-direction: row;
           flex-direction: row;
   text-decoration: none;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 @media screen and (max-width: 768px) {
   .lp-cv .lp-cv-button a {
     width: 90%;
-    padding: 20px 40px;
+    padding: 20px 0px;
   }
 }
 .lp-cv .lp-cv-button a .lp-cv-button-sub {
@@ -5490,7 +5722,7 @@ header div img {
   line-height: 1;
 }
 .lp-cv .lp-cv-button a .lp-cv-button-main {
-  font-size: 16px;
+  font-size: 17px;
   color: white;
   font-weight: 500;
   margin: 0 0 0 7px;
@@ -5539,7 +5771,7 @@ header div img {
   padding: 6px 0 0;
 }
 .lp-section-faq .lp-section-faq-right .lp-section-faq-right-title {
-  font-size: 16px;
+  font-size: 17px;
   font-weight: bold;
 }
 @media screen and (max-width: 768px) {
@@ -5548,7 +5780,7 @@ header div img {
   }
 }
 .lp-section-faq .lp-section-faq-right .lp-section-faq-right-txt {
-  font-size: 16px;
+  font-size: 17px;
   margin: 10px 0 0;
 }
 @media screen and (max-width: 768px) {
@@ -5575,7 +5807,7 @@ footer li {
 footer li a {
   color: white;
   text-decoration: none;
-  font-size: 16px;
+  font-size: 17px;
 }
 @media screen and (max-width: 768px) {
   footer li a {

@@ -1,6 +1,9 @@
 $section-maxwidth:1200px;
 $section-middlewidth:800px;
 $english-yellow:#F6E245;
+
+/* width */
+
 @mixin section-maxwidth {
     max-width: 1200px;
     padding: 0 30px;
@@ -14,6 +17,9 @@ $english-yellow:#F6E245;
     padding: 0 30px;
 }
 
+
+/* fontsize */
+
 @mixin font-size-s {
     font-size: 12px;
     @include responsive-style(768px) {
@@ -22,7 +28,7 @@ $english-yellow:#F6E245;
 }
 
 @mixin font-size-m {
-    font-size: 16px;
+    font-size: 17px;
     @include responsive-style(768px) {
         font-size: 16px;
     }
@@ -41,6 +47,9 @@ $english-yellow:#F6E245;
         font-size: 25px;
     }
 }
+
+
+/* animation */
 
 @keyframes lp-cta__btn {
     0%,
@@ -64,6 +73,25 @@ $english-yellow:#F6E245;
     }
     100% {
         transform: rotate(360deg);
+    }
+}
+
+@keyframes bounce-swipe {
+    0%,
+    30%,
+    60%,
+    80%,
+    100% {
+        -webkit-transform: translateX(0);
+        transform: translateX(0);
+    }
+    15% {
+        -webkit-transform: translateX(30px);
+        transform: translateX(30px);
+    }
+    45% {
+        -webkit-transform: translateX(15px);
+        transform: translateX(15px);
     }
 }
 
@@ -95,7 +123,8 @@ $english-yellow:#F6E245;
     height: 70px;
     margin: 0 auto 30px;
     @include responsive-style(768px) {
-        height: 55px;
+        height: 40px;
+        margin: 0 auto 10px;
     }
     h2 {
         // padding: 30px;
@@ -142,4 +171,7 @@ $english-yellow:#F6E245;
     margin: 30px auto 0;
     // @include section-maxwidth;
     @include section-middlewidth;
+    @include responsive-style(768px) {
+        margin: 0px auto 0;
+    }
 }

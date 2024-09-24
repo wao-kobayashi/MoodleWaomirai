@@ -64,8 +64,8 @@ header {
             }
             .english-fv-absolute-cvtop {
                 position: absolute;
-                left: 0;
-                right: 0;
+                // left: 0;
+                // right: 0;
                 margin: auto;
                 top: -14px;
                 background: white;
@@ -98,32 +98,30 @@ header {
     }
 }
 
-.english-fv {
+$fv-left: 4%;
+//FV PC版
+.english-fvpc {
     position: relative;
+    height: 665px;
+    background: url('https://go.waomirai.com/l/1026513/2024-09-18/h3sjm/1026513/1726714993ipa96aru/fv_pc.jpg');
+    background-size: 1600px;
+    background-repeat: no-repeat;
+    width: 100%;
     @include responsive-style(768px) {
-        display: none;
+        height: auto;
+        background: none;
     }
-    .english-fv-img {
-        img {
-            height: 95vh;
-            width: 100%;
-            object-fit: cover;
-            object-position: 100% 0%;
-        }
-    }
-    .english-fv-absolute {
+    .english-fvpc-absolute {
         position: absolute;
-        left: 7%;
-        top: 62%;
-        @include min-responsive-style(1200px) {
-            top: 65%;
-        }
-        @include responsive-style(768px) {
-            display: none !important;
+        left: $fv-left;
+        top: 20%;
+        .english-fvpc-maintext img {
+            width: 430px;
+            margin: 0 0 50px;
         }
         .lp-cv-button {
             a {
-                padding: 20px 85px;
+                padding: 25px 85px;
                 background: $cl-main-orange !important;
                 box-shadow: 0 4px 0 #9D4E00;
                 animation: lp-cta__btn 3s infinite;
@@ -144,21 +142,12 @@ header {
                     border-radius: 100px;
                     color: $cl-main-orange;
                     text-align: center;
-                    padding: 5px 13px;
-                    display: table;
+                    padding: 3px 13px;
+                    display: block;
+                    width: 240px;
                     @include font-size-s;
+                    justify-content: center;
                 }
-                // .lp-cv-button-sub {
-                //     padding: 1px 8px;
-                //     border-radius: 100px;
-                //     background: #9D4E00;
-                //     font-size: 10px;
-                //     display: inline-flex;
-                //     justify-content: center;
-                //     align-items: center;
-                //     color: white;
-                //     line-height: 1;
-                // }
                 .lp-cv-button-main {
                     @include font-size-m;
                     color: white;
@@ -167,21 +156,22 @@ header {
                 }
             }
         }
-        .english-fv-absolute-next-lesson {
-            position: absolute;
-            padding: 20px 20px 20px 20px;
-            margin: 43px 0 0;
-            background: rgba(0, 0, 0, .7);
-        }
+    }
+    .english-fvpc-absolute-next-lesson {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        padding: 20px 20px 20px $fv-left;
+        margin: 43px 0 0;
+        background: rgba(0, 0, 0, .7);
         .lp-cv-lessonday-time {
             display: flex;
             align-items: flex-end;
-            justify-content: center;
+            // justify-content: center;
         }
         .lp-cv-lessonday-time-title {
             color: white;
-            @include font-size-s;
-            width: 100px;
+            @include font-size-m;
         }
         .lp-cv-lessonday-time-day {
             font-size: 50px;
@@ -217,13 +207,135 @@ header {
     }
 }
 
+//FV SP版
+$fv-spwidth: 90%;
+.english-fv-sp {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    .english-fvsp-bg {
+        position: relative;
+        .english-fvsp-maintxt {
+            position: absolute;
+            top: 200px;
+            width: $fv-spwidth;
+            left: 5%;
+            right: 0;
+            // margin: auto;
+            img {
+                text-align: center;
+            }
+        }
+        .english-fvsp-bg-img img {
+            padding: 0 0 100px;
+            width: 100%;
+        }
+    }
+    .english-fvsp-wrap {
+        width: 90%;
+        margin: 40px auto 60px;
+    }
+    .english-fvsp-nextlesson {
+        border: $cl-english 1px solid;
+        width: 100%;
+        padding: 15px 10px;
+        margin: 0px auto 30px;
+        .lp-cv-lessonday-time-title {
+            color: $cl-english;
+            @include font-size-m;
+            margin: 0 0 5px;
+        }
+        .lp-cv-lessonday-time {
+            display: flex;
+            align-items: flex-end;
+            // justify-content: center;
+        }
+        .lp-cv-lessonday-time-day {
+            font-size: 35px;
+            color: $cl-english;
+            line-height: 0.8;
+            .lp-cv-lessonday-time-day-monthday {
+                font-weight: 600;
+            }
+            .lp-cv-lessonday-time-day-slash {
+                font-weight: 300;
+            }
+        }
+        .lp-cv-lessonday-time-week {
+            display: inline-flex;
+            width: 33px;
+            height: 33px;
+            color: white;
+            align-items: center;
+            justify-content: center;
+            background: $cl-english;
+            border-radius: 100px;
+            font-size: 18px;
+            font-weight: 600;
+            margin: 0 0 0 5px;
+        }
+        .lp-cv-lessonday-time-hourrange {
+            font-size: 30px;
+            font-weight: 500;
+            line-height: 0.8;
+            color: $cl-english;
+            margin: 0 0 0 8px;
+        }
+    }
+    .lp-cv-button {
+        margin: 0px auto 30px;
+        text-align: center;
+        a {
+            width: 100%;
+            background: $cl-main-orange !important;
+            box-shadow: 0 4px 0 #9D4E00;
+            animation: lp-cta__btn 3s infinite;
+            display: inline-flex;
+            margin: 0 auto;
+            border-radius: 6px;
+            flex-direction: row;
+            text-decoration: none;
+            position: relative;
+            justify-content: center;
+            padding: 20px;
+            .english-fv-absolute-cvtop {
+                position: absolute;
+                left: 0;
+                right: 0;
+                margin: auto;
+                top: -14px;
+                background: white;
+                border: 1px solid $cl-main-orange;
+                border-radius: 100px;
+                color: $cl-main-orange;
+                text-align: center;
+                padding: 3px 13px;
+                display: block;
+                width: 240px;
+                @include font-size-s;
+                justify-content: center;
+            }
+            .lp-cv-button-main {
+                @include font-size-l;
+                color: white;
+                font-weight: 500;
+                padding: 3px 0 0;
+                text-align: center;
+            }
+        }
+    }
+}
+
 .lp-section {
     padding: 120px 0;
+    @include responsive-style(768px) {
+        padding: 75px 0;
+    }
 }
 
 //イントロ部分
 .lp-section-intro {
-    padding: 10px 0 0px;
+    padding: 60px 0 0px;
     .lp-section-title-h2 {
         @include font-size-xl;
         font-weight: bold;
@@ -232,7 +344,7 @@ header {
         position: relative;
         line-height: 1.5;
         text-align: center;
-        margin: 0 auto 30px;
+        margin: 0 auto 45px;
     }
     .lp-section-intro-columns {
         display: flex;
@@ -280,10 +392,15 @@ header {
 
 .lp-section-intro-after {
     padding: 0 0 120px;
+    @include responsive-style(768px) {
+        padding: 0 0 75px;
+    }
     .lp-section-intro-after-svg svg {
         width: 100%;
-        margin: 0 auto 60px;
         height: 100px;
+        margin: -1px auto 60px;
+        z-index: 99;
+        position: relative;
         @include responsive-style(768px) {
             height: 60px;
         }
@@ -329,11 +446,17 @@ header {
             }
         }
     }
+    .lp-section-reason-leftimg {
+        margin: 10px auto 20px;
+    }
 }
 
 .lp-section-movie {
     @include section-middlewidth;
     margin: -30px auto 0;
+    @include responsive-style(768px) {
+        margin: 0px auto 0;
+    }
     iframe {
         box-shadow: 0 0 30px rgba(50, 50, 70, .15);
     }
@@ -359,12 +482,15 @@ header {
     /* 子要素を横並びにする */
     position: relative;
     margin: -30px 0 0;
-    height: 320px;
+    height: 340px;
+    @include responsive-style(768px) {
+        margin: 0px 0 0;
+    }
     div:first-child {
         margin: 0 0 0 60px;
     }
     div:last-child {
-        margin: 0 250px 0 0px;
+        margin: 0 400px 0 0px;
     }
     .lp-section-study-process-img {
         display: inline-block;
@@ -411,6 +537,17 @@ header {
     }
 }
 
+.lp-section-scroll {
+    height: 50px;
+    margin: 15px auto 15px;
+    img {
+        text-align: center;
+        width: 120px;
+        margin: 0px auto 0;
+        animation: bounce-swipe 3s infinite;
+    }
+}
+
 //コース
 .lp-section-course-box {
     display: grid;
@@ -435,6 +572,7 @@ header {
     margin: 30px auto 0;
     @include section-middlewidth;
     @include responsive-style(768px) {
+        margin: 0px auto 0;
         grid-template-columns: 1fr;
         grid-template-rows: repeat(2, 1fr);
         grid-column-gap: 0px;
@@ -455,6 +593,9 @@ header {
     @include section-middlewidth;
     margin: 30px auto 18px;
     position: relative;
+    @include responsive-style(768px) {
+        margin: 0px auto 18px;
+    }
     .lp-section-price-box {
         box-shadow: 0 0 30px rgba(50, 50, 70, .15);
         display: flex;
@@ -502,10 +643,11 @@ header {
             display: flex;
             justify-content: center;
             align-items: center;
+            font-weight: bold;
         }
         .lp-section-price-box-left-badge {
             position: absolute;
-            animation: rotate 4s linear infinite;
+            animation: rotate 10s linear infinite;
         }
         .lp-section-price-box-left-badge,
         .lp-section-price-box-left-badge:before,
@@ -575,8 +717,11 @@ header {
 
 .lp-section-trial-flow {
     width: 100%;
-    margin: 30px auto 0;
+    margin: 0px auto 0;
     @include section-maxwidth;
+    @include responsive-style(768px) {
+        margin: 0px auto 0;
+    }
 }
 
 .lp-cv {
@@ -598,6 +743,23 @@ header {
     }
     .lp-cv-lessonday {
         margin: 30px 0 0;
+        .lp-cv-lessonday-time-week {
+            display: inline-flex;
+            width: 30px;
+            height: 30px;
+            color: $cl-gray;
+            align-items: center;
+            justify-content: center;
+            background: white;
+            border-radius: 100px;
+            font-size: 18px;
+            font-weight: 600;
+            margin: 0 0 0 5px;
+            @include responsive-style(768px) {
+                width: 25px;
+                height: 25px;
+            }
+        }
         .lp-cv-lessonday-title {
             @include font-size-m;
             text-align: center;
@@ -623,23 +785,6 @@ header {
                 font-weight: 300;
             }
         }
-        .lp-cv-lessonday-time-week {
-            display: inline-flex;
-            width: 30px;
-            height: 30px;
-            color: #262626;
-            align-items: center;
-            justify-content: center;
-            background: white;
-            border-radius: 100px;
-            font-size: 18px;
-            font-weight: 600;
-            margin: 0 0 0 5px;
-            @include responsive-style(768px) {
-                width: 25px;
-                height: 25px;
-            }
-        }
         .lp-cv-lessonday-time-hourrange {
             font-size: 40px;
             font-weight: 500;
@@ -654,7 +799,7 @@ header {
     .lp-cv-button {
         margin: 20px auto 0;
         a {
-            padding: 20px 65px;
+            padding: 20px 60px;
             background: $cl-main-orange !important;
             box-shadow: 0 4px 0 #9D4E00;
             animation: lp-cta__btn 3s infinite;
@@ -663,9 +808,10 @@ header {
             border-radius: 6px;
             flex-direction: row;
             text-decoration: none;
+            justify-content: center;
             @include responsive-style(768px) {
                 width: 90%;
-                padding: 20px 40px;
+                padding: 20px 0px;
             }
             .lp-cv-button-sub {
                 padding: 1px 8px;
