@@ -12,7 +12,7 @@ header
         img(src='https://go.waomirai.com/l/1026513/2024-09-18/h3s77/1026513/1726708276w8Gt180a/fv_main_text.svg')
    .lp-cv-button 
       a(href=linkUrl,onclick="gtag('event', 'click', {'event_category': 'click','event_label': 'click-english-lp-button'});" target='_blank')   
-       .english-fv-absolute-cvtop 
+       .english-fv-absolute-cvtop.cv-limit-text
           |9/30までに申し込むと10月中は無料
        .lp-cv-button-main
           |無料体験レッスンはこちら
@@ -21,24 +21,24 @@ header
           .lp-cv-lessonday-time-title 
             |最短のオンラインレッスン開催日 
           .lp-cv-lessonday-time-day 
-            span.lp-cv-lessonday-time-day-monthday|10
+            span.lp-cv-lessonday-time-day-monthday.next-lesson-month|10
             span.lp-cv-lessonday-time-day-slash|/
-            span.lp-cv-lessonday-time-day-monthday|1
-          .lp-cv-lessonday-time-week
+            span.lp-cv-lessonday-time-day-monthday.next-lesson-day|1
+          .lp-cv-lessonday-time-week.next-lesson-week
               |火
-          .lp-cv-lessonday-time-hourrange
-              |17:00~17:25
+          .lp-cv-lessonday-time-hourrange.next-lesson-hour-range
+              |17:00~
          
 .english-fv-sp.spimage
   .english-fvsp-bg 
    .english-fvsp-maintxt 
       img(src='https://go.waomirai.com/l/1026513/2024-09-18/h3s77/1026513/1726708276w8Gt180a/fv_main_text.svg')    
    .english-fvsp-bg-img
-     img(src='https://storage.pardot.com/1026513/1726713203OyuMsVkR/iPhone_14_Pro_Max_____11.png')
+     img(src='https://go.waomirai.com/l/1026513/2024-09-24/h44dj/1026513/1727153213OZkAHfVC/fvsp.png')
   .english-fvsp-wrap
       .lp-cv-button 
             a(href=linkUrl,onclick="gtag('event', 'click', {'event_category': 'click','event_label': 'click-english-lp-button'});" target='_blank')   
-                .english-fv-absolute-cvtop 
+                .english-fv-absolute-cvtop.cv-limit-text
                     |9/30までに申し込むと10月中は無料
                 .lp-cv-button-main
                     |無料体験レッスンはこちら
@@ -47,13 +47,13 @@ header
                 |最短のオンラインレッスン開催日 
             .lp-cv-lessonday-time 
                 .lp-cv-lessonday-time-day 
-                  span.lp-cv-lessonday-time-day-monthday|10
+                  span.lp-cv-lessonday-time-day-monthday.next-lesson-month|10
                   span.lp-cv-lessonday-time-day-slash|/
-                  span.lp-cv-lessonday-time-day-monthday|1
-                .lp-cv-lessonday-time-week
+                  span.lp-cv-lessonday-time-day-monthday.next-lesson-day|1
+                .lp-cv-lessonday-time-week.next-lesson-week
                     |火
                 .lp-cv-lessonday-time-hourrange
-                    |17:00~17:25              
+                    |17:00~              
 section.lp-section-intro.lp-section-bgyellow
     h2.lp-section-title-h2
      |こんな悩みありませんか？
@@ -305,8 +305,8 @@ section.lp-section.lp-section-bglightgray
       img(src='https://storage.pardot.com/1026513/1726640348sRjJhEhl/img_flow_sp.png')
 div.lp-cv
     .lp-cv-title
-      .lp-cv-title-text 
-        |9/30までに申し込むと10月中は
+      .lp-cv-title-text
+        span.lp-cv-title-text-top|9/30までに申し込むと10月中は
         br
         |オンラインレッスンが受け放題
       .lp-cv-title-note
@@ -316,13 +316,13 @@ div.lp-cv
          |最短のオンラインレッスン開催日
        .lp-cv-lessonday-time 
           .lp-cv-lessonday-time-day 
-            span.lp-cv-lessonday-time-day-monthday|10
+            span.lp-cv-lessonday-time-day-monthday.next-lesson-month|10
             span.lp-cv-lessonday-time-day-slash|/
-            span.lp-cv-lessonday-time-day-monthday|1
-          .lp-cv-lessonday-time-week
+            span.lp-cv-lessonday-time-day-monthday.next-lesson-day|1
+          .lp-cv-lessonday-time-week.next-lesson-week
               |火
-          .lp-cv-lessonday-time-hourrange
-              |17:00~17:25
+          .lp-cv-lessonday-time-hourrange.next-lesson-hour-range
+              |17:00~
     .lp-cv-button 
        a(href=linkUrl,onclick="gtag('event', 'click', {'event_category': 'click','event_label': 'click-english-lp-button'});", target='_blank') 
            .lp-cv-button-sub 
@@ -370,10 +370,127 @@ footer
 .fixed-button(style='display:none;')
           .lp-cv-button 
               a(href=linkUrl,onclick="gtag('event', 'click', {'event_category': 'click','event_label': 'click-english-lp-button'});" target='_blank')   
-                .english-fv-absolute-cvtop 
+                .english-fv-absolute-cvtop.cv-limit-text
                     |9/30までに申し込むと10月中は無料
                 .lp-cv-button-main
                     |無料体験レッスンはこちら
+script.
+  function changeDateTime(simulatedDate = null) {
+    const dayElement = $('.next-lesson-day');
+    const monthElement = $('.next-lesson-month');
+    const weekElement = $('.next-lesson-week');
+    const hourRangeElement = $('.next-lesson-hour-range');
+    const cvLimitTextElement = $('.cv-limit-text');  // CV文言用の要素
+    const cvButtonLimitTextElement = $('.lp-cv-title-text-top');  // CV文言用の要素
+    
+    // 現在の日時を取得（テスト用の日時を設定）
+    const currentDate = simulatedDate || new Date();
+    
+    // レッスン日を定義
+    const lessons = [
+      // 10月の日程
+      { date: new Date(2024, 9, 1, 17, 0), day: '1', week: '火', hourRange: '17:00~', month: '10' },
+      { date: new Date(2024, 9, 3, 17, 0), day: '3', week: '木', hourRange: '17:00~', month: '10' },
+      { date: new Date(2024, 9, 5, 17, 30), day: '5', week: '土', hourRange: '17:30~', month: '10' },
+      { date: new Date(2024, 9, 8, 17, 0), day: '8', week: '火', hourRange: '17:00~', month: '10' },
+      { date: new Date(2024, 9, 10, 17, 0), day: '10', week: '木', hourRange: '17:00~', month: '10' },
+      { date: new Date(2024, 9, 12, 17, 30), day: '12', week: '土', hourRange: '17:30~', month: '10' },
+      { date: new Date(2024, 9, 15, 17, 0), day: '15', week: '火', hourRange: '17:00~', month: '10' },
+      { date: new Date(2024, 9, 17, 17, 0), day: '17', week: '木', hourRange: '17:00~', month: '10' },
+      { date: new Date(2024, 9, 19, 17, 30), day: '19', week: '土', hourRange: '17:30~', month: '10' },
+      
+      // 11月の日程
+      { date: new Date(2024, 10, 2, 17, 30), day: '2', week: '土', hourRange: '17:30~', month: '11' },
+      { date: new Date(2024, 10, 5, 17, 0), day: '5', week: '火', hourRange: '17:00~', month: '11' },
+      { date: new Date(2024, 10, 7, 17, 0), day: '7', week: '木', hourRange: '17:00~', month: '11' },
+      { date: new Date(2024, 10, 9, 17, 30), day: '9', week: '土', hourRange: '17:30~', month: '11' },
+      { date: new Date(2024, 10, 12, 17, 0), day: '12', week: '火', hourRange: '17:00~', month: '11' },
+      { date: new Date(2024, 10, 14, 17, 0), day: '14', week: '木', hourRange: '17:00~', month: '11' },
+      { date: new Date(2024, 10, 16, 17, 30), day: '16', week: '土', hourRange: '17:30~', month: '11' },
+      { date: new Date(2024, 10, 19, 17, 0), day: '19', week: '火', hourRange: '17:00~', month: '11' },
+      { date: new Date(2024, 10, 21, 17, 0), day: '21', week: '木', hourRange: '17:00~', month: '11' }
+    ];
+
+    // 条件による表示内容を決定
+    let newDate = '';
+    let newWeek = '';
+    let newMonth = '';
+    let newHourRange = '';
+    let newCvText = '';
+    let newButtonCvText = '';
+
+    // 現在の日時と各レッスン日の比較
+    for (let lesson of lessons) {
+      if (currentDate < lesson.date) {
+        newDate = lesson.day;
+        newWeek = lesson.week;
+        newHourRange = lesson.hourRange;
+        newMonth = lesson.month;  // 動的に月を設定
+        break;
+      }
+    }
+
+    // CV文言を決定
+    if (currentDate >= new Date(2024, 8, 20, 0, 0) && currentDate <= new Date(2024, 8, 30, 23, 59)) {
+      newCvText = '9/30までに申し込むと10月中は無料';
+      newButtonCvText = '9/30までに申し込むと10月中は' 
+    } else if (currentDate >= new Date(2024, 9, 1, 0, 0) && currentDate <= new Date(2024, 9, 9, 23, 59)) {
+      newCvText = '10/10までに申し込むと今月中は無料';
+      newButtonCvText = '10/10までに申し込むと今月中は' 
+    } else if (currentDate >= new Date(2024, 9, 10, 0, 0) && currentDate <= new Date(2024, 9, 14, 23, 59)) {
+      newCvText = '10/15までに申し込むと今月中は無料';
+      newButtonCvText = '10/15までに申し込むと今月中は' 
+    } else if (currentDate >= new Date(2024, 9, 15, 0, 0)) {
+      newCvText = '10月中はレッスン受け放題！';
+      newButtonCvText = '10月中は' 
+    }
+
+    // 該当するレッスン日がない場合（すべてのレッスンが終了している場合）
+    if (!newDate) {
+      $('.lp-cv-lessonday').hide();
+    }
+
+    // HTMLの内容を更新
+    dayElement.text(newDate);
+    monthElement.text(newMonth);
+    weekElement.text(newWeek);
+    hourRangeElement.text(newHourRange);
+    cvLimitTextElement.text(newCvText);  // CV文言を更新
+    cvButtonLimitTextElement.text(newButtonCvText);
+  }
+  $(document).ready(function() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const isTestCase = urlParams.has('via') && urlParams.get('via') === 'testcase';
+    
+    // via=testcaseがある場合、div.testcaseを表示
+    if (isTestCase) {
+      $('div.testcase').show();  // 要素を表示
+    }
+    changeDateTime();
+
+    // テスト実行ボタンが押されたときの処理
+    $('#testButton').on('click', function() {
+      const testDateInput = $('#testDate').val();
+      
+      // 日時フォーマットが正しいか確認
+      if (!testDateInput || !testDateInput.includes(' ')) {
+        alert('正しい日時を入力してください（例: 2024-10-01 16:59）');
+        return;
+      }
+
+      // 入力された日時をパース
+      const [datePart, timePart] = testDateInput.split(' ');
+      const [year, month, day] = datePart.split('-').map(Number);
+      const [hour, minute] = timePart.split(':').map(Number);
+      
+      // テスト用の日時を作成
+      const simulatedDate = new Date(year, month - 1, day, hour, minute);
+      
+      // テスト用の日時で関数を実行
+      changeDateTime(simulatedDate);
+    });
+  });
+
 script.
       $(function () {
               var pagetop = $('.fixed-button'); // 要素のキャッシュ
@@ -395,3 +512,9 @@ script.
       }
     });
       });
+
+div.testcase(style='position:fixed; z-index:100; top:0; left:0; display:none;')
+    // テスト用の日時入力フィールド
+    input#testDate(type="text", placeholder="2024-10-01 16:59")
+    // テスト実行ボタン
+    button#testButton テスト実行
