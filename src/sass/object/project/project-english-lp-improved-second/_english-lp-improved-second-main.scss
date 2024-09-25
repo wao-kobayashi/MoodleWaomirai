@@ -1,7 +1,175 @@
 body {
-    font-family: "Jost", 'Noto Sans JP', sans-serif;
+    font-family: 'Avenir LT Pro', "Jost", 'Noto Sans JP', sans-serif;
     color: $cl-gray;
-    background: black;
+    // background: black;
+}
+
+.section-el-second {
+    // height: 300px;
+    width: 100%;
+}
+
+.section-el-second-enjoy {
+    border-radius: 0px 0px 100px 100px;
+    background: $cl-graylightest;
+    .section-el-second-content {
+        .section-el-second-content-title {
+            margin: 75px auto 0;
+            text-align: center;
+        }
+        .section-el-second-content-title-text {
+            text-align: center;
+            @include font-size-xl;
+            font-weight: 600;
+            position: relative;
+            display: inline-block;
+            padding: 0 70px;
+            margin: 0 auto;
+            letter-spacing: 2px;
+            &:before,
+            &:after {
+                content: '';
+                position: absolute;
+                top: 50%;
+                display: inline-block;
+                width: 60px;
+                height: 2px;
+                background-color: black;
+            }
+            &:before {
+                left: 0;
+                transform: rotate(45deg);
+            }
+            &:after {
+                right: 0;
+                transform: rotate(-45deg);
+            }
+        }
+        .section-el-second-content-text {
+            @include font-size-m;
+            text-align: center;
+            line-height: 1.75;
+            margin: 10px 0 0;
+        }
+    }
+    .section-el-second-content-grid {
+        max-width: 1200px;
+        width: 90%;
+        margin: 90px auto 0;
+        display: grid;
+        grid-template-columns: 1fr 1.5fr;
+        grid-column-gap: 60px;
+        &.section-el-second-content-grid-two {
+            grid-template-columns: 1.5fr 1fr;
+        }
+        &.section-el-second-content-grid-one {
+            .section-el-second-content-grid-title {
+                margin: 60px 0 0;
+            }
+        }
+        .section-el-second-content-grid-title {
+            text-align: left;
+            @include font-size-xl;
+            font-weight: 600;
+            position: relative;
+            display: inline-block;
+            margin: 20px 0 0;
+        }
+        .section-el-second-content-grid-txt {
+            @include font-size-m;
+            text-align: left;
+            line-height: 1.75;
+            margin: 10px 0 0;
+        }
+        .section-el-second-content-grid-img img {
+            border-radius: 100px;
+        }
+        .section-el-second-content-grid-iframe {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%;
+            /* 16:9 aspect ratio (9 / 16 = 0.5625) */
+            height: 0;
+            overflow: hidden;
+            border-radius: 100px;
+            iframe {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                border: 0;
+                border-radius: 100px;
+            }
+        }
+    }
+    .section-el-second-top {
+        background: $english-yellow;
+        &:before {
+            background: $cl-graylightest;
+        }
+    }
+}
+
+.section-el-second-why {
+    .section-el-second-content {
+        background: $english-yellow;
+    }
+    .section-el-second-top {
+        background: #fff;
+        &:before {
+            background: $english-yellow;
+        }
+    }
+}
+
+.section-el-second-ability {
+    .section-el-second-content {
+        background: $english-yellowpale;
+    }
+    .section-el-second-top {
+        background: #fff;
+        &:before {
+            background: $english-yellowpale;
+        }
+    }
+}
+
+.section-movie {
+    padding: 150px 0;
+    background: $cl-english-pale;
+    max-width: 1200px;
+    width: 90%;
+    border-radius: 100px;
+    margin: 0 auto;
+    text-align: center;
+    margin: 100px auto;
+}
+
+.section-el-second-top {
+    height: 80px;
+    position: relative;
+    // border-radius: 100px 100px 0 0;
+    .section-el-second-top-text {
+        position: absolute;
+        top: -65px;
+        left: 0;
+        right: 0;
+        margin: auto;
+        text-align: center;
+        font-weight: 800;
+        font-size: 110px;
+        letter-spacing: 7px;
+    }
+    &:before {
+        border-radius: 100px 100px 0 0;
+        position: absolute;
+        width: 100%;
+        height: 80px;
+        background: #ccc;
+        content: "";
+        display: block;
+    }
 }
 
 #english-lp-ver2 {
