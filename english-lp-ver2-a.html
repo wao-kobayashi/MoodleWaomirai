@@ -396,7 +396,7 @@
             const weekElement = $('.next-lesson-week');
             const hourRangeElement = $('.next-lesson-hour-range');
             const cvLimitTextElement = $('.cv-limit-text'); // CV文言用の要素
-            const cvButtonLimitTextElement = $('.lp-cv-title-text-top'); // CV文言用の要素
+            const cvButtonLimitTextElement = $('.lp-cv-title-text'); // CV文言用の要素
 
             // 現在の日時を取得（テスト用の日時を設定）
             const currentDate = simulatedDate || new Date();
@@ -540,16 +540,23 @@
             // CV文言を決定
             if (currentDate >= new Date(2024, 8, 20, 0, 0) && currentDate <= new Date(2024, 8, 30, 23, 59)) {
                 newCvText = '9/30までに申し込むと10月中は無料';
-                newButtonCvText = '9/30までに申し込むと10月中は'
+                newButtonCvText = '9/30までに申し込むと10月中は<br />オンラインレッスンが受け放題'
             } else if (currentDate >= new Date(2024, 9, 1, 0, 0) && currentDate <= new Date(2024, 9, 9, 23, 59)) {
                 newCvText = '10/10までに申し込むと今月中は無料';
-                newButtonCvText = '10/10までに申し込むと今月中は'
+                newButtonCvText = '10/10までに申し込むと今月中は<br />オンラインレッスンが受け放題'
             } else if (currentDate >= new Date(2024, 9, 10, 0, 0) && currentDate <= new Date(2024, 9, 14, 23, 59)) {
                 newCvText = '10/15までに申し込むと今月中は無料';
-                newButtonCvText = '10/15までに申し込むと今月中は'
+                newButtonCvText = '10/15までに申し込むと今月中は<br />オンラインレッスンが受け放題'
             } else if (currentDate >= new Date(2024, 9, 15, 0, 0)) {
-                newCvText = '10月中はレッスン受け放題！';
-                newButtonCvText = '10月中は'
+                newCvText = '10月中のすべてのオンラインレッスンを<br />アーカイブで見放題！';
+                newButtonCvText = '10月中のオンラインレッスンを<br />アーカイブで見放題！'
+                cvLimitTextElement.css({
+                    'transform': 'scale(0.9)',
+                    'top': '-24px',
+                    'width': '260px',
+                    'padding': '3px 13px',
+                    'line-height': '1.4'
+                });
             }
 
             // 該当するレッスン日がない場合（すべてのレッスンが終了している場合）
@@ -562,8 +569,8 @@
             monthElement.text(newMonth);
             weekElement.text(newWeek);
             hourRangeElement.text(newHourRange);
-            cvLimitTextElement.text(newCvText); // CV文言を更新
-            cvButtonLimitTextElement.text(newButtonCvText);
+            cvLimitTextElement.html(newCvText); // CV文言を更新
+            cvButtonLimitTextElement.html(newButtonCvText);
         }
         $(document).ready(function() {
             const urlParams = new URLSearchParams(window.location.search);
