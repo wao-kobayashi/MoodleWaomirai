@@ -6,12 +6,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     var cookieName = 'visited';
     var sessionKey = 'sessionVisited';
     if ($.cookie(cookieName)) {
-        $("#passwordInput").val("mirai");
+        $("#passwordInput").val("grape");
     }
     // 初回訪問か再訪問かをチェック
     $("#passwordForm").on("submit", function(event) {
         event.preventDefault();
-        const correctPassword = "mirai"; // 正しいパスワードを設定
+        const correctPassword = "grape"; // 正しいパスワードを設定
         const enteredPassword = $("#passwordInput").val();
 
         if (enteredPassword === correctPassword) {
