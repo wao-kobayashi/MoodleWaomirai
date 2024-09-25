@@ -4636,6 +4636,7 @@ body {
 .section-el-second-enjoy {
   border-radius: 0px 0px 100px 100px;
   background: #f0f2f3;
+  padding: 0 0 100px;
 }
 .section-el-second-enjoy .section-el-second-content .section-el-second-content-title {
   margin: 75px auto 0;
@@ -4750,6 +4751,41 @@ body {
 }
 .section-el-second-enjoy .section-el-second-top:before {
   background: #f0f2f3;
+}
+.section-el-second-enjoy .section-el-second-content-grid-3columns {
+  display: grid;
+  max-width: 1200px;
+  width: 90%;
+  margin: 90px auto 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-column-gap: 75px;
+}
+.section-el-second-enjoy .section-el-second-content-grid-3columns .section-el-second-content-grid-3columns-image img {
+  border-radius: 70px;
+}
+.section-el-second-enjoy .section-el-second-content-grid-3columns .section-el-second-content-grid-3columns-title {
+  font-size: 24px;
+  font-weight: 600;
+  margin: 20px 0 5px;
+  letter-spacing: 1px;
+}
+@media screen and (max-width: 768px) {
+  .section-el-second-enjoy .section-el-second-content-grid-3columns .section-el-second-content-grid-3columns-title {
+    font-size: 20px;
+  }
+}
+.section-el-second-enjoy .section-el-second-content-grid-3columns .section-el-second-content-grid-3columns-text {
+  font-size: 12px;
+  font-weight: 300;
+  margin: 0px 0 10px;
+  letter-spacing: 1px;
+  line-height: 1.75;
+}
+@media screen and (max-width: 768px) {
+  .section-el-second-enjoy .section-el-second-content-grid-3columns .section-el-second-content-grid-3columns-text {
+    font-size: 11.5px;
+  }
 }
 
 .section-el-second-why .section-el-second-content {

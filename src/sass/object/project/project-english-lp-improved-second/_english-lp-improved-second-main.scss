@@ -12,6 +12,7 @@ body {
 .section-el-second-enjoy {
     border-radius: 0px 0px 100px 100px;
     background: $cl-graylightest;
+    padding: 0 0 100px;
     .section-el-second-content {
         .section-el-second-content-title {
             margin: 75px auto 0;
@@ -107,6 +108,31 @@ body {
         background: $english-yellow;
         &:before {
             background: $cl-graylightest;
+        }
+    }
+    .section-el-second-content-grid-3columns {
+        display: grid;
+        max-width: 1200px;
+        width: 90%;
+        margin: 90px auto 0;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-column-gap: 75px;
+        .section-el-second-content-grid-3columns-image img {
+            border-radius: 70px;
+        }
+        .section-el-second-content-grid-3columns-title {
+            @include font-size-l;
+            font-weight: 600;
+            margin: 20px 0 5px;
+            letter-spacing: 1px;
+        }
+        .section-el-second-content-grid-3columns-text {
+            @include font-size-s;
+            font-weight: 300;
+            margin: 0px 0 10px;
+            letter-spacing: 1px;
+            line-height: 1.75;
         }
     }
 }
