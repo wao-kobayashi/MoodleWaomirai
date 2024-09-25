@@ -1,0 +1,9 @@
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans+JP:400,500,700,900');
+@import url('https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+@import "foundation/_base"; //ベースのcss、フォントなどの定義
+@import "foundation/_mixin"; //よく使う関数など定義したもの
+@import "foundation/_constant"; //色などの変数定義
+@import "foundation/_wpstyle"; //色などの変数定義
+@import "foundation/_reset"; //デフォルトのスタイルをリセットしたもの
+@import "object/project/project-english-lp-improved-second/_english-lp-improved-second-mixins-colors";
+@import "object/project/project-english-lp-improved-second/_english-lp-improved-second-main";
