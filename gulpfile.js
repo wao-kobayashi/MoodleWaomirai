@@ -60,7 +60,7 @@ function scss() {
         .pipe(sass())
         .pipe(postcss(processors))
         .pipe(gulp.dest(dstpaths.css))
-        .pipe(browserSync.stream());
+        .pipe(browserSync.reload({ stream: true })); // streamオプションを使う
 }
 
 function browserifyTask() {
@@ -74,7 +74,7 @@ function browserifyTask() {
         .pipe(browserSync.stream());
 }
 
-exports.default = gulp.series(serve);
+exports.default = gulp.series(scss, serve); // scssタスクを初回起動時に実行
 exports.jade = jade;
 exports.pug = pugTask;
 exports.scss = scss;

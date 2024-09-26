@@ -13,6 +13,11 @@ $english-yellowpale:#FAF3CE;
     }
 }
 
+@mixin section-widewidth {
+    max-width: 1000px;
+    padding: 0 30px;
+}
+
 @mixin section-middlewidth {
     max-width: 800px;
     padding: 0 30px;
@@ -36,7 +41,7 @@ $english-yellowpale:#FAF3CE;
 }
 
 @mixin font-size-l {
-    font-size: 24px;
+    font-size: 27px;
     @include responsive-style(768px) {
         font-size: 20px;
     }
@@ -95,6 +100,168 @@ $english-yellowpale:#FAF3CE;
         transform: translateX(15px);
     }
 }
+
+.section-el-second {
+    // height: 300px;
+    width: 100%;
+    padding: 0 0 210px;
+    .section-el-second-content {
+        .section-el-second-content-title {
+            // margin: 45px auto 0;
+            text-align: center;
+        }
+        .section-el-second-content-title-text {
+            text-align: center;
+            @include font-size-xl;
+            font-weight: 600;
+            position: relative;
+            display: inline-block;
+            margin: 0 auto;
+            letter-spacing: 2px;
+            // padding: 0 70px;
+            // &:before,
+            // &:after {
+            //     content: '';
+            //     position: absolute;
+            //     top: 50%;
+            //     display: inline-block;
+            //     width: 60px;
+            //     height: 2px;
+            //     background-color: black;
+            // }
+            // &:before {
+            //     left: 0;
+            //     transform: rotate(45deg);
+            // }
+            // &:after {
+            //     right: 0;
+            //     transform: rotate(-45deg);
+            // }
+        }
+        .section-el-second-content-text {
+            @include font-size-m;
+            text-align: center;
+            line-height: 1.75;
+            margin: 10px 0 0;
+        }
+    }
+}
+
+@mixin section-styles($content-bg, $top-bg, $top-before-bg) {
+    background: $content-bg;
+    // .section-el-second-content {
+    // }
+    .section-el-second-top {
+        background: $top-bg;
+        &:before {
+            background: $top-before-bg;
+        }
+    }
+}
+
+.section-el-second-why {
+    @include section-styles($english-yellow, #fff, $english-yellow);
+}
+
+.section-el-second-ability {
+    @include section-styles($english-yellowpale, #fff, $english-yellowpale);
+}
+
+//ラポール22
+.section-el-second-who {
+    @include section-styles(#fff, $english-yellowpale, #fff);
+}
+
+//授業コース
+.section-el-second-coarce {
+    @include section-styles($cl-english-pale, #fff, $cl-english-pale);
+}
+
+//授業の流れ
+.section-el-second-process {
+    @include section-styles(#fff, $cl-english-pale, #fff);
+}
+
+//お客様からの声
+.section-el-second-voice {
+    @include section-styles($english-yellowpale, #fff, $english-yellowpale);
+}
+
+//料金
+.section-el-second-price {
+    @include section-styles(#fff, $english-yellowpale, #fff);
+}
+
+//無料体験レッスンまでの流れ
+.section-el-second-try {
+    @include section-styles($cl-graylightest, #fff, $cl-graylightest);
+}
+
+//よくある質問
+.section-el-second-faq {
+    @include section-styles($cl-graylightest, #fff, $cl-graylightest);
+}
+
+.section-el-second-movie {
+    padding: 75px 75px;
+    background: $cl-english-pale;
+    max-width: 1200px;
+    width: 90%;
+    border-radius: 100px;
+    margin: 0 auto;
+    text-align: center;
+    margin: 100px auto 130px;
+    display: grid;
+    grid-template-columns: 1fr 1.7fr;
+    grid-column-gap: 60px;
+    .section-el-second-movie-left {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        .section-el-second-movie-left-title {
+            text-align: left;
+            @include font-size-xl;
+            font-weight: 600;
+            letter-spacing: 3px;
+            margin: 0 0 20px;
+        }
+        .section-el-second-movie-left-text {
+            @include font-size-m;
+            text-align: left;
+            line-height: 1.75;
+        }
+    }
+}
+
+.section-el-second-top {
+    height: 80px;
+    position: relative;
+    // border-radius: 100px 100px 0 0;
+    margin: 0 auto 40px;
+    .section-el-second-top-text {
+        position: absolute;
+        top: -65px;
+        left: 0;
+        right: 0;
+        margin: auto;
+        text-align: center;
+        font-weight: 800;
+        font-size: 110px;
+        letter-spacing: 7px;
+    }
+    &:before {
+        border-radius: 100px 100px 0 0;
+        position: absolute;
+        width: 100%;
+        height: 80px;
+        background: #ccc;
+        content: "";
+        display: block;
+    }
+}
+
+
+/* 過去の */
 
 .lp-section-bgyellow {
     background: $english-yellow;
@@ -169,7 +336,7 @@ $english-yellowpale:#FAF3CE;
     line-height: 1.5;
     @include font-size-m;
     position: relative;
-    margin: 30px auto 0;
+    margin: 20px auto 0;
     // @include section-maxwidth;
     @include section-middlewidth;
     @include responsive-style(768px) {
