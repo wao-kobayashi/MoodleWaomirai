@@ -31,10 +31,27 @@ function serve() {
         index: "index.html"
     });
 
-    gulp.watch([srcpaths.scss, srcpaths.sass], scss);
-    gulp.watch(srcpaths.jade, jade);
-    gulp.watch(srcpaths.pug, pugTask);
-    gulp.watch(srcpaths.jsx, browserifyTask);
+    // SCSS/Sassファイルの変更を監視して自動コンパイル＆リロード
+    gulp.watch([srcpaths.scss, srcpaths.sass], gulp.series(scss, (done) => {
+        browserSync.reload();
+        done();
+    }));
+
+    // その他のファイルの監視
+    gulp.watch(srcpaths.jade, gulp.series(jade, (done) => {
+        browserSync.reload();
+        done();
+    }));
+
+    gulp.watch(srcpaths.pug, gulp.series(pugTask, (done) => {
+        browserSync.reload();
+        done();
+    }));
+
+    gulp.watch(srcpaths.jsx, gulp.series(browserifyTask, (done) => {
+        browserSync.reload();
+        done();
+    }));
 }
 
 function jade() {
@@ -57,10 +74,10 @@ function scss() {
     const processors = [cssnext()];
     return gulp.src([srcpaths.scss, srcpaths.sass])
         .pipe(plumber())
-        .pipe(sass())
+        .pipe(sass().on('error', sass.logError)) // エラーをログに表示
         .pipe(postcss(processors))
         .pipe(gulp.dest(dstpaths.css))
-        .pipe(browserSync.reload({ stream: true })); // streamオプションを使う
+        .pipe(browserSync.stream());
 }
 
 function browserifyTask() {
@@ -74,7 +91,8 @@ function browserifyTask() {
         .pipe(browserSync.stream());
 }
 
-exports.default = gulp.series(scss, serve); // scssタスクを初回起動時に実行
+// デフォルトタスク
+exports.default = gulp.series(scss, serve);
 exports.jade = jade;
 exports.pug = pugTask;
 exports.scss = scss;

@@ -1,7 +1,12 @@
 body {
     font-family: 'Avenir LT Pro', "Jost", 'Noto Sans JP', sans-serif;
-    color: $cl-gray;
+    // color: $cl-gray;
     // background: black;
+    color: #262626;
+}
+
+#english-lp-improved-second {
+    overflow-x: hidden;
 }
 
 header {
@@ -103,6 +108,10 @@ header {
         min-height: 500px;
         border-radius: 50px;
         padding: 50px 45px;
+        @include responsive-style(768px) {
+            padding: 50px 25px;
+            margin: 60px auto 0;
+        }
         >div {
             margin: 0 auto 60px;
         }
@@ -125,6 +134,12 @@ header {
             @include font-size-m;
             line-height: 1.75;
             margin: 10px 0 0px;
+            color: $cl-waogray;
+            font-weight: 400;
+            strong {
+                color: $cl-gray;
+                font-weight: 700;
+            }
         }
         .section-el-second-content-detail-img img {
             width: 100%;
@@ -132,6 +147,9 @@ header {
             // object-fit: cover;
             margin: 15px 0 0px;
             border-radius: 50px;
+            @include responsive-style(768px) {
+                border-radius: 40px;
+            }
         }
     }
 }
@@ -141,6 +159,15 @@ header {
     border-radius: 0px 0px 100px 100px;
     background: $cl-graylightest;
     padding: 0 0 100px;
+    @include responsive-style(768px) {
+        border-radius: 0px 0px 50px 50px;
+    }
+    .section-el-second-top-text {
+        @include responsive-style(768px) {
+            top: -52px;
+            line-height: 1;
+        }
+    }
     .section-el-second-content-grid {
         max-width: 1200px;
         width: 90%;
@@ -148,6 +175,9 @@ header {
         display: grid;
         grid-template-columns: 1fr 1.5fr;
         grid-column-gap: 60px;
+        @include responsive-style(768px) {
+            display: block;
+        }
         .section-el-second-content-grid-right {
             position: relative;
             .section-el-second-content-grid-absolute img {
@@ -165,6 +195,9 @@ header {
         }
         &.section-el-second-content-grid-one {
             margin: 90px auto 90px;
+            @include responsive-style(768px) {
+                margin: 0px auto 60px;
+            }
             .section-el-second-content-grid-title {
                 margin: 60px 0 0;
             }
@@ -219,8 +252,19 @@ header {
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;
         grid-column-gap: 75px;
+        @include responsive-style(768px) {
+            display: block;
+        }
+        .section-el-second-content-grid-3columns-box {
+            @include responsive-style(768px) {
+                margin: 0 auto 60px;
+            }
+        }
         .section-el-second-content-grid-3columns-image img {
             border-radius: 70px;
+            @include responsive-style(768px) {
+                border-radius: 45px;
+            }
         }
         .section-el-second-content-grid-3columns-title {
             @include font-size-l;
@@ -234,6 +278,31 @@ header {
             margin: 0px 0 10px;
             letter-spacing: 1px;
             line-height: 1.75;
+        }
+    }
+    .section-el-second-content-grid-image {
+        img {
+            @include responsive-style(768px) {
+                border-radius: 40px !important;
+            }
+        }
+        .section-el-second-content-grid-iframe {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%;
+            /* 16:9 aspect ratio (9 / 16 = 0.5625) */
+            height: 0;
+            overflow: hidden;
+            border-radius: 40px !important;
+            iframe {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                border: 0;
+                border-radius: 40px !important;
+            }
         }
     }
 }
@@ -250,6 +319,12 @@ header {
     display: grid;
     grid-template-columns: 1fr 1.7fr;
     grid-column-gap: 60px;
+    @include responsive-style(768px) {
+        display: block;
+        width: 100%;
+        border-radius: 50px;
+        padding: 75px 20px;
+    }
     .section-el-second-movie-left {
         display: flex;
         justify-content: center;
@@ -260,11 +335,17 @@ header {
             font-weight: 600;
             letter-spacing: 3px;
             margin: 0 0 20px;
+            @include responsive-style(768px) {
+                margin: 0 0 10px;
+            }
         }
         .section-el-second-movie-left-text {
             @include font-size-m;
             text-align: left;
             line-height: 1.75;
+            @include responsive-style(768px) {
+                margin: 0 0 10px;
+            }
         }
     }
 }
@@ -280,6 +361,9 @@ header {
         grid-column-gap: 30px;
         padding: 30px;
         border-radius: 50px;
+        @include responsive-style(768px) {
+            display: block;
+        }
         .section-el-second-content-ability-box-left img {
             border-radius: 50px;
         }
@@ -296,10 +380,17 @@ header {
             line-height: 1.45;
             margin: 0 0 10px;
             letter-spacing: 1.5px;
+            color: $cl-gray;
         }
         .section-el-second-content-ability-box-right-txt {
             @include font-size-m;
             line-height: 1.6;
+            font-weight: 400;
+            color: $cl-waogray;
+            strong {
+                color: $cl-gray;
+                font-weight: 700;
+            }
         }
     }
 }
@@ -371,10 +462,17 @@ header {
             height: 300px;
             // margin: 0 10px;
             text-align: center;
-            box-shadow: 0 0 30px rgba(50, 50, 70, .15);
+            img {
+                box-shadow: 0 0 30px rgba(50, 50, 70, .15);
+                border-radius: 10px;
+            }
         }
         .lp-section-study-process-img-noshadow {
             box-shadow: none !important;
+            img {
+                box-shadow: none !important;
+                border-radius: 0px;
+            }
         }
         .lp-section-study-process-arrow {
             width: 15px;
@@ -405,6 +503,7 @@ header {
                 bottom: 0;
                 margin: auto;
                 box-shadow: 0 0 30px rgba(50, 50, 70, .15);
+                border-radius: 10px;
             }
         }
     }
@@ -439,6 +538,9 @@ header {
             grid-template-rows: repeat(2, 1fr);
             grid-column-gap: 0px;
             grid-row-gap: 30px;
+            background: transparent;
+            padding: 30px 20px !important;
+            display: block;
         }
         .lp-section-voice-box-image img {
             // width: 80px;
@@ -446,7 +548,7 @@ header {
             border-radius: 100px;
             @include responsive-style(768px) {
                 width: 60%;
-                margin: 0 auto;
+                margin: 0 auto 30px;
             }
         }
         .lp-section-voice-box-text {
@@ -475,6 +577,7 @@ header {
             @include responsive-style(768px) {
                 height: auto;
                 display: block;
+                border-radius: 25px;
             }
         }
         .lp-section-price-box-left {
@@ -585,8 +688,11 @@ header {
 }
 
 .section-el-second-try {
-    border-radius: 0px 0px 100px 100px;
     padding: 0 0 120px !important;
+    border-radius: 0px 0px 100px 100px;
+    @include responsive-style(768px) {
+        border-radius: 0px 0px 50px 50px;
+    }
     .lp-section-trial-flow {
         width: 100%;
         margin: 30px auto 0;
@@ -607,9 +713,16 @@ header {
     border-radius: 100px;
     margin: 120px auto 150px;
     display: grid;
+    @include responsive-style(768px) {
+        width: 100%;
+        border-radius: 50px;
+    }
     .lp-cv-title-text {
         text-align: center;
-        @include font-size-xl;
+        font-size: 34px;
+        @include responsive-style(768px) {
+            font-size: 24px;
+        }
         color: white;
         font-weight: 700;
         line-height: 1.3;
@@ -690,7 +803,7 @@ header {
             text-decoration: none;
             justify-content: center;
             @include responsive-style(768px) {
-                width: 90%;
+                width: 300px;
                 padding: 20px 0px;
             }
             .lp-cv-button-sub {

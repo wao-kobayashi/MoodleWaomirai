@@ -2,6 +2,7 @@ $section-maxwidth:1200px;
 $section-middlewidth:800px;
 $english-yellow:#F6E245;
 $english-yellowpale:#FAF3CE;
+$cl-waogray:#4d4d4d; //グレー
 
 /* width */
 
@@ -15,12 +16,12 @@ $english-yellowpale:#FAF3CE;
 
 @mixin section-widewidth {
     max-width: 1000px;
-    padding: 0 30px;
+    padding: 0 20px;
 }
 
 @mixin section-middlewidth {
     max-width: 800px;
-    padding: 0 30px;
+    padding: 0 20px;
 }
 
 
@@ -43,14 +44,14 @@ $english-yellowpale:#FAF3CE;
 @mixin font-size-l {
     font-size: 27px;
     @include responsive-style(768px) {
-        font-size: 20px;
+        font-size: 24px;
     }
 }
 
 @mixin font-size-xl {
     font-size: 34px;
     @include responsive-style(768px) {
-        font-size: 25px;
+        font-size: 30px;
     }
 }
 
@@ -104,7 +105,7 @@ $english-yellowpale:#FAF3CE;
 .section-el-second {
     // height: 300px;
     width: 100%;
-    padding: 0 0 150px;
+    padding: 0 0 210px;
     .section-el-second-content {
         .section-el-second-content-title {
             // margin: 45px auto 0;
@@ -118,31 +119,19 @@ $english-yellowpale:#FAF3CE;
             display: inline-block;
             margin: 0 auto;
             letter-spacing: 2px;
-            // padding: 0 70px;
-            // &:before,
-            // &:after {
-            //     content: '';
-            //     position: absolute;
-            //     top: 50%;
-            //     display: inline-block;
-            //     width: 60px;
-            //     height: 2px;
-            //     background-color: black;
-            // }
-            // &:before {
-            //     left: 0;
-            //     transform: rotate(45deg);
-            // }
-            // &:after {
-            //     right: 0;
-            //     transform: rotate(-45deg);
-            // }
+            @include responsive-style(768px) {
+                text-align: left;
+            }
         }
         .section-el-second-content-text {
             @include font-size-m;
             text-align: center;
             line-height: 1.75;
             margin: 10px 0 0;
+            @include responsive-style(768px) {
+                text-align: left;
+                padding: 0 20px;
+            }
         }
     }
 }
@@ -212,11 +201,47 @@ $english-yellowpale:#FAF3CE;
         top: -65px;
         left: 0;
         right: 0;
-        margin: auto;
+        margin: 0 auto;
         text-align: center;
         font-weight: 800;
-        font-size: 110px;
         letter-spacing: 7px;
+        font-size: 110px;
+        @include responsive-style(768px) {
+            font-size: 65px;
+            top: -38px;
+        }
+        /* 余裕があったら実装したいアニメーション */
+        // overflow: hidden;
+        // display: flex;
+        // letter-spacing: .06em;
+        // justify-content: center;
+        // span {
+        //     letter-spacing: .06em;
+        //     margin: 0;
+        //     /* ここからアニメーション関係 */
+        //     transform: translateY(2em);
+        //     animation: textanimation 1s forwards;
+        //     &:nth-child(1) {
+        //         animation-delay: 0.1s
+        //     }
+        //     &:nth-child(2) {
+        //         animation-delay: 0.2s;
+        //     }
+        //     &:nth-child(3) {
+        //         animation-delay: 0.3s;
+        //     }
+        //     &:nth-child(4) {
+        //         animation-delay: 0.4s;
+        //     }
+        // }
+    }
+    @keyframes textanimation {
+        0% {
+            transform: translateY(2em);
+        }
+        100% {
+            transform: translateY(0);
+        }
     }
     &:before {
         border-radius: 100px 100px 0 0;
@@ -226,6 +251,9 @@ $english-yellowpale:#FAF3CE;
         background: #ccc;
         content: "";
         display: block;
+        @include responsive-style(768px) {
+            border-radius: 50px 50px 0 0;
+        }
     }
 }
 
