@@ -1,0 +1,219 @@
+@import url("https://fonts.googleapis.com/css?family=Noto+Sans+JP:400,500,700,900");
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css");
+@import url("https://fonts.googleapis.com/css?family=Noto+Sans+JP:400,500,700,900");
+body {
+  font-family: "Noto Sans JP", sans-serif;
+}
+
+@media screen and (max-width: 3000px) and (min-width: 768px) {
+  .spimage {
+    display: none !important;
+  }
+  .pcimage {
+    display: inherit;
+  }
+}
+@media screen and (max-width: 767px) {
+  .spimage {
+    display: inherit;
+  }
+  .pcimage {
+    display: none !important;
+  }
+}
+/* A Modern CSS Reset */
+*,
+*::before,
+*::after {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+ul[class],
+ol[class] {
+  padding: 0;
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+ul[class],
+ol[class],
+figure,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+}
+
+ul[class],
+ol[class] {
+  list-style: none;
+}
+
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+article > * + * {
+  margin-top: 1em;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    -webkit-animation-duration: 0.01ms !important;
+            animation-duration: 0.01ms !important;
+    -webkit-animation-iteration-count: 1 !important;
+            animation-iteration-count: 1 !important;
+    -webkit-transition-duration: 0.01ms !important;
+            transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+/* fontsize */
+body {
+  background: #f0f2f3;
+}
+
+header {
+  width: 100%;
+  background: white;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 60px;
+}
+header img {
+  width: 220px !important;
+}
+@media screen and (max-width: 768px) {
+  header img {
+    width: 170px !important;
+  }
+}
+
+.waomirai-wrapper h1 {
+  text-align: center;
+  margin: 45px 0;
+  letter-spacing: 2px;
+  font-size: 28px !important;
+}
+@media screen and (max-width: 768px) {
+  .waomirai-wrapper h1 {
+    font-size: 22px !important;
+  }
+}
+
+.waomirai-wrapper-content {
+  max-width: 800px;
+  width: 90%;
+  margin: 0 auto 90px;
+  background: white;
+  border-radius: 10px;
+  padding: 45px 20px;
+  text-align: left;
+}
+.waomirai-wrapper-content p {
+  font-size: 18px;
+  margin: 0 auto 18px;
+}
+@media screen and (max-width: 768px) {
+  .waomirai-wrapper-content p {
+    font-size: 16px;
+  }
+}
+.waomirai-wrapper-content h2 {
+  margin: 90px 0 10px;
+  font-size: 28px !important;
+}
+@media screen and (max-width: 768px) {
+  .waomirai-wrapper-content h2 {
+    font-size: 22px !important;
+  }
+}
+.waomirai-wrapper-content img {
+  width: 100%;
+  margin: 0 auto 18px;
+}
+@media screen and (max-width: 768px) {
+  .waomirai-wrapper-content {
+    padding: 30px 20px;
+    text-align: left;
+  }
+}
+.waomirai-wrapper-content .btn-waoorange a {
+  font-size: 18px;
+  text-decoration: none;
+  width: 100%;
+  max-width: 360px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background: #ee7a00;
+  -webkit-box-shadow: 0 5px 0 #bd5800;
+          box-shadow: 0 5px 0 #bd5800;
+  padding: 15px 20px;
+  color: white;
+  border-radius: 8px;
+  margin: 0px 0 30px;
+  cursor: pointer;
+  font-weight: bold;
+  text-align: center;
+  -webkit-transition: all 0.2s ease-out;
+  transition: all 0.2s ease-out;
+}
+@media screen and (max-width: 768px) {
+  .waomirai-wrapper-content .btn-waoorange a {
+    font-size: 16px;
+  }
+}
+.waomirai-wrapper-content .btn-waoorange a:hover {
+  opacity: 0.7;
+}
+.waomirai-wrapper-content .waomirai-wrapper-content-note {
+  color: #999;
+  font-size: 12px;
+}
+@media screen and (max-width: 768px) {
+  .waomirai-wrapper-content .waomirai-wrapper-content-note {
+    font-size: 11.5px;
+  }
+}
