@@ -121,6 +121,25 @@ header {
             }
         }
     }
+    .header-button {
+        position: fixed;
+        right: 20px;
+        top: 20px;
+        @include responsive-style(768px) {
+            display: none;
+        }
+        a {
+            background: $cl-waogreen;
+            height: 30px;
+            padding: 10px 20px;
+            border-radius: 10px;
+            color: white;
+            text-decoration: none;
+            &:hover {
+                opacity: 0.7;
+            }
+        }
+    }
 }
 
 .header-speech-tr {
@@ -199,6 +218,34 @@ section {
         max-width: 720px;
         margin: 0 auto;
         text-align: center;
+        @include responsive-style(768px) {
+            width: 90%;
+            margin: 0 auto 20px;
+            text-align: left;
+        }
+    }
+    .section-wao-english-button {
+        &:hover {
+            opacity: 0.5;
+        }
+        a {
+            font-size: $font-size-l;
+            width: 90%;
+            max-width: 600px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: $cl-waogreen;
+            box-shadow: 0 5px 0 #043324;
+            padding: 20px 20px;
+            color: white;
+            border-radius: 8px;
+            margin: 20px auto 60px;
+            cursor: pointer;
+            font-weight: bold;
+            text-align: center;
+            text-decoration: none;
+        }
     }
 }
 
@@ -390,6 +437,15 @@ section {
     }
     .section-wao-english-group-box-course-child-date-week {
         background: $cl-english !important;
+    }
+    .section-wao-english-button a {
+        background: $cl-english !important;
+        box-shadow: 0 5px 0 #7d417d;
+    }
+    .header-button {
+        a {
+            background: $cl-english;
+        }
     }
 }
 

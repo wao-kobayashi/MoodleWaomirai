@@ -24,9 +24,9 @@ html(lang="ja")
     //-   ##### toBeM オリジナルテンプレート #####
     //-   ### Update: 2022 12/08
     //-   ### © toBeマーケティング株式会社
-    //- meta(charset='utf-8')
-    //- meta(content='IE=edge' http-equiv='X-UA-Compatible')
-    //- meta(name='viewport' content='width=device-width, initial-scale=1')
+    meta(charset='utf-8')
+    meta(content='IE=edge' http-equiv='X-UA-Compatible')
+    meta(name='viewport' content='width=device-width, initial-scale=1')
     //- meta(name='description' content=)
     //- meta(name='author' content=)
     //- meta(property='og:image' content='https://go.waomirai.com/image/oggreen')
@@ -35,6 +35,7 @@ html(lang="ja")
     link(rel='shortcut icon' type='image/png' href='https://go.waomirai.com/logo/fabicon')
     link(rel='stylesheet' href='//mactrl.maplus.net/maplus_cdn_files/bootstrap/3.2.0/css/bootstrap.min.css')
     link(rel='stylesheet' href='//mactrl.maplus.net/maplus_cdn_files/common/styles/pardot_general_form_2209.css')
+    link(href="static/css/sass/english-portal-form-2024nov.css", rel="stylesheet")
     // ########## 各要素設定 ##########
     style.
       /* ##### Submit ##### */
@@ -169,6 +170,11 @@ html(lang="ja")
     script(type='text/javascript' src='https://pi.pardot.com/analytics?conly=true&amp;visitor_id=352660573&amp;visitor_id_sign=644e92ea0ab29be560ce88176284a1ca0cae0cf5493a22f6953281766e061db265818d1a2dcb2a754ee6e02d31bdae041e8d09ed&amp;pi_opt_in=&amp;campaign_id=125308&amp;account_id=1027513&amp;title=&amp;url=https://go.waomirai.com/english-trial-form-2024nov&amp;referrer=')
    
 body
+  div.testcase(style='position:fixed; z-index:100; top:0; left:0; display:none;')
+        // テスト用の日時入力フィールド
+        input#testDate(type="text", placeholder="2024-10-01 16:59")
+        // テスト実行ボタン
+        button#testButton テスト実行
   noscript
     iframe(src="https://www.googletagmanager.com/ns.html?id=GTM-W3X8CG9C", height="0", width="0", style="display:none;visibility:hidden")
   // End Google Tag Manager (noscript)
@@ -181,6 +187,27 @@ body
           .hiddenarea { display:none; }
       .contentFormBefore
         style(type="text/css").
+         body{
+         background:#f0f2f3;
+         }
+         form,#pardot-form {
+            padding: 20px !important;
+            background: #fff;
+            width: 90%;
+            margin: 30px auto 90px;
+         }
+         @media screen and (max-width: 768px) {
+           body{
+            background:#fff !important;
+            }
+           form,#pardot-form {
+            padding: 20px !important;
+            width: 100%;
+            }
+          }
+          #contentMain.container{
+                padding:0 !important;
+          }
           h2{
           font-size: 26px !important;
           }
@@ -214,28 +241,75 @@ body
           display: none !important;
           }
           }
-        hr.pcimage(style="margin: 30px 0 45px;")
-        h2 コースについて
-        p ・ああコースは 「平日コース」or「休日コース」をお選びいただけます
-          br
-          | ・LEVEL 2(英語が少し喋れる)のコースは、平日のみで受講できます
-          br
-          | ・レッスンをお休みいただいた場合でもアーカイブ動画で復習いただけます
-        div
-          img(src="https://go.waomirai.com/l/1026513/2024-10-07/h55z5/1026513/17282894339AyzsTZI/____________________________2024_10_07_17.06.17.png", style="width:100%; margin:0 auto 15px;")
-        hr.pcimage(style="margin: 45px 0 30px;")
+        hr(style="margin: 30px 0 45px;")
+        .about-course
+            h2 コースについて
+            p ・コースは 「LEVEL1 平日コース」「LEVEL1 土曜コース」「LEVEL2 平日コース」からお選びいただけます
+             br
+             | ・途中で他のコースのレッスンを受講することも可能です
+             br
+             | ・レッスンをお休みいただいた場合でもアーカイブ動画で復習いただけます
+             br
+             br
+            h3.global-h3
+                |LEVEL 1
+                br
+                |英語初挑戦の方
+            .course-grid 
+              .course-grid-block.block-level1-weekdays 
+                .course-grid-block-title.course-grid-block-title-level1
+                    |平日コース(火・木開催)
+                .course-grid-block-content 
+                    span.course-grid-block-content-first|初回開催日
+                    br
+                    span.next-lesson-month|11
+                    |/
+                    span.next-lesson-day|5
+                    |(
+                    span.next-lesson-week|火
+                    |) 17:00-17:25
+              .course-grid-block.block-level1-saturday
+                .course-grid-block-title.course-grid-block-title-level1
+                    |土曜コース(土曜開催)
+                .course-grid-block-content 
+                    span.course-grid-block-content-first|初回開催日
+                    br
+                    span.next-lesson-month|11
+                    |/
+                    span.next-lesson-day|2
+                    |(
+                    span.next-lesson-week|土
+                    |) 17:30-18:30
+            h3.global-h3
+                |LEVEL 2
+                br
+                |英語が少し話せる方
+            .course-grid 
+              .course-grid-block.block-level2-weekdays 
+                .course-grid-block-title 
+                    |平日コース(火・木開催)
+                .course-grid-block-content 
+                    span.course-grid-block-content-first|初回開催日
+                    br
+                    span.next-lesson-month|11
+                    |/
+                    span.next-lesson-day|5
+                    |(
+                    span.next-lesson-week|火
+                    |) 17:40-18:05
+
+        hr(style="margin: 45px 0 30px;")
         h2 受講までの流れ
         p.pcimage(style="text-align: center;")
           img(src="https://go.waomirai.com/l/1026513/2024-09-17/h3m5j/1026513/1726548611mDNqtkmT/trial_lesson.png", style="        width: 98%;        margin: 10px auto 30px;        ")
-        hr(style="      margin: 0px 0 0;      ")
+        hr.pcimage(style="margin: 0px 0 0;")
         p.spimage(style="text-align: left;margin: 30px auto 20px;line-height: 1.6;") レッスンスタートまで簡単5ステップで始められます
         p.spimage(style="text-align: center;")
           img(src="https://go.waomirai.com/l/1026513/2024-09-18/h3q5q/1026513/1726635176aaMSm9EM/img_flow_sp.png", style="        width: 98%;        margin: 3px auto 0;        ")
-        hr.spimage(style="      margin: 45px 0 0;      ")
+        hr.spimage(style="margin: 45px 0 0;")
         p(style="text-align: left;margin: 30px auto 20px;line-height: 1.6;") 以下のフォームに必要事項を入力してください。
           br
           | 入力完了後、自動返信メールに記載の無料体験ページでレッスンのスケジュールを確認いただけます
-        p(style="text-align: center;") &amp;nbsp;
     //-   .form-wraper
     //-     div(class="form-group form-field form-half form-pileup last_name pd-text required")
     //-       .formHeading
@@ -471,3 +545,147 @@ body
     //-     !function(d,g,e){d.TiktokAnalyticsObject=e;var a=d[e]=d[e]||[];a.methods="page track identify instances debug on off once ready alias group enableCookie disableCookie holdConsent revokeConsent grantConsent".split(" ");a.setAndDefer=function(b,c){b[c]=function(){b.push([c].concat(Array.prototype.slice.call(arguments,0)))}};for(d=0;d<a.methods.length;d++)a.setAndDefer(a,a.methods[d]);a.instance=function(b){b=a._i[b]||[];for(var c=0;c<a.methods.length;c++)a.setAndDefer(b,a.methods[c]);return b};a.load=
     //-     function(b,c){var f="https://analytics.tiktok.com/i18n/pixel/events.js";a._i=a._i||{};a._i[b]=[];a._i[b]._u=f;a._t=a._t||{};a._t[b]=+new Date;a._o=a._o||{};a._o[b]=c||{};c=document.createElement("script");c.type="text/javascript";c.async=!0;c.src=f+"?sdkid\x3d"+b+"\x26lib\x3d"+e;b=document.getElementsByTagName("script")[0];b.parentNode.insertBefore(c,b)};a.load("CQUN883C77U0JHDT5O1G");a.page()}(window,document,"ttq");
     //- span(style="border-radius:10px !important;text-indent:12px !important;width:auto !important;height:20px !important;padding:0px 8px !important;text-align:center !important;vertical-align:middle !important;font:bold 11px / 20px &quot;Helvetica Neue&quot;, Helvetica, sans-serif !important;color:rgb(255, 255, 255) !important;background:url(&quot;data:image/svg+xml;base64,PHN2ZyBpZD0ic291cmNlIiB3aWR0aD0iMTIiIGhlaWdodD0iMTIiIHZpZXdCb3g9IjAgMCAxMiAxMiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBjeD0iNiIgY3k9IjYiIHI9IjYiIGZpbGw9IiNFNjAwMjMiPjwvY2lyY2xlPgo8cGF0aCBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGNsaXAtcnVsZT0iZXZlbm9kZCIgZD0iTTAgNkMwIDguNTYxNSAxLjYwNTUgMTAuNzQ4NSAzLjg2NSAxMS42MDlDMy44MSAxMS4xNDA1IDMuNzUxNSAxMC4zNjggMy44Nzc1IDkuODI2QzMuOTg2IDkuMzYgNC41NzggNi44NTcgNC41NzggNi44NTdDNC41NzggNi44NTcgNC4zOTk1IDYuNDk5NSA0LjM5OTUgNS45N0M0LjM5OTUgNS4xNCA0Ljg4MDUgNC41MiA1LjQ4IDQuNTJDNS45OSA0LjUyIDYuMjM2IDQuOTAyNSA2LjIzNiA1LjM2MUM2LjIzNiA1Ljg3MzUgNS45MDk1IDYuNjM5NSA1Ljc0MSA3LjM1QzUuNjAwNSA3Ljk0NDUgNi4wMzk1IDguNDI5NSA2LjYyNTUgOC40Mjk1QzcuNjg3IDguNDI5NSA4LjUwMzUgNy4zMSA4LjUwMzUgNS42OTRDOC41MDM1IDQuMjYzNSA3LjQ3NTUgMy4yNjQgNi4wMDggMy4yNjRDNC4zMDkgMy4yNjQgMy4zMTE1IDQuNTM4NSAzLjMxMTUgNS44NTZDMy4zMTE1IDYuMzY5NSAzLjUwOSA2LjkxOTUgMy43NTYgNy4yMTlDMy44MDQ1IDcuMjc4NSAzLjgxMiA3LjMzIDMuNzk3NSA3LjM5MDVDMy43NTIgNy41Nzk1IDMuNjUxIDcuOTg1IDMuNjMxNSA4LjA2OEMzLjYwNSA4LjE3NyAzLjU0NSA4LjIwMDUgMy40MzE1IDguMTQ3NUMyLjY4NTUgNy44MDA1IDIuMjE5NSA2LjcxIDIuMjE5NSA1LjgzNEMyLjIxOTUgMy45NDk1IDMuNTg4IDIuMjE5NSA2LjE2NTUgMi4yMTk1QzguMjM3NSAyLjIxOTUgOS44NDggMy42OTYgOS44NDggNS42NjlDOS44NDggNy43Mjc1IDguNTUwNSA5LjM4NDUgNi43NDg1IDkuMzg0NUM2LjE0MyA5LjM4NDUgNS41NzQ1IDkuMDY5NSA1LjM3OTUgOC42OThDNS4zNzk1IDguNjk4IDUuMDggOS44MzkgNS4wMDc1IDEwLjExOEM0Ljg2NjUgMTAuNjYgNC40NzU1IDExLjM0NiA0LjIzMyAxMS43MzU1QzQuNzkyIDExLjkwNzUgNS4zODUgMTIgNiAxMkM5LjMxMzUgMTIgMTIgOS4zMTM1IDEyIDZDMTIgMi42ODY1IDkuMzEzNSAwIDYgMEMyLjY4NjUgMCAwIDIuNjg2NSAwIDZaIiBmaWxsPSJ3aGl0ZSI+PC9wYXRoPgo8L3N2Zz4=&quot;) 4px 50% / 12px 12px no-repeat rgb(230, 0, 35) !important;position:absolute !important;opacity:1 !important;z-index:9007199254740990 !important;display:none !important;cursor:pointer !important;border:none !important;-webkit-font-smoothing:antialiased !important;top:0 !important;left:0 !important;display:none !important;top:221px !important;left:77px !important") 保存
+    script.
+        function changeDateTimeForBlocks(simulatedDate = null) {
+            const blocks = [
+                {
+                    selector: '.block-level1-weekdays',
+                    lessons: [
+                        { date: new Date(2024, 10, 5, 17, 30), month: '11', day: '5', week: '火', hourRange: '17:00~' },
+                        { date: new Date(2024, 10, 7, 17, 0), month: '11', day: '7', week: '木', hourRange: '17:00~' },
+                        { date: new Date(2024, 10, 12, 17, 0), month: '11', day: '12', week: '木', hourRange: '17:00~' },
+                        { date: new Date(2024, 10, 14, 17, 0), month: '11', day: '14', week: '木', hourRange: '17:00~' }
+                    ]
+                },
+                {
+                    selector: '.block-level1-saturday',
+                    lessons: [
+                        { date: new Date(2024, 10, 2, 18, 30), month: '11', day: '2', week: '土', hourRange: '17:30~' },
+                        { date: new Date(2024, 10, 9, 18, 30), month: '11', day: '9', week: '土', hourRange: '17:30~' },
+                        { date: new Date(2024, 10, 16, 18, 30), month: '11', day: '16', week: '土', hourRange: '17:30~' },
+                        { date: new Date(2024, 10, 9, 18, 30), month: '11', day: '9', week: '土', hourRange: '17:30~' },
+                    ]
+                },
+                {
+                    selector: '.block-level2-weekdays',
+                    lessons: [
+                        { date: new Date(2024, 10, 5, 18, 5), month: '11', day: '5', week: '火', hourRange: '17:40~' },
+                        { date: new Date(2024, 10, 7, 18, 5), month: '11', day: '7', week: '木', hourRange: '17:40~' },
+                        { date: new Date(2024, 10, 12, 17, 0), month: '11', day: '12', week: '火', hourRange: '17:40~' },
+                        { date: new Date(2024, 10, 14, 17, 0), month: '11', day: '14', week: '木', hourRange: '17:40~' }
+                    ]
+                }
+            ];
+
+            // 現在の日時（もしくはテスト用の日時）
+            const currentDate = simulatedDate || new Date();
+            let newCvText = '';
+            let newCvMainText = '';
+
+            // ブロックごとにレッスンをチェック
+            blocks.forEach(block => {
+                const { selector, lessons } = block;
+                let allLessonsFinished = true; // 全レッスンが終了しているかのフラグ
+                let nextLesson = null; // 次のレッスン情報
+
+                // レッスンをチェック
+                for (let lesson of lessons) {
+                    if (currentDate < lesson.date) {
+                        nextLesson = lesson;  // 次のレッスンを記録
+                        allLessonsFinished = false; // まだ終了していないレッスンがある
+                        break;
+                    }
+                }
+
+                // 特定のブロックの処理
+                if (selector === '.block-level1-saturday') {
+                    if (allLessonsFinished) {
+                        // すべてのレッスンが終了している場合
+                        $(`${selector}`).hide(); // ブロックを非表示にする
+                        $('.about-course').hide(); // ブロックを非表示にする
+                    } else if (nextLesson) {
+                        // 次回レッスン情報を表示
+                        $(`${selector} .next-lesson-day`).text(nextLesson.day);
+                        $(`${selector} .next-lesson-month`).text(nextLesson.month);
+                        $(`${selector} .next-lesson-week`).text(nextLesson.week);
+                        $(`${selector} .next-lesson-hour-range`).text(nextLesson.hourRange);
+                    } else {
+                        // 次回レッスンがない場合は非表示
+                        $(`${selector}`).hide();
+                    }
+                } else {
+                    // 他のブロックの処理
+                    if (nextLesson) {
+                        // 次回レッスン情報を表示
+                        $(`${selector} .next-lesson-day`).text(nextLesson.day);
+                        $(`${selector} .next-lesson-month`).text(nextLesson.month);
+                        $(`${selector} .next-lesson-week`).text(nextLesson.week);
+                        $(`${selector} .next-lesson-hour-range`).text(nextLesson.hourRange);
+                    } else {
+                        // 次回レッスンがない場合は非表示
+                        $(`${selector}`).hide();
+                    }
+                }
+            });
+
+            // CV文言を決定
+            if (currentDate >= new Date(2024, 9, 0, 0, 0) && currentDate <= new Date(2024, 9, 31, 23, 59)) {
+                newCvText = '10/31までに申し込むと11月中は無料';
+                newCvMainText = '10/31までに申し込むと11月中は<br />オンラインレッスンが受け放題';
+            } else if (currentDate >= new Date(2024, 10, 1, 0, 0) && currentDate <= new Date(2024, 10, 9, 23, 59)) {
+                newCvText = '11/10までに申し込むと今月中は無料';
+                newCvMainText = '11/10までに申し込むと今月中は<br />オンラインレッスンが受け放題';
+            } else if (currentDate >= new Date(2024, 10, 10, 0, 0) && currentDate <= new Date(2024, 10, 14, 23, 59)) {
+                newCvText = '11/15までに申し込むと今月中は無料';
+                newCvMainText = '11/15までに申し込むと今月中は<br />オンラインレッスンが受け放題';
+            } else if (currentDate >= new Date(2024, 10, 15, 0, 0)) {
+                newCvText = '11月中のすべてのオンラインレッスンを<br />アーカイブで見放題！';
+                newCvMainText = '11月中のオンラインレッスンを<br />アーカイブで見放題！';
+                $('.cv-limit-text').css({
+                    'transform': 'scale(0.9)',
+                    'top': '-24px',
+                    'width': '260px',
+                    'padding': '3px 13px',
+                    'line-height': '1.4'
+                });
+            }
+
+            // CV文言を更新
+            $('.cv-limit-text').html(newCvText);
+            $('.lp-cv-title-text').html(newCvMainText);
+        }
+
+        // jQuery の準備
+        $(document).ready(function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const isTestCase = urlParams.has('via') && urlParams.get('via') === 'testcase';
+
+            // テストケース表示
+            if (isTestCase) {
+                $('div.testcase').show();
+            }
+
+            // 初期表示の際に現在日時でレッスン情報を表示
+            changeDateTimeForBlocks();
+
+            // テスト実行ボタンが押された際の処理
+            $('#testButton').on('click', function() {
+                const testDateInput = $('#testDate').val();
+
+                // 日時フォーマットの検証
+                const dateTimePattern = /^\d{4}-\d{2}-\d{2} \d{2}:\d{2}$/;
+                if (!testDateInput || !dateTimePattern.test(testDateInput)) {
+                    alert('正しい日時を入力してください（例: 2024-10-01 16:59）');
+                    return;
+                }
+
+                // テスト日時のパース
+                const [datePart, timePart] = testDateInput.split(' ');
+                const [year, month, day] = datePart.split('-').map(Number);
+                const [hour, minute] = timePart.split(':').map(Number);
+
+                // テスト用の日時で関数を実行
+                const testDate = new Date(year, month - 1, day, hour, minute);
+                changeDateTimeForBlocks(testDate);
+            });
+        });
