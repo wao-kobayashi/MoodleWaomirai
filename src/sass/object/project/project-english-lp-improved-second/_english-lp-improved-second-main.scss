@@ -27,6 +27,9 @@ body {
         @include responsive-style(900px) {
             top: 17%;
         }
+        @include responsive-style(1100px) {
+            top: 20%;
+        }
         .fvpc-left-text {
             margin: 0 0 60px;
         }
@@ -54,10 +57,11 @@ body {
                 border-radius: 100px;
                 color: $cl-main-orange;
                 text-align: center;
-                padding: 3px 13px;
+                padding: 8px 13px 5px;
                 display: block;
                 width: 240px;
                 @include font-size-s;
+                line-height: 1;
                 justify-content: center;
             }
             .lp-cv-button-main {
@@ -74,10 +78,17 @@ body {
             }
         }
     }
+    .fvpc-bg img {
+        width: 97%;
+        margin: 0 0 0 auto;
+        @include responsive-style(1200px) {
+            width: 100%;
+        }
+    }
 }
 
 .fvsp {
-    margin: 0 0 120px;
+    margin: 0 0 175px;
     &::before {
         width: 80%;
         background: #F1E5F1;
@@ -85,7 +96,7 @@ body {
         position: absolute;
         display: block;
         z-index: 0;
-        height: 115vh;
+        height: 650px;
         right: 0;
         // margin: 0 0 60px;
         border-radius: 0 0 0 40px;
@@ -280,8 +291,9 @@ header {
                 border-radius: 100px;
                 color: $cl-main-orange;
                 text-align: center;
-                padding: 5px 13px;
+                padding: 8px 13px 5px;
                 display: table;
+                line-height: 1;
                 @include font-size-s;
             }
             // .lp-cv-button-sub {
@@ -306,6 +318,11 @@ header {
 }
 
 .section-el-second-why {
+    .section-el-second-content-title {
+        .section-el-second-content-title-text {
+            text-align: center;
+        }
+    }
     .section-el-second-content-detail {
         max-width: 800px;
         background: white;
@@ -313,8 +330,9 @@ header {
         min-height: 500px;
         border-radius: 50px;
         padding: 50px 45px;
+        width: 95%;
         @include responsive-style(768px) {
-            padding: 50px 25px;
+            padding: 50px 20px;
             margin: 60px auto 0;
         }
         >div {
@@ -328,12 +346,19 @@ header {
             border-radius: 100px;
             line-height: 1;
             color: white;
+            @include responsive-style(768px) {
+                transform: scale(0.75);
+                transform-origin: left center;
+            }
         }
         .section-el-second-content-detail-title {
             @include font-size-xl;
             font-weight: 600;
             line-height: 1.35;
             margin: 17px 0 0px;
+            @include responsive-style(768px) {
+                margin: 10px 0 0px;
+            }
         }
         .section-el-second-content-detail-text {
             @include font-size-m;
@@ -345,6 +370,9 @@ header {
                 color: $cl-gray;
                 font-weight: 700;
             }
+            @include responsive-style(768px) {
+                margin: 10px 0 20px;
+            }
         }
         .section-el-second-content-detail-img img {
             width: 100%;
@@ -353,7 +381,10 @@ header {
             margin: 15px 0 0px;
             border-radius: 50px;
             @include responsive-style(768px) {
-                border-radius: 40px;
+                margin: 5px 0 10px;
+                border-radius: 20px;
+                height: 180px;
+                object-fit: cover;
             }
         }
     }
@@ -369,19 +400,20 @@ header {
     }
     .section-el-second-top-text {
         @include responsive-style(768px) {
-            top: -52px;
+            top: -15px;
             line-height: 1;
         }
     }
     .section-el-second-content-grid {
         max-width: 1200px;
         width: 90%;
-        margin: 0 auto 90px;
+        margin: 0 auto 105px;
         display: grid;
         grid-template-columns: 1fr 1.5fr;
         grid-column-gap: 60px;
         @include responsive-style(768px) {
             display: block;
+            margin: 0 auto 105px;
         }
         .section-el-second-content-grid-right {
             position: relative;
@@ -393,6 +425,10 @@ header {
                 // border: 8px solid white;
                 border-radius: 20px;
                 box-shadow: 0 0 30px rgba(50, 50, 70, .15);
+                @include responsive-style(768px) {
+                    right: -10px;
+                    bottom: -40px;
+                }
             }
         }
         &.section-el-second-content-grid-two {
@@ -401,7 +437,7 @@ header {
         &.section-el-second-content-grid-one {
             margin: 90px auto 90px;
             @include responsive-style(768px) {
-                margin: 0px auto 60px;
+                margin: 0px auto 105px;
             }
             .section-el-second-content-grid-title {
                 margin: 60px 0 0;
@@ -414,6 +450,9 @@ header {
             position: relative;
             display: inline-block;
             margin: 20px 0 0;
+            @include responsive-style(768px) {
+                line-height: 1.5;
+            }
         }
         .section-el-second-content-grid-txt {
             @include font-size-m;
@@ -423,6 +462,10 @@ header {
         }
         .section-el-second-content-grid-img img {
             border-radius: 100px;
+            @include responsive-style(768px) {
+                border-radius: 40px;
+                margin: 20px 0 0;
+            }
         }
         .section-el-second-content-grid-iframe {
             position: relative;
@@ -432,6 +475,9 @@ header {
             height: 0;
             overflow: hidden;
             border-radius: 100px;
+            @include responsive-style(768px) {
+                margin: 20px 0 0;
+            }
             iframe {
                 position: absolute;
                 top: 0;
@@ -461,8 +507,10 @@ header {
             display: block;
         }
         .section-el-second-content-grid-3columns-box {
-            @include responsive-style(768px) {
-                margin: 0 auto 60px;
+            &:not(:last-child) {
+                @include responsive-style(768px) {
+                    margin: 0 auto 60px;
+                }
             }
         }
         .section-el-second-content-grid-3columns-image img {
@@ -481,14 +529,16 @@ header {
             @include font-size-m;
             font-weight: 300;
             margin: 0px 0 10px;
-            letter-spacing: 1px;
             line-height: 1.75;
+            @include responsive-style(768px) {
+                letter-spacing: 0px;
+            }
         }
     }
     .section-el-second-content-grid-image {
         img {
             @include responsive-style(768px) {
-                border-radius: 40px !important;
+                border-radius: 30px !important;
             }
         }
         .section-el-second-content-grid-iframe {
@@ -568,9 +618,21 @@ header {
         border-radius: 50px;
         @include responsive-style(768px) {
             display: block;
+            width: 90%;
+            margin: 30px auto 0;
+            padding: 20px;
+            border-radius: 40px;
         }
         .section-el-second-content-ability-box-left img {
             border-radius: 50px;
+            object-fit: cover;
+            @include responsive-style(768px) {
+                display: block;
+                height: 200px;
+                width: 100%;
+                border-radius: 40px;
+                margin: 0 0 20px;
+            }
         }
         .section-el-second-content-ability-box-right-subtitle {
             @include font-size-xl;
@@ -578,6 +640,9 @@ header {
             letter-spacing: 3px;
             font-weight: 600;
             margin: 0 0 10px;
+            @include responsive-style(768px) {
+                display: none;
+            }
         }
         .section-el-second-content-ability-box-right-title {
             @include font-size-l;
@@ -587,11 +652,22 @@ header {
             letter-spacing: 1.5px;
             color: $cl-gray;
         }
+        .section-el-second-content-ability-box-right-image img {
+            display: block;
+            height: 200px;
+            width: 100%;
+            border-radius: 40px;
+            margin: 0 0 20px;
+            object-fit: cover;
+        }
         .section-el-second-content-ability-box-right-txt {
             @include font-size-m;
             line-height: 1.6;
             font-weight: 400;
             color: $cl-waogray;
+            @include responsive-style(768px) {
+                margin: 0 0 20px;
+            }
             strong {
                 color: $cl-gray;
                 font-weight: 700;
@@ -601,8 +677,41 @@ header {
 }
 
 .section-el-second-who {
-    img {
-        margin: 0 auto 0px;
+    padding: 0 0 0px !important;
+    img {}
+    .section-el-second-content-head {
+        width: 80%;
+        margin: 60px 0 0;
+        @include responsive-style(768px) {
+            width: 95%;
+            margin: 0px 0 0;
+        }
+    }
+    .section-el-second-content-text {
+        width: 50%;
+        margin: 0px auto 0 !important;
+        text-align: left !important;
+        @include responsive-style(768px) {
+            width: 90%;
+            padding: 0px !important;
+        }
+        .section-el-second-content-text-head {
+            @include font-size-xl;
+            line-height: 1.5;
+            font-weight: bold;
+            margin: 60px 0 15px;
+            @include responsive-style(768px) {
+                margin: 25px 0 15px;
+            }
+        }
+    }
+    .section-el-second-content-bottom {
+        width: 55%;
+        margin: 45px auto 0 !important;
+        @include responsive-style(768px) {
+            width: 90%;
+            margin: 20px auto 0 !important;
+        }
     }
 }
 
@@ -628,6 +737,9 @@ header {
                 grid-column-gap: 0px;
                 grid-row-gap: 10px;
             }
+            img {
+                border-radius: 20px;
+            }
         }
     }
     .lp-section-schedule {
@@ -652,7 +764,7 @@ header {
         margin: 60px 0 0;
         height: 340px;
         @include responsive-style(768px) {
-            margin: 0px 0 0;
+            margin: 30px 0 0;
         }
         div:first-child {
             margin: 0 0 0 60px;
@@ -768,7 +880,7 @@ header {
         margin: 30px auto 18px;
         position: relative;
         @include responsive-style(768px) {
-            margin: 0px auto 18px;
+            margin: 30px auto 18px;
         }
         .lp-section-price-box {
             box-shadow: 0 0 30px rgba(50, 50, 70, .15);
@@ -909,8 +1021,7 @@ header {
 }
 
 .section-el-cv {
-    background: no-repeat url('https://go.waomirai.com/l/1026513/2024-09-26/h4gfm/1026513/1727335005bfPRAbiy/footercv.png');
-    background-size: cover;
+    background: #FAF3CE;
     padding: 90px 0 105px;
     text-align: center;
     max-width: 1200px;
@@ -919,8 +1030,11 @@ header {
     margin: 120px auto 150px;
     display: grid;
     @include responsive-style(768px) {
-        width: 100%;
-        border-radius: 50px;
+        width: 95%;
+        border-radius: 40px;
+        margin: 60px auto 90px;
+        padding: 60px 0 75px;
+        // padding: 200px 0 205px;
     }
     .lp-cv-title-text {
         text-align: center;
@@ -928,40 +1042,153 @@ header {
         @include responsive-style(768px) {
             font-size: 24px;
         }
-        color: white;
+        // color: white;
         font-weight: 700;
         line-height: 1.3;
     }
     .lp-cv-title-note {
         @include font-size-s;
         text-align: center;
-        color: white;
+        // color: white;
         margin: 5px 0 0;
     }
     .lp-cv-lessonday {
         margin: 30px 0 0;
-        .lp-cv-lessonday-time-week {
-            display: inline-flex;
-            width: 30px;
-            height: 30px;
-            color: $cl-gray;
+        .lp-cv-lessonday-wrapper {
+            display: flex;
             align-items: center;
             justify-content: center;
+            transform: scale(0.95);
+            @include responsive-style(768px) {
+                display: block;
+                transform: scale(1);
+            }
+        }
+        .lp-cv-lessonday-wrapper-block {
             background: white;
-            border-radius: 100px;
+            width: 80%;
+            border-radius: 20px;
+            overflow: hidden;
+            max-width: 165px;
+            margin: 0 15px;
+            @include responsive-style(768px) {
+                margin: 0 auto 20px;
+                max-width: 100%;
+                border-radius: 10px;
+            }
+            .lp-cv-lessonday-wrapper-block-date-week {
+                display: inline-flex;
+                width: 30px;
+                height: 30px;
+                color: #fff;
+                align-items: center;
+                justify-content: center;
+                font-size: 14px;
+                font-weight: 600;
+                margin: 0 0 3px 5px;
+                padding: 3px 0 0;
+                // background: $cl-waogreen;
+                border-radius: 100px;
+                background: #333;
+                @include responsive-style(768px) {
+                    width: 25px;
+                    height: 25px;
+                    margin: 0 0 0px 5px;
+                }
+                &.level-2 {
+                    // background: $cl-english;
+                }
+            }
+            .lp-cv-lessonday-wrapper-block-head {
+                color: white;
+                background: $cl-waogreen;
+                display: flex;
+                padding: 10px 10px 3px 10px;
+                text-align: center;
+                flex-direction: column;
+                align-items: center;
+                font-weight: bold;
+                &.level-2 {
+                    background: $cl-english !important;
+                }
+                @include responsive-style(768px) {
+                    flex-direction: row;
+                    padding: 14px 15px 7px 15px;
+                }
+            }
+            .lp-cv-lessonday-wrapper-block-date {
+                display: flex;
+                padding: 20px 15px 15px;
+                flex-direction: column;
+                align-items: center;
+                @include responsive-style(768px) {
+                    flex-direction: row;
+                    padding: 22px 20px 3px;
+                }
+                .lp-cv-lessonday-wrapper-block-date-day {
+                    display: flex;
+                    align-items: flex-end;
+                    font-size: 40px;
+                    line-height: 0.7;
+                    font-weight: 600;
+                    font-family: 'Avenir LT Pro', "Jost", 'Noto Sans JP', sans-serif;
+                    margin: 0 0 13px;
+                    @include responsive-style(768px) {
+                        font-size: 35px;
+                    }
+                    .lp-cv-lessonday-time-day-monthday {
+                        font-weight: 600;
+                    }
+                    .lp-cv-lessonday-wrapper-block-date-day-slash {
+                        font-weight: 300 !important;
+                    }
+                }
+                .lp-cv-lessonday-wrapper-block-date-range {
+                    font-size: 24px;
+                    line-height: 0.7;
+                    font-weight: 600;
+                    margin: 0 0 3px 5px;
+                    @include responsive-style(768px) {
+                        font-size: 28px;
+                        margin: 0 0 6px 5px;
+                    }
+                    // width: 100%;
+                }
+            }
+        }
+        .lp-cv-lessonday-wrapper-block-or {
+            text-align: center;
+            @include font-size-l;
+            color: $cl-graylight;
+            display: none;
+            @include responsive-style(768px) {
+                margin: 10px auto;
+            }
+        }
+        .lp-cv-lessonday-time-week {
+            display: inline-flex;
+            width: 21px;
+            height: 21px;
+            color: #fff;
+            align-items: center;
+            justify-content: center;
             font-size: 18px;
             font-weight: 600;
             margin: 0 0 3px 5px;
             padding: 3px 0 0;
             @include responsive-style(768px) {
-                width: 25px;
-                height: 25px;
+                width: 18px;
+                height: 18px;
+                margin: 0 0 0px 5px;
             }
+            // &.level-2 {
+            //     background: $cl-english !important;
+            // }
         }
         .lp-cv-lessonday-title {
             @include font-size-m;
             text-align: center;
-            color: white;
+            // color: white;
             margin: 0 auto 13px;
         }
         .lp-cv-lessonday-time {
@@ -990,12 +1217,12 @@ header {
             color: white;
             margin: 0 0 0 8px;
             @include responsive-style(768px) {
-                font-size: 32px;
+                font-size: 36px;
             }
         }
     }
     .lp-cv-button {
-        margin: 20px auto 0;
+        margin: 40px auto 0;
         a {
             padding: 20px 60px;
             background: $cl-main-orange !important;
@@ -1008,7 +1235,7 @@ header {
             text-decoration: none;
             justify-content: center;
             @include responsive-style(768px) {
-                width: 300px;
+                width: 320px;
                 padding: 20px 0px;
             }
             .lp-cv-button-sub {
@@ -1023,10 +1250,13 @@ header {
                 line-height: 1;
             }
             .lp-cv-button-main {
-                @include font-size-m;
                 color: white;
                 font-weight: 500;
                 margin: 0 0 0 7px;
+                font-size: 22px;
+                @include responsive-style(768px) {
+                    font-size: 18px;
+                }
             }
         }
     }
@@ -1060,6 +1290,10 @@ footer {
         border-top: 1px solid #fff;
         padding: 15px 0 15px;
     }
+}
+
+.lp-section-faq-wrapper {
+    margin: 15px auto 0;
 }
 
 .lp-section-faq {
@@ -1151,7 +1385,7 @@ footer {
         margin: 5px 0 0;
     }
     .lp-cv-lessonday {
-        margin: 30px 0 0;
+        margin: 45px 0 0;
         .lp-cv-lessonday-time-week {
             display: inline-flex;
             width: 30px;

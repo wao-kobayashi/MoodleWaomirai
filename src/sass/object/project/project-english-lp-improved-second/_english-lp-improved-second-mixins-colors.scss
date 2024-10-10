@@ -106,6 +106,9 @@ $cl-waogray:#4d4d4d; //グレー
     // height: 300px;
     width: 100%;
     padding: 0 0 210px;
+    @include responsive-style(768px) {
+        padding: 0 0 120px;
+    }
     .section-el-second-content {
         .section-el-second-content-title {
             // margin: 45px auto 0;
@@ -119,6 +122,7 @@ $cl-waogray:#4d4d4d; //グレー
             display: inline-block;
             margin: 0 auto;
             letter-spacing: 2px;
+            width: 90%;
             @include responsive-style(768px) {
                 text-align: left;
             }
@@ -132,6 +136,9 @@ $cl-waogray:#4d4d4d; //グレー
                 text-align: left;
                 padding: 0 20px;
             }
+        }
+        .section-el-second-content-title-text-center {
+            text-align: center !important;
         }
     }
 }
@@ -196,6 +203,9 @@ $cl-waogray:#4d4d4d; //グレー
     position: relative;
     // border-radius: 100px 100px 0 0;
     margin: 0 auto 40px;
+    @include responsive-style(768px) {
+        margin: 0 auto 0px;
+    }
     .section-el-second-top-text {
         position: absolute;
         top: -65px;
@@ -207,8 +217,9 @@ $cl-waogray:#4d4d4d; //グレー
         letter-spacing: 7px;
         font-size: 110px;
         @include responsive-style(768px) {
-            font-size: 65px;
-            top: -38px;
+            font-size: 50px;
+            top: -30px;
+            letter-spacing: 3px;
         }
         /* 余裕があったら実装したいアニメーション */
         // overflow: hidden;
@@ -337,6 +348,6 @@ $cl-waogray:#4d4d4d; //グレー
     // @include section-maxwidth;
     @include section-middlewidth;
     @include responsive-style(768px) {
-        margin: 0px auto 0;
+        margin: 10px auto 20px;
     }
 }
