@@ -210,13 +210,20 @@ section.section-el-second.section-el-second-enjoy
 
       .section-el-second-content-grid-right 
           .section-el-second-content-grid-title 
-            |音を使った遊び感覚のレッスンでたくさん話すことで自然と上達！
+            |英語はスポーツと同じ！
+            br.pcimage
+            span.pcimage|練習が重要。
+            br
+            |目からウロコの英会話トレーニングで英語力アップ！
           //- .section-el-second-content-grid-image.spimage
           //-    .section-el-second-content-grid-iframe
           //-       iframe(src="https://player.vimeo.com/video/1013057465?autoplay=1&muted=1&background=1", frameborder="0", allow="autoplay; fullscreen; picture-in-picture", allowfullscreen)
           .section-el-second-content-grid-txt 
-            b|音を使った遊び感覚の学びを通して、楽しみながらたくさん話すことができます。
-            |難しく感じる文法や単語も、自然に身につき、繰り返し話すことで英語力がぐんぐん向上します。
+              |テニスが上手くなりたい人が、練習もせず試合に出たらどうなりますか？
+              b|英会話も同じです。いきなり外国人と話す機会があっても、練習をしていなければスムーズに言葉が出ないのは当然です。
+              br.spimage
+              |リズムを使って単語単位からカタマリ単位で英語をインプットしたり、
+              |ひらがなで発音力をあげるなど、斬新な英会話トレーニングをご用意しています。
           .section-el-second-content-grid-image.spimage
              .section-el-second-content-grid-iframe
                 iframe(src="https://player.vimeo.com/video/1013057465?autoplay=1&muted=1&background=1", frameborder="0", allow="autoplay; fullscreen; picture-in-picture", allowfullscreen)
@@ -282,7 +289,7 @@ section.section-el-second-movie
 section.section-el-second.section-el-second-ability
   .section-el-second-top.section-el-second-top-ability
     .section-el-second-top-text
-     |SKILL
+     |SKILLS
   .section-el-second-content
     .section-el-second-content-title 
        .section-el-second-content-title-text.section-el-second-content-title-text-center
@@ -350,20 +357,18 @@ section.section-el-second.section-el-second-who
            |こうした新しい世界で、日本の子どもたちは果たして楽しく働き、生活できるでしょうか？AIに仕事を奪われないための選択肢を持てるでしょうか？現状の英語教育ではそれが難しいと感じざるを得ません。残念ながら、実際に使える英語が身についていないばかりか、英語嫌いの子どもが増えているのが現状です。
            br
            br
-           strong|今、子どもたちに本当に必要なのは、ツールとして使える英語と、それを活かせるコミュニケーション能力です。
+           b|今、子どもたちに本当に必要なのは、ツールとして使える英語と、それを活かせるコミュニケーション能力です。
+           br
            br
            b|海外の人々とコミュニケーションを取るためには、3つの力が必要です。
            br
-           br
-           b|まず「表現力」。
+           |まず「表現力」。
            |アメリカの小学校では積極的に人前でスピーチをする場を設け、幼い頃から表現力を育てます。
            br
-           br
-           b|次に「聞く力」。
+           |次に「聞く力」。
            |異なる文化や考え方を理解し、適切に反応・質問できる力が大切です。
            br
-           br
-           b|そして「伝える力」。
+           |そして「伝える力」。
            |内容を簡潔にまとめて相手に伝えるスキルは、TOEFLや英検でも必要とされます。
            br
            br
@@ -603,8 +608,6 @@ footer
                 .lp-cv-button-main
                     |無料体験レッスンはこちら
 script.
-  alert('c');
-script.
   function changeDateTimeForBlocks(simulatedDate = null) {
       const blocks = [
           {
@@ -690,16 +693,16 @@ script.
       // CV文言を決定
       if (currentDate >= new Date(2024, 9, 0, 0, 0) && currentDate <= new Date(2024, 9, 31, 23, 59)) {
           newCvText = '10/31までに申し込むと11月中は無料';
-          newCvMainText = '10/31までに申し込むと11月中は<br />オンラインレッスンが受け放題';
+          newCvMainText = '10/31までに申し込むと<br class="spimage">11月中は<br class="pcimage">オンラインレッスンが<br class="spimage">受け放題';
       } else if (currentDate >= new Date(2024, 10, 1, 0, 0) && currentDate <= new Date(2024, 10, 9, 23, 59)) {
           newCvText = '11/10までに申し込むと今月中は無料';
-          newCvMainText = '11/10までに申し込むと今月中は<br />オンラインレッスンが受け放題';
+          newCvMainText = '11/10までに申し込むと<br class="spimage">今月中は<br class="pcimage">オンラインレッスンが<br class="spimage">受け放題';
       } else if (currentDate >= new Date(2024, 10, 10, 0, 0) && currentDate <= new Date(2024, 10, 14, 23, 59)) {
           newCvText = '11/15までに申し込むと今月中は無料';
-          newCvMainText = '11/15までに申し込むと今月中は<br />オンラインレッスンが受け放題';
+          newCvMainText = '11/15までに申し込むと今月中は<br class="spimage">オンラインレッスンが受け放題';
       } else if (currentDate >= new Date(2024, 10, 15, 0, 0)) {
-          newCvText = '11月中のすべてのオンラインレッスンを<br />アーカイブで見放題！';
-          newCvMainText = '11月中のオンラインレッスンを<br />アーカイブで見放題！';
+          newCvText = '11月中のすべてのオンラインレッスンを<br>アーカイブで見放題！';
+          newCvMainText = '11月中のオンラインレッスンを<br>アーカイブで見放題！';
           $('.cv-limit-text').css({
               'transform': 'scale(0.9)',
               'top': '-24px',
