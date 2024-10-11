@@ -48,13 +48,13 @@ body {
 }
 .course-grid .course-grid-block-content {
   text-align: center;
-  padding: 16px 10px 20px;
+  padding: 16px 10px 10px;
   font-size: 20px;
 }
 @media screen and (max-width: 768px) {
   .course-grid .course-grid-block-content {
     font-size: 16px !important;
-    padding: 10px 4px 20px;
+    padding: 10px 4px 10px;
   }
 }
 .course-grid .course-grid-block-content .course-grid-block-content-first {
@@ -64,4 +64,39 @@ body {
   .course-grid .course-grid-block-content .course-grid-block-content-first {
     font-size: 12px !important;
   }
+}
+.course-grid .course-grid-block-button {
+  text-align: center;
+}
+.course-grid .course-grid-block-button button {
+  background: transparent;
+  border: 1px solid #005C3F;
+  border-radius: 6px;
+  cursor: pointer;
+  outline: none;
+  padding: 6px 0px;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  margin: 0px auto 20px;
+  width: 85%;
+  color: #005C3F;
+  font-size: 15px;
+}
+@media screen and (max-width: 768px) {
+  .course-grid .course-grid-block-button button {
+    margin: -8px auto 15px;
+  }
+}
+.course-grid .course-grid-block-button button:hover {
+  background: #005C3F;
+  color: white;
+}
+.course-grid .course-grid-block-button button.button-level2-weekdays {
+  border: 1px solid #AA68AA !important;
+  color: #AA68AA !important;
+}
+.course-grid .course-grid-block-button button.button-level2-weekdays:hover {
+  background: #AA68AA;
+  color: white !important;
 }

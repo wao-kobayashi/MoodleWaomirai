@@ -336,7 +336,15 @@ div.lp-cv
               |かんたん1分
            .lp-cv-button-main
               |無料体験レッスンはこちら
-
+mixin faqItem(title, text)
+  .lp-section-faq
+    .lp-section-faq-left 
+      |Q
+    .lp-section-faq-right   
+      .lp-section-faq-right-title 
+        | #{title}
+      .lp-section-faq-right-txt 
+        | #{text}s
 section.lp-section
   .lp-section-title-bgdecoration
     h2|よくある質問
