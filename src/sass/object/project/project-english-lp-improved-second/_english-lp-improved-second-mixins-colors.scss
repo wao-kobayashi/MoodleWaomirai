@@ -41,6 +41,13 @@ $cl-waogray:#4d4d4d; //グレー
     }
 }
 
+@mixin font-size-ml {
+    font-size: 22px;
+    @include responsive-style(768px) {
+        font-size: 20px;
+    }
+}
+
 @mixin font-size-l {
     font-size: 27px;
     @include responsive-style(768px) {
