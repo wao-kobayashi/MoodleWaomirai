@@ -4832,6 +4832,116 @@ select {
   }
 }
 
+.modal {
+  position: fixed;
+  z-index: 1000;
+  top: 0%;
+  left: 0%;
+  right: 0%;
+  bottom: 0%;
+  max-width: 450px;
+  width: 90%;
+  display: inline-table;
+  height: auto;
+  margin: auto;
+  background: white;
+  padding: 0 0 0px;
+  border-radius: 20px;
+}
+.modal .modal-wrapper {
+  position: relative;
+}
+.modal .modal-wrapper-close {
+  position: absolute;
+  right: -10px;
+  top: -10px;
+  z-index: 1001;
+  width: 40px;
+  height: 40px;
+}
+.modal .modal-wrapper-close .modal-wrapper-close-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 20px;
+  background: rgba(0, 0, 0, .9);
+  -webkit-transition: 0.2s ease-in-out;
+  transition: 0.2s ease-in-out;
+  position: relative;
+  cursor: pointer;
+}
+.modal .modal-wrapper-close .modal-wrapper-close-icon:before, .modal .modal-wrapper-close .modal-wrapper-close-icon:after {
+  position: absolute;
+  content: "";
+  top: 50%;
+  left: 50%;
+  width: 20px;
+  height: 4px;
+  border-radius: 2px;
+  background: #fff;
+  -webkit-transform-origin: center;
+          transform-origin: center;
+  -webkit-transform: translate(-50%, -50%) rotate(45deg);
+          transform: translate(-50%, -50%) rotate(45deg);
+}
+.modal .modal-wrapper-close .modal-wrapper-close-icon:after {
+  -webkit-transform: translate(-50%, -50%) rotate(-45deg);
+          transform: translate(-50%, -50%) rotate(-45deg);
+}
+.modal .modal-wrapper-head {
+  padding: 20px 0 10px;
+  text-align: center;
+  background: #005C3F;
+  color: white;
+  font-size: 22px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  border-radius: 20px 20px 0 0;
+}
+@media screen and (max-width: 768px) {
+  .modal .modal-wrapper-head {
+    font-size: 20px;
+  }
+}
+.modal .modal-wrapper-head.level-2 {
+  background: #AA68AA !important;
+}
+.modal .modal-wrapper-content {
+  padding: 20px;
+}
+.modal .modal-wrapper-content .modal-wrapper-content-text {
+  text-align: center;
+  font-size: 17px;
+  margin: 0px 0 10px;
+}
+@media screen and (max-width: 768px) {
+  .modal .modal-wrapper-content .modal-wrapper-content-text {
+    font-size: 16px;
+  }
+}
+.modal .modal-wrapper-content .modal-wrapper-content-close {
+  text-align: center;
+  color: #999;
+  font-size: 17px;
+  text-decoration: underline;
+  margin: 20px 0 10px;
+  cursor: pointer;
+}
+@media screen and (max-width: 768px) {
+  .modal .modal-wrapper-content .modal-wrapper-content-close {
+    font-size: 16px;
+  }
+}
+
+.bg-modal {
+  position: fixed;
+  z-index: 100;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, .7);
+}
+
 body {
   font-family: "Avenir LT Pro", "Jost", "Noto Sans JP", sans-serif;
   color: #262626;
@@ -6249,6 +6359,9 @@ header div img {
           align-items: center;
   font-weight: bold;
 }
+.section-el-cv .lp-cv-lessonday .lp-cv-lessonday-wrapper-block .lp-cv-lessonday-wrapper-block-head .lp-cv-lessonday-wrapper-block-head-level {
+  letter-spacing: 1px;
+}
 .section-el-cv .lp-cv-lessonday .lp-cv-lessonday-wrapper-block .lp-cv-lessonday-wrapper-block-head.level-2 {
   background: #AA68AA !important;
 }
@@ -6265,7 +6378,7 @@ header div img {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  padding: 20px 15px 15px;
+  padding: 20px 15px 5px;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
@@ -6318,6 +6431,38 @@ header div img {
     font-size: 28px;
     margin: 0 0 6px 5px;
   }
+}
+.section-el-cv .lp-cv-lessonday .lp-cv-lessonday-wrapper-block .lp-cv-lessonday-wrapper-block-button button {
+  background: transparent;
+  border: 1px solid #005C3F;
+  border-radius: 6px;
+  cursor: pointer;
+  outline: none;
+  padding: 8px 0px 3px;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  margin: 5px 0 10px;
+  width: 85%;
+  color: #005C3F;
+  font-size: 15px;
+}
+@media screen and (max-width: 768px) {
+  .section-el-cv .lp-cv-lessonday .lp-cv-lessonday-wrapper-block .lp-cv-lessonday-wrapper-block-button button {
+    margin: -8px 0 15px;
+  }
+}
+.section-el-cv .lp-cv-lessonday .lp-cv-lessonday-wrapper-block .lp-cv-lessonday-wrapper-block-button button:hover {
+  background: #005C3F;
+  color: white;
+}
+.section-el-cv .lp-cv-lessonday .lp-cv-lessonday-wrapper-block .lp-cv-lessonday-wrapper-block-button button.button-level2-weekdays {
+  border: 1px solid #AA68AA !important;
+  color: #AA68AA !important;
+}
+.section-el-cv .lp-cv-lessonday .lp-cv-lessonday-wrapper-block .lp-cv-lessonday-wrapper-block-button button.button-level2-weekdays:hover {
+  background: #AA68AA;
+  color: white !important;
 }
 .section-el-cv .lp-cv-lessonday .lp-cv-lessonday-wrapper-block-or {
   text-align: center;

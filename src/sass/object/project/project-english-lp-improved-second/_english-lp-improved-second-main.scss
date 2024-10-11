@@ -1112,6 +1112,9 @@ header {
                 flex-direction: column;
                 align-items: center;
                 font-weight: bold;
+                .lp-cv-lessonday-wrapper-block-head-level {
+                    letter-spacing: 1px;
+                }
                 &.level-2 {
                     background: $cl-english !important;
                 }
@@ -1122,7 +1125,7 @@ header {
             }
             .lp-cv-lessonday-wrapper-block-date {
                 display: flex;
-                padding: 20px 15px 15px;
+                padding: 20px 15px 5px;
                 flex-direction: column;
                 align-items: center;
                 @include responsive-style(768px) {
@@ -1157,6 +1160,34 @@ header {
                         margin: 0 0 6px 5px;
                     }
                     // width: 100%;
+                }
+            }
+            .lp-cv-lessonday-wrapper-block-button button {
+                background: transparent;
+                border: 1px solid $cl-waogreen;
+                border-radius: 6px;
+                cursor: pointer;
+                outline: none;
+                padding: 8px 0px 3px;
+                appearance: none;
+                margin: 5px 0 10px;
+                width: 85%;
+                color: $cl-waogreen;
+                font-size: 15px;
+                @include responsive-style(768px) {
+                    margin: -8px 0 15px;
+                }
+                &:hover {
+                    background: $cl-waogreen;
+                    color: white;
+                }
+                &.button-level2-weekdays {
+                    border: 1px solid $cl-english !important;
+                    color: $cl-english !important;
+                    &:hover {
+                        background: $cl-english;
+                        color: white !important;
+                    }
                 }
             }
         }
