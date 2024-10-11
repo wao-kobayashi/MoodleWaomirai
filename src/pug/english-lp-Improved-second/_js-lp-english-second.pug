@@ -22,7 +22,7 @@ div.testcase(style='position:fixed; z-index:100; top:0; left:0; display:none;')
     .modal-wrapper-close 
      .modal-wrapper-close-icon.modal-close
     .modal-wrapper-head.level-1
-       | 【LEVEL 1】休日コース
+       | 【LEVEL 1】土曜コース
     .modal-wrapper-content
         .modal-wrapper-content-text
             |11月に受講できる無料体験レッスンの日程です
@@ -34,13 +34,13 @@ div.testcase(style='position:fixed; z-index:100; top:0; left:0; display:none;')
   .modal-wrapper 
     .modal-wrapper-close 
      .modal-wrapper-close-icon.modal-close
-    .modal-wrapper-head.level-1
+    .modal-wrapper-head.level-2
        | 【LEVEL 2】平日コース
     .modal-wrapper-content
         .modal-wrapper-content-text
             |11月に受講できる無料体験レッスンの日程です
         .modal-wrapper-content-img 
-            img(src='https://go.waomirai.com/l/1026513/2024-10-10/h5kkk/1026513/1728617204gyEuDcdu/Calendar11_L1_weekdays.png')
+            img(src='https://go.waomirai.com/l/1026513/2024-10-10/h5kkn/1026513/1728617204iGAQ4EbI/Calendar11_L2_weekdays.png')
         .modal-wrapper-content-close.modal-close 
            |閉じる
 
@@ -53,20 +53,17 @@ script.
     //- $('.modal,.bg-modal').show();
     //- }
     //ModalOpen
-    $('#button-level1-weekdays').click(function() {
+    $('.button-level1-weekdays').click(function() {
         $('.modal-level1-weekdays').show();
         $('.bg-modal').show();
-        $('.modal-wrapper-content-img').html('<img src="https://go.waomirai.com/l/1026513/2024-10-10/h5kkk/1026513/1728617204gyEuDcdu/Calendar11_L1_weekdays.png">');
     });
-    $('#button-level1-saturday').click(function() {
-        $('.modal-level1-weekdays').show();
+    $('.button-level1-saturday').click(function() {
+        $('.modal-level1-saturday').show();
         $('.bg-modal').show();
-        $('.modal-wrapper-content-img').html('<img src="https://go.waomirai.com/l/1026513/2024-10-10/h5kkr/1026513/1728617205b6H3fy8R/Calendar11_L1_saturday.png">');
     });
-    $('#button-level2-weekdays').click(function() {
+    $('.button-level2-weekdays').click(function() {
         $('.modal-level2-weekdays').show();
         $('.bg-modal').show();
-        $('.modal-wrapper-content-img').html('<img src="https://go.waomirai.com/l/1026513/2024-10-10/h5kkn/1026513/1728617204iGAQ4EbI/Calendar11_L2_weekdays.png">');
     });
     $('.modal-close').click(function() {
         $('.modal,.bg-modal').hide();

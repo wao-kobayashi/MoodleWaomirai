@@ -4839,7 +4839,7 @@ select {
   left: 0%;
   right: 0%;
   bottom: 0%;
-  max-width: 550px;
+  max-width: 450px;
   width: 90%;
   display: inline-table;
   height: auto;
@@ -4901,6 +4901,9 @@ select {
   .modal .modal-wrapper-head {
     font-size: 20px;
   }
+}
+.modal .modal-wrapper-head.level-2 {
+  background: #AA68AA !important;
 }
 .modal .modal-wrapper-content {
   padding: 20px;
@@ -6440,15 +6443,20 @@ header div img {
   color: #005C3F;
   font-size: 15px;
 }
+@media screen and (max-width: 768px) {
+  .section-el-cv .lp-cv-lessonday .lp-cv-lessonday-wrapper-block .lp-cv-lessonday-wrapper-block-button button {
+    margin: -8px 0 15px;
+  }
+}
 .section-el-cv .lp-cv-lessonday .lp-cv-lessonday-wrapper-block .lp-cv-lessonday-wrapper-block-button button:hover {
   background: #005C3F;
   color: white;
 }
-.section-el-cv .lp-cv-lessonday .lp-cv-lessonday-wrapper-block .lp-cv-lessonday-wrapper-block-button button#button-level2-weekdays {
+.section-el-cv .lp-cv-lessonday .lp-cv-lessonday-wrapper-block .lp-cv-lessonday-wrapper-block-button button.button-level2-weekdays {
   border: 1px solid #AA68AA !important;
   color: #AA68AA !important;
 }
-.section-el-cv .lp-cv-lessonday .lp-cv-lessonday-wrapper-block .lp-cv-lessonday-wrapper-block-button button#button-level2-weekdays:hover {
+.section-el-cv .lp-cv-lessonday .lp-cv-lessonday-wrapper-block .lp-cv-lessonday-wrapper-block-button button.button-level2-weekdays:hover {
   background: #AA68AA;
   color: white !important;
 }

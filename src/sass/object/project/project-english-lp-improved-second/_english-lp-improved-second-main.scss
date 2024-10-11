@@ -1170,11 +1170,14 @@ header {
                 width: 85%;
                 color: $cl-waogreen;
                 font-size: 15px;
+                @include responsive-style(768px) {
+                    margin: -8px 0 15px;
+                }
                 &:hover {
                     background: $cl-waogreen;
                     color: white;
                 }
-                &#button-level2-weekdays {
+                &.button-level2-weekdays {
                     border: 1px solid $cl-english !important;
                     color: $cl-english !important;
                     &:hover {
