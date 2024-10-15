@@ -13,24 +13,6 @@ mixin cv
         .lp-cv-lessonday-title 
           |最短のオンラインレッスン開催日
         .lp-cv-lessonday-wrapper 
-            .lp-cv-lessonday-wrapper-block.block-level1-weekdays
-                .lp-cv-lessonday-wrapper-block-head.level-1 
-                  .lp-cv-lessonday-wrapper-block-head-level 
-                      |【LEVEL 1】
-                  .lp-cv-lessonday-wrapper-block-head-text 
-                      |平日コース         
-                .lp-cv-lessonday-wrapper-block-date 
-                    .lp-cv-lessonday-wrapper-block-date-day
-                      span.lp-cv-lessonday-wrapper-block-date-day-month.next-lesson-month|11
-                      span.lp-cv-lessonday-wrapper-block-date-day-slash|/
-                      span.lp-cv-lessonday-wrapper-block-date-day-month.next-lesson-day|5
-                      .lp-cv-lessonday-wrapper-block-date-week.next-lesson-week
-                          |火
-                    .lp-cv-lessonday-wrapper-block-date-range.next-lesson-hour-range
-                        |17:00~   
-                .lp-cv-lessonday-wrapper-block-button 
-                   button.button-level1-weekdays
-                    |全ての日程をみる                        
             .lp-cv-lessonday-wrapper-block.block-level1-saturday
                 .lp-cv-lessonday-wrapper-block-head.level-1 
                   .lp-cv-lessonday-wrapper-block-head-level 
@@ -49,6 +31,24 @@ mixin cv
                 .lp-cv-lessonday-wrapper-block-button 
                    button.button-level1-saturday
                     |全ての日程をみる  
+            .lp-cv-lessonday-wrapper-block.block-level1-weekdays
+                .lp-cv-lessonday-wrapper-block-head.level-1 
+                  .lp-cv-lessonday-wrapper-block-head-level 
+                      |【LEVEL 1】
+                  .lp-cv-lessonday-wrapper-block-head-text 
+                      |平日コース         
+                .lp-cv-lessonday-wrapper-block-date 
+                    .lp-cv-lessonday-wrapper-block-date-day
+                      span.lp-cv-lessonday-wrapper-block-date-day-month.next-lesson-month|11
+                      span.lp-cv-lessonday-wrapper-block-date-day-slash|/
+                      span.lp-cv-lessonday-wrapper-block-date-day-month.next-lesson-day|5
+                      .lp-cv-lessonday-wrapper-block-date-week.next-lesson-week
+                          |火
+                    .lp-cv-lessonday-wrapper-block-date-range.next-lesson-hour-range
+                        |17:00~   
+                .lp-cv-lessonday-wrapper-block-button 
+                   button.button-level1-weekdays
+                    |全ての日程をみる                        
             .lp-cv-lessonday-wrapper-block-or
                 |or
             .lp-cv-lessonday-wrapper-block.block-level2-weekdays
@@ -76,7 +76,7 @@ mixin cv
             .lp-cv-button-main
                 |無料体験レッスンはこちら
 
-- var linkUrl = 'https://go.waomirai.com/english-trial-form-202411'
+- var linkUrl = 'https://go.waomirai.com/english-trial-form'
 //- include _mixin-lp-english.pug
 noscript
   iframe(src="https://www.googletagmanager.com/ns.html?id=GTM-W3X8CG9C", height="0", width="0", style="display:none;visibility:hidden")

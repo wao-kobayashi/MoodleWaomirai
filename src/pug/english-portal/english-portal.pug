@@ -15,7 +15,6 @@ html(lang="jp")
     meta(name="viewport", content="width=device-width, initial-scale=1,minimum-scale=1.0, maximum-scale=1.0, user-scalable=no")
     meta(charset="UTF-8")
   body#english-portal
-  
     header 
       h1.header-logo
         img(src='https://go.waomirai.com/l/1026513/2024-08-08/gzqmq/1026513/1723103182E5MU9Ijy/waomirai_logo__1_.svg')
@@ -268,13 +267,17 @@ html(lang="jp")
          span.level-label|LEVEL 1
          |のレッスンアーカイブ(録画)
        .section-wao-english-group
-          when "grape"
-            .content-level-1
-              div(style="padding:56.25% 0 0 0;position:relative;").
-                <iframe src="https://vimeo.com/showcase/11389321/embed" allowfullscreen="" frameborder="0" style="position:absolute;top:0;left:0;width:100%;height:100%;"></iframe>
-            .content-level-2(style='display:none;')
-              div(style="padding:56.25% 0 0 0;position:relative;").
-                <iframe src="https://vimeo.com/showcase/11389324/embed" allowfullscreen="" frameborder="0" style="position:absolute;top:0;left:0;width:100%;height:100%;"></iframe>
+          case version
+              when "grape"
+                .content-level-1
+                  div(style="padding:56.25% 0 0 0;position:relative;").
+                    <iframe src="https://vimeo.com/showcase/11389321/embed" allowfullscreen="" frameborder="0" style="position:absolute;top:0;left:0;width:100%;height:100%;"></iframe>
+                .content-level-2(style='display:none;')
+                  div(style="padding:56.25% 0 0 0;position:relative;").
+                    <iframe src="https://vimeo.com/showcase/11389324/embed" allowfullscreen="" frameborder="0" style="position:absolute;top:0;left:0;width:100%;height:100%;"></iframe>
+              when "marron"
+                div 
+                  img(src='https://go.waomirai.com/l/1026513/2024-09-18/h3sjq/1026513/1726715510e781zCcj/img_comingsoon.png')
     section.section-wao-english#section-4.section-wao-english-white
        h2.howto-lesson
          |有料プランへの
