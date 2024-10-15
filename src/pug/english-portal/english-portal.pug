@@ -268,12 +268,13 @@ html(lang="jp")
          span.level-label|LEVEL 1
          |のレッスンアーカイブ(録画)
        .section-wao-english-group
-         .content-level-1
-           div(style="padding:56.25% 0 0 0;position:relative;").
-            <iframe src="https://vimeo.com/showcase/11389321/embed" allowfullscreen="" frameborder="0" style="position:absolute;top:0;left:0;width:100%;height:100%;"></iframe>
-         .content-level-2(style='display:none;')
-           div(style="padding:56.25% 0 0 0;position:relative;").
-            <iframe src="https://vimeo.com/showcase/11389324/embed" allowfullscreen="" frameborder="0" style="position:absolute;top:0;left:0;width:100%;height:100%;"></iframe>
+          when "grape"
+            .content-level-1
+              div(style="padding:56.25% 0 0 0;position:relative;").
+                <iframe src="https://vimeo.com/showcase/11389321/embed" allowfullscreen="" frameborder="0" style="position:absolute;top:0;left:0;width:100%;height:100%;"></iframe>
+            .content-level-2(style='display:none;')
+              div(style="padding:56.25% 0 0 0;position:relative;").
+                <iframe src="https://vimeo.com/showcase/11389324/embed" allowfullscreen="" frameborder="0" style="position:absolute;top:0;left:0;width:100%;height:100%;"></iframe>
     section.section-wao-english#section-4.section-wao-english-white
        h2.howto-lesson
          |有料プランへの
@@ -433,7 +434,7 @@ html(lang="jp")
         }
       });
     case version
-      when "2024nov"
+      when "marron"
         include js-english-portal-schedule-2024nov.pug
-      when "2024oct"
+      when "grape"
         include js-english-portal-schedule-2024oct.pug
