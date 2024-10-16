@@ -1,4 +1,4 @@
-//英語ログインページ
+//英語体験ログインページ
 doctype html
 html(lang="jp")
   head
@@ -15,14 +15,6 @@ html(lang="jp")
     meta(name="viewport", content="width=device-width, initial-scale=1,minimum-scale=1.0, maximum-scale=1.0, user-scalable=no")
     meta(charset="UTF-8")
   body
-    .testcase(style="display: none;")
-      input#testDate(type="text", placeholder="例: 2024-11-01 16:59")
-      button#testButton テスト実行
-    .login-announcement
-       p 
-        span#announcementText|10月中はレッスンが全て無料、
-        br.spimage
-        |予約不要でレッスンを受けられます
     .login-block 
        .login-block-logo 
          img(src='https://go.waomirai.com/l/1026513/2024-08-08/gzqmq/1026513/1723103182E5MU9Ijy/waomirai_logo__1_.svg')
@@ -31,57 +23,6 @@ html(lang="jp")
           .error-label(style='display:none;')
             |パスワードが違います
           button(type="submit") ログイン
-    script.
-      $(document).ready(function () {
-          // URLからパラメータを取得し、テストモードを判定
-          const urlParams = new URLSearchParams(window.location.search);
-          const isTestCase = urlParams.has("via") && urlParams.get("via") === "testcase";
-
-          // テストケースのための要素を表示
-          if (isTestCase) {
-              $("div.testcase").show();
-          }
-
-          // 初期の日時に基づいてレッスン内容を設定
-          changeLessonContent();
-
-          // テスト実行ボタンのクリックイベント
-          $("#testButton").on("click", function () {
-              const testDateInput = $("#testDate").val();
-
-              // 入力された日時が正しいか確認
-              if (!testDateInput || !testDateInput.includes(" ")) {
-                  alert("正しい日時を入力してください（例: 2024-11-01 16:59）");
-                  return;
-              }
-
-              // 日時をパースし、Dateオブジェクトを作成
-              const [datePart, timePart] = testDateInput.split(" ");
-              const [year, month, day] = datePart.split("-").map(Number);
-              const [hour, minute] = timePart.split(":").map(Number);
-              const simulatedDate = new Date(year, month - 1, day, hour, minute);
-
-              // シミュレーション日時でレッスン内容を変更
-              changeLessonContent(simulatedDate);
-          });
-
-          // レッスン内容の変更を行う関数
-          function changeLessonContent(date = new Date()) {
-              const year = date.getFullYear();
-              const month = date.getMonth() + 1; // 月は0から始まるため+1する
-
-              // 2025年1月以降は要素を削除
-              if (year > 2024 || (year === 2024 && month > 12)) {
-                  $(".login-announcement").remove();
-              } else if (year === 2024 && month === 11) {
-                  // 2024年11月の場合
-                  $("#announcementText").text("11月中はレッスンが全て無料、");
-              } else if (year === 2024 && month === 12) {
-                  // 2024年12月の場合
-                  $("#announcementText").text("12月中はレッスンが全て無料、");
-              }
-          }
-      });
     script.
       $(document).ready(function() {
           var octoberCookie = 'visited';  // 10月用の既存クッキー
