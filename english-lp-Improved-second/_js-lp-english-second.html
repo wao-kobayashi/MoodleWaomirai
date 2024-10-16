@@ -1,4 +1,4 @@
-<div class="testcase" style="position:fixed; z-index:100; top:0; left:0; display:none;"><!-- テスト用の日時入力フィールド--><input id="testDate" type="text" placeholder="2024-10-01 16:59"/><!-- テスト実行ボタン--><button class="testButton">テスト実行</button></div><div class="modal modal-level1-weekdays" style="display:none;"><div class="modal-wrapper"> <div class="modal-wrapper-close"> <div class="modal-wrapper-close-icon modal-close"></div></div><div class="modal-wrapper-head level-1">【LEVEL 1】平日コース</div><div class="modal-wrapper-content"><div class="modal-wrapper-content-text">11月に受講できる無料体験レッスンの日程です</div><div class="modal-wrapper-content-img"> <img src="https://go.waomirai.com/l/1026513/2024-10-10/h5kkk/1026513/1728617204gyEuDcdu/Calendar11_L1_weekdays.png"/></div><div class="modal-wrapper-content-close modal-close"> 閉じる</div></div></div></div><div class="modal modal-level1-saturday" style="display:none;"><div class="modal-wrapper"> <div class="modal-wrapper-close"> <div class="modal-wrapper-close-icon modal-close"></div></div><div class="modal-wrapper-head level-1">【LEVEL 1】土曜コース</div><div class="modal-wrapper-content"><div class="modal-wrapper-content-text">11月に受講できる無料体験レッスンの日程です</div><div class="modal-wrapper-content-img"> <img src="https://go.waomirai.com/l/1026513/2024-10-10/h5kkr/1026513/1728617205b6H3fy8R/Calendar11_L1_saturday.png"/></div><div class="modal-wrapper-content-close modal-close"> 閉じる</div></div></div></div><div class="modal modal-level2-weekdays" style="display:none;"><div class="modal-wrapper"> <div class="modal-wrapper-close"> <div class="modal-wrapper-close-icon modal-close"></div></div><div class="modal-wrapper-head level-2">【LEVEL 2】平日コース</div><div class="modal-wrapper-content"><div class="modal-wrapper-content-text">11月に受講できる無料体験レッスンの日程です</div><div class="modal-wrapper-content-img"> <img src="https://go.waomirai.com/l/1026513/2024-10-10/h5kkn/1026513/1728617204iGAQ4EbI/Calendar11_L2_weekdays.png"/></div><div class="modal-wrapper-content-close modal-close"> 閉じる</div></div></div></div><div class="bg-modal" style="display:none;"></div><script>//ModalOpenの関数
+<div class="testcase" style="position:fixed; z-index:100; top:0; left:0; display:none;"><!-- テスト用の日時入力フィールド--><input id="testDate" type="text" placeholder="2024-10-01 16:59"/><!-- テスト実行ボタン--><button id="testButton">テスト実行</button></div><div class="modal modal-level1-weekdays" style="display:none;"><div class="modal-wrapper"> <div class="modal-wrapper-close"> <div class="modal-wrapper-close-icon modal-close"></div></div><div class="modal-wrapper-head level-1">【LEVEL 1】平日コース</div><div class="modal-wrapper-content"><div class="modal-wrapper-content-text">11月に受講できる無料体験レッスンの日程です</div><div class="modal-wrapper-content-img"> <img src="https://go.waomirai.com/l/1026513/2024-10-10/h5kkk/1026513/1728617204gyEuDcdu/Calendar11_L1_weekdays.png"/></div><div class="modal-wrapper-content-close modal-close"> 閉じる</div></div></div></div><div class="modal modal-level1-saturday" style="display:none;"><div class="modal-wrapper"> <div class="modal-wrapper-close"> <div class="modal-wrapper-close-icon modal-close"></div></div><div class="modal-wrapper-head level-1">【LEVEL 1】土曜コース</div><div class="modal-wrapper-content"><div class="modal-wrapper-content-text">11月に受講できる無料体験レッスンの日程です</div><div class="modal-wrapper-content-img"> <img src="https://go.waomirai.com/l/1026513/2024-10-10/h5kkr/1026513/1728617205b6H3fy8R/Calendar11_L1_saturday.png"/></div><div class="modal-wrapper-content-close modal-close"> 閉じる</div></div></div></div><div class="modal modal-level2-weekdays" style="display:none;"><div class="modal-wrapper"> <div class="modal-wrapper-close"> <div class="modal-wrapper-close-icon modal-close"></div></div><div class="modal-wrapper-head level-2">【LEVEL 2】平日コース</div><div class="modal-wrapper-content"><div class="modal-wrapper-content-text">11月に受講できる無料体験レッスンの日程です</div><div class="modal-wrapper-content-img"> <img src="https://go.waomirai.com/l/1026513/2024-10-10/h5kkn/1026513/1728617204iGAQ4EbI/Calendar11_L2_weekdays.png"/></div><div class="modal-wrapper-content-close modal-close"> 閉じる</div></div></div></div><div class="bg-modal" style="display:none;"></div><script>//ModalOpenの関数
 //- function modalopen() {
 //- $('.modal,.bg-modal').show();
 //- }
@@ -26,7 +26,9 @@ $('.modal-close').click(function() {
                 { date: new Date(2024, 10, 5, 17, 30), month: '11', day: '5', week: '火', hourRange: '17:00~' },
                 { date: new Date(2024, 10, 7, 17, 0), month: '11', day: '7', week: '木', hourRange: '17:00~' },
                 { date: new Date(2024, 10, 12, 17, 0), month: '11', day: '12', week: '木', hourRange: '17:00~' },
-                { date: new Date(2024, 10, 14, 17, 0), month: '11', day: '14', week: '木', hourRange: '17:00~' }
+                { date: new Date(2024, 10, 14, 17, 0), month: '11', day: '14', week: '木', hourRange: '17:00~' },
+                { date: new Date(2024, 10, 19, 17, 0), month: '11', day: '19', week: '木', hourRange: '17:00~' },
+                { date: new Date(2024, 10, 21, 17, 0), month: '11', day: '21', week: '木', hourRange: '17:00~' }
             ]
         },
         {
@@ -34,8 +36,7 @@ $('.modal-close').click(function() {
             lessons: [
                 { date: new Date(2024, 10, 2, 18, 30), month: '11', day: '2', week: '土', hourRange: '17:30~' },
                 { date: new Date(2024, 10, 9, 18, 30), month: '11', day: '9', week: '土', hourRange: '17:30~' },
-                { date: new Date(2024, 10, 16, 18, 30), month: '11', day: '16', week: '土', hourRange: '17:30~' },
-                { date: new Date(2024, 10, 9, 18, 30), month: '11', day: '9', week: '土', hourRange: '17:30~' },
+                { date: new Date(2024, 10, 16, 18, 30), month: '11', day: '16', week: '土', hourRange: '17:30~' }
             ]
         },
         {
@@ -44,7 +45,9 @@ $('.modal-close').click(function() {
                 { date: new Date(2024, 10, 5, 18, 5), month: '11', day: '5', week: '火', hourRange: '17:40~' },
                 { date: new Date(2024, 10, 7, 18, 5), month: '11', day: '7', week: '木', hourRange: '17:40~' },
                 { date: new Date(2024, 10, 12, 17, 0), month: '11', day: '12', week: '火', hourRange: '17:40~' },
-                { date: new Date(2024, 10, 14, 17, 0), month: '11', day: '14', week: '木', hourRange: '17:40~' }
+                { date: new Date(2024, 10, 14, 17, 0), month: '11', day: '14', week: '木', hourRange: '17:40~' },
+                { date: new Date(2024, 10, 19, 17, 0), month: '11', day: '19', week: '火', hourRange: '17:40~' },
+                { date: new Date(2024, 10, 21, 17, 0), month: '11', day: '21', week: '木', hourRange: '17:40~' }
             ]
         }
     ];
@@ -109,7 +112,7 @@ $('.modal-close').click(function() {
         newCvMainText = '11/10までに申し込むと<br class="spimage">今月中は<br class="pcimage">オンラインレッスンが<br class="spimage">受け放題';
     } else if (currentDate >= new Date(2024, 10, 10, 0, 0) && currentDate <= new Date(2024, 10, 14, 23, 59)) {
         newCvText = '11/15までに申し込むと今月中は無料';
-        newCvMainText = '11/15までに申し込むと今月中は<br class="spimage">オンラインレッスンが受け放題';
+        newCvMainText = '11/15までに申し込むと今月中は<br>オンラインレッスンが受け放題';
     } else if (currentDate >= new Date(2024, 10, 15, 0, 0)) {
         newCvText = '11月中のすべてのオンラインレッスンを<br>アーカイブで見放題！';
         newCvMainText = '11月中のオンラインレッスンを<br>アーカイブで見放題！';

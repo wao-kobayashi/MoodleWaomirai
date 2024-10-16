@@ -224,7 +224,9 @@ mixin schedulejs
                         { date: new Date(2024, 10, 5, 17, 30), month: '11', day: '5', week: '火', hourRange: '17:00~' },
                         { date: new Date(2024, 10, 7, 17, 0), month: '11', day: '7', week: '木', hourRange: '17:00~' },
                         { date: new Date(2024, 10, 12, 17, 0), month: '11', day: '12', week: '木', hourRange: '17:00~' },
-                        { date: new Date(2024, 10, 14, 17, 0), month: '11', day: '14', week: '木', hourRange: '17:00~' }
+                        { date: new Date(2024, 10, 14, 17, 0), month: '11', day: '14', week: '木', hourRange: '17:00~' },
+                        { date: new Date(2024, 10, 19, 17, 0), month: '11', day: '19', week: '木', hourRange: '17:00~' },
+                        { date: new Date(2024, 10, 21, 17, 0), month: '11', day: '21', week: '木', hourRange: '17:00~' }
                     ]
                 },
                 {
@@ -232,8 +234,7 @@ mixin schedulejs
                     lessons: [
                         { date: new Date(2024, 10, 2, 18, 30), month: '11', day: '2', week: '土', hourRange: '17:30~' },
                         { date: new Date(2024, 10, 9, 18, 30), month: '11', day: '9', week: '土', hourRange: '17:30~' },
-                        { date: new Date(2024, 10, 16, 18, 30), month: '11', day: '16', week: '土', hourRange: '17:30~' },
-                        { date: new Date(2024, 10, 9, 18, 30), month: '11', day: '9', week: '土', hourRange: '17:30~' },
+                        { date: new Date(2024, 10, 16, 18, 30), month: '11', day: '16', week: '土', hourRange: '17:30~' }
                     ]
                 },
                 {
@@ -242,7 +243,9 @@ mixin schedulejs
                         { date: new Date(2024, 10, 5, 18, 5), month: '11', day: '5', week: '火', hourRange: '17:40~' },
                         { date: new Date(2024, 10, 7, 18, 5), month: '11', day: '7', week: '木', hourRange: '17:40~' },
                         { date: new Date(2024, 10, 12, 17, 0), month: '11', day: '12', week: '火', hourRange: '17:40~' },
-                        { date: new Date(2024, 10, 14, 17, 0), month: '11', day: '14', week: '木', hourRange: '17:40~' }
+                        { date: new Date(2024, 10, 14, 17, 0), month: '11', day: '14', week: '木', hourRange: '17:40~' },
+                        { date: new Date(2024, 10, 19, 17, 0), month: '11', day: '19', week: '火', hourRange: '17:40~' },
+                        { date: new Date(2024, 10, 21, 17, 0), month: '11', day: '21', week: '木', hourRange: '17:40~' }
                     ]
                 }
             ];
@@ -717,7 +720,7 @@ body
                 br
                 | ・途中で他のコースのレッスンを受講することも可能です
                 br
-                | ・レッスンをお休みいただいた場合でもアーカイブ動画で復習いただけます
+                | ・レッスンを欠席された場合でもアーカイブ動画で復習いただけます
                 br
                 br
             h3.global-h3
@@ -786,7 +789,7 @@ body
         hr.spimage(style="margin: 45px 0 0;")
         p(style="text-align: left;margin: 30px auto 20px;line-height: 1.6;") 以下のフォームに必要事項を入力してください。
             br
-            | 入力完了後、自動返信メールに記載の無料体験ページでレッスンのスケジュールを確認いただけます
+            | フォーム送信後、自動返信メールに記載の「無料体験ページ」にて、レッスンのスケジュールを確認いただけます。
     #contentMain.container
         form#pardot-form.form(accept-charset="UTF-8", method="post", action="https://go.waomirai.com/l/1026513/2024-10-07/h55w5")
 
