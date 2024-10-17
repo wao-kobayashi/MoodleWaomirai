@@ -827,6 +827,21 @@ header {
                 border-radius: 10px;
             }
         }
+        .lp-section-study-process-img-close {
+            display: inline-flex;
+            width: 160px;
+            justify-content: center;
+            height: 300px;
+            position: relative;
+            img {
+                position: absolute;
+                width: 160px;
+                height: 160px;
+                top: -20px;
+                bottom: 0;
+                margin: auto;
+            }
+        }
     }
     .lp-section-scroll {
         height: 50px;

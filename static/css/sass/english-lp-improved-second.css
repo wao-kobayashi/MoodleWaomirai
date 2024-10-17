@@ -5961,6 +5961,25 @@ header div img {
           box-shadow: 0 0 30px rgba(50, 50, 70, .15);
   border-radius: 10px;
 }
+.section-el-second-process .section-el-second-content-process .lp-section-study-process-img-close {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  width: 160px;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  height: 300px;
+  position: relative;
+}
+.section-el-second-process .section-el-second-content-process .lp-section-study-process-img-close img {
+  position: absolute;
+  width: 160px;
+  height: 160px;
+  top: -20px;
+  bottom: 0;
+  margin: auto;
+}
 .section-el-second-process .lp-section-scroll {
   height: 50px;
   margin: 15px auto 15px;
