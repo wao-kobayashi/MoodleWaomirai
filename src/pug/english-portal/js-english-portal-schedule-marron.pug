@@ -1,0 +1,425 @@
+div.testcase(style='position:fixed; z-index:100; top:0; left:0; display:none;')
+    // テスト用の日時入力フィールド
+    input#testDate(type="text", placeholder="2024-10-01 16:59")
+    // テスト実行ボタン
+    button#testButton テスト実行
+script.
+      $(document).ready(function () {
+        // URLからパラメータを取得し、テストモードを判定
+        const urlParams = new URLSearchParams(window.location.search);
+        const isTestCase = urlParams.has("via") && urlParams.get("via") === "testcase";
+
+        // テストケースのための要素を表示
+        if (isTestCase) {
+          $("div.testcase").show();
+        }
+
+        // 初期の日時に基づいてレッスン内容を設定
+        changeLessonContent();
+
+        // テスト実行ボタンのクリックイベント
+        $("#testButton").on("click", function () {
+          const testDateInput = $("#testDate").val();
+
+          // 入力された日時が正しいか確認
+          if (!testDateInput || !testDateInput.includes(" ")) {
+            alert("正しい日時を入力してください（例: 2024-10-01 16:59）");
+            return;
+          }
+
+          // 日時をパースし、Dateオブジェクトを作成
+          const [datePart, timePart] = testDateInput.split(" ");
+          const [year, month, day] = datePart.split("-").map(Number);
+          const [hour, minute] = timePart.split(":").map(Number);
+          const simulatedDate = new Date(year, month - 1, day, hour, minute);
+
+          // シミュレーション日時でレッスン内容を変更
+          changeLessonContent(simulatedDate);
+        });
+      });
+
+      // レッスン内容を変更する関数
+      function changeLessonContent(simulatedDate = null) {
+        const now = simulatedDate || new Date(); // 現在の日時かシミュレートされた日時を使う
+        let l1Week1 = "https://go.waomirai.com/l/1026513/2024-10-16/h5t68/1026513/1729063674KGv5QiJd/l1_week1.png";
+        let l1Week2 = "https://go.waomirai.com/l/1026513/2024-10-16/h5t6c/1026513/1729063674H1WNacE7/l1_week2.png";
+        let l1Week3 = "https://go.waomirai.com/l/1026513/2024-10-16/h5t6y/1026513/1729064048NOtNmWcE/l1_week3.png";
+        let l2Week1 = "https://go.waomirai.com/l/1026513/2024-10-16/h5t6r/1026513/1729063675DzSzMZzZ/l2_week1.png";
+        let l2Week2 = "https://go.waomirai.com/l/1026513/2024-10-16/h5t6k/1026513/1729063675CODPPqmL/l2_week2.png";   
+        let l2Week3 = "https://go.waomirai.com/l/1026513/2024-10-16/h5t6n/1026513/17290636756vhrFerL/l2_week3.png"; 
+
+        // 日付ごとの処理
+        if (now >= new Date(2024, 10, 26, 18, 10)) {
+          //平日コーストレーニングをweek1へ
+          $(".thisweek-title").text("1週目(12/1〜12/7)のオンラインレッスンのスケジュールを確認する");
+          $(".txt-training-level1-weekdays").html("<b>【平日コース】の方はweek1! (12/3〜12/9)</b><br />⑤と⑥のトレーニングをしましょう!");
+          $(".txt-training-level2-weekdays").html("<b>【平日コース】の方はweek1! (12/3〜12/9)</b><br />⑤と⑥のトレーニングをしましょう!"); 
+          $(".txt-training-level1-saturday").html("<b>【土曜コース】の方はweek1! (12/7〜12/13)</b><br />①と②のトレーニングをしましょう!");  
+          $(".img-training-level1-weekdays img").attr("src", l1Week1);  
+          $(".img-training-level2-weekdays img").attr("src", l2Week1); 
+          $(".img-training-level1-saturday img").attr("src", l1Week1);  
+        }
+        else if (now >= new Date(2024, 10, 23, 18, 30)) {
+          //土曜コーストレーニングをweek1へ
+          $(".thisweek-title").text("1週目(12/1〜12/7)のオンラインレッスンのスケジュールを確認する");
+          $(".txt-training-level1-weekdays").html("<b>【平日コース】の方はweek3! (11/19〜11/25)</b><br />⑤と⑥のトレーニングをしましょう!");
+          $(".txt-training-level2-weekdays").html("<b>【平日コース】の方はweek3! (11/19〜11/25)</b><br />⑤と⑥のトレーニングをしましょう!"); 
+          $(".txt-training-level1-saturday").html("<b>【土曜コース】の方はweek1! (12/7〜12/13)</b><br />①と②のトレーニングをしましょう!");  
+          $(".img-training-level1-weekdays img").attr("src", l1Week3);  
+          $(".img-training-level2-weekdays img").attr("src", l2Week3);
+          $(".img-training-level1-saturday img").attr("src", l1Week1);  
+ 
+        } else if (now >= new Date(2024, 10, 21, 18, 30)) {
+          //タイトルが1週目のレッスンに更新
+          $(".thisweek-title").text("1週目(12/1〜12/7)のオンラインレッスンのスケジュールを確認する");
+          $(".txt-training-level1-weekdays").html("<b>【平日コース】の方はweek3! (11/19〜11/25)</b><br />⑤と⑥のトレーニングをしましょう!");
+          $(".txt-training-level2-weekdays").html("<b>【平日コース】の方はweek3! (11/19〜11/25)</b><br />⑤と⑥のトレーニングをしましょう!");
+          $(".txt-training-level1-saturday").html("<b>【土曜コース】の方はweek3! (11/16〜11/22)</b><br />⑤と⑥のトレーニングをしましょう!");   
+          $(".img-training-level1-weekdays img").attr("src", l1Week3);  
+          $(".img-training-level2-weekdays img").attr("src", l2Week3); 
+          $(".img-training-level1-saturday img").attr("src", l1Week3);  
+        }     
+        else if (now >= new Date(2024, 10, 19, 18, 10)) {
+          //平日コーストレーニングをweek3へ
+          $(".thisweek-title").text("3週目(11/15〜11/21)のオンラインレッスンのスケジュールを確認する");
+          $(".txt-training-level1-weekdays").html("<b>【平日コース】の方はweek3! (11/19〜11/25)</b><br />⑤と⑥のトレーニングをしましょう!");
+          $(".txt-training-level2-weekdays").html("<b>【平日コース】の方はweek3! (11/19〜11/25)</b><br />⑤と⑥のトレーニングをしましょう!");    
+          $(".txt-training-level1-saturday").html("<b>【土曜コース】の方はweek3! (11/16〜11/22)</b><br />⑤と⑥のトレーニングをしましょう!");   
+          $(".img-training-level1-weekdays img").attr("src", l1Week3);  
+          $(".img-training-level2-weekdays img").attr("src", l2Week3); 
+          $(".img-training-level1-saturday img").attr("src", l1Week3);  
+        } else if (now >= new Date(2024, 10, 16, 18, 30)) {
+          //土曜コーストレーニングをweek3へ
+          $(".thisweek-title").text("3週目(11/15〜11/21)のオンラインレッスンのスケジュールを確認する");
+          $(".txt-training-level1-weekdays").html("<b>【平日コース】の方はweek2! (11/12〜11/18)</b><br />③と④のトレーニングをしましょう!");
+          $(".txt-training-level2-weekdays").html("<b>【平日コース】の方はweek2! (11/12〜11/18)</b><br />③と④のトレーニングをしましょう!");    
+          $(".txt-training-level1-saturday").html("<b>【土曜コース】の方はweek3! (11/16〜11/22)</b><br />⑤と⑥のトレーニングをしましょう!");   
+          $(".img-training-level1-weekdays img").attr("src", l1Week2);  
+          $(".img-training-level2-weekdays img").attr("src", l2Week2); 
+          $(".img-training-level1-saturday img").attr("src", l1Week3);  
+        } else if (now >= new Date(2024, 10, 14, 18, 10)) {
+          //タイトルが3週目のレッスンに更新
+          $(".thisweek-title").text("3週目(11/15〜11/21)のオンラインレッスンのスケジュールを確認する");
+          $(".txt-training-level1-weekdays").html("<b>【平日コース】の方はweek2! (11/12〜11/18)</b><br />③と④のトレーニングをしましょう!");
+          $(".txt-training-level2-weekdays").html("<b>【平日コース】の方はweek2! (11/12〜11/18)</b><br />③と④のトレーニングをしましょう!");    
+          $(".txt-training-level1-saturday").html("<b>【土曜コース】の方はweek2! (11/9〜11/15)</b><br />③と④のトレーニングをしましょう!");  
+          $(".img-training-level1-weekdays img").attr("src", l1Week2);  
+          $(".img-training-level2-weekdays img").attr("src", l2Week2);   
+          $(".img-training-level1-saturday img").attr("src", l1Week2);
+        } else if (now >= new Date(2024, 10, 12, 18, 30)) {
+          //平日コーストレーニングをweek2へ
+          $(".thisweek-title").text("2週目(11/8〜11/14)のオンラインレッスンのスケジュールを確認する");
+          $(".txt-training-level1-weekdays").html("<b>【平日コース】の方はweek2! (11/12〜11/18)</b><br />③と④のトレーニングをしましょう!");
+          $(".txt-training-level2-weekdays").html("<b>【平日コース】の方はweek2! (11/12〜11/18)</b><br />③と④のトレーニングをしましょう!");    
+          $(".txt-training-level1-saturday").html("<b>【土曜コース】の方はweek2! (11/9〜11/15)</b><br />③と④のトレーニングをしましょう!");   
+          $(".img-training-level1-weekdays img").attr("src", l1Week2);  
+          $(".img-training-level1-saturday img").attr("src", l1Week2);  
+          $(".img-training-level2-weekdays img").attr("src", l2Week2);  
+        } else if (now >= new Date(2024, 10, 9, 18, 30)) {
+          //土曜コーストレーニングをweek2へ
+          $(".thisweek-title").text("2週目(11/8〜11/14)のオンラインレッスンのスケジュールを確認する");
+          $(".txt-training-level1-weekdays").html("<b>【平日コース】の方はweek1! (11/5〜11/11)</b><br />①と②のトレーニングをしましょう!");
+          $(".txt-training-level2-weekdays").html("<b>【平日コース】の方はweek1! (11/5〜11/11)</b><br />①と②のトレーニングをしましょう!");    
+          $(".txt-training-level1-saturday").html("<b>【土曜コース】の方はweek2 (11/9〜11/15)</b><br />③と④のトレーニングをしましょう!");     
+          $(".img-training-level1-weekdays img").attr("src", l1Week1);  
+          $(".img-training-level2-weekdays img").attr("src", l2Week1);  
+          $(".img-training-level1-saturday img").attr("src", l1Week2);  
+
+        } else if (now >= new Date(2024, 10, 7, 18, 10)) {
+          //タイトルが2週目のレッスンに更新
+          $(".thisweek-title").text("2週目(11/8〜11/14)のオンラインレッスンのスケジュールを確認する");
+          $(".txt-training-level1-weekdays").html("<b>【平日コース】の方はweek1! (11/5〜11/11)</b><br />①と②のトレーニングをしましょう!");
+          $(".txt-training-level2-weekdays").html("<b>【平日コース】の方はweek1! (11/5〜11/11)</b><br />①と②のトレーニングをしましょう!");
+          $(".txt-training-level1-saturday").html("<b>【土曜コース】の方はweek1! (11/2〜11/8)</b><br />③と④のトレーニングをしましょう!");
+          $(".img-training-level1-weekdays img").attr("src", l1Week1);  
+          $(".img-training-level2-weekdays img").attr("src", l2Week1);  
+          $(".img-training-level1-saturday img").attr("src", l1Week1);  
+
+
+        } else if (now >= new Date(2024, 10, 2, 18, 30)) {
+          //初期状態
+          $(".thisweek-title").text("1週目(11/1〜11/7)のオンラインレッスンのスケジュールを確認する");
+          $(".txt-training-level1-weekdays").html("<b>【平日コース】の方はweek1! (11/5〜11/11)</b><br />①と②のトレーニングをしましょう!");
+          $(".txt-training-level2-weekdays").html("<b>【平日コース】の方はweek1! (11/5〜11/11)</b><br />①と②のトレーニングをしましょう!");
+          $(".txt-training-level1-saturday").html("<b>【土曜コース】の方はweek1 (11/2〜11/8)</b><br />①と②のトレーニングをしましょう!");
+          $(".img-training-level1-weekdays img").attr("src", l1Week1);  
+          $(".img-training-level2-weekdays img").attr("src", l2Week1);
+          $(".img-training-level1-saturday img").attr("src", l1Week1);  
+  
+
+        } else {
+         $(".thisweek-title").text("1週目(11/1〜11/7)のオンラインレッスンのスケジュールを確認する");
+          $(".txt-training-level1-weekdays").html("<b>【平日コース】の方はweek1! (11/5〜11/11)</b><br />①と②のトレーニングをしましょう!");
+          $(".txt-training-level2-weekdays").html("<b>【平日コース】の方はweek1! (11/5〜11/11)</b><br />①と②のトレーニングをしましょう!");
+          $(".txt-training-level1-saturday").html("<b>【土曜コース】の方はweek1 (11/2〜11/8)</b><br />①と②のトレーニングをしましょう!");
+          $(".img-training-level1-weekdays img").attr("src", l1Week1);  
+          $(".img-training-level2-weekdays img").attr("src", l2Week1);
+          $(".img-training-level1-saturday img").attr("src", l1Week1);  
+        }
+
+
+        // ここにその他のレッスン内容変更処理を追加
+        const lessons = [
+                {
+                threshold: new Date(2024, 9, 1, 0, 0),
+                courses: {
+                    tuesday1: {
+                    day: "11/5",
+                    week: "火",
+                    time: "17:00-17:25",
+                    imgSrc:
+                        "https://go.waomirai.com/l/1026513/2024-09-04/h2nrq/1026513/17254398679oem2mS3/thumbnail_lesson.png",
+                    title: "ひらがなEnglish",
+                    text:
+                        "英語の発音を“ひらがなの音”を利用してラクラク上達！それと同時に単語単位からカタマリ単位で英語をINPUT！"
+                    },
+                    tuesday2: {
+                    day: "11/5",
+                    week: "火",
+                    time: "17:40-18:05",
+                    imgSrc:
+                        "https://go.waomirai.com/l/1026513/2024-09-04/h2nrq/1026513/17254398679oem2mS3/thumbnail_lesson.png",
+                    title: "ひらがなEnglish",
+                    text:
+                        "英語の発音を“ひらがなの音”を利用してラクラク上達！それと同時に単語単位からカタマリ単位で英語をINPUT！"
+                    },
+                    thursday1: {
+                    day: "11/7",
+                    week: "木",
+                    time: "17:00-17:25",
+                    imgSrc:
+                        "https://go.waomirai.com/l/1026513/2024-09-04/h2qmj/1026513/1725500027hCJDU8DY/img_week_2.png",
+                    title: "カタマリズムEnglish",
+                    text:
+                        "カタカナ英語で「文字」と「音」をリンクさせ、英語を効果的に覚えます！"
+                    },
+                    thursday2: {
+                    day: "11/7",
+                    week: "木",
+                    time: "17:40-18:05",
+                    imgSrc:
+                        "https://go.waomirai.com/l/1026513/2024-09-04/h2qmj/1026513/1725500027hCJDU8DY/img_week_2.png",
+                    title: "カタマリズムEnglish",
+                    text:
+                        "カタカナ英語で「文字」と「音」をリンクさせ、英語を効果的に覚えます！"
+                    },
+                    saturday1: {
+                    day: "11/2",
+                    week: "土",
+                    time: "17:30-18:30",
+                    imgSrc:
+                        "https://go.waomirai.com/l/1026513/2024-09-04/h2qmq/1026513/1725500221od8IlZut/thumb_mix.png",
+                    title: "ひらがなEnglish＆カタマリズムEnglish",
+                    text: "平日コースの2つのレッスンを前編後編に分けて実施します"
+                    }
+                }
+                },
+                {
+                threshold: new Date(2024, 10, 7, 18, 10),
+                courses: {
+                    tuesday1: {
+                    day: "11/12",
+                    week: "火",
+                    time: "17:00-17:25",
+                    imgSrc:
+                        "https://go.waomirai.com/l/1026513/2024-10-03/h4yg4/1026513/1727931889zYhO970K/week2_lesson01.png",
+                    title: "ひらがなEnglishQuiz",
+                    text:
+                        "ひらがなで書かれた英語の音から、どんな単語が入ってるかあてよう！これがわかればリスニング力UP！"
+                    },
+                    tuesday2: {
+                    day: "11/12",
+                    week: "火",
+                    time: "17:40-18:05",
+                    imgSrc:
+                        "https://go.waomirai.com/l/1026513/2024-10-03/h4yg4/1026513/1727931889zYhO970K/week2_lesson01.png",
+                    title: "ひらがなEnglishQuiz",
+                    text:
+                        "ひらがなで書かれた英語の音から、どんな単語が入ってるかあてよう！これがわかればリスニング力UP！"
+                    },
+                    thursday1: {
+                    day: "11/14",
+                    week: "木",
+                    time: "17:00-17:25",
+                    imgSrc:
+                        "https://go.waomirai.com/l/1026513/2024-10-03/h4yfx/1026513/1727931889QpTfUcVM/week2_lesson02.png",
+                    title: "フレーズCHOICE",
+                    text:
+                        "英語は”作る”のではなく”選ぶ”！カードゲーム感覚で出だしフレーズを選ぶ練習をして英作文せず話せるように！"
+                    },
+                    thursday2: {
+                    day: "11/14",
+                    week: "木",
+                    time: "17:40-18:05",
+                    imgSrc:
+                        "https://go.waomirai.com/l/1026513/2024-10-03/h4yfx/1026513/1727931889QpTfUcVM/week2_lesson02.png",
+                    title: "フレーズCHOICE",
+                    text:
+                        "英語は”作る”のではなく”選ぶ”！カードゲーム感覚で出だしフレーズを選ぶ練習をして英作文せず話せるように！"
+                    },
+                    saturday1: {
+                    day: "11/9",
+                    week: "土",
+                    time: "17:30-18:30",
+                    imgSrc:
+                        "https://go.waomirai.com/l/1026513/2024-10-03/h4yg7/1026513/1727931890aHN9VI5D/week3_level01.png",
+                    title: "ひらがなEnglishQuiz＆フレーズCHOICE",
+                    text: "平日コースの2つのレッスンを前編後編に分けて実施します"
+                    }
+                }
+                },
+                {
+                threshold: new Date(2024, 10, 14, 18, 10),
+                courses: {
+                    tuesday1: {
+                    day: "11/19",
+                    week: "火",
+                    time: "17:00-17:25",
+                    imgSrc:
+                        "https://go.waomirai.com/l/1026513/2024-10-03/h4yg1/1026513/1727931889S34FpWzI/week3_lesson01.png",
+                    title: "チャレンジOUTPUT",
+                    text:
+                        '“ロが疲れるほど"喋れば英語は身につく！リズムにあわせフレーズCHOICEしながらどんどん英語をOUTPUTしよう！'
+                    },
+                    tuesday2: {
+                    day: "11/19",
+                    week: "火",
+                    time: "17:40-18:05",
+                    imgSrc:
+                        "https://go.waomirai.com/l/1026513/2024-10-03/h4yg1/1026513/1727931889S34FpWzI/week3_lesson01.png",
+                    title: "チャレンジOUTPUT",
+                    text:
+                        '“ロが疲れるほど"喋れば英語は身につく！リズムにあわせフレーズCHOICEしながらどんどん英語をOUTPUTしよう！'
+                    },
+                    thursday1: {
+                    day: "11/21",
+                    week: "木",
+                    time: "17:00-17:25",
+                    imgSrc:
+                        "https://go.waomirai.com/l/1026513/2024-10-03/h4ygb/1026513/1727931890TA7Tmij6/week3_lesson02.png",
+                    title: "ナリキリROLE-PLAY",
+                    text:
+                        "1ヶ月の成果を実感！実際に英語で返事できるか、英語でプレゼンできるか挑戦！誰が一番多くポイントを獲得できるかな！？"
+                    },
+                    thursday2: {
+                    day: "11/21",
+                    week: "木",
+                    time: "17:40-18:05",
+                    imgSrc:
+                        "https://go.waomirai.com/l/1026513/2024-10-03/h4ygb/1026513/1727931890TA7Tmij6/week3_lesson02.png",
+                    title: "ナリキリROLE-PLAY",
+                    text:
+                        "1ヶ月の成果を実感！実際に英語で返事できるか、英語でプレゼンできるか挑戦！誰が一番多くポイントを獲得できるかな！？"
+                    },
+                    saturday1: {
+                    day: "11/16",
+                    week: "土",
+                    time: "17:30-18:30",
+                    imgSrc:
+                        "https://go.waomirai.com/l/1026513/2024-10-03/h4ygf/1026513/1727931890yaWikjKW/week3_level02.png",
+                    title: "チャレンジOUTPUT＆ナリキリROLE-PLAY",
+                    text: "平日コースの2つのレッスンを前編後編に分けて実施します"
+                    }
+                }
+                },{
+                threshold: new Date(2024, 10, 21, 18, 10),
+                courses: {
+                    tuesday1: {
+                    day: "12/3",
+                    week: "火",
+                    time: "17:00-17:25",
+                    imgSrc:
+                        "https://go.waomirai.com/l/1026513/2024-09-04/h2nrq/1026513/17254398679oem2mS3/thumbnail_lesson.png",
+                    title: "ひらがなEnglish",
+                    text:
+                        "英語の発音を“ひらがなの音”を利用してラクラク上達！それと同時に単語単位からカタマリ単位で英語をINPUT！"
+                    },
+                    tuesday2: {
+                    day: "12/3",
+                    week: "火",
+                    time: "17:40-18:05",
+                    imgSrc:
+                        "https://go.waomirai.com/l/1026513/2024-09-04/h2nrq/1026513/17254398679oem2mS3/thumbnail_lesson.png",
+                    title: "ひらがなEnglish",
+                    text:
+                        "英語の発音を“ひらがなの音”を利用してラクラク上達！それと同時に単語単位からカタマリ単位で英語をINPUT！"
+                    },
+                    thursday1: {
+                    day: "12/5",
+                    week: "木",
+                    time: "17:00-17:25",
+                    imgSrc:
+                        "https://go.waomirai.com/l/1026513/2024-09-04/h2qmj/1026513/1725500027hCJDU8DY/img_week_2.png",
+                    title: "カタマリズムEnglish",
+                    text:
+                        "カタカナ英語で「文字」と「音」をリンクさせ、英語を効果的に覚えます！"
+                    },
+                    thursday2: {
+                    day: "12/5",
+                    week: "木",
+                    time: "17:40-18:05",
+                    imgSrc:
+                        "https://go.waomirai.com/l/1026513/2024-09-04/h2qmj/1026513/1725500027hCJDU8DY/img_week_2.png",
+                    title: "カタマリズムEnglish",
+                    text:
+                        "カタカナ英語で「文字」と「音」をリンクさせ、英語を効果的に覚えます！"
+                    },
+                    saturday1: {
+                    day: "12/7",
+                    week: "土",
+                    time: "17:30-18:30",
+                    imgSrc:
+                        "https://go.waomirai.com/l/1026513/2024-09-04/h2qmq/1026513/1725500221od8IlZut/thumb_mix.png",
+                    title: "ひらがなEnglish＆カタマリズムEnglish",
+                    text: "平日コースの2つのレッスンを前編後編に分けて実施します"
+                    }
+                }
+                }
+            ];
+
+
+        let currentLessonSet = null;
+        for (let lesson of lessons) {
+          if (now >= lesson.threshold) {
+            currentLessonSet = lesson.courses;
+          }
+        }
+
+        if (currentLessonSet) {
+            updateLessonContent(
+                ".content-level-1-course-tuesday",
+                currentLessonSet.tuesday1
+            );
+            updateLessonContent(
+                ".content-level-1-course-thursday",
+                currentLessonSet.thursday1
+            );
+            updateLessonContent(
+                ".content-level-2-course-tuesday",
+                currentLessonSet.tuesday2
+            );
+            updateLessonContent(
+                ".content-level-2-course-thursday",
+                currentLessonSet.thursday2
+            );
+            updateLessonContent(
+                ".content-level-1-course-saturday",
+                currentLessonSet.saturday1
+            );
+        } else {
+          console.log("現在の時間には該当するレッスンが見つかりません。");
+        }
+      }
+
+      // レッスン要素の内容を更新する関数
+      function updateLessonContent(selector, lessonData) {
+        if (!lessonData) return;
+
+        const parent = $(selector);
+        parent.find(".section-wao-english-group-box-course-child-date-day").text(lessonData.day);
+        parent.find(".section-wao-english-group-box-course-child-date-week").text(lessonData.week);
+        parent.find(".section-wao-english-group-box-course-child-date-week-time").text(lessonData.time);
+        parent.find(".section-wao-english-group-box-course-child-thumb-img img").attr("src", lessonData.imgSrc);
+        parent.find(".section-wao-english-group-box-course-child-detail-title").text(lessonData.title);
+        parent.find(".section-wao-english-group-box-course-child-detail-text").html(lessonData.text);
+      }

@@ -15,7 +15,7 @@ html(lang="jp")
     meta(name="viewport", content="width=device-width, initial-scale=1,minimum-scale=1.0, maximum-scale=1.0, user-scalable=no")
     meta(charset="UTF-8")
   body#english-portal
-    header
+    header 
       h1.header-logo
         img(src='https://go.waomirai.com/l/1026513/2024-08-08/gzqmq/1026513/1723103182E5MU9Ijy/waomirai_logo__1_.svg')
       .header-tab 
@@ -50,6 +50,9 @@ html(lang="jp")
         .header-navi-child 
           a(href="#section-3")
             |レッスンアーカイブ(録画)
+      .header-button
+          a(href='https://go.waomirai.com/howto-signup-english',target='_blank')
+            |有料プラン登録
     section.section-wao-english.section-wao-english-color#section-1
        h2.howto-lesson
          span.level-label|LEVEL 1
@@ -57,7 +60,7 @@ html(lang="jp")
          br.spimage
          |受講方法
        .section-wao-english-group 
-         h3
+         h3.thisweek-title
           |①今週のオンラインレッスンのスケジュールを確認する
          //level-1
          .section-wao-english-group-box.content-level-1 
@@ -239,12 +242,26 @@ html(lang="jp")
         .content-level-2(style="display:none;")
           div(style="padding:56.25% 0 0 0;position:relative; margin:20px 0 0;")
             iframe(src="https://vimeo.com/showcase/11350149/embed", allowfullscreen, frameborder="0", style="position:absolute;top:0;left:0;width:100%;height:100%;")
-        p.thisweek-lesson(style='margin:60px 0 15px;')
-          |今週はweek1! ①と②のトレーニングをしましょう!
-        .thisweek-lesson-img-level-1.content-level-1
-           img(src='https://go.waomirai.com/l/1026513/2024-10-03/h4ylt/1026513/1727942012qE9TRhJM/Tr_schedule_L1_1.png')
-        .thisweek-lesson-img-level-2.content-level-2(style="display:none;")
-           img(src='https://go.waomirai.com/l/1026513/2024-10-03/h4ylx/1026513/1727942013VME1KSmt/Tr_schedule_L2_1.png')
+        .content-level-1
+          p.thisweek-lesson.txt-training-level1-weekdays(style='margin:60px 0 15px;')
+            b|【平日コース】の方はweek1! (11/4〜11/10)
+            br
+            |①と②のトレーニングをしましょう!
+          .img-training-level1-weekdays
+            img(src='https://go.waomirai.com/l/1026513/2024-10-16/h5t68/1026513/1729063674KGv5QiJd/l1_week1.png')
+          p.thisweek-lesson.txt-training-level1-saturday(style='margin:60px 0 15px;')
+            b|【土曜コース】の方はweek1 (11/2〜11/8)
+            br
+            |③と④のトレーニングをしましょう!
+          .img-training-level1-saturday
+            img(src='https://go.waomirai.com/l/1026513/2024-10-16/h5t68/1026513/1729063674KGv5QiJd/l1_week1.png')
+        .content-level-2(style="display:none;")
+          p.thisweek-lesson.txt-training-level2-weekdays(style='margin:60px 0 15px;')
+            b|【平日コース】の方はweek1! (11/4〜11/10)
+            br
+            |①と②のトレーニングをしましょう!
+          .img-training-level2-weekdays
+            img(src='https://go.waomirai.com/l/1026513/2024-10-16/h5t6k/1026513/1729063675CODPPqmL/l2_week2.png')
     section.section-wao-english#section-2.section-wao-english-white
        h2.howto-lesson
          |レッスンスケジュール     
@@ -264,12 +281,31 @@ html(lang="jp")
          span.level-label|LEVEL 1
          |のレッスンアーカイブ(録画)
        .section-wao-english-group
-         .content-level-1
-           div(style="padding:56.25% 0 0 0;position:relative;").
-            <iframe src="https://vimeo.com/showcase/11389321/embed" allowfullscreen="" frameborder="0" style="position:absolute;top:0;left:0;width:100%;height:100%;"></iframe>
-         .content-level-2(style='display:none;')
-           div(style="padding:56.25% 0 0 0;position:relative;").
-            <iframe src="https://vimeo.com/showcase/11389324/embed" allowfullscreen="" frameborder="0" style="position:absolute;top:0;left:0;width:100%;height:100%;"></iframe>
+          case version
+              when "grape"
+                .content-level-1
+                  div(style="padding:56.25% 0 0 0;position:relative;").
+                    <iframe src="https://vimeo.com/showcase/11389321/embed" allowfullscreen="" frameborder="0" style="position:absolute;top:0;left:0;width:100%;height:100%;"></iframe>
+                .content-level-2(style='display:none;')
+                  div(style="padding:56.25% 0 0 0;position:relative;").
+                    <iframe src="https://vimeo.com/showcase/11389324/embed" allowfullscreen="" frameborder="0" style="position:absolute;top:0;left:0;width:100%;height:100%;"></iframe>
+              when "marron"
+                div 
+                  img(src='https://go.waomirai.com/l/1026513/2024-09-18/h3sjq/1026513/1726715510e781zCcj/img_comingsoon.png')
+    section.section-wao-english#section-4.section-wao-english-white
+       h2.howto-lesson
+         |有料プランへの
+         br.spimage
+         |登録について
+       p.section-wao-english-p
+          |１ヶ月の無料期間が終了したあとに、引き続きレッスンを受講するには
+          br.pcimage
+          |有料プランへの登録が必要になります。
+          br.spimage
+          |登録方法は下記ページにございます
+       .section-wao-english-button
+        a(href='https://go.waomirai.com/howto-signup-english',target='_blank')
+          |有料プランへ登録する
     footer
       .wao-footer
        .wao-footer-left 
@@ -414,4 +450,8 @@ html(lang="jp")
           }
         }
       });
-    include english-portal/js-english-portal-schedule.pug
+    case version
+      when "marron"
+        include js-english-portal-schedule-marron.pug
+      when "grape"
+        include js-english-portal-schedule-grape.pug

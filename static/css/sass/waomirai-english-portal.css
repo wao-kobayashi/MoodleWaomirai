@@ -236,6 +236,27 @@ header .header-navi .header-navi-child a {
     margin: 0 15px 0 0;
   }
 }
+header .header-button {
+  position: fixed;
+  right: 20px;
+  top: 20px;
+}
+@media screen and (max-width: 768px) {
+  header .header-button {
+    display: none;
+  }
+}
+header .header-button a {
+  background: #005C3F;
+  height: 30px;
+  padding: 10px 20px;
+  border-radius: 10px;
+  color: white;
+  text-decoration: none;
+}
+header .header-button a:hover {
+  opacity: 0.7;
+}
 
 .header-speech-tr {
   background: #999;
@@ -337,6 +358,41 @@ section {
   max-width: 720px;
   margin: 0 auto;
   text-align: center;
+}
+@media screen and (max-width: 768px) {
+  .section-wao-english .section-wao-english-p {
+    width: 90%;
+    margin: 0 auto 20px;
+    text-align: left;
+  }
+}
+.section-wao-english .section-wao-english-button:hover {
+  opacity: 0.5;
+}
+.section-wao-english .section-wao-english-button a {
+  font-size: 24px;
+  width: 90%;
+  max-width: 600px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background: #005C3F;
+  -webkit-box-shadow: 0 5px 0 #043324;
+          box-shadow: 0 5px 0 #043324;
+  padding: 20px 20px;
+  color: white;
+  border-radius: 8px;
+  margin: 20px auto 60px;
+  cursor: pointer;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
 }
 
 .section-wao-english-group {
@@ -532,6 +588,14 @@ section {
 }
 .level-2 .section-wao-english-group-box-course-child-date-week {
   background: #AA68AA !important;
+}
+.level-2 .section-wao-english-button a {
+  background: #AA68AA !important;
+  -webkit-box-shadow: 0 5px 0 #7d417d;
+          box-shadow: 0 5px 0 #7d417d;
+}
+.level-2 .header-button a {
+  background: #AA68AA;
 }
 
 .iframe-container {

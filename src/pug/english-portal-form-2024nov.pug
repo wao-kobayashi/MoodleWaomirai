@@ -1,0 +1,1036 @@
+//英語フォーム
+mixin dialogjs
+    script. 
+        //ModalOpenの関数
+        //- function modalopen() {
+        //- $('.modal,.bg-modal').show();
+        //- }
+        //ModalOpen
+        $('.button-level1-weekdays').click(function() {
+            $('.modal-level1-weekdays').show();
+            $('.bg-modal').show();
+        });
+        $('.button-level1-saturday').click(function() {
+            $('.modal-level1-saturday').show();
+            $('.bg-modal').show();
+        });
+        $('.button-level2-weekdays').click(function() {
+            $('.modal-level2-weekdays').show();
+            $('.bg-modal').show();
+        });
+        $('.modal-close').click(function() {
+            $('.modal,.bg-modal').hide();
+            $('.bg-modal').hide();
+        });
+mixin dialog
+    .bg-modal(style='display:none;')
+    .modal.modal-level1-weekdays(style='display:none;')
+        .modal-wrapper 
+            .modal-wrapper-close 
+                .modal-wrapper-close-icon.modal-close
+            .modal-wrapper-head.level-1
+                | 【LEVEL 1】平日コース
+            .modal-wrapper-content
+                .modal-wrapper-content-text
+                    |11月に受講できる無料体験レッスンの日程です
+                .modal-wrapper-content-img 
+                    img(src='https://go.waomirai.com/l/1026513/2024-10-10/h5kkk/1026513/1728617204gyEuDcdu/Calendar11_L1_weekdays.png')
+                .modal-wrapper-content-close.modal-close 
+                     |閉じる
+    .modal.modal-level1-saturday(style='display:none;')
+        .modal-wrapper 
+            .modal-wrapper-close 
+                .modal-wrapper-close-icon.modal-close
+            .modal-wrapper-head.level-1
+                | 【LEVEL 1】土曜コース
+            .modal-wrapper-content
+                .modal-wrapper-content-text
+                    |11月に受講できる無料体験レッスンの日程です
+                .modal-wrapper-content-img 
+                    img(src='https://go.waomirai.com/l/1026513/2024-10-10/h5kkr/1026513/1728617205b6H3fy8R/Calendar11_L1_saturday.png')
+                .modal-wrapper-content-close.modal-close 
+                    |閉じる
+    .modal.modal-level2-weekdays(style='display:none;')
+        .modal-wrapper 
+            .modal-wrapper-close 
+                 .modal-wrapper-close-icon.modal-close
+            .modal-wrapper-head.level-2
+              | 【LEVEL 2】平日コース
+            .modal-wrapper-content
+                .modal-wrapper-content-text
+                    |11月に受講できる無料体験レッスンの日程です
+                .modal-wrapper-content-img 
+                    img(src='https://go.waomirai.com/l/1026513/2024-10-10/h5kkn/1026513/1728617204iGAQ4EbI/Calendar11_L2_weekdays.png')
+                .modal-wrapper-content-close.modal-close 
+                 |閉じる
+mixin dialogcss  
+  style.
+    /* width */
+    /* fontsize */
+    /* animation */
+    img{
+        width:100%;
+    }
+    @keyframes lp-cta__btn {
+    0%, 55%, 65%, 70%, 80% {
+        box-shadow: 0 4px 0 #9D4E00;
+        transform: translateY(0);
+    }
+    60%, 75% {
+        box-shadow: none;
+        transform: translateY(4px);
+    }
+    }
+    @keyframes rotate {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+    }
+    @keyframes bounce-swipe {
+    0%, 30%, 60%, 80%, 100% {
+        -webkit-transform: translateX(0);
+        transform: translateX(0);
+    }
+    15% {
+        -webkit-transform: translateX(30px);
+        transform: translateX(30px);
+    }
+    45% {
+        -webkit-transform: translateX(15px);
+        transform: translateX(15px);
+    }
+    }
+    .modal {
+    position: fixed;
+    z-index: 1000;
+    top: 0%;
+    left: 0%;
+    right: 0%;
+    bottom: 0%;
+    max-width: 450px;
+    width: 90%;
+    display: inline-table;
+    height: auto;
+    margin: auto;
+    background: white;
+    padding: 0 0 0px;
+    border-radius: 20px;
+    overflow:auto;
+    }
+    .modal .modal-wrapper {
+    position: relative;
+    }
+    .modal .modal-wrapper-close {
+    position: absolute;
+    right: -10px;
+    top: -10px;
+    z-index: 1001;
+    width: 40px;
+    height: 40px;
+    }
+    .modal .modal-wrapper-close .modal-wrapper-close-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 20px;
+    background: rgba(0, 0, 0, 0.9);
+    transition: 0.2s ease-in-out;
+    position: relative;
+    cursor: pointer;
+    }
+    .modal .modal-wrapper-close .modal-wrapper-close-icon:before, .modal .modal-wrapper-close .modal-wrapper-close-icon:after {
+    position: absolute;
+    content: "";
+    top: 50%;
+    left: 50%;
+    width: 20px;
+    height: 4px;
+    border-radius: 2px;
+    background: #fff;
+    transform-origin: center;
+    transform: translate(-50%, -50%) rotate(45deg);
+    }
+    .modal .modal-wrapper-close .modal-wrapper-close-icon:after {
+    transform: translate(-50%, -50%) rotate(-45deg);
+    }
+    .modal .modal-wrapper-head {
+    padding: 20px 0 10px;
+    text-align: center;
+    background: #005C3F;
+    color: white;
+    font-size: 22px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    border-radius: 20px 20px 0 0;
+    }
+    @media screen and (max-width: 768px) {
+    .modal .modal-wrapper-head {
+        font-size: 20px;
+    }
+    }
+    .modal .modal-wrapper-head.level-2 {
+    background: #AA68AA !important;
+    }
+    .modal .modal-wrapper-content {
+    padding: 20px;
+    }
+    .modal .modal-wrapper-content .modal-wrapper-content-text {
+    text-align: center;
+    font-size: 17px;
+    margin: 0px 0 10px;
+    }
+    @media screen and (max-width: 768px) {
+    .modal .modal-wrapper-content .modal-wrapper-content-text {
+        font-size: 16px;
+    }
+    }
+    .modal .modal-wrapper-content .modal-wrapper-content-close {
+    text-align: center;
+    color: #999;
+    font-size: 17px;
+    text-decoration: underline;
+    margin: 20px 0 10px;
+    cursor: pointer;
+    }
+    @media screen and (max-width: 768px) {
+    .modal .modal-wrapper-content .modal-wrapper-content-close {
+        font-size: 16px;
+    }
+    }
+
+    .bg-modal {
+    position: fixed;
+    z-index: 100;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.7);
+    }
+mixin testcase 
+  div.testcase(style='position:fixed; z-index:100; top:0; left:0; display:none;')
+        // テスト用の日時入力フィールド
+        input#testDate(type="text", placeholder="2024-10-01 16:59")
+        // テスト実行ボタン
+        button#testButton テスト実行
+mixin schedulejs
+    script.
+        function changeDateTimeForBlocks(simulatedDate = null) {
+            const blocks = [
+                {
+                    selector: '.block-level1-weekdays',
+                    lessons: [
+                        { date: new Date(2024, 10, 5, 17, 30), month: '11', day: '5', week: '火', hourRange: '17:00~' },
+                        { date: new Date(2024, 10, 7, 17, 0), month: '11', day: '7', week: '木', hourRange: '17:00~' },
+                        { date: new Date(2024, 10, 12, 17, 0), month: '11', day: '12', week: '木', hourRange: '17:00~' },
+                        { date: new Date(2024, 10, 14, 17, 0), month: '11', day: '14', week: '木', hourRange: '17:00~' },
+                        { date: new Date(2024, 10, 19, 17, 0), month: '11', day: '19', week: '木', hourRange: '17:00~' },
+                        { date: new Date(2024, 10, 21, 17, 0), month: '11', day: '21', week: '木', hourRange: '17:00~' }
+                    ]
+                },
+                {
+                    selector: '.block-level1-saturday',
+                    lessons: [
+                        { date: new Date(2024, 10, 2, 18, 30), month: '11', day: '2', week: '土', hourRange: '17:30~' },
+                        { date: new Date(2024, 10, 9, 18, 30), month: '11', day: '9', week: '土', hourRange: '17:30~' },
+                        { date: new Date(2024, 10, 16, 18, 30), month: '11', day: '16', week: '土', hourRange: '17:30~' }
+                    ]
+                },
+                {
+                    selector: '.block-level2-weekdays',
+                    lessons: [
+                        { date: new Date(2024, 10, 5, 18, 5), month: '11', day: '5', week: '火', hourRange: '17:40~' },
+                        { date: new Date(2024, 10, 7, 18, 5), month: '11', day: '7', week: '木', hourRange: '17:40~' },
+                        { date: new Date(2024, 10, 12, 17, 0), month: '11', day: '12', week: '火', hourRange: '17:40~' },
+                        { date: new Date(2024, 10, 14, 17, 0), month: '11', day: '14', week: '木', hourRange: '17:40~' },
+                        { date: new Date(2024, 10, 19, 17, 0), month: '11', day: '19', week: '火', hourRange: '17:40~' },
+                        { date: new Date(2024, 10, 21, 17, 0), month: '11', day: '21', week: '木', hourRange: '17:40~' }
+                    ]
+                }
+            ];
+
+            // 現在の日時（もしくはテスト用の日時）
+            const currentDate = simulatedDate || new Date();
+            let newCvText = '';
+            let newCvMainText = '';
+
+            // ブロックごとにレッスンをチェック
+            blocks.forEach(block => {
+                const { selector, lessons } = block;
+                let allLessonsFinished = true; // 全レッスンが終了しているかのフラグ
+                let nextLesson = null; // 次のレッスン情報
+
+                // レッスンをチェック
+                for (let lesson of lessons) {
+                    if (currentDate < lesson.date) {
+                        nextLesson = lesson;  // 次のレッスンを記録
+                        allLessonsFinished = false; // まだ終了していないレッスンがある
+                        break;
+                    }
+                }
+
+                // 特定のブロックの処理
+                if (selector === '.block-level1-saturday') {
+                    if (allLessonsFinished) {
+                        // すべてのレッスンが終了している場合
+                        $(`${selector}`).hide(); // ブロックを非表示にする
+                        $('.about-course').hide(); // ブロックを非表示にする
+                    } else if (nextLesson) {
+                        // 次回レッスン情報を表示
+                        $(`${selector} .next-lesson-day`).text(nextLesson.day);
+                        $(`${selector} .next-lesson-month`).text(nextLesson.month);
+                        $(`${selector} .next-lesson-week`).text(nextLesson.week);
+                        $(`${selector} .next-lesson-hour-range`).text(nextLesson.hourRange);
+                    } else {
+                        // 次回レッスンがない場合は非表示
+                        $(`${selector}`).hide();
+                    }
+                } else {
+                    // 他のブロックの処理
+                    if (nextLesson) {
+                        // 次回レッスン情報を表示
+                        $(`${selector} .next-lesson-day`).text(nextLesson.day);
+                        $(`${selector} .next-lesson-month`).text(nextLesson.month);
+                        $(`${selector} .next-lesson-week`).text(nextLesson.week);
+                        $(`${selector} .next-lesson-hour-range`).text(nextLesson.hourRange);
+                    } else {
+                        // 次回レッスンがない場合は非表示
+                        $(`${selector}`).hide();
+                    }
+                }
+            });
+
+            // CV文言を決定
+            if (currentDate >= new Date(2024, 9, 0, 0, 0) && currentDate <= new Date(2024, 9, 31, 23, 59)) {
+                newCvText = '10/31までに申し込むと11月中は無料';
+                newCvMainText = '10/31までに申し込むと11月中は<br />オンラインレッスンが受け放題';
+            } else if (currentDate >= new Date(2024, 10, 1, 0, 0) && currentDate <= new Date(2024, 10, 9, 23, 59)) {
+                newCvText = '11/10までに申し込むと今月中は無料';
+                newCvMainText = '11/10までに申し込むと今月中は<br />オンラインレッスンが受け放題';
+            } else if (currentDate >= new Date(2024, 10, 10, 0, 0) && currentDate <= new Date(2024, 10, 14, 23, 59)) {
+                newCvText = '11/15までに申し込むと今月中は無料';
+                newCvMainText = '11/15までに申し込むと今月中は<br />オンラインレッスンが受け放題';
+            } else if (currentDate >= new Date(2024, 10, 15, 0, 0)) {
+                newCvText = '11月中のすべてのオンラインレッスンを<br />アーカイブで見放題！';
+                newCvMainText = '11月中のオンラインレッスンを<br />アーカイブで見放題！';
+                $('.cv-limit-text').css({
+                    'transform': 'scale(0.9)',
+                    'top': '-24px',
+                    'width': '260px',
+                    'padding': '3px 13px',
+                    'line-height': '1.4'
+                });
+            }
+
+            // CV文言を更新
+            $('.cv-limit-text').html(newCvText);
+            $('.lp-cv-title-text').html(newCvMainText);
+        }
+
+        // jQuery の準備
+        $(document).ready(function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const isTestCase = urlParams.has('via') && urlParams.get('via') === 'testcase';
+
+            // テストケース表示
+            if (isTestCase) {
+                $('div.testcase').show();
+            }
+
+            // 初期表示の際に現在日時でレッスン情報を表示
+            changeDateTimeForBlocks();
+
+            // テスト実行ボタンが押された際の処理
+            $('#testButton').on('click', function() {
+                const testDateInput = $('#testDate').val();
+
+                // 日時フォーマットの検証
+                const dateTimePattern = /^\d{4}-\d{2}-\d{2} \d{2}:\d{2}$/;
+                if (!testDateInput || !dateTimePattern.test(testDateInput)) {
+                    alert('正しい日時を入力してください（例: 2024-10-01 16:59）');
+                    return;
+                }
+
+                // テスト日時のパース
+                const [datePart, timePart] = testDateInput.split(' ');
+                const [year, month, day] = datePart.split('-').map(Number);
+                const [hour, minute] = timePart.split(':').map(Number);
+
+                // テスト用の日時で関数を実行
+                const testDate = new Date(year, month - 1, day, hour, minute);
+                changeDateTimeForBlocks(testDate);
+            });
+        });
+doctype html
+html(lang="ja")
+  head
+    // Google Tag Manager
+    //- script(type='text/javascript' src='https://go.waomirai.com/pd.js')
+    //- script(type='text/javascript' src='https://go.waomirai.com/pd.js')
+    //- script(type='text/javascript' async= src='https://analytics.tiktok.com/i18n/pixel/static/identify_7bf75739.js')
+    //- script(type='text/javascript' async= src='https://analytics.tiktok.com/i18n/pixel/static/main.MWEzNzVlZGY0MA.js' data-id='CQUN883C77U0JHDT5O1G')
+    //- script(type='text/javascript' async= src='https://analytics.tiktok.com/i18n/pixel/events.js?sdkid=CQUN883C77U0JHDT5O1G&amp;lib=ttq')
+    //- script(src='https://connect.facebook.net/signals/config/991613366033962?v=2.9.170&amp;r=stable&amp;domain=go.waomirai.com&amp;hme=d82868061a8c707cd31395a3055e7449daa03bd520872727258c39e6af34523e&amp;ex_m=70%2C120%2C106%2C110%2C61%2C4%2C99%2C69%2C16%2C96%2C88%2C51%2C54%2C171%2C174%2C186%2C182%2C183%2C185%2C29%2C100%2C53%2C77%2C184%2C166%2C169%2C179%2C180%2C187%2C130%2C41%2C34%2C142%2C15%2C50%2C193%2C192%2C132%2C18%2C40%2C1%2C43%2C65%2C66%2C67%2C71%2C92%2C17%2C14%2C95%2C91%2C90%2C107%2C52%2C109%2C39%2C108%2C30%2C93%2C26%2C167%2C170%2C139%2C28%2C11%2C12%2C13%2C6%2C7%2C25%2C22%2C23%2C57%2C62%2C64%2C75%2C101%2C27%2C76%2C9%2C8%2C80%2C48%2C21%2C103%2C102%2C104%2C97%2C10%2C20%2C3%2C38%2C74%2C19%2C85%2C56%2C83%2C33%2C73%2C0%2C94%2C32%2C82%2C87%2C47%2C46%2C86%2C37%2C5%2C89%2C81%2C44%2C35%2C84%2C2%2C36%2C63%2C42%2C105%2C45%2C79%2C68%2C111%2C60%2C59%2C31%2C98%2C58%2C55%2C49%2C78%2C72%2C24%2C112' async=)
+    //- script(async= src='https://connect.facebook.net/en_US/fbevents.js')
+    //- script(type='text/javascript' async= src='https://www.googletagmanager.com/gtag/destination?id=AW-16476562618&amp;l=dataLayer&amp;cx=c')
+    //- script(type='text/javascript' async= src='https://s.yimg.jp/images/listing/tool/cv/ytag.js')
+    //- script(type='text/javascript' async= src='https://www.googletagmanager.com/gtag/js?id=G-C5TLB720G3&amp;l=dataLayer&amp;cx=c')
+    //- script(async= src='https://www.googletagmanager.com/gtm.js?id=GTM-W3X8CG9C')
+    //- script.
+    //-   (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    //-   new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    //-   j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    //-   'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    //-   })(window,document,'script','dataLayer','GTM-W3X8CG9C');
+    //- // End Google Tag Manager
+    //- //
+    //-   ##### toBeM オリジナルテンプレート #####
+    //-   ### Update: 2022 12/08
+    //-   ### © toBeマーケティング株式会社
+    meta(charset='utf-8')
+    meta(content='IE=edge' http-equiv='X-UA-Compatible')
+    meta(name='viewport' content='width=device-width, initial-scale=1')
+    //- meta(name='description' content=)
+    //- meta(name='author' content=)
+    //- meta(property='og:image' content='https://go.waomirai.com/image/oggreen')
+    title
+    // Favicon
+    link(rel='shortcut icon' type='image/png' href='https://go.waomirai.com/logo/fabicon')
+    link(rel='stylesheet' href='//mactrl.maplus.net/maplus_cdn_files/bootstrap/3.2.0/css/bootstrap.min.css')
+    link(rel='stylesheet' href='//mactrl.maplus.net/maplus_cdn_files/common/styles/pardot_general_form_2209.css')
+    //- link(href="static/css/sass/english-portal-form-2024nov.css", rel="stylesheet")
+    // ########## 各要素設定 ##########
+    style.
+      /* ##### Submit ##### */
+      form#pardot-form input[type="submit"] {
+      background-color:#2ba6e0; /* ボタンの背景色 */
+      border-color:#2ba6e0;     /* ボタンの線色 */
+      color:#FFFFFF;            /* ボタンの文字色 */
+      }
+      form#pardot-form input[type="submit"]:hover {
+      background-color:#4AB5E8; /* Hover時：ボタンの背景色 */
+      border-color:#4AB5E8;     /* Hover時：ボタンの線色 */
+      color:#FFFFFF;            /* Hover時：ボタンの文字色 */
+      }
+      /* プレースホルダの色 ※各colorを設定 */
+      input.form-control:-ms-input-placeholder      { color:#aaa !important }
+      input.form-control:placeholder-shown          { color:#aaa !important }
+      input.form-control::-webkit-input-placeholder { color:#aaa !important }
+      input.form-control::-ms-input-placeholder     { color:#aaa !important }
+      input.form-control::-moz-placeholder          { color:#aaa !important }
+    // 日本語設定
+    style.
+      .ui-widget button, .ui-widget input, .ui-widget select, .ui-widget textarea, body { font-family:'ヒラギノ角ゴ Pro W3', 'Hiragino Kaku Gothic Pro', 'メイリオ', Meiryo, Osaka, 'ＭＳ Ｐゴシック', 'MS PGothic', sans-serif }
+      .required .formHeading:after {content:'必須'}
+    script(src='//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js')
+    script(src='//jpostal-1006.appspot.com/jquery.jpostal.js')
+    script.
+      window.addEventListener("load", postSize, false);
+      function postSize(e){
+      setTimeout(function(){
+      var target = parent.postMessage ? parent : (parent.document.postMessage ? parent.document : undefined);
+      if (typeof target != "undefined" && document.documentElement.offsetHeight)
+      var j = {"execFlg":"autoHeight", "height":document.documentElement.offsetHeight};
+      target.postMessage(j, "*");
+      },0);
+      }
+    // フォームカスタマイズ
+    // 郵便番号から自動入力
+    script.
+      varJpostal = $('.form-group.row.form-field.zip.pd-text > div > label').attr('for');
+      var3 = $('.form-group.row.form-field.state.pd-select > div > label').attr('for');
+      var4 = $('.form-group.row.form-field.city.pd-text > div > label').attr('for');
+      var5 = $('.form-group.row.form-field.address_one.pd-text > div > label').attr('for');
+      $('#'+varJpostal).jpostal(JSON.parse('{"postcode":["#'+varJpostal+'"],"address":{"#'+var3+'":"%3","#'+var4+'":"%4","#'+var5+'":"%5"}}'))
+    // フォーム項目名帯追加
+    style.
+      .form-group.addLabel_1::before{
+      background: #666;
+      color: #ffffff;
+      /* ここに項目名 */
+      content: "お客様情報";
+      width: 100%;
+      margin-top: -16px;
+      margin-bottom: 1em;
+      padding: 0.5em;
+      }
+      /* 別の項目名で複数作る場合は、.addLabel_2、.addLabel_3....というように複製して追加。 */
+      /* フォームのCSSクラスに「addLabel_1」を追加する */
+    // フォームラジオボタンデザイン
+    style.
+      .radioButton_customize span{
+      display: flex;
+      height: 50px;
+      }
+      .radioButton_customize span span{
+      display: flex!important;
+      align-items: center;
+      }
+      .radioButton_customize span span label{
+      margin-left: 6px;
+      margin-bottom: 0;
+      }
+      .radioButton_customize span span input{
+      /* デフォルトボタンデザイン無効化 */
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+      position: relative;
+      width: 25px;
+      height: 25px;
+      border: 1px solid rgb(00, 92, 63);
+      border-radius: 50%;
+      margin-top: 0;
+      margin-right: 10px;
+      margin-left: 10px;
+      }
+      .radioButton_customize span span input:checked:before{
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: rgb(00, 92, 63);
+      content: '';
+      }
+      .radioButton_customize span span:hover input{
+      animation: radioButtonExpand .3s forwards;
+      }
+      @keyframes radioButtonExpand{
+      0%{
+      width: 25px;
+      height: 25px;
+      margin-left: 10px;
+      }100%{
+      width: 26px;
+      height: 26px;
+      margin-left: 5px;
+      }
+      }
+    meta(name='robots' content='noindex')
+    script(type='text/javascript' src='https://go.waomirai.com/js/piUtils.js?ver=2021-09-20')
+    script(type='text/javascript').
+      piAId = '1027513';
+      piCId = '155830';
+      piHostname = 'go.waomirai.com';
+      
+      (function() {
+      function async_load(){
+      var s = document.createElement('script'); s.type = 'text/javascript';
+      s.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + piHostname + '/pd.js';
+      var c = document.getElementsByTagName('script')[0]; c.parentNode.insertBefore(s, c);
+      }
+      if(window.attachEvent) { window.attachEvent('onload', async_load); }
+      else { window.addEventListener('load', async_load, false); }
+      })();
+    script(type='text/javascript' src='https://b99.yahoo.co.jp/pagead/conversion_async.js')
+    script(type='text/javascript' async= src='https://googleads.g.doubleclick.net/pagead/viewthroughconversion/16476562618/?random=1728463991295&amp;cv=11&amp;fst=1728463991295&amp;bg=ffffff&amp;guid=ON&amp;async=1&amp;gtm=45be4a70z89171708627za201zb9171708627&amp;gcd=13l3l3l3l1l1&amp;dma=0&amp;tag_exp=101533421~101671035~101747727&amp;u_w=1470&amp;u_h=956&amp;url=https%3A%2F%2Fgo.waomirai.com%2Fenglish-trial-form-2024nov&amp;hn=www.googleadservices.com&amp;frm=0&amp;npa=0&amp;pscdl=noapi&amp;auid=1612798688.1724119780&amp;uaa=arm&amp;uab=64&amp;uafvl=Not)A%253BBrand%3B99.0.0.0%7CGoogle%2520Chrome%3B127.0.6533.120%7CChromium%3B127.0.6533.120&amp;uamb=0&amp;uam=&amp;uap=macOS&amp;uapv=14.6.1&amp;uaw=0&amp;fledge=1&amp;rfmt=3&amp;fmt=4')
+    script(type='text/javascript' src='https://go.waomirai.com/analytics?ver=3&amp;visitor_id=352660573&amp;visitor_id_sign=644e92ea0ab29be560ce88176284a1ca0cae0cf5493a22f6953281766e061db265818d1a2dcb2a754ee6e02d31bdae041e8d09ed&amp;pi_opt_in=&amp;campaign_id=null&amp;account_id=1027513&amp;title=&amp;url=https%3A%2F%2Fgo.waomirai.com%2Fenglish-trial-form-2024nov&amp;referrer=')
+    script(type='text/javascript' src='https://go.waomirai.com/analytics?ver=3&amp;visitor_id=352660573&amp;visitor_id_sign=644e92ea0ab29be560ce88176284a1ca0cae0cf5493a22f6953281766e061db265818d1a2dcb2a754ee6e02d31bdae041e8d09ed&amp;pi_opt_in=&amp;campaign_id=null&amp;account_id=1027513&amp;title=&amp;url=https%3A%2F%2Fgo.waomirai.com%2Fenglish-trial-form-2024nov&amp;referrer=')
+    script(type='text/javascript' src='https://pi.pardot.com/analytics?conly=true&amp;visitor_id=352660573&amp;visitor_id_sign=644e92ea0ab29be560ce88176284a1ca0cae0cf5493a22f6953281766e061db265818d1a2dcb2a754ee6e02d31bdae041e8d09ed&amp;pi_opt_in=&amp;campaign_id=125308&amp;account_id=1027513&amp;title=&amp;url=https://go.waomirai.com/english-trial-form-2024nov&amp;referrer=')
+    script(type='text/javascript' src='https://pi.pardot.com/analytics?conly=true&amp;visitor_id=352660573&amp;visitor_id_sign=644e92ea0ab29be560ce88176284a1ca0cae0cf5493a22f6953281766e061db265818d1a2dcb2a754ee6e02d31bdae041e8d09ed&amp;pi_opt_in=&amp;campaign_id=125308&amp;account_id=1027513&amp;title=&amp;url=https://go.waomirai.com/english-trial-form-2024nov&amp;referrer=')
+body
+  noscript
+    iframe(src="https://www.googletagmanager.com/ns.html?id=GTM-W3X8CG9C", height="0", width="0", style="display:none;visibility:hidden")
+  // End Google Tag Manager (noscript)
+  .container
+    .contentFormBefore
+        //デフォルトcss
+        style.
+            form.form p label { color: #000000; }
+            @import url("https://fonts.googleapis.com/css?family=Noto+Sans+JP:400,500,700,900");
+            body {
+            font-family: "Avenir LT Pro", "Jost", "Noto Sans JP", sans-serif !important;
+            color: #333333;
+            }
+            
+            .global-h3 {
+            font-size: 20px !important;
+            font-weight: bold;
+            line-height: 1.3;
+            letter-spacing: 0.5px;
+            }
+            
+            .course-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-template-rows: 1fr;
+            grid-column-gap: 30px;
+            grid-row-gap: 0px;
+            margin: 0 0px 30px;
+            max-width: 600px;
+            }
+            @media screen and (max-width: 768px) {
+            .course-grid {
+            grid-column-gap: 20px !important;
+            }
+            }
+            .course-grid .course-grid-block {
+            -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, .15);
+            box-shadow: 0 0 10px rgba(0, 0, 0, .15);
+            }
+            .course-grid .course-grid-block-title {
+            background: #AA68AA;
+            color: white;
+            padding: 10px 4px;
+            text-align: center;
+            font-size: 18px;
+            letter-spacing: 1px;
+            }
+            @media screen and (max-width: 768px) {
+            .course-grid .course-grid-block-title {
+            font-size: 13px !important;
+            letter-spacing: -0.5px;
+            }
+            }
+            .course-grid .course-grid-block-title-level1 {
+            background: #005C3F;
+            }
+            .course-grid .course-grid-block-content {
+            text-align: center;
+            padding: 16px 10px 10px;
+            font-size: 20px;
+            }
+            @media screen and (max-width: 768px) {
+            .course-grid .course-grid-block-content {
+            font-size: 16px !important;
+            padding: 10px 4px 10px;
+            }
+            }
+            .course-grid .course-grid-block-content .course-grid-block-content-first {
+            font-size: 20px !important;
+            }
+            @media screen and (max-width: 768px) {
+            .course-grid .course-grid-block-content .course-grid-block-content-first {
+            font-size: 12px !important;
+            }
+            }
+            .course-grid .course-grid-block-button {
+            text-align: center;
+            }
+            .course-grid .course-grid-block-button button {
+            background: transparent;
+            border: 1px solid #005C3F;
+            border-radius: 6px;
+            cursor: pointer;
+            outline: none;
+            padding: 6px 0px;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            margin: 0px auto 20px;
+            width: 85%;
+            color: #005C3F;
+            font-size: 15px;
+            }
+            @media screen and (max-width: 768px) {
+            .course-grid .course-grid-block-button button {
+            margin: 0px auto 15px;
+            transform: scale(0.9);
+            }
+            }
+            .course-grid .course-grid-block-button button:hover {
+            background: #005C3F;
+            color: white;
+            }
+            .course-grid .course-grid-block-button button.button-level2-weekdays {
+            border: 1px solid #AA68AA !important;
+            color: #AA68AA !important;
+            }
+            .course-grid .course-grid-block-button button.button-level2-weekdays:hover {
+            background: #AA68AA;
+            color: white !important;
+            }
+        style.
+            .hiddenarea { display:none; }
+        style(type="text/css").
+            body{
+            background:#f0f2f3;
+            }
+            .container {
+            padding: 20px 30px!important;
+            width: 90%;
+            margin: 30px auto 90px;
+             background:#fff !important;
+            }
+            @media screen and (max-width: 768px) {
+             .container {
+            background:#fff !important;
+            }
+            form,#pardot-form {
+            padding: 20px !important;
+            width: 100%;
+            }
+            }
+            #contentMain.container{
+                padding:0 !important;
+            }
+            h2{
+            font-size: 26px !important;
+            }
+            .form-control {
+            height: 44px !important;
+            }
+            .required .formHeading:after {
+            background: white !important;
+            padding: 0 !important;
+            color: red !important;
+            content: '(必須)' !important;
+            }
+            form#pardot-form input[type="submit"] {
+            background-color: #AA68AA !important;
+            border-color: #AA68AA !important;
+            margin: 20px auto 120px !important;
+            }
+            @media screen and (max-width: 3000px)and (min-width: 768px) {
+            .spimage {
+            display: none !important;
+            }
+            .pcimage {
+            display: inherit;
+            }
+            }
+            @media screen and (max-width: 767px) {
+            .spimage {
+            display: inherit;
+            }
+            .pcimage {
+            display: none !important;
+            }
+            }
+        div
+            p(style="text-align: center;")
+                img(
+                alt=""
+                border="0"
+                src="https://go.waomirai.com/l/1026513/2023-11-16/gddzt/1026513/1700192228BDlbz92f/logo_basic_white.png"
+                style="width:80%; max-width: 480px; border-width: 0px; border-style: solid;"
+                )
+            h1(style="text-align: center; font-size:24px !important;")
+                | 【無料】グローバル英語
+                br.spimage
+                | 無料体験のお申し込み
+        hr(style="margin: 30px 0 45px;")
+        .about-course
+            h2 コースについて
+            p ・コースは 「LEVEL1 平日コース」「LEVEL1 土曜コース」「LEVEL2 平日コース」からお選びいただけます
+                br
+                | ・途中で他のコースのレッスンを受講することも可能です
+                br
+                | ・レッスンを欠席された場合でもアーカイブ動画で復習いただけます
+                br
+                br
+            h3.global-h3
+                |LEVEL 1
+                br
+                |英語初挑戦の方
+            .course-grid 
+                .course-grid-block.block-level1-weekdays 
+                    .course-grid-block-title.course-grid-block-title-level1
+                        |平日コース(火・木開催)
+                    .course-grid-block-content 
+                        span.course-grid-block-content-first|初回開催日
+                        br
+                        span.next-lesson-month|11
+                        |/
+                        span.next-lesson-day|5
+                        |(
+                        span.next-lesson-week|火
+                        |) 17:00-17:25
+                    .course-grid-block-button 
+                        button.button-level1-weekdays 
+                            |全ての日程をみる
+                .course-grid-block.block-level1-saturday
+                    .course-grid-block-title.course-grid-block-title-level1
+                        |土曜コース(土曜開催)
+                    .course-grid-block-content 
+                        span.course-grid-block-content-first|初回開催日
+                        br
+                        span.next-lesson-month|11
+                        |/
+                        span.next-lesson-day|2
+                        |(
+                        span.next-lesson-week|土
+                        |) 17:30-18:30
+                    .course-grid-block-button 
+                        button.button-level1-saturday
+                            |全ての日程をみる
+            h3.global-h3
+                |LEVEL 2
+                br
+                |英語が少し話せる方
+            .course-grid 
+                .course-grid-block.block-level2-weekdays 
+                    .course-grid-block-title 
+                        |平日コース(火・木開催)
+                    .course-grid-block-content 
+                        span.course-grid-block-content-first|初回開催日
+                        br
+                        span.next-lesson-month|11
+                        |/
+                        span.next-lesson-day|5
+                        |(
+                        span.next-lesson-week|火
+                        |) 17:40-18:05
+                    .course-grid-block-button
+                        button.button-level2-weekdays 
+                            |全ての日程をみる
+        hr(style="margin: 45px 0 30px;")
+        h2 受講までの流れ
+        p.pcimage(style="text-align: center;")
+            img(src="https://go.waomirai.com/l/1026513/2024-09-17/h3m5j/1026513/1726548611mDNqtkmT/trial_lesson.png", style="        width: 98%;        margin: 10px auto 30px;        ")
+        hr.pcimage(style="margin: 0px 0 0;")
+        p.spimage(style="text-align: left;margin: 30px auto 20px;line-height: 1.6;") レッスンスタートまで簡単5ステップで始められます
+        p.spimage(style="text-align: center;")
+            img(src="https://go.waomirai.com/l/1026513/2024-09-18/h3q5q/1026513/1726635176aaMSm9EM/img_flow_sp.png", style="        width: 98%;        margin: 3px auto 0;        ")
+        hr.spimage(style="margin: 45px 0 0;")
+        p(style="text-align: left;margin: 30px auto 20px;line-height: 1.6;") 以下のフォームに必要事項を入力してください。
+            br
+            | フォーム送信後、自動返信メールに記載の「無料体験ページ」にて、レッスンのスケジュールを確認いただけます。
+    #contentMain.container
+        form#pardot-form.form(accept-charset="UTF-8", method="post", action="https://go.waomirai.com/l/1026513/2024-10-07/h55w5")
+
+    //-   .form-wraper
+    //-     div(class="form-group form-field form-half form-pileup last_name pd-text required")
+    //-       .formHeading
+    //-         label.field-label.col-form-label(for="1026513_165628pi_1026513_165628") 保護者 姓
+    //-       .formInput
+    //-         div(class="formInputOuter form-half form-pileup last_name")
+    //-           div(class="formInputInner form-half form-pileup last_name")
+    //-             input.text.text.form-control(id="1026513_165628pi_1026513_165628", type="text", name="1026513_165628pi_1026513_165628", value="小林", size="30", maxlength="80", onchange=, onfocus=, placeholder="姓")
+    //-             div(id="error_for_1026513_165628pi_1026513_165628", style="display:none")
+    //-     div(class="form-group form-field form-half form-pileup first_name pd-text required")
+    //-       .formHeading
+    //-         label.field-label.col-form-label(for="1026513_165631pi_1026513_165631") 名
+    //-       .formInput
+    //-         div(class="formInputOuter form-half form-pileup first_name")
+    //-           div(class="formInputInner form-half form-pileup first_name")
+    //-             input.text.text.form-control(id="1026513_165631pi_1026513_165631", type="text", name="1026513_165631pi_1026513_165631", value="謙太郎", size="30", maxlength="40", onchange=, onfocus=, placeholder="名")
+    //-             div(id="error_for_1026513_165631pi_1026513_165631", style="display:none")
+    //-     .form-group.form-field.form-pileup.email.pd-text.required
+    //-       .formHeading
+    //-         label.field-label.col-form-label(for="1026513_165634pi_1026513_165634") 保護者 メールアドレス
+    //-       .formInput
+    //-         .formInputOuter.form-pileup.email
+    //-           .formInputInner.form-pileup.email
+    //-             input.text.text.form-control(id="1026513_165634pi_1026513_165634", type="text", name="1026513_165634pi_1026513_165634", value="happydesign.0922@gmail.com", size="30", maxlength="255", onchange=, onfocus=, placeholder=)
+    //-             div(id="error_for_1026513_165634pi_1026513_165634", style="display:none")
+    //-     .form-group.form-field.form-pileup.zip.pd-text.required
+    //-       .formHeading
+    //-         label.field-label.col-form-label(for="1026513_165637pi_1026513_165637") 郵便番号
+    //-       .formInput
+    //-         .formInputOuter.form-pileup.zip
+    //-           .formInputInner.form-pileup.zip
+    //-             input.text.text.form-control(id="1026513_165637pi_1026513_165637", type="text", name="1026513_165637pi_1026513_165637", value=, size="30", maxlength="32", onchange=, onfocus=, placeholder=)
+    //-             div(id="error_for_1026513_165637pi_1026513_165637", style="display:none")
+    //-     .form-group.form-field.form-pileup.phone.pd-text
+    //-       .formHeading
+    //-         label.field-label.col-form-label(for="1026513_165640pi_1026513_165640") 電話番号
+    //-       .formInput
+    //-         .formInputOuter.form-pileup.phone
+    //-           .formInputInner.form-pileup.phone
+    //-             input.text.text.form-control(id="1026513_165640pi_1026513_165640", type="text", name="1026513_165640pi_1026513_165640", value=, size="30", maxlength="40", onchange=, onfocus=, placeholder=)
+    //-             div(id="error_for_1026513_165640pi_1026513_165640", style="display:none")
+    //-     .form-group.form-field.form-half.form-pileup.ChildName1.pd-text.required
+    //-       .formHeading
+    //-         label.field-label.col-form-label(for="1026513_165643pi_1026513_165643") お子様の姓
+    //-       .formInput
+    //-         .formInputOuter.form-half.form-pileup.ChildName1
+    //-           .formInputInner.form-half.form-pileup.ChildName1
+    //-             input.text.text.form-control(id="1026513_165643pi_1026513_165643", type="text", name="1026513_165643pi_1026513_165643", value=, size="30", maxlength="65535", onchange=, onfocus=)
+    //-             div(id="error_for_1026513_165643pi_1026513_165643", style="display:none")
+    //-     .form-group.form-field.form-half.form-pileup.ChildFirstname1.pd-text.required
+    //-       .formHeading
+    //-         label.field-label.col-form-label(for="1026513_165646pi_1026513_165646") 名
+    //-       .formInput
+    //-         .formInputOuter.form-half.form-pileup.ChildFirstname1
+    //-           .formInputInner.form-half.form-pileup.ChildFirstname1
+    //-             input.text.text.form-control(id="1026513_165646pi_1026513_165646", type="text", name="1026513_165646pi_1026513_165646", value=, size="30", maxlength="65535", onchange=, onfocus=)
+    //-             div(id="error_for_1026513_165646pi_1026513_165646", style="display:none")
+    //-     div(class="form-group form-field form-pileup tbm_datepicker-range_startdate-20060101 tbm_datepicker-range_enddate-20180331 ChildBirth1 pd-date required")
+    //-       .formHeading
+    //-         label.field-label.col-form-label(for="1026513_165649pi_1026513_165649") お子様の生年月日
+    //-       .formInput
+    //-         div(class="formInputOuter form-pileup tbm_datepicker-range_startdate-20060101 tbm_datepicker-range_enddate-20180331 ChildBirth1")
+    //-           div(class="formInputInner form-pileup tbm_datepicker-range_startdate-20060101 tbm_datepicker-range_enddate-20180331 ChildBirth1")
+    //-             input.date.text.form-control.hasDatepicker(id="1026513_165649pi_1026513_165649", type="text", name="1026513_165649pi_1026513_165649", value=, size="12", maxlength="10", onchange=, placeholder="yyyy-mm-dd", autocomplete="off")
+    //-             p.description 選択できる年月日に該当しない場合は、お手数ですが日付をどれか選択していただいた後に数字の変更をお願いいたします。
+    //-             div(id="error_for_1026513_165649pi_1026513_165649", style="display:none")
+    //-     .form-group.form-field.form-pileup.PrivacyPolicy.pd-checkbox.required
+    //-       .formHeading
+    //-         label.field-label.col-form-label(for="1026513_165652pi_1026513_165652") 個人情報の取り扱い
+    //-       .formInput
+    //-         .formInputOuter.form-pileup.PrivacyPolicy
+    //-           .formInputInner.form-pileup.PrivacyPolicy
+    //-             span.value
+    //-               span
+    //-                 input(id="1026513_165652pi_1026513_165652_1018033", type="checkbox", name="1026513_165652pi_1026513_165652_1018033", value="1018033", onchange=)
+    //-                 label.inline(for="1026513_165652pi_1026513_165652_1018033") 個人情報の取り扱いに同意する
+    //-             div(id="error_for_1026513_165652pi_1026513_165652", style="display:none")
+    //-   p(style="position:absolute; width:190px; left:-9999px; top: -9999px;visibility:hidden;")
+    //-     label(for="pi_extra_field") Comments
+    //-     input.undefined.text.form-control(id="pi_extra_field", type="text", name="pi_extra_field")
+    //-   // forces IE5-8 to correctly submit UTF8 content
+    //-   input(name="_utf8", type="hidden", value="☃")
+    //-   .contentFormAfter
+    //-     p ------------------------------------------
+    //-       br
+    //-       br
+    //-       | 個人情報の取り扱いに関するご同意のお願い
+    //-       br
+    //-       br
+    //-       | ------------------------------------------
+    //-     p &amp;nbsp;
+    //-     p 株式会社ワオ・コーポレーション(以下、当社といいます。)における個人情報の収集、利用目的、管理等についてお知らせいたします。
+    //-       br
+    //-       | 個人情報保護法を遵守して、お客様の個人情報を正確かつ機密に取り扱うこと、並びに不正アクセス、紛失、破壊、改ざん、漏えい等から個人情報を保護することは、当社の重要な責務であると認識しております。
+    //-       br
+    //-       | 当社は以下の点を遵守してお客様の個人情報を取り扱って参りますので、内容をご確認いただき、個人情報の取り扱いについてご同意いただきますようよろしくお願い申し上げます。
+    //-       br
+    //-       br
+    //-       | ＜個人情報の取り扱いに関する同意内容＞
+    //-       br
+    //-       br
+    //-       | ■ここで言う個人情報について
+    //-       br
+    //-       | ここで言う個人情報とは、お問合せ時・資料請求時、体験授業等お申込み時にお知らせいただいたお客様の氏名、生年月日、住所、電話番号、メールアドレス等の情報をさします。
+    //-       br
+    //-       br
+    //-       | ■個人情報の収集・利用目的について
+    //-       br
+    //-       | 個人情報はお問合せの場合はそれに回答するため、資料請求の場合は資料をお届けするため、体験授業等のご予約受付・ご連絡に使用するほか、お客様に各種ご案内をさせていただくために利用いたします。
+    //-       br
+    //-       | 個人情報の提供はあくまで任意ですが、お知らせいただけない情報がある場合、お問合せの回答や資料のお届け、体験授業等の予約受付ができかねる場合があります。
+    //-       br
+    //-       | ご協力をお願いします。
+    //-       br
+    //-       br
+    //-       | ■個人情報の管理について
+    //-       br
+    //-       | 従業員に対しては法令・社内規定を遵守し秘密保持に十分な注意を払って個人情報を取り扱うよう教育と監査を実施します。
+    //-       br
+    //-       | 個人情報を管理するにあたっては、不正アクセス、紛失、改ざん、破壊、漏えい等に対して組織的、技術的な安全対策を講じます。
+    //-       br
+    //-       | お客様の同意なしに個人情報を第三者へ開示することはありませんが、法令に基づき要請された場合や生命・健康・財産などの重大な利益を保護するために不可欠な場合は、この限りではないことをご了承ください。
+    //-       br
+    //-       br
+    //-       | ■個人情報の委託について
+    //-       br
+    //-       | 個人情報の管理や試験処理等のためにお客様の個人情報の取り扱いを外部企業に委託することがあります。
+    //-       br
+    //-       | その場合は委託先が個人情報保護に関し十分な対策が取られていることを確認した上で行うものとします。
+    //-       br
+    //-       br
+    //-       | ■個人情報の開示・訂正・削除について
+    //-       br
+    //-       | 当社はお客様の個人情報に関し、お客様本人から開示を求められたときはその内容を開示します。
+    //-       br
+    //-       | 万一、内容に誤りがあり、お客様から変更・訂正・削除等を求められたときは、必要な変更・訂正・削除等を行います。
+    //-       br
+    //-       | 要望事項をご記入の上、以下のメールアドレスまでご連絡ください。
+    //-       br
+    //-       br
+    //-       | ■個人情報保護管理者、連絡先
+    //-       br
+    //-       | (個人情報の取り扱いに関するご要望及び苦情の申し出先)
+    //-       br
+    //-       br
+    //-       | 大阪市北区中崎西1-5-14
+    //-       br
+    //-       | 株式会社ワオ・コーポレーション
+    //-       br
+    //-       | 個人情報保護管理者（管理本部内／総務部長）
+    //-       br
+    //-       | 電話　06-6377-7971（受付時間　月～金　10:00～18:00 ※年末年始除く）
+    //-       br
+    //-       | FAX 　06-6377-3240
+    //-       br
+    //-       | Email privacy@wao-corp.com
+    //-   .submit.text-center
+    //-     input.btn.btn-lg.btn-primary(type="submit", accesskey="s", value="送信する")
+    //-   script(type="text/javascript").
+    //-     //<![CDATA[
+    //-     var anchors = document.getElementsByTagName("a");
+    //-     for (var i=0; i<anchors.length; i++) {
+    //-     var anchor = anchors[i];
+    //-     if(anchor.getAttribute("href")&&!anchor.getAttribute("target")) {
+    //-     anchor.target = "_top";
+    //-     }
+    //-     }
+    //-     //]]>
+    //-   input#hiddenDependentFields(type="hidden", name="hiddenDependentFields", value=)
+    //- script(type="text/javascript").
+    //-   (function(){ pardot.$(document).ready(function(){ (function() {
+    //-   var $ = window.pardot.$;
+    //-   window.pardot.FormDependencyMap = [];
+    //-   $('.form-field-primary input, .form-field-primary select').each(function(index, input) {
+    //-   $(input).on('change', window.piAjax.checkForDependentField);
+    //-   window.piAjax.checkForDependentField.call(input);
+    //-   });
+    //-   })(); });})();
+    //- script.
+    //-     $('#pardot-form').submit(function(){ $('#pardot-form :submit').prop('disabled', true); })
+    //- script.
+    //-     // Placeholder Settings
+    //-     $('.form-group.company > .formInput > .formInputOuter > .formInputInner > input').attr('placeholder','株式会社 カンパニー');
+    //-     $('.form-group.department > .formInput > .formInputOuter > .formInputInner > input').attr('placeholder','営業部');
+    //-     $('.form-group.job_title > .formInput > .formInputOuter > .formInputInner > input').attr('placeholder','課長');
+    //-     $('.form-group.last_name > .formInput > .formInputOuter > .formInputInner > input').attr('placeholder','姓');
+    //-     $('.form-group.first_name > .formInput > .formInputOuter > .formInputInner > input').attr('placeholder','名');
+    //-     $('.form-group.last_kana > .formInput > .formInputOuter > .formInputInner > input').attr('placeholder','せい');
+    //-     $('.form-group.first_kana > .formInput > .formInputOuter > .formInputInner > input').attr('placeholder','めい');
+    //-     $('.form-group.zip > .formInput > .formInputOuter > .formInputInner > input').attr('placeholder','');
+    //-     $('.form-group.city > .formInput > .formInputOuter > .formInputInner > input').attr('placeholder','市区町村郡');
+    //-     $('.form-group.address_one > .formInput > .formInputOuter > .formInputInner > input').attr('placeholder','番地');
+    //-     $('.form-group.address_two > .formInput > .formInputOuter > .formInputInner > input').attr('placeholder','ビル名・マンション名');
+    //-     $('.form-group.phone > .formInput > .formInputOuter > .formInputInner > input').attr('placeholder','');
+    //-     $('.form-group.fax > .formInput > .formInputOuter > .formInputInner > input').attr('placeholder','0000000000');
+    //-     $('.form-group.email > .formInput > .formInputOuter > .formInputInner > input').attr('placeholder','');
+    //-     // ----------
+    //-     // Bootstrap Settings
+    //-     $('input[type=text]').each(function(){ $(this).attr('class', $(this).attr('class') + ' text form-control' ); });
+    //-     $('textarea').attr('class','form-control');
+    //-     $('select').attr('class','select form-control');
+    //-     $('.form-group.pd-checkbox > .formInput > .formInputOuter > span').attr('class','value checkbox');
+    //-     $('.form-group.pd-radio > .formInput > .formInputOuter > span').attr('class','value radio');
+    //-     // ----------
+    //-     // JPostal Settings
+    //-     varJpostal = $('.form-group.zip.pd-text         > .formHeading > label').attr('for');
+    //-     var3       = $('.form-group.state.pd-select     > .formHeading > label').attr('for');
+    //-     var4       = $('.form-group.city.pd-text        > .formHeading > label').attr('for');
+    //-     var5       = $('.form-group.address_one.pd-text > .formHeading > label').attr('for');
+    //-     $('#'+varJpostal).jpostal(JSON.parse('{"postcode":["#'+varJpostal+'"],"address":{"#'+var3+'":"%3","#'+var4+'":"%4","#'+var5+'":"%5"}}'));
+    //-     // ----------
+    //- // Datepicker START
+    //- script(src="//ajax.googleapis.com/ajax/libs/jqueryui/1/jquery-ui.min.js", type="text/javascript")
+    //- script(type="text/javascript", id=, charset=).
+    //-     piAId="1027513";piCId="";piHostname="go.waomirai.com";(function(){function b(){var a=document.createElement("script");a.type="text/javascript";a.src=("https:"==document.location.protocol?"https://":"http://")+piHostname+"/pd.js";var c=document.getElementsByTagName("script")[0];c.parentNode.insertBefore(a,c)}window.attachEvent?window.attachEvent("onload",b):window.addEventListener("load",b,!1)})();
+    //- script(src="//ajax.googleapis.com/ajax/libs/jqueryui/1/i18n/jquery.ui.datepicker-ja.min.js", type="text/javascript")
+    //- iframe(allow="join-ad-interest-group", data-tagging-id="AW-16476562618", data-load-time="1728463392566", height="0", width="0", src="https://td.doubleclick.net/td/rul/16476562618?random=1728463392565&amp;cv=11&amp;fst=1728463392565&amp;fmt=3&amp;bg=ffffff&amp;guid=ON&amp;async=1&amp;gtm=45be4a70z89171708627za201zb9171708627&amp;gcd=13l3l3l3l1l1&amp;dma=0&amp;tag_exp=101671035~101747727&amp;u_w=1470&amp;u_h=956&amp;url=http%3A%2F%2Flocalhost%3A3000%2Fenglish-portal-form-2024nov.html&amp;ref=http%3A%2F%2Flocalhost%3A3000%2F&amp;hn=www.googleadservices.com&amp;frm=0&amp;npa=0&amp;pscdl=noapi&amp;auid=1612798688.1724119780&amp;uaa=arm&amp;uab=64&amp;uafvl=Not)A%253BBrand%3B99.0.0.0%7CGoogle%2520Chrome%3B127.0.6533.120%7CChromium%3B127.0.6533.120&amp;uamb=0&amp;uam=&amp;uap=macOS&amp;uapv=14.6.1&amp;uaw=0&amp;fledge=1", style="display: none; visibility: hidden;")
+    //- script(src="https://cdn.maplus.net/form.toolkit/com_utils.min.js")
+    //- script(src="https://cdn.maplus.net/form.toolkit/datepicker_kit.min.js")
+    //- link(rel="stylesheet", href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css")
+    //- // Datepicker END
+    //- #ui-datepicker-div.ui-datepicker.ui-widget.ui-widget-content.ui-helper-clearfix.ui-corner-all
+    //- div(style="display: none; visibility: hidden;")
+    //-     script(async="null", src="https://s.yimg.jp/images/listing/tool/cv/ytag.js")
+    //-     script.
+    //-     window.yjDataLayer=window.yjDataLayer||[];function ytag(){yjDataLayer.push(arguments)}ytag({type:"yss_retargeting",config:{yahoo_ss_retargeting_id:"1001324905",yahoo_sstag_custom_params:{}}});
+    //- div(style="display: none; visibility: hidden;")
+    //-     script.
+    //-     !function(b,e,f,g,a,c,d){b.fbq||(a=b.fbq=function(){a.callMethod?a.callMethod.apply(a,arguments):a.queue.push(arguments)},b._fbq||(b._fbq=a),a.push=a,a.loaded=!0,a.version="2.0",a.queue=[],c=e.createElement(f),c.async=!0,c.src=g,d=e.getElementsByTagName(f)[0],d.parentNode.insertBefore(c,d))}(window,document,"script","https://connect.facebook.net/en_US/fbevents.js");fbq("init","991613366033962");fbq("track","PageView");
+    //-     noscript
+    //- div(style="display: none; visibility: hidden;")
+    //-     script.
+    //-     !function(d,g,e){d.TiktokAnalyticsObject=e;var a=d[e]=d[e]||[];a.methods="page track identify instances debug on off once ready alias group enableCookie disableCookie holdConsent revokeConsent grantConsent".split(" ");a.setAndDefer=function(b,c){b[c]=function(){b.push([c].concat(Array.prototype.slice.call(arguments,0)))}};for(d=0;d<a.methods.length;d++)a.setAndDefer(a,a.methods[d]);a.instance=function(b){b=a._i[b]||[];for(var c=0;c<a.methods.length;c++)a.setAndDefer(b,a.methods[c]);return b};a.load=
+    //-     function(b,c){var f="https://analytics.tiktok.com/i18n/pixel/events.js";a._i=a._i||{};a._i[b]=[];a._i[b]._u=f;a._t=a._t||{};a._t[b]=+new Date;a._o=a._o||{};a._o[b]=c||{};c=document.createElement("script");c.type="text/javascript";c.async=!0;c.src=f+"?sdkid\x3d"+b+"\x26lib\x3d"+e;b=document.getElementsByTagName("script")[0];b.parentNode.insertBefore(c,b)};a.load("CQUN883C77U0JHDT5O1G");a.page()}(window,document,"ttq");
+    //- span(style="border-radius:10px !important;text-indent:12px !important;width:auto !important;height:20px !important;padding:0px 8px !important;text-align:center !important;vertical-align:middle !important;font:bold 11px / 20px &quot;Helvetica Neue&quot;, Helvetica, sans-serif !important;color:rgb(255, 255, 255) !important;background:url(&quot;data:image/svg+xml;base64,PHN2ZyBpZD0ic291cmNlIiB3aWR0aD0iMTIiIGhlaWdodD0iMTIiIHZpZXdCb3g9IjAgMCAxMiAxMiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBjeD0iNiIgY3k9IjYiIHI9IjYiIGZpbGw9IiNFNjAwMjMiPjwvY2lyY2xlPgo8cGF0aCBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGNsaXAtcnVsZT0iZXZlbm9kZCIgZD0iTTAgNkMwIDguNTYxNSAxLjYwNTUgMTAuNzQ4NSAzLjg2NSAxMS42MDlDMy44MSAxMS4xNDA1IDMuNzUxNSAxMC4zNjggMy44Nzc1IDkuODI2QzMuOTg2IDkuMzYgNC41NzggNi44NTcgNC41NzggNi44NTdDNC41NzggNi44NTcgNC4zOTk1IDYuNDk5NSA0LjM5OTUgNS45N0M0LjM5OTUgNS4xNCA0Ljg4MDUgNC41MiA1LjQ4IDQuNTJDNS45OSA0LjUyIDYuMjM2IDQuOTAyNSA2LjIzNiA1LjM2MUM2LjIzNiA1Ljg3MzUgNS45MDk1IDYuNjM5NSA1Ljc0MSA3LjM1QzUuNjAwNSA3Ljk0NDUgNi4wMzk1IDguNDI5NSA2LjYyNTUgOC40Mjk1QzcuNjg3IDguNDI5NSA4LjUwMzUgNy4zMSA4LjUwMzUgNS42OTRDOC41MDM1IDQuMjYzNSA3LjQ3NTUgMy4yNjQgNi4wMDggMy4yNjRDNC4zMDkgMy4yNjQgMy4zMTE1IDQuNTM4NSAzLjMxMTUgNS44NTZDMy4zMTE1IDYuMzY5NSAzLjUwOSA2LjkxOTUgMy43NTYgNy4yMTlDMy44MDQ1IDcuMjc4NSAzLjgxMiA3LjMzIDMuNzk3NSA3LjM5MDVDMy43NTIgNy41Nzk1IDMuNjUxIDcuOTg1IDMuNjMxNSA4LjA2OEMzLjYwNSA4LjE3NyAzLjU0NSA4LjIwMDUgMy40MzE1IDguMTQ3NUMyLjY4NTUgNy44MDA1IDIuMjE5NSA2LjcxIDIuMjE5NSA1LjgzNEMyLjIxOTUgMy45NDk1IDMuNTg4IDIuMjE5NSA2LjE2NTUgMi4yMTk1QzguMjM3NSAyLjIxOTUgOS44NDggMy42OTYgOS44NDggNS42NjlDOS44NDggNy43Mjc1IDguNTUwNSA5LjM4NDUgNi43NDg1IDkuMzg0NUM2LjE0MyA5LjM4NDUgNS41NzQ1IDkuMDY5NSA1LjM3OTUgOC42OThDNS4zNzk1IDguNjk4IDUuMDggOS44MzkgNS4wMDc1IDEwLjExOEM0Ljg2NjUgMTAuNjYgNC40NzU1IDExLjM0NiA0LjIzMyAxMS43MzU1QzQuNzkyIDExLjkwNzUgNS4zODUgMTIgNiAxMkM5LjMxMzUgMTIgMTIgOS4zMTM1IDEyIDZDMTIgMi42ODY1IDkuMzEzNSAwIDYgMEMyLjY4NjUgMCAwIDIuNjg2NSAwIDZaIiBmaWxsPSJ3aGl0ZSI+PC9wYXRoPgo8L3N2Zz4=&quot;) 4px 50% / 12px 12px no-repeat rgb(230, 0, 35) !important;position:absolute !important;opacity:1 !important;z-index:9007199254740990 !important;display:none !important;cursor:pointer !important;border:none !important;-webkit-font-smoothing:antialiased !important;top:0 !important;left:0 !important;display:none !important;top:221px !important;left:77px !important") 保存
+    +testcase
+    +dialog
+    +dialogcss
+    +dialogjs
+    +schedulejs

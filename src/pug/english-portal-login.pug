@@ -1,3 +1,4 @@
+//英語体験ログインページ
 doctype html
 html(lang="jp")
   head
@@ -14,10 +15,6 @@ html(lang="jp")
     meta(name="viewport", content="width=device-width, initial-scale=1,minimum-scale=1.0, maximum-scale=1.0, user-scalable=no")
     meta(charset="UTF-8")
   body
-    .login-announcement
-       p|10月中はレッスンが全て無料、
-        br.spimage
-        |予約不要でレッスンを受けられます
     .login-block 
        .login-block-logo 
          img(src='https://go.waomirai.com/l/1026513/2024-08-08/gzqmq/1026513/1723103182E5MU9Ijy/waomirai_logo__1_.svg')
@@ -26,37 +23,55 @@ html(lang="jp")
           .error-label(style='display:none;')
             |パスワードが違います
           button(type="submit") ログイン
-
     script.
-        $(document).ready(function() {
-            var cookieName = 'visited';
-            var sessionKey = 'sessionVisited';
-            if ($.cookie(cookieName)) {
-                $("#passwordInput").val("grape");
-            }
-            // 初回訪問か再訪問かをチェック
-            $("#passwordForm").on("submit", function(event) {
-                event.preventDefault();
-                const correctPassword = "grape"; // 正しいパスワードを設定
-                const enteredPassword = $("#passwordInput").val();
+      $(document).ready(function() {
+          var octoberCookie = 'visited';  // 10月用の既存クッキー
+          var novemberCookie = 'visitedNovember';  // 11月用の新しいクッキー
+          var sessionKeyOctober = 'sessionVisited'; // セッションキー（10月用、既存のものを使用）
+          var sessionKeyNovember = 'sessionVisitedNovember'; // セッションキー（11月用）
 
-                if (enteredPassword === correctPassword) {
-                    // クッキーが存在するかどうかを確認
-                    if ($.cookie(cookieName)) {
-                        // 再訪問時：Bのページにリダイレクト
-                        //- window.location.href = "/english-portal.html"; // 再訪問時のリダイレクト先
-                        window.location.href = "https://go.waomirai.com/english-learn-portal"; // 初回訪問時のリダイレクト先
-                    } else {
-                        // 初回訪問時：Aのページにリダイレクト
-                        window.location.href = "https://go.waomirai.com/english-learn-tutotial"; // 初回訪問時のリダイレクト先
+          // 10月用のクッキーが存在する場合、パスワードを自動入力
+          if ($.cookie(octoberCookie)) {
+              $("#passwordInput").val("grape");
+          }
 
-                        // 初回訪問後、セッションストレージとクッキーに記録
-                        sessionStorage.setItem(sessionKey, 'true');
-                        $.cookie(cookieName, 'true', { expires: 999 }); // クッキーの有効期限を7日に設定
-                    }
-                } else {
+          // パスワードフォームの送信時に処理
+          $("#passwordForm").on("submit", function(event) {
+              event.preventDefault();
+              const octoberPassword = "grape";  // 10月の体験ページのパスワード
+              const novemberPassword = "marron";  // 11月の体験ページのパスワード
+              const enteredPassword = $("#passwordInput").val();
+
+              if (enteredPassword === octoberPassword) {
+                  // 10月用のクッキーがあるか確認
+                  if ($.cookie(octoberCookie)) {
+                      // 再訪問時：10月の体験ページにリダイレクト
+                      window.location.href = "https://go.waomirai.com/english-learn-portal"; // 再訪問時の10月ページ
+                  } else {
+                      // 初回訪問時：10月の体験ページにリダイレクト
+                      window.location.href = "https://go.waomirai.com/english-learn-tutotial"; // 初回訪問時の10月ページ
+
+                      // 初回訪問後、セッションストレージとクッキーに記録
+                      sessionStorage.setItem(sessionKeyOctober, 'true');
+                      $.cookie(octoberCookie, 'true', { expires: 999 }); // 10月用クッキーを保持
+                  }
+              } else if (enteredPassword === novemberPassword) {
+                  // 11月用のクッキーがあるか確認
+                  if ($.cookie(novemberCookie)) {
+                      // 再訪問時：11月の体験ページにリダイレクト
+                      window.location.href = "https://go.waomirai.com/english-learn-portal-marron"; // 再訪問時の11月ページ
+                  } else {
+                      // 初回訪問時：11月の体験ページにリダイレクト
+                      window.location.href = "https://go.waomirai.com/english-learn-tutotialpage-marron"; // 初回訪問時の11月ページ
+
+                      // 初回訪問後、セッションストレージとクッキーに記録
+                      sessionStorage.setItem(sessionKeyNovember, 'true');
+                      $.cookie(novemberCookie, 'true', { expires: 999 }); // 11月用の新しいクッキーを設定
+                  }
+              } else {
+                  // パスワードが間違っている場合の処理
                   $("#passwordInput").addClass("error");
                   $(".error-label").show();
-                }
-            });
-        });
+              }
+          });
+      });

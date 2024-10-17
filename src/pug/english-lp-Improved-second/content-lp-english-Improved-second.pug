@@ -1,3 +1,81 @@
+mixin cv 
+  section.section-el-cv
+      .lp-cv-title
+        .lp-cv-title-text#newCvText
+          span.lp-cv-title-text-top|10/31までに申し込むと
+          br
+          |11月中はオンラインレッスンが
+          br.spimage
+          |受け放題
+        .lp-cv-title-note
+          |※有料プランへの自動入会はございません
+      .lp-cv-lessonday 
+        .lp-cv-lessonday-title 
+          |最短のオンラインレッスン開催日
+        .lp-cv-lessonday-wrapper 
+            .lp-cv-lessonday-wrapper-block.block-level1-saturday
+                .lp-cv-lessonday-wrapper-block-head.level-1 
+                  .lp-cv-lessonday-wrapper-block-head-level 
+                      |【LEVEL 1】
+                  .lp-cv-lessonday-wrapper-block-head-text 
+                      |土曜コース         
+                .lp-cv-lessonday-wrapper-block-date 
+                    .lp-cv-lessonday-wrapper-block-date-day
+                      span.lp-cv-lessonday-wrapper-block-date-day-month.next-lesson-month|11
+                      span.lp-cv-lessonday-wrapper-block-date-day-slash|/
+                      span.lp-cv-lessonday-wrapper-block-date-day-month.next-lesson-day|2
+                      .lp-cv-lessonday-wrapper-block-date-week.next-lesson-week
+                          |土
+                    .lp-cv-lessonday-wrapper-block-date-range.next-lesson-hour-range
+                        |17:30~  
+                .lp-cv-lessonday-wrapper-block-button 
+                   button.button-level1-saturday
+                    |全ての日程をみる  
+            .lp-cv-lessonday-wrapper-block.block-level1-weekdays
+                .lp-cv-lessonday-wrapper-block-head.level-1 
+                  .lp-cv-lessonday-wrapper-block-head-level 
+                      |【LEVEL 1】
+                  .lp-cv-lessonday-wrapper-block-head-text 
+                      |平日コース         
+                .lp-cv-lessonday-wrapper-block-date 
+                    .lp-cv-lessonday-wrapper-block-date-day
+                      span.lp-cv-lessonday-wrapper-block-date-day-month.next-lesson-month|11
+                      span.lp-cv-lessonday-wrapper-block-date-day-slash|/
+                      span.lp-cv-lessonday-wrapper-block-date-day-month.next-lesson-day|5
+                      .lp-cv-lessonday-wrapper-block-date-week.next-lesson-week
+                          |火
+                    .lp-cv-lessonday-wrapper-block-date-range.next-lesson-hour-range
+                        |17:00~   
+                .lp-cv-lessonday-wrapper-block-button 
+                   button.button-level1-weekdays
+                    |全ての日程をみる                        
+            .lp-cv-lessonday-wrapper-block-or
+                |or
+            .lp-cv-lessonday-wrapper-block.block-level2-weekdays
+                .lp-cv-lessonday-wrapper-block-head.level-2
+                  .lp-cv-lessonday-wrapper-block-head-level 
+                      |【LEVEL 2】
+                  .lp-cv-lessonday-wrapper-block-head-text 
+                      |平日コース         
+                .lp-cv-lessonday-wrapper-block-date 
+                    .lp-cv-lessonday-wrapper-block-date-day
+                      span.lp-cv-lessonday-wrapper-block-date-day-month.next-lesson-month|11
+                      span.lp-cv-lessonday-wrapper-block-date-day-slash|/
+                      span.lp-cv-lessonday-wrapper-block-date-day-month.next-lesson-day|5
+                      .lp-cv-lessonday-wrapper-block-date-week.next-lesson-week
+                          |火
+                    .lp-cv-lessonday-wrapper-block-date-range.next-lesson-hour-range
+                        |17:40~   
+                .lp-cv-lessonday-wrapper-block-button 
+                   button.button-level2-weekdays
+                    |全ての日程をみる  
+      .lp-cv-button 
+        a(href=linkUrl,onclick="gtag('event', 'click', {'event_category': 'click','event_label': 'click-english-lp-button'});", target='_blank') 
+            .lp-cv-button-sub 
+                |かんたん1分
+            .lp-cv-button-main
+                |無料体験レッスンはこちら
+
 - var linkUrl = 'https://go.waomirai.com/english-trial-form'
 //- include _mixin-lp-english.pug
 noscript
@@ -21,21 +99,21 @@ div.fvsp.spimage
       .lp-cv-button 
             a(href=linkUrl,onclick="gtag('event', 'click', {'event_category': 'click','event_label': 'click-english-lp-button'});" target='_blank')   
                 .english-fv-absolute-cvtop.cv-limit-text
-                    |9/30までに申し込むと10月中は無料
+                    |10/30までに申し込むと11月中は無料
                 .lp-cv-button-main
                     |無料体験レッスンはこちら
-      .english-fvsp-nextlesson  
-            .lp-cv-lessonday-time-title 
-                |最短のオンラインレッスン開催日 
-            .lp-cv-lessonday-time 
-                .lp-cv-lessonday-time-day 
-                  span.lp-cv-lessonday-time-day-monthday.next-lesson-month|10
-                  span.lp-cv-lessonday-time-day-slash|/
-                  span.lp-cv-lessonday-time-day-monthday.next-lesson-day|1
-                .lp-cv-lessonday-time-week.next-lesson-week
-                    |火
-                .lp-cv-lessonday-time-hourrange
-                    |17:00~   
+      //- .english-fvsp-nextlesson  
+      //-       .lp-cv-lessonday-time-title 
+      //-           |最短のオンラインレッスン開催日 
+      //-       .lp-cv-lessonday-time 
+      //-           .lp-cv-lessonday-time-day 
+      //-             span.lp-cv-lessonday-time-day-monthday.next-lesson-month|10
+      //-             span.lp-cv-lessonday-time-day-slash|/
+      //-             span.lp-cv-lessonday-time-day-monthday.next-lesson-day|1
+      //-           .lp-cv-lessonday-time-week.next-lesson-week
+      //-               |火
+      //-           .lp-cv-lessonday-time-hourrange
+      //-               |17:00~   
 div.fvpc.pcimage
    .fvpc-logo
       img(src='https://go.waomirai.com/l/1026513/2024-08-08/gzqmq/1026513/1723103182E5MU9Ijy/waomirai_logo__1_.svg')
@@ -45,7 +123,7 @@ div.fvpc.pcimage
       div 
         a(href=linkUrl,onclick="gtag('event', 'click', {'event_category': 'click','event_label': 'click-english-lp-button'});" target='_blank')   
           .english-fv-absolute-cvtop.cv-limit-text
-              |9/30までに申し込むと10月中は無料
+              |10/31までに申し込むと11月中は無料
           .lp-cv-button-main
               |無料体験レッスンはこちら
    .fvpc-bg
@@ -75,14 +153,14 @@ section.section-el-second.section-el-second-why
         .section-el-second-content-detail-text 
           |文法や単語を覚えることに集中しがちですが
           strong 話せるようになるには、「アウトプット」する機会と量が必要です。
-          |勉強だけでは実際の会話力が身に付きにくいのです。
+          |勉強だけでは実際の会話力が身につきにくいのです。
         .section-el-second-content-detail-img
           img(src='https://go.waomirai.com/l/1026513/2024-09-26/h4gc4/1026513/1727333513CNz1P89D/reason01.jpg')
       div
         .section-el-second-content-detail-reason 
           |理由2 
         .section-el-second-content-detail-title
-          |外国人とはなすだけで英語が話せるようになると思っているから
+          |外国人と話すだけで英語が話せるようになると思っているから
         .section-el-second-content-detail-text 
           |多くの英会話スクールでは先生の言葉や他の生徒の発言を聞くことで時間がとられてしまうため、
           strong|一番重要な「自分の口で話す練習」が十分にできないのが実情です。
@@ -93,16 +171,17 @@ section.section-el-second.section-el-second-why
         .section-el-second-content-detail-reason 
           |理由3
         .section-el-second-content-detail-title
-          |習う英語が、”話したい”フレーズじゃないから
+          |習う英語が”話したい”フレーズじゃないから
         .section-el-second-content-detail-text 
           |多くの英会話スクールでは、文法の難易度順にフレーズを教えることが多いです。
-          strong|しかしそのフレーズは必ずしも子どもが日常で伝えたい、話したいという内容ではなかったりします。
-          |言葉を覚える赤ちゃんがそうであるように、文法の難易度にとらわれずに、まずは子どもが日常で使う表現から習得すれば、人に伝えるための言語として英語を身につけることができます。
+          strong|しかしそのフレーズは必ずしも子どもが日常で伝えたい、話したい内容ではなかったりします。
+          span.pcimage
+            |言葉を覚える赤ちゃんがそうであるように、文法の難易度にとらわれずに、まずは子どもが日常で使う表現から習得すれば、人に伝えるための言語として英語を身につけることができます。
         .section-el-second-content-detail-img
           img(src='https://go.waomirai.com/l/1026513/2024-09-26/h4gc1/1026513/1727333512zKSVcC6Z/reason03.png')
 section.section-el-second.section-el-second-enjoy
   .section-el-second-top.section-el-second-top-enjoy 
-    .section-el-second-top-text
+    .section-el-second-top-text.pcimage
      |ENJOY ENGLISH
   .section-el-second-content
     .section-el-second-content-title 
@@ -111,7 +190,7 @@ section.section-el-second.section-el-second-enjoy
     .section-el-second-content-text 
        |英語を勉強したけどそもそも続かない・・・とお悩みの方も多いのではないのでしょうか。
        br
-       |グローバル英語では子どもたちが遊ぶような感覚で続けられる仕組みがいっぱいあります
+       |グローバル英語では子どもたちが遊ぶような感覚で続けられる仕組みがいっぱいあります。
     .section-el-second-content-grid.section-el-second-content-grid-one 
       .section-el-second-content-grid-left 
           .section-el-second-content-grid-title 
@@ -120,12 +199,14 @@ section.section-el-second.section-el-second-enjoy
             |ライブ形式のレッスンで
             br
             |楽しく学べる
-          .section-el-second-content-grid-image.spimage
-              img(src='https://storage.pardot.com/1026513/1727340661pAjGn14E/about01.png')
           .section-el-second-content-grid-txt 
-            |日本語の通じるネイティブ講師＆日本人講師が、ユーモアたっぷりに英語を教えてくれるから、レッスンの時間が待ち遠しくなる！ゲームやアクティビティを交えながら、まるで遊んでいるかのように学べるライブレッスン。
+            |日本語の通じるネイティブ講師＆日本人講師が、
+            b|ユーモアたっぷりに英語を教えてくれるから、レッスンの時間が待ち遠しくなる！
+            |ゲームやアクティビティを交えながら、まるで遊んでいるかのように学べるライブレッスン。
+          //- .section-el-second-content-grid-image.pcimage
+          //-     img(src='https://storage.pardot.com/1026513/1727340661pAjGn14E/about01.png')
       .section-el-second-content-grid-right 
-        .section-el-second-content-grid-img.pcimage
+        .section-el-second-content-grid-img
             img(src='https://storage.pardot.com/1026513/1727340661pAjGn14E/about01.png')
     .section-el-second-content-grid.section-el-second-content-grid-two
       .section-el-second-content-grid-left 
@@ -135,12 +216,23 @@ section.section-el-second.section-el-second-enjoy
 
       .section-el-second-content-grid-right 
           .section-el-second-content-grid-title 
-            |音を使った遊び感覚のレッスンでたくさん話すことで自然と上達！
+            |英語はスポーツと同じ！
+            br.pcimage
+            span.pcimage|練習が重要。
+            br
+            |目からウロコの英会話トレーニングで英語力アップ！
+          //- .section-el-second-content-grid-image.spimage
+          //-    .section-el-second-content-grid-iframe
+          //-       iframe(src="https://player.vimeo.com/video/1013057465?autoplay=1&muted=1&background=1", frameborder="0", allow="autoplay; fullscreen; picture-in-picture", allowfullscreen)
+          .section-el-second-content-grid-txt 
+              |テニスが上手くなりたい人が、練習もせず試合に出たらどうなりますか？
+              b|英会話も同じです。いきなり外国人と話す機会があっても、練習をしていなければスムーズに言葉が出ないのは当然です。
+              br.spimage
+              |リズムを使って単語単位からカタマリ単位で英語をインプットしたり、
+              |ひらがなで発音力をあげるなど、斬新な英会話トレーニングをご用意しています。
           .section-el-second-content-grid-image.spimage
              .section-el-second-content-grid-iframe
                 iframe(src="https://player.vimeo.com/video/1013057465?autoplay=1&muted=1&background=1", frameborder="0", allow="autoplay; fullscreen; picture-in-picture", allowfullscreen)
-          .section-el-second-content-grid-txt 
-            |音を使った遊び感覚の学びを通して、楽しみながらたくさん話すことができます。難しく感じる文法や単語も、自然に身につき、繰り返し話すことで英語力がぐんぐん向上します。
     .section-el-second-content-grid.section-el-second-content-grid-three
       .section-el-second-content-grid-left 
           .section-el-second-content-grid-title 
@@ -149,11 +241,13 @@ section.section-el-second.section-el-second-enjoy
             |楽しく英語に触れる
             br
             |ことができる
-          .section-el-second-content-grid-image.spimage
-              img(src='https://go.waomirai.com/l/1026513/2024-09-26/h4gcq/1026513/1727333515lZs4Z30Z/enjoy_detail03.png')
+          //- .section-el-second-content-grid-image.spimage
+          //-     img(src='https://go.waomirai.com/l/1026513/2024-09-26/h4gcq/1026513/1727333515lZs4Z30Z/enjoy_detail03.png')
           .section-el-second-content-grid-txt 
-            |学校の英語やテキスト型英会話スクールでは、どんどん次のページに進み、繰り返しがありません。英語を定着させるには、何度も同じフレーズに触れる事が重要です。私たちのプログラムでは、ライブレッスンの前や後に何度も練習できる動画レッスンをご用意しています。”覚える”暗記型の英語から、何度も触れて”残る”英語に。
-      .section-el-second-content-grid-right.pcimage
+            |学校の英語やテキスト型英会話スクールでは、どんどん次のページに進み、繰り返しがありません。
+            b|英語を定着させるには、何度も同じフレーズに触れる事が重要です。
+            span.pcimage|私たちのプログラムでは、ライブレッスンの前や後に何度も練習できる動画レッスンをご用意しています。”覚える”暗記型の英語から、何度も触れて”残る”英語に。
+      .section-el-second-content-grid-right
         .section-el-second-content-grid-absolute 
           img(src='https://go.waomirai.com/l/1026513/2024-09-26/h4gkb/1026513/1727340226wwoQZaVS/lessomovie_2.png')
         .section-el-second-content-grid-img
@@ -168,14 +262,19 @@ section.section-el-second.section-el-second-enjoy
           .section-el-second-content-grid-3columns-title 
             |フレーズChoice
           .section-el-second-content-grid-3columns-text 
-            |従来の英作文のように英語は”作る”のではなく、場面に合わせて英語を”選ぶ”トレーニングをすることで、考えず瞬発的に英語を話せるようになります。
+            |従来の英作文のように英語は”作る”のではなく、
+            b|場面に合わせて英語を”選ぶ”トレーニング
+            |をすることで、
+            b|考えず瞬発的に英語を話せるようになります。
         .section-el-second-content-grid-3columns-box
           .section-el-second-content-grid-3columns-image 
             img(src='https://go.waomirai.com/l/1026513/2024-09-26/h4gcm/1026513/1727333514et5n4YGU/enjoy_merit02.png')
           .section-el-second-content-grid-3columns-title 
             |ひらがなEnglish
           .section-el-second-content-grid-3columns-text 
-            |日本語英語は通じない！それを”ひらがな”の音で解決し、子どもでもいきなりネイティブ並みの発音ができる。音に慣れることで聞く力も同時に伸びていきます。
+            |日本語英語は通じない！
+            b|それを”ひらがな”の音で解決し、子どもでもいきなりネイティブ並みの発音ができる。
+            |音に慣れることで聞く力も同時に伸びていきます。
         .section-el-second-content-grid-3columns-box
           .section-el-second-content-grid-3columns-image
             img(src='https://go.waomirai.com/l/1026513/2024-09-26/h4gk4/1026513/172733952815Pd964y/narikiri_2.png')
@@ -196,15 +295,19 @@ section.section-el-second-movie
 section.section-el-second.section-el-second-ability
   .section-el-second-top.section-el-second-top-ability
     .section-el-second-top-text
-     |SKILL
+     |SKILLS
   .section-el-second-content
     .section-el-second-content-title 
-       .section-el-second-content-title-text
-        |英語を学んで目指すもの
+       .section-el-second-content-title-text.section-el-second-content-title-text-center
+        |英語を学んで
+        br.spimage
+        |目指すもの
     .section-el-second-content-text 
-       |このプログラムで学んで欲しいことは、英語スキルだけではありません。
+       |このプログラムで学んで欲しいことは、
+       b|英語スキルだけではありません。
        br
-       |グローバルな世界で様々な人と楽しく、生活や仕事ができる３つのスキルを同時に養って欲しいと願っています。
+       |グローバルな世界で様々な人と楽しく、生活や仕事ができる
+       b|３つのスキルを同時に養って欲しいと願っています。
     .section-el-second-content-ability-box 
        .section-el-second-content-ability-box-left
           img(src='https://go.waomirai.com/l/1026513/2024-09-26/h4gc7/1026513/172733351339n7qPNG/ability01.png')
@@ -213,6 +316,8 @@ section.section-el-second.section-el-second-ability
             |SKILL 01 
          .section-el-second-content-ability-box-right-title 
             |表現力
+         //-  .section-el-second-content-ability-box-right-image.spimage
+         //-     img(src='https://go.waomirai.com/l/1026513/2024-09-26/h4gc7/1026513/172733351339n7qPNG/ability01.png')
          .section-el-second-content-ability-box-right-txt 
             strong|見たり聞いたりした内容をまとめて相手に伝える力は、グローバルな環境で活躍するためには必須です。
             |進学やキャリアの選択肢を広げ、より多くの可能性を手にするために、英語でプレゼンできる力をつけていきます。
@@ -223,7 +328,7 @@ section.section-el-second.section-el-second-ability
          .section-el-second-content-ability-box-right-subtitle 
             |SKILL 02
          .section-el-second-content-ability-box-right-title 
-            |聞く力
+            |聴く力
          .section-el-second-content-ability-box-right-txt 
             |自分ばかりが話をしていては会話にはなりません。相手の話を聞いて反応できる、また会話を広げるために質問できることもコミュニケーションでは必要です。
             strong|ただ耳で英語を聞くだけではなく、さらに相手の意図を深く理解するためのフレーズも身につけて、”聴く力”もつけていきます。
@@ -236,39 +341,48 @@ section.section-el-second.section-el-second-ability
          .section-el-second-content-ability-box-right-title 
             |伝える力
          .section-el-second-content-ability-box-right-txt 
-            |英語を習得することで、将来的な進学やキャリアの選択肢が広がります。グローバルな環境で活躍できるスキルを身につけることで、より多くの可能性を手にすることができるでしょう。
+            b|英語を習得することで、将来的な進学やキャリアの選択肢が広がります。
+            |グローバルな環境で活躍できるスキルを身につけることで、より多くの可能性を手にすることができるでしょう。
 section.section-el-second.section-el-second-who
   .section-el-second-top
     .section-el-second-top-text
      |WHO WE ARE
   .section-el-second-content
-    img(src='https://go.waomirai.com/l/1026513/2024-10-01/h4qx4/1026513/1727766596HQPKZIou/rapport_2.png')    
-section.section-el-cv
-    .lp-cv-title
-      .lp-cv-title-text
-        span.lp-cv-title-text-top|9/30までに申し込むと10月中は
-        br
-        |オンラインレッスンが受け放題
-      .lp-cv-title-note
-        |※有料プランへの自動入会はございません
-    .lp-cv-lessonday 
-       .lp-cv-lessonday-title 
-         |最短のオンラインレッスン開催日
-       .lp-cv-lessonday-time 
-          .lp-cv-lessonday-time-day 
-            span.lp-cv-lessonday-time-day-monthday.next-lesson-month|10
-            span.lp-cv-lessonday-time-day-slash|/
-            span.lp-cv-lessonday-time-day-monthday.next-lesson-day|1
-          .lp-cv-lessonday-time-week.next-lesson-week
-              |火
-          .lp-cv-lessonday-time-hourrange.next-lesson-hour-range
-              |17:00~
-    .lp-cv-button 
-       a(href=linkUrl,onclick="gtag('event', 'click', {'event_category': 'click','event_label': 'click-english-lp-button'});", target='_blank') 
-           .lp-cv-button-sub 
-              |かんたん1分
-           .lp-cv-button-main
-              |無料体験レッスンはこちら
+      .section-el-second-content-head
+          img(src='https://storage.pardot.com/1026513/17283648363qLguvYK/raport22.jpg')
+      .section-el-second-content-text 
+         .section-el-second-content-text-head 
+            |レッスン担当　
+            br.spimage
+            |ラポール22
+         .section-el-second-content-text-content 
+           |日本の環境は今、大きく変化しています。かつて「グローバル」は一部のエリートに関わる言葉でした。しかし現在では日常的に外国人と接する機会が増え、ネットやSNSでは海外の情報が表示され、さらにAIの利用でも英語が有利となっています。
+           strong|今や「グローバル」であることが当たり前なのです。
+           br
+           br
+           |こうした新しい世界で、日本の子どもたちは果たして楽しく働き、生活できるでしょうか？AIに仕事を奪われないための選択肢を持てるでしょうか？現状の英語教育ではそれが難しいと感じざるを得ません。残念ながら、実際に使える英語が身についていないばかりか、英語嫌いの子どもが増えているのが現状です。
+           br
+           br
+           b|今、子どもたちに本当に必要なのは、ツールとして使える英語と、それを活かせるコミュニケーション能力です。
+           br
+           br
+           b|海外の人々とコミュニケーションを取るためには、3つの力が必要です。
+           br
+           |まず「表現力」。
+           |アメリカの小学校では積極的に人前でスピーチをする場を設け、幼い頃から表現力を育てます。
+           br
+           |次に「聞く力」。
+           |異なる文化や考え方を理解し、適切に反応・質問できる力が大切です。
+           br
+           |そして「伝える力」。
+           |内容を簡潔にまとめて相手に伝えるスキルは、TOEFLや英検でも必要とされます。
+           br
+           br
+           |これらの力を英語と共に身につけてほしいという想いから、私たちは「Presenter」で表現力を、「Interviewer」で聞く力を、「Reporter」で伝える力を、それぞれ育てるプログラムを開発しました。
+      .section-el-second-content-bottom 
+         img(src='https://go.waomirai.com/l/1026513/2024-10-08/h57kn/1026513/1728363121Eyys9LMc/whoweare.png')     
+         
++cv 
 
 section.section-el-second.section-el-second-coarce
   .section-el-second-top
@@ -277,16 +391,19 @@ section.section-el-second.section-el-second-coarce
   .section-el-second-content
     .section-el-second-content-coarce
       .section-el-second-content-title 
-          .section-el-second-content-title-text
+          .section-el-second-content-title-text.section-el-second-content-title-text-center
             |授業コース
       .lp-section-text
-        |英語初挑戦なら、LEVEL1:LOCAL STAGEで自分の周りに焦点を当てて会話スキルを身につけましょう。英語が少し話せるなら、LEVEL2:NATION STAGEで日本について説明できるフレーズを身につけていきます。 
+        b|英語初挑戦なら、「LEVEL1:LOCAL STAGE」で
+        |自分の周りに焦点を当てて会話スキルを身につけましょう。
+        b|英語が少し話せるなら、「LEVEL2:NATION STAGE」で
+        |日本について説明できるフレーズを身につけていきます。 
         span.pcimage|体験授業では両方のステージを受講することができ、体験授業終了後にどちらかのステージを選択することができます。まずは両方受講し自分に合ったステージを決めましょう。
       .lp-section-course-box
         .lp-section-course-box-image 
-          img(src='https://storage.pardot.com/1026513/1727315869tGpAlFOW/LEVEL1__2_.png') 
+          img(src='https://go.waomirai.com/l/1026513/2024-10-09/h5bvc/1026513/172845360082pcJi9y/level1.jpg') 
         .lp-section-course-box-image 
-            img(src='https://go.waomirai.com/l/1026513/2024-09-17/h3mfm/1026513/17265610763tCtczbR/LEVEL2.png') 
+            img(src='https://go.waomirai.com/l/1026513/2024-10-09/h5bv8/1026513/17284532362uShdGJ2/level2.jpg') 
       .lp-section-text.spimage(style='margin: 10px 0 0;')
          |体験授業では両方のステージを受講することができ、体験授業終了後にどちらかのステージを選択することができます。まずは両方受講し自分に合ったステージを決めましょう。    
     .section-el-second-content-schedule
@@ -294,7 +411,7 @@ section.section-el-second.section-el-second-coarce
           .section-el-second-content-title-text
             |レッスンスケジュール
       .lp-section-text
-        | 授業は平日に2回受講する「平日スタイル」と、土曜にまとめて受講する「土曜スタイル」を選択可能！　
+        b|授業は平日に2回受講する「平日スタイル」と、土曜にまとめて受講する「土曜スタイル」を選択可能！　
         |どちらも都合がつかない場合は、アーカイブで授業を受けることができます。
       .lp-section-schedule
           figure.wp-block-table.is-style-regular(style="font-size:16px")
@@ -353,8 +470,8 @@ section.section-el-second.section-el-second-process
      |PROCESS
   .section-el-second-content
     .section-el-second-content-title 
-       .section-el-second-content-title-text
-        |英語を学んで目指すもの
+       .section-el-second-content-title-text.section-el-second-content-title-text-center
+        |学習の流れ
     .section-el-second-content-process
       .lp-section-study-process
         .lp-section-study-process-img
@@ -400,7 +517,7 @@ section.section-el-second.section-el-second-voice
      |VOICE
   .section-el-second-content
     .section-el-second-content-title 
-       .section-el-second-content-title-text
+       .section-el-second-content-title-text.section-el-second-content-title-text-center
         |お客さまからの声
     .lp-section-voice-box
       .lp-section-voice-box-image 
@@ -413,7 +530,7 @@ section.section-el-second.section-el-second-price
      |PRICE
   .section-el-second-content
     .section-el-second-content-title 
-       .section-el-second-content-title-text
+       .section-el-second-content-title-text.section-el-second-content-title-text-center
         |料金
     .lp-section-price
       .lp-section-price-box
@@ -432,14 +549,14 @@ section.section-el-second.section-el-second-price
             span.lp-section-price-box-right-small 
               | (税込）/月
     .lp-section-price-note
-      |※無料キャンペーンは2024年10月のみです
+      |※いつでも解約可能です
 section.section-el-second.section-el-second-try
   .section-el-second-top
     .section-el-second-top-text
         |
   .section-el-second-content
     .section-el-second-content-title 
-       .section-el-second-content-title-text
+       .section-el-second-content-title-text.section-el-second-content-title-text-center
          |無料体験レッスン
          br.spimage
          |までの流れ
@@ -448,32 +565,8 @@ section.section-el-second.section-el-second-try
         img(src='https://go.waomirai.com/l/1026513/2024-09-17/h3m5j/1026513/1726548611mDNqtkmT/trial_lesson.png')
       .spimage
         img(src='https://storage.pardot.com/1026513/1726640348sRjJhEhl/img_flow_sp.png')
-section.section-el-cv
-    .lp-cv-title
-      .lp-cv-title-text
-        span.lp-cv-title-text-top|9/30までに申し込むと10月中は
-        br
-        |オンラインレッスンが受け放題
-      .lp-cv-title-note
-        |※有料プランへの自動入会はございません
-    .lp-cv-lessonday 
-       .lp-cv-lessonday-title 
-         |最短のオンラインレッスン開催日
-       .lp-cv-lessonday-time 
-          .lp-cv-lessonday-time-day 
-            span.lp-cv-lessonday-time-day-monthday.next-lesson-month|10
-            span.lp-cv-lessonday-time-day-slash|/
-            span.lp-cv-lessonday-time-day-monthday.next-lesson-day|1
-          .lp-cv-lessonday-time-week.next-lesson-week
-              |火
-          .lp-cv-lessonday-time-hourrange.next-lesson-hour-range
-              |17:00~
-    .lp-cv-button 
-       a(href=linkUrl,onclick="gtag('event', 'click', {'event_category': 'click','event_label': 'click-english-lp-button'});", target='_blank') 
-           .lp-cv-button-sub 
-              |かんたん1分
-           .lp-cv-button-main
-              |無料体験レッスンはこちら
++cv 
+
 mixin faqItem(title, text)
   .lp-section-faq
     .lp-section-faq-left 
@@ -489,15 +582,16 @@ section.section-el-second.section-el-second-faq
       |FAQ
   .section-el-second-content
     .section-el-second-content-title 
-       .section-el-second-content-title-text
+       .section-el-second-content-title-text.section-el-second-content-title-text-center
          |よくある質問
-    +faqItem('英語の歌をたくさん聞かせています。これも効果ありますか？', 'リズムと音で英語の発音になれることができるのでとてもいい練習方法です。ただ、英語の歌にはあまり日常的に使ってほしくない表現が含まれていることがあります。ワオ未来塾のグローバル英語では、必要なフレーズをリズムに乗せて練習しますので、歌や九九を覚える感覚で覚えることができます。')
-    +faqItem('英語はまだ習っていないので単語をほぼ知らないのですが、大丈夫ですか？', 'はじめて出てくる単語はレッスンで解説をします。そして、ネイティブの子どもたちと同じように、画像やアクションと単語を結び付けて、フレーズの中で覚えていきますのでご安心ください。')
-    +faqItem('文法は勉強しなくて大丈夫ですか？', '赤ちゃんだった子どもたちはどうやって言葉を話せるようになるのでしょうか？まずは文字を覚えて、単語を暗記して、文法を学んだ？ いいえ、聞こえてくる「音」を何度も真似をして、簡単なフレーズから話せるようになったはずです。同じように、ワオ未来塾グローバル英語では、フレーズを九九のように覚える練習をしていきます。また、英語をカタマリで覚えるので、日本人が話すときに助詞で悩まないのと同じように、英語でも「inだっけ？atだっけ？」と悩むことがなくなります。そして、しゃべれるようになってから文法を学ぶと、なるほど！と理解することができるようになります。')
-    +faqItem('週に数回のレッスンで本当に話せるようになるんですか？', '英語は見ているだけ、聞いているだけでは話せるようになりません。ワオ未来塾のグローバル英語では、レッスンがない日もレッスンで習ったフレーズを体にしみこませるため動画でトレーニングが毎日できます！動画ではリズムと音を活用して練習するので、歌や九九を覚える感覚で楽しく英語のフレーズを覚えることができますよ。')
-    +faqItem('オンラインなので、子どもが楽しく続けることができるか心配です。', '指導は子どもが大好きで元気な日本語の通じるネイティブ講師＆日本人講師が行います。アクションをつけながらリズムに合わせて発音したり、クイズ形式で得点を競ったり、お子様が楽しく参加できる工夫がたくさんあります。')
-    +faqItem('大人しい性格なので、みんなが参加するオンラインレッスンで会話できるのか不安です。', 'オンラインレッスンのカメラ映像は先生にだけ表示され他の方には見えません。またチャットやスタンプでの参加もできますので、お子様に合った形でご参加いただけます。')     
-    +faqItem('英検に挑戦したいと考えています。対策になりますか？', 'グローバル英語のレッスンは英検の「リスニング問題」の対策に有効です。英語が聞き取れない原因は単語と単語をつなげて発音する「リエゾン」に慣れていないことが原因です。グローバル英語ではこの単語と単語のカタマリを音（リエゾン）で練習しますので、英語特有の発音も聞き取れるようになります。またレッスンは音から英語を習得する”喋る練習”を中心に進めますが、音が体にしみこむ最終段階ではフレーズをアルファベットで表示します。これによって音と文字がつながり、アルファベットで表記された英語も読むことができるよう設計された教材を使用しています。')              
+    .lp-section-faq-wrapper
+      +faqItem('英語の歌をたくさん聞かせています。これも効果ありますか？', 'リズムと音で英語の発音になれることができるのでとてもいい練習方法です。ただ、英語の歌にはあまり日常的に使ってほしくない表現が含まれていることがあります。ワオ未来塾のグローバル英語では、必要なフレーズをリズムに乗せて練習しますので、歌や九九を覚える感覚で覚えることができます。')
+      +faqItem('英語はまだ習っていないので単語をほぼ知らないのですが、大丈夫ですか？', 'はじめて出てくる単語はレッスンで解説をします。そして、ネイティブの子どもたちと同じように、画像やアクションと単語を結び付けて、フレーズの中で覚えていきますのでご安心ください。')
+      +faqItem('文法は勉強しなくて大丈夫ですか？', '赤ちゃんだった子どもたちはどうやって言葉を話せるようになるのでしょうか？まずは文字を覚えて、単語を暗記して、文法を学んだ？ いいえ、聞こえてくる「音」を何度も真似をして、簡単なフレーズから話せるようになったはずです。同じように、ワオ未来塾グローバル英語では、フレーズを九九のように覚える練習をしていきます。また、英語をカタマリで覚えるので、日本人が話すときに助詞で悩まないのと同じように、英語でも「inだっけ？atだっけ？」と悩むことがなくなります。そして、しゃべれるようになってから文法を学ぶと、なるほど！と理解することができるようになります。')
+      +faqItem('週に数回のレッスンで本当に話せるようになるんですか？', '英語は見ているだけ、聞いているだけでは話せるようになりません。ワオ未来塾のグローバル英語では、レッスンがない日もレッスンで習ったフレーズを体にしみこませるため動画でトレーニングが毎日できます！動画ではリズムと音を活用して練習するので、歌や九九を覚える感覚で楽しく英語のフレーズを覚えることができますよ。')
+      +faqItem('オンラインなので、子どもが楽しく続けることができるか心配です。', '指導は子どもが大好きで元気な日本語の通じるネイティブ講師＆日本人講師が行います。アクションをつけながらリズムに合わせて発音したり、クイズ形式で得点を競ったり、お子様が楽しく参加できる工夫がたくさんあります。')
+      +faqItem('大人しい性格なので、みんなが参加するオンラインレッスンで会話できるのか不安です。', 'オンラインレッスンのカメラ映像は先生にだけ表示され他の方には見えません。またチャットやスタンプでの参加もできますので、お子様に合った形でご参加いただけます。')     
+      +faqItem('英検に挑戦したいと考えています。対策になりますか？', 'グローバル英語のレッスンは英検の「リスニング問題」の対策に有効です。英語が聞き取れない原因は単語と単語をつなげて発音する「リエゾン」に慣れていないことが原因です。グローバル英語ではこの単語と単語のカタマリを音（リエゾン）で練習しますので、英語特有の発音も聞き取れるようになります。またレッスンは音から英語を習得する”喋る練習”を中心に進めますが、音が体にしみこむ最終段階ではフレーズをアルファベットで表示します。これによって音と文字がつながり、アルファベットで表記された英語も読むことができるよう設計された教材を使用しています。')              
 footer 
   ul 
    li 
@@ -517,151 +611,7 @@ footer
           .lp-cv-button 
               a(href=linkUrl,onclick="gtag('event', 'click', {'event_category': 'click','event_label': 'click-english-lp-button'});" target='_blank')   
                 .english-fv-absolute-cvtop.cv-limit-text
-                    |9/30までに申し込むと10月中は無料
+                    |10/31までに申し込むと11月中は無料
                 .lp-cv-button-main
                     |無料体験レッスンはこちら
-script.
-  function changeDateTime(simulatedDate = null) {
-    const dayElement = $('.next-lesson-day');
-    const monthElement = $('.next-lesson-month');
-    const weekElement = $('.next-lesson-week');
-    const hourRangeElement = $('.next-lesson-hour-range');
-    const cvLimitTextElement = $('.cv-limit-text');  // CV文言用の要素
-    const cvButtonLimitTextElement = $('.lp-cv-title-text');  // CV文言用の要素
-    
-    // 現在の日時を取得（テスト用の日時を設定）
-    const currentDate = simulatedDate || new Date();
-    
-    // レッスン日を定義
-    const lessons = [
-      // 10月の日程
-      { date: new Date(2024, 9, 1, 17, 0), day: '1', week: '火', hourRange: '17:00~', month: '10' },
-      { date: new Date(2024, 9, 3, 17, 0), day: '3', week: '木', hourRange: '17:00~', month: '10' },
-      { date: new Date(2024, 9, 5, 17, 30), day: '5', week: '土', hourRange: '17:30~', month: '10' },
-      { date: new Date(2024, 9, 8, 17, 0), day: '8', week: '火', hourRange: '17:00~', month: '10' },
-      { date: new Date(2024, 9, 10, 17, 0), day: '10', week: '木', hourRange: '17:00~', month: '10' },
-      { date: new Date(2024, 9, 12, 17, 30), day: '12', week: '土', hourRange: '17:30~', month: '10' },
-      { date: new Date(2024, 9, 15, 17, 0), day: '15', week: '火', hourRange: '17:00~', month: '10' },
-      { date: new Date(2024, 9, 17, 17, 0), day: '17', week: '木', hourRange: '17:00~', month: '10' },
-      { date: new Date(2024, 9, 19, 17, 30), day: '19', week: '土', hourRange: '17:30~', month: '10' },
-      
-      // 11月の日程
-      { date: new Date(2024, 10, 2, 17, 30), day: '2', week: '土', hourRange: '17:30~', month: '11' },
-      { date: new Date(2024, 10, 5, 17, 0), day: '5', week: '火', hourRange: '17:00~', month: '11' },
-      { date: new Date(2024, 10, 7, 17, 0), day: '7', week: '木', hourRange: '17:00~', month: '11' },
-      { date: new Date(2024, 10, 9, 17, 30), day: '9', week: '土', hourRange: '17:30~', month: '11' },
-      { date: new Date(2024, 10, 12, 17, 0), day: '12', week: '火', hourRange: '17:00~', month: '11' },
-      { date: new Date(2024, 10, 14, 17, 0), day: '14', week: '木', hourRange: '17:00~', month: '11' },
-      { date: new Date(2024, 10, 16, 17, 30), day: '16', week: '土', hourRange: '17:30~', month: '11' },
-      { date: new Date(2024, 10, 19, 17, 0), day: '19', week: '火', hourRange: '17:00~', month: '11' },
-      { date: new Date(2024, 10, 21, 17, 0), day: '21', week: '木', hourRange: '17:00~', month: '11' }
-    ];
-
-    // 条件による表示内容を決定
-    let newDate = '';
-    let newWeek = '';
-    let newMonth = '';
-    let newHourRange = '';
-    let newCvText = '';
-    let newButtonCvText = '';
-
-    // 現在の日時と各レッスン日の比較
-    for (let lesson of lessons) {
-      if (currentDate < lesson.date) {
-        newDate = lesson.day;
-        newWeek = lesson.week;
-        newHourRange = lesson.hourRange;
-        newMonth = lesson.month;  // 動的に月を設定
-        break;
-      }
-    }
-
-    // CV文言を決定
-    if (currentDate >= new Date(2024, 8, 20, 0, 0) && currentDate <= new Date(2024, 8, 30, 23, 59)) {
-      newCvText = '9/30までに申し込むと10月中は無料';
-      newButtonCvText = '9/30までに申し込むと10月中は<br />オンラインレッスンが受け放題' 
-    } else if (currentDate >= new Date(2024, 9, 1, 0, 0) && currentDate <= new Date(2024, 9, 9, 23, 59)) {
-      newCvText = '10/10までに申し込むと今月中は無料';
-      newButtonCvText = '10/10までに申し込むと今月中は<br />オンラインレッスンが受け放題' 
-    } else if (currentDate >= new Date(2024, 9, 10, 0, 0) && currentDate <= new Date(2024, 9, 14, 23, 59)) {
-      newCvText = '10/15までに申し込むと今月中は無料';
-      newButtonCvText = '10/15までに申し込むと今月中は<br />オンラインレッスンが受け放題' 
-    } else if (currentDate >= new Date(2024, 9, 15, 0, 0)) {
-      newCvText = '10月中のすべてのオンラインレッスンを<br />アーカイブで見放題！';
-      newButtonCvText = '10月中のオンラインレッスンを<br />アーカイブで見放題！' 
-      cvLimitTextElement.css({
-        'transform': 'scale(0.9)',
-        'top': '-24px',
-        'width': '260px',
-        'padding': '3px 13px',
-        'line-height': '1.4'
-      });
-    }
-
-    // 該当するレッスン日がない場合（すべてのレッスンが終了している場合）
-    if (!newDate) {
-      $('.lp-cv-lessonday').hide();
-    }
-
-    // HTMLの内容を更新
-    dayElement.text(newDate);
-    monthElement.text(newMonth);
-    weekElement.text(newWeek);
-    hourRangeElement.text(newHourRange);
-    cvLimitTextElement.html(newCvText);  // CV文言を更新
-    cvButtonLimitTextElement.html(newButtonCvText);
-  }
-  $(document).ready(function() {
-    const urlParams = new URLSearchParams(window.location.search);
-    const isTestCase = urlParams.has('via') && urlParams.get('via') === 'testcase';
-    
-    // via=testcaseがある場合、div.testcaseを表示
-    if (isTestCase) {
-      $('div.testcase').show();  // 要素を表示
-    }
-    changeDateTime();
-
-    // テスト実行ボタンが押されたときの処理
-    $('#testButton').on('click', function() {
-      const testDateInput = $('#testDate').val();
-      
-      // 日時フォーマットが正しいか確認
-      if (!testDateInput || !testDateInput.includes(' ')) {
-        alert('正しい日時を入力してください（例: 2024-10-01 16:59）');
-        return;
-      }
-
-      // 入力された日時をパース
-      const [datePart, timePart] = testDateInput.split(' ');
-      const [year, month, day] = datePart.split('-').map(Number);
-      const [hour, minute] = timePart.split(':').map(Number);
-      
-      // テスト用の日時を作成
-      const simulatedDate = new Date(year, month - 1, day, hour, minute);
-      
-      // テスト用の日時で関数を実行
-      changeDateTime(simulatedDate);
-    });
-  });
-
-script.
-      $(function () {
-              var pagetop = $('.fixed-button'); // 要素のキャッシュ
-              $(window).on('scroll', function () {
-                  if ($(this).scrollTop() > 250) {
-                    pagetop.fadeIn();
-                  } else {
-                    pagetop.fadeOut();
-                  }
-              });
-            });
-script.
-  $(function () {            
-    $(".lp-section-study-process").on("scroll", function () {
-      if ($(this).scrollLeft() > 50) {
-        $(".lp-section-scroll img").fadeOut();
-      } else {
-        $(".lp-section-scroll img").fadeIn();
-      }
-    });
-      });
+include _js-lp-english-second.pug
