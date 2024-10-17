@@ -1,0 +1,36 @@
+doctype html
+html
+  head
+    // Google Tag Manager
+    script.
+      (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+      'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+      })(window,document,'script','dataLayer','GTM-W3X8CG9C');
+    // End Google Tag Manager
+    meta(charset="utf-8")
+    meta(http-equiv="Content-Type", content="text/html; charset=utf-8")
+    meta(name="viewport", content="width=device-width,initial-scale=1")
+    meta(property="og:image", content="https://go.waomirai.com/image/oggreen")
+    link(href="../static/css/sass/english-lp-ver2.css?time=aa", rel="stylesheet")
+    link(rel="shortcut icon", type="image/png", href="https://go.waomirai.com/logo/fabicon")
+    title %%title%%
+    meta(name="robots", content="noindex")
+    script(type="text/javascript").
+      piAId = '1027513';
+      piCId = '144695';
+      piHostname = 'go.waomirai.com';
+      
+      (function() {
+      function async_load(){
+      var s = document.createElement('script'); s.type = 'text/javascript';
+      s.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + piHostname + '/pd.js';
+      var c = document.getElementsByTagName('script')[0]; c.parentNode.insertBefore(s, c);
+      }
+      if(window.attachEvent) { window.attachEvent('onload', async_load); }
+      else { window.addEventListener('load', async_load, false); }
+      })();
+    script(src="https://storage.pardot.com/1026513/1724128460RuzGLFou/jquery_3.7.1.js")
+  body#english-lp-ver2
+    block contents
