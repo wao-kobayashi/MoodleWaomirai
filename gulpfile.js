@@ -55,7 +55,7 @@ function serve() {
 }
 
 function jade() {
-    return gulp.src(srcpaths.jade)
+    return gulp.src([srcpaths.jade, '!./src/jade/**/_*.jade']) // _から始まるファイルを除外
         .pipe(plumber())
         .pipe(jade())
         .pipe(gulp.dest('./'))
@@ -63,12 +63,13 @@ function jade() {
 }
 
 function pugTask() {
-    return gulp.src(srcpaths.pug)
+    return gulp.src([srcpaths.pug, '!./src/pug/**/_*.pug']) // _から始まるファイルを除外
         .pipe(plumber())
         .pipe(pug({ plugins: [pugbem] }))
         .pipe(gulp.dest('./'))
         .pipe(browserSync.stream());
 }
+
 
 function scss() {
     const processors = [cssnext()];
