@@ -203,6 +203,10 @@ $cl-waogray:#4d4d4d; //グレー
 //よくある質問
 .section-el-second-faq {
     @include section-styles($cl-graylightest, #fff, $cl-graylightest);
+    border-radius: 0px 0px 100px 100px;
+    @include responsive-style(768px) {
+        border-radius: 0px 0px 50px 50px;
+    }
 }
 
 .section-el-second-top {

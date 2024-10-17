@@ -4661,12 +4661,18 @@ select {
 
 .section-el-second-faq {
   background: #f0f2f3;
+  border-radius: 0px 0px 100px 100px;
 }
 .section-el-second-faq .section-el-second-top {
   background: #fff;
 }
 .section-el-second-faq .section-el-second-top:before {
   background: #f0f2f3;
+}
+@media screen and (max-width: 768px) {
+  .section-el-second-faq {
+    border-radius: 0px 0px 50px 50px;
+  }
 }
 
 .section-el-second-top {
@@ -6257,6 +6263,118 @@ header div img {
   }
 }
 
+.section-el-second-contact {
+  padding: 75px 100px;
+  background: #ECFFEA;
+  max-width: 1200px;
+  width: 90%;
+  border-radius: 100px;
+  margin: 0 auto;
+  text-align: center;
+  margin: 100px auto 130px;
+  display: grid;
+  grid-template-columns: 1fr 1.45fr;
+  grid-column-gap: 75px;
+}
+@media screen and (max-width: 768px) {
+  .section-el-second-contact {
+    display: block;
+    width: 90%;
+    border-radius: 50px;
+    padding: 75px 20px;
+  }
+}
+.section-el-second-contact .section-el-second-contact-right {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+.section-el-second-contact .section-el-second-contact-right .section-el-second-contact-right-title {
+  text-align: left;
+  font-size: 40px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  margin: 0 0 15px;
+  text-align: center;
+}
+@media screen and (max-width: 768px) {
+  .section-el-second-contact .section-el-second-contact-right .section-el-second-contact-right-title {
+    font-size: 30px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .section-el-second-contact .section-el-second-contact-right .section-el-second-contact-right-title {
+    margin: 0 0 10px;
+  }
+}
+.section-el-second-contact .section-el-second-contact-right .section-el-second-contact-right-title span {
+  color: #00B900;
+}
+.section-el-second-contact .section-el-second-contact-right .section-el-second-contact-right-text {
+  font-size: 17px;
+  text-align: left;
+  line-height: 1.75;
+}
+@media screen and (max-width: 768px) {
+  .section-el-second-contact .section-el-second-contact-right .section-el-second-contact-right-text {
+    font-size: 16px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .section-el-second-contact .section-el-second-contact-right .section-el-second-contact-right-text {
+    text-align: left !important;
+  }
+}
+.section-el-second-contact .section-el-second-contact-right .section-el-second-contact-right-button a {
+  width: 90%;
+  max-width: 420px;
+  background: #00B900;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding: 20px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-decoration: none !important;
+  -webkit-box-shadow: 0 5.5px 0 #008600;
+          box-shadow: 0 5.5px 0 #008600;
+  border-radius: 6px;
+  margin: 30px auto 0;
+}
+@media screen and (max-width: 768px) {
+  .section-el-second-contact .section-el-second-contact-right .section-el-second-contact-right-button a {
+    margin: 20px auto 0;
+    width: 100%;
+  }
+}
+.section-el-second-contact .section-el-second-contact-right .section-el-second-contact-right-button a .section-el-second-contact-right-button-img img {
+  height: 35px;
+  margin: -2px 0 0 !important;
+}
+.section-el-second-contact .section-el-second-contact-right .section-el-second-contact-right-button a .section-el-second-contact-right-button-txt {
+  color: #fff;
+  text-decoration: none !important;
+  margin: 0 0 0 10px;
+  font-size: 24px;
+  font-weight: bold;
+}
+@media screen and (max-width: 768px) {
+  .section-el-second-contact .section-el-second-contact-right .section-el-second-contact-right-button a .section-el-second-contact-right-button-txt {
+    font-size: 22px;
+  }
+}
+
 .section-el-cv {
   background: #FAF3CE;
   padding: 90px 0 105px;
@@ -6579,14 +6697,14 @@ header div img {
 .section-el-cv .lp-cv-button a {
   padding: 20px 60px;
   background: #ee7a00 !important;
-  -webkit-box-shadow: 0 4px 0 #9D4E00;
-          box-shadow: 0 4px 0 #9D4E00;
   -webkit-animation: lp-cta__btn 3s infinite;
           animation: lp-cta__btn 3s infinite;
   display: -webkit-inline-box;
   display: -ms-inline-flexbox;
   display: inline-flex;
   margin: 0 auto;
+  -webkit-box-shadow: 0 4px 0 #9D4E00;
+          box-shadow: 0 4px 0 #9D4E00;
   border-radius: 6px;
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
@@ -6634,10 +6752,16 @@ header div img {
 
 footer {
   width: 100%;
-  padding: 60px 0px 0px;
+  padding: 120px 0px 0px;
   text-align: center;
   background: #000000;
   color: white;
+  border-radius: 100px 100px 0 0;
+}
+@media screen and (max-width: 768px) {
+  footer {
+    border-radius: 50px 50px 0 0;
+  }
 }
 footer ul {
   margin: 0 !important;
@@ -6726,41 +6850,6 @@ footer .footer-copyright {
   .lp-section-faq .lp-section-faq-right .lp-section-faq-right-txt {
     font-size: 16px;
   }
-}
-
-footer {
-  width: 100%;
-  padding: 60px 0px 0px;
-  text-align: center;
-  background: #000000;
-  color: white;
-}
-footer ul {
-  margin: 0 !important;
-  padding: 0 !important;
-}
-footer li {
-  list-style: none;
-  padding: 10px 0;
-}
-footer li a {
-  color: white;
-  text-decoration: none;
-  font-size: 17px;
-}
-@media screen and (max-width: 768px) {
-  footer li a {
-    font-size: 16px;
-  }
-}
-footer .footer-logo img {
-  width: 170px;
-  margin: 60px auto 45px;
-}
-footer .footer-copyright {
-  width: 100%;
-  border-top: 1px solid #fff;
-  padding: 15px 0 15px;
 }
 
 .lp-cv {
