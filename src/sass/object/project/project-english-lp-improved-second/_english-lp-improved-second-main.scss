@@ -1080,7 +1080,7 @@ header {
         }
         .section-el-second-contact-right-text {
             @include font-size-m;
-            text-align: left;
+            text-align: center;
             line-height: 1.75;
             @include responsive-style(768px) {
                 text-align: left !important;
