@@ -1056,6 +1056,7 @@ header {
         width: 90%;
         border-radius: 50px;
         padding: 75px 20px;
+        margin: 60px auto 75px;
     }
     .section-el-second-contact-right {
         display: flex;
@@ -1116,6 +1117,9 @@ header {
                     font-size: 22px;
                 }
             }
+        }
+        .section-el-second-contact-right-img {
+            margin: 30px 0 0;
         }
     }
 }
@@ -1401,6 +1405,7 @@ footer {
     color: white;
     border-radius: 100px 100px 0 0;
     @include responsive-style(768px) {
+        padding: 100px 0px 0px;
         border-radius: 50px 50px 0 0;
     }
     ul {
