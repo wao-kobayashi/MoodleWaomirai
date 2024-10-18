@@ -46,6 +46,12 @@ script.
         // 日付ごとの変更内容
         const changeDate1 = new Date(2024, 9, 8, 18, 30);
         const changeDate2 = new Date(2024, 9, 15, 18, 30);
+        const redirectDate = new Date(2024, 10, 1); // 2024年11月1日（10月は0ベースなので、11月は10）
+
+        // 2024年11月1日以降であればリダイレクト
+        if (currentDate >= redirectDate) {
+            window.location.href = "https://go.waomirai.com/english-portal-trial-period"; // リダイレクト先URL
+        }
 
         // 2024年9月15日 18:30 以降の場合
         if (currentDate >= changeDate2) {

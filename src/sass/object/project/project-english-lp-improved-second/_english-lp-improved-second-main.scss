@@ -827,6 +827,21 @@ header {
                 border-radius: 10px;
             }
         }
+        .lp-section-study-process-img-close {
+            display: inline-flex;
+            width: 160px;
+            justify-content: center;
+            height: 300px;
+            position: relative;
+            img {
+                position: absolute;
+                width: 160px;
+                height: 160px;
+                top: -20px;
+                bottom: 0;
+                margin: auto;
+            }
+        }
     }
     .lp-section-scroll {
         height: 50px;
@@ -1020,6 +1035,91 @@ header {
         @include section-maxwidth;
         @include responsive-style(768px) {
             margin: 0px auto 0;
+        }
+    }
+}
+
+.section-el-second-contact {
+    padding: 75px 100px;
+    background: #ECFFEA;
+    max-width: 1200px;
+    width: 90%;
+    border-radius: 100px;
+    margin: 0 auto;
+    text-align: center;
+    margin: 100px auto 130px;
+    display: grid;
+    grid-template-columns: 1fr 1.45fr;
+    grid-column-gap: 75px;
+    @include responsive-style(768px) {
+        display: block;
+        width: 90%;
+        border-radius: 50px;
+        padding: 75px 20px;
+        margin: 60px auto 75px;
+    }
+    .section-el-second-contact-right {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        .section-el-second-contact-right-title {
+            text-align: left;
+            font-size: 40px;
+            @include responsive-style(768px) {
+                font-size: 30px;
+            }
+            font-weight: 600;
+            letter-spacing: 1px;
+            margin: 0 0 15px;
+            text-align: center;
+            @include responsive-style(768px) {
+                margin: 0 0 10px;
+            }
+            span {
+                color: $cl-brand-line;
+            }
+        }
+        .section-el-second-contact-right-text {
+            @include font-size-m;
+            text-align: center;
+            line-height: 1.75;
+            @include responsive-style(768px) {
+                text-align: left !important;
+            }
+        }
+        .section-el-second-contact-right-button a {
+            width: 90%;
+            max-width: 420px;
+            background: $cl-brand-line;
+            display: flex;
+            justify-content: center;
+            padding: 20px;
+            align-items: center;
+            text-decoration: none !important;
+            box-shadow: 0 5.5px 0 darken($cl-brand-line, 10%);
+            border-radius: 6px;
+            margin: 30px auto 0;
+            @include responsive-style(768px) {
+                margin: 20px auto 0;
+                width: 100%;
+            }
+            .section-el-second-contact-right-button-img img {
+                height: 35px;
+                margin: -2px 0 0 !important;
+            }
+            .section-el-second-contact-right-button-txt {
+                color: #fff;
+                text-decoration: none !important;
+                margin: 0 0 0 10px;
+                font-size: 24px;
+                font-weight: bold;
+                @include responsive-style(768px) {
+                    font-size: 22px;
+                }
+            }
+        }
+        .section-el-second-contact-right-img {
+            margin: 30px 0 0;
         }
     }
 }
@@ -1261,10 +1361,10 @@ header {
         a {
             padding: 20px 60px;
             background: $cl-main-orange !important;
-            box-shadow: 0 4px 0 #9D4E00;
             animation: lp-cta__btn 3s infinite;
             display: inline-flex;
             margin: 0 auto;
+            box-shadow: 0 4px 0 #9D4E00;
             border-radius: 6px;
             flex-direction: row;
             text-decoration: none;
@@ -1299,10 +1399,15 @@ header {
 
 footer {
     width: 100%;
-    padding: 60px 0px 0px;
+    padding: 120px 0px 0px;
     text-align: center;
     background: $cl-black;
     color: white;
+    border-radius: 100px 100px 0 0;
+    @include responsive-style(768px) {
+        padding: 100px 0px 0px;
+        border-radius: 50px 50px 0 0;
+    }
     ul {
         margin: 0 !important;
         padding: 0 !important;
@@ -1363,36 +1468,6 @@ footer {
             @include font-size-m;
             margin: 10px 0 0;
         }
-    }
-}
-
-footer {
-    width: 100%;
-    padding: 60px 0px 0px;
-    text-align: center;
-    background: $cl-black;
-    color: white;
-    ul {
-        margin: 0 !important;
-        padding: 0 !important;
-    }
-    li {
-        list-style: none;
-        padding: 10px 0;
-        a {
-            color: white;
-            text-decoration: none;
-            @include font-size-m;
-        }
-    }
-    .footer-logo img {
-        width: 170px;
-        margin: 60px auto 45px;
-    }
-    .footer-copyright {
-        width: 100%;
-        border-top: 1px solid #fff;
-        padding: 15px 0 15px;
     }
 }
 

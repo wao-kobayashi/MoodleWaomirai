@@ -1,3 +1,11 @@
+- var bodyId = ""
+case version
+  when "marron"
+    - bodyId = "english-portal-marron"
+  when "grape"
+    - bodyId = "english-portal-grape"
+  default
+    - bodyId = "english-portal-defalut"
 doctype html
 html(lang="jp")
   head
@@ -13,7 +21,8 @@ html(lang="jp")
     script(src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js")
     meta(name="viewport", content="width=device-width, initial-scale=1,minimum-scale=1.0, maximum-scale=1.0, user-scalable=no")
     meta(charset="UTF-8")
-  body#english-portal
+
+  body(id=bodyId)
     header 
       h1.header-logo
         img(src='https://go.waomirai.com/l/1026513/2024-08-08/gzqmq/1026513/1723103182E5MU9Ijy/waomirai_logo__1_.svg')
@@ -63,82 +72,162 @@ html(lang="jp")
           |①今週のオンラインレッスンのスケジュールを確認する
          //level-1
          .section-wao-english-group-box.content-level-1 
-            .section-wao-english-group-box-course 
-              h4|平日コース
-              .section-wao-english-group-box-course-grid
-                .section-wao-english-group-box-course-child.content-level-1-course-tuesday
-                    .section-wao-english-group-box-course-child-date
-                      .section-wao-english-group-box-course-child-date-day 
-                        |10/1
-                      .section-wao-english-group-box-course-child-date-week
-                        |火 
-                      .section-wao-english-group-box-course-child-date-week-time 
-                        |17:00-17:25
-                    .section-wao-english-group-box-course-child-thumb
-                       .section-wao-english-group-box-course-child-thumb-label.level-label.level-color
-                          |LEVEL 1
-                       .section-wao-english-group-box-course-child-thumb-img
-                          img(src='https://go.waomirai.com/l/1026513/2024-09-04/h2nrq/1026513/17254398679oem2mS3/thumbnail_lesson.png')
-                    .section-wao-english-group-box-course-child-detail 
-                      .section-wao-english-group-box-course-child-detail-title
-                        |【
-                        span.level-label
-                          |LEVEL1
-                        | 】ひらがなEnglish
-                      .section-wao-english-group-box-course-child-detail-text
-                        |英語の発音を“ひらがなの音”を利用してラクラク上達！それと同時に単語単位からカタマリ単位で英語をINPUT！
-                .section-wao-english-group-box-course-child.content-level-1-course-thursday
-                    .section-wao-english-group-box-course-child-date
-                      .section-wao-english-group-box-course-child-date-day 
-                        |10/3
-                      .section-wao-english-group-box-course-child-date-week
-                        |木
-                      .section-wao-english-group-box-course-child-date-week-time 
-                        |17:00-17:25
-                    .section-wao-english-group-box-course-child-thumb
-                       .section-wao-english-group-box-course-child-thumb-label.level-label.level-color
-                          |LEVEL 1
-                       .section-wao-english-group-box-course-child-thumb-img
-                          img(src='https://go.waomirai.com/l/1026513/2024-09-04/h2qmj/1026513/1725500027hCJDU8DY/img_week_2.png')
-                    .section-wao-english-group-box-course-child-detail 
-                      .section-wao-english-group-box-course-child-detail-title
-                        |【
-                        span.level-label
-                          |LEVEL1
-                        | 】カタマリズムEnglish
-                      .section-wao-english-group-box-course-child-detail-text
-                        |リズムにあわせて英語をOUTPUT!
-                        br
-                        |九九のように忘れない英語が身につく。
-                        br
-                        |英語独特の強弱も同時にマスター
-            .section-wao-english-group-box-course-or 
-               p  
-                 |or
-            .section-wao-english-group-box-course 
-              h4|土曜コース
-              .section-wao-english-group-box-course-grid
-                .section-wao-english-group-box-course-child.content-level-1-course-saturday
-                    .section-wao-english-group-box-course-child-date
-                      .section-wao-english-group-box-course-child-date-day 
-                        |10/5
-                      .section-wao-english-group-box-course-child-date-week
-                        |土
-                      .section-wao-english-group-box-course-child-date-week-time 
-                        |17:30-18:30
-                    .section-wao-english-group-box-course-child-thumb
-                       .section-wao-english-group-box-course-child-thumb-label.level-label.level-color
-                          |LEVEL 1
-                       .section-wao-english-group-box-course-child-thumb-img
-                          img(src='https://go.waomirai.com/l/1026513/2024-09-04/h2qmq/1026513/1725500221od8IlZut/thumb_mix.png')
-                    .section-wao-english-group-box-course-child-detail 
-                      .section-wao-english-group-box-course-child-detail-title
-                        |【
-                        span.level-label
-                          |LEVEL1
-                        |】ひらがなEnglish＆カタマリズムEnglish
-                      .section-wao-english-group-box-course-child-detail-text
-                        |平日コースの2つのレッスンを前編後編に分けて実施します
+             //11月度は土曜日コースが上
+             case version
+                when "marron"
+                  .section-wao-english-group-box-course 
+                    h4|土曜コース
+                    .section-wao-english-group-box-course-grid
+                      .section-wao-english-group-box-course-child.content-level-1-course-saturday
+                          .section-wao-english-group-box-course-child-date
+                            .section-wao-english-group-box-course-child-date-day 
+                              |10/5
+                            .section-wao-english-group-box-course-child-date-week
+                              |土
+                            .section-wao-english-group-box-course-child-date-week-time 
+                              |17:30-18:30
+                          .section-wao-english-group-box-course-child-thumb
+                            .section-wao-english-group-box-course-child-thumb-label.level-label.level-color
+                                |LEVEL 1
+                            .section-wao-english-group-box-course-child-thumb-img
+                                img(src='https://go.waomirai.com/l/1026513/2024-09-04/h2qmq/1026513/1725500221od8IlZut/thumb_mix.png')
+                          .section-wao-english-group-box-course-child-detail 
+                            .section-wao-english-group-box-course-child-detail-title
+                              |【
+                              span.level-label
+                                |LEVEL1
+                              |】ひらがなEnglish＆カタマリズムEnglish
+                            .section-wao-english-group-box-course-child-detail-text
+                              |平日コースの2つのレッスンを前編後編に分けて実施します
+                  .section-wao-english-group-box-course-or 
+                    p  
+                      |or
+                  .section-wao-english-group-box-course 
+                    h4|平日コース
+                    .section-wao-english-group-box-course-grid
+                      .section-wao-english-group-box-course-child.content-level-1-course-tuesday
+                          .section-wao-english-group-box-course-child-date
+                            .section-wao-english-group-box-course-child-date-day 
+                              |10/1
+                            .section-wao-english-group-box-course-child-date-week
+                              |火 
+                            .section-wao-english-group-box-course-child-date-week-time 
+                              |17:00-17:25
+                          .section-wao-english-group-box-course-child-thumb
+                            .section-wao-english-group-box-course-child-thumb-label.level-label.level-color
+                                |LEVEL 1
+                            .section-wao-english-group-box-course-child-thumb-img
+                                img(src='https://go.waomirai.com/l/1026513/2024-09-04/h2nrq/1026513/17254398679oem2mS3/thumbnail_lesson.png')
+                          .section-wao-english-group-box-course-child-detail 
+                            .section-wao-english-group-box-course-child-detail-title
+                              |【
+                              span.level-label
+                                |LEVEL1
+                              | 】ひらがなEnglish
+                            .section-wao-english-group-box-course-child-detail-text
+                              |英語の発音を“ひらがなの音”を利用してラクラク上達！それと同時に単語単位からカタマリ単位で英語をINPUT！
+                      .section-wao-english-group-box-course-child.content-level-1-course-thursday
+                          .section-wao-english-group-box-course-child-date
+                            .section-wao-english-group-box-course-child-date-day 
+                              |10/3
+                            .section-wao-english-group-box-course-child-date-week
+                              |木
+                            .section-wao-english-group-box-course-child-date-week-time 
+                              |17:00-17:25
+                          .section-wao-english-group-box-course-child-thumb
+                            .section-wao-english-group-box-course-child-thumb-label.level-label.level-color
+                                |LEVEL 1
+                            .section-wao-english-group-box-course-child-thumb-img
+                                img(src='https://go.waomirai.com/l/1026513/2024-09-04/h2qmj/1026513/1725500027hCJDU8DY/img_week_2.png')
+                          .section-wao-english-group-box-course-child-detail 
+                            .section-wao-english-group-box-course-child-detail-title
+                              |【
+                              span.level-label
+                                |LEVEL1
+                              | 】カタマリズムEnglish
+                            .section-wao-english-group-box-course-child-detail-text
+                              |リズムにあわせて英語をOUTPUT!
+                              br
+                              |九九のように忘れない英語が身につく。
+                              br
+                              |英語独特の強弱も同時にマスター
+                when "grape"
+                  .section-wao-english-group-box-course 
+                    h4|平日コース
+                    .section-wao-english-group-box-course-grid
+                      .section-wao-english-group-box-course-child.content-level-1-course-tuesday
+                          .section-wao-english-group-box-course-child-date
+                            .section-wao-english-group-box-course-child-date-day 
+                              |10/1
+                            .section-wao-english-group-box-course-child-date-week
+                              |火 
+                            .section-wao-english-group-box-course-child-date-week-time 
+                              |17:00-17:25
+                          .section-wao-english-group-box-course-child-thumb
+                            .section-wao-english-group-box-course-child-thumb-label.level-label.level-color
+                                |LEVEL 1
+                            .section-wao-english-group-box-course-child-thumb-img
+                                img(src='https://go.waomirai.com/l/1026513/2024-09-04/h2nrq/1026513/17254398679oem2mS3/thumbnail_lesson.png')
+                          .section-wao-english-group-box-course-child-detail 
+                            .section-wao-english-group-box-course-child-detail-title
+                              |【
+                              span.level-label
+                                |LEVEL1
+                              | 】ひらがなEnglish
+                            .section-wao-english-group-box-course-child-detail-text
+                              |英語の発音を“ひらがなの音”を利用してラクラク上達！それと同時に単語単位からカタマリ単位で英語をINPUT！
+                      .section-wao-english-group-box-course-child.content-level-1-course-thursday
+                          .section-wao-english-group-box-course-child-date
+                            .section-wao-english-group-box-course-child-date-day 
+                              |10/3
+                            .section-wao-english-group-box-course-child-date-week
+                              |木
+                            .section-wao-english-group-box-course-child-date-week-time 
+                              |17:00-17:25
+                          .section-wao-english-group-box-course-child-thumb
+                            .section-wao-english-group-box-course-child-thumb-label.level-label.level-color
+                                |LEVEL 1
+                            .section-wao-english-group-box-course-child-thumb-img
+                                img(src='https://go.waomirai.com/l/1026513/2024-09-04/h2qmj/1026513/1725500027hCJDU8DY/img_week_2.png')
+                          .section-wao-english-group-box-course-child-detail 
+                            .section-wao-english-group-box-course-child-detail-title
+                              |【
+                              span.level-label
+                                |LEVEL1
+                              | 】カタマリズムEnglish
+                            .section-wao-english-group-box-course-child-detail-text
+                              |リズムにあわせて英語をOUTPUT!
+                              br
+                              |九九のように忘れない英語が身につく。
+                              br
+                              |英語独特の強弱も同時にマスター
+                  .section-wao-english-group-box-course-or 
+                    p  
+                      |or
+                  .section-wao-english-group-box-course 
+                    h4|土曜コース
+                    .section-wao-english-group-box-course-grid
+                      .section-wao-english-group-box-course-child.content-level-1-course-saturday
+                          .section-wao-english-group-box-course-child-date
+                            .section-wao-english-group-box-course-child-date-day 
+                              |10/5
+                            .section-wao-english-group-box-course-child-date-week
+                              |土
+                            .section-wao-english-group-box-course-child-date-week-time 
+                              |17:30-18:30
+                          .section-wao-english-group-box-course-child-thumb
+                            .section-wao-english-group-box-course-child-thumb-label.level-label.level-color
+                                |LEVEL 1
+                            .section-wao-english-group-box-course-child-thumb-img
+                                img(src='https://go.waomirai.com/l/1026513/2024-09-04/h2qmq/1026513/1725500221od8IlZut/thumb_mix.png')
+                          .section-wao-english-group-box-course-child-detail 
+                            .section-wao-english-group-box-course-child-detail-title
+                              |【
+                              span.level-label
+                                |LEVEL1
+                              |】ひらがなEnglish＆カタマリズムEnglish
+                            .section-wao-english-group-box-course-child-detail-text
+                              |平日コースの2つのレッスンを前編後編に分けて実施します
          //level-2
          .section-wao-english-group-box.content-level-2(style='display:none;')
             .section-wao-english-group-box-course 
@@ -241,26 +330,36 @@ html(lang="jp")
         .content-level-2(style="display:none;")
           div(style="padding:56.25% 0 0 0;position:relative; margin:20px 0 0;")
             iframe(src="https://vimeo.com/showcase/11350149/embed", allowfullscreen, frameborder="0", style="position:absolute;top:0;left:0;width:100%;height:100%;")
-        .content-level-1
-          p.thisweek-lesson.txt-training-level1-weekdays(style='margin:60px 0 15px;')
-            b|【平日コース】の方はweek1! (11/4〜11/10)
-            br
-            |①と②のトレーニングをしましょう!
-          .img-training-level1-weekdays
-            img(src='https://go.waomirai.com/l/1026513/2024-10-16/h5t68/1026513/1729063674KGv5QiJd/l1_week1.png')
-          p.thisweek-lesson.txt-training-level1-saturday(style='margin:60px 0 15px;')
-            b|【土曜コース】の方はweek1 (11/2〜11/8)
-            br
-            |③と④のトレーニングをしましょう!
-          .img-training-level1-saturday
-            img(src='https://go.waomirai.com/l/1026513/2024-10-16/h5t68/1026513/1729063674KGv5QiJd/l1_week1.png')
-        .content-level-2(style="display:none;")
-          p.thisweek-lesson.txt-training-level2-weekdays(style='margin:60px 0 15px;')
-            b|【平日コース】の方はweek1! (11/4〜11/10)
-            br
-            |①と②のトレーニングをしましょう!
-          .img-training-level2-weekdays
-            img(src='https://go.waomirai.com/l/1026513/2024-10-16/h5t6k/1026513/1729063675CODPPqmL/l2_week2.png')
+        case version
+           when "marron"
+
+            .content-level-1
+              p.thisweek-lesson.txt-training-level1-saturday(style='margin:60px 0 15px;')
+                b|【土曜コース】の方はweek1 (11/2〜11/8)
+                br
+                |③と④のトレーニングをしましょう!
+              .img-training-level1-saturday
+                img(src='https://go.waomirai.com/l/1026513/2024-10-16/h5t68/1026513/1729063674KGv5QiJd/l1_week1.png')
+              p.thisweek-lesson.txt-training-level1-weekdays(style='margin:60px 0 15px;')
+                b|【平日コース】の方はweek1! (11/4〜11/10)
+                br
+                |①と②のトレーニングをしましょう!
+              .img-training-level1-weekdays
+                img(src='https://go.waomirai.com/l/1026513/2024-10-16/h5t68/1026513/1729063674KGv5QiJd/l1_week1.png')
+            .content-level-2(style="display:none;")
+              p.thisweek-lesson.txt-training-level2-weekdays(style='margin:60px 0 15px;')
+                b|【平日コース】の方はweek1! (11/4〜11/10)
+                br
+                |①と②のトレーニングをしましょう!
+              .img-training-level2-weekdays
+                img(src='https://go.waomirai.com/l/1026513/2024-10-16/h5t6k/1026513/1729063675CODPPqmL/l2_week2.png')
+           when "grape"
+            p.thisweek-lesson(style='margin:60px 0 15px;')
+                |今週はweek1! ①と②のトレーニングをしましょう!
+            .thisweek-lesson-img-level-1.content-level-1
+              img(src='https://go.waomirai.com/l/1026513/2024-10-03/h4ylt/1026513/1727942012qE9TRhJM/Tr_schedule_L1_1.png')
+            .thisweek-lesson-img-level-2.content-level-2(style="display:none;")
+              img(src='https://go.waomirai.com/l/1026513/2024-10-03/h4ylx/1026513/1727942013VME1KSmt/Tr_schedule_L2_1.png')
     section.section-wao-english#section-2.section-wao-english-white
        h2.howto-lesson
          |レッスンスケジュール     

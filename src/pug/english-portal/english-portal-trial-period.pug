@@ -1,0 +1,26 @@
+doctype html
+html(lang="jp")
+  head
+    title %%title%%
+    script.
+       (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+       new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+       j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+       'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+       })(window,document,'script','dataLayer','GTM-W3X8CG9C');
+    link(href="../../static/css/sass/waomirai-english-portal.css?undefined", rel="stylesheet")
+    script(src="https://storage.pardot.com/1026513/1724128460RuzGLFou/jquery_3.7.1.js")
+    script(src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js")
+    meta(name="viewport", content="width=device-width, initial-scale=1,minimum-scale=1.0, maximum-scale=1.0, user-scalable=no")
+    meta(charset="UTF-8")
+  body#english-portal-trial-period
+    .english-tutorial-bg
+      img(src='https://storage.pardot.com/1026513/1725523108cSKZifv9/bg_screen.png')
+    .english-tutorial-modal
+      .english-tutorial-modal-title
+          |無料体験期間が終了しました
+      .english-tutorial-modal-text 
+          |有料プランに加入すると、引き続きグローバル英語のオンラインレッスンが受講できます。下のボタンをタップすると有料プランの加入方法が確認できます。
+      .english-tutorial-modal-button 
+        a(href='https://go.waomirai.com/howto-signup-english', target='_blank')
+          |有料プランの詳細をみる
