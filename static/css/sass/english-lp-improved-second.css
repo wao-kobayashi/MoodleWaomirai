@@ -4963,21 +4963,20 @@ body {
 }
 
 .fvpc {
-  min-height: 600px;
-  margin: 0 0 120px;
+  position: relative;
 }
 .fvpc .fvpc-logo {
   height: 60px;
   width: 200px;
   position: absolute;
   left: 20px;
-  top: 20px;
+  top: 40px;
 }
 .fvpc .fvpc-left {
   position: absolute;
-  left: 3.8%;
-  top: 25%;
-  width: 30%;
+  left: 4.8%;
+  top: 22%;
+  width: 29%;
 }
 @media screen and (max-width: 900px) {
   .fvpc .fvpc-left {
@@ -5056,9 +5055,48 @@ body {
     font-size: 20px;
   }
 }
+@media screen and (max-width: 900px) {
+  .fvpc .fvpc-left a .lp-cv-button-main {
+    font-size: 17.5px;
+  }
+}
+.fvpc .fvpc-center img {
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: auto;
+  width: 100%;
+  max-width: 380px;
+  -webkit-animation-name: fuwafuwa;
+          animation-name: fuwafuwa;
+  -webkit-animation-duration: 1.1s;
+          animation-duration: 1.1s;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+  -webkit-animation-direction: alternate;
+          animation-direction: alternate;
+  -webkit-animation-timing-function: ease;
+          animation-timing-function: ease;
+  bottom: -7%;
+}
+@media screen and (max-width: 1300px) {
+  .fvpc .fvpc-center img {
+    bottom: -7%;
+  }
+}
+@media screen and (max-width: 1050px) {
+  .fvpc .fvpc-center img {
+    bottom: -7%;
+  }
+}
+@media screen and (max-width: 900px) {
+  .fvpc .fvpc-center img {
+    bottom: -10%;
+  }
+}
 .fvpc .fvpc-bg img {
-  width: 97%;
-  margin: 0 0 0 auto;
+  width: 83%;
+  margin: -20px 0 0 auto;
 }
 @media screen and (max-width: 1200px) {
   .fvpc .fvpc-bg img {
@@ -5066,8 +5104,31 @@ body {
   }
 }
 
+@-webkit-keyframes fuwafuwa {
+  0% {
+    -webkit-transform: translate(0, 0);
+  }
+  30% {
+    -webkit-transform: translate(0, -10px);
+  }
+  70% {
+    -webkit-transform: translate(0, 0);
+  }
+}
+
+@keyframes fuwafuwa {
+  0% {
+    -webkit-transform: translate(0, 0);
+  }
+  30% {
+    -webkit-transform: translate(0, -10px);
+  }
+  70% {
+    -webkit-transform: translate(0, 0);
+  }
+}
 .fvsp {
-  margin: 0 0 175px;
+  margin: 0 0 120px;
 }
 .fvsp::before {
   width: 80%;
@@ -5076,29 +5137,29 @@ body {
   position: absolute;
   display: block;
   z-index: 0;
-  height: 650px;
+  height: 620px;
   right: 0;
   border-radius: 0 0 0 40px;
 }
 .fvsp .fvsp-logo {
-  width: 170px;
-  padding: 20px 0 0 20px;
+  width: 145px;
+  padding: 17px 0 0 17px;
   position: relative;
 }
 .fvsp .fvsp-bg {
   position: absolute;
   right: 0px;
-  top: 55px;
+  top: 46px;
   width: 95%;
 }
 .fvsp .fvsp-left {
-  width: 90%;
-  margin: 250px 0 40px;
+  width: 92%;
+  margin: 220px 0 40px;
   background: white;
   z-index: 10;
   position: relative;
   padding: 20px 20px 30px;
-  border-radius: 20px;
+  border-radius: 0px 20px 20px 0;
   -webkit-box-shadow: 0 0 30px rgba(50, 50, 70, .15);
           box-shadow: 0 0 30px rgba(50, 50, 70, .15);
 }
@@ -5111,10 +5172,10 @@ body {
   font-size: 31px;
   font-weight: 600;
   line-height: 1.45;
-  margin: 7px 0 0;
+  margin: 3px 0 0;
 }
 .fvsp .fvsp-left .lp-cv-button {
-  margin: 0px auto 45px;
+  margin: 6px auto 32px;
   text-align: center;
 }
 .fvsp .fvsp-left .lp-cv-button a {
@@ -5122,8 +5183,6 @@ body {
   background: #ee7a00 !important;
   -webkit-box-shadow: 0 4px 0 #9D4E00;
           box-shadow: 0 4px 0 #9D4E00;
-  -webkit-animation: lp-cta__btn 3s infinite;
-          animation: lp-cta__btn 3s infinite;
   display: -webkit-inline-box;
   display: -ms-inline-flexbox;
   display: inline-flex;
@@ -5138,7 +5197,7 @@ body {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  padding: 17px 20px 16px;
+  padding: 14px 20px 13px;
 }
 .fvsp .fvsp-left .lp-cv-button a .english-fv-absolute-cvtop {
   position: absolute;
@@ -5168,8 +5227,22 @@ body {
   font-size: 20px;
   color: white;
   font-weight: 500;
-  padding: 3px 0 0;
+  padding: 6px 0 0;
   text-align: center;
+}
+.fvsp .fvsp-left .lp-sp-scroll {
+  width: 78%;
+  margin: 0;
+  -webkit-animation-name: fuwafuwa;
+          animation-name: fuwafuwa;
+  -webkit-animation-duration: 1.1s;
+          animation-duration: 1.1s;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+  -webkit-animation-direction: alternate;
+          animation-direction: alternate;
+  -webkit-animation-timing-function: ease;
+          animation-timing-function: ease;
 }
 .fvsp .english-fvsp-nextlesson {
   border: #AA68AA 1px solid;
@@ -5338,6 +5411,11 @@ header div img {
   }
 }
 
+@media screen and (min-width: 768px) {
+  .section-el-second-why {
+    margin: 160px auto 0px;
+  }
+}
 .section-el-second-why .section-el-second-content-title .section-el-second-content-title-text {
   text-align: center;
 }

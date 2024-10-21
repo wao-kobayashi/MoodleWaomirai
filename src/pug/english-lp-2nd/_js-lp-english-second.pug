@@ -47,6 +47,38 @@ div.testcase(style='position:fixed; z-index:100; top:0; left:0; display:none;')
 
 .bg-modal(style='display:none;')
 
+style.
+    .fv-scroll img{
+    transition: opacity 0.5s ease-in-out; /* 0.5秒かけて変化 */
+    opacity: 1; /* 初期値 */
+    }
+
+
+script.
+  $(function() {
+    var flag = false,
+        scroll = $('.fv-scroll img');
+    
+    // 初期値で opacity を 1 に設定
+    scroll.css('opacity', 1);
+
+    $(window).on('scroll', function() {
+      if ($(this).scrollTop() > 250) {
+        if (!flag) {
+          flag = true;
+          // fadeOut の代わりに opacity を 0 に
+          scroll.css('opacity', 0);
+        }
+      } else {
+        if (flag) {
+          flag = false;
+          // fadeIn の代わりに opacity を 1 に
+          scroll.css('opacity', 1);
+        }
+      }
+    });
+  });
+
 script. 
     //ModalOpenの関数
     //- function modalopen() {
