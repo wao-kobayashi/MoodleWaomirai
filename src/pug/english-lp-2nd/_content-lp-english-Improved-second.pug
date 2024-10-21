@@ -70,12 +70,13 @@ mixin cv
                    button.button-level2-weekdays
                     |全ての日程をみる  
       .lp-cv-button 
-        a(href=linkUrl,onclick="gtag('event', 'click', {'event_category': 'click','event_label': 'click-english-lp-button'});", target='_blank') 
+        a.form-link(href=linkUrl,onclick="gtag('event', 'click', {'event_category': 'click','event_label': 'click-english-lp-button'});", target='_blank') 
             .lp-cv-button-sub 
                 |かんたん1分
             .lp-cv-button-main
                 |無料体験レッスンはこちら
-
+        script.
+          var formLink = document.getElementById("form-link"); // IDを使う
 - var linkUrl = 'https://go.waomirai.com/english-trial-form'
 //- include _mixin-lp-english.pug
 noscript
@@ -97,23 +98,15 @@ div.fvsp.spimage
         br
         |英語がもっと身近に
       .lp-cv-button 
-            a(href=linkUrl,onclick="gtag('event', 'click', {'event_category': 'click','event_label': 'click-english-lp-button'});" target='_blank')   
+            a.form-link(href=linkUrl,onclick="gtag('event', 'click', {'event_category': 'click','event_label': 'click-english-lp-button'});" target='_blank')   
                 .english-fv-absolute-cvtop.cv-limit-text
                     |10/30までに申し込むと11月中は無料
                 .lp-cv-button-main
                     |無料体験レッスンはこちら
-      //- .english-fvsp-nextlesson  
-      //-       .lp-cv-lessonday-time-title 
-      //-           |最短のオンラインレッスン開催日 
-      //-       .lp-cv-lessonday-time 
-      //-           .lp-cv-lessonday-time-day 
-      //-             span.lp-cv-lessonday-time-day-monthday.next-lesson-month|10
-      //-             span.lp-cv-lessonday-time-day-slash|/
-      //-             span.lp-cv-lessonday-time-day-monthday.next-lesson-day|1
-      //-           .lp-cv-lessonday-time-week.next-lesson-week
-      //-               |火
-      //-           .lp-cv-lessonday-time-hourrange
-      //-               |17:00~   
+            script.
+              var formLink = document.getElementById("form-link"); // IDを使う
+      .lp-sp-scroll.fv-scroll
+        img(src='https://go.waomirai.com/l/1026513/2024-10-21/h61hr/1026513/1729490950gitTHML7/scrolldown_noto.svg')                    
 div.fvpc.pcimage
    .fvpc-logo
       img(src='https://go.waomirai.com/l/1026513/2024-08-08/gzqmq/1026513/1723103182E5MU9Ijy/waomirai_logo__1_.svg')
@@ -121,11 +114,15 @@ div.fvpc.pcimage
       .fvpc-left-text
         img(src='https://go.waomirai.com/l/1026513/2024-10-02/h4vnt/1026513/1727854663K3AnjpfW/text.svg')
       div 
-        a(href=linkUrl,onclick="gtag('event', 'click', {'event_category': 'click','event_label': 'click-english-lp-button'});" target='_blank')   
+        a.form-link(href=linkUrl,onclick="gtag('event', 'click', {'event_category': 'click','event_label': 'click-english-lp-button'});" target='_blank')   
           .english-fv-absolute-cvtop.cv-limit-text
               |10/31までに申し込むと11月中は無料
           .lp-cv-button-main
               |無料体験レッスンはこちら
+        script.
+          var formLink = document.getElementById("form-link"); // IDを使う
+   .fvpc-center.fv-scroll
+       img(src='https://go.waomirai.com/l/1026513/2024-10-21/h61hv/1026513/1729490951gZCdSIcw/scrolldown_yugothic.svg')
    .fvpc-bg
       img(src='https://go.waomirai.com/l/1026513/2024-10-02/h4vpq/1026513/1727854818Y2Z313Tg/bgfvpc.png')
 //子どもがうまくならない理由
@@ -633,9 +630,11 @@ footer
     |© ワオ・コーポレーション All rights reserved.
 .fixed-button(style='display:none;')
           .lp-cv-button 
-              a(href=linkUrl,onclick="gtag('event', 'click', {'event_category': 'click','event_label': 'click-english-lp-button'});" target='_blank')   
+              a.form-link(href=linkUrl,onclick="gtag('event', 'click', {'event_category': 'click','event_label': 'click-english-lp-button'});" target='_blank')   
                 .english-fv-absolute-cvtop.cv-limit-text
                     |10/31までに申し込むと11月中は無料
                 .lp-cv-button-main
                     |無料体験レッスンはこちら
+              script.
+                var formLink = document.getElementById("form-link"); // IDを使う
 include _js-lp-english-second.pug
