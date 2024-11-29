@@ -84,8 +84,8 @@ header {
         a {
             @include font-size-m;
             text-decoration: none;
-            width: 100%;
             max-width: 360px;
+            width: 100%;
             display: flex;
             justify-content: center;
             align-items: center;

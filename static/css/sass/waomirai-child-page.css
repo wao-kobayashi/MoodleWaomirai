@@ -176,8 +176,8 @@ header img {
 .waomirai-wrapper-content .btn-waoorange a {
   font-size: 18px;
   text-decoration: none;
-  width: 100%;
   max-width: 360px;
+  width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;

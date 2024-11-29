@@ -64,12 +64,16 @@ function jade() {
 
 function pugTask() {
     return gulp.src([srcpaths.pug, '!./src/pug/**/_*.pug']) // _から始まるファイルを除外
-        .pipe(plumber())
+        .pipe(plumber({
+            errorHandler: function(err) {
+                console.error('Pug Compile Error:', err.message); // エラーの詳細をログに表示
+                this.emit('end'); // タスクを強制終了せず続行
+            }
+        }))
         .pipe(pug({ plugins: [pugbem] }))
         .pipe(gulp.dest('./'))
         .pipe(browserSync.stream());
 }
-
 
 function scss() {
     const processors = [cssnext()];
