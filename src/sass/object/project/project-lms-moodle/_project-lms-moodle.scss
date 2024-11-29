@@ -6,81 +6,82 @@ $lms-font-size-xl:26px;
 //     background: red !important;
 // }
 //検証テナントのダッシュボードのみにscssを適応
+// 全体スタイル設定
 .context-2497 {
+    // 背景設定
     background: #f6f6f6 !important;
+    // ページの内側部分（drawers）の背景を透明化
     #page.drawers .main-inner {
         background: transparent;
     }
+    // カードの枠線を非表示
     .card.block {
         border: none;
     }
+    // レスポンシブ設定: 768px以上の画面幅でページの幅を設定
     @media (min-width: 768px) {
         #page.drawers .main-inner,
         body.limitedwidth #page.drawers .main-inner {
             max-width: 1000px !important;
         }
     }
+    // カレンダーブロック内のタイトルを非表示
     .block_calendar_month .card-title {
         display: none !important;
     }
+    // カレンダー全体のスタイル設定
     .calendarmonth {
-        // border-collapse: separate !important;
-        border-radius: 8px;
-        // overflow: hidden;
-        border: none;
-        position: relative;
+        border-radius: 8px; // 角を丸くする
+        border: none; // 枠線を非表示
+        position: relative; // 子要素の位置指定用
+        // カレンダーの装飾用スタイル
         &:before {
             content: "";
-            width: 100%;
-            height: 100%;
-            // background: red;
-            z-index: 9;
             position: absolute;
             top: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 9;
             border-radius: 8px;
             border: 1px solid #dee2e6;
-            pointer-events: none;
+            pointer-events: none; // マウスイベントを無効化
         }
     }
+    // カレンダーのヘッダー（曜日部分）のスタイル
     .maincalendar .calendarmonth th {
         text-align: left;
-        padding-left: 16px;
+        padding: 10px 10px 10px 16px; // 左側に余白を追加
         background: $cl-graylightest !important;
-        padding: 10px 10px;
     }
-    .maincalendar .calendarmonth tr td:last-child {
-        border-right: none;
-    }
+    // カレンダーセルの枠線と角丸設定
+    .maincalendar .calendarmonth tr td:last-child,
     .maincalendar .calendarmonth tr td:first-child {
-        border-right: none;
+        border-right: none; // 最初と最後のセルの右枠線を非表示
     }
-    .maincalendar .calendarmonth tr :last-child td {
-        border-bottom: none;
+    .maincalendar tbody tr:last-child td:first-child {
+        border-bottom-left-radius: 10px;
     }
+    .maincalendar tbody tr:last-child td:last-child {
+        border-bottom-right-radius: 10px;
+    }
+    // ヘッダーとデータセルの共通スタイル
     .maincalendar .calendarmonth th,
     .maincalendar .calendarmonth td {
         color: $cl-graylight;
         font-size: $lms-font-size-m !important;
     }
+    // ヘッダー専用スタイル
     .maincalendar .calendarmonth tr th {
-        border: none;
-        font-size: $lms-font-size-s !important;
+        border: none; // 枠線を非表示
+        font-size: $lms-font-size-s !important; // 小さいフォントサイズに調整
     }
     .maincalendar .calendarmonth tr th:first-child {
-        border-top-left-radius: 10px;
+        border-top-left-radius: 10px; // 左上の角を丸く
     }
     .maincalendar .calendarmonth tr th:last-child {
-        border-top-right-radius: 10px;
+        border-top-right-radius: 10px; // 右上の角を丸く
     }
-    .maincalendar tbody tr:last-child td:first-child {
-        border-bottom-left-radius: 10px;
-        border: none;
-    }
-    .maincalendar tbody tr:last-child td:last-child {
-        border-bottom-right-radius: 10px;
-        border: none;
-        // background: red;
-    }
+    // フッターリンクの非表示
     .footer-link {
         display: none;
     }
