@@ -1,0 +1,53 @@
+
+.modal-div(style='display:none;')
+  div(tabindex="-1", style="position: fixed; top: 0px; left: 0px;", aria-hidden="true", data-aria-hidden-tab-index="0")
+  .modal.moodle-has-zindex.show(data-region="modal-container", role="dialog", aria-modal="true", aria-labelledby="1-modal-title", tabindex="-1", style="z-index: 1052;")
+    .modal-dialog.modal-dialog-scrollable(data-region="modal", tabindex="0", data-type="event")
+      .modal-content
+        div(class="modal-header calendar_event_course", data-region="header")
+          h5#1-modal-title.modal-title(data-region="title") 17:30 科学Week1
+          button.close(type="button", data-action="hide", aria-label="閉じる")
+            span(aria-hidden="true") ×
+        .modal-body(data-region="body")
+          .summary-modal-container(data-region="summary-modal-container", data-event-id="420", data-event-title="17:30 科学Week1")
+            .container-fluid
+              .row
+                .col-1
+                  i.icon.fa.fa-clock-o.fa-fw(title="期日", role="img", aria-label="期日", aria-hidden="true")
+                  span.sr-only 期日
+                .col-11
+                  span(class="dimmed_text")
+                    a.dimmed(href="https://lms.waomirai.com/calendar/view.php?view=day&amp;time=1732005000") 2024年 11月 19日
+                    | , 17:30
+              .row.mt-1
+                .col-1
+                  i.icon.fa.fa-calendar.fa-fw(title="イベントタイプ", role="img", aria-label="イベントタイプ", aria-hidden="true")
+                  span.sr-only イベントタイプ
+                .col-11 コースイベント
+              .row.mt-1
+                .col-1
+                  i.icon.fa.fa-align-left.fa-fw(title="説明", role="img", aria-label="説明", aria-hidden="true")
+                  span.sr-only 説明
+                .description-content.col-11
+                  .aa
+                    img(src="https://lms.waomirai.com/pluginfile.php/2389/calendar/event_description/420/HiraganaEnglish.png", alt="HiraganaEnglish.png")
+                  br
+                  | あああああ
+                  | ああああああああああああああああああ
+                  | あああああああ
+              .row.mt-1
+                .col-1
+                  i.icon.fa.fa-map-marker.fa-fw(title="ロケーション", role="img", aria-label="ロケーション", aria-hidden="true")
+                  span.sr-only ロケーション
+                .location-content.col-11
+                  a(title="17:30 科学Week1 ロケーション: https://lms.waomirai.com/course/view.php?id=211#sectionid-674-title", href="https://lms.waomirai.com/course/view.php?id=211#sectionid-674-title") https://lms.waomirai.com/course/view.php?id=211#sectionid-674-title
+              .row.mt-1
+                .col-1
+                  i.icon.fa.fa-graduation-cap.fa-fw(title="コース", role="img", aria-label="コース", aria-hidden="true")
+                  span.sr-only コース
+                .col-11
+                  a(href="https://lms.waomirai.com/course/view.php?id=211") 科学
+        .modal-footer.hidden(data-region="footer")
+  div(tabindex="-1", style="position: fixed; top: 0px; left: 0px;", aria-hidden="true", data-aria-hidden-tab-index="0")
+.modal-div(style='display:none;')
+      .modal-backdrop.in.show(aria-hidden="true", data-region="modal-backdrop", style="z-index: 1051;")

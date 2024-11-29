@@ -13,6 +13,7 @@ html(dir="ltr", lang="ja", xml:lang="ja", data-tenantid="2", data-tenantidnumber
     link(rel="stylesheet", type="text/css", href="https://lms.waomirai.com/theme/workplace/wpcss.php/kenai/1732783105_1/all-2-1713164957")
     //css
     link(href="../static/css/sass/lms-moodle.css", rel="stylesheet")
+    script(src="https://code.jquery.com/jquery-3.3.1.js")
     script.
       //<![CDATA[
       var M = {}; M.yui = {};
@@ -203,6 +204,8 @@ html(dir="ltr", lang="ja", xml:lang="ja", data-tenantid="2", data-tenantidnumber
                 .header-actions-container.ml-auto(data-region="header-actions-container")
           #page-content.pb-3.d-print-block
             include _parts-calender-dec.pug
+        div 
+          include _parts-modal.pug
         footer#page-footer.footer-popover.bg-white
           div(data-region="footer-container-popover")
             button.btn.btn-icon.bg-secondary.icon-no-margin.btn-footer-popover(data-action="footer-popover", aria-label="フッタを表示する")
@@ -364,3 +367,12 @@ html(dir="ltr", lang="ja", xml:lang="ja", data-tenantid="2", data-tenantidnumber
                 | Moodle Workplace
           .footer-content-debugging.footer-dark.bg-dark.text-light
             .container-fluid.footer-dark-inner
+script.
+  $(document).on('click', 'li[data-region="event-item"]', function () {
+      // 発火時に実行するコード
+      $('.modal-div').show(); // 特定の要素を表示
+  });
+  $(document).on('click', '.close', function () {
+      // 発火時に実行するコード
+      $('.modal-div').hide(); // 特定の要素を表示
+  });

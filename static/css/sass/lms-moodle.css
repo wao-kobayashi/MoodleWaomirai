@@ -1,27 +1,173 @@
-.context-2497 {
-  background: #f6f6f6 !important;
+@charset "UTF-8";
+@import url("https://fonts.googleapis.com/css?family=Noto+Sans+JP:400,500,700,900");
+.context-2497, .context-33, .context-18 {
+  background: #f0f2f3 !important;
 }
-.context-2497 #page.drawers .main-inner {
+.context-2497 #page.drawers .main-inner, .context-33 #page.drawers .main-inner, .context-18 #page.drawers .main-inner {
   background: transparent;
 }
-.context-2497 .card.block {
+.context-2497 h4, .context-33 h4, .context-18 h4 {
+  margin-bottom: 0 !important;
+  font-size: 20px !important;
+  font-weight: 600 !important;
+  margin-bottom: none !important;
+  float: none !important;
+}
+.context-2497 div.mb-3, .context-33 div.mb-3, .context-18 div.mb-3 {
+  margin-bottom: 32px !important;
+}
+.context-2497 .card.block, .context-33 .card.block, .context-18 .card.block {
   border: none;
+}
+.context-2497 .maincalendar .header, .context-33 .maincalendar .header, .context-18 .maincalendar .header {
+  margin: 0px 0 20px !important;
+}
+.context-2497 .calendar-controls, .context-33 .calendar-controls, .context-18 .calendar-controls {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 0px 0 20px !important;
+}
+.context-2497 .calendar-controls .previous, .context-33 .calendar-controls .previous, .context-18 .calendar-controls .previous {
+  -webkit-transform: rotate(-180deg);
+          transform: rotate(-180deg);
+}
+.context-2497 .calendar-controls .next,
+.context-2497 .calendar-controls .previous, .context-33 .calendar-controls .next,
+.context-33 .calendar-controls .previous, .context-18 .calendar-controls .next,
+.context-18 .calendar-controls .previous {
+  position: relative;
+  color: white;
+  line-height: 0 !important;
+}
+.context-2497 .calendar-controls .next span,
+.context-2497 .calendar-controls .previous span, .context-33 .calendar-controls .next span,
+.context-33 .calendar-controls .previous span, .context-18 .calendar-controls .next span,
+.context-18 .calendar-controls .previous span {
+  line-height: 0 !important;
+}
+.context-2497 .calendar-controls .next:active, .context-2497 .calendar-controls .next:focus,
+.context-2497 .calendar-controls .previous:active,
+.context-2497 .calendar-controls .previous:focus, .context-33 .calendar-controls .next:active, .context-33 .calendar-controls .next:focus,
+.context-33 .calendar-controls .previous:active,
+.context-33 .calendar-controls .previous:focus, .context-18 .calendar-controls .next:active, .context-18 .calendar-controls .next:focus,
+.context-18 .calendar-controls .previous:active,
+.context-18 .calendar-controls .previous:focus {
+  background: none;
+  color: white;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  -webkit-tap-highlight-color: transparent;
+  /* タップ時のハイライトを無効化 */
+}
+.context-2497 .calendar-controls .next:hover,
+.context-2497 .calendar-controls .previous:hover, .context-33 .calendar-controls .next:hover,
+.context-33 .calendar-controls .previous:hover, .context-18 .calendar-controls .next:hover,
+.context-18 .calendar-controls .previous:hover {
+  background: #f0f2f3;
+}
+.context-2497 .calendar-controls .next::before, .context-2497 .calendar-controls .next::after,
+.context-2497 .calendar-controls .previous::before,
+.context-2497 .calendar-controls .previous::after, .context-33 .calendar-controls .next::before, .context-33 .calendar-controls .next::after,
+.context-33 .calendar-controls .previous::before,
+.context-33 .calendar-controls .previous::after, .context-18 .calendar-controls .next::before, .context-18 .calendar-controls .next::after,
+.context-18 .calendar-controls .previous::before,
+.context-18 .calendar-controls .previous::after {
+  content: "";
+  position: absolute;
+  top: calc(50% - 2px);
+  left: 0;
+  right: 0;
+  right: 0;
+  margin: auto;
+  width: 12px;
+  height: 2px;
+  border-radius: 9999px;
+  background-color: #999;
+  -webkit-transform-origin: calc(100% - 2px) 50%;
+          transform-origin: calc(100% - 2px) 50%;
+}
+.context-2497 .calendar-controls .next::before,
+.context-2497 .calendar-controls .previous::before, .context-33 .calendar-controls .next::before,
+.context-33 .calendar-controls .previous::before, .context-18 .calendar-controls .next::before,
+.context-18 .calendar-controls .previous::before {
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+}
+.context-2497 .calendar-controls .next::after,
+.context-2497 .calendar-controls .previous::after, .context-33 .calendar-controls .next::after,
+.context-33 .calendar-controls .previous::after, .context-18 .calendar-controls .next::after,
+.context-18 .calendar-controls .previous::after {
+  -webkit-transform: rotate(-45deg);
+          transform: rotate(-45deg);
+  top: calc(50% - 0.5px);
+}
+.context-2497 .calendar-controls .arrow_link, .context-33 .calendar-controls .arrow_link, .context-18 .calendar-controls .arrow_link {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  border-radius: 100px;
+  border: 1.5px solid #999;
+  display: block;
+  text-indent: -9999px;
+  background: none;
+  line-height: 0 !important;
+}
+.context-2497 .calendar-controls .arrow_link span, .context-33 .calendar-controls .arrow_link span, .context-18 .calendar-controls .arrow_link span {
+  display: none;
+}
+.context-2497 .calendar-controls .current, .context-33 .calendar-controls .current, .context-18 .calendar-controls .current {
+  width: 155px;
+  display: block;
 }
 @media (min-width: 768px) {
   .context-2497 #page.drawers .main-inner,
-  .context-2497 body.limitedwidth #page.drawers .main-inner {
-    max-width: 1000px !important;
+  .context-2497 body.limitedwidth #page.drawers .main-inner, .context-33 #page.drawers .main-inner,
+  .context-33 body.limitedwidth #page.drawers .main-inner, .context-18 #page.drawers .main-inner,
+  .context-18 body.limitedwidth #page.drawers .main-inner {
+    max-width: 1200px !important;
   }
 }
-.context-2497 .block_calendar_month .card-title {
-  display: none !important;
+.context-2497 .card-body, .context-33 .card-body, .context-18 .card-body {
+  padding: 20px 15px 25px !important;
 }
-.context-2497 .calendarmonth {
+.context-2497 .card-title, .context-33 .card-title, .context-18 .card-title {
+  margin: 0 -15px !important;
+  padding: 3px 45px 15px;
+  border-bottom: 4px #f0f2f3 solid;
+  width: calc(100% + 30px);
+  display: block !important;
+  font-size: 24px !important;
+  position: relative;
+}
+.context-2497 .card-title:before, .context-33 .card-title:before, .context-18 .card-title:before {
+  width: 7px;
+  height: 30px;
+  content: "";
+  background: #005C3F;
+  display: block;
+  position: absolute;
+  left: 20px;
+  top: -12px;
+  bottom: 0;
+  margin: auto;
+  border-radius: 4px;
+}
+.context-2497 .calendarmonth, .context-33 .calendarmonth, .context-18 .calendarmonth {
   border-radius: 8px;
   border: none;
   position: relative;
 }
-.context-2497 .calendarmonth:before {
+.context-2497 .calendarmonth:before, .context-33 .calendarmonth:before, .context-18 .calendarmonth:before {
   content: "";
   position: absolute;
   top: 0;
@@ -32,36 +178,173 @@
   border: 1px solid #dee2e6;
   pointer-events: none;
 }
-.context-2497 .maincalendar .calendarmonth th {
+.context-2497 .day, .context-33 .day, .context-18 .day {
+  color: #999 !important;
+  cursor: default;
+}
+.context-2497 .day:hover, .context-33 .day:hover, .context-18 .day:hover {
+  background: none !important;
+}
+.context-2497 .maincalendar .calendarmonth ul li:focus, .context-2497 .maincalendar .calendarmonth ul li:active, .context-33 .maincalendar .calendarmonth ul li:focus, .context-33 .maincalendar .calendarmonth ul li:active, .context-18 .maincalendar .calendarmonth ul li:focus, .context-18 .maincalendar .calendarmonth ul li:active {
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  -webkit-tap-highlight-color: transparent;
+}
+.context-2497 .maincalendar .calendarmonth ul li > a, .context-33 .maincalendar .calendarmonth ul li > a, .context-18 .maincalendar .calendarmonth ul li > a {
+  background: #f0f2f3 !important;
+  color: #005C3F !important;
+  font-size: 12px !important;
+  padding: 5px 7px;
+  border-left: #005C3F 2px solid !important;
+  display: block;
+  font-weight: bold;
+}
+.context-2497 .maincalendar .calendarmonth ul li > a:focus, .context-2497 .maincalendar .calendarmonth ul li > a:active, .context-33 .maincalendar .calendarmonth ul li > a:focus, .context-33 .maincalendar .calendarmonth ul li > a:active, .context-18 .maincalendar .calendarmonth ul li > a:focus, .context-18 .maincalendar .calendarmonth ul li > a:active {
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  -webkit-tap-highlight-color: transparent;
+}
+.context-2497 .maincalendar .calendarmonth ul li > a:hover, .context-33 .maincalendar .calendarmonth ul li > a:hover, .context-18 .maincalendar .calendarmonth ul li > a:hover {
+  text-decoration: none !important;
+}
+.context-2497 .maincalendar .calendarmonth ul li > a:hover *, .context-33 .maincalendar .calendarmonth ul li > a:hover *, .context-18 .maincalendar .calendarmonth ul li > a:hover * {
+  text-decoration: none !important;
+}
+.context-2497 .maincalendar .calendarmonth ul li .calendar-circle.calendar_event_course, .context-33 .maincalendar .calendarmonth ul li .calendar-circle.calendar_event_course, .context-18 .maincalendar .calendarmonth ul li .calendar-circle.calendar_event_course {
+  display: none;
+}
+.context-2497 .maincalendar .calendarmonth th, .context-33 .maincalendar .calendarmonth th, .context-18 .maincalendar .calendarmonth th {
   text-align: left;
-  padding: 10px 10px 10px 16px;
+  padding: 8px 10px 7px 13px;
   background: #f0f2f3 !important;
 }
 .context-2497 .maincalendar .calendarmonth tr td:last-child,
-.context-2497 .maincalendar .calendarmonth tr td:first-child {
+.context-2497 .maincalendar .calendarmonth tr td:first-child, .context-33 .maincalendar .calendarmonth tr td:last-child,
+.context-33 .maincalendar .calendarmonth tr td:first-child, .context-18 .maincalendar .calendarmonth tr td:last-child,
+.context-18 .maincalendar .calendarmonth tr td:first-child {
   border-right: none;
 }
-.context-2497 .maincalendar tbody tr:last-child td:first-child {
+.context-2497 .maincalendar tbody tr:last-child td:first-child, .context-33 .maincalendar tbody tr:last-child td:first-child, .context-18 .maincalendar tbody tr:last-child td:first-child {
   border-bottom-left-radius: 10px;
 }
-.context-2497 .maincalendar tbody tr:last-child td:last-child {
+.context-2497 .maincalendar tbody tr:last-child td:last-child, .context-33 .maincalendar tbody tr:last-child td:last-child, .context-18 .maincalendar tbody tr:last-child td:last-child {
   border-bottom-right-radius: 10px;
 }
 .context-2497 .maincalendar .calendarmonth th,
-.context-2497 .maincalendar .calendarmonth td {
+.context-2497 .maincalendar .calendarmonth td, .context-33 .maincalendar .calendarmonth th,
+.context-33 .maincalendar .calendarmonth td, .context-18 .maincalendar .calendarmonth th,
+.context-18 .maincalendar .calendarmonth td {
   color: #999;
   font-size: 14px !important;
 }
-.context-2497 .maincalendar .calendarmonth tr th {
+.context-2497 .maincalendar .calendarmonth tr th, .context-33 .maincalendar .calendarmonth tr th, .context-18 .maincalendar .calendarmonth tr th {
   border: none;
   font-size: 12px !important;
 }
-.context-2497 .maincalendar .calendarmonth tr th:first-child {
+.context-2497 .maincalendar .calendarmonth tr th:first-child, .context-33 .maincalendar .calendarmonth tr th:first-child, .context-18 .maincalendar .calendarmonth tr th:first-child {
   border-top-left-radius: 10px;
 }
-.context-2497 .maincalendar .calendarmonth tr th:last-child {
+.context-2497 .maincalendar .calendarmonth tr th:last-child, .context-33 .maincalendar .calendarmonth tr th:last-child, .context-18 .maincalendar .calendarmonth tr th:last-child {
   border-top-right-radius: 10px;
 }
-.context-2497 .footer-link {
+.context-2497 .footer-link, .context-33 .footer-link, .context-18 .footer-link {
   display: none;
+}
+
+.context-2497 .modal .calendar_event_course, .context-33 .modal .calendar_event_course, .context-18 .modal .calendar_event_course {
+  background: #f0f2f3;
+}
+.context-2497 .modal .modal-body, .context-33 .modal .modal-body, .context-18 .modal .modal-body {
+  padding: 16px 16px 48px !important;
+}
+.context-2497 .summary-modal-container .aa img, .context-33 .summary-modal-container .aa img, .context-18 .summary-modal-container .aa img {
+  width: 100%;
+  border-radius: 10px;
+}
+.context-2497 .summary-modal-container .col-1, .context-33 .summary-modal-container .col-1, .context-18 .summary-modal-container .col-1 {
+  display: none;
+}
+.context-2497 .summary-modal-container .col-11, .context-33 .summary-modal-container .col-11, .context-18 .summary-modal-container .col-11 {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  max-width: 100%;
+  padding: 0 5px !important;
+}
+.context-2497 .summary-modal-container .row:nth-child(1),
+.context-2497 .summary-modal-container .row:nth-child(2),
+.context-2497 .summary-modal-container .row:nth-child(5), .context-33 .summary-modal-container .row:nth-child(1),
+.context-33 .summary-modal-container .row:nth-child(2),
+.context-33 .summary-modal-container .row:nth-child(5), .context-18 .summary-modal-container .row:nth-child(1),
+.context-18 .summary-modal-container .row:nth-child(2),
+.context-18 .summary-modal-container .row:nth-child(5) {
+  display: none;
+}
+.context-2497 .summary-modal-container i, .context-33 .summary-modal-container i, .context-18 .summary-modal-container i {
+  display: none;
+}
+.context-2497 .summary-modal-container .location-content, .context-33 .summary-modal-container .location-content, .context-18 .summary-modal-container .location-content {
+  position: relative;
+  display: block;
+  height: 55px;
+  width: 230px;
+  margin: 32px 0 0;
+}
+.context-2497 .summary-modal-container .location-content a, .context-33 .summary-modal-container .location-content a, .context-18 .summary-modal-container .location-content a {
+  text-indent: -9999px;
+  display: block;
+  height: 55px;
+  width: 230px;
+  margin: 0 auto;
+}
+.context-2497 .summary-modal-container .location-content a:focus, .context-2497 .summary-modal-container .location-content a:active, .context-33 .summary-modal-container .location-content a:focus, .context-33 .summary-modal-container .location-content a:active, .context-18 .summary-modal-container .location-content a:focus, .context-18 .summary-modal-container .location-content a:active {
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  -webkit-tap-highlight-color: transparent;
+}
+.context-2497 .summary-modal-container .location-content:before, .context-33 .summary-modal-container .location-content:before, .context-18 .summary-modal-container .location-content:before {
+  content: "授業を受講する";
+  background: #005C3F;
+  border-radius: 6px;
+  width: 230px;
+  height: 55px;
+  text-align: center;
+  color: white;
+  margin: 0 auto;
+  padding: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 18px;
+  position: absolute;
+  left: 0;
+  right: 0;
+  pointer-events: none;
+}
+.context-2497 .summary-modal-container .location-content:before:hover, .context-33 .summary-modal-container .location-content:before:hover, .context-18 .summary-modal-container .location-content:before:hover {
+  opacity: 0.8;
+}
+
+.context-2497 .block_myinprogress .tool_catalogue-carousel, .context-33 .block_myinprogress .tool_catalogue-carousel, .context-18 .block_myinprogress .tool_catalogue-carousel {
+  overflow: hidden !important;
+}
+.context-2497 .pagination, .context-33 .pagination, .context-18 .pagination {
+  position: absolute;
+  right: 30px;
+  top: 47px;
 }
