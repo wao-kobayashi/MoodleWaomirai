@@ -1,5 +1,8 @@
 @charset "UTF-8";
 @import url("https://fonts.googleapis.com/css?family=Noto+Sans+JP:400,500,700,900");
+/* 全体の幅 */
+/* フォント */
+/* border-radius */
 .context-2497, .context-33, .context-18 {
   background: #f0f2f3 !important;
 }
@@ -265,7 +268,7 @@
 }
 .context-2497 .summary-modal-container .aa img, .context-33 .summary-modal-container .aa img, .context-18 .summary-modal-container .aa img {
   width: 100%;
-  border-radius: 10px;
+  border-radius: 8px;
 }
 .context-2497 .summary-modal-container .col-1, .context-33 .summary-modal-container .col-1, .context-18 .summary-modal-container .col-1 {
   display: none;
@@ -314,7 +317,7 @@
 .context-2497 .summary-modal-container .location-content:before, .context-33 .summary-modal-container .location-content:before, .context-18 .summary-modal-container .location-content:before {
   content: "授業を受講する";
   background: #005C3F;
-  border-radius: 6px;
+  border-radius: 4px;
   width: 230px;
   height: 55px;
   text-align: center;
