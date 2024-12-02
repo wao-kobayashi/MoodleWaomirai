@@ -1,0 +1,767 @@
+extends _layout_moodle.pug
+block contents
+  - var title = '哲学購入詳細 | stg'  // 変数の定義
+  body#page-admin-tool-catalogue-courseinfo(class="format-flexsections limitedwidth admin path-admin path-admin-tool path-admin-tool-catalogue chrome dir-ltr lang-ja_wp yui-skin-sam yui3-skin-sam lms-waomirai-com pagelayout-course course-212 context-2391 category-43 theme uses-drawers jsenabled")
+    .toast-wrapper.mx-auto.py-0.fixed-top(role="status", aria-live="polite")
+    #page-wrapper.d-print-block
+      div
+        a.sr-only.sr-only-focusable(href="#maincontent") メインコンテンツへスキップする
+      script(src="https://lms.waomirai.com/lib/javascript.php/1732783105/lib/polyfills/polyfill.js")
+      script(src="https://lms.waomirai.com/theme/yui_combo.php?rollup/3.18.1/yui-moodlesimple-min.js")
+      script(src="https://lms.waomirai.com/lib/javascript.php/1732783105/lib/javascript-static.js")
+      script.
+        //<![CDATA[
+        document.body.className += ' jsenabled';
+        //]]>
+      // Google Tag Manager (noscript)
+      noscript
+        iframe(src="https://www.googletagmanager.com/ns.html?id=GTM-W3X8CG9C", height="0", width="0", style="display:none;visibility:hidden")
+      // End Google Tag Manager (noscript)
+      nav.navbar.fixed-top.navbar-light.bg-white.navbar-expand(aria-label="サイトナビゲーション")
+        button.navbar-toggler.aabtn.d-block.d-md-none.my-1.mr-2(data-toggler="drawers", data-action="toggle", data-target="theme_boost-drawers-primary")
+          span.navbar-toggler-icon
+          span.sr-only サイドパネル
+        a.navbar-brand.d-none.d-md-flex.align-items-center.m-0.mr-3.p-0.aabtn(href="https://lms.waomirai.com/my/")
+          img.logo.mr-1(src="https://lms.waomirai.com/pluginfile.php/1/tool_tenant/headerlogo/2/%E7%84%A1%E9%A1%8C.png", alt="stg")
+        ul.navbar-nav.d-none.d-md-flex.mr-3.tenantswitch
+          li.dropdown.nav-item
+            a#drop-down-674d034c0925c674d034c0616a3.dropdown-toggle.nav-link(data-toggle="dropdown", aria-haspopup="true", aria-expanded="false", href="#", aria-controls="drop-down-menu-674d034c0925c674d034c0616a3")
+              span.current-tenant-name.d-inline-block(title="【検証テナント】") 【検証テナント】
+            #drop-down-menu-674d034c0925c674d034c0616a3.dropdown-menu(role="menu", aria-labelledby="drop-down-674d034c0925c674d034c0616a3")
+              a.dropdown-item(role="menuitem", href="https://lms.waomirai.com/admin/tool/tenant/switchtenant.php?switchtenantid=1&amp;redirecturl=%2Fadmin%2Ftool%2Fcatalogue%2Fcourseinfo.php%3Fid%3D212&amp;sesskey=vi4PA7uAVI") Default tenant
+              a.dropdown-item(role="menuitem", href="https://lms.waomirai.com/admin/tool/tenant/switchtenant.php?switchtenantid=3&amp;redirecturl=%2Fadmin%2Ftool%2Fcatalogue%2Fcourseinfo.php%3Fid%3D212&amp;sesskey=vi4PA7uAVI") ワオ未来塾 学習ポータル
+              a.dropdown-item(role="menuitem", href="https://lms.waomirai.com/admin/tool/tenant/switchtenant.php?switchtenantid=4&amp;redirecturl=%2Fadmin%2Ftool%2Fcatalogue%2Fcourseinfo.php%3Fid%3D212&amp;sesskey=vi4PA7uAVI") ワオ会員テナント
+        .primary-navigation
+          nav.moremenu.navigation.observed
+            ul#moremenu-674d034c06889-navbar-nav.nav.more-nav.navbar-nav(role="menubar")
+              li.nav-item(data-key="home", role="none", data-forceintomoremenu="false")
+                a.nav-link(role="menuitem", href="https://lms.waomirai.com/?redirect=0", tabindex="0", aria-current="true")
+                  | ホーム
+              li.nav-item(data-key="myhome", role="none", data-forceintomoremenu="false")
+                a.nav-link(role="menuitem", href="https://lms.waomirai.com/my/", tabindex="-1")
+                  | ダッシュボード
+              li.nav-item(data-key="mycourses", role="none", data-forceintomoremenu="false")
+                a.nav-link(role="menuitem", href="https://lms.waomirai.com/my/courses.php", tabindex="-1")
+                  | 登録済み講座
+              li.nav-item(data-key="siteadminnode", role="none", data-forceintomoremenu="false")
+                a.nav-link(role="menuitem", href="https://lms.waomirai.com/admin/search.php", tabindex="-1")
+                  | サイト管理
+              li.nav-item(role="none", data-forceintomoremenu="false")
+                a.nav-link(role="menuitem", href="https://lms.waomirai.com/user/profile.php", tabindex="-1")
+                  | マイページ
+              li.nav-item(role="none", data-forceintomoremenu="false")
+                a.nav-link(role="menuitem", href="https://lms.waomirai.com/user/preferences.php", tabindex="-1")
+                  | ユーザ設定
+              li.nav-item.dropdown.dropdownmoremenu.d-none(role="none", data-region="morebutton")
+                a#moremenu-dropdown-674d034c06889.dropdown-toggle.nav-link(href="#", role="menuitem", data-toggle="dropdown", aria-haspopup="true", aria-expanded="false", tabindex="-1")
+                  | さらに
+                ul.dropdown-menu.dropdown-menu-left(data-region="moredropdown", aria-labelledby="moremenu-dropdown-674d034c06889", role="menu")
+        ul.navbar-nav.d-none.d-md-flex.my-1.px-1
+          // page_heading_menu
+        #usernavigation.navbar-nav.ml-auto
+          #nav-notification-popover-container.popover-region.collapsed.popover-region-notifications(data-userid="9", data-region="popover-region")
+            .popover-region-toggle.nav-link.icon-no-margin(data-region="popover-region-toggle", role="button", aria-controls="popover-region-container-674d034c09a2b674d034c0616a4", aria-haspopup="true", aria-label=" 新しい通知のない通知ウィンドウを表示する   ", tabindex="0")
+              i.icon.fa.fa-bell-o.fa-fw(title="通知メニューに切り替える", role="img", aria-label="通知メニューに切り替える", aria-hidden="true")
+              span.sr-only 通知メニューに切り替える
+              .count-container.hidden(data-region="count-container", aria-hidden="true")
+                | 0
+            #popover-region-container-674d034c09a2b674d034c0616a4.popover-region-container(data-region="popover-region-container", aria-expanded="false", aria-hidden="true", aria-label="通知ウィンドウ", role="region")
+              .popover-region-header-container
+                h3.popover-region-header-text(data-region="popover-region-header-text") 通知
+                .popover-region-header-actions(data-region="popover-region-header-actions")
+                  a.mark-all-read-button(href="#", title="すべてを既読にする", data-action="mark-all-read", role="button", aria-label="すべてを既読にする")
+                    span.normal-icon
+                      i.icon.fa.fa-check.fa-fw(aria-hidden="true")
+                    span.loading-icon.icon-no-margin
+                      i.icon.fa.fa-circle-o-notch.fa-spin.fa-fw(title="読み込み中", role="img", aria-label="読み込み中", aria-hidden="true")
+                      span.sr-only 読み込み中
+                  a(href="https://lms.waomirai.com/message/notificationpreferences.php", title="通知プレファレンス", aria-label="通知プレファレンス")
+                    i.icon.fa.fa-cog.fa-fw(aria-hidden="true")
+              .popover-region-content-container(data-region="popover-region-content-container")
+                .popover-region-content(data-region="popover-region-content")
+                  .all-notifications(data-region="all-notifications", role="log", aria-busy="false", aria-atomic="false", aria-relevant="additions")
+                  .empty-message(tabindex="0", data-region="empty-message") あなたに通知はありません。
+                span.loading-icon.icon-no-margin
+                  i.icon.fa.fa-circle-o-notch.fa-spin.fa-fw(title="読み込み中", role="img", aria-label="読み込み中", aria-hidden="true")
+                  span.sr-only 読み込み中
+              a.see-all-link(href="https://lms.waomirai.com/message/output/popup/notifications.php")
+                .popover-region-footer-container
+                  .popover-region-seeall-text すべてを表示する
+          .dropdown
+            a#workplace-menulink.nav-link.dropdown-toggle.no-caret.icon-no-margin(href="#", data-toggle="dropdown", aria-haspopup="true", aria-expanded="false", aria-controls="workplace-menu-674d034c0ece2674d034c0616a5")
+              i.icon.fa.fa-th.fa-fw(title="Workplaceのランチャーを切り替える", role="img", aria-label="Workplaceのランチャーを切り替える", aria-hidden="true")
+              span.sr-only Workplaceのランチャーを切り替える
+            #workplace-menu-674d034c0ece2674d034c0616a5.workplace-menu.p-0.dropdown-menu.dropdown-menu-right(data-region="workplace-menu-content", aria-labelledby="workplace-menulink")
+              .workplace-menu-grid.p-2
+                a.workplace-menu-item.p-1.p-sm-2.d-flex.flex-column.text-center.align-items-center.justify-content-center(href="https://lms.waomirai.com/admin/tool/tenant/details.php")
+                  img.mb-2.px-3(src="https://lms.waomirai.com/theme/image.php/kenai/tool_tenant/1732783105/tenantappearance")
+                  span.small アピアランス
+                a.workplace-menu-item.p-1.p-sm-2.d-flex.flex-column.text-center.align-items-center.justify-content-center(href="https://lms.waomirai.com/reportbuilder/index.php")
+                  img.mb-2.px-3(src="https://lms.waomirai.com/theme/image.php/kenai/theme_workplace/1732783105/menu/report_builder")
+                  span.small カスタムレポート
+                a.workplace-menu-item.p-1.p-sm-2.d-flex.flex-column.text-center.align-items-center.justify-content-center(href="https://lms.waomirai.com/admin/tool/dynamicrule/index.php")
+                  img.mb-2.px-3(src="https://lms.waomirai.com/theme/image.php/kenai/tool_dynamicrule/1732783105/icon")
+                  span.small ダイナミックルール
+                a.workplace-menu-item.p-1.p-sm-2.d-flex.flex-column.text-center.align-items-center.justify-content-center(href="https://lms.waomirai.com/admin/tool/program/index.php")
+                  img.mb-2.px-3(src="https://lms.waomirai.com/theme/image.php/kenai/tool_program/1732783105/icon")
+                  span.small プログラム
+                a.workplace-menu-item.p-1.p-sm-2.d-flex.flex-column.text-center.align-items-center.justify-content-center(href="https://lms.waomirai.com/admin/tool/tenant/users.php")
+                  img.mb-2.px-3(src="https://lms.waomirai.com/theme/image.php/kenai/tool_tenant/1732783105/usermanagement")
+                  span.small ユーザ
+                a.workplace-menu-item.p-1.p-sm-2.d-flex.flex-column.text-center.align-items-center.justify-content-center(href="https://lms.waomirai.com/admin/tool/organisation/index.php")
+                  img.mb-2.px-3(src="https://lms.waomirai.com/theme/image.php/kenai/tool_organisation/1732783105/icon")
+                  span.small 組織構造
+                a.workplace-menu-item.p-1.p-sm-2.d-flex.flex-column.text-center.align-items-center.justify-content-center(href="https://lms.waomirai.com/admin/tool/certification/index.php")
+                  img.mb-2.px-3(src="https://lms.waomirai.com/theme/image.php/kenai/tool_certification/1732783105/icon")
+                  span.small 認定
+              .border-top
+                .mx-4.mt-3.font-weight-bold.small
+                  | グローバル
+                .workplace-menu-grid.p-2
+                  a.workplace-menu-item.p-1.p-sm-2.d-flex.flex-column.text-center.align-items-center.justify-content-center(href="https://lms.waomirai.com/admin/tool/custompage/index.php")
+                    img.mb-2.px-3(src="https://lms.waomirai.com/theme/image.php/kenai/tool_custompage/1732783105/icon")
+                    span.small カスタムページ
+                  a.workplace-menu-item.p-1.p-sm-2.d-flex.flex-column.text-center.align-items-center.justify-content-center(href="https://lms.waomirai.com/course/management.php")
+                    img.mb-2.px-3(src="https://lms.waomirai.com/theme/image.php/kenai/theme_workplace/1732783105/menu/courses")
+                    span.small コース
+                  a.workplace-menu-item.p-1.p-sm-2.d-flex.flex-column.text-center.align-items-center.justify-content-center(href="https://lms.waomirai.com/admin/tool/wp/exportimport.php")
+                    img.mb-2.px-3(src="https://lms.waomirai.com/theme/image.php/kenai/tool_wp/1732783105/exportimport")
+                    span.small マイグレーション
+                  a.workplace-menu-item.p-1.p-sm-2.d-flex.flex-column.text-center.align-items-center.justify-content-center(href="https://lms.waomirai.com/admin/tool/tenant/index.php")
+                    img.mb-2.px-3(src="https://lms.waomirai.com/theme/image.php/kenai/tool_tenant/1732783105/icon")
+                    span.small 全てのテナント
+                  a.workplace-menu-item.p-1.p-sm-2.d-flex.flex-column.text-center.align-items-center.justify-content-center(href="https://lms.waomirai.com/admin/tool/tenant/allusers.php")
+                    img.mb-2.px-3(src="https://lms.waomirai.com/theme/image.php/kenai/tool_tenant/1732783105/users")
+                    span.small 全てのユーザ
+                  a.workplace-menu-item.p-1.p-sm-2.d-flex.flex-column.text-center.align-items-center.justify-content-center(href="https://lms.waomirai.com/admin/tool/certificate/manage_templates.php")
+                    img.mb-2.px-3(src="https://lms.waomirai.com/theme/image.php/kenai/tool_certificate/1732783105/icon")
+                    span.small 認定証
+          .d-flex.align-items-stretch.usermenu-container(data-region="usermenu")
+            .usermenu
+              .dropdown.show
+                a#user-menu-toggle.btn.dropdown-toggle(href="#", role="button", data-toggle="dropdown", aria-label="ユーザメニュー", aria-haspopup="true", aria-controls="user-action-menu")
+                  span.userbutton
+                    span.avatars
+                      span.avatar.current
+                        span.userinitials.size-35 株サ
+                #user-action-menu.dropdown-menu.dropdown-menu-right
+                  #usermenu-carousel.carousel.slide(data-touch="false", data-interval="false", data-keyboard="false")
+                    .carousel-inner
+                      #carousel-item-main.carousel-item.active(role="menu", tabindex="-1", aria-label="ユーザ")
+                        a.dropdown-item(href="https://lms.waomirai.com/user/profile.php", role="menuitem", tabindex="-1")
+                          | 
+                          | マイページ
+                        a.dropdown-item(href="https://lms.waomirai.com/grade/report/overview/index.php", role="menuitem", tabindex="-1")
+                          | 
+                          | 評定
+                        a.dropdown-item(href="https://lms.waomirai.com/calendar/view.php?view=month", role="menuitem", tabindex="-1")
+                          | 
+                          | カレンダー
+                        a.dropdown-item(href="https://lms.waomirai.com/user/files.php", role="menuitem", tabindex="-1")
+                          | 
+                          | プライベートファイル
+                        a.dropdown-item(href="https://lms.waomirai.com/reportbuilder/index.php", role="menuitem", tabindex="-1")
+                          | 
+                          | レポート
+                        .dropdown-divider
+                        a.dropdown-item(href="https://lms.waomirai.com/user/preferences.php", role="menuitem", tabindex="-1")
+                          | 
+                          | ユーザ設定
+                        a.dropdown-item(href="https://lms.waomirai.com/course/switchrole.php?id=212&amp;switchrole=-1&amp;returnurl=%2Fadmin%2Ftool%2Fcatalogue%2Fcourseinfo.php%3Fid%3D212", role="menuitem", tabindex="-1")
+                          | 
+                          | ロールを切り替える .
+                        .dropdown-divider
+                        a.dropdown-item(href="https://lms.waomirai.com/login/logout.php?sesskey=vi4PA7uAVI", role="menuitem", tabindex="-1")
+                          | 
+                          | ログアウト
+          .divider.border-left.h-75.align-self-center.ml-1.mr-3
+          form.d-flex.align-items-center.editmode-switch-form(action="https://lms.waomirai.com/editmode.php", method="post")
+            .input-group
+              label.mr-2.mb-0(for="674d034c0f579674d034c0616a6-editingswitch")
+                | 編集モード
+              .custom-control.custom-switch
+                input#674d034c0f579674d034c0616a6-editingswitch.custom-control-input(type="checkbox", name="setmode", data-context="2391", data-pageurl="https://lms.waomirai.com/admin/tool/catalogue/courseinfo.php?id=212")
+                span.custom-control-label &amp;nbsp;
+            input(type="hidden", name="sesskey", value="vi4PA7uAVI")
+            input(type="hidden", name="pageurl", value="https://lms.waomirai.com/admin/tool/catalogue/courseinfo.php?id=212")
+            input(type="hidden", name="context", value="2391")
+            noscript
+              input(type="submit", value="モードを設定する")
+      .drawer.drawer-left.drawer-primary.d-print-none(data-region="fixed-drawer", id="theme_boost-drawers-primary",  data-state="show-drawer-primary", data-forceopen="0", data-close-on-resize="1", aria-hidden="true")
+        .drawerheader
+          button.btn.drawertoggle.icon-no-margin.hidden(data-toggler="drawers", data-action="closedrawer", data-target="theme_boost-drawers-primary", data-toggle="tooltip", data-placement="right", title="ドロワを閉じる",  tabindex="-1")
+            i.icon.fa.fa-times.fa-fw(aria-hidden="true")
+          img.logo.py-1.h-100(src="https://lms.waomirai.com/pluginfile.php/1/tool_tenant/headerlogo/2/%E7%84%A1%E9%A1%8C.png", alt="stg")
+          .drawerheadercontent.hidden
+        .drawercontent.drag-container(data-usertour="scroller")
+          .list-group
+            a.list-group-item.list-group-item-action(href="https://lms.waomirai.com/?redirect=0",  tabindex="-1")
+              | ホーム
+            a.list-group-item.list-group-item-action(href="https://lms.waomirai.com/my/",  tabindex="-1")
+              | ダッシュボード
+            a.list-group-item.list-group-item-action(href="https://lms.waomirai.com/my/courses.php",  tabindex="-1")
+              | 登録済み講座
+            a.list-group-item.list-group-item-action(href="https://lms.waomirai.com/admin/search.php",  tabindex="-1")
+              | サイト管理
+            a.list-group-item.list-group-item-action(href="https://lms.waomirai.com/user/profile.php",  tabindex="-1")
+              | マイページ
+            a.list-group-item.list-group-item-action(href="https://lms.waomirai.com/user/preferences.php",  tabindex="-1")
+              | ユーザ設定
+          ul.position-absolute.fixed-bottom.navbar-nav.ml-3.tenantswitch
+            li.dropdown.nav-item
+              a#drop-down-674d034c0925c674d034c0616a3.dropdown-toggle.nav-link(data-toggle="dropdown", aria-haspopup="true", aria-expanded="false", href="#", aria-controls="drop-down-menu-674d034c0925c674d034c0616a3",  tabindex="-1")
+                span.current-tenant-name.d-inline-block(title="【検証テナント】") 【検証テナント】
+              #drop-down-menu-674d034c0925c674d034c0616a3.dropdown-menu(role="menu", aria-labelledby="drop-down-674d034c0925c674d034c0616a3")
+                a.dropdown-item(role="menuitem", href="https://lms.waomirai.com/admin/tool/tenant/switchtenant.php?switchtenantid=1&amp;redirecturl=%2Fadmin%2Ftool%2Fcatalogue%2Fcourseinfo.php%3Fid%3D212&amp;sesskey=vi4PA7uAVI",  tabindex="-1") Default tenant
+                a.dropdown-item(role="menuitem", href="https://lms.waomirai.com/admin/tool/tenant/switchtenant.php?switchtenantid=3&amp;redirecturl=%2Fadmin%2Ftool%2Fcatalogue%2Fcourseinfo.php%3Fid%3D212&amp;sesskey=vi4PA7uAVI",  tabindex="-1") ワオ未来塾 学習ポータル
+                a.dropdown-item(role="menuitem", href="https://lms.waomirai.com/admin/tool/tenant/switchtenant.php?switchtenantid=4&amp;redirecturl=%2Fadmin%2Ftool%2Fcatalogue%2Fcourseinfo.php%3Fid%3D212&amp;sesskey=vi4PA7uAVI",  tabindex="-1") ワオ会員テナント
+      .drawer.drawer-left.d-print-none(data-region="fixed-drawer", id="theme_boost-drawers-courseindex", data-preference="drawer-open-index", data-state="show-drawer-left", data-forceopen="0", data-close-on-resize="0", aria-hidden="true")
+        .drawerheader
+          button.btn.drawertoggle.icon-no-margin.hidden(data-toggler="drawers", data-action="closedrawer", data-target="theme_boost-drawers-courseindex", data-toggle="tooltip", data-placement="right", title="コースインデックスを閉じる",  tabindex="-1")
+            i.icon.fa.fa-times.fa-fw(aria-hidden="true")
+          .drawerheadercontent.hidden
+            #courseindexdrawercontrols.dropdown
+              button.btn.btn-icon.rounded-circle.mx-2(type="button", data-toggle="dropdown", aria-haspopup="true", aria-expanded="false", title="コースインデックスオプション",  tabindex="-1")
+                i.icon.fa.fa-ellipsis-v.fa-fw.m-0(aria-hidden="true")
+              .dropdown-menu.dropdown-menu-right
+                a.dropdown-item(href="#", data-action="expandallcourseindexsections",  tabindex="-1")
+                  i.icon.fa.fa-angles-down.fa-fw(aria-hidden="true")
+                  | すべてを展開する
+                a.dropdown-item(href="#", data-action="collapseallcourseindexsections",  tabindex="-1")
+                  span.dir-rtl-hide
+                    i.icon.fa.fa-angles-right.fa-fw(aria-hidden="true")
+                  span.dir-ltr-hide
+                    i.icon.fa.fa-angles-left.fa-fw(aria-hidden="true")
+                  | すべてを折りたたむ
+        .drawercontent.drag-container(data-usertour="scroller")
+          nav#courseindex.courseindex
+            #courseindex-content
+              #0-course-index.courseindex(role="tree")
+                #0-course-index-section-660.courseindex-section(data-for="section", data-id="660", data-number="0", role="treeitem", aria-owns="courseindexcollapse0", tabindex="-1", aria-selected="true", data-aria-hidden-tab-index="0")
+                  #courseindexsection0.courseindex-item.d-flex.courseindex-section-title(data-for="section_item", tabindex="-1")
+                    a.courseindex-chevron.icons-collapse-expand(data-toggle="collapse", href="#courseindexcollapse0", aria-expanded="true", aria-controls="courseindexcollapse0", tabindex="-1", data-aria-hidden-tab-index="-1")
+                      span.collapsed-icon.icon-no-margin.mr-1(title="展開する", tabindex="-1")
+                        span.dir-rtl-hide(tabindex="-1")
+                          i.icon.fa.fa-chevron-right.fa-fw(aria-hidden="true", tabindex="-1")
+                        span.dir-ltr-hide(tabindex="-1")
+                          i.icon.fa.fa-chevron-left.fa-fw(aria-hidden="true", tabindex="-1")
+                        span.sr-only(tabindex="-1") 展開する
+                      span.expanded-icon.icon-no-margin.mr-1(title="折りたたむ", tabindex="-1")
+                        i.icon.fa.fa-chevron-down.fa-fw(aria-hidden="true", tabindex="-1")
+                        span.sr-only(tabindex="-1") 折りたたむ
+                    a.courseindex-link.text-truncate(href="https://lms.waomirai.com/course/view.php?id=212", data-action="togglecourseindexsection", data-for="section_title", tabindex="-1", data-aria-hidden-tab-index="-1")
+                      | 一般
+                    span.current-badge.badge.badge-primary.ml-2.px-2.rounded-pill(tabindex="-1")
+                      | ハイライト
+                    span.courseindex-locked.ml-1(data-for="cm_name", tabindex="-1")
+                      i.icon.fa.fa-lock.fa-fw(aria-hidden="true", tabindex="-1")
+                    span.dragicon.ml-auto(tabindex="-1")
+                      i.icon.fa.fa-arrows.fa-fw(aria-hidden="true", tabindex="-1")
+                  #courseindexcollapse0.courseindex-item-content.collapse.show.pb-0(aria-labelledby="courseindexsection0", role="group", tabindex="-1")
+                    ul.courseindex-sectioncontent.unlist(data-for="cmlist", data-id="660", role="group", tabindex="-1")
+                      li#course-index-cm-1121.courseindex-item(data-for="cm", data-id="1121", role="treeitem", tabindex="-1", aria-selected="false")
+                        span(class="completioninfo completion_none", data-for="cm_completion", data-value="NaN")
+                        a.courseindex-link.text-truncate(href="https://lms.waomirai.com/mod/forum/view.php?id=1121", data-for="cm_name", tabindex="-1", data-aria-hidden-tab-index="-1")
+                          | アナウンスメント
+                        span.courseindex-locked.ml-1(data-for="cm_name", tabindex="-1")
+                          i.icon.fa.fa-lock.fa-fw(aria-hidden="true", tabindex="-1")
+                        span.dragicon.ml-auto(tabindex="-1")
+                          i.icon.fa.fa-arrows.fa-fw(aria-hidden="true", tabindex="-1")
+                    .courseindex-sectioncontent-children.ml-2(data-for="subsectionlist", data-parent="660", role="tree", tabindex="-1")
+      #page.drawers.drag-container(data-region="mainpage", data-usertour="scroller")
+        #topofscroll.main-inner
+          .drawer-toggles.d-flex
+            .drawer-toggler.drawer-left-toggle.open-nav.d-print-none
+              button.btn.icon-no-margin(data-toggler="drawers", data-action="toggle", data-target="theme_boost-drawers-courseindex", data-toggle="tooltip", data-placement="right", title="コースインデックスを開く")
+                span.sr-only コースインデックスを開く
+                i.icon.fa.fa-list.fa-fw(aria-hidden="true")
+          header#page-header.header-maxwidth.d-print-none
+            .w-100
+              .d-flex.flex-wrap
+                #page-navbar
+                  nav(aria-label="ナビゲーションバー")
+                    ol.breadcrumb
+                .ml-auto.d-flex
+                #course-header
+              .d-flex.align-items-center
+                .mr-auto
+                  .page-context-header
+                    .page-header-headings
+                      h1.h2 哲学
+                .header-actions-container.ml-auto(data-region="header-actions-container")
+          .secondary-navigation.d-print-none
+            nav.moremenu.navigation.observed
+              ul#moremenu-674d034c06765-nav-tabs.nav.more-nav.nav-tabs(role="menubar")
+                li.nav-item(data-key="coursehome", role="none", data-forceintomoremenu="false")
+                  a.nav-link(role="menuitem", href="https://lms.waomirai.com/course/view.php?id=212", tabindex="-1")
+                    | コース
+                li.nav-item(data-key="courseinfo", role="none", data-forceintomoremenu="false")
+                  a(role="menuitem", class="nav-link active active_tree_node ", href="https://lms.waomirai.com/admin/tool/catalogue/courseinfo.php?id=212", aria-current="true")
+                    | 詳細情報
+                li.nav-item(data-key="editsettings", role="none", data-forceintomoremenu="false")
+                  a.nav-link(role="menuitem", href="https://lms.waomirai.com/course/edit.php?id=212", tabindex="-1")
+                    | 設定
+                li.nav-item(data-key="participants", role="none", data-forceintomoremenu="false")
+                  a.nav-link(role="menuitem", href="https://lms.waomirai.com/user/index.php?id=212", tabindex="-1")
+                    | 参加者
+                li.nav-item(data-key="grades", role="none", data-forceintomoremenu="false")
+                  a.nav-link(role="menuitem", href="https://lms.waomirai.com/grade/report/index.php?id=212", tabindex="-1")
+                    | 評定
+                li.nav-item.dropdown.dropdownmoremenu(role="none", data-region="morebutton")
+                  a#moremenu-dropdown-674d034c06765.dropdown-toggle.nav-link(href="#", role="menuitem", data-toggle="dropdown", aria-haspopup="true", aria-expanded="false", tabindex="-1")
+                    | さらに
+                  ul.dropdown-menu.dropdown-menu-left(data-region="moredropdown", aria-labelledby="moremenu-dropdown-674d034c06765", role="menu")
+                    li.nav-item(data-key="coursereports", role="none", data-forceintomoremenu="true")
+                      a.dropdown-item(role="menuitem", href="https://lms.waomirai.com/report/view.php?courseid=212", tabindex="-1")
+                        | レポート
+                    li.nav-item(data-key="questionbank", role="none", data-forceintomoremenu="true")
+                      a.dropdown-item(role="menuitem", href="https://lms.waomirai.com/question/edit.php?courseid=212", tabindex="-1")
+                        | 問題バンク
+                    li.nav-item(data-key="contentbank", role="none", data-forceintomoremenu="true")
+                      a.dropdown-item(role="menuitem", href="https://lms.waomirai.com/contentbank/index.php?contextid=2391", tabindex="-1")
+                        | コンテンツバンク
+                    li.nav-item(data-key="coursecompletion", role="none", data-forceintomoremenu="true")
+                      a.dropdown-item(role="menuitem", href="https://lms.waomirai.com/course/completion.php?id=212", tabindex="-1")
+                        | コース完了
+                    li.nav-item(data-key="badgesview", role="none", data-forceintomoremenu="true")
+                      a.dropdown-item(role="menuitem", href="https://lms.waomirai.com/badges/view.php?type=2&amp;id=212", tabindex="-1")
+                        | バッジ
+                    li.nav-item(data-key="filtermanagement", role="none", data-forceintomoremenu="true")
+                      a.dropdown-item(role="menuitem", href="https://lms.waomirai.com/filter/manage.php?contextid=2391", tabindex="-1")
+                        | フィルタ
+                    li.nav-item(data-key="coursetools", role="none", data-forceintomoremenu="true")
+                      a.dropdown-item(role="menuitem", href="https://lms.waomirai.com/mod/lti/coursetools.php?id=212", tabindex="-1")
+                        | LTI外部ツール
+                    li.nav-item(data-key="14", role="none", data-forceintomoremenu="true")
+                      a.dropdown-item(role="menuitem", href="https://lms.waomirai.com/admin/tool/brickfield/index.php?courseid=212", tabindex="-1")
+                        | アクセシビリティツールキット
+                    li.nav-item(data-key="tool_certificate", role="none", data-forceintomoremenu="true")
+                      a.dropdown-item(role="menuitem", href="https://lms.waomirai.com/admin/tool/certificate/manage_templates.php?courseid=212", tabindex="-1")
+                        | 認定証
+                    li.nav-item(data-key="17", role="none", data-forceintomoremenu="true")
+                      a.dropdown-item(role="menuitem", href="https://lms.waomirai.com/local/feedbackviewer/index.php?id=212", tabindex="-1")
+                        | フィードバックビューア
+                    li.nav-item(data-key="coursereuse", role="none", data-forceintomoremenu="true")
+                      a.dropdown-item(role="menuitem", href="https://lms.waomirai.com/backup/import.php?id=212", tabindex="-1")
+                        | コース再利用
+          #page-content.pb-3.d-print-block
+            #region-main-box
+              section#region-main(aria-label="コンテンツ")
+                span#user-notifications.notifications
+                div(role="main")
+                  span#maincontent
+                  div(class="tool_catalogue-catalogue course")
+                    .my-3(data-region="catalogue-pagesection")
+                      .d-flex.align-items-start.position-relative
+                        a.btn.btn-icon.mr-1.icons-collapse-expand.stretched-link.justify-content-center(role="button", data-toggle="collapse", href="#covercollapsec-about", aria-expanded="true", aria-controls="covercollapsec-about", aria-label="コース概要")
+                          span.expanded-icon.icon-no-margin.p-2(title="折りたたむ")
+                            i.icon.fa.fa-chevron-down.fa-fw(aria-hidden="true")
+                          span.collapsed-icon.icon-no-margin.p-2(title="展開する")
+                            span.dir-rtl-hide
+                              i.icon.fa.fa-chevron-right.fa-fw(aria-hidden="true")
+                            span.dir-ltr-hide
+                              i.icon.fa.fa-chevron-left.fa-fw(aria-hidden="true")
+                        h3.h5.d-flex.align-self-stretch.align-items-center.mb-0(data-region="pagesection-name")
+                          | コース概要
+                        .d-none.d-sm-flex.align-self-stretch.align-items-center.text-muted.addon
+                      #covercollapsec-about.pagesectioncontent.collapse.show
+                        .mt-2
+                          .mb-2
+                            .courseEnrol
+                              h1.textCenter.bold グローバル英語 LEVEL1 LOCAL STAGE
+                              .courseTitleBorder.englishBorder
+                              p.introduction ネイティブに通じる、聞き取れるだけではなく、自分の考えを相手に伝えるコミュニケーション力も重視したカリキュラムで、話せる英語を学びましょう。
+                            .courseEnrol
+                              p.textL.textCenter ライブレッスン内容
+                              .courseTitleBorder.englishBorder
+                              p.textM.textCenter.bold Week1
+                              .flex
+                                .Hiragana.left
+                                  img(src="https://lms.waomirai.com/pluginfile.php/2391/course/summary/HiraganaEnglish.png", alt="HiraganaEnglish.png")
+                                  p.textM.textCenter
+                                    i.fa-solid.fa-diamond(aria-hidden="true")
+                                    | ひらがなEnglish
+                                    i.fa-solid.fa-diamond(aria-hidden="true")
+                                  p(style="width:95%;margin:0 auto;") 英語の発音を
+                                    span.textUnder “ひらがなの音”
+                                    | を利用して
+                                    span.bold ラクラク上達！
+                                    br
+                                    | それと同時に単語単位からカタマリ単位で
+                                    span.bold 英語をINPUT！
+                                .Katamarhythm.right
+                                  img(src="https://lms.waomirai.com/pluginfile.php/2391/course/summary/%E3%82%AB%E3%82%BF%E3%83%9E%E3%83%AA%E3%82%BA%E3%83%A0.png", alt="%E3%82%AB%E3%82%BF%E3%83%9E%E3%83%AA%E3%82%BA%E3%83%A0.png")
+                                  p.textM.textCenter
+                                    i.fa-solid.fa-diamond(aria-hidden="true")
+                                    | カタマリズムEnglish
+                                    i.fa-solid.fa-diamond(aria-hidden="true")
+                                  p(style="width:95%;margin:0 auto;")
+                                    span.textUnder リズム
+                                    | にあわせて英語を
+                                    span.bold OUTPUT！
+                                    br
+                                    | 忘れない英語が身につく。
+                                    br
+                                    | 英語独特の
+                                    span.bold 強弱も同時にマスター！
+                              p.textM.textCenter.bold(style="margin-top:24px;") Week2
+                              .flex
+                                .HiraganaQuiz.left
+                                  img(src="https://lms.waomirai.com/pluginfile.php/2391/course/summary/%E3%81%B2%E3%82%89%E3%81%8C%E3%81%AAEnglishQUIZ.png", alt="%E3%81%B2%E3%82%89%E3%81%8C%E3%81%AAEnglishQUIZ.png")
+                                  p.textM.textCenter
+                                    i.fa-solid.fa-diamond(aria-hidden="true")
+                                    | ひらがなEnglishQuiz
+                                    i.fa-solid.fa-diamond(aria-hidden="true")
+                                  p(style="width:95%;margin:0 auto;") ひらがなで書かれた
+                                    span.textUnder 英語の音
+                                    | から、どんな単語が入ってるかあてよう！
+                                    br
+                                    | これがわかれば
+                                    span.bold リスニング力UP！
+                                .phraseChoice.right
+                                  img(src="https://lms.waomirai.com/pluginfile.php/2391/course/summary/%E3%83%95%E3%83%AC%E3%83%BC%E3%82%BACHOICE.png", alt="%E3%83%95%E3%83%AC%E3%83%BC%E3%82%BACHOICE.png")
+                                  p.textM.textCenter
+                                    i.fa-solid.fa-diamond(aria-hidden="true")
+                                    | フレーズCHOICE
+                                    i.fa-solid.fa-diamond(aria-hidden="true")
+                                  p(style="width:95%;margin:0 auto;") 英語は”作る”のではなく
+                                    span.bold ”選ぶ”！
+                                    br
+                                    | カードゲーム感覚で出だしフレーズを選ぶ練習をして
+                                    span.textUnder 英作文せず
+                                    | 話せるように！
+                              p.textM.textCenter.bold(style="margin-top:24px;") Week3
+                              .flex
+                                .ChallengeOutput.left
+                                  img(src="https://lms.waomirai.com/pluginfile.php/2391/course/summary/%E3%83%81%E3%83%A3%E3%83%AC%E3%83%B3%E3%82%B8OUTPUT.png", alt="%E3%83%81%E3%83%A3%E3%83%AC%E3%83%B3%E3%82%B8OUTPUT.png")
+                                  p.textM.textCenter
+                                    i.fa-solid.fa-diamond(aria-hidden="true")
+                                    | チャレンジOUTPUT
+                                    i.fa-solid.fa-diamond(aria-hidden="true")
+                                  p(style="width:95%;margin:0 auto;")
+                                    span.bold “ロが疲れるほど&quot;
+                                    | 喋れば英語は身につく！
+                                    br
+                                    | リズムにあわせフレーズCHOICEしながらどんどん英語を
+                                    span.textUnder OUTPUT
+                                    | しよう！
+                                .narikiri.right
+                                  img(src="https://lms.waomirai.com/pluginfile.php/2391/course/summary/%E3%83%8A%E3%83%AA%E3%82%AD%E3%83%AAROLEPLAY.png", alt="%E3%83%8A%E3%83%AA%E3%82%AD%E3%83%AAROLEPLAY.png")
+                                  p.textM.textCenter
+                                    i.fa-solid.fa-diamond(aria-hidden="true")
+                                    | ナリキリROLE-PLAY
+                                    i.fa-solid.fa-diamond(aria-hidden="true")
+                                  p(style="width:95%;margin:0 auto;") 1ヶ月の成果を実感！
+                                    br
+                                    | 実際に英語で返事できるか、英語でプレゼンできるか挑戦！
+                                    br
+                                    | 誰が一番多くポイントを獲得できるかな！？
+                            .courseEnrol
+                              p ライブレッスンに加え、配信時間以外に練習できる
+                                span.bold トレーニング動画
+                                | も配信！ライブレッスンの前に見て、レッスンの内容を予習しよう！
+                              p ライブレッスンを見れなくても
+                                span.bold 安心！
+                                br
+                                | 全てのライブレッスンを録画したものが
+                                span.bold 見逃し配信
+                                | されるので、好きな時間に受講できる！
+                            .courseEnrol
+                              p.textL.textCenter 配信日
+                              .courseTitleBorder.englishBorder
+                              .englishCourseSchedule
+                                .englishCourseSchedulePC
+                                  p.textM.bold.textCenter(style="margin-bottom:24px;") LEVEL1 LOCAL STAGE
+                                  .flex.textCenter.textM(style="margin-bottom:24px;")
+                                    p(style="width:50%;") 平日コース
+                                    p(style="width:50%;") 土曜コース
+                                  .flex.textCenter.alignCenter(style="margin-bottom:48px;")
+                                    .englishScheduleWeekday
+                                      .englishScheduleBox
+                                        p 火曜日　17:00~17:25
+                                      p.textCenter +
+                                      .englishScheduleBox
+                                        p 木曜日　17:00~17:25
+                                    p.vertical または
+                                    .englishScheduleWeekend
+                                      .englishScheduleBox.flex.scheduleSaturday
+                                        div
+                                          p 土曜日　
+                                        div
+                                          p 　17:30 ~ 18:30　
+                                          p 　※休憩時間10分を含みます。　
+                                  .englishCourseScheduleSP
+                                    p.textM.bold.textCenter(style="margin-bottom:24px;") LEVEL1 LOCAL STAGE
+                                    .flex.textCenter.textM(style="margin-bottom:24px;")
+                                      p.textCenter 平日コース
+                                    .flex.textCenter(style="margin-bottom:48px;")
+                                      .englishScheduleWeekday
+                                        .englishScheduleBox
+                                          p 火曜日　17:00~17:25
+                                        p.textCenter +
+                                        .englishScheduleBox
+                                          p 木曜日　17:00~17:25
+                                      p.textCenter(style="margin:20px 0;") または
+                                      .englishScheduleWeekend
+                                        .englishScheduleBox.flex.scheduleSaturday
+                                          div
+                                            p.textCenter 土曜日　17:30 ~ 18:30
+                                          div(style="border-left:1px solid;")
+                                            p.textCenter ※休憩時間10分を含みます。
+                                    p.textM.bold.textCenter(style="margin-bottom:24px;") LEVEL2 NATION STAGE
+                                    .flex.textCenter.textM(style="margin-bottom:24px;")
+                                      p.textCenter 平日コース
+                                    .flex.textCenter(style="margin-bottom:32px;")
+                                      .englishScheduleWeekday
+                                        .englishScheduleBox
+                                          p 火曜日　17:40~18:05
+                                        p.textCenter +
+                                        .englishScheduleBox
+                                          p 木曜日　17:40~18:05
+                                      p.textCenter(style="margin:20px 0;") または
+                                      .englishScheduleWeekend
+                                        .englishScheduleBox.flex.scheduleSaturday
+                                          div
+                                            p.textCenter 土曜日　19:00 ~ 20:00
+                                          div(style="border-left:1px solid;")
+                                            p.textCenter ※休憩時間10分を含みます。
+                              .courseEnrol
+                                p.textL.textCenter お支払い
+                                .courseTitleBorder.englishBorder
+                                p.textM(style="margin-bottom:24px;") 料金：月額6,600円（
+                                  span.bold 初月無料
+                                  | ）
+                                p お支払いはクレジットカードのみとなります。
+                                p 入会金不要・授業料とサポート料が含まれます。
+                                p クレジットカードをご登録いただくと本会員となり、無料トライアルが開始されます。
+                                p 無料トライアルは、登録月内（25日まで）に解除すれば一切料金はいただきません。
+                                p 登録解除方法は、下部メニューの
+                                  span.bold よくあるご質問（お問い合わせ）
+                                  | をご確認ください。
+                          div(class="customfield customfield_is_payment")
+                            span.customfieldname 決済用コース
+                            span.customfieldseparator : 
+                            span.customfieldvalue No
+                          div(class="customfield customfield_kenaimandatory")
+                            span.customfieldname 受講必須
+                            span.customfieldseparator : 
+                            span.customfieldvalue No
+                    .my-3(data-region="catalogue-pagesection")
+                      .d-flex.align-items-start.position-relative
+                        a.btn.btn-icon.mr-1.icons-collapse-expand.stretched-link.justify-content-center(role="button", data-toggle="collapse", href="#covercollapsec-dates", aria-expanded="true", aria-controls="covercollapsec-dates", aria-label="コース期間")
+                          span.expanded-icon.icon-no-margin.p-2(title="折りたたむ")
+                            i.icon.fa.fa-chevron-down.fa-fw(aria-hidden="true")
+                          span.collapsed-icon.icon-no-margin.p-2(title="展開する")
+                            span.dir-rtl-hide
+                              i.icon.fa.fa-chevron-right.fa-fw(aria-hidden="true")
+                            span.dir-ltr-hide
+                              i.icon.fa.fa-chevron-left.fa-fw(aria-hidden="true")
+                        h3.h5.d-flex.align-self-stretch.align-items-center.mb-0(data-region="pagesection-name")
+                          | コース期間
+                        .d-none.d-sm-flex.align-self-stretch.align-items-center.text-muted.addon
+                      #covercollapsec-dates.pagesectioncontent.collapse.show
+                        .mt-2
+                          div
+                            strong 開始日：
+                            | 24/11/16
+                  #wp-site-status-disclaimer
+                    | あなたのサイトはまだ登録されていません。
+                    a(href="https://lms.waomirai.com/admin/registration/index.php") あなたのサイトを登録する
+        #goto-top-link
+          a#backToTop.btn.btn-light(role="button", href="#", style="display: none;")
+            i.icon.fa.fa-arrow-up.fa-fw(title="トップへ戻る", role="img", aria-label="トップへ戻る", aria-hidden="true")
+            span.sr-only トップへ戻る
+        footer#page-footer.footer-popover.bg-white
+          div(data-region="footer-container-popover")
+            button.btn.btn-icon.bg-secondary.icon-no-margin.btn-footer-popover(data-action="footer-popover", aria-label="フッタを表示する")
+              i.icon.fa.fa-question.fa-fw(aria-hidden="true")
+          .footer-content-popover.container(data-region="footer-content-popover")
+            .footer-section.p-3.border-bottom
+              div
+                a(target="_blank", href="https://moodle.com/help/?utm_source=CTA-banner&amp;utm_medium=platform&amp;utm_campaign=name~Moodle4+cat~lms+mp~no")
+                  i.icon.fa.fa-life-ring.fa-fw.fa.fa-life-ring(aria-hidden="true")
+                  | サービスおよびサポート
+                  i.icon.fa.fa-external-link.fa-fw.ml-1(title="新しいウィンドウで開く", role="img", aria-label="新しいウィンドウで開く", aria-hidden="true")
+                  span.sr-only 新しいウィンドウで開く
+              div
+                a(href="https://lms.waomirai.com/user/contactsitesupport.php")
+                  i.icon.fa.fa-envelope-o.fa-fw(aria-hidden="true")
+                a(href="https://go.waomirai.com/contact", target="_blank") サポートに連絡
+            .footer-section.p-3.border-bottom
+              .logininfo
+                .logininfo ログインユーザー名：
+                  a(href="https://lms.waomirai.com/user/profile.php?id=9", title="プロファイルを表示する") 株式会社ワオ・コーポレーション サイト管理者
+                  | さん (
+                  a(href="https://lms.waomirai.com/login/logout.php?sesskey=vi4PA7uAVI") ログアウト
+                  | )
+              div(class="tool_usertours-resettourcontainer")
+              br
+              p
+                a(href="https://lms.waomirai.com/course/view.php?id=112", target="_blank", style="text-decoration: revert-layer;") ＞よくあるご質問（お問い合わせ）
+              p
+                a(href="https://waomirai.com/commerce_law", target="_blank", style="text-decoration: revert-layer;") ＞特許商取引法に基づく表記
+                  i.fa-solid.fa-up-right-from-square(aria-hidden="true")
+              p
+                a(href="https://www.wao-corp.com/privacy/", target="_blank", style="text-decoration: revert-layer;") ＞プライバシーポリシー
+                  i.fa-solid.fa-up-right-from-square(aria-hidden="true")
+              p
+                a(href="https://go.waomirai.com/terms", target="_blank", style="text-decoration: revert-layer;") ＞利用規約
+                  i.fa-solid.fa-up-right-from-square(aria-hidden="true")
+              a(href="https://lms.waomirai.com/?tenant=lmswaomirai")
+                img(src="https://go.waomirai.com/l/1026513/2023-11-16/gddzt/1026513/1700192228BDlbz92f/logo_basic_white.png", width="60%")
+              script.
+                //<![CDATA[
+                var require = {
+                baseUrl : 'https://lms.waomirai.com/lib/requirejs.php/1732783105/',
+                // We only support AMD modules with an explicit define() statement.
+                enforceDefine: true,
+                skipDataMain: true,
+                waitSeconds : 0,
+                
+                paths: {
+                jquery: 'https://lms.waomirai.com/lib/javascript.php/1732783105/lib/jquery/jquery-3.7.1.min',
+                jqueryui: 'https://lms.waomirai.com/lib/javascript.php/1732783105/lib/jquery/ui-1.13.2/jquery-ui.min',
+                jqueryprivate: 'https://lms.waomirai.com/lib/javascript.php/1732783105/lib/requirejs/jquery-private'
+                },
+                
+                // Custom jquery config map.
+                map: {
+                // '*' means all modules will get 'jqueryprivate'
+                // for their 'jquery' dependency.
+                '*': { jquery: 'jqueryprivate' },
+                // Stub module for 'process'. This is a workaround for a bug in MathJax (see MDL-60458).
+                '*': { process: 'core/first' },
+                
+                // 'jquery-private' wants the real jQuery module
+                // though. If this line was not here, there would
+                // be an unresolvable cyclic dependency.
+                jqueryprivate: { jquery: 'jquery' }
+                }
+                };
+                
+                //]]>
+              script(src="https://lms.waomirai.com/lib/javascript.php/1732783105/lib/requirejs/require.min.js")
+              script.
+                //<![CDATA[
+                M.util.js_pending("core/first");
+                require(['core/first'], function() {
+                require(['core/prefetch'])
+                ;
+                M.util.js_pending('filter_mathjaxloader/loader'); require(['filter_mathjaxloader/loader'], function(amd) {amd.configure({"mathjaxconfig":"\nMathJax.Hub.Config({\n    config: [\"Accessible.js\", \"Safe.js\"],\n    errorSettings: { message: [\"!\"] },\n    skipStartupTypeset: true,\n    messageStyle: \"none\"\n});\n","lang":"ja"}); M.util.js_complete('filter_mathjaxloader/loader');});;
+                require(["media_videojs/loader"], function(loader) {
+                loader.setUp('ja');
+                });;
+                M.util.js_pending('core_courseformat/courseeditor'); require(['core_courseformat/courseeditor'], function(amd) {amd.setViewFormat("212", {"editing":false,"supportscomponents":true,"statekey":"1733099598_1733099598","overriddenStrings":[]}); M.util.js_complete('core_courseformat/courseeditor');});;
+                
+                require(['format_flexsections/local/courseindex/placeholder'], function(component) {
+                component.init('674d034c06168674d034c0616a1-course-index-placeholder');
+                });
+                ;
+                
+                require(['format_flexsections/local/courseindex/drawer'], function(component) {
+                component.init('courseindex');
+                });
+                ;
+                M.util.js_pending('theme_kenai/gototop'); require(['theme_kenai/gototop'], function(amd) {amd.init(); M.util.js_complete('theme_kenai/gototop');});;
+                
+                require(['core/moremenu'], function(moremenu) {
+                moremenu(document.querySelector('#moremenu-674d034c06889-navbar-nav'));
+                });
+                ;
+                
+                require(['jquery', 'message_popup/notification_popover_controller'], function($, Controller) {
+                var container = $('#nav-notification-popover-container');
+                var controller = new Controller(container);
+                controller.registerEventListeners();
+                controller.registerListNavigationEventListeners();
+                });
+                ;
+                
+                require(['core/usermenu'], function(UserMenu) {
+                UserMenu.init();
+                });
+                ;
+                
+                require(['core/edit_switch'], function(editSwitch) {
+                editSwitch.init('674d034c0f579674d034c0616a6-editingswitch');
+                });
+                ;
+                
+                require(['theme_boost/drawers']);
+                ;
+                
+                require(['theme_boost/courseindexdrawercontrols'], function(component) {
+                component.init('courseindexdrawercontrols');
+                });
+                ;
+                
+                require(['theme_boost/drawers']);
+                ;
+                
+                require(['core/moremenu'], function(moremenu) {
+                moremenu(document.querySelector('#moremenu-674d034c06765-nav-tabs'));
+                });
+                ;
+                
+                require(['theme_boost/footer-popover'], function(FooterPopover) {
+                FooterPopover.init();
+                });
+                ;
+                
+                M.util.js_pending('theme_boost/loader');
+                require(['theme_boost/loader', 'theme_boost/drawer'], function(Loader, Drawer) {
+                Drawer.init();
+                M.util.js_complete('theme_boost/loader');
+                });
+                ;
+                
+                require(['tool_catalogue/coursecover'], function(courseCover) {
+                courseCover.init('212', '9');
+                });
+                ;
+                M.util.js_pending('theme_kenai/forcedfooter'); require(['theme_kenai/forcedfooter'], function(amd) {amd.init("<div id=\"forced-footer\">\n    \u00a9\ufe0fWAO CORPORATION\n<\/div>"); M.util.js_complete('theme_kenai/forcedfooter');});;
+                M.util.js_pending('core/notification'); require(['core/notification'], function(amd) {amd.init(2391, []); M.util.js_complete('core/notification');});;
+                M.util.js_pending('core/log'); require(['core/log'], function(amd) {amd.setConfig({"level":"warn"}); M.util.js_complete('core/log');});;
+                M.util.js_pending('core/page_global'); require(['core/page_global'], function(amd) {amd.init(); M.util.js_complete('core/page_global');});;
+                M.util.js_pending('core/utility'); require(['core/utility'], function(amd) {M.util.js_complete('core/utility');});
+                M.util.js_complete("core/first");
+                });
+                //]]>
+              script(src="https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js?delayStartupUntil=configured")
+              script.
+                //<![CDATA[
+                M.str = {"moodle":{"lastmodified":"\u6700\u7d42\u66f4\u65b0\u65e5\u6642","name":"\u540d\u79f0","error":"\u30a8\u30e9\u30fc","info":"\u60c5\u5831","yes":"Yes","no":"No","cancel":"\u30ad\u30e3\u30f3\u30bb\u30eb","confirm":"\u78ba\u8a8d","areyousure":"\u672c\u5f53\u306b\u3088\u308d\u3057\u3044\u3067\u3059\u304b?","closebuttontitle":"\u9589\u3058\u308b","unknownerror":"\u4e0d\u660e\u306a\u30a8\u30e9\u30fc","file":"\u30d5\u30a1\u30a4\u30eb","url":"URL","collapseall":"\u3059\u3079\u3066\u3092\u6298\u308a\u305f\u305f\u3080","expandall":"\u3059\u3079\u3066\u3092\u5c55\u958b\u3059\u308b"},"repository":{"type":"\u30bf\u30a4\u30d7","size":"\u30b5\u30a4\u30ba","invalidjson":"\u7121\u52b9\u306aJSON\u30b9\u30c8\u30ea\u30f3\u30b0\u3067\u3059\u3002","nofilesattached":"\u6dfb\u4ed8\u3055\u308c\u3066\u3044\u308b\u30d5\u30a1\u30a4\u30eb\u306f\u3042\u308a\u307e\u305b\u3093\u3002","filepicker":"\u30d5\u30a1\u30a4\u30eb\u30d4\u30c3\u30ab","logout":"\u30ed\u30b0\u30a2\u30a6\u30c8","nofilesavailable":"\u5229\u7528\u3067\u304d\u308b\u30d5\u30a1\u30a4\u30eb\u306f\u3042\u308a\u307e\u305b\u3093\u3002","norepositoriesavailable":"\u7533\u3057\u8a33\u3054\u3056\u3044\u307e\u305b\u3093\u3001\u73fe\u5728\u306e\u3042\u306a\u305f\u306e\u30ea\u30dd\u30b8\u30c8\u30ea\u3067\u306f\u6240\u8981\u306e\u30d5\u30a9\u30fc\u30de\u30c3\u30c8\u306e\u30d5\u30a1\u30a4\u30eb\u3092\u8fd4\u3059\u3053\u3068\u304c\u3067\u304d\u307e\u305b\u3093\u3002","fileexistsdialogheader":"\u30d5\u30a1\u30a4\u30eb\u767b\u9332\u6e08\u307f","fileexistsdialog_editor":"\u305d\u306e\u30d5\u30a1\u30a4\u30eb\u540d\u306e\u30d5\u30a1\u30a4\u30eb\u306f\u3042\u306a\u305f\u304c\u7de8\u96c6\u3057\u3066\u3044\u308b\u30c6\u30ad\u30b9\u30c8\u306b\u3059\u3067\u306b\u6dfb\u4ed8\u3055\u308c\u3066\u3044\u307e\u3059\u3002","fileexistsdialog_filemanager":"\u540c\u4e00\u30d5\u30a1\u30a4\u30eb\u540d\u306e\u30d5\u30a1\u30a4\u30eb\u304c\u3059\u3067\u306b\u6dfb\u4ed8\u3055\u308c\u3066\u3044\u307e\u3059\u3002","renameto":"\u30ea\u30cd\u30fc\u30e0 -> {$a}","referencesexist":"\u3053\u306e\u30d5\u30a1\u30a4\u30eb\u306b\u306f {$a} \u4ef6\u306e\u30ea\u30f3\u30af\u304c\u3042\u308a\u307e\u3059\u3002","select":"\u9078\u629e"},"admin":{"confirmdeletecomments":"\u672c\u5f53\u306b\u9078\u629e\u3057\u305f\u30b3\u30e1\u30f3\u30c8\u3092\u524a\u9664\u3057\u3066\u3082\u3088\u308d\u3057\u3044\u3067\u3059\u304b?","confirmation":"\u78ba\u8a8d"},"debug":{"debuginfo":"\u30c7\u30d0\u30c3\u30b0\u60c5\u5831","line":"\u884c","stacktrace":"\u30b9\u30bf\u30c3\u30af\u30c8\u30ec\u30fc\u30b9"},"langconfig":{"labelsep":":"}};
+                //]]>
+              script.
+                //<![CDATA[
+                (function() {M.util.help_popups.setup(Y);
+                M.util.js_pending('random674d034c0616a7'); Y.on('domready', function() { M.util.js_complete("init");  M.util.js_complete('random674d034c0616a7'); });
+                })();
+                //]]>
+            .footer-section.p-3
+              span Powered by
+              a(href="https://moodle.com/workplace/", target="_blank")
+                | Moodle Workplace
+          .footer-content-debugging.footer-dark.bg-dark.text-light
+            .container-fluid.footer-dark-inner
+      div
+        #forced-footer
+          | ©️WAO CORPORATION
+    #yui3-css-stamp(style="position: absolute !important; visibility: hidden !important")
+    script(type="text/javascript").
+      piAId="1027513";piCId="";piHostname="go.waomirai.com";(function(){function b(){var a=document.createElement("script");a.type="text/javascript";a.src=("https:"==document.location.protocol?"https://":"http://")+piHostname+"/pd.js";var c=document.getElementsByTagName("script")[0];c.parentNode.insertBefore(a,c)}window.attachEvent?window.attachEvent("onload",b):window.addEventListener("load",b,!1)})();
+    div(style="display: none; visibility: hidden;")
+      script(async="null", src="https://s.yimg.jp/images/listing/tool/cv/ytag.js")
+      script.
+        window.yjDataLayer=window.yjDataLayer||[];function ytag(){yjDataLayer.push(arguments)}ytag({type:"yss_retargeting",config:{yahoo_ss_retargeting_id:"1001324905",yahoo_sstag_custom_params:{}}});
+    div(style="display: none; visibility: hidden;")
+      script.
+        !function(b,e,f,g,a,c,d){b.fbq||(a=b.fbq=function(){a.callMethod?a.callMethod.apply(a,arguments):a.queue.push(arguments)},b._fbq||(b._fbq=a),a.push=a,a.loaded=!0,a.version="2.0",a.queue=[],c=e.createElement(f),c.async=!0,c.src=g,d=e.getElementsByTagName(f)[0],d.parentNode.insertBefore(c,d))}(window,document,"script","https://connect.facebook.net/en_US/fbevents.js");fbq("init","991613366033962");fbq("track","PageView");
+      noscript
+    div(style="display: none; visibility: hidden;")
+      script.
+        !function(d,g,e){d.TiktokAnalyticsObject=e;var a=d[e]=d[e]||[];a.methods="page track identify instances debug on off once ready alias group enableCookie disableCookie holdConsent revokeConsent grantConsent".split(" ");a.setAndDefer=function(b,c){b[c]=function(){b.push([c].concat(Array.prototype.slice.call(arguments,0)))}};for(d=0;d<a.methods.length;d++)a.setAndDefer(a,a.methods[d]);a.instance=function(b){b=a._i[b]||[];for(var c=0;c<a.methods.length;c++)a.setAndDefer(b,a.methods[c]);return b};a.load=
+        function(b,c){var f="https://analytics.tiktok.com/i18n/pixel/events.js";a._i=a._i||{};a._i[b]=[];a._i[b]._u=f;a._t=a._t||{};a._t[b]=+new Date;a._o=a._o||{};a._o[b]=c||{};c=document.createElement("script");c.type="text/javascript";c.async=!0;c.src=f+"?sdkid\x3d"+b+"\x26lib\x3d"+e;b=document.getElementsByTagName("script")[0];b.parentNode.insertBefore(c,b)};a.load("CQUN883C77U0JHDT5O1G");a.page()}(window,document,"ttq");
+    deepl-input-controller
+    span(style="border-radius:10px !important;text-indent:12px !important;width:auto !important;height:20px !important;padding:0px 8px !important;text-align:center !important;vertical-align:middle !important;font:bold 11px / 20px &quot;Helvetica Neue&quot;, Helvetica, sans-serif !important;color:rgb(255, 255, 255) !important;background:url(&quot;data:image/svg+xml;base64,PHN2ZyBpZD0ic291cmNlIiB3aWR0aD0iMTIiIGhlaWdodD0iMTIiIHZpZXdCb3g9IjAgMCAxMiAxMiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBjeD0iNiIgY3k9IjYiIHI9IjYiIGZpbGw9IiNFNjAwMjMiPjwvY2lyY2xlPgo8cGF0aCBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGNsaXAtcnVsZT0iZXZlbm9kZCIgZD0iTTAgNkMwIDguNTYxNSAxLjYwNTUgMTAuNzQ4NSAzLjg2NSAxMS42MDlDMy44MSAxMS4xNDA1IDMuNzUxNSAxMC4zNjggMy44Nzc1IDkuODI2QzMuOTg2IDkuMzYgNC41NzggNi44NTcgNC41NzggNi44NTdDNC41NzggNi44NTcgNC4zOTk1IDYuNDk5NSA0LjM5OTUgNS45N0M0LjM5OTUgNS4xNCA0Ljg4MDUgNC41MiA1LjQ4IDQuNTJDNS45OSA0LjUyIDYuMjM2IDQuOTAyNSA2LjIzNiA1LjM2MUM2LjIzNiA1Ljg3MzUgNS45MDk1IDYuNjM5NSA1Ljc0MSA3LjM1QzUuNjAwNSA3Ljk0NDUgNi4wMzk1IDguNDI5NSA2LjYyNTUgOC40Mjk1QzcuNjg3IDguNDI5NSA4LjUwMzUgNy4zMSA4LjUwMzUgNS42OTRDOC41MDM1IDQuMjYzNSA3LjQ3NTUgMy4yNjQgNi4wMDggMy4yNjRDNC4zMDkgMy4yNjQgMy4zMTE1IDQuNTM4NSAzLjMxMTUgNS44NTZDMy4zMTE1IDYuMzY5NSAzLjUwOSA2LjkxOTUgMy43NTYgNy4yMTlDMy44MDQ1IDcuMjc4NSAzLjgxMiA3LjMzIDMuNzk3NSA3LjM5MDVDMy43NTIgNy41Nzk1IDMuNjUxIDcuOTg1IDMuNjMxNSA4LjA2OEMzLjYwNSA4LjE3NyAzLjU0NSA4LjIwMDUgMy40MzE1IDguMTQ3NUMyLjY4NTUgNy44MDA1IDIuMjE5NSA2LjcxIDIuMjE5NSA1LjgzNEMyLjIxOTUgMy45NDk1IDMuNTg4IDIuMjE5NSA2LjE2NTUgMi4yMTk1QzguMjM3NSAyLjIxOTUgOS44NDggMy42OTYgOS44NDggNS42NjlDOS44NDggNy43Mjc1IDguNTUwNSA5LjM4NDUgNi43NDg1IDkuMzg0NUM2LjE0MyA5LjM4NDUgNS41NzQ1IDkuMDY5NSA1LjM3OTUgOC42OThDNS4zNzk1IDguNjk4IDUuMDggOS44MzkgNS4wMDc1IDEwLjExOEM0Ljg2NjUgMTAuNjYgNC40NzU1IDExLjM0NiA0LjIzMyAxMS43MzU1QzQuNzkyIDExLjkwNzUgNS4zODUgMTIgNiAxMkM5LjMxMzUgMTIgMTIgOS4zMTM1IDEyIDZDMTIgMi42ODY1IDkuMzEzNSAwIDYgMEMyLjY4NjUgMCAwIDIuNjg2NSAwIDZaIiBmaWxsPSJ3aGl0ZSI+PC9wYXRoPgo8L3N2Zz4=&quot;) 4px 50% / 12px 12px no-repeat rgb(230, 0, 35) !important;position:absolute !important;opacity:1 !important;z-index:9007199254740990 !important;display:none !important;cursor:pointer !important;border:none !important;-webkit-font-smoothing:antialiased !important;top:0 !important;left:0 !important;display:none !important;top:1083px !important;left:387px !important") 保存
+
