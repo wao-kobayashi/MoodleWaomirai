@@ -1,0 +1,156 @@
+//哲学特有
+.course-138,
+.course-211 {
+    .mr-auto,
+    .mx-auto {
+        /* margin-right: auto !important; */
+        width: 100%;
+    }
+    .page-context-header {
+        .page-header-image {
+            display: none !important;
+        }
+        .page-header-headings {
+            width: 100%;
+            position: relative;
+            height: 320px;
+            background: $cl-philosophy;
+            border-radius: $border-radius-middle;
+            display: flex;
+            align-items: center;
+            margin: 0 0 48px !important;
+            h1 {
+                color: white !important;
+                padding: 0 0 0 40px;
+                font-size: $lms-font-size-xxl !important;
+            }
+            &:before {
+                right: 0;
+                top: 0;
+                width: 50%;
+                height: 320px;
+                object-fit: contain;
+                border-radius: 0px 8px 8px 0;
+                background-image: url('https://waomirai.com/wp-content/uploads/2024/07/phi_main.jpg');
+                /* 画像を指定 */
+                background-size: cover;
+                /* 画像を全体に表示 */
+                background-repeat: no-repeat;
+                /* 画像を繰り返さない */
+                background-position: center;
+                /* 画像を中央に配置 */
+                display: block;
+                // content: "";
+                content: "";
+                position: absolute;
+            }
+        }
+    }
+    .h5.mt-4 {
+        display: none;
+    }
+}
+
+//コース詳細
+#{join($contexts, ", ")} {
+    .flexsections-level-0>.course-section.main {
+        border: 2px solid $cl-graylightest;
+        border-radius: 10px;
+        padding: 0 !important;
+        margin: 0 auto 32px !important;
+        .btn.btn-icon {
+            background: white !important;
+            margin-right: 0.75rem !important;
+        }
+        .mb-3,
+        .my-3 {
+            margin-bottom: 0rem !important;
+        }
+        .d-block {
+            padding: 0px 15px 10px !important;
+        }
+        .section .activity {
+            list-style: none;
+            padding: .25rem 0 0.5rem;
+        }
+        >.course-section-header {
+            background: $cl-graylightest;
+            padding: 20px 15px !important;
+            h3 {
+                font-size: $lms-font-size-xl !important;
+            }
+        }
+        h3 {
+            font-size: $lms-font-size-l !important;
+        }
+        .course-section-header {
+            padding: 0px 15px;
+        }
+        .course-section {
+            border: none !important;
+        }
+    }
+}
+
+//コース購入
+#{join($contexts, ", ")} {
+    .enrol_buy_as_a_set {
+        position: fixed;
+        top: calc(5rem + 330px);
+        right: 1rem;
+        width: 250px !important;
+        padding: 20px 20px;
+        background: white;
+        @include lms-boxshadow;
+        border-radius: $border-radius-middle;
+        .enrol_buy_as_a_set_img {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 15px auto 15px;
+            .enrol_buy_as_a_set_img_child {
+                width: 80px;
+                height: 30px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                border-radius: $border-radius-middle;
+                background: $cl-graylightest;
+                font-size: $lms-font-size-s;
+            }
+        }
+        .enrol_buy_as_a_set_detail {
+            border-top: 1px solid $cl-graylight;
+            padding: 15px 0 0;
+            font-size: $lms-font-size-s !important;
+            a {
+                color: $cl-waogreen !important;
+            }
+        }
+    }
+    .enrol_fee_payment_region {
+        width: 250px !important;
+        background: #fff !important;
+        border-radius: $border-radius-middle;
+        padding: 30px 20px;
+        height: 270px;
+        text-align: left !important;
+        line-height: 1.75 !important;
+        font-weight: normal !important;
+        @include lms-boxshadow;
+        p {}
+        p:nth-child(2) {
+            margin: 0 auto 15px !important;
+        }
+        .btn.btn-secondary {
+            width: 100%;
+            height: 48px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: $lms-font-size-m !important;
+            background: $cl-waogreen !important;
+            border-radius: $border-radius-small;
+        }
+    }
+}

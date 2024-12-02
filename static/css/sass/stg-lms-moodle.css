@@ -4,6 +4,505 @@ html[data-tenantidnumber=stg] {
   /* 全体の幅 */
   /* フォント */
   /* border-radius */
+  /* boxshadow */
+}
+html[data-tenantidnumber=stg] .pagelayout-mydashboard {
+  background: #f0f2f3 !important;
+}
+html[data-tenantidnumber=stg] .pagelayout-mydashboard #page.drawers .main-inner {
+  background: transparent;
+}
+html[data-tenantidnumber=stg] .pagelayout-mydashboard h4 {
+  margin-bottom: 0 !important;
+  font-size: 20px !important;
+  font-weight: 600 !important;
+  margin-bottom: none !important;
+  float: none !important;
+}
+html[data-tenantidnumber=stg] .pagelayout-mydashboard div.mb-3 {
+  margin-bottom: 32px !important;
+}
+html[data-tenantidnumber=stg] .pagelayout-mydashboard .card.block {
+  border: none;
+}
+html[data-tenantidnumber=stg] .pagelayout-mydashboard .maincalendar .header {
+  margin: 0px 0 20px !important;
+}
+html[data-tenantidnumber=stg] .pagelayout-mydashboard .calendar-controls {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 0px 0 20px !important;
+}
+html[data-tenantidnumber=stg] .pagelayout-mydashboard .calendar-controls .previous {
+  -webkit-transform: rotate(-180deg);
+          transform: rotate(-180deg);
+}
+html[data-tenantidnumber=stg] .pagelayout-mydashboard .calendar-controls .next,
+html[data-tenantidnumber=stg] .pagelayout-mydashboard .calendar-controls .previous {
+  position: relative;
+  color: white;
+  line-height: 0 !important;
+}
+html[data-tenantidnumber=stg] .pagelayout-mydashboard .calendar-controls .next span,
+html[data-tenantidnumber=stg] .pagelayout-mydashboard .calendar-controls .previous span {
+  line-height: 0 !important;
+}
+html[data-tenantidnumber=stg] .pagelayout-mydashboard .calendar-controls .next:active, html[data-tenantidnumber=stg] .pagelayout-mydashboard .calendar-controls .next:focus,
+html[data-tenantidnumber=stg] .pagelayout-mydashboard .calendar-controls .previous:active,
+html[data-tenantidnumber=stg] .pagelayout-mydashboard .calendar-controls .previous:focus {
+  background: none;
+  color: white;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  -webkit-tap-highlight-color: transparent;
+  /* タップ時のハイライトを無効化 */
+}
+html[data-tenantidnumber=stg] .pagelayout-mydashboard .calendar-controls .next:hover,
+html[data-tenantidnumber=stg] .pagelayout-mydashboard .calendar-controls .previous:hover {
+  background: #f0f2f3;
+}
+html[data-tenantidnumber=stg] .pagelayout-mydashboard .calendar-controls .next::before, html[data-tenantidnumber=stg] .pagelayout-mydashboard .calendar-controls .next::after,
+html[data-tenantidnumber=stg] .pagelayout-mydashboard .calendar-controls .previous::before,
+html[data-tenantidnumber=stg] .pagelayout-mydashboard .calendar-controls .previous::after {
+  content: "";
+  position: absolute;
+  top: calc(50% - 2px);
+  left: 0;
+  right: 0;
+  right: 0;
+  margin: auto;
+  width: 12px;
+  height: 2px;
+  border-radius: 9999px;
+  background-color: #999;
+  -webkit-transform-origin: calc(100% - 2px) 50%;
+          transform-origin: calc(100% - 2px) 50%;
+}
+html[data-tenantidnumber=stg] .pagelayout-mydashboard .calendar-controls .next::before,
+html[data-tenantidnumber=stg] .pagelayout-mydashboard .calendar-controls .previous::before {
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+}
+html[data-tenantidnumber=stg] .pagelayout-mydashboard .calendar-controls .next::after,
+html[data-tenantidnumber=stg] .pagelayout-mydashboard .calendar-controls .previous::after {
+  -webkit-transform: rotate(-45deg);
+          transform: rotate(-45deg);
+  top: calc(50% - 0.5px);
+}
+html[data-tenantidnumber=stg] .pagelayout-mydashboard .calendar-controls .arrow_link {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  border-radius: 100px;
+  border: 1.5px solid #999;
+  display: block;
+  text-indent: -9999px;
+  background: none;
+  line-height: 0 !important;
+}
+html[data-tenantidnumber=stg] .pagelayout-mydashboard .calendar-controls .arrow_link span {
+  display: none;
+}
+html[data-tenantidnumber=stg] .pagelayout-mydashboard .calendar-controls .current {
+  width: 155px;
+  display: block;
+}
+@media (min-width: 768px) {
+  html[data-tenantidnumber=stg] .pagelayout-mydashboard #page.drawers .main-inner,
+  html[data-tenantidnumber=stg] .pagelayout-mydashboard body.limitedwidth #page.drawers .main-inner {
+    max-width: 1200px !important;
+  }
+}
+html[data-tenantidnumber=stg] .pagelayout-mydashboard .card-body {
+  padding: 20px 15px 25px !important;
+}
+html[data-tenantidnumber=stg] .pagelayout-mydashboard .card-title {
+  margin: 0 -15px !important;
+  padding: 3px 45px 15px;
+  border-bottom: 4px #f0f2f3 solid;
+  width: calc(100% + 30px);
+  display: block !important;
+  font-size: 24px !important;
+  position: relative;
+}
+html[data-tenantidnumber=stg] .pagelayout-mydashboard .card-title:before {
+  width: 7px;
+  height: 30px;
+  content: "";
+  background: #005C3F;
+  display: block;
+  position: absolute;
+  left: 20px;
+  top: -12px;
+  bottom: 0;
+  margin: auto;
+  border-radius: 4px;
+}
+html[data-tenantidnumber=stg] .pagelayout-mydashboard .calendarmonth {
+  border-radius: 8px;
+  border: none;
+  position: relative;
+}
+html[data-tenantidnumber=stg] .pagelayout-mydashboard .calendarmonth:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 9;
+  border-radius: 8px;
+  border: 1px solid #dee2e6;
+  pointer-events: none;
+}
+html[data-tenantidnumber=stg] .pagelayout-mydashboard .day {
+  color: #999 !important;
+  cursor: default;
+}
+html[data-tenantidnumber=stg] .pagelayout-mydashboard .day:hover {
+  background: none !important;
+}
+html[data-tenantidnumber=stg] .pagelayout-mydashboard .maincalendar .calendarmonth ul li:focus, html[data-tenantidnumber=stg] .pagelayout-mydashboard .maincalendar .calendarmonth ul li:active {
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  -webkit-tap-highlight-color: transparent;
+}
+html[data-tenantidnumber=stg] .pagelayout-mydashboard .maincalendar .calendarmonth ul li > a {
+  background: #f0f2f3 !important;
+  color: #005C3F !important;
+  font-size: 12px !important;
+  padding: 5px 7px;
+  border-left: #005C3F 2px solid !important;
+  display: block;
+  font-weight: bold;
+}
+html[data-tenantidnumber=stg] .pagelayout-mydashboard .maincalendar .calendarmonth ul li > a:focus, html[data-tenantidnumber=stg] .pagelayout-mydashboard .maincalendar .calendarmonth ul li > a:active {
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  -webkit-tap-highlight-color: transparent;
+}
+html[data-tenantidnumber=stg] .pagelayout-mydashboard .maincalendar .calendarmonth ul li > a:hover {
+  text-decoration: none !important;
+}
+html[data-tenantidnumber=stg] .pagelayout-mydashboard .maincalendar .calendarmonth ul li > a:hover * {
+  text-decoration: none !important;
+}
+html[data-tenantidnumber=stg] .pagelayout-mydashboard .maincalendar .calendarmonth ul li .calendar-circle.calendar_event_course {
+  display: none;
+}
+html[data-tenantidnumber=stg] .pagelayout-mydashboard .maincalendar .calendarmonth th {
+  text-align: left;
+  padding: 8px 10px 7px 13px;
+  background: #f0f2f3 !important;
+}
+html[data-tenantidnumber=stg] .pagelayout-mydashboard .maincalendar .calendarmonth tr td:last-child,
+html[data-tenantidnumber=stg] .pagelayout-mydashboard .maincalendar .calendarmonth tr td:first-child {
+  border-right: none;
+}
+html[data-tenantidnumber=stg] .pagelayout-mydashboard .maincalendar tbody tr:last-child td:first-child {
+  border-bottom-left-radius: 10px;
+}
+html[data-tenantidnumber=stg] .pagelayout-mydashboard .maincalendar tbody tr:last-child td:last-child {
+  border-bottom-right-radius: 10px;
+}
+html[data-tenantidnumber=stg] .pagelayout-mydashboard .maincalendar .calendarmonth th,
+html[data-tenantidnumber=stg] .pagelayout-mydashboard .maincalendar .calendarmonth td {
+  color: #999;
+  font-size: 14px !important;
+}
+html[data-tenantidnumber=stg] .pagelayout-mydashboard .maincalendar .calendarmonth tr th {
+  border: none;
+  font-size: 12px !important;
+}
+html[data-tenantidnumber=stg] .pagelayout-mydashboard .maincalendar .calendarmonth tr th:first-child {
+  border-top-left-radius: 10px;
+}
+html[data-tenantidnumber=stg] .pagelayout-mydashboard .maincalendar .calendarmonth tr th:last-child {
+  border-top-right-radius: 10px;
+}
+html[data-tenantidnumber=stg] .pagelayout-mydashboard .footer-link {
+  display: none;
+}
+html[data-tenantidnumber=stg] .pagelayout-mydashboard .modal .calendar_event_course {
+  background: #f0f2f3;
+}
+html[data-tenantidnumber=stg] .pagelayout-mydashboard .modal .modal-body {
+  padding: 16px 16px 48px !important;
+}
+html[data-tenantidnumber=stg] .pagelayout-mydashboard .summary-modal-container .aa img {
+  width: 100%;
+  border-radius: 8px;
+}
+html[data-tenantidnumber=stg] .pagelayout-mydashboard .summary-modal-container .col-1 {
+  display: none;
+}
+html[data-tenantidnumber=stg] .pagelayout-mydashboard .summary-modal-container .col-11 {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  max-width: 100%;
+  padding: 0 5px !important;
+}
+html[data-tenantidnumber=stg] .pagelayout-mydashboard .summary-modal-container .row:nth-child(1),
+html[data-tenantidnumber=stg] .pagelayout-mydashboard .summary-modal-container .row:nth-child(2),
+html[data-tenantidnumber=stg] .pagelayout-mydashboard .summary-modal-container .row:nth-child(5) {
+  display: none;
+}
+html[data-tenantidnumber=stg] .pagelayout-mydashboard .summary-modal-container i {
+  display: none;
+}
+html[data-tenantidnumber=stg] .pagelayout-mydashboard .summary-modal-container .location-content {
+  position: relative;
+  display: block;
+  height: 55px;
+  width: 230px;
+  margin: 32px 0 0;
+}
+html[data-tenantidnumber=stg] .pagelayout-mydashboard .summary-modal-container .location-content a {
+  text-indent: -9999px;
+  display: block;
+  height: 55px;
+  width: 230px;
+  margin: 0 auto;
+}
+html[data-tenantidnumber=stg] .pagelayout-mydashboard .summary-modal-container .location-content a:focus, html[data-tenantidnumber=stg] .pagelayout-mydashboard .summary-modal-container .location-content a:active {
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  -webkit-tap-highlight-color: transparent;
+}
+html[data-tenantidnumber=stg] .pagelayout-mydashboard .summary-modal-container .location-content:before {
+  content: "授業を受講する";
+  background: #005C3F;
+  border-radius: 4px;
+  width: 230px;
+  height: 55px;
+  text-align: center;
+  color: white;
+  margin: 0 auto;
+  padding: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 18px;
+  position: absolute;
+  left: 0;
+  right: 0;
+  pointer-events: none;
+}
+html[data-tenantidnumber=stg] .pagelayout-mydashboard .summary-modal-container .location-content:before:hover {
+  opacity: 0.8;
+}
+html[data-tenantidnumber=stg] .pagelayout-mydashboard .block_myinprogress .tool_catalogue-carousel {
+  overflow: hidden !important;
+}
+html[data-tenantidnumber=stg] .pagelayout-mydashboard .pagination {
+  position: absolute;
+  right: 30px;
+  top: 47px;
+}
+html[data-tenantidnumber=stg] .course-138 .mr-auto,
+html[data-tenantidnumber=stg] .course-138 .mx-auto,
+html[data-tenantidnumber=stg] .course-211 .mr-auto,
+html[data-tenantidnumber=stg] .course-211 .mx-auto {
+  /* margin-right: auto !important; */
+  width: 100%;
+}
+html[data-tenantidnumber=stg] .course-138 .page-context-header .page-header-image,
+html[data-tenantidnumber=stg] .course-211 .page-context-header .page-header-image {
+  display: none !important;
+}
+html[data-tenantidnumber=stg] .course-138 .page-context-header .page-header-headings,
+html[data-tenantidnumber=stg] .course-211 .page-context-header .page-header-headings {
+  width: 100%;
+  position: relative;
+  height: 320px;
+  background: #FCAF17;
+  border-radius: 8px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 0 0 48px !important;
+}
+html[data-tenantidnumber=stg] .course-138 .page-context-header .page-header-headings h1,
+html[data-tenantidnumber=stg] .course-211 .page-context-header .page-header-headings h1 {
+  color: white !important;
+  padding: 0 0 0 40px;
+  font-size: 30px !important;
+}
+html[data-tenantidnumber=stg] .course-138 .page-context-header .page-header-headings:before,
+html[data-tenantidnumber=stg] .course-211 .page-context-header .page-header-headings:before {
+  right: 0;
+  top: 0;
+  width: 50%;
+  height: 320px;
+  -o-object-fit: contain;
+     object-fit: contain;
+  border-radius: 0px 8px 8px 0;
+  background-image: url("https://waomirai.com/wp-content/uploads/2024/07/phi_main.jpg");
+  /* 画像を指定 */
+  background-size: cover;
+  /* 画像を全体に表示 */
+  background-repeat: no-repeat;
+  /* 画像を繰り返さない */
+  background-position: center;
+  /* 画像を中央に配置 */
+  display: block;
+  content: "";
+  position: absolute;
+}
+html[data-tenantidnumber=stg] .course-138 .h5.mt-4,
+html[data-tenantidnumber=stg] .course-211 .h5.mt-4 {
+  display: none;
+}
+html[data-tenantidnumber=stg] .context-2497 .flexsections-level-0 > .course-section.main, html[data-tenantidnumber=stg] .context-33 .flexsections-level-0 > .course-section.main, html[data-tenantidnumber=stg] .context-18 .flexsections-level-0 > .course-section.main, html[data-tenantidnumber=stg] .course-138 .flexsections-level-0 > .course-section.main, html[data-tenantidnumber=stg] .course-211 .flexsections-level-0 > .course-section.main {
+  border: 2px solid #f0f2f3;
+  border-radius: 10px;
+  padding: 0 !important;
+  margin: 0 auto 32px !important;
+}
+html[data-tenantidnumber=stg] .context-2497 .flexsections-level-0 > .course-section.main .btn.btn-icon, html[data-tenantidnumber=stg] .context-33 .flexsections-level-0 > .course-section.main .btn.btn-icon, html[data-tenantidnumber=stg] .context-18 .flexsections-level-0 > .course-section.main .btn.btn-icon, html[data-tenantidnumber=stg] .course-138 .flexsections-level-0 > .course-section.main .btn.btn-icon, html[data-tenantidnumber=stg] .course-211 .flexsections-level-0 > .course-section.main .btn.btn-icon {
+  background: white !important;
+  margin-right: 12px !important;
+  margin-right: 0.75rem !important;
+}
+html[data-tenantidnumber=stg] .context-2497 .flexsections-level-0 > .course-section.main .mb-3,
+html[data-tenantidnumber=stg] .context-2497 .flexsections-level-0 > .course-section.main .my-3, html[data-tenantidnumber=stg] .context-33 .flexsections-level-0 > .course-section.main .mb-3,
+html[data-tenantidnumber=stg] .context-33 .flexsections-level-0 > .course-section.main .my-3, html[data-tenantidnumber=stg] .context-18 .flexsections-level-0 > .course-section.main .mb-3,
+html[data-tenantidnumber=stg] .context-18 .flexsections-level-0 > .course-section.main .my-3, html[data-tenantidnumber=stg] .course-138 .flexsections-level-0 > .course-section.main .mb-3,
+html[data-tenantidnumber=stg] .course-138 .flexsections-level-0 > .course-section.main .my-3, html[data-tenantidnumber=stg] .course-211 .flexsections-level-0 > .course-section.main .mb-3,
+html[data-tenantidnumber=stg] .course-211 .flexsections-level-0 > .course-section.main .my-3 {
+  margin-bottom: 0px !important;
+  margin-bottom: 0rem !important;
+}
+html[data-tenantidnumber=stg] .context-2497 .flexsections-level-0 > .course-section.main .d-block, html[data-tenantidnumber=stg] .context-33 .flexsections-level-0 > .course-section.main .d-block, html[data-tenantidnumber=stg] .context-18 .flexsections-level-0 > .course-section.main .d-block, html[data-tenantidnumber=stg] .course-138 .flexsections-level-0 > .course-section.main .d-block, html[data-tenantidnumber=stg] .course-211 .flexsections-level-0 > .course-section.main .d-block {
+  padding: 0px 15px 10px !important;
+}
+html[data-tenantidnumber=stg] .context-2497 .flexsections-level-0 > .course-section.main .section .activity, html[data-tenantidnumber=stg] .context-33 .flexsections-level-0 > .course-section.main .section .activity, html[data-tenantidnumber=stg] .context-18 .flexsections-level-0 > .course-section.main .section .activity, html[data-tenantidnumber=stg] .course-138 .flexsections-level-0 > .course-section.main .section .activity, html[data-tenantidnumber=stg] .course-211 .flexsections-level-0 > .course-section.main .section .activity {
+  list-style: none;
+  padding: 4px 0 8px;
+  padding: 0.25rem 0 0.5rem;
+}
+html[data-tenantidnumber=stg] .context-2497 .flexsections-level-0 > .course-section.main > .course-section-header, html[data-tenantidnumber=stg] .context-33 .flexsections-level-0 > .course-section.main > .course-section-header, html[data-tenantidnumber=stg] .context-18 .flexsections-level-0 > .course-section.main > .course-section-header, html[data-tenantidnumber=stg] .course-138 .flexsections-level-0 > .course-section.main > .course-section-header, html[data-tenantidnumber=stg] .course-211 .flexsections-level-0 > .course-section.main > .course-section-header {
+  background: #f0f2f3;
+  padding: 20px 15px !important;
+}
+html[data-tenantidnumber=stg] .context-2497 .flexsections-level-0 > .course-section.main > .course-section-header h3, html[data-tenantidnumber=stg] .context-33 .flexsections-level-0 > .course-section.main > .course-section-header h3, html[data-tenantidnumber=stg] .context-18 .flexsections-level-0 > .course-section.main > .course-section-header h3, html[data-tenantidnumber=stg] .course-138 .flexsections-level-0 > .course-section.main > .course-section-header h3, html[data-tenantidnumber=stg] .course-211 .flexsections-level-0 > .course-section.main > .course-section-header h3 {
+  font-size: 24px !important;
+}
+html[data-tenantidnumber=stg] .context-2497 .flexsections-level-0 > .course-section.main h3, html[data-tenantidnumber=stg] .context-33 .flexsections-level-0 > .course-section.main h3, html[data-tenantidnumber=stg] .context-18 .flexsections-level-0 > .course-section.main h3, html[data-tenantidnumber=stg] .course-138 .flexsections-level-0 > .course-section.main h3, html[data-tenantidnumber=stg] .course-211 .flexsections-level-0 > .course-section.main h3 {
+  font-size: 20px !important;
+}
+html[data-tenantidnumber=stg] .context-2497 .flexsections-level-0 > .course-section.main .course-section-header, html[data-tenantidnumber=stg] .context-33 .flexsections-level-0 > .course-section.main .course-section-header, html[data-tenantidnumber=stg] .context-18 .flexsections-level-0 > .course-section.main .course-section-header, html[data-tenantidnumber=stg] .course-138 .flexsections-level-0 > .course-section.main .course-section-header, html[data-tenantidnumber=stg] .course-211 .flexsections-level-0 > .course-section.main .course-section-header {
+  padding: 0px 15px;
+}
+html[data-tenantidnumber=stg] .context-2497 .flexsections-level-0 > .course-section.main .course-section, html[data-tenantidnumber=stg] .context-33 .flexsections-level-0 > .course-section.main .course-section, html[data-tenantidnumber=stg] .context-18 .flexsections-level-0 > .course-section.main .course-section, html[data-tenantidnumber=stg] .course-138 .flexsections-level-0 > .course-section.main .course-section, html[data-tenantidnumber=stg] .course-211 .flexsections-level-0 > .course-section.main .course-section {
+  border: none !important;
+}
+html[data-tenantidnumber=stg] .context-2497 .enrol_buy_as_a_set, html[data-tenantidnumber=stg] .context-33 .enrol_buy_as_a_set, html[data-tenantidnumber=stg] .context-18 .enrol_buy_as_a_set, html[data-tenantidnumber=stg] .course-138 .enrol_buy_as_a_set, html[data-tenantidnumber=stg] .course-211 .enrol_buy_as_a_set {
+  position: fixed;
+  top: calc(5rem + 330px);
+  right: 16px;
+  right: 1rem;
+  width: 250px !important;
+  padding: 20px 20px;
+  background: white;
+  -webkit-box-shadow: 0px 4px 6px rgba(0, 0, 0, .15) !important;
+          box-shadow: 0px 4px 6px rgba(0, 0, 0, .15) !important;
+  border-radius: 8px;
+}
+html[data-tenantidnumber=stg] .context-2497 .enrol_buy_as_a_set .enrol_buy_as_a_set_img, html[data-tenantidnumber=stg] .context-33 .enrol_buy_as_a_set .enrol_buy_as_a_set_img, html[data-tenantidnumber=stg] .context-18 .enrol_buy_as_a_set .enrol_buy_as_a_set_img, html[data-tenantidnumber=stg] .course-138 .enrol_buy_as_a_set .enrol_buy_as_a_set_img, html[data-tenantidnumber=stg] .course-211 .enrol_buy_as_a_set .enrol_buy_as_a_set_img {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 15px auto 15px;
+}
+html[data-tenantidnumber=stg] .context-2497 .enrol_buy_as_a_set .enrol_buy_as_a_set_img .enrol_buy_as_a_set_img_child, html[data-tenantidnumber=stg] .context-33 .enrol_buy_as_a_set .enrol_buy_as_a_set_img .enrol_buy_as_a_set_img_child, html[data-tenantidnumber=stg] .context-18 .enrol_buy_as_a_set .enrol_buy_as_a_set_img .enrol_buy_as_a_set_img_child, html[data-tenantidnumber=stg] .course-138 .enrol_buy_as_a_set .enrol_buy_as_a_set_img .enrol_buy_as_a_set_img_child, html[data-tenantidnumber=stg] .course-211 .enrol_buy_as_a_set .enrol_buy_as_a_set_img .enrol_buy_as_a_set_img_child {
+  width: 80px;
+  height: 30px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-radius: 8px;
+  background: #f0f2f3;
+  font-size: 12px;
+}
+html[data-tenantidnumber=stg] .context-2497 .enrol_buy_as_a_set .enrol_buy_as_a_set_detail, html[data-tenantidnumber=stg] .context-33 .enrol_buy_as_a_set .enrol_buy_as_a_set_detail, html[data-tenantidnumber=stg] .context-18 .enrol_buy_as_a_set .enrol_buy_as_a_set_detail, html[data-tenantidnumber=stg] .course-138 .enrol_buy_as_a_set .enrol_buy_as_a_set_detail, html[data-tenantidnumber=stg] .course-211 .enrol_buy_as_a_set .enrol_buy_as_a_set_detail {
+  border-top: 1px solid #999;
+  padding: 15px 0 0;
+  font-size: 12px !important;
+}
+html[data-tenantidnumber=stg] .context-2497 .enrol_buy_as_a_set .enrol_buy_as_a_set_detail a, html[data-tenantidnumber=stg] .context-33 .enrol_buy_as_a_set .enrol_buy_as_a_set_detail a, html[data-tenantidnumber=stg] .context-18 .enrol_buy_as_a_set .enrol_buy_as_a_set_detail a, html[data-tenantidnumber=stg] .course-138 .enrol_buy_as_a_set .enrol_buy_as_a_set_detail a, html[data-tenantidnumber=stg] .course-211 .enrol_buy_as_a_set .enrol_buy_as_a_set_detail a {
+  color: #005C3F !important;
+}
+html[data-tenantidnumber=stg] .context-2497 .enrol_fee_payment_region, html[data-tenantidnumber=stg] .context-33 .enrol_fee_payment_region, html[data-tenantidnumber=stg] .context-18 .enrol_fee_payment_region, html[data-tenantidnumber=stg] .course-138 .enrol_fee_payment_region, html[data-tenantidnumber=stg] .course-211 .enrol_fee_payment_region {
+  width: 250px !important;
+  background: #fff !important;
+  border-radius: 8px;
+  padding: 30px 20px;
+  height: 270px;
+  text-align: left !important;
+  line-height: 1.75 !important;
+  font-weight: normal !important;
+  -webkit-box-shadow: 0px 4px 6px rgba(0, 0, 0, .15) !important;
+          box-shadow: 0px 4px 6px rgba(0, 0, 0, .15) !important;
+}
+html[data-tenantidnumber=stg] .context-2497 .enrol_fee_payment_region p:nth-child(2), html[data-tenantidnumber=stg] .context-33 .enrol_fee_payment_region p:nth-child(2), html[data-tenantidnumber=stg] .context-18 .enrol_fee_payment_region p:nth-child(2), html[data-tenantidnumber=stg] .course-138 .enrol_fee_payment_region p:nth-child(2), html[data-tenantidnumber=stg] .course-211 .enrol_fee_payment_region p:nth-child(2) {
+  margin: 0 auto 15px !important;
+}
+html[data-tenantidnumber=stg] .context-2497 .enrol_fee_payment_region .btn.btn-secondary, html[data-tenantidnumber=stg] .context-33 .enrol_fee_payment_region .btn.btn-secondary, html[data-tenantidnumber=stg] .context-18 .enrol_fee_payment_region .btn.btn-secondary, html[data-tenantidnumber=stg] .course-138 .enrol_fee_payment_region .btn.btn-secondary, html[data-tenantidnumber=stg] .course-211 .enrol_fee_payment_region .btn.btn-secondary {
+  width: 100%;
+  height: 48px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 14px !important;
+  background: #005C3F !important;
+  border-radius: 4px;
 }
 html[data-tenantidnumber=stg] .context-2497, html[data-tenantidnumber=stg] .context-33, html[data-tenantidnumber=stg] .context-18 {
   background: #f0f2f3 !important;

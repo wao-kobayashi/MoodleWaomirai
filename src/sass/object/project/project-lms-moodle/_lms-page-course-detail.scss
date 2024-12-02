@@ -1,5 +1,9 @@
+// 全体スタイル設定
+$contexts: ".context-2497", //stg-kobayashiのダッシュボード
+".context-33", //stg-adminのダッシュボード
+".context-18"; //stg-userのダッシュボード
 //calender
-.pagelayout-mydashboard {
+#{join($contexts, ", ")} {
     // 背景設定
     background: $cl-graylightest !important;
     // ページの内側部分（drawers）の背景を透明化
@@ -243,7 +247,7 @@
 }
 
 //modal
-.pagelayout-mydashboard {
+#{join($contexts, ", ")} {
     .modal {
         .calendar_event_course {
             background: $cl-graylightest;
@@ -323,7 +327,7 @@
 }
 
 //carousel-card
-.pagelayout-mydashboard {
+#{join($contexts, ", ")} {
     .block_myinprogress .tool_catalogue-carousel {
         overflow: hidden !important;
     }
