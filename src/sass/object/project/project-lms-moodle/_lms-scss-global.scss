@@ -3,6 +3,8 @@
 @import "../../../foundation/_constant"; //色などの変数定義
 @import "_lms-variable"; //色などの変数定義
 @import "_lms-courseid"; //色などの変数定義
-@import "_lms-page-dashboard"; //学習ページ
+@import "_lms-page-common"; //共通
+@import "_lms-page-index"; //トップページ
+@import "_lms-page-dashboard"; //ダッシュページ
 @import "_lms-page-course-payment"; //コース詳細
 @import "_lms-page-course-detail"; //コース詳細

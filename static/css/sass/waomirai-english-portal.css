@@ -100,7 +100,7 @@ select {
   }
 }
 body {
-  color: #333333;
+  color: #4d4d4d;
   font-family: "Lato", "Noto Sans JP", sans-serif;
 }
 
@@ -351,7 +351,7 @@ section {
 .section-wao-english h2 {
   text-align: center;
   font-size: 30px;
-  color: #000000;
+  color: #262626;
   margin: 0 auto 15px;
 }
 .section-wao-english .section-wao-english-p {
@@ -411,7 +411,7 @@ section {
   }
 }
 .section-wao-english-group h3 {
-  color: #333333;
+  color: #4d4d4d;
   font-size: 24px;
   margin: 0 0 20px;
 }
@@ -435,7 +435,7 @@ section {
 }
 .section-wao-english-group-box-course h4 {
   font-size: 24px;
-  color: #333333;
+  color: #4d4d4d;
   margin: 0 0 10px;
 }
 
@@ -612,7 +612,7 @@ section {
 footer {
   padding: 60px 0 90px;
   text-align: center;
-  background: #333333;
+  background: #4d4d4d;
   color: white;
   font-size: 14px;
   text-align: left;
@@ -887,7 +887,7 @@ footer a {
 
 .english-tutorial-modal-text {
   text-align: left;
-  color: #333333;
+  color: #4d4d4d;
   padding: 10px auto 0px;
 }
 

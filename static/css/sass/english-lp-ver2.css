@@ -4565,7 +4565,7 @@ select {
   line-height: 1;
   font-size: 34px;
   text-align: center;
-  color: #333333;
+  color: #4d4d4d;
 }
 @media screen and (max-width: 768px) {
   .lp-section-title-bgdecoration h2 {
@@ -4625,7 +4625,7 @@ select {
 
 body {
   font-family: "Avenir LT Pro", "Jost", "Noto Sans JP", sans-serif;
-  color: #333333;
+  color: #4d4d4d;
 }
 
 #english-lp-ver2 {
@@ -5041,7 +5041,7 @@ header div img {
 .lp-section-intro .lp-section-title-h2 {
   font-size: 34px;
   font-weight: bold;
-  color: #333333;
+  color: #4d4d4d;
   z-index: 1;
   position: relative;
   line-height: 1.5;
@@ -5084,7 +5084,7 @@ header div img {
   text-align: center;
   font-weight: bold;
   font-size: 24px;
-  color: #333333;
+  color: #4d4d4d;
 }
 @media screen and (max-width: 768px) {
   .lp-section-intro .lp-section-intro-columns .lp-section-intro-columns-box-title {
@@ -5108,7 +5108,7 @@ header div img {
   font-weight: bold;
   z-index: 1;
   text-align: center;
-  color: #333333;
+  color: #4d4d4d;
 }
 @media screen and (max-width: 768px) {
   .lp-section-intro .lp-section-intro-foot {
@@ -5165,10 +5165,10 @@ header div img {
   font-weight: 300;
 }
 .lp-section-reason .lp-section-reason-left .lp-section-reason-left-title {
-  color: #333333;
+  color: #4d4d4d;
   font-size: 34px;
   font-weight: bold;
-  color: #333333;
+  color: #4d4d4d;
   line-height: 1.5;
   margin: 0 0 25px;
 }
@@ -5605,7 +5605,7 @@ header div img {
   display: inline-flex;
   width: 30px;
   height: 30px;
-  color: #333333;
+  color: #4d4d4d;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -5793,7 +5793,7 @@ footer {
   width: 100%;
   padding: 60px 0px 0px;
   text-align: center;
-  background: #000000;
+  background: #262626;
   color: white;
 }
 footer ul {

@@ -97,7 +97,7 @@ select {
 }
 body {
   font-family: "Noto Sans JP", sans-serif;
-  color: #333333;
+  color: #4d4d4d;
 }
 
 header {
@@ -453,7 +453,7 @@ h2.underline:after {
 }
 .hapitas-section-group-step .hapitas-section-group-step-child .hapitas-section-group-step-child-text-main {
   text-align: center;
-  color: #000000;
+  color: #262626;
   font-weight: bold;
   font-size: 20px;
   line-height: 1;
@@ -686,10 +686,10 @@ h2.underline:after {
 .thanks-wrapper .thanks-wrapper-content .thanks-wrapper-content-title {
   font-size: 24px;
   font-weight: 500;
-  color: #333333;
+  color: #4d4d4d;
 }
 .thanks-wrapper .thanks-wrapper-content .thanks-wrapper-content-text {
-  color: #333333;
+  color: #4d4d4d;
   font-size: 18px;
   font-weight: 400;
   margin: 20px 0 0;
