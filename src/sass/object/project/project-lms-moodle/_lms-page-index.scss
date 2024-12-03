@@ -6,9 +6,170 @@
 //     max-width: 100% !important;
 // }
 .pagelayout-frontpage {
-    img {
-        width: 100% !important;
+    .lms-index-fv {
+        img {
+            width: 100% !important;
+        }
+        // position: relative;
+        $lms-fv-height: 420px;
+        height: $lms-fv-height;
+        margin: 0px 0 0;
+        .lms-index-main {
+            max-width: 1100px;
+            width: 100%;
+            height: $lms-fv-height;
+            // background: red;
+            margin: 0 auto;
+            z-index: 9;
+            position: relative;
+            overflow: hidden;
+            .lms-index-main-left img {
+                position: absolute;
+                left: 0px;
+                top: -10px;
+                z-index: 9;
+                max-width: 430px;
+                // top: 0;
+                bottom: 0;
+                margin: auto;
+                width: 100%;
+                img {}
+            }
+            .lms-index-main-right {
+                position: absolute;
+                right: 0px;
+                top: 0px;
+                z-index: 9;
+                max-width: 580px;
+            }
+        }
+        .lms-index-bg {
+            img {
+                position: absolute;
+                z-index: 1;
+                height: $lms-fv-height;
+                object-fit: cover;
+                width: 100%;
+                left: 0;
+                top: 0;
+                object-position: 50% 50%;
+                border-radius: 0px !important;
+            }
+        }
     }
+    .lms-index-contents {
+        img {
+            width: 100% !important;
+        }
+        width: 100%;
+        max-width: 1200px;
+        margin: 0 auto;
+        @include responsive-style(768px) {
+            padding: 0 20px;
+        }
+        .lms-index-contents-block-title {
+            margin: 36px 0 12px;
+            text-align: left;
+            color: $cl-black !important;
+            font-size: $lms-font-size-xl !important;
+            font-weight: bold;
+        }
+        .lms-index-contents-block-cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: repeat(2, 1fr);
+            grid-column-gap: 30px;
+            grid-row-gap: 30px;
+            padding: 0 0 10px;
+            @include responsive-style(768px) {
+                display: block;
+            }
+            .lms-index-contents-block-cards-course {
+                background: white;
+                border-radius: 10px 10px 10px 10px !important;
+                @include lms-boxshadow;
+                transition: all 300ms;
+                @include responsive-style(768px) {
+                    margin: 0 auto 30px;
+                    display: block;
+                }
+                &:hover {
+                    transform: translateY(-5px);
+                    opacity: 0.7;
+                    text-decoration: none !important;
+                    div {}
+                }
+            }
+            .lms-index-contents-block-cards-course-img img {
+                border-radius: 10px 10px 0 0 !important;
+                height: 200px;
+                object-fit: cover;
+            }
+            .lms-index-contents-block-cards-course-detail {
+                // background: white;
+                padding: 20px;
+                text-align: left !important;
+                // border-left: 4px solid $cl-english;
+                // margin: 15px 20px 20px;
+                position: relative;
+                .lms-index-contents-block-cards-course-detail-wrap {
+                    padding: 0 0 0 20px;
+                    position: relative;
+                    &:before {
+                        content: "";
+                        position: absolute;
+                        left: 0px;
+                        width: 6px;
+                        height: 100%;
+                        border-radius: 100px;
+                        display: block;
+                        z-index: 1;
+                        // background: #000;
+                    }
+                }
+                // height: 85px;
+                .lms-index-contents-block-cards-course-detail-title {
+                    font-size: $lms-font-size-l;
+                    font-weight: bold;
+                    line-height: 1.25;
+                    color: $cl-black;
+                    margin: 5px 0 7px 0px!important;
+                }
+                .lms-index-contents-block-cards-course-detail-text {
+                    // margin: 0 0 0 20px!important;
+                }
+            }
+            .block-philosophy {
+                &:before {
+                    background: $cl-philosophy
+                }
+            }
+            .block-science {
+                &:before {
+                    background: $cl-science;
+                }
+            }
+            .block-economiy {
+                &:before {
+                    background: $cl-economiy;
+                }
+            }
+            .block-english {
+                &:before {
+                    background: $cl-english;
+                }
+            }
+            .block-programming {
+                &:before {
+                    background: $cl-programming;
+                }
+            }
+        }
+    }
+}
+
+//topの不要なpadding削除
+.pagelayout-frontpage {
     .activity-item.activityinline {
         padding: 0 !important;
     }
@@ -16,98 +177,112 @@
     .my-3 {
         display: none;
     }
-    @media (min-width: 1200px) {
-        .container,
+    .activity-item .activity-altcontent {
+        margin-top: 0rem !important;
+    }
+    .section .activity {
+        padding: 0rem 0 !important;
+    }
+    .course-content ul.topics li.section,
+    .course-content ul.weeks li.section {
+        padding-top: 0px !important;
+    }
+    .container,
+    .container-fluid,
+    .container-sm,
+    .container-md,
+    .container-lg,
+    .container-xl {
+        padding-right: 0px !important;
+        padding-left: 0px !important;
+    }
+    #page.drawers div[role="main"] {
+        padding-right: 0px !important;
+        padding-left: 0px !important;
+    }
+    .col-1,
+    .col-2,
+    .col-3,
+    .col-4,
+    .col-5,
+    .col-6,
+    .col-7,
+    .col-8,
+    .col-9,
+    .col-10,
+    .col-11,
+    .col-12,
+    .col,
+    .col-auto,
+    .col-sm-1,
+    .col-sm-2,
+    .col-sm-3,
+    .col-sm-4,
+    .col-sm-5,
+    .col-sm-6,
+    .col-sm-7,
+    .col-sm-8,
+    .col-sm-9,
+    .col-sm-10,
+    .col-sm-11,
+    .col-sm-12,
+    .col-sm,
+    .col-sm-auto,
+    .col-md-1,
+    .col-md-2,
+    .col-md-3,
+    .col-md-4,
+    .col-md-5,
+    .col-md-6,
+    .col-md-7,
+    .col-md-8,
+    .col-md-9,
+    .col-md-10,
+    .col-md-11,
+    .col-md-12,
+    .col-md,
+    .col-md-auto,
+    .col-lg-1,
+    .col-lg-2,
+    .col-lg-3,
+    .col-lg-4,
+    .col-lg-5,
+    .col-lg-6,
+    .col-lg-7,
+    .col-lg-8,
+    .col-lg-9,
+    .col-lg-10,
+    .col-lg-11,
+    .col-lg-12,
+    .col-lg,
+    .col-lg-auto,
+    .col-xl-1,
+    .col-xl-2,
+    .col-xl-3,
+    .col-xl-4,
+    .col-xl-5,
+    .col-xl-6,
+    .col-xl-7,
+    .col-xl-8,
+    .col-xl-9,
+    .col-xl-10,
+    .col-xl-11,
+    .col-xl-12,
+    .col-xl,
+    .col-xl-auto {
+        padding-right: 0px !important;
+        padding-left: 0px !important;
+    }
+    .main-inner {
         .container-sm,
         .container-md,
         .container-lg,
-        .container-xl {
-            max-width: 1200px !important;
-        }
-    }
-    .lms-index-fv img {}
-    .lms-index-contents-block-title {
-        margin: 36px 0 12px;
-        text-align: left;
-        color: $cl-black !important;
-        font-size: $lms-font-size-xl !important;
-        font-weight: bold;
-    }
-    .lms-index-contents-block-cards {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        grid-template-rows: repeat(2, 1fr);
-        grid-column-gap: 30px;
-        grid-row-gap: 30px;
-        padding: 0 0 10px;
-        .lms-index-contents-block-cards-course {
-            background: white;
-            border-radius: 10px 10px 10px 10px !important;
-            @include lms-boxshadow;
-            transition: all 300ms;
-            &:hover {
-                transform: translateY(-5px);
-                opacity: 0.7;
-                text-decoration: none !important;
-                div {}
-            }
-        }
-        .lms-index-contents-block-cards-course-img img {
-            border-radius: 10px 10px 0 0 !important;
-            height: 200px;
-            object-fit: cover;
-        }
-        .lms-index-contents-block-cards-course-detail {
-            background: white;
-            padding: 5px 0 0 20px;
-            text-align: left !important;
-            // border-left: 4px solid $cl-english;
-            margin: 15px 20px 20px;
-            position: relative;
-            // height: 85px;
-            &:before {
-                content: "";
-                position: absolute;
-                left: 0;
-                width: 6px;
-                height: 100%;
-                border-radius: 100px;
-                display: block;
-                z-index: 1;
-                // background: #000;
-            }
-            .lms-index-contents-block-cards-course-detail-title {
-                font-size: $lms-font-size-l;
-                font-weight: bold;
-                line-height: 1.25;
-                color: $cl-black;
-                margin: 5px 0 7px !important;
-            }
-            .lms-index-contents-block-cards-course-detail {}
-        }
-        .block-philosophy {
-            &:before {
-                background: $cl-philosophy
-            }
-        }
-        .block-science {
-            &:before {
-                background: $cl-science;
-            }
-        }
-        .block-economiy {
-            &:before {
-                background: $cl-economiy;
-            }
-        }
-        .block-english {
-            &:before {
-                background: $cl-english;
-            }
-        }
-        .block-programming {
-            &:before {
-                background: $cl-programming;
+        .container-xl,
+        .section,
+        .container {
+            max-width: 100% !important;
+            @include min-responsive-style(1200px) {
+                max-width: 100% !important;
             }
         }
     }

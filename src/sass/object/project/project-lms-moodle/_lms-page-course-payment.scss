@@ -103,6 +103,7 @@
         background: white;
         @include lms-boxshadow;
         border-radius: $border-radius-middle;
+        z-index: 3;
         .enrol_buy_as_a_set_img {
             display: flex;
             justify-content: space-between;
