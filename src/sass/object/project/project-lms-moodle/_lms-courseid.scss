@@ -1,6 +1,16 @@
+////////////////////////////////
+/// #page-mod-questionnaire-view：アンケート詳細
+/// #page-course-view-flexsections：科目詳細
+/// #page-admin-tool-catalogue-courseinfo：科目購入
+/// #page-enrol-index：??????
+////////////////////////////////
 $contexts: ".context-2497", //stg-kobayashiのダッシュボード
-".context-33", //stg-adminのダッシュボード
+".pagelayout-mydashboard", //stg-adminのダッシュボード
+"#page-course-view-flexsections.course-138", //哲学の授業の詳細
+"#page-admin-tool-catalogue-courseinfo.course-138", //哲学の購入
+"#page-enrol-index.course-138",
+"#page-course-view-flexsections.course-211", //哲学の授業の詳細
+"#page-admin-tool-catalogue-courseinfo.course-211",
+"#page-enrol-index.course-211",
 ".context-18", //stg-userのダッシュボード
-".course-138", //哲学の授業
-".course-211", //哲学の授業詳細
 ".course-1"; //トップページ

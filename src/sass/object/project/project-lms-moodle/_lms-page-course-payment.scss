@@ -1,6 +1,10 @@
 //哲学特有
-.course-138,
-.course-211 {
+#page-course-view-flexsections.course-138, //哲学の授業の詳細
+#page-admin-tool-catalogue-courseinfo.course-138,
+#page-enrol-index.course-138,
+#page-course-view-flexsections.course-211, //哲学の授業の詳細
+#page-admin-tool-catalogue-courseinfo.course-211,
+#page-enrol-index.course-211 {
     .mr-auto,
     .mx-auto {
         /* margin-right: auto !important; */
@@ -73,6 +77,9 @@
             list-style: none;
             padding: .25rem 0 0.5rem;
         }
+        #section-0 {
+            display: none !important;
+        }
         >.course-section-header {
             background: $cl-graylightest;
             padding: 20px 15px !important;
@@ -94,6 +101,31 @@
 
 //コース購入
 #{join($contexts, ", ")} {
+    //不要なもの消す
+    .customfield,
+    .customfield_is_payment {
+        display: none !important;
+    }
+    //不要なもの消す
+    a[aria-controls="covercollapsec-dates"] {
+        display: none;
+        +h3 {
+            display: none !important;
+        }
+    }
+    //不要なもの消す
+    #covercollapsec-dates {
+        display: none !important;
+    }
+    // div[data-region="catalogue-pagesection"] {
+    //     display: none;
+    // }
+    .lesson-detail-img {
+        width: 100%;
+        img {
+            width: 100%;
+        }
+    }
     .enrol_buy_as_a_set {
         position: fixed;
         top: calc(5rem + 330px);

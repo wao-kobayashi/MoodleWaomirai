@@ -6,7 +6,14 @@
 //     max-width: 100% !important;
 // }
 .pagelayout-frontpage {
+    div[role=main] {
+        display: none;
+    }
+    .activity-grid {
+        display: none;
+    }
     .lms-index-fv {
+        position: relative;
         img {
             width: 100% !important;
         }
@@ -46,7 +53,7 @@
         .lms-index-bg {
             img {
                 position: absolute;
-                z-index: 1;
+                z-index: 7;
                 height: $lms-fv-height;
                 object-fit: cover;
                 width: 100%;
@@ -58,17 +65,17 @@
         }
     }
     .lms-index-contents {
-        img {
-            width: 100% !important;
-        }
         width: 100%;
         max-width: 1200px;
-        margin: 0 auto;
+        margin: 0 auto 64px;
         @include responsive-style(768px) {
             padding: 0 20px;
         }
+        img {
+            width: 100% !important;
+        }
         .lms-index-contents-block-title {
-            margin: 36px 0 12px;
+            margin: 64px 0 16px;
             text-align: left;
             color: $cl-black !important;
             font-size: $lms-font-size-xl !important;
@@ -129,14 +136,19 @@
                 }
                 // height: 85px;
                 .lms-index-contents-block-cards-course-detail-title {
-                    font-size: $lms-font-size-l;
+                    font-size: $lms-font-size-l !important;
                     font-weight: bold;
                     line-height: 1.25;
                     color: $cl-black;
                     margin: 5px 0 7px 0px!important;
+                    line-height: 1.5;
                 }
                 .lms-index-contents-block-cards-course-detail-text {
                     // margin: 0 0 0 20px!important;
+                    font-size: $lms-font-size-m !important;
+                    color: $cl-black;
+                    line-height: 1.5;
+                    font-weight: normal;
                 }
             }
             .block-philosophy {

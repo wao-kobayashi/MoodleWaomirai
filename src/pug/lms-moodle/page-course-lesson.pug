@@ -1,0 +1,786 @@
+extends _layout_moodle.pug
+block contents
+  - var title = '授業詳細 | stg'  // 変数の定義
+  body#page-mod-questionnaire-view(class="format-flexsections path-mod path-mod-questionnaire chrome dir-ltr lang-ja_wp yui-skin-sam yui3-skin-sam lms-waomirai-com pagelayout-incourse course-211 context-2404 cmid-1128 cm-type-questionnaire category-43 theme uses-drawers jsenabled")
+    .toast-wrapper.mx-auto.py-0.fixed-top(role='status' aria-live='polite')
+    #page-wrapper.d-print-block
+      div
+        a.sr-only.sr-only-focusable(href='#maincontent') &#x30E1;&#x30A4;&#x30F3;&#x30B3;&#x30F3;&#x30C6;&#x30F3;&#x30C4;&#x3078;&#x30B9;&#x30AD;&#x30C3;&#x30D7;&#x3059;&#x308B;
+      script(src='https://lms.waomirai.com/lib/javascript.php/1732783105/lib/polyfills/polyfill.js')
+      script(src='https://lms.waomirai.com/theme/yui_combo.php?rollup/3.18.1/yui-moodlesimple-min.js')
+      script(src='https://lms.waomirai.com/lib/javascript.php/1732783105/lib/javascript-static.js')
+      script.
+        //<![CDATA[
+        document.body.className += ' jsenabled';
+        //]]>
+      // Google Tag Manager (noscript)
+      noscript
+        iframe(src='https://www.googletagmanager.com/ns.html?id=GTM-W3X8CG9C' height='0' width='0' style='display:none;visibility:hidden')
+      // End Google Tag Manager (noscript)
+      nav.navbar.fixed-top.navbar-light.bg-white.navbar-expand(aria-label='サイトナビゲーション')
+        button.navbar-toggler.aabtn.d-block.d-md-none.my-1.mr-2(data-toggler='drawers' data-action='toggle' data-target='theme_boost-drawers-primary')
+          span.navbar-toggler-icon
+          span.sr-only &#x30B5;&#x30A4;&#x30C9;&#x30D1;&#x30CD;&#x30EB;
+        a.navbar-brand.d-none.d-md-flex.align-items-center.m-0.mr-3.p-0.aabtn(href='https://lms.waomirai.com/my/')
+          img.logo.mr-1(src='https://lms.waomirai.com/pluginfile.php/1/tool_tenant/headerlogo/2/%E7%84%A1%E9%A1%8C.png' alt='stg')
+        ul.navbar-nav.d-none.d-md-flex.mr-3.tenantswitch
+          li.dropdown.nav-item
+            a#drop-down-674ea74394cb8674ea743923253.dropdown-toggle.nav-link(data-toggle='dropdown' aria-haspopup='true' aria-expanded='false' href='#' aria-controls='drop-down-menu-674ea74394cb8674ea743923253')
+              span.current-tenant-name.d-inline-block(title='【検証テナント】') &#x3010;&#x691C;&#x8A3C;&#x30C6;&#x30CA;&#x30F3;&#x30C8;&#x3011;
+            #drop-down-menu-674ea74394cb8674ea743923253.dropdown-menu(role='menu' aria-labelledby='drop-down-674ea74394cb8674ea743923253')
+              a.dropdown-item(role='menuitem' href='https://lms.waomirai.com/admin/tool/tenant/switchtenant.php?switchtenantid=1&redirecturl=%2Fmod%2Fquestionnaire%2Fview.php%3Fid%3D1128&sesskey=4jDluvC8qL') Default tenant
+              a.dropdown-item(role='menuitem' href='https://lms.waomirai.com/admin/tool/tenant/switchtenant.php?switchtenantid=3&redirecturl=%2Fmod%2Fquestionnaire%2Fview.php%3Fid%3D1128&sesskey=4jDluvC8qL') &#x30EF;&#x30AA;&#x672A;&#x6765;&#x587E; &#x5B66;&#x7FD2;&#x30DD;&#x30FC;&#x30BF;&#x30EB;
+              a.dropdown-item(role='menuitem' href='https://lms.waomirai.com/admin/tool/tenant/switchtenant.php?switchtenantid=4&redirecturl=%2Fmod%2Fquestionnaire%2Fview.php%3Fid%3D1128&sesskey=4jDluvC8qL') &#x30EF;&#x30AA;&#x4F1A;&#x54E1;&#x30C6;&#x30CA;&#x30F3;&#x30C8;
+        .primary-navigation
+          nav.moremenu.navigation.observed
+            ul#moremenu-674ea7439278a-navbar-nav.nav.more-nav.navbar-nav(role='menubar')
+              li.nav-item(data-key='home' role='none' data-forceintomoremenu='false')
+                a.nav-link(role='menuitem' href='https://lms.waomirai.com/?redirect=0' tabindex='0' aria-current='true')
+                  | &#x30DB;&#x30FC;&#x30E0;
+              li.nav-item(data-key='myhome' role='none' data-forceintomoremenu='false')
+                a.nav-link(role='menuitem' href='https://lms.waomirai.com/my/' tabindex='-1')
+                  | &#x30C0;&#x30C3;&#x30B7;&#x30E5;&#x30DC;&#x30FC;&#x30C9;
+              li.nav-item(data-key='mycourses' role='none' data-forceintomoremenu='false')
+                a.nav-link(role='menuitem' href='https://lms.waomirai.com/my/courses.php' tabindex='-1')
+                  | &#x767B;&#x9332;&#x6E08;&#x307F;&#x8B1B;&#x5EA7;
+              li.nav-item(data-key='siteadminnode' role='none' data-forceintomoremenu='false')
+                a.nav-link(role='menuitem' href='https://lms.waomirai.com/admin/search.php' tabindex='-1')
+                  | &#x30B5;&#x30A4;&#x30C8;&#x7BA1;&#x7406;
+              li.nav-item(data-key='' role='none' data-forceintomoremenu='false')
+                a.nav-link(role='menuitem' href='https://lms.waomirai.com/user/profile.php' tabindex='-1')
+                  | &#x30DE;&#x30A4;&#x30DA;&#x30FC;&#x30B8;
+              li.nav-item(data-key='' role='none' data-forceintomoremenu='false')
+                a.nav-link(role='menuitem' href='https://lms.waomirai.com/user/preferences.php' tabindex='-1')
+                  | &#x30E6;&#x30FC;&#x30B6;&#x8A2D;&#x5B9A;
+              li.nav-item.dropdown.dropdownmoremenu.d-none(role='none' data-region='morebutton')
+                a#moremenu-dropdown-674ea7439278a.dropdown-toggle.nav-link(href='#' role='menuitem' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false' tabindex='-1')
+                  | &#x3055;&#x3089;&#x306B;
+                ul.dropdown-menu.dropdown-menu-left(data-region='moredropdown' aria-labelledby='moremenu-dropdown-674ea7439278a' role='menu')
+        ul.navbar-nav.d-none.d-md-flex.my-1.px-1
+          // page_heading_menu
+        #usernavigation.navbar-nav.ml-auto
+          #nav-notification-popover-container.popover-region.collapsed.popover-region-notifications(data-userid='9' data-region='popover-region')
+            .popover-region-toggle.nav-link.icon-no-margin(data-region='popover-region-toggle' role='button' aria-controls='popover-region-container-674ea74395a3d674ea743923254' aria-haspopup='true' aria-label=' 新しい通知のない通知ウィンドウを表示する   ' tabindex='0')
+              i.icon.fa.fa-bell-o.fa-fw(title='通知メニューに切り替える' role='img' aria-label='通知メニューに切り替える' aria-hidden='true')
+              span.sr-only &#x901A;&#x77E5;&#x30E1;&#x30CB;&#x30E5;&#x30FC;&#x306B;&#x5207;&#x308A;&#x66FF;&#x3048;&#x308B;
+              .count-container.hidden(data-region='count-container' aria-hidden='true')
+                | 0
+            #popover-region-container-674ea74395a3d674ea743923254.popover-region-container(data-region='popover-region-container' aria-expanded='false' aria-hidden='true' aria-label='通知ウィンドウ' role='region')
+              .popover-region-header-container
+                h3.popover-region-header-text(data-region='popover-region-header-text') &#x901A;&#x77E5;
+                .popover-region-header-actions(data-region='popover-region-header-actions')
+                  a.mark-all-read-button(href='#' title='すべてを既読にする' data-action='mark-all-read' role='button' aria-label='すべてを既読にする')
+                    span.normal-icon
+                      i.icon.fa.fa-check.fa-fw(aria-hidden='true')
+                    span.loading-icon.icon-no-margin
+                      i.icon.fa.fa-circle-o-notch.fa-spin.fa-fw(title='読み込み中' role='img' aria-label='読み込み中' aria-hidden='true')
+                      span.sr-only &#x8AAD;&#x307F;&#x8FBC;&#x307F;&#x4E2D;
+                  a(href='https://lms.waomirai.com/message/notificationpreferences.php' title='通知プレファレンス' aria-label='通知プレファレンス')
+                    i.icon.fa.fa-cog.fa-fw(aria-hidden='true')
+              .popover-region-content-container(data-region='popover-region-content-container')
+                .popover-region-content(data-region='popover-region-content')
+                  .all-notifications(data-region='all-notifications' role='log' aria-busy='false' aria-atomic='false' aria-relevant='additions')
+                  .empty-message(tabindex='0' data-region='empty-message') &#x3042;&#x306A;&#x305F;&#x306B;&#x901A;&#x77E5;&#x306F;&#x3042;&#x308A;&#x307E;&#x305B;&#x3093;&#x3002;
+                span.loading-icon.icon-no-margin
+                  i.icon.fa.fa-circle-o-notch.fa-spin.fa-fw(title='読み込み中' role='img' aria-label='読み込み中' aria-hidden='true')
+                  span.sr-only &#x8AAD;&#x307F;&#x8FBC;&#x307F;&#x4E2D;
+              a.see-all-link(href='https://lms.waomirai.com/message/output/popup/notifications.php')
+                .popover-region-footer-container
+                  .popover-region-seeall-text &#x3059;&#x3079;&#x3066;&#x3092;&#x8868;&#x793A;&#x3059;&#x308B;
+          .dropdown
+            a#workplace-menulink.nav-link.dropdown-toggle.no-caret.icon-no-margin(href='#' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false' aria-controls='workplace-menu-674ea74399446674ea743923255')
+              i.icon.fa.fa-th.fa-fw(title='Workplaceのランチャーを切り替える' role='img' aria-label='Workplaceのランチャーを切り替える' aria-hidden='true')
+              span.sr-only Workplace&#x306E;&#x30E9;&#x30F3;&#x30C1;&#x30E3;&#x30FC;&#x3092;&#x5207;&#x308A;&#x66FF;&#x3048;&#x308B;
+            #workplace-menu-674ea74399446674ea743923255.workplace-menu.p-0.dropdown-menu.dropdown-menu-right(data-region='workplace-menu-content' aria-labelledby='workplace-menulink')
+              .workplace-menu-grid.p-2
+                a.workplace-menu-item.p-1.p-sm-2.d-flex.flex-column.text-center.align-items-center.justify-content-center(href='https://lms.waomirai.com/admin/tool/tenant/details.php')
+                  img.mb-2.px-3(alt='' src='https://lms.waomirai.com/theme/image.php/kenai/tool_tenant/1732783105/tenantappearance')
+                  span.small &#x30A2;&#x30D4;&#x30A2;&#x30E9;&#x30F3;&#x30B9;
+                a.workplace-menu-item.p-1.p-sm-2.d-flex.flex-column.text-center.align-items-center.justify-content-center(href='https://lms.waomirai.com/reportbuilder/index.php')
+                  img.mb-2.px-3(alt='' src='https://lms.waomirai.com/theme/image.php/kenai/theme_workplace/1732783105/menu/report_builder')
+                  span.small &#x30AB;&#x30B9;&#x30BF;&#x30E0;&#x30EC;&#x30DD;&#x30FC;&#x30C8;
+                a.workplace-menu-item.p-1.p-sm-2.d-flex.flex-column.text-center.align-items-center.justify-content-center(href='https://lms.waomirai.com/admin/tool/dynamicrule/index.php')
+                  img.mb-2.px-3(alt='' src='https://lms.waomirai.com/theme/image.php/kenai/tool_dynamicrule/1732783105/icon')
+                  span.small &#x30C0;&#x30A4;&#x30CA;&#x30DF;&#x30C3;&#x30AF;&#x30EB;&#x30FC;&#x30EB;
+                a.workplace-menu-item.p-1.p-sm-2.d-flex.flex-column.text-center.align-items-center.justify-content-center(href='https://lms.waomirai.com/admin/tool/program/index.php')
+                  img.mb-2.px-3(alt='' src='https://lms.waomirai.com/theme/image.php/kenai/tool_program/1732783105/icon')
+                  span.small &#x30D7;&#x30ED;&#x30B0;&#x30E9;&#x30E0;
+                a.workplace-menu-item.p-1.p-sm-2.d-flex.flex-column.text-center.align-items-center.justify-content-center(href='https://lms.waomirai.com/admin/tool/tenant/users.php')
+                  img.mb-2.px-3(alt='' src='https://lms.waomirai.com/theme/image.php/kenai/tool_tenant/1732783105/usermanagement')
+                  span.small &#x30E6;&#x30FC;&#x30B6;
+                a.workplace-menu-item.p-1.p-sm-2.d-flex.flex-column.text-center.align-items-center.justify-content-center(href='https://lms.waomirai.com/admin/tool/organisation/index.php')
+                  img.mb-2.px-3(alt='' src='https://lms.waomirai.com/theme/image.php/kenai/tool_organisation/1732783105/icon')
+                  span.small &#x7D44;&#x7E54;&#x69CB;&#x9020;
+                a.workplace-menu-item.p-1.p-sm-2.d-flex.flex-column.text-center.align-items-center.justify-content-center(href='https://lms.waomirai.com/admin/tool/certification/index.php')
+                  img.mb-2.px-3(alt='' src='https://lms.waomirai.com/theme/image.php/kenai/tool_certification/1732783105/icon')
+                  span.small &#x8A8D;&#x5B9A;
+              .border-top
+                .mx-4.mt-3.font-weight-bold.small
+                  | &#x30B0;&#x30ED;&#x30FC;&#x30D0;&#x30EB;
+                .workplace-menu-grid.p-2
+                  a.workplace-menu-item.p-1.p-sm-2.d-flex.flex-column.text-center.align-items-center.justify-content-center(href='https://lms.waomirai.com/admin/tool/custompage/index.php')
+                    img.mb-2.px-3(alt='' src='https://lms.waomirai.com/theme/image.php/kenai/tool_custompage/1732783105/icon')
+                    span.small &#x30AB;&#x30B9;&#x30BF;&#x30E0;&#x30DA;&#x30FC;&#x30B8;
+                  a.workplace-menu-item.p-1.p-sm-2.d-flex.flex-column.text-center.align-items-center.justify-content-center(href='https://lms.waomirai.com/course/management.php')
+                    img.mb-2.px-3(alt='' src='https://lms.waomirai.com/theme/image.php/kenai/theme_workplace/1732783105/menu/courses')
+                    span.small &#x30B3;&#x30FC;&#x30B9;
+                  a.workplace-menu-item.p-1.p-sm-2.d-flex.flex-column.text-center.align-items-center.justify-content-center(href='https://lms.waomirai.com/admin/tool/wp/exportimport.php')
+                    img.mb-2.px-3(alt='' src='https://lms.waomirai.com/theme/image.php/kenai/tool_wp/1732783105/exportimport')
+                    span.small &#x30DE;&#x30A4;&#x30B0;&#x30EC;&#x30FC;&#x30B7;&#x30E7;&#x30F3;
+                  a.workplace-menu-item.p-1.p-sm-2.d-flex.flex-column.text-center.align-items-center.justify-content-center(href='https://lms.waomirai.com/admin/tool/tenant/index.php')
+                    img.mb-2.px-3(alt='' src='https://lms.waomirai.com/theme/image.php/kenai/tool_tenant/1732783105/icon')
+                    span.small &#x5168;&#x3066;&#x306E;&#x30C6;&#x30CA;&#x30F3;&#x30C8;
+                  a.workplace-menu-item.p-1.p-sm-2.d-flex.flex-column.text-center.align-items-center.justify-content-center(href='https://lms.waomirai.com/admin/tool/tenant/allusers.php')
+                    img.mb-2.px-3(alt='' src='https://lms.waomirai.com/theme/image.php/kenai/tool_tenant/1732783105/users')
+                    span.small &#x5168;&#x3066;&#x306E;&#x30E6;&#x30FC;&#x30B6;
+                  a.workplace-menu-item.p-1.p-sm-2.d-flex.flex-column.text-center.align-items-center.justify-content-center(href='https://lms.waomirai.com/admin/tool/certificate/manage_templates.php')
+                    img.mb-2.px-3(alt='' src='https://lms.waomirai.com/theme/image.php/kenai/tool_certificate/1732783105/icon')
+                    span.small &#x8A8D;&#x5B9A;&#x8A3C;
+          .d-flex.align-items-stretch.usermenu-container(data-region='usermenu')
+            .usermenu
+              .dropdown.show
+                a#user-menu-toggle.btn.dropdown-toggle(href='#' role='button' data-toggle='dropdown' aria-label='ユーザメニュー' aria-haspopup='true' aria-controls='user-action-menu')
+                  span.userbutton
+                    span.avatars
+                      span.avatar.current
+                        span.userinitials.size-35 &#x682A;&#x30B5;
+                #user-action-menu.dropdown-menu.dropdown-menu-right
+                  #usermenu-carousel.carousel.slide(data-touch='false' data-interval='false' data-keyboard='false')
+                    .carousel-inner
+                      #carousel-item-main.carousel-item.active(role='menu' tabindex='-1' aria-label='ユーザ')
+                        a.dropdown-item(href='https://lms.waomirai.com/user/profile.php' role='menuitem' tabindex='-1')
+                          | &#x30DE;&#x30A4;&#x30DA;&#x30FC;&#x30B8;
+                        a.dropdown-item(href='https://lms.waomirai.com/grade/report/overview/index.php' role='menuitem' tabindex='-1')
+                          | &#x8A55;&#x5B9A;
+                        a.dropdown-item(href='https://lms.waomirai.com/calendar/view.php?view=month' role='menuitem' tabindex='-1')
+                          | &#x30AB;&#x30EC;&#x30F3;&#x30C0;&#x30FC;
+                        a.dropdown-item(href='https://lms.waomirai.com/user/files.php' role='menuitem' tabindex='-1')
+                          | &#x30D7;&#x30E9;&#x30A4;&#x30D9;&#x30FC;&#x30C8;&#x30D5;&#x30A1;&#x30A4;&#x30EB;
+                        a.dropdown-item(href='https://lms.waomirai.com/reportbuilder/index.php' role='menuitem' tabindex='-1')
+                          | &#x30EC;&#x30DD;&#x30FC;&#x30C8;
+                        .dropdown-divider
+                        a.dropdown-item(href='https://lms.waomirai.com/user/preferences.php' role='menuitem' tabindex='-1')
+                          | &#x30E6;&#x30FC;&#x30B6;&#x8A2D;&#x5B9A;
+                        a.dropdown-item(href='https://lms.waomirai.com/course/switchrole.php?id=211&switchrole=-1&returnurl=%2Fmod%2Fquestionnaire%2Fview.php%3Fid%3D1128' role='menuitem' tabindex='-1')
+                          | &#x30ED;&#x30FC;&#x30EB;&#x3092;&#x5207;&#x308A;&#x66FF;&#x3048;&#x308B; ...
+                        .dropdown-divider
+                        a.dropdown-item(href='https://lms.waomirai.com/login/logout.php?sesskey=4jDluvC8qL' role='menuitem' tabindex='-1')
+                          | &#x30ED;&#x30B0;&#x30A2;&#x30A6;&#x30C8;
+          .divider.border-left.h-75.align-self-center.ml-1.mr-3
+          form.d-flex.align-items-center.editmode-switch-form(action='https://lms.waomirai.com/editmode.php' method='post')
+            .input-group
+              label.mr-2.mb-0(for='674ea74399ae3674ea743923256-editingswitch')
+                | &#x7DE8;&#x96C6;&#x30E2;&#x30FC;&#x30C9;
+              .custom-control.custom-switch
+                input#674ea74399ae3674ea743923256-editingswitch.custom-control-input(type='checkbox' name='setmode' data-context='2404' data-pageurl='https://lms.waomirai.com/mod/questionnaire/view.php?id=1128')
+                span.custom-control-label &nbsp;
+            input(type='hidden' name='sesskey' value='4jDluvC8qL')
+            input(type='hidden' name='pageurl' value='https://lms.waomirai.com/mod/questionnaire/view.php?id=1128')
+            input(type='hidden' name='context' value='2404')
+            noscript
+              input(type='submit' value='モードを設定する')
+      #theme_boost-drawers-primary.drawer.drawer-left.drawer-primary.d-print-none(data-region='fixed-drawer' data-preference='' data-state='show-drawer-primary' data-forceopen='0' data-close-on-resize='1' aria-hidden='true')
+        .drawerheader
+          button.btn.drawertoggle.icon-no-margin.hidden(data-toggler='drawers' data-action='closedrawer' data-target='theme_boost-drawers-primary' data-toggle='tooltip' data-placement='right' title='ドロワを閉じる' data-aria-hidden-tab-index='' tabindex='-1')
+            i.icon.fa.fa-times.fa-fw(aria-hidden='true')
+          img.logo.py-1.h-100(src='https://lms.waomirai.com/pluginfile.php/1/tool_tenant/headerlogo/2/%E7%84%A1%E9%A1%8C.png' alt='stg')
+          .drawerheadercontent.hidden
+        .drawercontent.drag-container(data-usertour='scroller')
+          .list-group
+            a.list-group-item.list-group-item-action(href='https://lms.waomirai.com/?redirect=0' data-aria-hidden-tab-index='' tabindex='-1')
+              | &#x30DB;&#x30FC;&#x30E0;
+            a.list-group-item.list-group-item-action(href='https://lms.waomirai.com/my/' data-aria-hidden-tab-index='' tabindex='-1')
+              | &#x30C0;&#x30C3;&#x30B7;&#x30E5;&#x30DC;&#x30FC;&#x30C9;
+            a.list-group-item.list-group-item-action(href='https://lms.waomirai.com/my/courses.php' data-aria-hidden-tab-index='' tabindex='-1')
+              | &#x767B;&#x9332;&#x6E08;&#x307F;&#x8B1B;&#x5EA7;
+            a.list-group-item.list-group-item-action(href='https://lms.waomirai.com/admin/search.php' data-aria-hidden-tab-index='' tabindex='-1')
+              | &#x30B5;&#x30A4;&#x30C8;&#x7BA1;&#x7406;
+            a.list-group-item.list-group-item-action(href='https://lms.waomirai.com/user/profile.php' data-aria-hidden-tab-index='' tabindex='-1')
+              | &#x30DE;&#x30A4;&#x30DA;&#x30FC;&#x30B8;
+            a.list-group-item.list-group-item-action(href='https://lms.waomirai.com/user/preferences.php' data-aria-hidden-tab-index='' tabindex='-1')
+              | &#x30E6;&#x30FC;&#x30B6;&#x8A2D;&#x5B9A;
+          ul.position-absolute.fixed-bottom.navbar-nav.ml-3.tenantswitch
+            li.dropdown.nav-item
+              a#drop-down-674ea74394cb8674ea743923253.dropdown-toggle.nav-link(data-toggle='dropdown' aria-haspopup='true' aria-expanded='false' href='#' aria-controls='drop-down-menu-674ea74394cb8674ea743923253' data-aria-hidden-tab-index='' tabindex='-1')
+                span.current-tenant-name.d-inline-block(title='【検証テナント】') &#x3010;&#x691C;&#x8A3C;&#x30C6;&#x30CA;&#x30F3;&#x30C8;&#x3011;
+              #drop-down-menu-674ea74394cb8674ea743923253.dropdown-menu(role='menu' aria-labelledby='drop-down-674ea74394cb8674ea743923253')
+                a.dropdown-item(role='menuitem' href='https://lms.waomirai.com/admin/tool/tenant/switchtenant.php?switchtenantid=1&redirecturl=%2Fmod%2Fquestionnaire%2Fview.php%3Fid%3D1128&sesskey=4jDluvC8qL' data-aria-hidden-tab-index='' tabindex='-1') Default tenant
+                a.dropdown-item(role='menuitem' href='https://lms.waomirai.com/admin/tool/tenant/switchtenant.php?switchtenantid=3&redirecturl=%2Fmod%2Fquestionnaire%2Fview.php%3Fid%3D1128&sesskey=4jDluvC8qL' data-aria-hidden-tab-index='' tabindex='-1') &#x30EF;&#x30AA;&#x672A;&#x6765;&#x587E; &#x5B66;&#x7FD2;&#x30DD;&#x30FC;&#x30BF;&#x30EB;
+                a.dropdown-item(role='menuitem' href='https://lms.waomirai.com/admin/tool/tenant/switchtenant.php?switchtenantid=4&redirecturl=%2Fmod%2Fquestionnaire%2Fview.php%3Fid%3D1128&sesskey=4jDluvC8qL' data-aria-hidden-tab-index='' tabindex='-1') &#x30EF;&#x30AA;&#x4F1A;&#x54E1;&#x30C6;&#x30CA;&#x30F3;&#x30C8;
+      #theme_boost-drawers-courseindex.drawer.drawer-left.d-print-none(data-region='fixed-drawer' data-preference='drawer-open-index' data-state='show-drawer-left' data-forceopen='0' data-close-on-resize='0' aria-hidden='true')
+        .drawerheader
+          button.btn.drawertoggle.icon-no-margin.hidden(data-toggler='drawers' data-action='closedrawer' data-target='theme_boost-drawers-courseindex' data-toggle='tooltip' data-placement='right' title='コースインデックスを閉じる' data-aria-hidden-tab-index='' tabindex='-1')
+            i.icon.fa.fa-times.fa-fw(aria-hidden='true')
+          .drawerheadercontent.hidden
+            #courseindexdrawercontrols.dropdown
+              button.btn.btn-icon.rounded-circle.mx-2(type='button' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false' title='コースインデックスオプション' data-aria-hidden-tab-index='' tabindex='-1')
+                i.icon.fa.fa-ellipsis-v.fa-fw.m-0(aria-hidden='true')
+              .dropdown-menu.dropdown-menu-right
+                a.dropdown-item(href='#' data-action='expandallcourseindexsections' data-aria-hidden-tab-index='' tabindex='-1')
+                  i.icon.fa.fa-angles-down.fa-fw(aria-hidden='true')
+                  |                             &#x3059;&#x3079;&#x3066;&#x3092;&#x5C55;&#x958B;&#x3059;&#x308B;
+                a.dropdown-item(href='#' data-action='collapseallcourseindexsections' data-aria-hidden-tab-index='' tabindex='-1')
+                  span.dir-rtl-hide
+                    i.icon.fa.fa-angles-right.fa-fw(aria-hidden='true')
+                  span.dir-ltr-hide
+                    i.icon.fa.fa-angles-left.fa-fw(aria-hidden='true')
+                  |                             &#x3059;&#x3079;&#x3066;&#x3092;&#x6298;&#x308A;&#x305F;&#x305F;&#x3080;
+        .drawercontent.drag-container(data-usertour='scroller')
+          nav#courseindex.courseindex
+            #courseindex-content
+              #0-course-index.courseindex(role='tree')
+                #0-course-index-section-659.courseindex-section(data-for='section' data-id='659' data-number='0' role='treeitem' aria-owns='courseindexcollapse0' tabindex='-1' aria-selected='true' data-aria-hidden-tab-index='0')
+                  #courseindexsection0.courseindex-item.d-flex.courseindex-section-title(data-for='section_item' tabindex='-1')
+                    a.courseindex-chevron.icons-collapse-expand(data-toggle='collapse' href='#courseindexcollapse0' aria-expanded='true' aria-controls='courseindexcollapse0' tabindex='-1' data-aria-hidden-tab-index='-1')
+                      span.collapsed-icon.icon-no-margin.mr-1(title='展開する' tabindex='-1')
+                        span.dir-rtl-hide(tabindex='-1')
+                          i.icon.fa.fa-chevron-right.fa-fw(aria-hidden='true' tabindex='-1')
+                        span.dir-ltr-hide(tabindex='-1')
+                          i.icon.fa.fa-chevron-left.fa-fw(aria-hidden='true' tabindex='-1')
+                        span.sr-only(tabindex='-1') &#x5C55;&#x958B;&#x3059;&#x308B;
+                      span.expanded-icon.icon-no-margin.mr-1(title='折りたたむ' tabindex='-1')
+                        i.icon.fa.fa-chevron-down.fa-fw(aria-hidden='true' tabindex='-1')
+                        span.sr-only(tabindex='-1') &#x6298;&#x308A;&#x305F;&#x305F;&#x3080;
+                    a.courseindex-link.text-truncate(href='https://lms.waomirai.com/course/view.php?id=211' data-action='togglecourseindexsection' data-for='section_title' tabindex='-1' data-aria-hidden-tab-index='-1')
+                      | &#x304A;&#x77E5;&#x3089;&#x305B;
+                    span.current-badge.badge.badge-primary.ml-2.px-2.rounded-pill(tabindex='-1')
+                      | &#x30CF;&#x30A4;&#x30E9;&#x30A4;&#x30C8;
+                    span.courseindex-locked.ml-1(data-for='cm_name' tabindex='-1')
+                      i.icon.fa.fa-lock.fa-fw(aria-hidden='true' tabindex='-1')
+                    span.dragicon.ml-auto(tabindex='-1')
+                      i.icon.fa.fa-arrows.fa-fw(aria-hidden='true' tabindex='-1')
+                  #courseindexcollapse0.courseindex-item-content.collapse.show.pb-0(aria-labelledby='courseindexsection0' role='group' tabindex='-1')
+                    ul.courseindex-sectioncontent.unlist(data-for='cmlist' data-id='659' role='group' tabindex='-1')
+                      li#course-index-cm-1185.courseindex-item.d-flex(data-for='cm' data-id='1185' role='treeitem' tabindex='-1' aria-selected='false')
+                        span.completioninfo.completion_none(data-for='cm_completion' data-value='NaN')
+                        a.courseindex-link.text-truncate(href='https://lms.waomirai.com/mod/forum/view.php?id=1185' data-for='cm_name' tabindex='-1' data-aria-hidden-tab-index='-1')
+                          | &#x30A2;&#x30CA;&#x30A6;&#x30F3;&#x30B9;&#x30E1;&#x30F3;&#x30C8;
+                        span.courseindex-locked.ml-1(data-for='cm_name' tabindex='-1')
+                          i.icon.fa.fa-lock.fa-fw(aria-hidden='true' tabindex='-1')
+                        span.dragicon.ml-auto(tabindex='-1')
+                          i.icon.fa.fa-arrows.fa-fw(aria-hidden='true' tabindex='-1')
+                    .courseindex-sectioncontent-children.ml-2(data-for='subsectionlist' data-parent='659' role='tree' tabindex='-1')
+                #0-course-index-section-666.courseindex-section(data-for='section' data-id='666' data-number='1' role='treeitem' aria-owns='courseindexcollapse1' tabindex='-1' aria-selected='false')
+                  #courseindexsection1.courseindex-item.d-flex.courseindex-section-title(data-for='section_item' tabindex='-1')
+                    a.courseindex-chevron.icons-collapse-expand(data-toggle='collapse' href='#courseindexcollapse1' aria-expanded='true' aria-controls='courseindexcollapse1' tabindex='-1' data-aria-hidden-tab-index='-1')
+                      span.collapsed-icon.icon-no-margin.mr-1(title='展開する' tabindex='-1')
+                        span.dir-rtl-hide(tabindex='-1')
+                          i.icon.fa.fa-chevron-right.fa-fw(aria-hidden='true' tabindex='-1')
+                        span.dir-ltr-hide(tabindex='-1')
+                          i.icon.fa.fa-chevron-left.fa-fw(aria-hidden='true' tabindex='-1')
+                        span.sr-only(tabindex='-1') &#x5C55;&#x958B;&#x3059;&#x308B;
+                      span.expanded-icon.icon-no-margin.mr-1(title='折りたたむ' tabindex='-1')
+                        i.icon.fa.fa-chevron-down.fa-fw(aria-hidden='true' tabindex='-1')
+                        span.sr-only(tabindex='-1') &#x6298;&#x308A;&#x305F;&#x305F;&#x3080;
+                    a.courseindex-link.text-truncate(href='https://lms.waomirai.com/course/view.php?id=211#section-1' data-action='togglecourseindexsection' data-for='section_title' tabindex='-1' data-aria-hidden-tab-index='-1')
+                      | LEVEL1&#x3000;&#x5C0F;3&#x301C;4&#x5E74;&#x751F;&#x5BFE;&#x8C61;
+                    span.current-badge.badge.badge-primary.ml-2.px-2.rounded-pill(tabindex='-1')
+                      | &#x30CF;&#x30A4;&#x30E9;&#x30A4;&#x30C8;
+                    span.courseindex-locked.ml-1(data-for='cm_name' tabindex='-1')
+                      i.icon.fa.fa-lock.fa-fw(aria-hidden='true' tabindex='-1')
+                    span.dragicon.ml-auto(tabindex='-1')
+                      i.icon.fa.fa-arrows.fa-fw(aria-hidden='true' tabindex='-1')
+                  #courseindexcollapse1.courseindex-item-content.collapse.show.pb-0(aria-labelledby='courseindexsection1' role='group' tabindex='-1')
+                    ul.courseindex-sectioncontent.unlist(data-for='cmlist' data-id='666' role='group' tabindex='-1')
+                    .courseindex-sectioncontent-children.ml-2(data-for='subsectionlist' data-parent='666' role='tree' tabindex='-1')
+                      #0-course-index-section-671.courseindex-section(data-for='section' data-id='671' data-number='2' role='treeitem' aria-owns='courseindexcollapse2' tabindex='-1' aria-selected='false')
+                        #courseindexsection2.courseindex-item.d-flex.courseindex-section-title(data-for='section_item' tabindex='-1')
+                          a.courseindex-chevron.icons-collapse-expand(data-toggle='collapse' href='#courseindexcollapse2' aria-expanded='true' aria-controls='courseindexcollapse2' tabindex='-1' data-aria-hidden-tab-index='-1')
+                            span.collapsed-icon.icon-no-margin.mr-1(title='展開する' tabindex='-1')
+                              span.dir-rtl-hide(tabindex='-1')
+                                i.icon.fa.fa-chevron-right.fa-fw(aria-hidden='true' tabindex='-1')
+                              span.dir-ltr-hide(tabindex='-1')
+                                i.icon.fa.fa-chevron-left.fa-fw(aria-hidden='true' tabindex='-1')
+                              span.sr-only(tabindex='-1') &#x5C55;&#x958B;&#x3059;&#x308B;
+                            span.expanded-icon.icon-no-margin.mr-1(title='折りたたむ' tabindex='-1')
+                              i.icon.fa.fa-chevron-down.fa-fw(aria-hidden='true' tabindex='-1')
+                              span.sr-only(tabindex='-1') &#x6298;&#x308A;&#x305F;&#x305F;&#x3080;
+                          a.courseindex-link.text-truncate(href='https://lms.waomirai.com/course/view.php?id=211#section-2' data-action='togglecourseindexsection' data-for='section_title' tabindex='-1' data-aria-hidden-tab-index='-1')
+                            | 2024&#x5E74;4&#x6708;&#x3000;&#x6050;&#x7ADC;&#x304C;&#x3044;&#x305F;&#x3089;&#x30DA;&#x30C3;&#x30C8;&#x306B;&#x3067;&#x304D;&#x308B;&#xFF1F;
+                          span.current-badge.badge.badge-primary.ml-2.px-2.rounded-pill(tabindex='-1')
+                            | &#x30CF;&#x30A4;&#x30E9;&#x30A4;&#x30C8;
+                          span.courseindex-locked.ml-1(data-for='cm_name' tabindex='-1')
+                            i.icon.fa.fa-lock.fa-fw(aria-hidden='true' tabindex='-1')
+                          span.dragicon.ml-auto(tabindex='-1')
+                            i.icon.fa.fa-arrows.fa-fw(aria-hidden='true' tabindex='-1')
+                        #courseindexcollapse2.courseindex-item-content.collapse.show.pb-0(aria-labelledby='courseindexsection2' role='group' tabindex='-1')
+                          ul.courseindex-sectioncontent.unlist(data-for='cmlist' data-id='671' role='group' tabindex='-1')
+                            li#course-index-cm-1134.courseindex-item.d-flex(data-for='cm' data-id='1134' role='treeitem' tabindex='-1' aria-selected='false')
+                              span.completioninfo.completion_none(data-for='cm_completion' data-value='NaN')
+                              a.courseindex-link.text-truncate(href='https://lms.waomirai.com/mod/page/view.php?id=1134' data-for='cm_name' tabindex='-1' data-aria-hidden-tab-index='-1')
+                                | &#x52D5;&#x753B;&#x3060;&#x3051;&#x306E;&#x30DA;&#x30FC;&#x30B8;
+                              span.courseindex-locked.ml-1(data-for='cm_name' tabindex='-1')
+                                i.icon.fa.fa-lock.fa-fw(aria-hidden='true' tabindex='-1')
+                              span.dragicon.ml-auto(tabindex='-1')
+                                i.icon.fa.fa-arrows.fa-fw(aria-hidden='true' tabindex='-1')
+                            li#course-index-cm-1127.courseindex-item.d-flex(data-for='cm' data-id='1127' role='treeitem' tabindex='-1' aria-selected='false')
+                              span.completioninfo.completion_complete(data-for='cm_completion' data-value='1')
+                                i.icon.fa.fa-circle.fa-fw(title='完了' role='img' aria-label='完了' aria-hidden='true')
+                                span.sr-only &#x5B8C;&#x4E86;
+                              a.courseindex-link.text-truncate(href='https://lms.waomirai.com/mod/questionnaire/view.php?id=1127' data-for='cm_name' tabindex='-1' data-aria-hidden-tab-index='-1')
+                                | 1&#x9031;&#x76EE;&#x3000;&#x73FE;&#x4EE3;&#x79D1;&#x5B66;&#x3067;&#x308F;&#x304B;&#x3063;&#x305F;&#x6050;&#x7ADC;&#x306E;&#x751F;&#x614B;
+                              span.courseindex-locked.ml-1(data-for='cm_name' tabindex='-1')
+                                i.icon.fa.fa-lock.fa-fw(aria-hidden='true' tabindex='-1')
+                              span.dragicon.ml-auto(tabindex='-1')
+                                i.icon.fa.fa-arrows.fa-fw(aria-hidden='true' tabindex='-1')
+                            li#course-index-cm-1128.courseindex-item.d-flex.pageitem(data-for='cm' data-id='1128' role='treeitem' tabindex='-1' aria-selected='false')
+                              span.completioninfo.completion_incomplete(data-for='cm_completion' data-value='0')
+                                i.icon.fa.fa-circle-thin.fa-fw(title='ToDo' role='img' aria-label='ToDo' aria-hidden='true')
+                                span.sr-only ToDo
+                              a.courseindex-link.text-truncate(href='https://lms.waomirai.com/mod/questionnaire/view.php?id=1128' data-for='cm_name' tabindex='-1' data-aria-hidden-tab-index='-1')
+                                | 2&#x9031;&#x76EE;&#x3000;&#x5B9F;&#x969B;&#x306B;&#x30DA;&#x30C3;&#x30C8;&#x306B;&#x3059;&#x308B;&#x306A;&#x3089;&#x3069;&#x306E;&#x6050;&#x7ADC;&#xFF1F;
+                              span.courseindex-locked.ml-1(data-for='cm_name' tabindex='-1')
+                                i.icon.fa.fa-lock.fa-fw(aria-hidden='true' tabindex='-1')
+                              span.dragicon.ml-auto(tabindex='-1')
+                                i.icon.fa.fa-arrows.fa-fw(aria-hidden='true' tabindex='-1')
+                            li#course-index-cm-1132.courseindex-item.d-flex(data-for='cm' data-id='1132' role='treeitem' tabindex='-1' aria-selected='false')
+                              span.completioninfo.completion_incomplete(data-for='cm_completion' data-value='0')
+                                i.icon.fa.fa-circle-thin.fa-fw(title='ToDo' role='img' aria-label='ToDo' aria-hidden='true')
+                                span.sr-only ToDo
+                              a.courseindex-link.text-truncate(href='https://lms.waomirai.com/mod/questionnaire/view.php?id=1132' data-for='cm_name' tabindex='-1' data-aria-hidden-tab-index='-1')
+                                | 3&#x9031;&#x76EE;&#x3000;&#x30D5;&#x30A3;&#x30FC;&#x30C9;&#x30D0;&#x30C3;&#x30AF;&#x56DE;
+                              span.courseindex-locked.ml-1(data-for='cm_name' tabindex='-1')
+                                i.icon.fa.fa-lock.fa-fw(aria-hidden='true' tabindex='-1')
+                              span.dragicon.ml-auto(tabindex='-1')
+                                i.icon.fa.fa-arrows.fa-fw(aria-hidden='true' tabindex='-1')
+                            li#course-index-cm-1146.courseindex-item.d-flex(data-for='cm' data-id='1146' role='treeitem' tabindex='-1' aria-selected='false')
+                              span.completioninfo.completion_incomplete(data-for='cm_completion' data-value='0')
+                                i.icon.fa.fa-circle-thin.fa-fw(title='ToDo' role='img' aria-label='ToDo' aria-hidden='true')
+                                span.sr-only ToDo
+                              a.courseindex-link.text-truncate(href='https://lms.waomirai.com/mod/assign/view.php?id=1146' data-for='cm_name' tabindex='-1' data-aria-hidden-tab-index='-1')
+                                | &#x30EB;&#x30FC;&#x30D6;&#x30EA;&#x30C3;&#x30AF;&#x3067;&#x8A55;&#x5B9A;
+                              span.courseindex-locked.ml-1(data-for='cm_name' tabindex='-1')
+                                i.icon.fa.fa-lock.fa-fw(aria-hidden='true' tabindex='-1')
+                              span.dragicon.ml-auto(tabindex='-1')
+                                i.icon.fa.fa-arrows.fa-fw(aria-hidden='true' tabindex='-1')
+                            li#course-index-cm-1152.courseindex-item.d-flex(data-for='cm' data-id='1152' role='treeitem' tabindex='-1' aria-selected='false')
+                              span.completioninfo.completion_incomplete(data-for='cm_completion' data-value='0')
+                                i.icon.fa.fa-circle-thin.fa-fw(title='ToDo' role='img' aria-label='ToDo' aria-hidden='true')
+                                span.sr-only ToDo
+                              a.courseindex-link.text-truncate(href='https://lms.waomirai.com/mod/assign/view.php?id=1152' data-for='cm_name' tabindex='-1' data-aria-hidden-tab-index='-1')
+                                | &#x8A55;&#x5B9A;&#x30AC;&#x30A4;&#x30C9;&#x3067;&#x8A55;&#x5B9A;&#x3059;&#x308B;
+                              span.courseindex-locked.ml-1(data-for='cm_name' tabindex='-1')
+                                i.icon.fa.fa-lock.fa-fw(aria-hidden='true' tabindex='-1')
+                              span.dragicon.ml-auto(tabindex='-1')
+                                i.icon.fa.fa-arrows.fa-fw(aria-hidden='true' tabindex='-1')
+                            li#course-index-cm-1182.courseindex-item.d-flex(data-for='cm' data-id='1182' role='treeitem' tabindex='-1' aria-selected='false')
+                              span.completioninfo.completion_incomplete(data-for='cm_completion' data-value='0')
+                                i.icon.fa.fa-circle-thin.fa-fw(title='ToDo' role='img' aria-label='ToDo' aria-hidden='true')
+                                span.sr-only ToDo
+                              a.courseindex-link.text-truncate(href='https://lms.waomirai.com/mod/assign/view.php?id=1182' data-for='cm_name' tabindex='-1' data-aria-hidden-tab-index='-1')
+                                | &#x8907;&#x6570;&#x306E;&#x8AB2;&#x984C;&#x306F;&#xFF1F;
+                              span.courseindex-locked.ml-1(data-for='cm_name' tabindex='-1')
+                                i.icon.fa.fa-lock.fa-fw(aria-hidden='true' tabindex='-1')
+                              span.dragicon.ml-auto(tabindex='-1')
+                                i.icon.fa.fa-arrows.fa-fw(aria-hidden='true' tabindex='-1')
+                          .courseindex-sectioncontent-children.ml-2(data-for='subsectionlist' data-parent='671' role='tree' tabindex='-1')
+                      #0-course-index-section-674.courseindex-section(data-for='section' data-id='674' data-number='3' role='treeitem' aria-owns='courseindexcollapse3' tabindex='-1' aria-selected='false')
+                        #courseindexsection3.courseindex-item.d-flex.courseindex-section-title(data-for='section_item' tabindex='-1')
+                          a.courseindex-chevron.icons-collapse-expand.collapsed(data-toggle='collapse' href='#courseindexcollapse3' aria-expanded='false' aria-controls='courseindexcollapse3' tabindex='-1' data-aria-hidden-tab-index='-1')
+                            span.collapsed-icon.icon-no-margin.mr-1(title='展開する' tabindex='-1')
+                              span.dir-rtl-hide(tabindex='-1')
+                                i.icon.fa.fa-chevron-right.fa-fw(aria-hidden='true' tabindex='-1')
+                              span.dir-ltr-hide(tabindex='-1')
+                                i.icon.fa.fa-chevron-left.fa-fw(aria-hidden='true' tabindex='-1')
+                              span.sr-only(tabindex='-1') &#x5C55;&#x958B;&#x3059;&#x308B;
+                            span.expanded-icon.icon-no-margin.mr-1(title='折りたたむ' tabindex='-1')
+                              i.icon.fa.fa-chevron-down.fa-fw(aria-hidden='true' tabindex='-1')
+                              span.sr-only(tabindex='-1') &#x6298;&#x308A;&#x305F;&#x305F;&#x3080;
+                          a.courseindex-link.text-truncate(href='https://lms.waomirai.com/course/view.php?id=211#section-3' data-action='togglecourseindexsection' data-for='section_title' tabindex='-1' data-aria-hidden-tab-index='-1')
+                            | 2024&#x5E74;5&#x6708;&#x3000;10&#x4E07;&#x30DC;&#x30EB;&#x30C8;&#x306E;&#x5F37;&#x3055;&#x306F;&#x3069;&#x306E;&#x304F;&#x3089;&#x3044;&#xFF1F;
+                          span.current-badge.badge.badge-primary.ml-2.px-2.rounded-pill(tabindex='-1')
+                            | &#x30CF;&#x30A4;&#x30E9;&#x30A4;&#x30C8;
+                          span.courseindex-locked.ml-1(data-for='cm_name' tabindex='-1')
+                            i.icon.fa.fa-lock.fa-fw(aria-hidden='true' tabindex='-1')
+                          span.dragicon.ml-auto(tabindex='-1')
+                            i.icon.fa.fa-arrows.fa-fw(aria-hidden='true' tabindex='-1')
+                        #courseindexcollapse3.courseindex-item-content.collapse.pb-0(aria-labelledby='courseindexsection3' role='group' tabindex='-1')
+                          ul.courseindex-sectioncontent.unlist(data-for='cmlist' data-id='674' role='group' tabindex='-1')
+                            li#course-index-cm-1129.courseindex-item.d-flex(data-for='cm' data-id='1129' role='treeitem' tabindex='-1' aria-selected='false')
+                              span.completioninfo.completion_none(data-for='cm_completion' data-value='NaN')
+                              a.courseindex-link.text-truncate(href='https://lms.waomirai.com/mod/questionnaire/view.php?id=1129' data-for='cm_name' tabindex='-1' data-aria-hidden-tab-index='-1')
+                                | 1&#x9031;&#x76EE;&#x3000;&#x767A;&#x96FB;&#x3059;&#x308B;&#x52D5;&#x7269;&#x306F;&#x3069;&#x3046;&#x3057;&#x3066;&#x3044;&#x308B;&#x306E;&#xFF1F;
+                              span.courseindex-locked.ml-1(data-for='cm_name' tabindex='-1')
+                                i.icon.fa.fa-lock.fa-fw(aria-hidden='true' tabindex='-1')
+                              span.dragicon.ml-auto(tabindex='-1')
+                                i.icon.fa.fa-arrows.fa-fw(aria-hidden='true' tabindex='-1')
+                            li#course-index-cm-1130.courseindex-item.d-flex(data-for='cm' data-id='1130' role='treeitem' tabindex='-1' aria-selected='false')
+                              span.completioninfo.completion_none(data-for='cm_completion' data-value='NaN')
+                              a.courseindex-link.text-truncate(href='https://lms.waomirai.com/mod/questionnaire/view.php?id=1130' data-for='cm_name' tabindex='-1' data-aria-hidden-tab-index='-1')
+                                | 10&#x4E07;&#x30DC;&#x30EB;&#x30C8;&#x304C;&#x3067;&#x304D;&#x308B;&#x3053;&#x3068;
+                              span.courseindex-locked.ml-1(data-for='cm_name' tabindex='-1')
+                                i.icon.fa.fa-lock.fa-fw(aria-hidden='true' tabindex='-1')
+                              span.dragicon.ml-auto(tabindex='-1')
+                                i.icon.fa.fa-arrows.fa-fw(aria-hidden='true' tabindex='-1')
+                            li#course-index-cm-1133.courseindex-item.d-flex(data-for='cm' data-id='1133' role='treeitem' tabindex='-1' aria-selected='false')
+                              span.completioninfo.completion_none(data-for='cm_completion' data-value='NaN')
+                              a.courseindex-link.text-truncate(href='https://lms.waomirai.com/mod/questionnaire/view.php?id=1133' data-for='cm_name' tabindex='-1' data-aria-hidden-tab-index='-1')
+                                | 3&#x9031;&#x76EE;&#x3000;&#x30D5;&#x30A3;&#x30FC;&#x30C9;&#x30D0;&#x30C3;&#x30AF;&#x56DE;
+                              span.courseindex-locked.ml-1(data-for='cm_name' tabindex='-1')
+                                i.icon.fa.fa-lock.fa-fw(aria-hidden='true' tabindex='-1')
+                              span.dragicon.ml-auto(tabindex='-1')
+                                i.icon.fa.fa-arrows.fa-fw(aria-hidden='true' tabindex='-1')
+                            li#course-index-cm-1181.courseindex-item.d-flex(data-for='cm' data-id='1181' role='treeitem' tabindex='-1' aria-selected='false')
+                              span.completioninfo.completion_none(data-for='cm_completion' data-value='NaN')
+                              a.courseindex-link.text-truncate(href='https://lms.waomirai.com/mod/questionnaire/view.php?id=1181' data-for='cm_name' tabindex='-1' data-aria-hidden-tab-index='-1')
+                                | Vimeo&#x3092;&#x5168;&#x5E45;&#x3067;&#x958B;&#x304F;&#x30C6;&#x30B9;&#x30C8;
+                              span.courseindex-locked.ml-1(data-for='cm_name' tabindex='-1')
+                                i.icon.fa.fa-lock.fa-fw(aria-hidden='true' tabindex='-1')
+                              span.dragicon.ml-auto(tabindex='-1')
+                                i.icon.fa.fa-arrows.fa-fw(aria-hidden='true' tabindex='-1')
+                          .courseindex-sectioncontent-children.ml-2(data-for='subsectionlist' data-parent='674' role='tree' tabindex='-1')
+                #0-course-index-section-667.courseindex-section(data-for='section' data-id='667' data-number='4' role='treeitem' aria-owns='courseindexcollapse4' tabindex='-1' aria-selected='false')
+                  #courseindexsection4.courseindex-item.d-flex.courseindex-section-title(data-for='section_item' tabindex='-1')
+                    a.courseindex-chevron.icons-collapse-expand(data-toggle='collapse' href='#courseindexcollapse4' aria-expanded='true' aria-controls='courseindexcollapse4' tabindex='-1' data-aria-hidden-tab-index='-1')
+                      span.collapsed-icon.icon-no-margin.mr-1(title='展開する' tabindex='-1')
+                        span.dir-rtl-hide(tabindex='-1')
+                          i.icon.fa.fa-chevron-right.fa-fw(aria-hidden='true' tabindex='-1')
+                        span.dir-ltr-hide(tabindex='-1')
+                          i.icon.fa.fa-chevron-left.fa-fw(aria-hidden='true' tabindex='-1')
+                        span.sr-only(tabindex='-1') &#x5C55;&#x958B;&#x3059;&#x308B;
+                      span.expanded-icon.icon-no-margin.mr-1(title='折りたたむ' tabindex='-1')
+                        i.icon.fa.fa-chevron-down.fa-fw(aria-hidden='true' tabindex='-1')
+                        span.sr-only(tabindex='-1') &#x6298;&#x308A;&#x305F;&#x305F;&#x3080;
+                    a.courseindex-link.text-truncate(href='https://lms.waomirai.com/course/view.php?id=211#section-4' data-action='togglecourseindexsection' data-for='section_title' tabindex='-1' data-aria-hidden-tab-index='-1')
+                      | LEVEL2&#x3000;&#x5C0F;5&#x301C;6&#x5E74;&#x751F;&#x5BFE;&#x8C61;
+                    span.current-badge.badge.badge-primary.ml-2.px-2.rounded-pill(tabindex='-1')
+                      | &#x30CF;&#x30A4;&#x30E9;&#x30A4;&#x30C8;
+                    span.courseindex-locked.ml-1(data-for='cm_name' tabindex='-1')
+                      i.icon.fa.fa-lock.fa-fw(aria-hidden='true' tabindex='-1')
+                    span.dragicon.ml-auto(tabindex='-1')
+                      i.icon.fa.fa-arrows.fa-fw(aria-hidden='true' tabindex='-1')
+                  #courseindexcollapse4.courseindex-item-content.collapse.show.pb-0(aria-labelledby='courseindexsection4' role='group' tabindex='-1')
+                    ul.courseindex-sectioncontent.unlist(data-for='cmlist' data-id='667' role='group' tabindex='-1')
+                    .courseindex-sectioncontent-children.ml-2(data-for='subsectionlist' data-parent='667' role='tree' tabindex='-1')
+                #0-course-index-section-672.courseindex-section(data-for='section' data-id='672' data-number='5' role='treeitem' aria-owns='courseindexcollapse5' tabindex='-1' aria-selected='false')
+                  #courseindexsection5.courseindex-item.d-flex.courseindex-section-title(data-for='section_item' tabindex='-1')
+                    a.courseindex-chevron.icons-collapse-expand(data-toggle='collapse' href='#courseindexcollapse5' aria-expanded='true' aria-controls='courseindexcollapse5' tabindex='-1' data-aria-hidden-tab-index='-1')
+                      span.collapsed-icon.icon-no-margin.mr-1(title='展開する' tabindex='-1')
+                        span.dir-rtl-hide(tabindex='-1')
+                          i.icon.fa.fa-chevron-right.fa-fw(aria-hidden='true' tabindex='-1')
+                        span.dir-ltr-hide(tabindex='-1')
+                          i.icon.fa.fa-chevron-left.fa-fw(aria-hidden='true' tabindex='-1')
+                        span.sr-only(tabindex='-1') &#x5C55;&#x958B;&#x3059;&#x308B;
+                      span.expanded-icon.icon-no-margin.mr-1(title='折りたたむ' tabindex='-1')
+                        i.icon.fa.fa-chevron-down.fa-fw(aria-hidden='true' tabindex='-1')
+                        span.sr-only(tabindex='-1') &#x6298;&#x308A;&#x305F;&#x305F;&#x3080;
+                    a.courseindex-link.text-truncate(href='https://lms.waomirai.com/course/view.php?id=211#section-5' data-action='togglecourseindexsection' data-for='section_title' tabindex='-1' data-aria-hidden-tab-index='-1')
+                      | LEVEL3&#x3000;&#x4E2D;&#x5B66;&#x751F;&#x5BFE;&#x8C61;
+                    span.current-badge.badge.badge-primary.ml-2.px-2.rounded-pill(tabindex='-1')
+                      | &#x30CF;&#x30A4;&#x30E9;&#x30A4;&#x30C8;
+                    span.courseindex-locked.ml-1(data-for='cm_name' tabindex='-1')
+                      i.icon.fa.fa-lock.fa-fw(aria-hidden='true' tabindex='-1')
+                    span.dragicon.ml-auto(tabindex='-1')
+                      i.icon.fa.fa-arrows.fa-fw(aria-hidden='true' tabindex='-1')
+                  #courseindexcollapse5.courseindex-item-content.collapse.show.pb-0(aria-labelledby='courseindexsection5' role='group' tabindex='-1')
+                    ul.courseindex-sectioncontent.unlist(data-for='cmlist' data-id='672' role='group' tabindex='-1')
+                    .courseindex-sectioncontent-children.ml-2(data-for='subsectionlist' data-parent='672' role='tree' tabindex='-1')
+                #0-course-index-section-673.courseindex-section(data-for='section' data-id='673' data-number='6' role='treeitem' aria-owns='courseindexcollapse6' tabindex='-1' aria-selected='false')
+                  #courseindexsection6.courseindex-item.d-flex.courseindex-section-title(data-for='section_item' tabindex='-1')
+                    a.courseindex-chevron.icons-collapse-expand(data-toggle='collapse' href='#courseindexcollapse6' aria-expanded='true' aria-controls='courseindexcollapse6' tabindex='-1' data-aria-hidden-tab-index='-1')
+                      span.collapsed-icon.icon-no-margin.mr-1(title='展開する' tabindex='-1')
+                        span.dir-rtl-hide(tabindex='-1')
+                          i.icon.fa.fa-chevron-right.fa-fw(aria-hidden='true' tabindex='-1')
+                        span.dir-ltr-hide(tabindex='-1')
+                          i.icon.fa.fa-chevron-left.fa-fw(aria-hidden='true' tabindex='-1')
+                        span.sr-only(tabindex='-1') &#x5C55;&#x958B;&#x3059;&#x308B;
+                      span.expanded-icon.icon-no-margin.mr-1(title='折りたたむ' tabindex='-1')
+                        i.icon.fa.fa-chevron-down.fa-fw(aria-hidden='true' tabindex='-1')
+                        span.sr-only(tabindex='-1') &#x6298;&#x308A;&#x305F;&#x305F;&#x3080;
+                    a.courseindex-link.text-truncate(href='https://lms.waomirai.com/course/view.php?id=211#section-6' data-action='togglecourseindexsection' data-for='section_title' tabindex='-1' data-aria-hidden-tab-index='-1')
+                      | LEVEL4&#x3000;&#x9AD8;&#x6821;&#x751F;&#x5BFE;&#x8C61;
+                    span.current-badge.badge.badge-primary.ml-2.px-2.rounded-pill(tabindex='-1')
+                      | &#x30CF;&#x30A4;&#x30E9;&#x30A4;&#x30C8;
+                    span.courseindex-locked.ml-1(data-for='cm_name' tabindex='-1')
+                      i.icon.fa.fa-lock.fa-fw(aria-hidden='true' tabindex='-1')
+                    span.dragicon.ml-auto(tabindex='-1')
+                      i.icon.fa.fa-arrows.fa-fw(aria-hidden='true' tabindex='-1')
+                  #courseindexcollapse6.courseindex-item-content.collapse.show.pb-0(aria-labelledby='courseindexsection6' role='group' tabindex='-1')
+                    ul.courseindex-sectioncontent.unlist(data-for='cmlist' data-id='673' role='group' tabindex='-1')
+                    .courseindex-sectioncontent-children.ml-2(data-for='subsectionlist' data-parent='673' role='tree' tabindex='-1')
+      #page.drawers.drag-container(data-region='mainpage' data-usertour='scroller')
+        #topofscroll.main-inner
+          .drawer-toggles.d-flex
+            .drawer-toggler.drawer-left-toggle.open-nav.d-print-none
+              button.btn.icon-no-margin(data-toggler='drawers' data-action='toggle' data-target='theme_boost-drawers-courseindex' data-toggle='tooltip' data-placement='right' title='コースインデックスを開く')
+                span.sr-only &#x30B3;&#x30FC;&#x30B9;&#x30A4;&#x30F3;&#x30C7;&#x30C3;&#x30AF;&#x30B9;&#x3092;&#x958B;&#x304F;
+                i.icon.fa.fa-list.fa-fw(aria-hidden='true')
+          header#page-header.header-maxwidth.d-print-none
+            .w-100
+              .d-flex.flex-wrap
+                #page-navbar
+                  nav(aria-label='ナビゲーションバー')
+                    ol.breadcrumb
+                      li.breadcrumb-item
+                        a(href='https://lms.waomirai.com/course/view.php?id=211#section-2' title='科学') &#x79D1;&#x5B66;&#x30C6;&#x30B9;&#x30C8;
+                      li.breadcrumb-item
+                        span 2&#x9031;&#x76EE;&#x3000;&#x5B9F;&#x969B;&#x306B;&#x30DA;&#x30C3;&#x30C8;&#x306B;&#x3059;&#x308B;&#x306A;&#x3089;&#x3069;&#x306E;&#x6050;&#x7ADC;&#xFF1F;
+                .ml-auto.d-flex
+                #course-header
+              .d-flex.align-items-center
+                .mr-auto
+                  .page-context-header
+                    .page-header-image.mr-2
+                      .communication.activityiconcontainer.icon-size-6.modicon_questionnaire
+                        img.icon.activityicon(aria-hidden='true' src='https://lms.waomirai.com/theme/image.php/kenai/questionnaire/1732783105/monologo?filtericon=1' alt='')
+                    .page-header-headings
+                      h1.h2 2&#x9031;&#x76EE;&#x3000;&#x5B9F;&#x969B;&#x306B;&#x30DA;&#x30C3;&#x30C8;&#x306B;&#x3059;&#x308B;&#x306A;&#x3089;&#x3069;&#x306E;&#x6050;&#x7ADC;&#xFF1F;
+                .header-actions-container.ml-auto(data-region='header-actions-container')
+          .secondary-navigation.d-print-none
+            nav.moremenu.navigation.observed
+              ul#moremenu-674ea7439268d-nav-tabs.nav.more-nav.nav-tabs(role='menubar')
+                li.nav-item(data-key='modulepage' role='none' data-forceintomoremenu='false')
+                  a.nav-link.active.active_tree_node(role='menuitem' href='https://lms.waomirai.com/mod/questionnaire/view.php?id=1128' aria-current='true')
+                    | &#x554F;&#x3044;
+                li.nav-item(data-key='modedit' role='none' data-forceintomoremenu='false')
+                  a.nav-link(role='menuitem' href='https://lms.waomirai.com/course/modedit.php?update=1128&return=1' tabindex='-1')
+                    | &#x8A2D;&#x5B9A;
+                li.nav-item(data-key='advancedsettings' role='none' data-forceintomoremenu='false')
+                  a.nav-link(role='menuitem' href='https://lms.waomirai.com/mod/questionnaire/qsettings.php?id=1128' tabindex='-1')
+                    | &#x9AD8;&#x5EA6;&#x306A;&#x8A2D;&#x5B9A;
+                li.nav-item(data-key='questions' role='none' data-forceintomoremenu='false')
+                  a.nav-link(role='menuitem' href='https://lms.waomirai.com/mod/questionnaire/questions.php?id=1128' tabindex='-1')
+                    | &#x8CEA;&#x554F;
+                li.nav-item(data-key='feedback' role='none' data-forceintomoremenu='false')
+                  a.nav-link(role='menuitem' href='https://lms.waomirai.com/mod/questionnaire/feedback.php?id=1128' tabindex='-1')
+                    | &#x30D5;&#x30A3;&#x30FC;&#x30C9;&#x30D0;&#x30C3;&#x30AF;
+                li.nav-item.dropdown.dropdownmoremenu(role='none' data-region='morebutton')
+                  a#moremenu-dropdown-674ea7439268d.dropdown-toggle.nav-link(href='#' role='menuitem' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false' tabindex='-1')
+                    | &#x3055;&#x3089;&#x306B;
+                  ul.dropdown-menu.dropdown-menu-left(data-region='moredropdown' aria-labelledby='moremenu-dropdown-674ea7439268d' role='menu')
+                    li.nav-item(data-key='filtermanage' role='none' data-forceintomoremenu='true')
+                      a.dropdown-item(role='menuitem' href='https://lms.waomirai.com/filter/manage.php?contextid=2404' tabindex='-1')
+                        | &#x30D5;&#x30A3;&#x30EB;&#x30BF;
+                    li.nav-item(data-key='roleoverride' role='none' data-forceintomoremenu='true')
+                      a.dropdown-item(role='menuitem' href='https://lms.waomirai.com/admin/roles/permissions.php?contextid=2404' tabindex='-1')
+                        | &#x30D1;&#x30FC;&#x30DF;&#x30C3;&#x30B7;&#x30E7;&#x30F3;
+                    li.nav-item(data-key='backup' role='none' data-forceintomoremenu='true')
+                      a.dropdown-item(role='menuitem' href='https://lms.waomirai.com/backup/backup.php?id=211&cm=1128' tabindex='-1')
+                        | &#x30D0;&#x30C3;&#x30AF;&#x30A2;&#x30C3;&#x30D7;
+                    li.nav-item(data-key='restore' role='none' data-forceintomoremenu='true')
+                      a.dropdown-item(role='menuitem' href='https://lms.waomirai.com/backup/restorefile.php?contextid=2404' tabindex='-1')
+                        | &#x30EA;&#x30B9;&#x30C8;&#x30A2;
+                    li.nav-item(data-key='preview' role='none' data-forceintomoremenu='true')
+                      a.dropdown-item(role='menuitem' href='https://lms.waomirai.com/mod/questionnaire/preview.php?id=1128' tabindex='-1')
+                        | &#x30D7;&#x30EC;&#x30D3;&#x30E5;&#x30FC;
+                    li.nav-item(data-key='' role='none' data-forceintomoremenu='true')
+                      a.dropdown-item(role='menuitem' href='https://lms.waomirai.com/mod/questionnaire/complete.php?id=1128' tabindex='-1')
+                        | &#x30A2;&#x30F3;&#x30B1;&#x30FC;&#x30C8;&#x306B;&#x56DE;&#x7B54;&#x3059;&#x308B; ...
+                    li.nav-item(data-key='vall' role='none' data-forceintomoremenu='true')
+                      a.dropdown-item(role='menuitem' href='https://lms.waomirai.com/mod/questionnaire/report.php?instance=4&action=vall' tabindex='-1')
+                        | &#x3059;&#x3079;&#x3066;&#x306E;&#x56DE;&#x7B54;&#x3092;&#x95B2;&#x89A7;&#x3059;&#x308B;
+                    li.nav-item(data-key='nonrespondents' role='none' data-forceintomoremenu='true')
+                      a.dropdown-item(role='menuitem' href='https://lms.waomirai.com/mod/questionnaire/show_nonrespondents.php?id=1128' tabindex='-1')
+                        | &#x975E;&#x56DE;&#x7B54;&#x8005;
+          #page-content.pb-3.d-print-block
+            #region-main-box
+              section#region-main(aria-label='コンテンツ')
+                span#user-notifications.notifications
+                span#maincontent
+                h2 2&#x9031;&#x76EE;&#x3000;&#x5B9F;&#x969B;&#x306B;&#x30DA;&#x30C3;&#x30C8;&#x306B;&#x3059;&#x308B;&#x306A;&#x3089;&#x3069;&#x306E;&#x6050;&#x7ADC;&#xFF1F;
+                .activity-header(data-for='page-activity-header')
+                  span.sr-only &#x5B8C;&#x4E86;&#x8981;&#x4EF6;
+                  .activity-information(data-region='activity-information' data-activityname='2週目　実際にペットにするならどの恐竜？')
+                    .completion-info(data-region='completion-info')
+                      .automatic-completion-conditions(data-region='completionrequirements' role='list' aria-label='2週目　実際にペットにするならどの恐竜？ の完了条件')
+                        .badge.badge-pill.badge-light(role='listitem')
+                          strong &#x3084;&#x308B;&#x3079;&#x304D;&#x3053;&#x3068;:
+                          span.font-weight-normal &#x5B66;&#x751F;&#x304C;&#x5B8C;&#x4E86;&#x3059;&#x308B;&#x305F;&#x3081;&#x306B;&#x306F;&#x3053;&#x306E;&#x30A2;&#x30F3;&#x30B1;&#x30FC;&#x30C8;&#x306B;&#x56DE;&#x7B54;&#x3057;&#x306A;&#x3051;&#x308C;&#x3070;&#x306A;&#x308A;&#x307E;&#x305B;&#x3093;
+                  #intro.activity-description
+                    .no-overflow
+                      div(style="padding:56.25% 0 0 0;position:relative;")
+                        iframe(src="https://vimeo.com/event/3887803/embed/b7592cf097/interaction", frameborder="0", allow="autoplay; fullscreen; picture-in-picture", style="position:absolute;top:0;left:0;width:100%;height:100%;")
+                div(role='main')
+                  .mod_questionnaire_viewpage
+                    h2
+                    .mod_questionnaire_flex-container
+                      .complete
+                        a.btn.btn-primary(href='https://lms.waomirai.com/mod/questionnaire/complete.php?id=1128') &#x30A2;&#x30F3;&#x30B1;&#x30FC;&#x30C8;&#x306B;&#x56DE;&#x7B54;&#x3059;&#x308B; ...
+                      .allresponses
+                        a.btn.btn-primary(href='https://lms.waomirai.com/mod/questionnaire/report.php?instance=4&group=0') &#x3059;&#x3079;&#x3066;&#x306E;&#x56DE;&#x7B54;&#x3092;&#x95B2;&#x89A7;&#x3059;&#x308B;
+                  //- #wp-site-status-disclaimer
+                  //-   | &#x3042;&#x306A;&#x305F;&#x306E;&#x30B5;&#x30A4;&#x30C8;&#x306F;&#x307E;&#x3060;&#x767B;&#x9332;&#x3055;&#x308C;&#x3066;&#x3044;&#x307E;&#x305B;&#x3093;&#x3002;
+                  //-   a(href='https://lms.waomirai.com/admin/registration/index.php') &#x3042;&#x306A;&#x305F;&#x306E;&#x30B5;&#x30A4;&#x30C8;&#x3092;&#x767B;&#x9332;&#x3059;&#x308B;
+        #goto-top-link
+          a#backToTop.btn.btn-light(role='button' href='#' style='display:none')
+            i.icon.fa.fa-arrow-up.fa-fw(title='トップへ戻る' role='img' aria-label='トップへ戻る' aria-hidden='true')
+            span.sr-only &#x30C8;&#x30C3;&#x30D7;&#x3078;&#x623B;&#x308B;
+        footer#page-footer.footer-popover.bg-white
+          div(data-region='footer-container-popover')
+            button.btn.btn-icon.bg-secondary.icon-no-margin.btn-footer-popover(data-action='footer-popover' aria-label='フッタを表示する' data-original-title='' title='')
+              i.icon.fa.fa-question.fa-fw(aria-hidden='true')
+          .footer-content-popover.container(data-region='footer-content-popover')
+            .footer-section.p-3.border-bottom
+              div
+                a(target='_blank' href='https://moodle.com/help/?utm_source=CTA-banner&utm_medium=platform&utm_campaign=name~Moodle4+cat~lms+mp~no')
+                  i.icon.fa.fa-life-ring.fa-fw.fa.fa-life-ring(aria-hidden='true')
+                  | &#x30B5;&#x30FC;&#x30D3;&#x30B9;&#x304A;&#x3088;&#x3073;&#x30B5;&#x30DD;&#x30FC;&#x30C8;
+                  i.icon.fa.fa-external-link.fa-fw.ml-1(title='新しいウィンドウで開く' role='img' aria-label='新しいウィンドウで開く' aria-hidden='true')
+                  span.sr-only &#x65B0;&#x3057;&#x3044;&#x30A6;&#x30A3;&#x30F3;&#x30C9;&#x30A6;&#x3067;&#x958B;&#x304F;
+              div
+                a(href='https://lms.waomirai.com/user/contactsitesupport.php')
+                  i.icon.fa.fa-envelope-o.fa-fw(aria-hidden='true')
+                a(href='https://go.waomirai.com/contact' target='_blank') &#x30B5;&#x30DD;&#x30FC;&#x30C8;&#x306B;&#x9023;&#x7D61;
+            .footer-section.p-3.border-bottom
+              .logininfo
+                .logininfo
+                  | &#x30ED;&#x30B0;&#x30A4;&#x30F3;&#x30E6;&#x30FC;&#x30B6;&#x30FC;&#x540D;&#xFF1A;
+                  a(href='https://lms.waomirai.com/user/profile.php?id=9' title='プロファイルを表示する') &#x682A;&#x5F0F;&#x4F1A;&#x793E;&#x30EF;&#x30AA;&#x30FB;&#x30B3;&#x30FC;&#x30DD;&#x30EC;&#x30FC;&#x30B7;&#x30E7;&#x30F3; &#x30B5;&#x30A4;&#x30C8;&#x7BA1;&#x7406;&#x8005;
+                  |  &#x3055;&#x3093; (
+                  a(href='https://lms.waomirai.com/login/logout.php?sesskey=4jDluvC8qL') &#x30ED;&#x30B0;&#x30A2;&#x30A6;&#x30C8;
+                  | )
+              .tool_usertours-resettourcontainer
+              br
+              p
+                a(href='https://lms.waomirai.com/course/view.php?id=112' target='_blank' style='text-decoration: revert-layer;') &#xFF1E;&#x3088;&#x304F;&#x3042;&#x308B;&#x3054;&#x8CEA;&#x554F;&#xFF08;&#x304A;&#x554F;&#x3044;&#x5408;&#x308F;&#x305B;&#xFF09;
+              p
+                a(href='https://waomirai.com/commerce_law' target='_blank' style='text-decoration: revert-layer;')
+                  | &#xFF1E;&#x7279;&#x8A31;&#x5546;&#x53D6;&#x5F15;&#x6CD5;&#x306B;&#x57FA;&#x3065;&#x304F;&#x8868;&#x8A18;
+                  i.fa-solid.fa-up-right-from-square(aria-hidden='true')
+              p
+                a(href='https://www.wao-corp.com/privacy/' target='_blank' style='text-decoration: revert-layer;')
+                  | &#xFF1E;&#x30D7;&#x30E9;&#x30A4;&#x30D0;&#x30B7;&#x30FC;&#x30DD;&#x30EA;&#x30B7;&#x30FC;
+                  i.fa-solid.fa-up-right-from-square(aria-hidden='true')
+              p
+                a(href='https://go.waomirai.com/terms' target='_blank' style='text-decoration: revert-layer;')
+                  | &#xFF1E;&#x5229;&#x7528;&#x898F;&#x7D04;
+                  i.fa-solid.fa-up-right-from-square(aria-hidden='true')
+              a(href='https://lms.waomirai.com/?tenant=lmswaomirai')
+                img(src='https://go.waomirai.com/l/1026513/2023-11-16/gddzt/1026513/1700192228BDlbz92f/logo_basic_white.png' width='60%')
+              script.
+                //<![CDATA[
+                var require = {
+                baseUrl : 'https://lms.waomirai.com/lib/requirejs.php/1732783105/',
+                // We only support AMD modules with an explicit define() statement.
+                enforceDefine: true,
+                skipDataMain: true,
+                waitSeconds : 0,
+                paths: {
+                jquery: 'https://lms.waomirai.com/lib/javascript.php/1732783105/lib/jquery/jquery-3.7.1.min',
+                jqueryui: 'https://lms.waomirai.com/lib/javascript.php/1732783105/lib/jquery/ui-1.13.2/jquery-ui.min',
+                jqueryprivate: 'https://lms.waomirai.com/lib/javascript.php/1732783105/lib/requirejs/jquery-private'
+                },
+                // Custom jquery config map.
+                map: {
+                // '*' means all modules will get 'jqueryprivate'
+                // for their 'jquery' dependency.
+                '*': { jquery: 'jqueryprivate' },
+                // Stub module for 'process'. This is a workaround for a bug in MathJax (see MDL-60458).
+                '*': { process: 'core/first' },
+                // 'jquery-private' wants the real jQuery module
+                // though. If this line was not here, there would
+                // be an unresolvable cyclic dependency.
+                jqueryprivate: { jquery: 'jquery' }
+                }
+                };
+                //]]>
+              script(src='https://lms.waomirai.com/lib/javascript.php/1732783105/lib/requirejs/require.min.js')
+              script.
+                //<![CDATA[
+                M.util.js_pending("core/first");
+                require(['core/first'], function() {
+                require(['core/prefetch'])
+                ;
+                M.util.js_pending('filter_mathjaxloader/loader'); require(['filter_mathjaxloader/loader'], function(amd) {amd.configure({"mathjaxconfig":"\\nMathJax.Hub.Config({\n    config: [\"Accessible.js\", \"Safe.js\"],\n    errorSettings: { message: [\"!\"] },\n    skipStartupTypeset: true,\n    messageStyle: \"none\"\n});\n","lang":"ja"}); M.util.js_complete('filter_mathjaxloader/loader');});;
+                require(["media_videojs/loader"], function(loader) {
+                loader.setUp('ja');
+                });;
+                M.util.js_pending('core_courseformat/courseeditor'); require(['core_courseformat/courseeditor'], function(amd) {amd.setViewFormat("211", {"editing":false,"supportscomponents":true,"statekey":"1733202774_1733202775","overriddenStrings":[]}); M.util.js_complete('core_courseformat/courseeditor');});;
+                require(['format_flexsections/local/courseindex/placeholder'], function(component) {
+                component.init('674ea74392323674ea743923251-course-index-placeholder');
+                });
+                ;
+                require(['format_flexsections/local/courseindex/drawer'], function(component) {
+                component.init('courseindex');
+                });
+                ;
+                M.util.js_pending('theme_kenai/gototop'); require(['theme_kenai/gototop'], function(amd) {amd.init(); M.util.js_complete('theme_kenai/gototop');});;
+                M.util.js_pending('core_courseformat/local/content/activity_header'); require(['core_courseformat/local/content/activity_header'], function(amd) {amd.init(); M.util.js_complete('core_courseformat/local/content/activity_header');});;
+                require(['core/moremenu'], function(moremenu) {
+                moremenu(document.querySelector('#moremenu-674ea7439278a-navbar-nav'));
+                });
+                ;
+                require(['jquery', 'message_popup/notification_popover_controller'], function($, Controller) {
+                var container = $('#nav-notification-popover-container');
+                var controller = new Controller(container);
+                controller.registerEventListeners();
+                controller.registerListNavigationEventListeners();
+                });
+                ;
+                require(['core/usermenu'], function(UserMenu) {
+                UserMenu.init();
+                });
+                ;
+                require(['core/edit_switch'], function(editSwitch) {
+                editSwitch.init('674ea74399ae3674ea743923256-editingswitch');
+                });
+                ;
+                require(['theme_boost/drawers']);
+                ;
+                require(['theme_boost/courseindexdrawercontrols'], function(component) {
+                component.init('courseindexdrawercontrols');
+                });
+                ;
+                require(['theme_boost/drawers']);
+                ;
+                require(['core/moremenu'], function(moremenu) {
+                moremenu(document.querySelector('#moremenu-674ea7439268d-nav-tabs'));
+                });
+                ;
+                require(['theme_boost/footer-popover'], function(FooterPopover) {
+                FooterPopover.init();
+                });
+                ;
+                M.util.js_pending('theme_boost/loader');
+                require(['theme_boost/loader', 'theme_boost/drawer'], function(Loader, Drawer) {
+                Drawer.init();
+                M.util.js_complete('theme_boost/loader');
+                });
+                ;
+                M.util.js_pending('theme_kenai/forcedfooter'); require(['theme_kenai/forcedfooter'], function(amd) {amd.init("<div id=\\"forced-footer\">\n    \u00a9\ufe0fWAO CORPORATION\n<\/div>"); M.util.js_complete('theme_kenai/forcedfooter');});;
+                M.util.js_pending('core/notification'); require(['core/notification'], function(amd) {amd.init(2404, []); M.util.js_complete('core/notification');});;
+                M.util.js_pending('core/log'); require(['core/log'], function(amd) {amd.setConfig({"level":"warn"}); M.util.js_complete('core/log');});;
+                M.util.js_pending('core/page_global'); require(['core/page_global'], function(amd) {amd.init(); M.util.js_complete('core/page_global');});;
+                M.util.js_pending('core/utility'); require(['core/utility'], function(amd) {M.util.js_complete('core/utility');});
+                M.util.js_complete("core/first");
+                });
+                //]]>
+              script(src='https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js?delayStartupUntil=configured')
+              script.
+                //<![CDATA[
+                M.str = {"moodle":{"lastmodified":"\\u6700\u7d42\u66f4\u65b0\u65e5\u6642","name":"\u540d\u79f0","error":"\u30a8\u30e9\u30fc","info":"\u60c5\u5831","yes":"Yes","no":"No","cancel":"\u30ad\u30e3\u30f3\u30bb\u30eb","confirm":"\u78ba\u8a8d","areyousure":"\u672c\u5f53\u306b\u3088\u308d\u3057\u3044\u3067\u3059\u304b?","closebuttontitle":"\u9589\u3058\u308b","unknownerror":"\u4e0d\u660e\u306a\u30a8\u30e9\u30fc","file":"\u30d5\u30a1\u30a4\u30eb","url":"URL","collapseall":"\u3059\u3079\u3066\u3092\u6298\u308a\u305f\u305f\u3080","expandall":"\u3059\u3079\u3066\u3092\u5c55\u958b\u3059\u308b"},"repository":{"type":"\u30bf\u30a4\u30d7","size":"\u30b5\u30a4\u30ba","invalidjson":"\u7121\u52b9\u306aJSON\u30b9\u30c8\u30ea\u30f3\u30b0\u3067\u3059\u3002","nofilesattached":"\u6dfb\u4ed8\u3055\u308c\u3066\u3044\u308b\u30d5\u30a1\u30a4\u30eb\u306f\u3042\u308a\u307e\u305b\u3093\u3002","filepicker":"\u30d5\u30a1\u30a4\u30eb\u30d4\u30c3\u30ab","logout":"\u30ed\u30b0\u30a2\u30a6\u30c8","nofilesavailable":"\u5229\u7528\u3067\u304d\u308b\u30d5\u30a1\u30a4\u30eb\u306f\u3042\u308a\u307e\u305b\u3093\u3002","norepositoriesavailable":"\u7533\u3057\u8a33\u3054\u3056\u3044\u307e\u305b\u3093\u3001\u73fe\u5728\u306e\u3042\u306a\u305f\u306e\u30ea\u30dd\u30b8\u30c8\u30ea\u3067\u306f\u6240\u8981\u306e\u30d5\u30a9\u30fc\u30de\u30c3\u30c8\u306e\u30d5\u30a1\u30a4\u30eb\u3092\u8fd4\u3059\u3053\u3068\u304c\u3067\u304d\u307e\u305b\u3093\u3002","fileexistsdialogheader":"\u30d5\u30a1\u30a4\u30eb\u767b\u9332\u6e08\u307f","fileexistsdialog_editor":"\u305d\u306e\u30d5\u30a1\u30a4\u30eb\u540d\u306e\u30d5\u30a1\u30a4\u30eb\u306f\u3042\u306a\u305f\u304c\u7de8\u96c6\u3057\u3066\u3044\u308b\u30c6\u30ad\u30b9\u30c8\u306b\u3059\u3067\u306b\u6dfb\u4ed8\u3055\u308c\u3066\u3044\u307e\u3059\u3002","fileexistsdialog_filemanager":"\u540c\u4e00\u30d5\u30a1\u30a4\u30eb\u540d\u306e\u30d5\u30a1\u30a4\u30eb\u304c\u3059\u3067\u306b\u6dfb\u4ed8\u3055\u308c\u3066\u3044\u307e\u3059\u3002","renameto":"\u30ea\u30cd\u30fc\u30e0 -> {$a}","referencesexist":"\u3053\u306e\u30d5\u30a1\u30a4\u30eb\u306b\u306f {$a} \u4ef6\u306e\u30ea\u30f3\u30af\u304c\u3042\u308a\u307e\u3059\u3002","select":"\u9078\u629e"},"admin":{"confirmdeletecomments":"\u672c\u5f53\u306b\u9078\u629e\u3057\u305f\u30b3\u30e1\u30f3\u30c8\u3092\u524a\u9664\u3057\u3066\u3082\u3088\u308d\u3057\u3044\u3067\u3059\u304b?","confirmation":"\u78ba\u8a8d"},"debug":{"debuginfo":"\u30c7\u30d0\u30c3\u30b0\u60c5\u5831","line":"\u884c","stacktrace":"\u30b9\u30bf\u30c3\u30af\u30c8\u30ec\u30fc\u30b9"},"langconfig":{"labelsep":":"}};
+                //]]>
+              script.
+                //<![CDATA[
+                (function() {M.util.help_popups.setup(Y);
+                M.util.js_pending('random674ea743923257'); Y.on('domready', function() { M.util.js_complete("init");  M.util.js_complete('random674ea743923257'); });
+                })();
+                //]]>
+            .footer-section.p-3
+              span Powered by
+              a(href='https://moodle.com/workplace/' target='_blank')
+                | Moodle Workplace
+          .footer-content-debugging.footer-dark.bg-dark.text-light
+            .container-fluid.footer-dark-inner
+      div
+        #forced-footer
+          | &copy;&#xFE0F;WAO CORPORATION
+    #yui3-css-stamp(style='position: absolute !important; visibility: hidden !important')
+    iframe(height='0' width='0' style='display: none; visibility: hidden;')
+    iframe(allow='join-ad-interest-group' data-tagging-id='AW-16476562618' data-load-time='1733207873701' height='0' width='0' src='https://td.doubleclick.net/td/rul/16476562618?random=1733207873700&cv=11&fst=1733207873700&fmt=3&bg=ffffff&guid=ON&async=1&gtm=45be4bk0z89171708627za201zb9171708627&gcd=13l3l3l3l1l1&dma=0&tag_exp=101925629~102067555~102067808~102077855~102081485&u_w=1470&u_h=956&url=https%3A%2F%2Flms.waomirai.com%2Fmod%2Fquestionnaire%2Fview.php%3Fid%3D1128&ref=https%3A%2F%2Flms.waomirai.com%2Fcourse%2Fview.php%3Fid%3D211&hn=www.googleadservices.com&frm=0&tiba=2%E9%80%B1%E7%9B%AE%E3%80%80%E5%AE%9F%E9%9A%9B%E3%81%AB%E3%83%9A%E3%83%83%E3%83%88%E3%81%AB%E3%81%99%E3%82%8B%E3%81%AA%E3%82%89%E3%81%A9%E3%81%AE%E6%81%90%E7%AB%9C%EF%BC%9F%20%7C%20stg&npa=0&pscdl=noapi&auid=1264973390.1732841681&uaa=arm&uab=64&uafvl=Google%2520Chrome%3B131.0.6778.86%7CChromium%3B131.0.6778.86%7CNot_A%2520Brand%3B24.0.0.0&uamb=0&uam=&uap=macOS&uapv=14.6.1&uaw=0&fledge=1' style='display: none; visibility: hidden;')
+    script(type='text/javascript' id='' charset='').
+      piAId="1027513";piCId="";piHostname="go.waomirai.com";(function(){function b(){var a=document.createElement("script");a.type="text/javascript";a.src=("https:"==document.location.protocol?"https://":"http://")+piHostname+"/pd.js";var c=document.getElementsByTagName("script")[0];c.parentNode.insertBefore(a,c)}window.attachEvent?window.attachEvent("onload",b):window.addEventListener("load",b,!1)})();
+    div(style='display: none; visibility: hidden;')
+      script(async='null' src='https://s.yimg.jp/images/listing/tool/cv/ytag.js')
+      script.
+        window.yjDataLayer=window.yjDataLayer||[];function ytag(){yjDataLayer.push(arguments)}ytag({type:"yss_retargeting",config:{yahoo_ss_retargeting_id:"1001324905",yahoo_sstag_custom_params:{}}});
+    div(style='display: none; visibility: hidden;')
+      script.
+        !function(b,e,f,g,a,c,d){b.fbq||(a=b.fbq=function(){a.callMethod?a.callMethod.apply(a,arguments):a.queue.push(arguments)},b._fbq||(b._fbq=a),a.push=a,a.loaded=!0,a.version="2.0",a.queue=[],c=e.createElement(f),c.async=!0,c.src=g,d=e.getElementsByTagName(f)[0],d.parentNode.insertBefore(c,d))}(window,document,"script","https://connect.facebook.net/en_US/fbevents.js");fbq("init","991613366033962");fbq("track","PageView");
+      noscript
+    div(style='display: none; visibility: hidden;')
+      script.
+        !function(d,g,e){d.TiktokAnalyticsObject=e;var a=d[e]=d[e]||[];a.methods="page track identify instances debug on off once ready alias group enableCookie disableCookie holdConsent revokeConsent grantConsent".split(" ");a.setAndDefer=function(b,c){b[c]=function(){b.push([c].concat(Array.prototype.slice.call(arguments,0)))}};for(d=0;d<a.methods.length;d++)a.setAndDefer(a,a.methods[d]);a.instance=function(b){b=a._i[b]||[];for(var c=0;c<a.methods.length;c++)a.setAndDefer(b,a.methods[c]);return b};a.load=
+        function(b,c){var f="https://analytics.tiktok.com/i18n/pixel/events.js";a._i=a._i||{};a._i[b]=[];a._i[b]._u=f;a._t=a._t||{};a._t[b]=+new Date;a._o=a._o||{};a._o[b]=c||{};c=document.createElement("script");c.type="text/javascript";c.async=!0;c.src=f+"?sdkid\\x3d"+b+"\x26lib\x3d"+e;b=document.getElementsByTagName("script")[0];b.parentNode.insertBefore(c,b)};a.load("CQUN883C77U0JHDT5O1G");a.page()}(window,document,"ttq");
+    iframe(allow='join-ad-interest-group' data-tagging-id='G-C5TLB720G3' data-load-time='1733215446720' height='0' width='0' src='https://td.doubleclick.net/td/ga/rul?tid=G-C5TLB720G3&gacid=2077098935.1724119780&gtm=45je4bk0v9171715086z89171708627za200zb9171708627&dma=0&gcd=13l3l3l3l1l1&npa=0&pscdl=noapi&aip=1&fledge=1&frm=0&tag_exp=101925629~102067555~102067808~102077855~102081485&z=81473976' style='display: none; visibility: hidden;')
+    deepl-input-controller

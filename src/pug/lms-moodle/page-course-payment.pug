@@ -84,7 +84,7 @@ block contents
                       #covercollapsec-about.pagesectioncontent.collapse.show
                         .mt-2
                           .mb-2
-                            include _parts-coursedetail.pug
+                            include parts-coursedetail.pug
                     .my-3(data-region='catalogue-pagesection')
                       .d-flex.align-items-start.position-relative
                         a.btn.btn-icon.mr-1.icons-collapse-expand.stretched-link.justify-content-center.collapsed(role='button' data-toggle='collapse' href='#covercollapsec-dates' aria-expanded='false' aria-controls='covercollapsec-dates' aria-label='コース期間')
@@ -116,21 +116,7 @@ block contents
                         b &yen;6,600
                       button#gateways-modal-trigger-674d0c3c3d28b674d0c3c3d28d1.btn.btn-secondary(type='button' data-action='core_payment/triggerPayment' data-component='enrol_fee' data-paymentarea='fee' data-itemid='758' data-cost='¥6,600' data-successurl='https://lms.waomirai.com/course/view.php?id=138' data-description='コース グローバル英語 LEVEL2 NATION STAGE の登録')
                         strong &#x4ECA;&#x3059;&#x3050;&#x7121;&#x6599;&#x30C8;&#x30E9;&#x30A4;&#x30A2;&#x30EB;
-                    .enrol_buy_as_a_set
-                      .enrol_buy_as_a_set-title  
-                       |セット受講割引でお得！
-                       br
-                       |最大4,400円 割引
-                      .enrol_buy_as_a_set_img 
-                        .enrol_buy_as_a_set_img_child 
-                          |哲学
-                        .enrol_buy_as_a_set_img_plus
-                          |＋
-                        .enrol_buy_as_a_set_img_child 
-                          |他科目
-                      .enrol_buy_as_a_set_detail  
-                        a(href="#")
-                          |詳細を見る                          
+                          
         #goto-top-link
           a#backToTop.btn.btn-light(role='button' href='#' style='display:none')
             i.icon.fa.fa-arrow-up.fa-fw(title='トップへ戻る' role='img' aria-label='トップへ戻る')
