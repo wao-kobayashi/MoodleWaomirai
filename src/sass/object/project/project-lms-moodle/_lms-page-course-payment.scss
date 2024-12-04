@@ -1,106 +1,65 @@
-//哲学特有
-#page-course-view-flexsections.course-138, //哲学の授業の詳細
-#page-admin-tool-catalogue-courseinfo.course-138,
-#page-enrol-index.course-138,
-#page-course-view-flexsections.course-211, //哲学の授業の詳細
-#page-admin-tool-catalogue-courseinfo.course-211,
-#page-enrol-index.course-211 {
-    .mr-auto,
-    .mx-auto {
-        /* margin-right: auto !important; */
-        width: 100%;
-    }
-    .page-context-header {
-        .page-header-image {
-            display: none !important;
-        }
-        .page-header-headings {
-            width: 100%;
-            position: relative;
-            height: 320px;
-            background: $cl-philosophy;
-            border-radius: $border-radius-middle;
-            display: flex;
-            align-items: center;
-            margin: 0 0 48px !important;
-            h1 {
-                color: white !important;
-                padding: 0 0 0 40px;
-                font-size: $lms-font-size-xxl !important;
+//哲学でヘッダーを変更
+$target-courses: 138,
+211;
+#page-course-view-flexsections,
+#page-admin-tool-catalogue-courseinfo,
+#page-enrol-index {
+    @each $course in $target-courses {
+        &.course-#{$course} {
+            .mr-auto,
+            .mx-auto {
+                /* margin-right: auto !important; */
+                width: 100%;
             }
-            &:before {
-                right: 0;
-                top: 0;
-                width: 50%;
-                height: 320px;
-                object-fit: contain;
-                border-radius: 0px 8px 8px 0;
-                background-image: url('https://waomirai.com/wp-content/uploads/2024/07/phi_main.jpg');
-                /* 画像を指定 */
-                background-size: cover;
-                /* 画像を全体に表示 */
-                background-repeat: no-repeat;
-                /* 画像を繰り返さない */
-                background-position: center;
-                /* 画像を中央に配置 */
-                display: block;
-                // content: "";
-                content: "";
-                position: absolute;
+            .page-context-header {
+                .page-header-image {
+                    display: none !important;
+                }
+                .page-header-headings {
+                    width: 100%;
+                    position: relative;
+                    height: 320px;
+                    background: $cl-philosophy;
+                    border-radius: $border-radius-middle;
+                    display: flex;
+                    align-items: center;
+                    margin: 0 0 48px !important;
+                    h1 {
+                        color: white !important;
+                        padding: 0 0 0 40px;
+                        font-size: $lms-font-size-xxl !important;
+                    }
+                    &:before {
+                        right: 0;
+                        top: 0;
+                        width: 50%;
+                        height: 320px;
+                        object-fit: contain;
+                        border-radius: 0px 8px 8px 0;
+                        background-image: url('https://waomirai.com/wp-content/uploads/2024/07/phi_main.jpg');
+                        /* 画像を指定 */
+                        background-size: cover;
+                        /* 画像を全体に表示 */
+                        background-repeat: no-repeat;
+                        /* 画像を繰り返さない */
+                        background-position: center;
+                        /* 画像を中央に配置 */
+                        display: block;
+                        // content: "";
+                        content: "";
+                        position: absolute;
+                    }
+                }
             }
-        }
-    }
-    .h5.mt-4 {
-        display: none;
-    }
-}
-
-//コース詳細
-#{join($contexts, ", ")} {
-    .flexsections-level-0>.course-section.main {
-        border: 2px solid $cl-graylightest;
-        border-radius: 10px;
-        padding: 0 !important;
-        margin: 0 auto 32px !important;
-        .btn.btn-icon {
-            background: white !important;
-            margin-right: 0.75rem !important;
-        }
-        .mb-3,
-        .my-3 {
-            margin-bottom: 0rem !important;
-        }
-        .d-block {
-            padding: 0px 15px 10px !important;
-        }
-        .section .activity {
-            list-style: none;
-            padding: .25rem 0 0.5rem;
-        }
-        #section-0 {
-            display: none !important;
-        }
-        >.course-section-header {
-            background: $cl-graylightest;
-            padding: 20px 15px !important;
-            h3 {
-                font-size: $lms-font-size-xl !important;
+            .h5.mt-4 {
+                display: none;
             }
-        }
-        h3 {
-            font-size: $lms-font-size-l !important;
-        }
-        .course-section-header {
-            padding: 0px 15px;
-        }
-        .course-section {
-            border: none !important;
         }
     }
 }
 
 //コース購入
-#{join($contexts, ", ")} {
+#page-admin-tool-catalogue-courseinfo {
     //不要なもの消す
     .customfield,
     .customfield_is_payment {

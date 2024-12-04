@@ -1,0 +1,58 @@
+$target-courses: 138,
+211;
+#page-course-view-flexsections,
+#page-admin-tool-catalogue-courseinfo,
+#page-enrol-index {
+    @each $course in $target-courses {
+        &.course-#{$course} {
+            .mr-auto,
+            .mx-auto {
+                /* margin-right: auto !important; */
+                width: 100%;
+            }
+            .page-context-header {
+                .page-header-image {
+                    display: none !important;
+                }
+                .page-header-headings {
+                    width: 100%;
+                    position: relative;
+                    height: 320px;
+                    background: $cl-philosophy;
+                    border-radius: $border-radius-middle;
+                    display: flex;
+                    align-items: center;
+                    margin: 0 0 48px !important;
+                    h1 {
+                        color: white !important;
+                        padding: 0 0 0 40px;
+                        font-size: $lms-font-size-xxl !important;
+                    }
+                    &:before {
+                        right: 0;
+                        top: 0;
+                        width: 50%;
+                        height: 320px;
+                        object-fit: contain;
+                        border-radius: 0px 8px 8px 0;
+                        background-image: url('https://waomirai.com/wp-content/uploads/2024/07/phi_main.jpg');
+                        /* 画像を指定 */
+                        background-size: cover;
+                        /* 画像を全体に表示 */
+                        background-repeat: no-repeat;
+                        /* 画像を繰り返さない */
+                        background-position: center;
+                        /* 画像を中央に配置 */
+                        display: block;
+                        // content: "";
+                        content: "";
+                        position: absolute;
+                    }
+                }
+            }
+            .h5.mt-4 {
+                display: none;
+            }
+        }
+    }
+}
