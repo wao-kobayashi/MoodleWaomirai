@@ -1,4 +1,6 @@
 const gulp = require('gulp');
+const replace = require('gulp-replace');
+const dotenv = require('dotenv');
 const browserSync = require('browser-sync').create();
 const plumber = require('gulp-plumber');
 const pug = require('gulp-pug');
@@ -11,11 +13,23 @@ const browserify = require('browserify');
 const babelify = require('babelify');
 const source = require('vinyl-source-stream');
 const rename = require('gulp-rename');
+const yargs = require('yargs');
 
+// コマンドライン引数の取得
+const argv = yargs.argv;
+const tenantId = argv.tenant_id || 'default'; // --tenant_id=stg など
+
+// dotenvを使って環境変数を読み込む
+dotenv.config();
+
+// process.env.TENANT_ID を設定
+process.env.TENANT_ID = tenantId;
+
+// パス設定
 const srcpaths = {
     scss: './src/**/*.scss',
     sass: './src/**/*.sass',
-    jsx: './src/jsx/**/*.js',
+    jsx: './src/js/**/*.js',
     jade: './src/jade/**/*.jade',
     pug: './src/pug/**/*.pug'
 };
@@ -24,6 +38,13 @@ const dstpaths = {
     css: './static/css',
     js: './static/js'
 };
+
+// 環境ごとのコード置換を行うタスク
+function replaceEnvCode() {
+    return gulp.src('src/js/**/*.js') // ソースファイルのパスを指定
+        .pipe(replace('process.env.TENANT_ID', process.env.TENANT_ID)) // 環境変数を適切に置換
+        .pipe(gulp.dest('dist/js')); // 出力先のパスを指定
+}
 
 function serve() {
     browserSync.init({
@@ -48,7 +69,7 @@ function serve() {
         done();
     }));
 
-    gulp.watch(srcpaths.jsx, gulp.series(browserifyTask, (done) => {
+    gulp.watch(srcpaths.jsx, gulp.series(browserifyTask, replaceEnvCode, (done) => {
         browserSync.reload();
         done();
     }));
@@ -87,17 +108,17 @@ function scss() {
 
 function browserifyTask() {
     return browserify({
-            entries: './src/jsx/melon-soda-kai.js',
+            entries: './src/js/lms.js',
         })
         .transform(babelify)
         .bundle()
-        .pipe(source("melon-soda-kai.js"))
+        .pipe(source("lms.js"))
         .pipe(gulp.dest(dstpaths.js))
         .pipe(browserSync.stream());
 }
 
 // デフォルトタスク
-exports.default = gulp.series(scss, serve);
+exports.default = gulp.series(scss, replaceEnvCode, serve);
 exports.jade = jade;
 exports.pug = pugTask;
 exports.scss = scss;
