@@ -1,3 +1,9 @@
+html[data-tenantidnumber="lmswaomirai"] {
+    .block_html {
+        display: none;
+    }
+}
+
 html[data-tenantidnumber="stg"] {
     @import "object/project/project-lms-moodle/_lms-scss-global";
 }

@@ -1,3 +1,67 @@
+//alert-banner
+.pagelayout-mydashboard {
+    .block_html {
+        background: transparent !important;
+        .card-body {
+            padding: 0 !important;
+        }
+        .card-title {
+            display: none!important;
+        }
+        .dashboard-banner {
+            padding: 12px 20px;
+            border-radius: $border-radius-middle;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            .dashboard-banner-left {
+                display: flex;
+                align-items: center;
+            }
+            .dashboard-banner-left-icon {
+                width: 40px;
+                height: 40px;
+                margin: 0 10px 0 3px;
+                i {
+                    font-size: 36px;
+                    display: block;
+                    line-height: 1;
+                }
+            }
+            .dashboard-banner-text-title {
+                font-size: $lms-font-size-l;
+                font-weight: 600;
+            }
+            .dashboard-banner-text-read {
+                font-size: $lms-font-size-ml;
+            }
+            .dashboard-banner-right a {
+                padding: 12px 16px;
+                border-radius: $border-radius-small;
+                border: 1.5px solid white;
+                color: white;
+                font-size: $lms-font-size-ml;
+                font-weight: bold;
+                &:hover {
+                    text-decoration: none !important;
+                    opacity: 0.7;
+                }
+            }
+            &.alert-setting-level {
+                // background: $cl-alert;
+                background: $cl-alert;
+                color: white;
+            }
+            &.alert-buy-course {
+                // background: $cl-alert;
+                background: $cl-waogreen;
+                color: white;
+            }
+        }
+    }
+}
+
 //calender
 .pagelayout-mydashboard {
     // 背景設定

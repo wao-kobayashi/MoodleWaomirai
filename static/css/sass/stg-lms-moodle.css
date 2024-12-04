@@ -1,4 +1,8 @@
 @charset "UTF-8";
+html[data-tenantidnumber=lmswaomirai] .block_html {
+  display: none;
+}
+
 html[data-tenantidnumber=stg] {
   @import url("https://fonts.googleapis.com/css?family=Noto+Sans+JP:400,500,700,900");
   /* 全体の幅 */
@@ -365,6 +369,74 @@ html[data-tenantidnumber=stg] .pagelayout-frontpage .main-inner .container {
   html[data-tenantidnumber=stg] .pagelayout-frontpage .main-inner .container {
     max-width: 100% !important;
   }
+}
+html[data-tenantidnumber=stg] .pagelayout-mydashboard .block_html {
+  background: transparent !important;
+}
+html[data-tenantidnumber=stg] .pagelayout-mydashboard .block_html .card-body {
+  padding: 0 !important;
+}
+html[data-tenantidnumber=stg] .pagelayout-mydashboard .block_html .card-title {
+  display: none !important;
+}
+html[data-tenantidnumber=stg] .pagelayout-mydashboard .block_html .dashboard-banner {
+  padding: 12px 20px;
+  border-radius: 8px;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+html[data-tenantidnumber=stg] .pagelayout-mydashboard .block_html .dashboard-banner .dashboard-banner-left {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+html[data-tenantidnumber=stg] .pagelayout-mydashboard .block_html .dashboard-banner .dashboard-banner-left-icon {
+  width: 40px;
+  height: 40px;
+  margin: 0 10px 0 3px;
+}
+html[data-tenantidnumber=stg] .pagelayout-mydashboard .block_html .dashboard-banner .dashboard-banner-left-icon i {
+  font-size: 36px;
+  display: block;
+  line-height: 1;
+}
+html[data-tenantidnumber=stg] .pagelayout-mydashboard .block_html .dashboard-banner .dashboard-banner-text-title {
+  font-size: 20px;
+  font-weight: 600;
+}
+html[data-tenantidnumber=stg] .pagelayout-mydashboard .block_html .dashboard-banner .dashboard-banner-text-read {
+  font-size: 16px;
+}
+html[data-tenantidnumber=stg] .pagelayout-mydashboard .block_html .dashboard-banner .dashboard-banner-right a {
+  padding: 12px 16px;
+  border-radius: 4px;
+  border: 1.5px solid white;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+}
+html[data-tenantidnumber=stg] .pagelayout-mydashboard .block_html .dashboard-banner .dashboard-banner-right a:hover {
+  text-decoration: none !important;
+  opacity: 0.7;
+}
+html[data-tenantidnumber=stg] .pagelayout-mydashboard .block_html .dashboard-banner.alert-setting-level {
+  background: #F35053;
+  color: white;
+}
+html[data-tenantidnumber=stg] .pagelayout-mydashboard .block_html .dashboard-banner.alert-buy-course {
+  background: #005C3F;
+  color: white;
 }
 html[data-tenantidnumber=stg] .pagelayout-mydashboard {
   background: #f0f2f3 !important;
