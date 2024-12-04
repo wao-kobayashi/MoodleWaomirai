@@ -132,17 +132,7 @@
         font-size: $lms-font-size-xl !important;
         position: relative;
         &:before {
-            width: 7px;
-            height: 30px;
-            content: "";
-            background: $cl-waogreen;
-            display: block;
-            position: absolute;
-            left: 20px;
-            top: -12px;
-            bottom: 0;
-            margin: auto;
-            border-radius: 4px;
+            @include lms-left-waogreen;
         }
     }
     // カレンダー全体のスタイル設定
