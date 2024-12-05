@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", function() {
         // stg環境の処理
         const bodyElement = document.querySelector("body");
         const bodyId = bodyElement.getAttribute("id");
-        const courseDiv = document.querySelector('div[data-courseid="206"]');
+        const courseDiv = document.querySelector('div[data-courseid="211"]');
         console.log('stg');
         // dashboard
         if (bodyId === "page-my-index") {

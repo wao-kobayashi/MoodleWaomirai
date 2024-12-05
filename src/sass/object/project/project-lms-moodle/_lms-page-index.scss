@@ -80,6 +80,7 @@
             color: $cl-black !important;
             font-size: $lms-font-size-xl !important;
             font-weight: bold;
+            padding: 0 20px 0px;
         }
         .lms-index-contents-block-cards {
             display: grid;
@@ -87,7 +88,7 @@
             grid-template-rows: repeat(2, 1fr);
             grid-column-gap: 30px;
             grid-row-gap: 30px;
-            padding: 0 0 10px;
+            padding: 0 20px 10px;
             @include responsive-style(768px) {
                 display: block;
             }
