@@ -1,11 +1,21 @@
 //コース詳細
+//$courseids
 #page-course-view-flexsections {
+    #section-0 {
+        border: none;
+        .course-section-header {
+            display: none !important;
+        }
+    }
     .flexsections-level-0>.course-section.main {
         border: 2px solid $cl-graylightest;
         border-radius: 10px;
         padding: 0 !important;
         margin: 0 auto 32px !important;
-        .btn.btn-icon {
+        .activity.activity-wrapper.forum {
+            display: none !important;
+        }
+        section course-section main clearfix .btn.btn-icon {
             background: white !important;
             margin-right: 0.75rem !important;
         }

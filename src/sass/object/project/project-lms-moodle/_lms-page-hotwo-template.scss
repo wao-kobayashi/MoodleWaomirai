@@ -1,0 +1,108 @@
+//メモ category-45はstg環境のカテゴリ
+$howto-page-width:680px;
+.category-45 {
+    #page.drawers .main-inner {
+        max-width: $howto-page-width!important;
+    }
+    // background: #ccc !important;
+    .more-nav.nav-tabs {
+        display: none;
+    }
+    .moremenu {
+        height: 10px;
+    }
+    .tool_catalogue-catalogue>.my-3>.position-relative {
+        display: none !important;
+    }
+    .tool_catalogue-catalogue>.my-3>.pagesectioncontent {
+        padding: 0 0 96px;
+    }
+    //以下要素の装飾
+    h2 {
+        font-size: $lms-font-size-xl !important;
+    }
+    h3 {
+        font-size: $lms-font-size-l !important;
+        line-height: 1.5 !important;
+    }
+    .howto-table-contents {
+        background: $cl-graylightest !important;
+        border-radius: $border-radius-middle;
+        padding: 20px 25px;
+        font-size: $lms-font-size-ml;
+        line-height: 1.5;
+        font-weight: bold;
+        a {
+            color: $cl-waogreen;
+            text-decoration: underline;
+            &:hover,
+            &:focus {
+                @include focus-tapblack-none;
+                background: none;
+            }
+        }
+    }
+    .howto-block {
+        padding: 0 0 60px;
+    }
+    .howto-image img {
+        width: $howto-page-width;
+        margin: 10px 0 0;
+    }
+    .p-alert {
+        color: $cl-alert !important;
+        font-weight: bold;
+    }
+    .howto-block-banner {
+        padding: 12px 16px;
+        border-radius: $border-radius-middle;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin: 16px 0 0;
+        &.alert {
+            // background: $cl-alert;
+            background: #FEF6F6;
+            border: $cl-alert 2px solid;
+            color: white;
+        }
+        .howto-block-banner-left {
+            display: flex;
+            align-items: center;
+        }
+        .howto-block-banner-icon {
+            width: 40px;
+            height: 40px;
+            margin: 0 16px 0 3px;
+            i {
+                font-size: 36px;
+                display: block;
+                line-height: 1;
+                color: $cl-alert;
+            }
+        }
+        .howto-block-banner-text-title {
+            font-size: $lms-font-size-l;
+            font-weight: 600;
+            color: $cl-alert;
+        }
+        .howto-block-banner-text-read {
+            font-size: $lms-font-size-ml;
+            color: $cl-alert;
+            font-weight: bold;
+        }
+        // .dashboard-banner-right a {
+        //     padding: 12px 16px;
+        //     border-radius: $border-radius-small;
+        //     border: 1.5px solid white;
+        //     color: white;
+        //     font-size: $lms-font-size-ml;
+        //     font-weight: bold;
+        //     &:hover {
+        //         text-decoration: none !important;
+        //         opacity: 0.7;
+        //     }
+        // }
+    }
+}

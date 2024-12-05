@@ -43,3 +43,12 @@ $overlay:rgba(0, 0, 0, 0.7);
 @mixin lms-boxshadow {
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.15) !important;
 }
+
+
+/* other */
+
+@mixin focus-tapblack-none {
+    box-shadow: none;
+    appearance: none;
+    -webkit-tap-highlight-color: transparent;
+}

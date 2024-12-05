@@ -11,6 +11,7 @@ html[data-tenantidnumber=stg] {
   /* parts */
   /* parts */
   /* boxshadow */
+  /* other */
   /* footer */
 }
 html[data-tenantidnumber=stg] #forced-footer {
@@ -1224,13 +1225,22 @@ html[data-tenantidnumber=stg] #page-enrol-index .enrol_fee_payment_region .btn.b
   background: #005C3F !important;
   border-radius: 4px;
 }
+html[data-tenantidnumber=stg] #page-course-view-flexsections #section-0 {
+  border: none;
+}
+html[data-tenantidnumber=stg] #page-course-view-flexsections #section-0 .course-section-header {
+  display: none !important;
+}
 html[data-tenantidnumber=stg] #page-course-view-flexsections .flexsections-level-0 > .course-section.main {
   border: 2px solid #f0f2f3;
   border-radius: 10px;
   padding: 0 !important;
   margin: 0 auto 32px !important;
 }
-html[data-tenantidnumber=stg] #page-course-view-flexsections .flexsections-level-0 > .course-section.main .btn.btn-icon {
+html[data-tenantidnumber=stg] #page-course-view-flexsections .flexsections-level-0 > .course-section.main .activity.activity-wrapper.forum {
+  display: none !important;
+}
+html[data-tenantidnumber=stg] #page-course-view-flexsections .flexsections-level-0 > .course-section.main section course-section main clearfix .btn.btn-icon {
   background: white !important;
   margin-right: 12px !important;
   margin-right: 0.75rem !important;
@@ -1266,4 +1276,107 @@ html[data-tenantidnumber=stg] #page-course-view-flexsections .flexsections-level
 }
 html[data-tenantidnumber=stg] #page-course-view-flexsections .flexsections-level-0 > .course-section.main .course-section {
   border: none !important;
+}
+html[data-tenantidnumber=stg] .category-45 #page.drawers .main-inner {
+  max-width: 680px !important;
+}
+html[data-tenantidnumber=stg] .category-45 .more-nav.nav-tabs {
+  display: none;
+}
+html[data-tenantidnumber=stg] .category-45 .moremenu {
+  height: 10px;
+}
+html[data-tenantidnumber=stg] .category-45 .tool_catalogue-catalogue > .my-3 > .position-relative {
+  display: none !important;
+}
+html[data-tenantidnumber=stg] .category-45 .tool_catalogue-catalogue > .my-3 > .pagesectioncontent {
+  padding: 0 0 96px;
+}
+html[data-tenantidnumber=stg] .category-45 h2 {
+  font-size: 24px !important;
+}
+html[data-tenantidnumber=stg] .category-45 h3 {
+  font-size: 20px !important;
+  line-height: 1.5 !important;
+}
+html[data-tenantidnumber=stg] .category-45 .howto-table-contents {
+  background: #f0f2f3 !important;
+  border-radius: 8px;
+  padding: 20px 25px;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: bold;
+}
+html[data-tenantidnumber=stg] .category-45 .howto-table-contents a {
+  color: #005C3F;
+  text-decoration: underline;
+}
+html[data-tenantidnumber=stg] .category-45 .howto-table-contents a:hover, html[data-tenantidnumber=stg] .category-45 .howto-table-contents a:focus {
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  -webkit-tap-highlight-color: transparent;
+  background: none;
+}
+html[data-tenantidnumber=stg] .category-45 .howto-block {
+  padding: 0 0 60px;
+}
+html[data-tenantidnumber=stg] .category-45 .howto-image img {
+  width: 680px;
+  margin: 10px 0 0;
+}
+html[data-tenantidnumber=stg] .category-45 .p-alert {
+  color: #F35053 !important;
+  font-weight: bold;
+}
+html[data-tenantidnumber=stg] .category-45 .howto-block-banner {
+  padding: 12px 16px;
+  border-radius: 8px;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin: 16px 0 0;
+}
+html[data-tenantidnumber=stg] .category-45 .howto-block-banner.alert {
+  background: #FEF6F6;
+  border: #F35053 2px solid;
+  color: white;
+}
+html[data-tenantidnumber=stg] .category-45 .howto-block-banner .howto-block-banner-left {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+html[data-tenantidnumber=stg] .category-45 .howto-block-banner .howto-block-banner-icon {
+  width: 40px;
+  height: 40px;
+  margin: 0 16px 0 3px;
+}
+html[data-tenantidnumber=stg] .category-45 .howto-block-banner .howto-block-banner-icon i {
+  font-size: 36px;
+  display: block;
+  line-height: 1;
+  color: #F35053;
+}
+html[data-tenantidnumber=stg] .category-45 .howto-block-banner .howto-block-banner-text-title {
+  font-size: 20px;
+  font-weight: 600;
+  color: #F35053;
+}
+html[data-tenantidnumber=stg] .category-45 .howto-block-banner .howto-block-banner-text-read {
+  font-size: 16px;
+  color: #F35053;
+  font-weight: bold;
 }

@@ -118,9 +118,7 @@
                 // outline: none;
                 // user-select: none;
                 // /* テキスト選択を無効化 */
-                box-shadow: none;
-                appearance: none;
-                -webkit-tap-highlight-color: transparent;
+                @include focus-tapblack-none;
                 /* タップ時のハイライトを無効化 */
             }
             &:hover {
