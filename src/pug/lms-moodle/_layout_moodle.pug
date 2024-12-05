@@ -1,6 +1,8 @@
 doctype html
+include _mixin-lms-moodle.pug
 html(dir="ltr", lang="ja", xml:lang="ja", data-tenantid="2", data-tenantidnumber="stg")
   head
+    block variables 
     title #{title}
     link(rel="shortcut icon", href="https://lms.waomirai.com/theme/image.php/kenai/theme/1732783105/favicon")
     meta(name="apple-itunes-app", content="app-id=1470929705, app-argument=https://lms.waomirai.com/my/index.php")
