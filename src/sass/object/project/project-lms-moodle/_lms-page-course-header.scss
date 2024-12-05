@@ -1,10 +1,12 @@
 ///////////////////////////////
-// stg 哲学232 科学211 経済233
+// stg 哲学232 科学211 経済233 英語236 プログラミング235
 // lms　
 ///////////////////////////////
 $target-courses: 211,
 232,
-233;
+233,
+236,
+235;
 #page-course-view-flexsections,
 #page-admin-tool-catalogue-courseinfo,
 #page-enrol-index {
@@ -63,8 +65,16 @@ $target-courses: 211,
 
 // コースごとのスタイルを変数マップで管理
 $course-styles: ( "course-232": ( background-color: $cl-philosophy, background-image: url('https://waomirai.com/wp-content/uploads/2024/07/phi_main.jpg')),
+//科学
 "course-211": ( background-color: $cl-science, background-image: url('https://go.waomirai.com/l/1026513/2024-08-08/gzqbx/1026513/1723092445qaV639ZU/subject_02.jpg')),
+//経済
 "course-233": ( background-color: $cl-economiy,
+background-image: url('https://go.waomirai.com/l/1026513/2024-08-08/gzqbt/1026513/1723092445zMMVlFVz/subject_03.jpg'))),
+//英語
+"course-236": ( background-color: $cl-english,
+background-image: url('https://go.waomirai.com/l/1026513/2024-08-08/gzqbt/1026513/1723092445zMMVlFVz/subject_03.jpg'))),
+//プログラミング
+"course-235": ( background-color: $cl-programming,
 background-image: url('https://go.waomirai.com/l/1026513/2024-08-08/gzqbt/1026513/1723092445zMMVlFVz/subject_03.jpg')));
 #page-course-view-flexsections,
 #page-admin-tool-catalogue-courseinfo,
