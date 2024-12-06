@@ -1,9 +1,5 @@
 /* footer */
 
-#forced-footer {
-    display: none !important;
-}
-
 .border-bottom {
     border-bottom: none !important;
 }
@@ -62,12 +58,5 @@ footer.footer-popover {
                 color: $cl-gray !important;
             }
         }
-        div:nth-child(3) {
-            display: none;
-        }
     }
-}
-
-.logininfo {
-    display: none
 }

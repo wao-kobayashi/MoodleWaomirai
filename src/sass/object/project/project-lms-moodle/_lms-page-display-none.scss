@@ -1,0 +1,66 @@
+/* 共通追従フッター削除 */
+
+#forced-footer {
+    display: none !important;
+}
+
+.logininfo {
+    display: none
+}
+
+footer.footer-popover {
+    .container div.footer-popover,
+    div.footer-popover,
+    .container {
+        div:nth-child(3) {
+            display: none;
+        }
+    }
+}
+
+
+/* 授業詳細 */
+
+#page-mod-questionnaire-view {
+    .page-header-image {
+        display: none;
+    }
+    #region-main {
+        >h2 {
+            display: none;
+        }
+    }
+}
+
+
+/* 授業購入画面(まだ買っていない) */
+
+#page-admin-tool-catalogue-courseinfo,
+#page-enrol-index {
+    //不要なもの消す
+    .customfield,
+    .customfield_is_payment {
+        display: none !important;
+    }
+    #covercollapsec-dates {
+        display: none !important;
+    }
+}
+
+#page-course-view-flexsections {
+    #{join($courseids, ", &")} {
+        #section-0 {
+            .course-section-header {
+                display: none !important;
+            }
+        }
+        .flexsections-level-0>.course-section.main {
+            .activity.activity-wrapper.forum {
+                display: none !important;
+            }
+        }
+        #section-0 {
+            display: none !important;
+        }
+    }
+}

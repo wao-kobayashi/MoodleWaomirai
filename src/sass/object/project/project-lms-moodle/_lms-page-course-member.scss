@@ -2,12 +2,6 @@
 //memo &をつけるとbodyにつく
 #page-course-view-flexsections {
     #{join($courseids, ", &")} {
-        #section-0 {
-            border: none;
-            .course-section-header {
-                display: none !important;
-            }
-        }
         .course-detail-banner {
             padding: 25px 20px 30px;
             border-radius: $border-radius-middle;
@@ -89,9 +83,6 @@
             border-radius: 10px;
             padding: 0 !important;
             margin: 0 auto 32px !important;
-            .activity.activity-wrapper.forum {
-                display: none !important;
-            }
             section course-section main clearfix .btn.btn-icon {
                 background: white !important;
                 margin-right: 0.75rem !important;
@@ -106,9 +97,6 @@
             .section .activity {
                 list-style: none;
                 padding: .25rem 0 0.5rem;
-            }
-            #section-0 {
-                display: none !important;
             }
             >.course-section-header {
                 background: $cl-graylightest;

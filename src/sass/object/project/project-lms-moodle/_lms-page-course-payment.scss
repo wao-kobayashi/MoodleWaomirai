@@ -2,20 +2,11 @@
 #page-admin-tool-catalogue-courseinfo,
 #page-enrol-index {
     //不要なもの消す
-    .customfield,
-    .customfield_is_payment {
-        display: none !important;
-    }
-    //不要なもの消す
     a[aria-controls="covercollapsec-dates"] {
         display: none;
         +h3 {
             display: none !important;
         }
-    }
-    //不要なもの消す
-    #covercollapsec-dates {
-        display: none !important;
     }
     // div[data-region="catalogue-pagesection"] {
     //     display: none;
