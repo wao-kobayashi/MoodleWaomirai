@@ -3,6 +3,30 @@
     height: auto !important;
 }
 
+body.pagelayout-login {
+    // background-attachment: local !important;
+}
+
+footer {
+    margin: 90px 0 0;
+}
+
+#page-login-index {
+    // .login-wrapper {
+    //     height: 100% !important;
+    // }
+    @media (min-width: 768px) {
+        .login-wrapper {
+            padding-left: 5rem !important;
+        }
+    }
+    footer.footer-popover {
+        .footer-section.p-3 {
+            padding: 46px 0 0 !important;
+        }
+    }
+}
+
 #page-login-signup {
     background: white;
     .signup-logo {
@@ -54,7 +78,7 @@
         top: 0;
     }
     .container-fluid {
-        margin: 0 auto 160px !important;
+        margin: 0 auto 75px !important;
     }
     .form-control-static {
         // font-size: $lms-font-size-s !important;
@@ -94,7 +118,7 @@
         /* グリッドレイアウトを適用 */
         grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
         /* カラム幅の設定 */
-        gap: 10px;
+        // gap: 10px;
         /* アイテム間のスペース */
     }
     .fdate_selector>div:nth-child(1) {
@@ -164,5 +188,50 @@
     }
     #fitem_id_passwordpolicyinfo {
         display: none !important;
+    }
+    .continuebutton {
+        display: none;
+    }
+}
+
+#page-login-signup {
+    &.pagelayout-base {
+        header {
+            display: none !important;
+        }
+        #notice {
+            max-width: 550px;
+            margin: 90px auto 0px;
+            line-height: 1.75 !important;
+            p {
+                margin: 0 0 5px !important;
+            }
+        }
+        .logininfo {
+            display: none !important;
+        }
+    }
+}
+
+#page-login-confirm {
+    header {
+        display: none;
+    }
+    .boxaligncenter {
+        margin: 90px 30px 0px;
+    }
+    .boxaligncenter p {
+        display: none;
+    }
+    .boxaligncenter h3 {
+        font-size: $lms-font-size-l;
+        margin: 0 auto 16px;
+    }
+    .singlebutton button {
+        width: 300px;
+        background: $cl-waogreen;
+        padding: 15px 20px;
+        color: white;
+        font-size: $lms-font-size-ml;
     }
 }

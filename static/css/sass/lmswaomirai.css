@@ -80,6 +80,17 @@ html[data-tenantidnumber=lmswaomirai] .pagelayout-login #page div[role=main],
 html[data-tenantidnumber=lmswaomirai] .login-wrapper {
   height: auto !important;
 }
+html[data-tenantidnumber=lmswaomirai] footer {
+  margin: 90px 0 0;
+}
+@media (min-width: 768px) {
+  html[data-tenantidnumber=lmswaomirai] #page-login-index .login-wrapper {
+    padding-left: 5rem !important;
+  }
+}
+html[data-tenantidnumber=lmswaomirai] #page-login-index footer.footer-popover .footer-section.p-3 {
+  padding: 46px 0 0 !important;
+}
 html[data-tenantidnumber=lmswaomirai] #page-login-signup {
   background: white;
 }
@@ -130,7 +141,7 @@ html[data-tenantidnumber=lmswaomirai] #page-login-signup .text-danger {
   top: 0;
 }
 html[data-tenantidnumber=lmswaomirai] #page-login-signup .container-fluid {
-  margin: 0 auto 160px !important;
+  margin: 0 auto 75px !important;
 }
 html[data-tenantidnumber=lmswaomirai] #page-login-signup .form-control-static:before {
   content: "（";
@@ -165,7 +176,6 @@ html[data-tenantidnumber=lmswaomirai] #page-login-signup .fdate_selector {
   /* グリッドレイアウトを適用 */
   grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
   /* カラム幅の設定 */
-  gap: 10px;
   /* アイテム間のスペース */
 }
 html[data-tenantidnumber=lmswaomirai] #page-login-signup .fdate_selector > div:nth-child(1) {
@@ -245,6 +255,43 @@ html[data-tenantidnumber=lmswaomirai] #page-login-signup #fgroup_id_buttonar .d-
 }
 html[data-tenantidnumber=lmswaomirai] #page-login-signup #fitem_id_passwordpolicyinfo {
   display: none !important;
+}
+html[data-tenantidnumber=lmswaomirai] #page-login-signup .continuebutton {
+  display: none;
+}
+html[data-tenantidnumber=lmswaomirai] #page-login-signup.pagelayout-base header {
+  display: none !important;
+}
+html[data-tenantidnumber=lmswaomirai] #page-login-signup.pagelayout-base #notice {
+  max-width: 550px;
+  margin: 90px auto 0px;
+  line-height: 1.75 !important;
+}
+html[data-tenantidnumber=lmswaomirai] #page-login-signup.pagelayout-base #notice p {
+  margin: 0 0 5px !important;
+}
+html[data-tenantidnumber=lmswaomirai] #page-login-signup.pagelayout-base .logininfo {
+  display: none !important;
+}
+html[data-tenantidnumber=lmswaomirai] #page-login-confirm header {
+  display: none;
+}
+html[data-tenantidnumber=lmswaomirai] #page-login-confirm .boxaligncenter {
+  margin: 90px 30px 0px;
+}
+html[data-tenantidnumber=lmswaomirai] #page-login-confirm .boxaligncenter p {
+  display: none;
+}
+html[data-tenantidnumber=lmswaomirai] #page-login-confirm .boxaligncenter h3 {
+  font-size: 20px;
+  margin: 0 auto 16px;
+}
+html[data-tenantidnumber=lmswaomirai] #page-login-confirm .singlebutton button {
+  width: 300px;
+  background: #005C3F;
+  padding: 15px 20px;
+  color: white;
+  font-size: 16px;
 }
 html[data-tenantidnumber=lmswaomirai] #page-course-view-flexsections.course-99 .page-header-headings, html[data-tenantidnumber=lmswaomirai] #page-admin-tool-catalogue-courseinfo.course-99 .page-header-headings, html[data-tenantidnumber=lmswaomirai] #page-enrol-index.course-99 .page-header-headings {
   background: #28AFE7 !important;
@@ -587,6 +634,16 @@ html[data-tenantidnumber=lmswaomirai] #page-course-view-flexsections.course-9999
 }
 html[data-tenantidnumber=lmswaomirai] #page-course-view-flexsections.course-999999 #section-0 .flexsections-level-0 > .course-section.main .activity.activity-wrapper.forum {
   display: none !important;
+}
+html[data-tenantidnumber=lmswaomirai] #page-login-index footer.footer-popover .container div.footer-popover div:nth-child(2),
+html[data-tenantidnumber=lmswaomirai] #page-login-index footer.footer-popover div.footer-popover div:nth-child(2),
+html[data-tenantidnumber=lmswaomirai] #page-login-index footer.footer-popover .container div:nth-child(2) {
+  display: none;
+}
+html[data-tenantidnumber=lmswaomirai] #page-login-index footer.footer-popover .container div.footer-popover div:nth-child(3),
+html[data-tenantidnumber=lmswaomirai] #page-login-index footer.footer-popover div.footer-popover div:nth-child(3),
+html[data-tenantidnumber=lmswaomirai] #page-login-index footer.footer-popover .container div:nth-child(3) {
+  display: block !important;
 }
 html[data-tenantidnumber=lmswaomirai] .pagelayout-frontpage div[role=main] {
   display: none;
