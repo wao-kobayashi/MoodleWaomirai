@@ -4,6 +4,7 @@ html[data-tenantidnumber="lmswaomirai"] {
     }
 }
 
+$tenant: "stg";
 html[data-tenantidnumber="stg"] {
     @import "object/project/project-lms-moodle/_lms-scss-global";
 }

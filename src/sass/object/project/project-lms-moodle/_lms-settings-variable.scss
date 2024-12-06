@@ -1,3 +1,14 @@
+// $tenant-styles: ( "stg": ( background-color: blue, font-size: 16px), "lms": ( background-color: green, font-size: 14px));
+// // 条件分岐でマップから値を取得
+// @mixin apply-tenant-styles {
+//     $styles: map-get($tenant-styles, $tenant);
+//     body {
+//         background-color: map-get($styles, background-color) !important;
+//         font-size: map-get($styles, font-size);
+//     }
+// }
+// @include apply-tenant-styles;
+
 /* 全体の幅 */
 
 $body-width:1200px;

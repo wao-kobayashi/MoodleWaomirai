@@ -2,19 +2,22 @@
 // stg 哲学232 科学211 経済233 英語236 プログラミング235
 // lms　
 ///////////////////////////////
-$target-courses: 211,
-232,
-233,
-236,
-235;
-#page-course-view-flexsections,
-#page-admin-tool-catalogue-courseinfo,
-#page-enrol-index {
-    @each $course in $target-courses {
-        &.course-#{$course} {
+// 共通セレクタを定義
+$target-pages: ( "#page-course-view-flexsections", "#page-admin-tool-catalogue-courseinfo", "#page-enrol-index");
+#{join($target-pages, ", ")} {
+    @each $course,
+    $styles in $course-styles {
+        &.#{$course} {
+            // ヘッダーの背景スタイル
+            .page-header-headings {
+                background: map-get($styles, background-color) !important;
+                &:before {
+                    background-image: map-get($styles, background-image);
+                }
+            }
+            // 共通要素のスタイル適用
             .mr-auto,
             .mx-auto {
-                /* margin-right: auto !important; */
                 width: 100%;
             }
             .page-context-header {
@@ -25,7 +28,6 @@ $target-courses: 211,
                     width: 100%;
                     position: relative;
                     height: 320px;
-                    // background: $cl-philosophy;
                     border-radius: $border-radius-middle;
                     display: flex;
                     align-items: center;
@@ -42,15 +44,10 @@ $target-courses: 211,
                         height: 320px;
                         object-fit: contain;
                         border-radius: 0px 8px 8px 0;
-                        /* 画像を指定 */
                         background-size: cover;
-                        /* 画像を全体に表示 */
                         background-repeat: no-repeat;
-                        /* 画像を繰り返さない */
                         background-position: center;
-                        /* 画像を中央に配置 */
                         display: block;
-                        // content: "";
                         content: "";
                         position: absolute;
                     }
@@ -58,35 +55,6 @@ $target-courses: 211,
             }
             .h5.mt-4 {
                 display: none;
-            }
-        }
-    }
-}
-
-// コースごとのスタイルを変数マップで管理
-$course-styles: ( "course-232": ( background-color: $cl-philosophy, background-image: url('https://waomirai.com/wp-content/uploads/2024/07/phi_main.jpg')),
-//科学
-"course-211": ( background-color: $cl-science, background-image: url('https://go.waomirai.com/l/1026513/2024-08-08/gzqbx/1026513/1723092445qaV639ZU/subject_02.jpg')),
-//経済
-"course-233": ( background-color: $cl-economiy,
-background-image: url('https://go.waomirai.com/l/1026513/2024-08-08/gzqbt/1026513/1723092445zMMVlFVz/subject_03.jpg')),
-//英語
-"course-236": ( background-color: $cl-english,
-background-image: url('https://go.waomirai.com/l/1026513/2024-08-08/gzqbq/1026513/1723092445NpS1HkfH/subject_04.jpg')),
-//プログラミング
-"course-235": ( background-color: $cl-programming,
-background-image: url('https://go.waomirai.com/l/1026513/2024-08-08/gzqbm/1026513/1723092444UDZaTUyz/subject_05.jpg')));
-#page-course-view-flexsections,
-#page-admin-tool-catalogue-courseinfo,
-#page-enrol-index {
-    @each $course,
-    $styles in $course-styles {
-        &.#{$course} {
-            .page-header-headings {
-                background: map-get($styles, background-color) !important;
-                &:before {
-                    background-image: map-get($styles, background-image);
-                }
             }
         }
     }

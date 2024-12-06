@@ -1,3 +1,52 @@
+///////////////////////////////
+// stg 哲学232 科学211 経済233
+// lms　
+///////////////////////////////
+$howto-page-category:".category-45";
+//////////////////////
+//stg環境
+//////////////////////
+$course-styles-stg:( "course-233": ( // 経済
+background-color: $cl-economiy, background-image: url('https://go.waomirai.com/l/1026513/2024-08-08/gzqbt/1026513/1723092445zMMVlFVz/subject_03.jpg')),
+"course-211": ( // 科学
+background-color: $cl-science, background-image: url('https://go.waomirai.com/l/1026513/2024-08-08/gzqbx/1026513/1723092445qaV639ZU/subject_02.jpg')),
+"course-232": ( // 哲学
+background-color: $cl-philosophy,
+background-image: url('https://waomirai.com/wp-content/uploads/2024/07/phi_main.jpg')),
+"course-236": ( // 英語
+background-color: $cl-english,
+background-image: url('https://go.waomirai.com/l/1026513/2024-08-08/gzqbq/1026513/1723092445NpS1HkfH/subject_04.jpg')),
+"course-235": ( // プログラミング
+background-color: $cl-programming,
+background-image: url('https://go.waomirai.com/l/1026513/2024-08-08/gzqbm/1026513/1723092444UDZaTUyz/subject_05.jpg')));
+//////////////////////
+//本番環境
+//////////////////////
+$course-styles-lms: ( "course-99": ( // 経済
+background-color: $cl-economiy,
+background-image: url('https://go.waomirai.com/l/1026513/2024-08-08/gzqbt/1026513/1723092445zMMVlFVz/subject_03.jpg')),
+"course-999": ( // 科学
+background-color: $cl-science,
+background-image: url('https://go.waomirai.com/l/1026513/2024-08-08/gzqbx/1026513/1723092445qaV639ZU/subject_02.jpg')),
+"course-9999": ( // 哲学
+background-color: $cl-philosophy,
+background-image: url('https://waomirai.com/wp-content/uploads/2024/07/phi_main.jpg')),
+"course-99999": ( // 英語
+background-color: $cl-english,
+background-image: url('https://go.waomirai.com/l/1026513/2024-08-08/gzqbq/1026513/1723092445NpS1HkfH/subject_04.jpg')),
+"course-999999": ( // プログラミング
+background-color: $cl-programming,
+background-image: url('https://go.waomirai.com/l/1026513/2024-08-08/gzqbm/1026513/1723092444UDZaTUyz/subject_05.jpg')));
+// テナントに基づいて$course-stylesを設定
+$course-styles: () !default;
+@if $tenant=="stg" {
+    $course-styles: $course-styles-stg;
+}
+
+@else if $tenant=="lms" {
+    $course-styles: $course-styles-lms;
+}
+
 ////////////////////////////////
 /// #page-mod-questionnaire-view：アンケート詳細
 /// #page-course-view-flexsections：科目詳細
@@ -5,20 +54,3 @@
 /// #page-enrol-index：??????
 /// #page-mod-questionnaire-view:授業視聴
 ////////////////////////////////
-$contexts: ".context-2497", //stg-kobayashiのダッシュボード
-".pagelayout-mydashboard", //stg-adminのダッシュボード
-"#page-course-view-flexsections.course-138", //哲学の授業の詳細
-"#page-admin-tool-catalogue-courseinfo.course-138", //哲学の購入
-"#page-enrol-index.course-138",
-"#page-course-view-flexsections.course-211", //哲学の授業の詳細
-"#page-admin-tool-catalogue-courseinfo.course-211",
-"#page-enrol-index.course-211",
-".context-18", //stg-userのダッシュボード
-".course-1"; //トップページ
-///////////////////////////////
-// stg 哲学232 科学211 経済233
-// lms　
-///////////////////////////////
-$courseids: ".course-233", //3科目
-".course-211", //stg-adminのダッシュボード
-".course-232", //哲学の授業の詳細

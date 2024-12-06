@@ -47,20 +47,23 @@ footer.footer-popover {
     }
 }
 
-#page-course-view-flexsections {
-    #{join($courseids, ", &")} {
-        #section-0 {
-            .course-section-header {
-                display: none !important;
-            }
-        }
-        .flexsections-level-0>.course-section.main {
-            .activity.activity-wrapper.forum {
-                display: none !important;
-            }
-        }
-        #section-0 {
-            display: none !important;
-        }
-    }
-}
+// 特定のコースで表示非表示を管理
+// #page-course-view-flexsections {
+//     @each $course in map-keys($course-styles) {
+//         &.#{$course} {
+//             #section-0 {
+//                 .course-section-header {
+//                     display: none !important;
+//                 }
+//                 .flexsections-level-0>.course-section.main {
+//                     .activity.activity-wrapper.forum {
+//                         display: none !important;
+//                     }
+//                 }
+//                 #section-0 {
+//                     display: none !important;
+//                 }
+//             }
+//         }
+//     }
+// }
