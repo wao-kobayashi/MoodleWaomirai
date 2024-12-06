@@ -47,23 +47,27 @@ footer.footer-popover {
     }
 }
 
-// 特定のコースで表示非表示を管理
-// #page-course-view-flexsections {
-//     @each $course in map-keys($course-styles) {
-//         &.#{$course} {
-//             #section-0 {
-//                 .course-section-header {
-//                     display: none !important;
-//                 }
-//                 .flexsections-level-0>.course-section.main {
-//                     .activity.activity-wrapper.forum {
-//                         display: none !important;
-//                     }
-//                 }
-//                 #section-0 {
-//                     display: none !important;
-//                 }
-//             }
-//         }
-//     }
-// }
+#page-course-view-flexsections {
+    @each $course-id,
+    $common-style-key in $course-styles-for-tenant {
+        // スタイルを取得
+        $styles: map-get($common-course-styles, $common-style-key);
+        // コースIDに基づいてスタイルを適用
+        &.#{$course-id} {
+            #section-0 {
+                border: none !important;
+                .course-section-header {
+                    display: none !important;
+                }
+                .my-3 {
+                    display: none;
+                }
+                .flexsections-level-0>.course-section.main {
+                    .activity.activity-wrapper.forum {
+                        display: none !important;
+                    }
+                }
+            }
+        }
+    }
+}
