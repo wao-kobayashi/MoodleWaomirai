@@ -63,8 +63,18 @@ html[data-tenantidnumber=stg] footer.footer-popover .container {
   max-width: 1200px !important;
   width: 100% !important;
   margin: 0px auto 0;
-  padding: 25px 0 0;
+  padding: 50px 0 0;
   position: relative;
+}
+html[data-tenantidnumber=stg] footer.footer-popover .container div.footer-popover > div:nth-last-child(3),
+html[data-tenantidnumber=stg] footer.footer-popover div.footer-popover > div:nth-last-child(3),
+html[data-tenantidnumber=stg] footer.footer-popover .container > div:nth-last-child(3) {
+  display: contents;
+}
+html[data-tenantidnumber=stg] footer.footer-popover .container div.footer-popover div:nth-child(1),
+html[data-tenantidnumber=stg] footer.footer-popover div.footer-popover div:nth-child(1),
+html[data-tenantidnumber=stg] footer.footer-popover .container div:nth-child(1) {
+  height: 0px !important;
 }
 html[data-tenantidnumber=stg] footer.footer-popover .container div.footer-popover div:nth-child(1) div,
 html[data-tenantidnumber=stg] footer.footer-popover div.footer-popover div:nth-child(1) div,
@@ -79,6 +89,11 @@ html[data-tenantidnumber=stg] footer.footer-popover .container div.footer-popove
 html[data-tenantidnumber=stg] footer.footer-popover div.footer-popover div:nth-child(1) div a,
 html[data-tenantidnumber=stg] footer.footer-popover .container div:nth-child(1) div a {
   color: #4d4d4d !important;
+}
+html[data-tenantidnumber=stg] footer.footer-popover .container div.footer-popover > div:last-child,
+html[data-tenantidnumber=stg] footer.footer-popover div.footer-popover > div:last-child,
+html[data-tenantidnumber=stg] footer.footer-popover .container > div:last-child {
+  display: none;
 }
 html[data-tenantidnumber=stg] .pagelayout-login #page div[role=main],
 html[data-tenantidnumber=stg] .login-wrapper {
@@ -556,11 +571,6 @@ html[data-tenantidnumber=stg] #forced-footer {
   display: none !important;
 }
 html[data-tenantidnumber=stg] .logininfo {
-  display: none;
-}
-html[data-tenantidnumber=stg] footer.footer-popover .container div.footer-popover div:nth-child(3),
-html[data-tenantidnumber=stg] footer.footer-popover div.footer-popover div:nth-child(3),
-html[data-tenantidnumber=stg] footer.footer-popover .container div:nth-child(3) {
   display: none;
 }
 html[data-tenantidnumber=stg] #page-mod-questionnaire-view .page-header-image {
