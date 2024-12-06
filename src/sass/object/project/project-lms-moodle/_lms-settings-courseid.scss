@@ -1,52 +1,32 @@
-///////////////////////////////
-// stg 哲学232 科学211 経済233
-// lms　
-///////////////////////////////
-$howto-page-category:".category-45";
-//////////////////////
-//stg環境
-//////////////////////
-$course-styles-stg:( "course-233": ( // 経済
-background-color: $cl-economiy, background-image: url('https://go.waomirai.com/l/1026513/2024-08-08/gzqbt/1026513/1723092445zMMVlFVz/subject_03.jpg')),
-"course-211": ( // 科学
-background-color: $cl-science, background-image: url('https://go.waomirai.com/l/1026513/2024-08-08/gzqbx/1026513/1723092445qaV639ZU/subject_02.jpg')),
-"course-232": ( // 哲学
-background-color: $cl-philosophy,
+////////////////////////
+// 共通のスタイルデータ
+////////////////////////
+$common-course-styles: ( "economiy": ( background-color: $cl-economiy, background-image: url('https://go.waomirai.com/l/1026513/2024-08-08/gzqbt/1026513/1723092445zMMVlFVz/subject_03.jpg')),
+"science": ( background-color: $cl-science, background-image: url('https://go.waomirai.com/l/1026513/2024-08-08/gzqbx/1026513/1723092445qaV639ZU/subject_02.jpg')),
+"philosophy": ( background-color: $cl-philosophy,
 background-image: url('https://waomirai.com/wp-content/uploads/2024/07/phi_main.jpg')),
-"course-236": ( // 英語
-background-color: $cl-english,
+"english": ( background-color: $cl-english,
 background-image: url('https://go.waomirai.com/l/1026513/2024-08-08/gzqbq/1026513/1723092445NpS1HkfH/subject_04.jpg')),
-"course-235": ( // プログラミング
-background-color: $cl-programming,
+"programming": ( background-color: $cl-programming,
 background-image: url('https://go.waomirai.com/l/1026513/2024-08-08/gzqbm/1026513/1723092444UDZaTUyz/subject_05.jpg')));
-//////////////////////
-//本番環境
-//////////////////////
-$course-styles-lms: ( "course-99": ( // 経済
-background-color: $cl-economiy,
-background-image: url('https://go.waomirai.com/l/1026513/2024-08-08/gzqbt/1026513/1723092445zMMVlFVz/subject_03.jpg')),
-"course-999": ( // 科学
-background-color: $cl-science,
-background-image: url('https://go.waomirai.com/l/1026513/2024-08-08/gzqbx/1026513/1723092445qaV639ZU/subject_02.jpg')),
-"course-9999": ( // 哲学
-background-color: $cl-philosophy,
-background-image: url('https://waomirai.com/wp-content/uploads/2024/07/phi_main.jpg')),
-"course-99999": ( // 英語
-background-color: $cl-english,
-background-image: url('https://go.waomirai.com/l/1026513/2024-08-08/gzqbq/1026513/1723092445NpS1HkfH/subject_04.jpg')),
-"course-999999": ( // プログラミング
-background-color: $cl-programming,
-background-image: url('https://go.waomirai.com/l/1026513/2024-08-08/gzqbm/1026513/1723092444UDZaTUyz/subject_05.jpg')));
-// テナントに基づいて$course-stylesを設定
-$course-styles: () !default;
-@if $tenant=="stg" {
-    $course-styles: $course-styles-stg;
-}
-
-@else if $tenant=="lms" {
-    $course-styles: $course-styles-lms;
-}
-
+////////////////////////
+// テナントごとのコースIDマッピング
+////////////////////////
+// stg環境でのコースID
+$course-styles-stg: ( "course-233": "economiy",
+"course-211": "science",
+"course-232": "philosophy",
+"course-236": "english",
+"course-235": "programming");
+// lms環境でのコースID
+$course-styles-lms: ( "course-99": "economiy",
+"course-999": "science",
+"course-9999": "philosophy",
+"course-99999": "english",
+"course-999999": "programming");
+$course-styles-for-tenant: if($tenant=="stg",
+$course-styles-stg,
+$course-styles-lms);
 ////////////////////////////////
 /// #page-mod-questionnaire-view：アンケート詳細
 /// #page-course-view-flexsections：科目詳細

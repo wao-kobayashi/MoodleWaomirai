@@ -5,9 +5,10 @@
 // 共通セレクタを定義
 $target-pages: ( "#page-course-view-flexsections", "#page-admin-tool-catalogue-courseinfo", "#page-enrol-index");
 #{join($target-pages, ", ")} {
-    @each $course,
-    $styles in $course-styles {
-        &.#{$course} {
+    @each $course-id,
+    $common-style-key in $course-styles-for-tenant {
+        $styles: map-get($common-course-styles, $common-style-key);
+        &.#{$course-id} {
             // ヘッダーの背景スタイル
             .page-header-headings {
                 background: map-get($styles, background-color) !important;
