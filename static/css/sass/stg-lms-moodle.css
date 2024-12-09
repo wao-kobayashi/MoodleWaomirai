@@ -1155,10 +1155,10 @@ html[data-tenantidnumber=stg] .pagelayout-mydashboard .block_html .dashboard-ban
 html[data-tenantidnumber=stg] .pagelayout-mydashboard .block_html .dashboard-banner .dashboard-banner-right a {
   padding: 12px 16px;
   border-radius: 4px;
-  border: 1.5px solid white;
   color: white;
   font-size: 16px;
   font-weight: bold;
+  border: none !important;
 }
 html[data-tenantidnumber=stg] .pagelayout-mydashboard .block_html .dashboard-banner .dashboard-banner-right a:hover {
   text-decoration: none !important;
@@ -1169,8 +1169,14 @@ html[data-tenantidnumber=stg] .pagelayout-mydashboard .block_html .dashboard-ban
   color: white;
 }
 html[data-tenantidnumber=stg] .pagelayout-mydashboard .block_html .dashboard-banner.alert-buy-course {
+  border: 2px solid #005C3F;
+  background: #edfbf5;
+}
+html[data-tenantidnumber=stg] .pagelayout-mydashboard .block_html .dashboard-banner.alert-buy-course .dashboard-banner-left-icon i {
+  color: #005C3F;
+}
+html[data-tenantidnumber=stg] .pagelayout-mydashboard .block_html .dashboard-banner .dashboard-banner-right a {
   background: #005C3F;
-  color: white;
 }
 html[data-tenantidnumber=stg] .pagelayout-mydashboard {
   background: #f0f2f3 !important;
@@ -1621,28 +1627,39 @@ html[data-tenantidnumber=stg] #page-mod-questionnaire-view div[role=main] .mod_q
   background: white !important;
   padding: 10px 15px;
 }
-html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo a[aria-controls=covercollapsec-dates],
+html[data-tenantidnumber=stg] #page-enrol-index .enrol_fee_payment_region {
+  right: calc(50% - 560px);
+}
+html[data-tenantidnumber=stg] #page-enrol-index #page.drawers {
+  padding: 0 !important;
+}
+html[data-tenantidnumber=stg] #page-enrol-index #page.drawers .main-inner {
+  padding: 0 !important;
+  margin-left: calc(50% - 560px);
+}
+html[data-tenantidnumber=stg] #page-enrol-index #page.drawers div[role=main] {
+  padding: 0 !important;
+}
+html[data-tenantidnumber=stg] #page-enrol-index .header-maxwidth {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
 html[data-tenantidnumber=stg] #page-enrol-index a[aria-controls=covercollapsec-dates] {
   display: none;
 }
-html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo a[aria-controls=covercollapsec-dates] + h3,
 html[data-tenantidnumber=stg] #page-enrol-index a[aria-controls=covercollapsec-dates] + h3 {
   display: none !important;
 }
-html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo .lesson-detail-img,
 html[data-tenantidnumber=stg] #page-enrol-index .lesson-detail-img {
   width: 100%;
 }
-html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo .lesson-detail-img img,
 html[data-tenantidnumber=stg] #page-enrol-index .lesson-detail-img img {
   width: 100%;
 }
-html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo .enrol_buy_as_a_set,
 html[data-tenantidnumber=stg] #page-enrol-index .enrol_buy_as_a_set {
   position: fixed;
   top: calc(5rem + 330px);
-  right: 16px;
-  right: 1rem;
+  right: calc(50% - 560px);
   width: 250px !important;
   padding: 20px 20px;
   background: white;
@@ -1651,7 +1668,6 @@ html[data-tenantidnumber=stg] #page-enrol-index .enrol_buy_as_a_set {
   border-radius: 8px;
   z-index: 3;
 }
-html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo .enrol_buy_as_a_set .enrol_buy_as_a_set_img,
 html[data-tenantidnumber=stg] #page-enrol-index .enrol_buy_as_a_set .enrol_buy_as_a_set_img {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1664,7 +1680,6 @@ html[data-tenantidnumber=stg] #page-enrol-index .enrol_buy_as_a_set .enrol_buy_a
           align-items: center;
   margin: 15px auto 15px;
 }
-html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo .enrol_buy_as_a_set .enrol_buy_as_a_set_img .enrol_buy_as_a_set_img_child,
 html[data-tenantidnumber=stg] #page-enrol-index .enrol_buy_as_a_set .enrol_buy_as_a_set_img .enrol_buy_as_a_set_img_child {
   width: 80px;
   height: 30px;
@@ -1681,17 +1696,14 @@ html[data-tenantidnumber=stg] #page-enrol-index .enrol_buy_as_a_set .enrol_buy_a
   background: #f0f2f3;
   font-size: 12px;
 }
-html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo .enrol_buy_as_a_set .enrol_buy_as_a_set_detail,
 html[data-tenantidnumber=stg] #page-enrol-index .enrol_buy_as_a_set .enrol_buy_as_a_set_detail {
   border-top: 1px solid #999;
   padding: 15px 0 0;
   font-size: 12px !important;
 }
-html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo .enrol_buy_as_a_set .enrol_buy_as_a_set_detail a,
 html[data-tenantidnumber=stg] #page-enrol-index .enrol_buy_as_a_set .enrol_buy_as_a_set_detail a {
   color: #005C3F !important;
 }
-html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo .enrol_fee_payment_region,
 html[data-tenantidnumber=stg] #page-enrol-index .enrol_fee_payment_region {
   width: 250px !important;
   background: #fff !important;
@@ -1704,11 +1716,9 @@ html[data-tenantidnumber=stg] #page-enrol-index .enrol_fee_payment_region {
   -webkit-box-shadow: 0px 4px 6px rgba(0, 0, 0, .15) !important;
           box-shadow: 0px 4px 6px rgba(0, 0, 0, .15) !important;
 }
-html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo .enrol_fee_payment_region p:nth-child(2),
 html[data-tenantidnumber=stg] #page-enrol-index .enrol_fee_payment_region p:nth-child(2) {
   margin: 0 auto 15px !important;
 }
-html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo .enrol_fee_payment_region .btn.btn-secondary,
 html[data-tenantidnumber=stg] #page-enrol-index .enrol_fee_payment_region .btn.btn-secondary {
   width: 100%;
   height: 48px;

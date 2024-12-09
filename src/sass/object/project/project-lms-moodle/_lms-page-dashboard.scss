@@ -39,10 +39,10 @@
             .dashboard-banner-right a {
                 padding: 12px 16px;
                 border-radius: $border-radius-small;
-                border: 1.5px solid white;
                 color: white;
                 font-size: $lms-font-size-ml;
                 font-weight: bold;
+                border: none !important;
                 &:hover {
                     text-decoration: none !important;
                     opacity: 0.7;
@@ -55,8 +55,16 @@
             }
             &.alert-buy-course {
                 // background: $cl-alert;
+                border: 2px solid $cl-waogreen;
+                background: #edfbf5;
+                .dashboard-banner-left-icon {
+                    i {
+                        color: $cl-waogreen;
+                    }
+                }
+            }
+            .dashboard-banner-right a {
                 background: $cl-waogreen;
-                color: white;
             }
         }
     }

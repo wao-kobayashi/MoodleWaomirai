@@ -1,7 +1,23 @@
 //コース購入
-#page-admin-tool-catalogue-courseinfo,
 #page-enrol-index {
     //不要なもの消す
+    .enrol_fee_payment_region {
+        right: calc((100% - 1120px)/2);
+    }
+    #page.drawers {
+        padding: 0 !important;
+    }
+    #page.drawers .main-inner {
+        padding: 0 !important;
+        margin-left: calc((100% - 1120px)/2);
+    }
+    #page.drawers div[role="main"] {
+        padding: 0 !important;
+    }
+    .header-maxwidth {
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+    }
     a[aria-controls="covercollapsec-dates"] {
         display: none;
         +h3 {
@@ -20,7 +36,7 @@
     .enrol_buy_as_a_set {
         position: fixed;
         top: calc(5rem + 330px);
-        right: 1rem;
+        right: calc((100% - 1120px)/2);
         width: 250px !important;
         padding: 20px 20px;
         background: white;

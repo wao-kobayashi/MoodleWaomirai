@@ -15,15 +15,27 @@ document.addEventListener("DOMContentLoaded", function() {
         const courseDiv = document.querySelector('div[data-courseid="211"]');
         const courseLink = document.querySelector('.toppage-courses a[href="https://lms.waomirai.com/course/view.php?id=211"]');
 
+        // .toppage-courses内にL1、L2、L3、L4のいずれかのクラスが存在するかを確認
+        const toppageCourses = document.querySelector('.toppage-courses');
+        const hasLClasses = toppageCourses && (
+            toppageCourses.classList.contains("L1") ||
+            toppageCourses.classList.contains("L2") ||
+            toppageCourses.classList.contains("L3") ||
+            toppageCourses.classList.contains("L4") ||
+            toppageCourses.classList.contains("Ｌ１") ||
+            toppageCourses.classList.contains("Ｌ２") ||
+            toppageCourses.classList.contains("Ｌ３") ||
+            toppageCourses.classList.contains("Ｌ４")
+        );
+
         // ==============================
         // ダッシュボードページの処理（ページIDがpage-my-indexまたはpage-site-indexの場合）
         // ==============================
         if (bodyId === "page-my-index" || bodyId === "page-site-index") {
             const alertSettingLevel = document.querySelector(".alert-setting-level");
-            // const alertBuyCourse = document.querySelector(".alert-buy-course");  // 使用しない場合のコメントアウト
 
-            // コースのdivまたはリンクが存在する場合
-            if (courseDiv || courseLink) {
+            // courseLinkが存在し、かつL1、L2、L3、L4クラスがtoppage-coursesに存在する場合
+            if (courseLink && !hasLClasses) {
                 if (alertSettingLevel) alertSettingLevel.style.display = "flex"; // alert設定レベルを表示
 
                 // ナビゲーションバーの位置を調整
@@ -36,8 +48,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 var body = document.body;
                 body.setAttribute('style', 'padding:70px 0 0 !important;'); // bodyに余白を追加
             } else {
-                // alert('ないよ');  // コースがない場合の処理（現在はコメントアウト）
-                // if (alertBuyCourse) alertBuyCourse.style.display = "flex";  // 使用しない場合のコメントアウト
+                // alert('ないよ');  // courseLinkがない場合の処理（現在はコメントアウト）
             }
         }
 
@@ -48,10 +59,6 @@ document.addEventListener("DOMContentLoaded", function() {
             // ログインページのタイトルを変更
             const loginHeading = document.querySelector(".login-heading");
             if (loginHeading) {
-                // loginHeading.insertAdjacentHTML(
-                //     "afterend",
-                //     '<div class="signup-step"><img src="https://go.waomirai.com/l/1026513/2024-12-05/h94s4/1026513/17334611648lNVAMvK/step.svg" alt="ステップ画像"></div>'
-                // );
                 loginHeading.textContent = "新規会員登録"; // タイトルのテキストを変更
             }
 
