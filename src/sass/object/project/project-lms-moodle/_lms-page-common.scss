@@ -1,5 +1,9 @@
 /* footer */
 
+body {
+    font-family: 'Noto Sans JP', sans-serif;
+}
+
 .border-bottom {
     border-bottom: none !important;
 }
@@ -34,6 +38,79 @@
     }
 }
 
+.header-banner {
+    height: 70px;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 99;
+    padding: 25px 20px 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    .header-banner-left-icon {
+        width: 35px;
+        height: 35px;
+        margin: 0 10px 0 3px;
+        i {
+            font-size: 32px;
+            display: block;
+            line-height: 1;
+        }
+    }
+    .header-banner-text-title {
+        font-size: $lms-font-size-ml;
+        font-weight: 600;
+    }
+    .header-banner-text-read {
+        font-size: $lms-font-size-m;
+        font-weight: 500;
+    }
+    &.alert-setting-level {
+        // background: $cl-alert;
+        background: #FEF4F4;
+        color: white;
+        i {
+            font-size: 36px;
+            display: block;
+            line-height: 1;
+            color: $cl-alert;
+        }
+        .header-banner-text-title {
+            color: $cl-alert;
+        }
+        .header-banner-text-read {
+            color: $cl-gray;
+        }
+        .header-banner-right a {
+            background: $cl-alert;
+            font-weight: 400;
+        }
+    }
+    .header-banner-left {
+        display: flex;
+        align-items: center;
+    }
+    .header-banner-right a {
+        padding: 8px 16px;
+        border-radius: $border-radius-small;
+        // border: 1.5px solid white;
+        color: white;
+        font-size: $lms-font-size-ml;
+        font-weight: bold;
+        &:hover {
+            text-decoration: none !important;
+            opacity: 0.7;
+        }
+    }
+    // &.alert-buy-course {
+    //     // background: $cl-alert;
+    //     background: $cl-waogreen;
+    //     color: white;
+    // }
+}
+
 footer.footer-popover {
     width: 100% !important;
     max-width: 100% !important;
@@ -42,7 +119,7 @@ footer.footer-popover {
     .container div.footer-popover,
     div.footer-popover,
     .container {
-        max-width: 1200px !important;
+        max-width: $body-width !important;
         width: 100%!important;
         margin: 0px auto 0;
         padding: 50px 0 0;

@@ -1,6 +1,7 @@
 extends _layout_moodle.pug
+block variables
+  - var title = 'ダッシュボード | stg'  // 変数の定義
 block contents
-  - var title = '哲学購入詳細 | stg'  // 変数の定義
   body#page-enrol-index(class="format-flexsections limitedwidth  path-enrol chrome dir-ltr lang-ja_wp yui-skin-sam yui3-skin-sam lms-waomirai-com pagelayout-incourse course-232 context-1603 category-4 theme uses-drawers")
     .toast-wrapper.mx-auto.py-0.fixed-top(role='status' aria-live='polite')
     #page-wrapper.d-print-block

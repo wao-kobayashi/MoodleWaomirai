@@ -1,7 +1,7 @@
 extends _layout_moodle.pug
 block variables
   - var title = 'トップページ | stg'
-  - var alert = subject-settings
+  - var status = 'purchased'
 block contents
   body#page-site-index(class="limitedwidth format-site course path-site chrome dir-ltr lang-ja_wp yui-skin-sam yui3-skin-sam lms-waomirai-com pagelayout-frontpage course-1 context-2 theme uses-drawers kenai-frontpage jsenabled")
         .toast-wrapper.mx-auto.py-0.fixed-top(role='status' aria-live='polite')
@@ -984,3 +984,101 @@ block contents
         div
         deepl-input-controller
         span(style='border-radius:10px !important;text-indent:12px !important;width:auto !important;height:20px !important;padding:0px 8px !important;text-align:center !important;vertical-align:middle !important;font:bold 11px / 20px "Helvetica Neue", Helvetica, sans-serif !important;color:rgb(255, 255, 255) !important;background:url("data:image/svg+xml;base64,PHN2ZyBpZD0ic291cmNlIiB3aWR0aD0iMTIiIGhlaWdodD0iMTIiIHZpZXdCb3g9IjAgMCAxMiAxMiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBjeD0iNiIgY3k9IjYiIHI9IjYiIGZpbGw9IiNFNjAwMjMiPjwvY2lyY2xlPgo8cGF0aCBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGNsaXAtcnVsZT0iZXZlbm9kZCIgZD0iTTAgNkMwIDguNTYxNSAxLjYwNTUgMTAuNzQ4NSAzLjg2NSAxMS42MDlDMy44MSAxMS4xNDA1IDMuNzUxNSAxMC4zNjggMy44Nzc1IDkuODI2QzMuOTg2IDkuMzYgNC41NzggNi44NTcgNC41NzggNi44NTdDNC41NzggNi44NTcgNC4zOTk1IDYuNDk5NSA0LjM5OTUgNS45N0M0LjM5OTUgNS4xNCA0Ljg4MDUgNC41MiA1LjQ4IDQuNTJDNS45OSA0LjUyIDYuMjM2IDQuOTAyNSA2LjIzNiA1LjM2MUM2LjIzNiA1Ljg3MzUgNS45MDk1IDYuNjM5NSA1Ljc0MSA3LjM1QzUuNjAwNSA3Ljk0NDUgNi4wMzk1IDguNDI5NSA2LjYyNTUgOC40Mjk1QzcuNjg3IDguNDI5NSA4LjUwMzUgNy4zMSA4LjUwMzUgNS42OTRDOC41MDM1IDQuMjYzNSA3LjQ3NTUgMy4yNjQgNi4wMDggMy4yNjRDNC4zMDkgMy4yNjQgMy4zMTE1IDQuNTM4NSAzLjMxMTUgNS44NTZDMy4zMTE1IDYuMzY5NSAzLjUwOSA2LjkxOTUgMy43NTYgNy4yMTlDMy44MDQ1IDcuMjc4NSAzLjgxMiA3LjMzIDMuNzk3NSA3LjM5MDVDMy43NTIgNy41Nzk1IDMuNjUxIDcuOTg1IDMuNjMxNSA4LjA2OEMzLjYwNSA4LjE3NyAzLjU0NSA4LjIwMDUgMy40MzE1IDguMTQ3NUMyLjY4NTUgNy44MDA1IDIuMjE5NSA2LjcxIDIuMjE5NSA1LjgzNEMyLjIxOTUgMy45NDk1IDMuNTg4IDIuMjE5NSA2LjE2NTUgMi4yMTk1QzguMjM3NSAyLjIxOTUgOS44NDggMy42OTYgOS44NDggNS42NjlDOS44NDggNy43Mjc1IDguNTUwNSA5LjM4NDUgNi43NDg1IDkuMzg0NUM2LjE0MyA5LjM4NDUgNS41NzQ1IDkuMDY5NSA1LjM3OTUgOC42OThDNS4zNzk1IDguNjk4IDUuMDggOS44MzkgNS4wMDc1IDEwLjExOEM0Ljg2NjUgMTAuNjYgNC40NzU1IDExLjM0NiA0LjIzMyAxMS43MzU1QzQuNzkyIDExLjkwNzUgNS4zODUgMTIgNiAxMkM5LjMxMzUgMTIgMTIgOS4zMTM1IDEyIDZDMTIgMi42ODY1IDkuMzEzNSAwIDYgMEMyLjY4NjUgMCAwIDIuNjg2NSAwIDZaIiBmaWxsPSJ3aGl0ZSI+PC9wYXRoPgo8L3N2Zz4=") 4px 50% / 12px 12px no-repeat rgb(230, 0, 35) !important;position:absolute !important;opacity:1 !important;z-index:9007199254740990 !important;display:none !important;cursor:pointer !important;border:none !important;-webkit-font-smoothing:antialiased !important;top:0 !important;left:0 !important;display:none !important;top:70px !important;left:10px !important') &#x4FDD;&#x5B58;
+            .toppage-courses(style="display:none;")
+              ul
+                li
+                  a(href="https://lms.waomirai.com/course/view.php?id=135") グローバル英語【購入用】
+                li
+                  a(href="https://lms.waomirai.com/course/view.php?id=130") グローバル英語 LEVEL1 LOCAL STAGE
+                li
+                  a(href="https://lms.waomirai.com/course/view.php?id=138") グローバル英語 LEVEL2 NATION STAGE
+                li
+                  a(href="https://lms.waomirai.com/course/view.php?id=112") よくある質問とお問い合わせ
+                li
+                  a(href="https://lms.waomirai.com/course/view.php?id=196") 【無料！夏休み特別企画】選べる！深まる！リサイクル
+                li
+                  a(href="https://lms.waomirai.com/course/view.php?id=120") 【小中高生対象：Unityゲームプログラミング体験講座】本格プログラマーへの第一歩
+                li
+                  a(href="https://lms.waomirai.com/course/view.php?id=206") 【会員登録特典】ワオ未来塾の授業（フルバージョン）を無料視聴！
+                li
+                  a(href="https://lms.waomirai.com/course/view.php?id=183") 【ワオ会員用】グローバル英語【購入用】
+                li
+                  a(href="https://lms.waomirai.com/course/view.php?id=236") グローバル英語（テスト）
+                li
+                  a(href="https://lms.waomirai.com/course/view.php?id=235") プログラミング（テスト）
+                li
+                  a(href="https://lms.waomirai.com/course/view.php?id=231") 科目のレベル設定方法
+                li
+                  a(href="https://lms.waomirai.com/course/view.php?id=185") code snipet
+                li
+                  a(href="https://lms.waomirai.com/course/view.php?id=184") venue埋め込みテスト
+                li
+                  a(href="https://lms.waomirai.com/course/view.php?id=181") グローバル英語（ワオ会員専用）
+                li
+                  a(href="https://lms.waomirai.com/course/view.php?id=15") 栗谷 実験用コース
+                li
+                  a(href="https://lms.waomirai.com/course/view.php?id=114") コース説明下書き用
+                li
+                  a(href="https://lms.waomirai.com/course/view.php?id=237") テストコース12/6
+                li
+                  a(href="https://lms.waomirai.com/course/view.php?id=211") 科学
+                li
+                  a(href="https://lms.waomirai.com/course/view.php?id=212") 哲学
+                li
+                  a(href="https://lms.waomirai.com/course/view.php?id=214") 哲学＋科学
+                li
+                  a(href="https://lms.waomirai.com/course/view.php?id=224") 1科目受講＋マニュアル
+                li
+                  //- a(href="https://lms.waomirai.com/course/view.php?id=221") 哲学　L1
+                li
+                  a(href="https://lms.waomirai.com/course/view.php?id=234") テストコース２
+                li
+                  a(href="https://lms.waomirai.com/course/view.php?id=230") 講座の受講方法
+                li
+                  a(href="https://lms.waomirai.com/course/view.php?id=131") クリエイティブ・プログラミング
+                li
+                  a(href="https://lms.waomirai.com/course/view.php?id=136") クリエイティブ・プログラミング サポートコース
+                li
+                  a(href="https://lms.waomirai.com/course/view.php?id=205") アーカイブ視聴ページ
+                li
+                  a(href="https://lms.waomirai.com/course/view.php?id=89") 栗谷さん購入検証
+                li
+                  a(href="https://lms.waomirai.com/course/view.php?id=99") 【12月】哲学思考（小学部）
+                li
+                  a(href="https://lms.waomirai.com/course/view.php?id=98") 【12月】科学リテラシー（小学部）
+                li
+                  a(href="https://lms.waomirai.com/course/view.php?id=100") 【12月】お金の教育（小学部）
+                li
+                  a(href="https://lms.waomirai.com/course/view.php?id=105") 【12月】グローバル英語（小学部）
+                li
+                  a(href="https://lms.waomirai.com/course/view.php?id=101") 【12月】クリエイティブプログラミング（小学部）
+                li
+                  a(href="https://lms.waomirai.com/course/view.php?id=103") 【12月】哲学思考（中高部）
+                li
+                  a(href="https://lms.waomirai.com/course/view.php?id=104") 【12月】科学リテラシー（中高部）
+                li
+                  a(href="https://lms.waomirai.com/course/view.php?id=106") 【12月】グローバル英語（中高部）
+                li
+                  a(href="https://lms.waomirai.com/course/view.php?id=102") 【12月】クリエイティブプログラミング（中高部）
+                li
+                  a(href="https://lms.waomirai.com/course/view.php?id=171") モニターアンケート
+                li
+                  a(href="https://lms.waomirai.com/course/view.php?id=165") （小学生向け）お金の怖さを学ぶ　NO!MORE!お金のトラブル教室～ほんとにあった怖いお金の話～
+                li
+                  a(href="https://lms.waomirai.com/course/view.php?id=166") （中高生向け）10代のうちに身に付けよう！「お金の失敗をしちゃった」と素直に言う方法
+                li
+                  a(href="https://lms.waomirai.com/course/view.php?id=167") （小学生向け）どうして1000円札の顔になったの！？～野口英世の研究と真実～
+                li
+                  a(href="https://lms.waomirai.com/course/view.php?id=168") （中高生向け）科学史シリーズ！細菌学研究の闇～野口英世の研究と真実～
+                li
+                  a(href="https://lms.waomirai.com/course/view.php?id=169") （小学生向け）「正義」はダレが決める？～アナタが裁く「昔話桃太郎」～
+                li
+                  a(href="https://lms.waomirai.com/course/view.php?id=170") （中高生向け）『具体と抽象』で思考力UP！～身近な悩み事や社会現象を新たな視点で紐解こう～
+                li
+                  a(href="https://lms.waomirai.com/course/view.php?id=180") 2024.5.28 経済（お金）　見逃し配信
+                li
+                  a(href="https://lms.waomirai.com/course/view.php?id=179") 2024.5.30 科学リテラシー　見逃し配信
+                li
+                  a(href="https://lms.waomirai.com/course/view.php?id=178") 2024.5.31 哲学思考　見逃し配信
+                li
+                  a(href="https://lms.waomirai.com/course/view.php?id=143") Default tenant members

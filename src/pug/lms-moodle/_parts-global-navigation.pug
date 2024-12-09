@@ -9,11 +9,14 @@ nav.navbar.fixed-top.navbar-light.bg-white.navbar-expand(aria-label="サイト�
     nav.navigation
       ul.nav.more-nav.navbar-nav(role="menubar")
         li.nav-item(data-key="home", role="none", data-forceintomoremenu="false")
-          a.nav-link(role="menuitem", href="page-index.html", tabindex="-1")
+          a.nav-link(role="menuitem", href="page-index-logged-in.html", tabindex="-1")
             | ホーム
         li.nav-item(data-key="myhome", role="none", data-forceintomoremenu="false")
           a.nav-link.active(role="menuitem", href="page-dashboard.html", aria-current="true")
-            | ダッシュボード
+            | DB
+        li.nav-item(data-key="myhome", role="none", data-forceintomoremenu="false")
+          a.nav-link.active(role="menuitem", href="page-dashboard-purchased.html", aria-current="true")
+            | DB(p)
         li.nav-item(data-key="mycourses", role="none", data-forceintomoremenu="false")
           a.nav-link(role="menuitem", href="page-course-payment.html", tabindex="-1")
             | 科目購入
