@@ -48,7 +48,22 @@ document.addEventListener("DOMContentLoaded", function() {
                 var body = document.body;
                 body.setAttribute('style', 'padding:70px 0 0 !important;'); // bodyに余白を追加
             } else {
-                // alert('ないよ');  // courseLinkがない場合の処理（現在はコメントアウト）
+
+            }
+        }
+
+        // ==============================
+        // .toppage-coursesにa要素が1個もない時に.alert-buy-courseをflexにする
+        // ==============================
+        if (bodyId === "page-my-index") {
+            const alertBuyCourse = document.querySelector(".alert-buy-course");
+            const toppageCourses = document.querySelector(".toppage-courses");
+            const courseLinks = toppageCourses ? toppageCourses.querySelectorAll("a") : [];
+
+            // .toppage-coursesにa要素が1個もない時
+            if (courseLinks.length === 0 && alertBuyCourse) {
+                alertBuyCourse.style.display = "flex"; // .alert-buy-courseを表示
+                console.log('test');
             }
         }
 

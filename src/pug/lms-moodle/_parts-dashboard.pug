@@ -10,11 +10,6 @@
             .card-body.p-3
               h5#instance-274-header.card-title.d-inline &#x30C6;&#x30AD;&#x30B9;&#x30C8;&#x30D6;&#x30ED;&#x30C3;&#x30AF;
               .card-text.content.mt-3
-                script.
-                  $(document).ready(function() {
-                  //- $('.alert-setting-level').show();
-                  $('.alert-buy-course').show();
-                  });
                 .no-overflow
 
                   //- .dashboard-banner.alert-setting-level(style='display:none;')
@@ -30,20 +25,17 @@
                   //-    .dashboard-banner-right 
                   //-        a(href='https://lms.waomirai.com/admin/tool/catalogue/courseinfo.php?id=231')
                   //-          |科目のレベルを設定するには？ 
-                  if status === 'notpurchased'
-                    .dashboard-banner.alert-buy-course(style='display:none;')
-                      .dashboard-banner-left 
-                          .dashboard-banner-left-icon
-                            //- i.fa-solid.fa-ice-cream.fa-5x
-                            i.icon.fa.fa-solid.fa-circle-exclamation
-                          .dashboard-banner-text 
-                          .dashboard-banner-text-title 
-                              |受講している授業科目がありません
-                      .dashboard-banner-right 
-                          a(href='/')
-                            |授業科目一覧を見る
-                  else 
-                   p|こんにちわ
+                  .dashboard-banner.alert-buy-course(style='display:none;')
+                    .dashboard-banner-left 
+                        .dashboard-banner-left-icon
+                          //- i.fa-solid.fa-ice-cream.fa-5x
+                          i.icon.fa.fa-solid.fa-circle-exclamation
+                        .dashboard-banner-text 
+                        .dashboard-banner-text-title 
+                            |受講している授業科目がありません
+                    .dashboard-banner-right 
+                        a(href='/')
+                          |授業科目一覧を見る
                 .footer
           a.sr-only.sr-only-focusable(href='#sb-1') &#x30AB;&#x30EC;&#x30F3;&#x30C0;&#x30FC; &#x3092;&#x30B9;&#x30AD;&#x30C3;&#x30D7;&#x3059;&#x308B;
           section#inst255.block_calendar_month.block.card.mb-3(role='complementary' data-block='calendar_month' data-instance-id='255' aria-labelledby='instance-255-header')
