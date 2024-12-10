@@ -8,7 +8,7 @@ $calender-width:960px;
     }
     .block-region {
         max-width: 960px !important;
-        margin-left: auto !important;
+        margin-right: auto !important;
     }
     @media (min-width: 768px) {
         #page.drawers .main-inner,
@@ -92,6 +92,17 @@ $calender-width:960px;
 //     position: relative;
 // }
 .pagelayout-mydashboard {
+    .block_html.block.card.mb-3 {
+        display: inline;
+    }
+    // section[role=complementary] {
+    //     display: inline;
+    // }
+    .mt-3,
+    .my-3 {
+        margin-top: 0 !important;
+        margin-bottom: 1rem !important;
+    }
     #page.drawers .main-inner {
         padding: 1.5rem 0rem !important;
     }
@@ -100,18 +111,46 @@ $calender-width:960px;
     //     margin-right: 0 !important;
     // }
     #page.drawers .main-inner {
-        margin-right: calc((100% - $body-width) /2);
+        // margin-left: calc((100% - $body-width) /2);
         // margin-left: 0 !important;
     }
     .dashboard-left {
         width: 200px;
         height: 360px;
         display: block;
-        left: -220px;
-        top: 17px;
-        z-index: 99;
-        background: blue;
+        right: -220px;
+        top: 0px;
+        z-index: 1;
+        // background: blue;
         position: absolute;
+        .dashboard-left-block {
+            background: white;
+            padding: 20px 20px 12px;
+            margin: 0 0 20px;
+            border-radius: $border-radius-middle;
+            .dashboard-left-block-title {
+                padding: 0 0px 12px;
+                // border-bottom: 3px solid $cl-graylightest;
+                font-size: $lms-font-size-l;
+                color: $cl-black;
+                font-weight: 500;
+                // text-align: center;
+                // width: 85%;
+                // margin: 0 auto;
+            }
+        }
+        ul {
+            list-style: none;
+            padding: 0px 0px 0 0px;
+            li {
+                line-height: 1.35;
+                margin: 0 0 15px;
+                a {
+                    color: $cl-waogreen;
+                    text-decoration: underline;
+                }
+            }
+        }
     }
     #page.drawers {
         padding-left: 0px !important;
@@ -235,7 +274,7 @@ $calender-width:960px;
     .card-title {
         // display: none !important;
         // padding: 15px 0 15px 10px !important;
-        margin: 0 -15px !important;
+        margin: 0 -15px 15px!important;
         padding: 3px 45px 15px;
         border-bottom: 4px $cl-graylightest solid;
         width: calc(100% + 30px);

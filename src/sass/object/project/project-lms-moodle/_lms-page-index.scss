@@ -35,7 +35,7 @@
                 left: 5%;
                 top: -10px;
                 z-index: 9;
-                max-width: 400px;
+                max-width: 430px;
                 // top: 0;
                 bottom: 0;
                 margin: auto;
@@ -45,9 +45,9 @@
             .lms-index-main-right {
                 position: absolute;
                 right: 5%;
-                top: 10px;
+                top: 0px;
                 z-index: 9;
-                max-width: 520px;
+                max-width: 550px;
             }
         }
         .lms-index-bg {
@@ -137,28 +137,32 @@
         width: 100%;
         max-width: $body-width;
         margin: 0 auto 64px;
+        padding: 64px 0 0;
         @include responsive-style(768px) {
             padding: 0 20px;
         }
         img {
             width: 100% !important;
         }
+        .lms-index-contents-block:first-child {
+            margin: 0px 0 96px;
+        }
         .lms-index-contents-block-title {
-            margin: 64px 0 16px;
+            margin: 0px 0 16px;
             text-align: left;
             padding: 0 20px 0px;
             .lms-index-contents-block-title-main {
                 font-size: 26px !important;
                 color: $cl-gray;
                 font-weight: 600;
-                margin: 0 0 15px;
+                margin: 0 0 12px;
                 letter-spacing: 0.5px;
             }
             .lms-index-contents-block-title-sub {
                 font-size: 15px!important;
                 color: $cl-gray;
                 font-weight: 500;
-                margin: 0 0 30px;
+                margin: 0 0 24px;
                 letter-spacing: 1px;
             }
         }

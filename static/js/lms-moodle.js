@@ -137,5 +137,36 @@ document.addEventListener("DOMContentLoaded", function() {
                 singleButtons.textContent = "ワオ未来塾TOPへ"; // 新しいボタンテキストを設定
             }
         }
+        // ==============================
+        // 購入処理（ページIDがpage-enrol-indexの場合）
+        // ==============================
+        if (bodyId === "page-enrol-index") {
+            const buttonElement = document.querySelector('.enrol_fee_payment_region button');
+
+            if (buttonElement) {
+                // 新しい要素を作成
+                const customDiv = document.createElement("div");
+                customDiv.className = "page-enrol-set-discount";
+                customDiv.innerHTML = "<p>セット受講割引でお得！</p><p><a href='#'>詳細を見る</a></p>";
+                // buttonの親要素に新しい要素を挿入
+                buttonElement.parentNode.insertBefore(customDiv, buttonElement.nextSibling);
+            }
+        }
+        // ==============================
+        // マイページ（ページIDが#page-user-profileの場合）
+        // ==============================
+        if (bodyId === "page-user-profile") {
+            // .node_category 内に「その他」というワードが含まれる場合に非表示にする
+            const nodeCategories = document.querySelectorAll(".node_category");
+
+            nodeCategories.forEach(nodeCategory => {
+                const leadElement = nodeCategory.querySelector(".lead");
+                if (leadElement && leadElement.textContent.includes("その他")) {
+                    // display:none を !important に設定
+                    nodeCategory.style.cssText += "display: none !important;";
+                }
+            });
+        }
+
     }
 });

@@ -1,3 +1,12 @@
+/* 共通ヘッダー */
+
+//登録済み講座
+.nav a[href="https://lms.waomirai.com/my/courses.php"] {
+    display: none !important;
+    /* 要素を非表示 */
+}
+
+
 /* 共通追従フッター削除 */
 
 #forced-footer {
@@ -15,6 +24,16 @@ footer.footer-popover {
         div:nth-child(3) {
             // display: none;
         }
+    }
+}
+
+
+/* ダッシュボード */
+
+.pagelayout-mydashboard {
+    /* こんにちは⚪︎⚪︎さん */
+    #page-header {
+        display: none;
     }
 }
 
