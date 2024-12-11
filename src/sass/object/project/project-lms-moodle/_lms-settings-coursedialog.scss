@@ -1,0 +1,8 @@
+//コースはいるときの紹介ダイアログを非表示に。
+.modal-backdrop.show {
+    display: none!important;
+}
+
+.tool_catalogue-course-cover-modal.show {
+    display: none !important;
+}

@@ -19,7 +19,7 @@ block contents
         noscript
           iframe(src="https://www.googletagmanager.com/ns.html?id=GTM-W3X8CG9C", height="0", width="0", style="display:none;visibility:hidden")
         // End Google Tag Manager (noscript)
-        include _parts-subject-alert.pug
+        //- include _parts-subject-alert.pug
         include _parts-global-navigation.pug
         .drawer.drawer-left.drawer-primary.d-print-none.not-initialized(data-region="fixed-drawer", id="theme_boost-drawers-primary", data-state="show-drawer-primary", data-forceopen="0", data-close-on-resize="1")
           .drawerheader
@@ -54,6 +54,8 @@ block contents
                   .header-actions-container.ml-auto(data-region="header-actions-container")
             #page-content.pb-3.d-print-block
               include _parts-dashboard.pug
+
+
           div 
             include _parts-modal.pug
           footer#page-footer.footer-popover.bg-white
@@ -217,14 +219,14 @@ block contents
                   | Moodle Workplace
             .footer-content-debugging.footer-dark.bg-dark.text-light
               .container-fluid.footer-dark-inner
-            .toppage-courses(style="display:none;")
+            .toppage-courses
               ul
                 li
                   a(href="https://lms.waomirai.com/course/view.php?id=135") グローバル英語【購入用】
                 li
-                  a(href="https://lms.waomirai.com/course/view.php?id=130") グローバル英語 LEVEL1 LOCAL STAGE
+                  a(href="https://lms.waomirai.com/course/view.php?id=130") グローバル英語 LEVE LOCAL STAGE
                 li
-                  a(href="https://lms.waomirai.com/course/view.php?id=138") グローバル英語 LEVEL2 NATION STAGE
+                  a(href="https://lms.waomirai.com/course/view.php?id=138") グローバル英語 LEVE NATION STAGE
                 li
                   a(href="https://lms.waomirai.com/course/view.php?id=112") よくある質問とお問い合わせ
                 li
@@ -238,7 +240,7 @@ block contents
                 li
                   a(href="https://lms.waomirai.com/course/view.php?id=236") グローバル英語（テスト）
                 li
-                  a(href="https://lms.waomirai.com/course/view.php?id=235") プログラミング（テスト）
+                  a(href="https://lms.waomirai.com/course/view.php?id=235") 経済L1
                 li
                   a(href="https://lms.waomirai.com/course/view.php?id=231") 科目のレベル設定方法
                 li
@@ -262,7 +264,7 @@ block contents
                 li
                   a(href="https://lms.waomirai.com/course/view.php?id=224") 1科目受講＋マニュアル
                 li
-                  //- a(href="https://lms.waomirai.com/course/view.php?id=221") 哲学　L1
+                  a(href="https://lms.waomirai.com/course/view.php?id=221") L1
                 li
                   a(href="https://lms.waomirai.com/course/view.php?id=234") テストコース２
                 li
@@ -315,7 +317,8 @@ block contents
                   a(href="https://lms.waomirai.com/course/view.php?id=178") 2024.5.31 哲学思考　見逃し配信
                 li
                   a(href="https://lms.waomirai.com/course/view.php?id=143") Default tenant members
-
+          //- .toppage-courses
+          //-  a(href="#")|L1
   script.
     $(document).on('click', 'li[data-region="event-item"]', function () {
         // 発火時に実行するコード

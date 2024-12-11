@@ -1,9 +1,33 @@
-/* 共通ヘッダー */
+// ドロワー撲滅
+.drawer-toggles .drawer-toggler {
+    display: none !important;
+}
 
 //登録済み講座
 .nav a[href="https://lms.waomirai.com/my/courses.php"] {
     display: none !important;
     /* 要素を非表示 */
+}
+
+//プライベートファイル
+a[href="https://lms.waomirai.com/my/courses.php"] {
+    display: none;
+    /* 要素を非表示 */
+}
+
+
+/* マイページ */
+
+#page-user-preferences {
+    #page-content {
+        a[href*="user/language.php"],
+        a[href*="user/forum.php"],
+        a[href*="user/calendar.php"],
+        a[href*="/user/contentbank.php"],
+        a[href*="/user/editor.php"] {
+            display: none;
+        }
+    }
 }
 
 

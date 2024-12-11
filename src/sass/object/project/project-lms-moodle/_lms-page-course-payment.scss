@@ -51,20 +51,24 @@
         margin-left: calc((100% - 1120px)/2);
         background: transparent;
     }
+}
+
+#page-enrol-index,
+#page-admin-tool-catalogue-courseinfo {
     #page-navbar {
         display: none;
     }
     #page.drawers {
-        &:before {
-            width: 100%;
-            height: 250px;
-            position: absolute;
-            z-index: -1;
-            top: 0;
-            // background: #FFE9B8;
-            background: $cl-graylightest;
-            content: "";
-        }
+        // &:before {
+        //     width: 100%;
+        //     height: 250px;
+        //     position: absolute;
+        //     z-index: -1;
+        //     top: 0;
+        //     // background: #FFE9B8;
+        //     background: $cl-graylightest;
+        //     content: "";
+        // }
     }
     #page.drawers div[role="main"] {
         padding: 0 !important;

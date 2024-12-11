@@ -1,0 +1,15 @@
+.drawer-toggles .drawer-toggler {
+    display: none !important;
+}
+
+@media (min-width: 992px) {
+    #page.drawers.show-drawer-left {
+        margin-left: 0px !important;
+        margin-right: 0!important;
+        padding-left: 0;
+    }
+}
+
+.drawer.drawer-left {
+    display: none !important;
+}
