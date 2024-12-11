@@ -77,6 +77,64 @@ document.addEventListener("DOMContentLoaded", function() {
                 alertBuyCourse.style.display = "flex"; // .alert-buy-courseを表示
                 console.log('test');
             }
+
+            //以下カレンダー
+            // 今日の日付を取得
+            const today = new Date();
+            const todayDay = today.getDate();
+            const todayMonth = today.getMonth() + 1; // 月は0から始まるため+1
+            const todayYear = today.getFullYear();
+
+            // カレンダーの全セルを取得
+            const dayCells = document.querySelectorAll('.day');
+
+            // 今日があるかを確認
+            let eventFound = false;
+
+            dayCells.forEach(cell => {
+                const cellDay = parseInt(cell.getAttribute('data-day'), 10);
+                const cellYear = parseInt(cell.querySelector('a')?.getAttribute('data-year') || todayYear, 10);
+                const cellMonth = parseInt(cell.querySelector('a')?.getAttribute('data-month') || todayMonth, 10);
+                
+                if (cellDay === todayDay && cellMonth === todayMonth && cellYear === todayYear) {
+                    // 該当日のdiv(data-region='day-content')内のli要素を確認
+                    const dayContent = cell.querySelector('[data-region="day-content"]');
+                    if (dayContent && dayContent.querySelectorAll('li').length > 0) {
+                        eventFound = true;
+                        // li要素内のa要素をすべて取得し、授業名と時間を出力
+                        const events = dayContent.querySelectorAll('li a[data-action="view-event"]');
+                        const eventDetails = [];  // 授業名と時間を格納する配列
+                        
+                        events.forEach(event => {
+                            const courseName = event.textContent.trim();
+                            const courseTime = event.getAttribute('data-time'); // 仮に授業時間がdata-time属性に入っていると仮定
+                            
+                            if (courseTime) {
+                                eventDetails.push(`${courseTime} ${courseName}`);  // 授業時間と名前を格納
+                            } else {
+                                eventDetails.push(courseName);  // 時間が無ければ名前だけを格納
+                            }
+                        });
+            
+                        // .dashboard-banner-text-titleに授業名と時間を「本日は、『授業名』、『授業名』の授業があります。」の形式で挿入
+                        const dashboardBannerTextTitle = document.querySelector('.dashboard-banner-text-title');
+                        if (dashboardBannerTextTitle) {
+                            const eventText = eventDetails.length > 0 
+                                ? `本日は、「${eventDetails.join('」「')}」の授業があります。`
+                                : '本日は授業はありません。';
+                            dashboardBannerTextTitle.innerText = eventText;  // フォーマットしてテキストを設定
+                        }
+                    }
+                }
+            });
+                 
+            
+
+            if (!eventFound) {
+                console.log("授業ないよ");
+            }
+
+
         }
 
         // ==============================

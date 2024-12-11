@@ -1167,7 +1167,7 @@ html[data-tenantidnumber=stg] .pagelayout-mydashboard .block_html .card-title {
   display: none !important;
 }
 html[data-tenantidnumber=stg] .pagelayout-mydashboard .block_html .dashboard-banner {
-  padding: 12px 20px;
+  padding: 12px 12px;
   border-radius: 8px;
   width: 100%;
   display: -webkit-box;
@@ -1189,17 +1189,17 @@ html[data-tenantidnumber=stg] .pagelayout-mydashboard .block_html .dashboard-ban
           align-items: center;
 }
 html[data-tenantidnumber=stg] .pagelayout-mydashboard .block_html .dashboard-banner .dashboard-banner-left-icon {
-  width: 40px;
-  height: 40px;
+  width: 24px;
+  height: 24px;
   margin: 0 10px 0 3px;
 }
 html[data-tenantidnumber=stg] .pagelayout-mydashboard .block_html .dashboard-banner .dashboard-banner-left-icon i {
-  font-size: 36px;
+  font-size: 24px;
   display: block;
   line-height: 1;
 }
 html[data-tenantidnumber=stg] .pagelayout-mydashboard .block_html .dashboard-banner .dashboard-banner-text-title {
-  font-size: 20px;
+  font-size: 16px;
   font-weight: 600;
 }
 html[data-tenantidnumber=stg] .pagelayout-mydashboard .block_html .dashboard-banner .dashboard-banner-text-read {

@@ -25,7 +25,7 @@ $calender-width:960px;
             display: none!important;
         }
         .dashboard-banner {
-            padding: 12px 20px;
+            padding: 12px 12px;
             border-radius: $border-radius-middle;
             width: 100%;
             display: flex;
@@ -36,17 +36,17 @@ $calender-width:960px;
                 align-items: center;
             }
             .dashboard-banner-left-icon {
-                width: 40px;
-                height: 40px;
+                width: 24px;
+                height: 24px;
                 margin: 0 10px 0 3px;
                 i {
-                    font-size: 36px;
+                    font-size: 24px;
                     display: block;
                     line-height: 1;
                 }
             }
             .dashboard-banner-text-title {
-                font-size: $lms-font-size-l;
+                font-size: $lms-font-size-ml;
                 font-weight: 600;
             }
             .dashboard-banner-text-read {
