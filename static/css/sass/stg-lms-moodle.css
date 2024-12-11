@@ -1147,10 +1147,6 @@ html[data-tenantidnumber=stg] .pagelayout-frontpage .main-inner .container {
     max-width: 100% !important;
   }
 }
-html[data-tenantidnumber=stg] .pagelayout-mydashboard .block-region {
-  max-width: 960px !important;
-  margin-right: auto !important;
-}
 @media (min-width: 768px) {
   html[data-tenantidnumber=stg] .pagelayout-mydashboard #page.drawers .main-inner,
   html[data-tenantidnumber=stg] .pagelayout-mydashboard body.limitedwidth #page.drawers .main-inner {
@@ -1234,6 +1230,15 @@ html[data-tenantidnumber=stg] .pagelayout-mydashboard .block_html .dashboard-ban
 html[data-tenantidnumber=stg] .pagelayout-mydashboard {
   background: #f0f2f3 !important;
 }
+html[data-tenantidnumber=stg] .pagelayout-mydashboard .block-region {
+  max-width: 940px !important;
+  margin-right: auto !important;
+}
+@media screen and (max-width: 1200px) {
+  html[data-tenantidnumber=stg] .pagelayout-mydashboard .block-region {
+    max-width: calc(100vw - 260px) !important;
+  }
+}
 html[data-tenantidnumber=stg] .pagelayout-mydashboard .block_html.block.card.mb-3 {
   display: inline;
 }
@@ -1248,7 +1253,7 @@ html[data-tenantidnumber=stg] .pagelayout-mydashboard #page.drawers .main-inner 
   padding: 1.5rem 0rem !important;
 }
 html[data-tenantidnumber=stg] .pagelayout-mydashboard .dashboard-left {
-  width: 200px;
+  width: 190px;
   height: 360px;
   display: block;
   right: -220px;
@@ -1257,20 +1262,19 @@ html[data-tenantidnumber=stg] .pagelayout-mydashboard .dashboard-left {
   position: absolute;
 }
 html[data-tenantidnumber=stg] .pagelayout-mydashboard .dashboard-left .dashboard-left-block {
-  background: white;
-  padding: 20px 20px 12px;
-  margin: 0 0 20px;
-  border-radius: 8px;
+  margin: 0 0 40px;
 }
 html[data-tenantidnumber=stg] .pagelayout-mydashboard .dashboard-left .dashboard-left-block .dashboard-left-block-title {
-  padding: 0 0px 12px;
-  font-size: 20px;
+  padding: 0 0px 8px;
+  font-size: 16px;
   color: #262626;
   font-weight: 500;
 }
 html[data-tenantidnumber=stg] .pagelayout-mydashboard .dashboard-left ul {
+  background: white;
+  border-radius: 8px;
   list-style: none;
-  padding: 0px 0px 0 0px;
+  padding: 20px 20px 12px;
 }
 html[data-tenantidnumber=stg] .pagelayout-mydashboard .dashboard-left ul li {
   line-height: 1.35;

@@ -6,10 +6,7 @@ $calender-width:960px;
         // margin-right: calc((100% - $body-width) /2);
         // position: relative;
     }
-    .block-region {
-        max-width: 960px !important;
-        margin-right: auto !important;
-    }
+
     @media (min-width: 768px) {
         #page.drawers .main-inner,
         body.limitedwidth #page.drawers .main-inner {
@@ -91,7 +88,16 @@ $calender-width:960px;
 //     width: $body-width !important;
 //     position: relative;
 // }
+$dashboard-sidebar-width:190px;
 .pagelayout-mydashboard {
+    .block-region {
+        
+        max-width: $body-width - 260px !important;
+        margin-right: auto !important;
+        @include responsive-style(1200px) {
+            max-width: calc(100vw - 260px) !important;  // 1200px - 940px = 260px
+        }
+    }
     .block_html.block.card.mb-3 {
         display: inline;
     }
@@ -115,23 +121,25 @@ $calender-width:960px;
         // margin-left: 0 !important;
     }
     .dashboard-left {
-        width: 200px;
+        width: $dashboard-sidebar-width;
         height: 360px;
         display: block;
-        right: -220px;
+        right: calc(0 - #{$dashboard-sidebar-width + 30px});
         top: 0px;
         z-index: 1;
         // background: blue;
         position: absolute;
+        @include responsive-style(1200px) {
+            // right: calc(-250px + (1200px - 100vw));
+            
+            // width: calc(220px - (1200px - 100vw));
+        }
         .dashboard-left-block {
-            background: white;
-            padding: 20px 20px 12px;
-            margin: 0 0 20px;
-            border-radius: $border-radius-middle;
+            margin: 0 0 40px;
             .dashboard-left-block-title {
-                padding: 0 0px 12px;
+                padding: 0 0px 8px;
                 // border-bottom: 3px solid $cl-graylightest;
-                font-size: $lms-font-size-l;
+                font-size: $lms-font-size-ml;
                 color: $cl-black;
                 font-weight: 500;
                 // text-align: center;
@@ -140,8 +148,10 @@ $calender-width:960px;
             }
         }
         ul {
+            background: white;
+            border-radius: $border-radius-middle;
             list-style: none;
-            padding: 0px 0px 0 0px;
+            padding: 20px 20px 12px;
             li {
                 line-height: 1.35;
                 margin: 0 0 15px;
