@@ -28,9 +28,13 @@ document.addEventListener("DOMContentLoaded", function() {
             // ターゲット文字列
             const targetTexts = ["L1", "L2", "L3", "L4", "Ｌ１", "Ｌ２", "Ｌ３", "Ｌ４"];
 
+            // ターゲット文字列の配列（「科学」「英語」「経済」「哲学」「プログラミング」）
+            const targetTextsSubject = ['科学', '英語', '経済', '哲学', 'プログラミング'];
+
             // .toppage-courses内のテキストを取得
             const toppageCourses = document.querySelector('.toppage-courses');
             let foundMatch = false;
+            let foundMatchSubject = false;
 
             // .toppage-coursesが存在し、ターゲット文字列が含まれているかチェック
             if (toppageCourses) {
@@ -41,6 +45,26 @@ document.addEventListener("DOMContentLoaded", function() {
                     const matches = toppageText.match(regex);
                     if (matches) {
                         foundMatch = true; // 一致した場合、フラグをtrueに設定
+                    }
+                });
+                targetTextsSubject .forEach(target => {
+                    const regex = new RegExp(`\\S*${target}\\S*`, 'g'); // 空白以外の文字にマッチ
+                    const matches = toppageText.match(regex);
+                    if (matches) {
+                        foundMatchSubject = true;
+                    // 科学を含むワードが見つかった場合
+                    if (target.includes("科学")) {
+                        const subjectScience = document.querySelector(".subject-science");
+                        if (subjectScience) subjectScience.style.display = "flex";
+                    }
+
+                    // 英語を含むワードが見つかった場合
+                    if (target.includes("英語")) {
+                        const subjectEnglish = document.querySelector(".subject-english");
+                        if (subjectEnglish) subjectEnglish.style.display = "flex";
+                        const DashboardEnglish = document.querySelector(".dashboard-left-block-english");
+                        if (DashboardEnglish) DashboardEnglish.style.display = "block";
+                    }
                     }
                 });
             }
@@ -60,7 +84,11 @@ document.addEventListener("DOMContentLoaded", function() {
                 // bodyのpaddingを調整
                 document.body.style.cssText = "padding:70px 0 0 !important;";
             }
-
+            if (foundMatchSubject) {
+                console.log('foundMatchSubject');
+                const DashboardLeftBlockSubject = document.querySelector(".dashboard-left-block-subject");
+                DashboardLeftBlockSubject.style.display = "block"; // alert設定レベルを表示
+            }
 
         }
 
