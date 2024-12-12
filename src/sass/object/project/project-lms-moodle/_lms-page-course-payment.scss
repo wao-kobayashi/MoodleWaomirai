@@ -39,17 +39,25 @@
 //     }
 // }
 //コース購入
+
+$subject-sidebar-width: 250px; // サイドバーの幅
+$subject-body-padding: 40px; // サイドバーとの距離
+$subject-default-max-width: 1120px; // 最大幅
 #page-enrol-index {
     .enrol_fee_payment_region {
-        right: calc((100% - 1120px)/2);
+        right: calc(($subject-default-max-width - 1120px)/2);
     }
     #page.drawers {
         padding: 0 !important;
     }
     #page.drawers .main-inner {
         padding: 0 !important;
-        margin-left: calc((100% - 1120px)/2);
+        margin-left: calc((100vw - 1120px)/2);
         background: transparent;
+        @include responsive-style($default-max-width) {
+            margin-left: 15px;
+            max-width: calc(100vw - #{$subject-sidebar-width + $subject-body-padding + 15px}) !important;
+        }
     }
 }
 
@@ -92,16 +100,21 @@
             width: 100%;
         }
     }
+
     .enrol_buy_as_a_set {
         position: fixed;
         top: calc(5rem + 330px);
-        right: calc((100% - 1120px)/2);
-        width: 250px !important;
+        right: calc((100% - $subject-default-max-width)/2);
+        max-width: 250px !important;
+        width: 100%;
         padding: 20px 20px;
         background: white;
         @include lms-boxshadow;
         border-radius: $border-radius-middle;
         z-index: 3;
+        @include responsive-style($default-max-width) {
+            max-width: 250px !important;
+        }
         .enrol_buy_as_a_set_img {
             display: flex;
             justify-content: space-between;
@@ -128,7 +141,7 @@
         }
     }
     .enrol_fee_payment_region {
-        width: 250px !important;
+        max-width: 250px !important;
         background: #fff !important;
         border-radius: $border-radius-middle;
         padding: 0px 20px 5px;
@@ -139,6 +152,15 @@
         box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1) !important;
         z-index: 99;
         font-size: $lms-font-size-m;
+        width: 100%;
+        @include responsive-style($default-max-width) {
+            max-width: 235px !important;
+            right: 15px;
+            margin: 2em auto !important;
+            p{
+                display: block !important;
+            }
+        }
         &::before {
             content: "プラン登録" !important;
             position: relative;

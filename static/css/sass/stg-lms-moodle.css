@@ -1163,7 +1163,7 @@ html[data-tenantidnumber=stg] .pagelayout-mydashboard .block_html .card-title {
   display: none !important;
 }
 html[data-tenantidnumber=stg] .pagelayout-mydashboard .block_html .dashboard-banner {
-  padding: 15px 12px;
+  padding: 0px 12px;
   border-radius: 8px;
   width: 100%;
   display: -webkit-box;
@@ -1183,6 +1183,7 @@ html[data-tenantidnumber=stg] .pagelayout-mydashboard .block_html .dashboard-ban
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  padding: 16px 0;
 }
 html[data-tenantidnumber=stg] .pagelayout-mydashboard .block_html .dashboard-banner .dashboard-banner-left-icon {
   width: 24px;
@@ -1202,7 +1203,7 @@ html[data-tenantidnumber=stg] .pagelayout-mydashboard .block_html .dashboard-ban
   font-size: 16px;
 }
 html[data-tenantidnumber=stg] .pagelayout-mydashboard .block_html .dashboard-banner .dashboard-banner-right a {
-  padding: 10px 16px;
+  padding: 8px 16px;
   border-radius: 4px;
   color: white;
   font-size: 14px;
@@ -1231,13 +1232,22 @@ html[data-tenantidnumber=stg] .pagelayout-mydashboard {
   background: #f0f2f3 !important;
 }
 html[data-tenantidnumber=stg] .pagelayout-mydashboard .block-region {
-  max-width: 920px !important;
+  max-width: 930px !important;
   margin-right: auto !important;
 }
-@media screen and (max-width: 1200px) {
+@media screen and (max-width: 1170px) {
   html[data-tenantidnumber=stg] .pagelayout-mydashboard .block-region {
-    max-width: calc(100vw - 280px) !important;
+    max-width: calc(100vw - 240px) !important;
   }
+}
+html[data-tenantidnumber=stg] .pagelayout-mydashboard .dashboard-left {
+  width: 210px;
+  height: 360px;
+  display: block;
+  z-index: 1;
+  position: absolute;
+  right: -240px;
+  top: 0px;
 }
 html[data-tenantidnumber=stg] .pagelayout-mydashboard .block_html.block.card.mb-3 {
   display: inline;
@@ -1252,49 +1262,40 @@ html[data-tenantidnumber=stg] .pagelayout-mydashboard #page.drawers .main-inner 
   padding: 24px 0px !important;
   padding: 1.5rem 0rem !important;
 }
-html[data-tenantidnumber=stg] .pagelayout-mydashboard .dashboard-left {
-  width: 210px;
-  height: 360px;
-  display: block;
-  right: -240px;
-  top: 0px;
-  z-index: 1;
-  position: absolute;
-}
 html[data-tenantidnumber=stg] .pagelayout-mydashboard .dashboard-left .dashboard-left-block {
   margin: 0 0 40px;
 }
-html[data-tenantidnumber=stg] .pagelayout-mydashboard .dashboard-left .dashboard-left-block .dashboard-left-block-title {
+html[data-tenantidnumber=stg] .pagelayout-mydashboard .dashboard-left .dashboard-left-block-title {
   padding: 0 0px 8px;
   font-size: 16px;
   color: #4d4d4d;
   font-weight: 500;
   letter-spacing: 0.5px;
 }
-html[data-tenantidnumber=stg] .pagelayout-mydashboard .dashboard-left .dashboard-left-block .dashboard-left-block-wrap {
+html[data-tenantidnumber=stg] .pagelayout-mydashboard .dashboard-left .dashboard-left-block-wrap {
   background: white;
   border-radius: 8px;
 }
-html[data-tenantidnumber=stg] .pagelayout-mydashboard .dashboard-left .dashboard-left-block .dashboard-left-block-wrap-subject {
-  padding: 4px 15px 4px !important;
+html[data-tenantidnumber=stg] .pagelayout-mydashboard .dashboard-left .dashboard-left-block-wrap-subject {
+  padding: 0px 15px 0px !important;
 }
-html[data-tenantidnumber=stg] .pagelayout-mydashboard .dashboard-left .dashboard-left-block .dashboard-left-block-wrap-english {
+html[data-tenantidnumber=stg] .pagelayout-mydashboard .dashboard-left .dashboard-left-block-wrap-english {
   padding: 16px 15px !important;
 }
-html[data-tenantidnumber=stg] .pagelayout-mydashboard .dashboard-left .dashboard-left-block .dashboard-left-block-wrap-english .dashboard-left-block-wrap-english-text {
+html[data-tenantidnumber=stg] .pagelayout-mydashboard .dashboard-left .dashboard-left-block-wrap-english .dashboard-left-block-wrap-english-text {
   text-align: center;
 }
-html[data-tenantidnumber=stg] .pagelayout-mydashboard .dashboard-left .dashboard-left-block .dashboard-left-block-wrap-english .dashboard-left-block-wrap-english-course {
+html[data-tenantidnumber=stg] .pagelayout-mydashboard .dashboard-left .dashboard-left-block-wrap-english .dashboard-left-block-wrap-english-course {
   padding: 12px 16px;
   background: #f0f2f3;
   border-radius: 8px;
   margin: 16px auto 0px;
 }
-html[data-tenantidnumber=stg] .pagelayout-mydashboard .dashboard-left .dashboard-left-block .dashboard-left-block-wrap-english .dashboard-left-block-wrap-english-course .dashboard-left-block-wrap-english-course-title {
+html[data-tenantidnumber=stg] .pagelayout-mydashboard .dashboard-left .dashboard-left-block-wrap-english .dashboard-left-block-wrap-english-course .dashboard-left-block-wrap-english-course-title {
   text-align: center;
   margin: 0 auto 4px;
 }
-html[data-tenantidnumber=stg] .pagelayout-mydashboard .dashboard-left .dashboard-left-block .dashboard-left-block-wrap-english .dashboard-left-block-wrap-english-course .dashboard-left-block-wrap-english-course-button a {
+html[data-tenantidnumber=stg] .pagelayout-mydashboard .dashboard-left .dashboard-left-block-wrap-english .dashboard-left-block-wrap-english-course .dashboard-left-block-wrap-english-course-button a {
   padding: 6px 8px;
   border-radius: 4px;
   color: #005C3F;
@@ -1309,11 +1310,11 @@ html[data-tenantidnumber=stg] .pagelayout-mydashboard .dashboard-left .dashboard
   display: flex;
   background: white;
 }
-html[data-tenantidnumber=stg] .pagelayout-mydashboard .dashboard-left .dashboard-left-block .dashboard-left-block-wrap-english .dashboard-left-block-wrap-english-course .dashboard-left-block-wrap-english-course-button a:hover {
+html[data-tenantidnumber=stg] .pagelayout-mydashboard .dashboard-left .dashboard-left-block-wrap-english .dashboard-left-block-wrap-english-course .dashboard-left-block-wrap-english-course-button a:hover {
   text-decoration: none !important;
   opacity: 0.7;
 }
-html[data-tenantidnumber=stg] .pagelayout-mydashboard .dashboard-left .dashboard-left-block .dashboard-left-block-subject-child {
+html[data-tenantidnumber=stg] .pagelayout-mydashboard .dashboard-left .dashboard-left-block-subject-child {
   font-size: 14px;
   color: #4d4d4d;
   padding: 10px 0px;
@@ -1323,20 +1324,30 @@ html[data-tenantidnumber=stg] .pagelayout-mydashboard .dashboard-left .dashboard
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  border-bottom: 2px solid #f0f2f3;
 }
-html[data-tenantidnumber=stg] .pagelayout-mydashboard .dashboard-left .dashboard-left-block .dashboard-left-block-subject-child.subject-science .dashboard-left-block-subject-child-icon {
-  background: #F0F6D8;
+html[data-tenantidnumber=stg] .pagelayout-mydashboard .dashboard-left .dashboard-left-block-subject-child.subject-philosophy .dashboard-left-block-subject-child-icon {
+  background: #FFDB96;
 }
-html[data-tenantidnumber=stg] .pagelayout-mydashboard .dashboard-left .dashboard-left-block .dashboard-left-block-subject-child.subject-english .dashboard-left-block-subject-child-icon {
-  background: #F0E8F0;
+html[data-tenantidnumber=stg] .pagelayout-mydashboard .dashboard-left .dashboard-left-block-subject-child.subject-science .dashboard-left-block-subject-child-icon {
+  background: #EEFABF;
+}
+html[data-tenantidnumber=stg] .pagelayout-mydashboard .dashboard-left .dashboard-left-block-subject-child.subject-economiy .dashboard-left-block-subject-child-icon {
+  background: #C1EDFF;
+}
+html[data-tenantidnumber=stg] .pagelayout-mydashboard .dashboard-left .dashboard-left-block-subject-child.subject-english .dashboard-left-block-subject-child-icon {
+  background: #F5DBFF;
   font-size: 18px !important;
   line-height: 1.3 !important;
   padding: 0 0 3px 3px;
 }
-html[data-tenantidnumber=stg] .pagelayout-mydashboard .dashboard-left .dashboard-left-block .dashboard-left-block-subject-child:first-child {
-  border-bottom: 2px dashed #f0f2f3;
+html[data-tenantidnumber=stg] .pagelayout-mydashboard .dashboard-left .dashboard-left-block-subject-child.subject-programming .dashboard-left-block-subject-child-icon {
+  background: #FFC3C5;
+  font-size: 18px !important;
+  line-height: 1.3 !important;
+  padding: 0 0 3px 1px;
 }
-html[data-tenantidnumber=stg] .pagelayout-mydashboard .dashboard-left .dashboard-left-block .dashboard-left-block-subject-child .dashboard-left-block-subject-child-icon {
+html[data-tenantidnumber=stg] .pagelayout-mydashboard .dashboard-left .dashboard-left-block-subject-child .dashboard-left-block-subject-child-icon {
   width: 30px;
   height: 30px;
   border-radius: 100px;
@@ -1814,15 +1825,21 @@ html[data-tenantidnumber=stg] #page-mod-questionnaire-view div[role=main] .mod_q
   padding: 10px 15px;
 }
 html[data-tenantidnumber=stg] #page-enrol-index .enrol_fee_payment_region {
-  right: calc(50% - 560px);
+  right: 0px;
 }
 html[data-tenantidnumber=stg] #page-enrol-index #page.drawers {
   padding: 0 !important;
 }
 html[data-tenantidnumber=stg] #page-enrol-index #page.drawers .main-inner {
   padding: 0 !important;
-  margin-left: calc(50% - 560px);
+  margin-left: calc(50vw - 560px);
   background: transparent;
+}
+@media screen and (max-width: 1170px) {
+  html[data-tenantidnumber=stg] #page-enrol-index #page.drawers .main-inner {
+    margin-left: 15px;
+    max-width: calc(100vw - 305px) !important;
+  }
 }
 html[data-tenantidnumber=stg] #page-enrol-index #page-navbar,
 html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo #page-navbar {
@@ -1858,13 +1875,20 @@ html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo .enrol_buy_a
   position: fixed;
   top: calc(5rem + 330px);
   right: calc(50% - 560px);
-  width: 250px !important;
+  max-width: 250px !important;
+  width: 100%;
   padding: 20px 20px;
   background: white;
   -webkit-box-shadow: 0px 4px 6px rgba(0, 0, 0, .15) !important;
           box-shadow: 0px 4px 6px rgba(0, 0, 0, .15) !important;
   border-radius: 8px;
   z-index: 3;
+}
+@media screen and (max-width: 1170px) {
+  html[data-tenantidnumber=stg] #page-enrol-index .enrol_buy_as_a_set,
+  html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo .enrol_buy_as_a_set {
+    max-width: 250px !important;
+  }
 }
 html[data-tenantidnumber=stg] #page-enrol-index .enrol_buy_as_a_set .enrol_buy_as_a_set_img,
 html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo .enrol_buy_as_a_set .enrol_buy_as_a_set_img {
@@ -1908,7 +1932,7 @@ html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo .enrol_buy_a
 }
 html[data-tenantidnumber=stg] #page-enrol-index .enrol_fee_payment_region,
 html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo .enrol_fee_payment_region {
-  width: 250px !important;
+  max-width: 250px !important;
   background: #fff !important;
   border-radius: 8px;
   padding: 0px 20px 5px;
@@ -1919,6 +1943,19 @@ html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo .enrol_fee_p
           box-shadow: 0px 4px 4px rgba(0, 0, 0, .1) !important;
   z-index: 99;
   font-size: 14px;
+  width: 100%;
+}
+@media screen and (max-width: 1170px) {
+  html[data-tenantidnumber=stg] #page-enrol-index .enrol_fee_payment_region,
+  html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo .enrol_fee_payment_region {
+    max-width: 235px !important;
+    right: 15px;
+    margin: 2em auto !important;
+  }
+  html[data-tenantidnumber=stg] #page-enrol-index .enrol_fee_payment_region p,
+  html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo .enrol_fee_payment_region p {
+    display: block !important;
+  }
 }
 html[data-tenantidnumber=stg] #page-enrol-index .enrol_fee_payment_region::before,
 html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo .enrol_fee_payment_region::before {

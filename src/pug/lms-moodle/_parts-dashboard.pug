@@ -12,23 +12,38 @@
               .card-text.content.mt-3
                 .no-overflow
                   .dashboard-textblock
-                    .toppage-courses(style='display:none').
-                      {mycourses}
+                    //- .toppage-courses(style='display:none').
+                    //-   {mycourses}
                     .dashboard-left
                       .dashboard-left-block.dashboard-left-block-subject(style='display:none;') 
                         .dashboard-left-block-title
                           |現在受講中の科目
                         .dashboard-left-block-wrap.dashboard-left-block-wrap-subject
-                           .dashboard-left-block-subject-child.subject-science(style='display:none;')
+                           .dashboard-left-block-subject-child.subject-philosophy(style='display:none;')  
+                              .dashboard-left-block-subject-child-icon 
+                                |&#x1f4ad;
+                              .dashboard-left-block-subject-child-text 
+                                  |哲学
+                           .dashboard-left-block-subject-child.subject-science(style='display:none;')  
                               .dashboard-left-block-subject-child-icon 
                                 |&#x1f9ea;
                               .dashboard-left-block-subject-child-text 
                                   |科学リテラシー
-                           .dashboard-left-block-subject-child.subject-english(style='display:none;')
+                           .dashboard-left-block-subject-child.subject-economiy(style='display:none;')  
+                              .dashboard-left-block-subject-child-icon 
+                                |	&#x1f4b4;
+                              .dashboard-left-block-subject-child-text 
+                                  |経済(お金)
+                           .dashboard-left-block-subject-child.subject-english(style='display:none;')  
                               .dashboard-left-block-subject-child-icon 
                                 |&#x1f5e3;
                               .dashboard-left-block-subject-child-text 
                                   |グローバル英語
+                           .dashboard-left-block-subject-child.subject-programming(style='display:none;')  
+                              .dashboard-left-block-subject-child-icon 
+                                |&#x1f5a5;
+                              .dashboard-left-block-subject-child-text 
+                                  |プログラミング
                       .dashboard-left-block.dashboard-left-block-english(style='display:none;')  
                         .dashboard-left-block-title
                           |英語学習
@@ -78,7 +93,7 @@
                           .dashboard-banner-text 
                             .dashboard-banner-text-title 
                               |
-                      .dashboard-banner-right 
+                      .dashboard-banner-right(style='display:none;')
                           a(href='/')
                             |授業科目一覧を見る
                 .footer

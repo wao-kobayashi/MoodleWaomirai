@@ -56,14 +56,16 @@ document.addEventListener("DOMContentLoaded", function() {
                     if (target.includes("科学")) {
                         const subjectScience = document.querySelector(".subject-science");
                         if (subjectScience) subjectScience.style.display = "flex";
+                        // if (subjectScience) subjectScience.classList.add("active");
                     }
 
                     // 英語を含むワードが見つかった場合
                     if (target.includes("英語")) {
                         const subjectEnglish = document.querySelector(".subject-english");
                         if (subjectEnglish) subjectEnglish.style.display = "flex";
-                        const DashboardEnglish = document.querySelector(".dashboard-left-block-english");
-                        if (DashboardEnglish) DashboardEnglish.style.display = "block";
+                        if (subjectEnglish) subjectEnglish.classList.add("active");
+                        const DashboardEnglish = document.querySelector(".dashboard-left-block-english");    
+                        // if (DashboardEnglish) DashboardEnglish.style.display = "block";
                     }
                     }
                 });
@@ -96,7 +98,7 @@ document.addEventListener("DOMContentLoaded", function() {
         // .toppage-coursesにa要素が1個もない時に.alert-buy-courseをflexにする
         // ==============================
         if (bodyId === "page-my-index") {
-            const alertBuyCourse = document.querySelector(".alert-buy-course");
+            const alertBuyCourse = document.querySelector(".dashboard-banner-right");
             const toppageCourses = document.querySelector(".toppage-courses");
             const courseLinks = toppageCourses ? toppageCourses.querySelectorAll("a") : [];
 
