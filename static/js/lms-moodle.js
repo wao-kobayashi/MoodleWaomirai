@@ -15,12 +15,45 @@ document.addEventListener("DOMContentLoaded", function() {
         // ダッシュボードページの処理（ページIDがpage-my-indexまたはpage-site-indexの場合）
         // ==============================
         if (bodyId === "page-my-index" || bodyId === "page-site-index") {
+            
+
+            // // alertSettingLevelの設定
+            // const alertSettingLevel = document.querySelector(".alert-setting-level");
+
+            // if (courseLink && !foundMatch) {
+            //     if (alertSettingLevel) alertSettingLevel.style.display = "flex"; // alert設定レベルを表示
+
+            //     // ナビゲーションバーの位置を調整
+            //     const navbar = document.querySelector('.navbar.fixed-top');
+            //     const navbarAlert = document.querySelector('.header-banner.alert-setting-level');
+            //     if (navbar) {
+            //         navbar.style.cssText = "top:70px !important; position: fixed;";
+            //         navbarAlert.style.display = "flex"; // alert設定レベルを表示
+            //     }
+
+            //     // bodyのpaddingを調整
+            //     document.body.style.cssText = "padding:70px 0 0 !important;";
+            // }
+            
+
+        }
+
+        // ==============================
+        // .toppage-coursesにa要素が1個もない時に.alert-buy-courseをflexにする
+        // ==============================
+        if (bodyId === "page-my-index") {
+            const alertBuyCourse = document.querySelector(".dashboard-banner-right");
+            const toppageCourses = document.querySelector(".toppage-courses");
+            const courseLinks = toppageCourses ? toppageCourses.querySelectorAll("a") : [];
+            console.log("courseLinks:", courseLinks);
+
             // 特定のコースIDを持つ要素とリンクを取得
             const courseDiv = document.querySelector('div[data-courseid="211"]');
             console.log("courseDiv:", courseDiv ? "Found" : "Not Found");
 
             const courseLink = document.querySelector('.toppage-courses a[href="https://lms.waomirai.com/course/view.php?id=211"]');
             console.log("courseLink:", courseLink ? "Found" : "Not Found");
+
             // ターゲット文字列
             const targetTexts = ["L1", "L2", "L3", "L4", "Ｌ１", "Ｌ２", "Ｌ３", "Ｌ４"];
 
@@ -28,7 +61,6 @@ document.addEventListener("DOMContentLoaded", function() {
             const targetTextsSubject = ['科学', '英語', '経済', '哲学', 'プログラミング'];
 
             // .toppage-courses内のテキストを取得
-            const toppageCourses = document.querySelector('.toppage-courses');
             let foundMatch = false;
             let foundMatchSubject = false;
 
@@ -43,63 +75,51 @@ document.addEventListener("DOMContentLoaded", function() {
                         foundMatch = true; // 一致した場合、フラグをtrueに設定
                     }
                 });
-                targetTextsSubject .forEach(target => {
+
+                ////////////////////////////////////////
+                // サイドバー、現在受講中の科目の処理
+                ////////////////////////////////////////
+
+                targetTextsSubject.forEach(target => {
                     const regex = new RegExp(`\\S*${target}\\S*`, 'g'); // 空白以外の文字にマッチ
                     const matches = toppageText.match(regex);
                     if (matches) {
                         foundMatchSubject = true;
-                    // 科学を含むワードが見つかった場合
-                    if (target.includes("科学")) {
-                        const subjectScience = document.querySelector(".subject-science");
-                        if (subjectScience) subjectScience.style.display = "flex";
-                        // if (subjectScience) subjectScience.classList.add("active");
-                    }
 
-                    // 英語を含むワードが見つかった場合
-                    if (target.includes("英語")) {
-                        const subjectEnglish = document.querySelector(".subject-english");
-                        if (subjectEnglish) subjectEnglish.style.display = "flex";
-                        if (subjectEnglish) subjectEnglish.classList.add("active");
-                        const DashboardEnglish = document.querySelector(".dashboard-left-block-english");    
-                        if (DashboardEnglish) DashboardEnglish.style.display = "block";
-                    }
+                        // 科学を含むワードが見つかった場合
+                        if (target.includes("科学")) {
+                            const subjectScience = document.querySelector(".subject-science");
+                            if (subjectScience) {
+                                subjectScience.style.display = "flex";
+                                subjectScience.classList.add("active");
+                            }
+                        }
+
+                        // 英語を含むワードが見つかった場合
+                        if (target.includes("英語")) {
+                            const subjectEnglish = document.querySelector(".subject-english");
+                            if (subjectEnglish) {
+                                subjectEnglish.style.display = "flex";
+                                subjectEnglish.classList.add("active");
+                            }
+                            // 英語学習のブロックを表示
+                            const DashboardEnglish = document.querySelector(".dashboard-left-block-english");
+                            if (DashboardEnglish) {
+                                DashboardEnglish.style.display = "block";
+                            }
+                        }
                     }
                 });
             }
-
-            // alertSettingLevelの設定
-            const alertSettingLevel = document.querySelector(".alert-setting-level");
-
-            if (courseLink && !foundMatch) {
-                if (alertSettingLevel) alertSettingLevel.style.display = "flex"; // alert設定レベルを表示
-
-                // ナビゲーションバーの位置を調整
-                const navbar = document.querySelector('.navbar.fixed-top');
-                const navbarAlert = document.querySelector('.header-banner.alert-setting-level');
-                if (navbar) {
-                    navbar.style.cssText = "top:70px !important; position: fixed;";
-                    navbarAlert.style.display = "flex"; // alert設定レベルを表示
-                }
-
-                // bodyのpaddingを調整
-                document.body.style.cssText = "padding:70px 0 0 !important;";
-            }
+            // 現在受講中の科目自体の表示
             if (foundMatchSubject) {
                 console.log('foundMatchSubject');
                 const DashboardLeftBlockSubject = document.querySelector(".dashboard-left-block-subject");
-                DashboardLeftBlockSubject.style.display = "block"; // alert設定レベルを表示
+                if (DashboardLeftBlockSubject) {
+                    DashboardLeftBlockSubject.style.display = "block"; // alert設定レベルを表示
+                }
             }
 
-        }
-
-        // ==============================
-        // .toppage-coursesにa要素が1個もない時に.alert-buy-courseをflexにする
-        // ==============================
-        if (bodyId === "page-my-index") {
-            const alertBuyCourse = document.querySelector(".dashboard-banner-right");
-            const toppageCourses = document.querySelector(".toppage-courses");
-            const courseLinks = toppageCourses ? toppageCourses.querySelectorAll("a") : [];
-            console.log("courseLinks:", courseLinks);
 
             ////////////////////////////////////////
             // カレンダー上部の「今日は授業があります。」などの制御
@@ -171,6 +191,8 @@ document.addEventListener("DOMContentLoaded", function() {
             } else {
                 console.log("At least one link exists.");
             }
+
+
         }
 
         // ==============================
