@@ -8,12 +8,8 @@ document.addEventListener("DOMContentLoaded", function() {
         console.log("stg!!"); // stg環境の確認
 
         // body要素のIDを取得
-        // body要素のIDを取得
         const bodyElement = document.querySelector("body");
         const bodyId = document.body.getAttribute("id");
-
-
-
 
         // ==============================
         // ダッシュボードページの処理（ページIDがpage-my-indexまたはpage-site-indexの場合）
@@ -65,7 +61,7 @@ document.addEventListener("DOMContentLoaded", function() {
                         if (subjectEnglish) subjectEnglish.style.display = "flex";
                         if (subjectEnglish) subjectEnglish.classList.add("active");
                         const DashboardEnglish = document.querySelector(".dashboard-left-block-english");    
-                        // if (DashboardEnglish) DashboardEnglish.style.display = "block";
+                        if (DashboardEnglish) DashboardEnglish.style.display = "block";
                     }
                     }
                 });
@@ -79,8 +75,10 @@ document.addEventListener("DOMContentLoaded", function() {
 
                 // ナビゲーションバーの位置を調整
                 const navbar = document.querySelector('.navbar.fixed-top');
+                const navbarAlert = document.querySelector('.header-banner.alert-setting-level');
                 if (navbar) {
                     navbar.style.cssText = "top:70px !important; position: fixed;";
+                    navbarAlert.style.display = "flex"; // alert設定レベルを表示
                 }
 
                 // bodyのpaddingを調整
@@ -101,12 +99,11 @@ document.addEventListener("DOMContentLoaded", function() {
             const alertBuyCourse = document.querySelector(".dashboard-banner-right");
             const toppageCourses = document.querySelector(".toppage-courses");
             const courseLinks = toppageCourses ? toppageCourses.querySelectorAll("a") : [];
+            console.log("courseLinks:", courseLinks);
 
-            // .toppage-coursesにa要素が1個もない時
-            if (courseLinks.length === 0 && alertBuyCourse) {
-                alertBuyCourse.style.display = "flex"; // .alert-buy-courseを表示
-                console.log('test');
-            }
+            ////////////////////////////////////////
+            // カレンダー上部の「今日は授業があります。」などの制御
+            ////////////////////////////////////////
 
             //以下カレンダー
             // 今日の日付を取得
@@ -158,13 +155,22 @@ document.addEventListener("DOMContentLoaded", function() {
                 }
             });
                  
-            
-
             if (!eventFound) {
+                const dashboardBannerTextTitle = document.querySelector('.dashboard-banner-text-title');
+                if (dashboardBannerTextTitle) {
+                    dashboardBannerTextTitle.innerText = '本日は授業はありません。';
+                }
                 console.log("授業ないよ");
             }
 
-
+            const hasLinks = !!toppageCourses.querySelector("a"); // 1つでも `a` 要素があれば true
+            if (!hasLinks && alertBuyCourse) {
+                alertBuyCourse.style.display = "flex";
+                const dashboardBannerTextTitle = document.querySelector('.dashboard-banner-text-title');
+                dashboardBannerTextTitle.innerText = '受講してる科目がありません。';
+            } else {
+                console.log("At least one link exists.");
+            }
         }
 
         // ==============================
