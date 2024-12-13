@@ -142,11 +142,21 @@ function checkForTargetTexts(toppageCourses, targetTexts, targetTextsSubject) {
 // 科目の表示
 function handleSubjectVisibility(target) {
     // 科目名に応じて、対応する科目を表示
+    if (target.includes("哲学")) {
+        toggleVisibility(".subject-philosophy", "flex");
+    }
     if (target.includes("科学")) toggleVisibility(".subject-science", "flex");
+    if (target.includes("経済")) {
+        toggleVisibility(".subject-economiy", "flex");
+    }
     if (target.includes("英語")) {
         toggleVisibility(".subject-english", "flex");
         toggleVisibility(".dashboard-left-block-english", "block");
     }
+    if (target.includes("プログラミング")) {
+        toggleVisibility(".subject-programming", "flex");
+    }
+
 }
 
 // 表示方法を選択
@@ -212,7 +222,7 @@ function displayEvents(dayContent) {
 function handleLinks(alertBuyCourse, toppageCourses) {
     const hasLinks = !!toppageCourses.querySelector("a");
     if (!hasLinks && alertBuyCourse) {
-        alertBuyCourse.style.display = "flex";
+        // alertBuyCourse.style.display = "flex";
         const dashboardBannerTextTitle = document.querySelector('.dashboard-banner-text-title');
         dashboardBannerTextTitle.innerText = '受講してる科目がありません。';
     } else {
