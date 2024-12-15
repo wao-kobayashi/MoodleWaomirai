@@ -1559,6 +1559,12 @@ html[data-tenantidnumber=stg] .pagelayout-mydashboard .calendarmonth:before {
   border: 1px solid #dee2e6;
   pointer-events: none;
 }
+html[data-tenantidnumber=stg] .pagelayout-mydashboard .today {
+  background: #edfbf5;
+}
+html[data-tenantidnumber=stg] .pagelayout-mydashboard .today .day-number-circle {
+  background: #005C3F;
+}
 html[data-tenantidnumber=stg] .pagelayout-mydashboard .day {
   color: #999 !important;
   position: relative;
@@ -1579,6 +1585,7 @@ html[data-tenantidnumber=stg] .pagelayout-mydashboard .calender-today-speech {
   margin: auto -10px !important;
   text-align: center;
   width: calc(100% + 20px);
+  z-index: 99;
 }
 html[data-tenantidnumber=stg] .pagelayout-mydashboard .calender-today-speech img {
   width: 100%;

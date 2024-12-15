@@ -410,6 +410,12 @@ $default-max-width: 1170px; // 最大幅
             pointer-events: none; // マウスイベントを無効化
         }
     }
+    .today{
+      background: #edfbf5;
+      .day-number-circle{
+        background:$cl-waogreen;
+      }
+    }
     .day {
         color: $cl-graylight !important;
         position: relative;
@@ -430,7 +436,7 @@ $default-max-width: 1170px; // 最大幅
     margin: auto -10px !important;
     text-align: center;
     width: calc(100% + 20px);
-    
+    z-index: 99;
     img{
       width: 100%;
       animation-name: fuwafuwa;
