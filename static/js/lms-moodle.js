@@ -1,97 +1,99 @@
 // 変数定義
 const SubjectIds = {
-    // グループAのサブグループ
     SubjectMain: {
-        philosophy: { id: 212, name: '哲学' }, // 哲学
-        science: { id: 211, name: '科学' },   // 科学
-        economy: { id: 213, name: '経済' },   // 経済
-        ThreeSubjectPack: { id: 229, name: '3科目セット' }, // 3科目セット
-        TwoSubjectPack: { id: 228, name: '2科目セット' }, // 2科目セット
+        philosophy: { id: 212, name: '哲学' },
+        science: { id: 211, name: '科学' },
+        economy: { id: 213, name: '経済' },
+        ThreeSubjectPack: { id: 229, name: '3科目セット' },
+        TwoSubjectPack: { id: 228, name: '2科目セット' },
     },
-    // メイン3科目のL1~L4グループ
     SubjectChild: {
-        philosophy: {
-            L1: { id: 221, name: '哲学 L1' },
-            L2: { id: 225, name: '哲学 L2' },
-            L3: { id: 242, name: '哲学 L3' },
+        philosophy: { 
+            L1: { id: 221, name: '哲学 L1' }, 
+            L2: { id: 225, name: '哲学 L2' }, 
+            L3: { id: 242, name: '哲学 L3' }, 
             L4: { id: 243, name: '哲学 L4' }
         },
-        science: {
-            L1: { id: 223, name: '科学 L1' },
-            L2: { id: 222, name: '科学 L2' },
-            L3: { id: 244, name: '科学 L3' },
+        science: { 
+            L1: { id: 223, name: '科学 L1' }, 
+            L2: { id: 222, name: '科学 L2' }, 
+            L3: { id: 244, name: '科学 L3' }, 
             L4: { id: 245, name: '科学 L4' }
         },
-        economy: {
-            L1: { id: 226, name: '経済 L1' },
-            L2: { id: 227, name: '経済 L2' },
-            L3: { id: 246, name: '経済 L3' },
+        economy: { 
+            L1: { id: 226, name: '経済 L1' }, 
+            L2: { id: 227, name: '経済 L2' }, 
+            L3: { id: 246, name: '経済 L3' }, 
             L4: { id: 247, name: '経済 L4' }
-        }
+        },
     },
-    // プログラミンググループ
     GlobalEnglish: { id: 236, name: 'グローバル英語' },
     Programming: { id: 235, name: 'プログラミング' }
 };
 
 $(document).ready(function() {
-    // <html>タグの属性を取得し、tenantIdNumberを取得
     const tenantIdNumber = $("html").data("tenantidnumber");
-
-    // tenantIdが"stg"の場合の処理
     if (tenantIdNumber === "stg") {
-        // body要素のIDを取得
         const bodyId = $("body").attr("id");
-        // bodyのクラス名から科目IDを取り出し、配列に変換
         const bodyClasses = $("body")
-            .attr("class") // bodyのclass属性を取得
-            .split(" ")    // スペースで区切り、配列に変換
-            .map(cls => parseInt(cls.replace("course-id-", "").trim())); // "course-id-"を取り除いて整数に変換
+            .attr("class")
+            .split(" ")
+            .map(cls => parseInt(cls.replace("course-id-", "").trim()));
 
         // 汎用的なグループチェック関数
         function checkGroup(subjectIds) {
-            return Object.values(subjectIds).some(function(id) {
-                return bodyClasses.includes(id.id);
-            });
+            return Object.values(subjectIds).some(id => bodyClasses.includes(id.id));
         }
 
-        // 各グループの判定
-        const isSubjectMain = checkGroup(SubjectIds.SubjectMain); // SubjectMainをチェック
-        const isSubjectChild = ['philosophy', 'science', 'economy'].some(subject => 
-            checkGroup(SubjectIds.SubjectChild[subject]) // SubjectChildをチェック
-        );
-        const isGlobalEnglish = bodyClasses.includes(SubjectIds.GlobalEnglish.id); // GlobalEnglishをチェック
-        const isProgramming = bodyClasses.includes(SubjectIds.Programming.id); // Programmingをチェック
+        // 科目グループ判定
+        const isSubjectMain = checkGroup(SubjectIds.SubjectMain);
+        const isSubjectChild = ['philosophy', 'science', 'economy'].some(subject => checkGroup(SubjectIds.SubjectChild[subject]));
+        const isGlobalEnglish = bodyClasses.includes(SubjectIds.GlobalEnglish.id);
+        const isProgramming = bodyClasses.includes(SubjectIds.Programming.id);
 
         // ==============================
         // ダッシュボードページでの処理
         // ==============================
         if (bodyId === "page-my-index") {
+
+            ////////////////////////////
+            // 受講中科目の処理
+            ////////////////////////////
+            
+            function renderSubject(subject, icon, isSubjectMain) {
+                // SubjectMain の場合のリンクを変更
+                const courseLink = isSubjectMain 
+                    ? `https://lms.waomirai.com/admin/tool/catalogue/courseinfo.php?id=${subject.id}`
+                    : `https://lms.waomirai.com/course/view.php?id=${subject.id}`;
+                return `
+                    <div class="dashboard-left-block-subject-child">
+                        <div class="dashboard-left-block-subject-child-icon">${icon}</div>
+                        <div class="dashboard-left-block-subject-child-text">
+                            <a href="${courseLink}" target="_blank">${subject.name}</a>
+                        </div>
+                    </div>
+                `;
+            }
+
+            // アイコンの取得（SubjectMain & SubjectChild 用）
+            const getIcon = (subject) => {
+                if (subject.name.includes('哲学')) return "&#x1f4D6;"; // 📖
+                if (subject.name.includes('科学')) return "&#x1f52C;"; // 🔬
+                if (subject.name.includes('経済')) return "&#x1f4B0;"; // 💰
+                if (subject.name === 'グローバル英語') return "&#x1f4D6;"; // 📖
+                if (subject.name === 'プログラミング') return "&#x1f52C;"; // 🔬
+                return "&#x1f9ea;"; // デフォルト
+            };
+
             // メイン科目（SubjectMain）の処理
             if (!isSubjectChild && isSubjectMain) {
                 console.log("メイン科目（SubjectMain）に該当しています");
-                const subjectMainNames = [];
-                Object.values(SubjectIds.SubjectMain).forEach(function(subSubject) {
-                    if (bodyClasses.includes(subSubject.id)) {
-                        let icon = "&#x1f9ea;"; // デフォルトは🧪（科学的なアイコン）
-                        if (subSubject.name === '哲学') icon = "&#x1f4D6;"; // 📖
-                        else if (subSubject.name === '科学') icon = "&#x1f52C;"; // 🔬
-                        else if (subSubject.name === '経済') icon = "&#x1f4B0;"; // 💰
-                        const courseLink = `https://lms.waomirai.com/course/view.php?id=${subSubject.id}`;
-                        subjectMainNames.push(`
-                            <div class="dashboard-left-block-subject-child">
-                                <div class="dashboard-left-block-subject-child-icon">${icon}</div>
-                                <div class="dashboard-left-block-subject-child-text">
-                                    <a href="${courseLink}" target="_blank">${subSubject.name}</a>
-                                </div>
-                            </div>
-                        `);
-                    }
-                });
-
-                if (subjectMainNames.length > 0) {
-                    const subjectMainListHtml = subjectMainNames.join("");
-                    $(".dashboard-left-block-wrap.dashboard-left-block-wrap-subject").append(`${subjectMainListHtml}</div>`);
+                const subjectMainNames = Object.values(SubjectIds.SubjectMain)
+                    .filter(subSubject => bodyClasses.includes(subSubject.id))
+                    .map(subSubject => renderSubject(subSubject, getIcon(subSubject), true)) // true を渡してSubjectMain用のリンクにする
+                    .join("");
+                if (subjectMainNames) {
+                    $(".dashboard-left-block-wrap.dashboard-left-block-wrap-subject").append(subjectMainNames);
                 }
             }
 
@@ -99,60 +101,28 @@ $(document).ready(function() {
             if (isSubjectChild) {
                 console.log("詳細科目（SubjectChild）に該当しています");
                 const subjectChildNames = [];
-                ['philosophy', 'science', 'economy'].forEach(function(subjectKey) {
-                    Object.values(SubjectIds.SubjectChild[subjectKey]).forEach(function(subSubject) {
-                        if (bodyClasses.includes(subSubject.id)) {
-                            let icon = "&#x1f9ea;"; // デフォルトは🧪（科学的なアイコン）
-                            if (subjectKey === 'philosophy') icon = "&#x1f4D6;"; // 📖
-                            else if (subjectKey === 'science') icon = "&#x1f52C;"; // 🔬
-                            else if (subjectKey === 'economy') icon = "&#x1f4B0;"; // 💰
-                            const courseLink = `https://lms.waomirai.com/course/view.php?id=${subSubject.id}`;
-                            subjectChildNames.push(`
-                                <div class="dashboard-left-block-subject-child">
-                                    <div class="dashboard-left-block-subject-child-icon">${icon}</div>
-                                    <div class="dashboard-left-block-subject-child-text">
-                                        <a href="${courseLink}" target="_blank">${subSubject.name}</a>
-                                    </div>
-                                </div>
-                            `);
-                        }
-                    });
+                ['philosophy', 'science', 'economy'].forEach(subjectKey => {
+                    Object.values(SubjectIds.SubjectChild[subjectKey])
+                        .filter(subSubject => bodyClasses.includes(subSubject.id))
+                        .forEach(subSubject => {
+                            subjectChildNames.push(renderSubject(subSubject, getIcon(subSubject), false)); // false を渡して通常のリンクにする
+                        });
                 });
-
                 if (subjectChildNames.length > 0) {
-                    const subjectChildListHtml = subjectChildNames.join("");
-                    $(".dashboard-left-block-wrap.dashboard-left-block-wrap-subject").append(`${subjectChildListHtml}</div>`);
+                    $(".dashboard-left-block-wrap.dashboard-left-block-wrap-subject").append(subjectChildNames.join(""));
                 }
             }
 
             // グローバル英語（GlobalEnglish）の処理
             if (isGlobalEnglish) {
                 console.log("グローバル英語に該当しています");
-                const courseLink = `https://lms.waomirai.com/course/view.php?id=${SubjectIds.GlobalEnglish.id}`;
-                const icon = "&#x1f4D6;"; // 📖
-                $(".dashboard-left-block-wrap.dashboard-left-block-wrap-subject").append(`
-                    <div class="dashboard-left-block-subject-child">
-                        <div class="dashboard-left-block-subject-child-icon">${icon}</div>
-                        <div class="dashboard-left-block-subject-child-text">
-                            <a href="${courseLink}" target="_blank">${SubjectIds.GlobalEnglish.name}</a>
-                        </div>
-                    </div>
-                `);
+                $(".dashboard-left-block-wrap.dashboard-left-block-wrap-subject").append(renderSubject(SubjectIds.GlobalEnglish, getIcon(SubjectIds.GlobalEnglish), false));
             }
 
             // プログラミング（Programming）の処理
             if (isProgramming) {
                 console.log("プログラミングに該当しています");
-                const courseLink = `https://lms.waomirai.com/course/view.php?id=${SubjectIds.Programming.id}`;
-                const icon = "&#x1f52C;"; // 🔬
-                $(".dashboard-left-block-wrap.dashboard-left-block-wrap-subject").append(`
-                    <div class="dashboard-left-block-subject-child">
-                        <div class="dashboard-left-block-subject-child-icon">${icon}</div>
-                        <div class="dashboard-left-block-subject-child-text">
-                            <a href="${courseLink}" target="_blank">${SubjectIds.Programming.name}</a>
-                        </div>
-                    </div>
-                `);
+                $(".dashboard-left-block-wrap.dashboard-left-block-wrap-subject").append(renderSubject(SubjectIds.Programming, getIcon(SubjectIds.Programming), false));
             }
 
             // どの科目にも該当しない場合のエラーハンドリング
