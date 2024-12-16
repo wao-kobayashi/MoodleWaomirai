@@ -1,10 +1,7 @@
-extends _layout_moodle.pug
-block variables
-  - var title = 'ダッシュボード | stg'  // 変数の定義
-  - var status = 'notpurchased'
-  - var calender = 'events-none'
-block contents
-  body#page-my-index(class="limitedwidth format-site  path-my chrome dir-ltr lang-ja_wp yui-skin-sam yui3-skin-sam lms-waomirai-com pagelayout-mydashboard course-1 context-2497 theme uses-drawers drawer-open-index")
+- var existingClasses = "limitedwidth format-site path-my chrome dir-ltr lang-ja_wp yui-skin-sam yui3-skin-sam lms-waomirai-com pagelayout-mydashboard course-1 context-2497 theme uses-drawers drawer-open-index"
+- var additionalClasses = SubjectIds.map(id => `course-id-${id}`).join(' ')
+
+body#page-my-index(class=existingClasses + ' ' + additionalClasses)
       .toast-wrapper.mx-auto.py-0.fixed-top(role="status", aria-live="polite")
       #page-wrapper.d-print-block
         div
@@ -20,8 +17,8 @@ block contents
         noscript
           iframe(src="https://www.googletagmanager.com/ns.html?id=GTM-W3X8CG9C", height="0", width="0", style="display:none;visibility:hidden")
         // End Google Tag Manager (noscript)
-        //- include _parts-subject-alert.pug
-        include _parts-global-navigation.pug
+        include ../_parts-subject-alert.pug
+        include ../_parts-global-navigation.pug
         .drawer.drawer-left.drawer-primary.d-print-none.not-initialized(data-region="fixed-drawer", id="theme_boost-drawers-primary", data-state="show-drawer-primary", data-forceopen="0", data-close-on-resize="1")
           .drawerheader
             button.btn.drawertoggle.icon-no-margin.hidden(data-toggler="drawers", data-action="closedrawer", data-target="theme_boost-drawers-primary", data-toggle="tooltip", data-placement="right", title="ドロワを閉じる")
@@ -54,7 +51,12 @@ block contents
                     | こんにちは 小林 さん! 👋
                   .header-actions-container.ml-auto(data-region="header-actions-container")
             #page-content.pb-3.d-print-block
+              div 
+                 p|#{title}
+                 p|#{SubjectIds}
               include _parts-dashboard.pug
+
+
           div 
             include _parts-modal.pug
           footer#page-footer.footer-popover.bg-white
@@ -218,13 +220,112 @@ block contents
                   | Moodle Workplace
             .footer-content-debugging.footer-dark.bg-dark.text-light
               .container-fluid.footer-dark-inner
-            .toppage-courses(style="display:none;")
-  script.
-    $(document).on('click', 'li[data-region="event-item"]', function () {
-        // 発火時に実行するコード
-        $('.modal-div').show(); // 特定の要素を表示
-    });
-    $(document).on('click', '.close', function () {
-        // 発火時に実行するコード
-        $('.modal-div').hide(); // 特定の要素を表示
-    });
+            .toppage-courses
+              ul
+                li
+                  a(href="https://lms.waomirai.com/course/view.php?id=135") グローバル英語【購入用】
+                li
+                  a(href="https://lms.waomirai.com/course/view.php?id=130") グローバル英語 LEVE LOCAL STAGE
+                li
+                  a(href="https://lms.waomirai.com/course/view.php?id=138") グローバル英語 LEVE NATION STAGE
+                li
+                  a(href="https://lms.waomirai.com/course/view.php?id=112") よくある質問とお問い合わせ
+                li
+                  a(href="https://lms.waomirai.com/course/view.php?id=196") 【無料！夏休み特別企画】選べる！深まる！リサイクル
+                li
+                  a(href="https://lms.waomirai.com/course/view.php?id=120") 【小中高生対象：Unityゲームプログラミング体験講座】本格プログラマーへの第一歩
+                li
+                  a(href="https://lms.waomirai.com/course/view.php?id=206") 【会員登録特典】ワオ未来塾の授業（フルバージョン）を無料視聴！
+                li
+                  a(href="https://lms.waomirai.com/course/view.php?id=183") 【ワオ会員用】グローバル英語【購入用】
+                li
+                  a(href="https://lms.waomirai.com/course/view.php?id=236") グローバル英語（テスト）
+                //- li
+                //-   a(href="https://lms.waomirai.com/course/view.php?id=235") 経済L1
+                li
+                  a(href="https://lms.waomirai.com/course/view.php?id=231") 科目のレベル設定方法
+                li
+                  a(href="https://lms.waomirai.com/course/view.php?id=185") code snipet
+                li
+                  a(href="https://lms.waomirai.com/course/view.php?id=184") venue埋め込みテスト
+                li
+                  a(href="https://lms.waomirai.com/course/view.php?id=181") グローバル英語（ワオ会員専用）
+                li
+                  a(href="https://lms.waomirai.com/course/view.php?id=15") 栗谷 実験用コース
+                li
+                  a(href="https://lms.waomirai.com/course/view.php?id=114") コース説明下書き用
+                li
+                  a(href="https://lms.waomirai.com/course/view.php?id=237") テストコース12/6
+                li
+                  a(href="https://lms.waomirai.com/course/view.php?id=211") 科学
+                li
+                  a(href="https://lms.waomirai.com/course/view.php?id=212") 哲学
+                li
+                  a(href="https://lms.waomirai.com/course/view.php?id=214") 哲学＋科学
+                li
+                  a(href="https://lms.waomirai.com/course/view.php?id=224") 1科目受講＋マニュアル
+                li
+                  a(href="https://lms.waomirai.com/course/view.php?id=221") ワオL1
+                li
+                  a(href="https://lms.waomirai.com/course/view.php?id=234") テストコース２
+                li
+                  a(href="https://lms.waomirai.com/course/view.php?id=230") 講座の受講方法
+                li
+                  a(href="https://lms.waomirai.com/course/view.php?id=131") クリエイティブ・プログラミング
+                li
+                  a(href="https://lms.waomirai.com/course/view.php?id=136") クリエイティブ・プログラミング サポートコース
+                li
+                  a(href="https://lms.waomirai.com/course/view.php?id=205") アーカイブ視聴ページ
+                li
+                  a(href="https://lms.waomirai.com/course/view.php?id=89") 栗谷さん購入検証
+                li
+                  a(href="https://lms.waomirai.com/course/view.php?id=99") 【12月】哲学思考（小学部）
+                li
+                  a(href="https://lms.waomirai.com/course/view.php?id=98") 【12月】科学リテラシー（小学部）
+                li
+                  a(href="https://lms.waomirai.com/course/view.php?id=100") 【12月】お金の教育（小学部）
+                li
+                  a(href="https://lms.waomirai.com/course/view.php?id=105") 【12月】グローバル英語（小学部）
+                li
+                  a(href="https://lms.waomirai.com/course/view.php?id=101") 【12月】クリエイティブプログラミング（小学部）
+                li
+                  a(href="https://lms.waomirai.com/course/view.php?id=103") 【12月】哲学思考（中高部）
+                li
+                  a(href="https://lms.waomirai.com/course/view.php?id=104") 【12月】科学リテラシー（中高部）
+                li
+                  a(href="https://lms.waomirai.com/course/view.php?id=106") 【12月】グローバル英語（中高部）
+                li
+                  a(href="https://lms.waomirai.com/course/view.php?id=102") 【12月】クリエイティブプログラミング（中高部）
+                li
+                  a(href="https://lms.waomirai.com/course/view.php?id=171") モニターアンケート
+                li
+                  a(href="https://lms.waomirai.com/course/view.php?id=165") （小学生向け）お金の怖さを学ぶ　NO!MORE!お金のトラブル教室～ほんとにあった怖いお金の話～
+                li
+                  a(href="https://lms.waomirai.com/course/view.php?id=166") （中高生向け）10代のうちに身に付けよう！「お金の失敗をしちゃった」と素直に言う方法
+                li
+                  a(href="https://lms.waomirai.com/course/view.php?id=167") （小学生向け）どうして1000円札の顔になったの！？～野口英世の研究と真実～
+                li
+                  a(href="https://lms.waomirai.com/course/view.php?id=168") （中高生向け）科学史シリーズ！細菌学研究の闇～野口英世の研究と真実～
+                li
+                  a(href="https://lms.waomirai.com/course/view.php?id=169") （小学生向け）「正義」はダレが決める？～アナタが裁く「昔話桃太郎」～
+                li
+                  a(href="https://lms.waomirai.com/course/view.php?id=170") （中高生向け）『具体と抽象』で思考力UP！～身近な悩み事や社会現象を新たな視点で紐解こう～
+                li
+                  a(href="https://lms.waomirai.com/course/view.php?id=180") 2024.5.28 経済（お金）　見逃し配信
+                li
+                  a(href="https://lms.waomirai.com/course/view.php?id=179") 2024.5.30 科学リテラシー　見逃し配信
+                li
+                  a(href="https://lms.waomirai.com/course/view.php?id=178") 2024.5.31 哲学思考　見逃し配信
+                li
+                  a(href="https://lms.waomirai.com/course/view.php?id=143") Default tenant members
+          //- .toppage-courses
+          //-  a(href="#")|L1
+        script.
+            $(document).on('click', 'li[data-region="event-item"]', function () {
+                // 発火時に実行するコード
+                $('.modal-div').show(); // 特定の要素を表示
+            });
+            $(document).on('click', '.close', function () {
+                // 発火時に実行するコード
+                $('.modal-div').hide(); // 特定の要素を表示
+            });
