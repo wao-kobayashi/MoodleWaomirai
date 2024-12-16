@@ -78,6 +78,7 @@ if (bodyId === "page-my-index" || bodyId === "page-site-index") {
         // ボディの上部余白を調整
         document.body.style.cssText = "padding:70px 0 0 !important;";
     }
+
 }
 
 // ==============================
@@ -174,7 +175,6 @@ function handleCalendar() {
     const todayDay = today.getDate();
     const todayMonth = today.getMonth() + 1;
     const todayYear = today.getFullYear();
-
     const dayCells = document.querySelectorAll('.day');
     let eventFound = false;
 
@@ -185,21 +185,43 @@ function handleCalendar() {
         const cellMonth = parseInt(cell.querySelector('a')?.getAttribute('data-month') || todayMonth, 10);
 
         // 今日の日付と一致する場合に授業の有無を確認
+        
         if (cellDay === todayDay && cellMonth === todayMonth && cellYear === todayYear) {
             const dayContent = cell.querySelector('[data-region="day-content"]');
+            // 特定のHTMLを直接追加
+            const html = `<div class="calender-today-speech">
+            <img src="https://go.waomirai.com/l/1026513/2024-12-14/h9lsb/1026513/17342360883dgDGobr/speech_calender.png" alt="特別イベント">
+          </div>`;
+          
+          // dayContentの直下に追加
+          if (dayContent) {
+            dayContent.innerHTML += html;  // 既存の内容の後ろに追加
+          
+            // イベントデリゲーションでクリックイベントを処理
+            dayContent.addEventListener('click', (event) => {
+              const speechDiv = event.target.closest('.calender-today-speech');
+              if (speechDiv) {
+                speechDiv.style.display = 'none';  // クリックされた要素を非表示にする
+              }
+            });
+          }
+     
             if (dayContent && dayContent.querySelectorAll('li').length > 0) {
                 eventFound = true;
                 displayEvents(dayContent);
             }
+          
+     
         }
     });
-
     // 本日授業があるかないかを表示
     const dashboardBannerTextTitle = document.querySelector('.dashboard-banner-text-title');
     if (dashboardBannerTextTitle) {
         dashboardBannerTextTitle.innerText = eventFound ? '本日は授業があります。' : '本日は授業はありません。';
     }
+
 }
+      
 
 // イベント表示（本日の授業詳細を表示）
 function displayEvents(dayContent) {
@@ -210,18 +232,21 @@ function displayEvents(dayContent) {
         const courseTime = event.getAttribute('data-time');
         eventDetails.push(courseTime ? `${courseTime} ${courseName}` : courseName);
     });
-
+  
     // 本日授業がある場合、その詳細を表示
     const dashboardBannerTextTitle = document.querySelector('.dashboard-banner-text-title');
     if (dashboardBannerTextTitle) {
-        dashboardBannerTextTitle.innerText = `本日は、「${eventDetails.join('」「')}」の授業があります。`;
+      dashboardBannerTextTitle.innerText = `本日は、「${eventDetails.join('」「')}」の授業があります。`;
+      console.log($eventDetails);
     }
+
+  
 }
 
 // リンクの存在確認（受講中の科目がない場合の処理）
 function handleLinks(alertBuyCourse, toppageCourses) {
     const hasLinks = !!toppageCourses.querySelector("a");
-    if (!hasLinks && alertBuyCourse) {
+    if (!hasLinks && alertBuyCourse) {      
         // alertBuyCourse.style.display = "flex";
         const dashboardBannerTextTitle = document.querySelector('.dashboard-banner-text-title');
         dashboardBannerTextTitle.innerText = '受講してる科目がありません。';

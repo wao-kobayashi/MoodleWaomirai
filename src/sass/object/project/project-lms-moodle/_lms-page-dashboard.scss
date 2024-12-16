@@ -412,6 +412,7 @@ $default-max-width: 1170px; // 最大幅
     }
     .today{
       background: #edfbf5;
+
       .day-number-circle{
         background:$cl-waogreen;
       }
@@ -424,6 +425,12 @@ $default-max-width: 1170px; // 最大幅
             background: none !important;
         }
     }
+    // td:hover{
+    //   background-color: inherit !important; /* ホバー時のスタイルを無効化 */
+    // *:hover,*:focus{
+    //   background-color: inherit; /* ホバー時のスタイルを無効化 */
+    //   }
+    // }
     td>div {
       overflow: visible !important;
     }
