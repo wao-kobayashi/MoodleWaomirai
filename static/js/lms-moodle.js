@@ -33,12 +33,17 @@ const SubjectIds = {
 
 $(document).ready(function() {
     const tenantIdNumber = $("html").data("tenantidnumber");
+    console.log("tenantIdNumber:", tenantIdNumber);
+
     if (tenantIdNumber === "stg") {
         const bodyId = $("body").attr("id");
+        console.log("bodyId:", bodyId);
+
         const bodyClasses = $("body")
             .attr("class")
             .split(" ")
             .map(cls => parseInt(cls.replace("course-id-", "").trim()));
+        console.log("bodyClasses:", bodyClasses);
 
         // 汎用的なグループチェック関数
         function checkGroup(subjectIds) {
@@ -47,15 +52,21 @@ $(document).ready(function() {
 
         // 科目グループ判定
         const isSubjectMain = checkGroup(SubjectIds.SubjectMain);
+        console.log("isSubjectMain:", isSubjectMain);
+
         const isSubjectChild = ['philosophy', 'science', 'economy'].some(subject => checkGroup(SubjectIds.SubjectChild[subject]));
+        console.log("isSubjectChild:", isSubjectChild);
+
         const isGlobalEnglish = bodyClasses.includes(SubjectIds.GlobalEnglish.id);
+        console.log("isGlobalEnglish:", isGlobalEnglish);
+
         const isProgramming = bodyClasses.includes(SubjectIds.Programming.id);
+        console.log("isProgramming:", isProgramming);
 
         // ==============================
         // ダッシュボードページでの処理
         // ==============================
         if (bodyId === "page-my-index") {
-
             ////////////////////////////
             // 受講中科目の処理
             ////////////////////////////
@@ -65,6 +76,8 @@ $(document).ready(function() {
                 const courseLink = isSubjectMain 
                     ? `https://lms.waomirai.com/admin/tool/catalogue/courseinfo.php?id=${subject.id}`
                     : `https://lms.waomirai.com/course/view.php?id=${subject.id}`;
+                console.log("Rendering subject:", subject.name, "Link:", courseLink);
+
                 return `
                     <div class="dashboard-left-block-subject-child">
                         <div class="dashboard-left-block-subject-child-icon">${icon}</div>
@@ -77,6 +90,7 @@ $(document).ready(function() {
 
             // アイコンの取得（SubjectMain & SubjectChild 用）
             const getIcon = (subject) => {
+                console.log("Getting icon for subject:", subject.name);
                 if (subject.name.includes('哲学')) return "&#x1f4D6;"; // 📖
                 if (subject.name.includes('科学')) return "&#x1f52C;"; // 🔬
                 if (subject.name.includes('経済')) return "&#x1f4B0;"; // 💰
@@ -90,9 +104,13 @@ $(document).ready(function() {
                 console.log("メイン科目（SubjectMain）に該当しています");
                 const subjectMainNames = Object.values(SubjectIds.SubjectMain)
                     .filter(subSubject => bodyClasses.includes(subSubject.id))
-                    .map(subSubject => renderSubject(subSubject, getIcon(subSubject), true)) // true を渡してSubjectMain用のリンクにする
+                    .map(subSubject => {
+                        console.log("Filtering and rendering subject:", subSubject.name);
+                        return renderSubject(subSubject, getIcon(subSubject), true); // true を渡してSubjectMain用のリンクにする
+                    })
                     .join("");
                 if (subjectMainNames) {
+                    console.log("Appending subjectMainNames:", subjectMainNames);
                     $(".dashboard-left-block-wrap.dashboard-left-block-wrap-subject").append(subjectMainNames);
                 }
             }
@@ -102,13 +120,16 @@ $(document).ready(function() {
                 console.log("詳細科目（SubjectChild）に該当しています");
                 const subjectChildNames = [];
                 ['philosophy', 'science', 'economy'].forEach(subjectKey => {
+                    console.log("Processing subject:", subjectKey);
                     Object.values(SubjectIds.SubjectChild[subjectKey])
                         .filter(subSubject => bodyClasses.includes(subSubject.id))
                         .forEach(subSubject => {
+                            console.log("Adding child subject:", subSubject.name);
                             subjectChildNames.push(renderSubject(subSubject, getIcon(subSubject), false)); // false を渡して通常のリンクにする
                         });
                 });
                 if (subjectChildNames.length > 0) {
+                    console.log("Appending subjectChildNames:", subjectChildNames);
                     $(".dashboard-left-block-wrap.dashboard-left-block-wrap-subject").append(subjectChildNames.join(""));
                 }
             }
