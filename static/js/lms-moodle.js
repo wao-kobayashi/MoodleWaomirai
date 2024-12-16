@@ -33,7 +33,6 @@ const SubjectIds = {
     GlobalEnglish: { id: 236, name: 'グローバル英語' },
     Programming: { id: 235, name: 'プログラミング' }
 };
-
 $(document).ready(function() {
     // <html>タグの属性を取得し、tenantIdNumberを取得
     const tenantIdNumber = $("html").data("tenantidnumber");
@@ -65,25 +64,93 @@ $(document).ready(function() {
         const isProgramming = bodyClasses.includes(SubjectIds.Programming.id); // Programmingをチェック
 
         // ==============================
-        // ホームページまたはダッシュボードページでの処理
-        // ==============================
-        if (bodyId === "page-my-index" || bodyId === "page-site-index") {
-            // 必要な処理を追加
-        }
-
-        // ==============================
         // ダッシュボードページでの処理
         // ==============================
         if (bodyId === "page-my-index") {
             // 判定結果に基づく処理
             if (isSubjectMain) {
                 console.log("メイン科目（SubjectMain）に該当しています");
-                // メイン科目に関連する処理をここに追加
+                const subjectMainNames = [];
+                Object.values(SubjectIds.SubjectMain).forEach(function(subSubject) {
+                    if (bodyClasses.includes(subSubject.id)) {
+                        // アイコンの変更
+                        let icon = "&#x1f9ea;"; // デフォルトは🧪（科学的なアイコン）
+                        if (subSubject.name === '哲学') {
+                            icon = "&#x1f4D6;"; // 哲学アイコン (📖)
+                        } else if (subSubject.name === '科学') {
+                            icon = "&#x1f52C;"; // 科学アイコン (🔬)
+                        } else if (subSubject.name === '経済') {
+                            icon = "&#x1f4B0;"; // 経済アイコン (💰)
+                        }
+        
+                        const courseLink = `https://lms.waomirai.com/course/view.php?id=${subSubject.id}`;
+                        subjectMainNames.push(`
+                            <div class="dashboard-left-block-subject-child">
+                                <div class="dashboard-left-block-subject-child-icon">${icon}</div>
+                                <div class="dashboard-left-block-subject-child-text">
+                                    <a href="${courseLink}" target="_blank">${subSubject.name}</a>
+                                </div>
+                            </div>
+                        `); // リンクを追加
+                    }
+                });
+        
+                // もしsubjectMainNamesが空でない場合、リストを表示
+                if (subjectMainNames.length > 0) {
+                    const subjectMainListHtml = subjectMainNames.map(function(subjectName) {
+                        return `<div>${subjectName}</div>`;
+                    }).join("");
+        
+                    // コース名のリストを追加
+                    $(".dashboard-left-block-wrap.dashboard-left-block-wrap-subject").append(`
+                        ${subjectMainListHtml}
+                    </div>`);
+                }
             }
 
             if (isSubjectChild) {
                 console.log("詳細科目（SubjectChild）に該当しています");
                 // 詳細科目に関連する処理をここに追加
+
+                // SubjectChildに該当するコース名を表示する処理
+                const subjectChildNames = [];
+                ['philosophy', 'science', 'economy'].forEach(function(subjectKey) {
+                    Object.values(SubjectIds.SubjectChild[subjectKey]).forEach(function(subSubject) {
+                        if (bodyClasses.includes(subSubject.id)) {
+                            // アイコンの変更
+                            let icon = "&#x1f9ea;"; // デフォルトは🧪（科学的なアイコン）
+                            if (subjectKey === 'philosophy') {
+                                icon = "&#x1f4D6;"; // 哲学アイコン (📖)
+                            } else if (subjectKey === 'science') {
+                                icon = "&#x1f52C;"; // 科学アイコン (🔬)
+                            } else if (subjectKey === 'economy') {
+                                icon = "&#x1f4B0;"; // 経済アイコン (💰)
+                            }
+
+                            const courseLink = `https://lms.waomirai.com/course/view.php?id=${subSubject.id}`;
+                            subjectChildNames.push(`
+                                <div class="dashboard-left-block-subject-child">
+                                    <div class="dashboard-left-block-subject-child-icon">${icon}</div>
+                                    <div class="dashboard-left-block-subject-child-text">
+                                        <a href="${courseLink}" target="_blank">${subSubject.name}</a>
+                                    </div>
+                                </div>
+                            `); // リンクを追加
+                        }
+                    });
+                });
+
+                // もしsubjectChildNamesが空でない場合、リストを表示
+                if (subjectChildNames.length > 0) {
+                    const subjectListHtml = subjectChildNames.map(function(subjectName) {
+                        return `<div>${subjectName}</div>`;
+                    }).join("");
+
+                    // コース名のリストを追加
+                    $(".dashboard-left-block-wrap.dashboard-left-block-wrap-subject").append(`
+                        ${subjectListHtml}
+                    </div>`);
+                }
             }
 
             if (isGlobalEnglish) {
@@ -102,9 +169,5 @@ $(document).ready(function() {
                 // エラーメッセージを表示する処理をここに追加
             }
         }
-
-        // ==============================
-        // その他のページ処理...
-        // ==============================
     }
 });
