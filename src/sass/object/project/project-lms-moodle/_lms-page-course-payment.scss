@@ -45,7 +45,10 @@ $subject-body-padding: 40px; // サイドバーとの距離
 $subject-default-max-width: 1120px; // 最大幅
 #page-enrol-index {
     .enrol_fee_payment_region {
-        right: calc(($subject-default-max-width - 1120px)/2);
+        right: calc((100vw - 1120px)/2);
+        @include responsive-style($default-max-width) {
+         right:15px !important;
+        }
     }
     #page.drawers {
         padding: 0 !important;
