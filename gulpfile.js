@@ -1,3 +1,6 @@
+// ファイルの最初に追加
+process.argv.push('--no-deprecation');
+
 const gulp = require('gulp');
 const browserSync = require('browser-sync').create();
 const plumber = require('gulp-plumber');
@@ -6,12 +9,11 @@ const pugbem = require('gulp-pugbem');
 const sass = require('gulp-sass')(require('sass'));
 const postcss = require('gulp-postcss');
 const cssnext = require('postcss-cssnext');
-const babel = require('gulp-babel');
-const browserify = require('browserify');
-const babelify = require('babelify');
-const source = require('vinyl-source-stream');
 const rename = require('gulp-rename');
-const data = require('gulp-data'); // gulp-dataを追加
+const fs = require('fs').promises;
+const replace = require('gulp-replace');
+const data = require('gulp-data');
+const path = require('path'); // path モジュールを追加
 
 // パスの設定
 const srcpaths = {
@@ -20,15 +22,54 @@ const srcpaths = {
     jsx: './src/jsx/**/*.js',
     jade: './src/jade/**/*.jade',
     pug: './src/pug/**/*.pug',
-    envPug: './src/pug/lms-moodle/**/*.pug' // stg, lms向けのPugファイルのみ
+    envPug: './src/pug/lms-moodle/**/*.pug'
 };
 
 const dstpaths = {
     css: './static/css',
     js: './static/js',
     stg: './moodle-stg',
-    lms: './moodle-lms'
+    lmswaomirai: './moodle-lms'
 };
+
+// stg.js と lms.js を分割するタスク（非同期処理を減らし、gulpで同期的に処理）
+async function splitJs(done) {
+    try {
+        const stgVariableJsContent = await fs.readFile(path.resolve('src/jsx/stg-variable.js'), 'utf8');
+        const lmsVariableJsContent = await fs.readFile(path.resolve('src/jsx/lms-variable.js'), 'utf8');
+
+        // stg.js 用
+        gulp.src('src/jsx/moodle.js')
+            .pipe(replace(/^/,
+                `${stgVariableJsContent}\n` +
+                `$(document).ready(function() {\n` +
+                `    const tenantIdNumber = $("html").data("tenantidnumber");\n` +
+                `    if (tenantIdNumber === "stg") {\n`))
+            .pipe(replace(/$/,
+                `   }\n` +
+                `});`))
+            .pipe(rename('stg.js'))
+            .pipe(gulp.dest(dstpaths.js));
+
+        // lms.js 用
+        gulp.src('src/jsx/moodle.js')
+            .pipe(replace(/^/,
+                `${lmsVariableJsContent}\n` +
+                `$(document).ready(function() {\n` +
+                `    const tenantIdNumber = $("html").data("tenantidnumber");\n` +
+                `    if (tenantIdNumber === "lmswaomirai") {\n`))
+            .pipe(replace(/$/,
+                `   }\n` +
+                `});`))
+            .pipe(rename('lmswaomirai.js'))
+            .pipe(gulp.dest(dstpaths.js));
+
+        done();
+    } catch (err) {
+        console.error('Error reading files:', err);
+        done(err);
+    }
+}
 
 // ローカルサーバーの起動と監視タスク
 function serve() {
@@ -52,7 +93,7 @@ function serve() {
         done();
     }));
 
-    gulp.watch(srcpaths.jsx, gulp.series(browserifyTask, (done) => {
+    gulp.watch(srcpaths.jsx, gulp.series(splitJs, (done) => {
         browserSync.reload();
         done();
     }));
@@ -60,7 +101,7 @@ function serve() {
 
 // 通常のPugタスク（./ 直下に出力）
 function pugTask() {
-    return gulp.src([srcpaths.pug, '!./src/pug/**/_*.pug', '!./src/pug/lms-moodle/**/*.pug']) // env以下は除外
+    return gulp.src([srcpaths.pug, '!./src/pug/**/_*.pug', '!./src/pug/lms-moodle/**/*.pug'])
         .pipe(plumber())
         .pipe(pug({ plugins: [pugbem] }))
         .pipe(gulp.dest('./'))
@@ -83,7 +124,7 @@ function pugStg() {
 
 // lms用Pugタスク
 function pugLms() {
-    return pugEnvTask('lms', dstpaths.lms);
+    return pugEnvTask('lmswaomirai', dstpaths.lmswaomirai);
 }
 
 // すべてのPugタスクを並列実行
@@ -109,18 +150,6 @@ function scss() {
         .pipe(browserSync.stream());
 }
 
-// Browserifyタスク
-function browserifyTask() {
-    return browserify({
-            entries: './src/jsx/melon-soda-kai.js',
-        })
-        .transform(babelify)
-        .bundle()
-        .pipe(source("melon-soda-kai.js"))
-        .pipe(gulp.dest(dstpaths.js))
-        .pipe(browserSync.stream());
-}
-
 // デフォルトタスク
 exports.default = gulp.series(scss, allPug, serve);
 exports.pug = pugTask;
@@ -128,4 +157,4 @@ exports.pugStg = pugStg;
 exports.pugLms = pugLms;
 exports.allPug = allPug; // 手動実行用
 exports.scss = scss;
-exports.browserify = browserifyTask;
+exports.splitJs = splitJs;
