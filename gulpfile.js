@@ -88,7 +88,17 @@ function serve() {
         done();
     }));
 
-    gulp.watch(srcpaths.pug, gulp.series(allPug, (done) => {
+    // 通常のPugファイルの監視（lms-moodleを除く）
+    gulp.watch(
+        [srcpaths.pug, '!./src/pug/lms-moodle/**/*.pug'],
+        gulp.series(pugTask, (done) => {
+            browserSync.reload();
+            done();
+        })
+    );
+
+    // lms-moodle 配下のみ変更された時に pugStg と pugLms を実行
+    gulp.watch(srcpaths.envPug, gulp.series(pugStg, pugLms, (done) => {
         browserSync.reload();
         done();
     }));
@@ -98,6 +108,7 @@ function serve() {
         done();
     }));
 }
+
 
 // 通常のPugタスク（./ 直下に出力）
 function pugTask() {
