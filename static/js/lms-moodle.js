@@ -217,6 +217,84 @@ $(document).ready(function() {
 
 
         // ==============================
+        // ログイン・サインアップページの処理
+        // ==============================
+        if (bodyId === "page-login-signup") {
+            // ログインページのタイトルを変更
+            $(".login-heading").text("新規会員登録");
+
+            // フォームのプレースホルダーを設定
+            const placeholders = {
+                id_username: "例）waomirai",
+                id_email: "例）sample@gmail.com",
+                id_email2: "例）sample@gmail.com",
+                id_lastname: "例）鈴木",
+                id_firstname: "例）太郎",
+                id_profile_field_furigana: "例）スズキタロウ",
+                id_profile_field_postnumber: "例）0000000"
+            };
+
+            $.each(placeholders, function(id, placeholder) {
+                $("#" + id).attr("placeholder", placeholder);
+            });
+
+            // パスワードポリシーの説明を移動
+            const $sourceElement = $("#fitem_id_passwordpolicyinfo .form-control-static");
+            const $targetParent = $("label#id_password_label");
+            if ($sourceElement.length && $targetParent.length) {
+                $targetParent.append($sourceElement);
+            }
+
+            // アイコン（!）を "*" に置き換え
+            $(".fa-exclamation-circle").each(function() {
+                $(this).replaceWith("*");
+            });
+
+            // ロゴを挿入
+            const $loginWrapper = $(".login-wrapper");
+            if ($loginWrapper.length) {
+                const signupLogoHtml = `
+                        <div class="signup-logo">
+                            <img src="https://go.waomirai.com/l/1026513/2023-11-16/gddzt/1026513/1700192228BDlbz92f/logo_basic_white.png" style="width: 100%;">
+                        </div>`;
+                $loginWrapper.before(signupLogoHtml);
+            }
+        }
+
+        // ==============================
+        // ログイン確認ページの処理
+        // ==============================
+        if (bodyId === "page-login-confirm") {
+            $(".boxaligncenter h3").text("ご登録ありがとうございます。");
+            $(".singlebutton button").text("ワオ未来塾TOPへ");
+        }
+
+        // ==============================
+        // 購入処理
+        // ==============================
+        if (bodyId === "page-enrol-index") {
+            const $buttonElement = $(".enrol_fee_payment_region button");
+            if ($buttonElement.length) {
+                const customDivHtml = `
+                        <div class="page-enrol-set-discount">
+                            <p>セット受講割引でお得！</p>
+                            <p><a href='#'>詳細を見る</a></p>
+                        </div>`;
+                $buttonElement.after(customDivHtml);
+            }
+        }
+
+        // ==============================
+        // カテゴリページの処理
+        // ==============================
+        if (bodyId === "page-course-index-category") {
+            window.location.href = "https://lms.waomirai.com/";
+        }
+
+
+
+
+        // ==============================
         //メイン3科目or2,3科目パック購入後はリダイレクトさせる
         // ==============================
         if (bodyId === "page-course-view-flexsections") {

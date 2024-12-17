@@ -30,7 +30,7 @@ $calender-width:960px;
             .dashboard-banner-left {
                 display: flex;
                 align-items: center;
-                padding: 16px 0;
+                padding: 12px 0;
             }
             .dashboard-banner-left-icon {
                 width: 24px;
@@ -81,6 +81,9 @@ $calender-width:960px;
             }
         }
     }
+    .calendarwrapper td>div {
+        height: 10em !important;
+    }
 }
 
 //calender
@@ -92,19 +95,16 @@ $calender-width:960px;
 $dashboard-sidebar-width: 210px; // サイドバーの幅
 $body-padding: 30px; // サイドバーとの距離
 $default-max-width: 1170px; // 最大幅
-
 // Layout for Dashboard
 .pagelayout-mydashboard {
     .block-region {
         max-width: $default-max-width - $dashboard-sidebar-width - $body-padding !important;
         margin-right: auto !important;
-
         // Responsive styles
         @include responsive-style($default-max-width) {
             max-width: calc(100vw - #{$dashboard-sidebar-width + $body-padding}) !important;
         }
     }
-
     .dashboard-left {
         width: calc($dashboard-sidebar-width - 0px);
         height: 360px;
@@ -126,7 +126,8 @@ $default-max-width: 1170px; // 最大幅
         margin-bottom: 1rem !important;
     }
     #page.drawers .main-inner {
-        padding: 1.5rem 0rem !important;
+        padding: 0px 0rem !important;
+        margin-top: 30px !important;
     }
     // .d-print-block {
     //     width: 960px;
@@ -137,112 +138,107 @@ $default-max-width: 1170px; // 最大幅
         // margin-left: 0 !important;
     }
     .dashboard-left {
- 
         .dashboard-left-block {
             margin: 0 0 40px;
+        }
+        .dashboard-left-block-title {
+            padding: 0 0px 8px;
+            // border-bottom: 3px solid $cl-graylightest;
+            font-size: $lms-font-size-ml;
+            color: $cl-gray;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            // text-align: center;
+            // width: 85%;
+            // margin: 0 auto;
+        }
+        .dashboard-left-block-wrap {
+            background: white;
+            border-radius: $border-radius-middle;
+        }
+        .dashboard-left-block-wrap-subject {
+            padding: 0px 15px 0px !important;
+        }
+        .dashboard-left-block-wrap-english {
+            padding: 16px 15px !important;
+            .dashboard-left-block-wrap-english-text {
+                text-align: center;
             }
-            .dashboard-left-block-title {
-                padding: 0 0px 8px;
-                // border-bottom: 3px solid $cl-graylightest;
-                font-size: $lms-font-size-ml;
-                color: $cl-gray;
-                font-weight: 500;
-                letter-spacing: 0.5px;
-                // text-align: center;
-                // width: 85%;
-                // margin: 0 auto;
-            }
-            .dashboard-left-block-wrap {
-                background: white;
+            .dashboard-left-block-wrap-english-course {
+                padding: 12px 16px;
+                background: $cl-graylightest;
                 border-radius: $border-radius-middle;
-                
-            }
-            .dashboard-left-block-wrap-subject {
-                padding: 0px 15px 0px !important;
-              
-            }
-            .dashboard-left-block-wrap-english {
-                padding: 16px 15px !important;
-                .dashboard-left-block-wrap-english-text {
+                margin: 16px auto 0px;
+                .dashboard-left-block-wrap-english-course-title {
                     text-align: center;
+                    margin: 0 auto 4px;
                 }
-                .dashboard-left-block-wrap-english-course {
-                    padding: 12px 16px;
-                    background: $cl-graylightest;
-                    border-radius: $border-radius-middle;
-                    margin: 16px auto 0px;
-                    .dashboard-left-block-wrap-english-course-title {
-                        text-align: center;
-                        margin: 0 auto 4px;
-                    }
-                    .dashboard-left-block-wrap-english-course-button a {
-                        padding: 6px 8px;
-                        border-radius: $border-radius-small;
-                        color: $cl-waogreen;
-                        font-size: $lms-font-size-m;
-                        font-weight: normal;
-                        border: 1.5px solid $cl-waogreen;
-                        justify-content: center;
-                        display: flex;
-                        background: white;
-                        &:hover {
-                            text-decoration: none !important;
-                            opacity: 0.7;
-                        }
-                    }
-                }
-            }
-            .dashboard-left-block-subject-child {
-                font-size: $lms-font-size-m;
-                color: $cl-gray;
-                padding: 10px 0px;
-                display: flex;
-                align-items: center;
-                border-bottom: 2px solid $cl-graylightest;
-                &.subject-philosophy {
-                    .dashboard-left-block-subject-child-icon {
-                        background: #FFDB96;
-                    }
-                }
-                &.subject-science {
-                    .dashboard-left-block-subject-child-icon {
-                        background: #EEFABF;
-                    }
-                }
-                &.subject-economiy {
-                    .dashboard-left-block-subject-child-icon {
-                        background: #C1EDFF;
-                    }
-                }
-                &.subject-english {
-                    .dashboard-left-block-subject-child-icon {
-                        background: #F5DBFF;
-                        font-size: 18px !important;
-                        line-height: 1.3 !important;
-                        padding: 0 0 3px 3px;
-                    }
-                }
-            
-                &.subject-programming {
-                    .dashboard-left-block-subject-child-icon {
-                        background: #FFC3C5;
-                        font-size: 18px !important;
-                        line-height: 1.3 !important;
-                        padding: 0 0 3px 1px;
-                    }
-                }
-                .dashboard-left-block-subject-child-icon {
-                    width: 30px;
-                    height: 30px;
-                    border-radius: 100px;
-                    margin: 0 7px 0 0;
-                    display: flex;
+                .dashboard-left-block-wrap-english-course-button a {
+                    padding: 6px 8px;
+                    border-radius: $border-radius-small;
+                    color: $cl-waogreen;
+                    font-size: $lms-font-size-m;
+                    font-weight: normal;
+                    border: 1.5px solid $cl-waogreen;
                     justify-content: center;
-                    align-items: center;
-                    font-size: 15px;
+                    display: flex;
+                    background: white;
+                    &:hover {
+                        text-decoration: none !important;
+                        opacity: 0.7;
+                    }
                 }
             }
-        
+        }
+        .dashboard-left-block-subject-child {
+            font-size: $lms-font-size-m;
+            color: $cl-gray;
+            padding: 10px 0px;
+            display: flex;
+            align-items: center;
+            border-bottom: 2px solid $cl-graylightest;
+            &.subject-philosophy {
+                .dashboard-left-block-subject-child-icon {
+                    background: #FFDB96;
+                }
+            }
+            &.subject-science {
+                .dashboard-left-block-subject-child-icon {
+                    background: #EEFABF;
+                }
+            }
+            &.subject-economiy {
+                .dashboard-left-block-subject-child-icon {
+                    background: #C1EDFF;
+                }
+            }
+            &.subject-english {
+                .dashboard-left-block-subject-child-icon {
+                    background: #F5DBFF;
+                    font-size: 18px !important;
+                    line-height: 1.3 !important;
+                    padding: 0 0 3px 3px;
+                }
+            }
+            &.subject-programming {
+                .dashboard-left-block-subject-child-icon {
+                    background: #FFC3C5;
+                    font-size: 18px !important;
+                    line-height: 1.3 !important;
+                    padding: 0 0 3px 1px;
+                }
+            }
+            .dashboard-left-block-subject-child-icon {
+                width: 30px;
+                height: 30px;
+                border-radius: 100px;
+                margin: 0 7px 0 0;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-size: 15px;
+            }
+        }
         ul {
             background: white;
             border-radius: $border-radius-middle;
@@ -286,7 +282,19 @@ $default-max-width: 1170px; // 最大幅
         border: none;
     }
     .maincalendar .header {
-        margin: 0px 0 20px !important;
+        margin: 0px 0 0px !important;
+        position: relative;
+        overflow: visible !important;
+        &.p-1 {
+            padding: 0 !important;
+        }
+        .custom-select {
+            max-width: 250px;
+            position: absolute;
+            left: 0;
+            top: 10px;
+            z-index: 1;
+        }
     }
     .calendar-controls {
         display: flex;
@@ -339,7 +347,7 @@ $default-max-width: 1170px; // 最大幅
                 right: 0;
                 right: 0;
                 margin: auto;
-                width: 12px;
+                width: 10px;
                 height: 2px;
                 border-radius: 9999px;
                 background-color: $cl-graylight;
@@ -355,8 +363,8 @@ $default-max-width: 1170px; // 最大幅
         }
         .arrow_link {
             position: relative;
-            width: 40px;
-            height: 40px;
+            width: 35px;
+            height: 35px;
             border-radius: 100px;
             border: 1.5px solid $cl-graylight;
             display: block;
@@ -374,19 +382,19 @@ $default-max-width: 1170px; // 最大幅
     }
     // レスポンシブ設定: 768px以上の画面幅でページの幅を設定
     .card-body {
-        padding: 20px 15px 25px !important;
+        padding: 13px 15px 13px !important;
     }
     // カレンダーブロック内のタイトルを非表示
     .card-title {
         // display: none !important;
         // padding: 15px 0 15px 10px !important;
-        margin: 0 -15px 15px!important;
-        padding: 3px 45px 15px;
+        margin: 0 -15px 8px!important;
+        padding: 3px 35px 15px;
         border-bottom: 4px $cl-graylightest solid;
         width: calc(100% + 30px);
         // background: red;
         display: block !important;
-        font-size: $lms-font-size-xl !important;
+        font-size: $lms-font-size-l !important;
         position: relative;
         &:before {
             @include lms-left-waogreen;
@@ -410,12 +418,11 @@ $default-max-width: 1170px; // 最大幅
             pointer-events: none; // マウスイベントを無効化
         }
     }
-    .today{
-      background: #edfbf5;
-
-      .day-number-circle{
-        background:$cl-waogreen;
-      }
+    .today {
+        background: #edfbf5;
+        .day-number-circle {
+            background: $cl-waogreen;
+        }
     }
     .day {
         color: $cl-graylight !important;
@@ -432,27 +439,26 @@ $default-max-width: 1170px; // 最大幅
     //   }
     // }
     td>div {
-      overflow: visible !important;
+        overflow: visible !important;
     }
     .calender-today-speech {
-    position: absolute;
-    height:auto !important;
-    left: 0;
-    right:0;
-    top: -60px;
-    margin: auto -10px !important;
-    text-align: center;
-    width: calc(100% + 20px);
-    z-index: 99;
-    img{
-      width: 100%;
-      animation-name: fuwafuwa;
-	    animation-duration: 2.2s;
-	    animation-iteration-count: infinite;
-	    animation-timing-function: ease
+        position: absolute;
+        height: auto !important;
+        left: 0;
+        right: 0;
+        top: -60px;
+        margin: auto -10px !important;
+        text-align: center;
+        width: calc(100% + 20px);
+        z-index: 99;
+        img {
+            width: 100%;
+            animation-name: fuwafuwa;
+            animation-duration: 2.2s;
+            animation-iteration-count: infinite;
+            animation-timing-function: ease
+        }
     }
-
-  }
     .maincalendar .calendarmonth ul li {
         &:focus,
         &:active {
