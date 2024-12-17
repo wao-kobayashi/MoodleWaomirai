@@ -130,5 +130,15 @@ $(document).ready(function() {
                 console.error("指定された科目に該当しません");
             }
         }
+        if (bodyId === "page-my-index" || bodyId === "page-site-index") {
+            if (!isSubjectChild && isSubjectMain) {
+                $('.header-banner.alert-setting-level').css("display", "flex");
+                // ナビゲーションバーの位置を調整
+                $('.navbar.fixed-top').css({ "top": "70px", "position": "fixed" });
+                // bodyのpaddingを調整
+                $('body').css("padding", "70px 0 0");
+                
+            }
+        }
     }
 });
