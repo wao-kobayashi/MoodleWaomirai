@@ -1,4 +1,4 @@
-// 変数定義
+// 検証テナントの変数定義
 const SubjectIds = {
     SubjectMain: {
         philosophy: { id: 212, name: '哲学' },

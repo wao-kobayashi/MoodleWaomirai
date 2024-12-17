@@ -192,6 +192,38 @@
                     div {}
                 }
             }
+            .lms-index-contents-block-cards-course-img-overlay {
+                position: relative;
+                overflow: hidden;
+                .lms-index-contents-block-cards-course-img-text {
+                    position: absolute;
+                    left: 12px;
+                    top: 12px;
+                    color: white;
+                    z-index: 1;
+                    padding: 4px 12px;
+                    display: flex;
+                    // justify-content: center;
+                    // align-items: center;
+                    font-size: $lms-font-size-m;
+                    letter-spacing: 2px;
+                    font-weight: normal;
+                    background: rgba(0, 0, 0, 0.5);
+                    border-radius: 4px !important;
+                }
+                // &:before {
+                //     content: "";
+                //     display: block;
+                //     position: absolute;
+                //     left: 0;
+                //     top: 0;
+                //     background: rgba(0, 0, 0, 0.5);
+                //     z-index: 1;
+                //     width: 100%;
+                //     height: 100%;
+                //     border-radius: 10px 10px 0 0 !important;
+                // }
+            }
             .lms-index-contents-block-cards-course-img img {
                 border-radius: 10px 10px 0 0 !important;
                 height: 180px;

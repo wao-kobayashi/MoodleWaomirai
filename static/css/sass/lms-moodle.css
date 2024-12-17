@@ -1010,6 +1010,26 @@ html[data-tenantidnumber=lmswaomirai] .pagelayout-frontpage .lms-index-contents 
   opacity: 0.7;
   text-decoration: none !important;
 }
+html[data-tenantidnumber=lmswaomirai] .pagelayout-frontpage .lms-index-contents .lms-index-contents-block-cards .lms-index-contents-block-cards-course-img-overlay {
+  position: relative;
+  overflow: hidden;
+}
+html[data-tenantidnumber=lmswaomirai] .pagelayout-frontpage .lms-index-contents .lms-index-contents-block-cards .lms-index-contents-block-cards-course-img-overlay .lms-index-contents-block-cards-course-img-text {
+  position: absolute;
+  left: 12px;
+  top: 12px;
+  color: white;
+  z-index: 1;
+  padding: 4px 12px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  font-size: 14px;
+  letter-spacing: 2px;
+  font-weight: normal;
+  background: rgba(0, 0, 0, .5);
+  border-radius: 4px !important;
+}
 html[data-tenantidnumber=lmswaomirai] .pagelayout-frontpage .lms-index-contents .lms-index-contents-block-cards .lms-index-contents-block-cards-course-img img {
   border-radius: 10px 10px 0 0 !important;
   height: 180px;

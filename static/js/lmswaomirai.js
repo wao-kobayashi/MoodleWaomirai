@@ -1,4 +1,4 @@
-// 変数定義
+// 本番テナントの変数定義
 const SubjectIds = {
     SubjectMain: {
         philosophy: { id: 9999, name: '哲学' },
