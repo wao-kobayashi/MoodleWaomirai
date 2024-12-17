@@ -1,0 +1,88 @@
+
+#page-content.pb-3.d-print-block
+  #region-main-box
+    section#region-main(aria-label='コンテンツ')
+      span#user-notifications.notifications
+      #yui_3_18_1_1_1732844965795_24(role='main')
+        span#maincontent
+        aside#block-region-content.block-region(data-blockregion='content' data-droptarget='1')
+          section#inst274.block_html.block.card.mb-3(role='complementary' data-block='html' data-instance-id='274' aria-labelledby='instance-274-header')
+            .card-body.p-3
+              h5#instance-274-header.card-title.d-inline &#x30C6;&#x30AD;&#x30B9;&#x30C8;&#x30D6;&#x30ED;&#x30C3;&#x30AF;
+              .card-text.content.mt-3
+                .no-overflow
+                  .dashboard-textblock
+                    case calender
+                      when 'events-none'
+                        .toppage-courses(style='display:none').
+                          {mycourses}
+                      when 'events-include'
+                        //- .toppage-courses(style='display:none').
+                        //-   {mycourses}
+                    .dashboard-left
+                      .dashboard-left-block.dashboard-left-block-subject()
+                        .dashboard-left-block-title
+                          |現在受講中の科目
+                        .dashboard-left-block-wrap.dashboard-left-block-wrap-subject
+                      .dashboard-left-block.dashboard-left-block-english(style='display:none;')  
+                        .dashboard-left-block-title
+                          |英語学習
+                        .dashboard-left-block-wrap.dashboard-left-block-wrap-english
+                           .dashboard-left-block-wrap-english-text 
+                              |今週はWEEK1の
+                              br
+                              |トレーニングです!
+                           .dashboard-left-block-wrap-english-img 
+                           .dashboard-left-block-wrap-english-course 
+                              .dashboard-left-block-wrap-english-course-title
+                                 |平日コース
+                              .dashboard-left-block-wrap-english-course-button
+                                  a(href='#', onclick="alert('開発中です(トレーニング動画に行く予定)')") 
+                                    |学習動画はこちら
+                           .dashboard-left-block-wrap-english-course 
+                              .dashboard-left-block-wrap-english-course-title
+                                 |土曜コース
+                              .dashboard-left-block-wrap-english-course-button
+                                  a(href='#', onclick="alert('開発中です(トレーニング動画に行く予定)')") 
+                                    |学習動画はこちら                 
+                      .dashboard-left-block 
+                        .dashboard-left-block-title
+                          |使い方ガイド
+                        ul.dashboard-left-block-links
+                          li 
+                            //stg238
+                            a(href='https://lms.waomirai.com/admin/tool/catalogue/courseinfo.php?id=238')
+                              |新しい科目を受講したい  
+                          li 
+                            //stg240               
+                            a(href='https://lms.waomirai.com/admin/tool/catalogue/courseinfo.php?id=240')
+                              |授業への参加方法は？
+                          li 
+                            //stg239
+                            a(href='https://lms.waomirai.com/admin/tool/catalogue/courseinfo.php?id=239')
+                              |過去の授業動画の視聴方法は？
+                          li 
+                            //stg241
+                            a(href='https://lms.waomirai.com/admin/tool/catalogue/courseinfo.php?id=241')
+                              |授業のレベルを変更したい        
+                    .dashboard-banner.alert-buy-course
+                      .dashboard-banner-left 
+                          .dashboard-banner-left-icon
+                            //- i.fa-solid.fa-ice-cream.fa-5x
+                            i.icon.fa.fa-solid.fa-circle-exclamation
+                          .dashboard-banner-text 
+                            .dashboard-banner-text-title 
+                              |
+                      //- .dashboard-banner-right
+                      //-     a(href='https://lms.waomirai.com/')
+                      //-       |授業科目一覧を見る
+                .footer
+          a.sr-only.sr-only-focusable(href='#sb-1') &#x30AB;&#x30EC;&#x30F3;&#x30C0;&#x30FC; &#x3092;&#x30B9;&#x30AD;&#x30C3;&#x30D7;&#x3059;&#x308B;
+          section#inst255.block_calendar_month.block.card.mb-3(role='complementary' data-block='calendar_month' data-instance-id='255' aria-labelledby='instance-255-header')
+            #yui_3_18_1_1_1732844965795_23.card-body.p-3
+              h5#instance-255-header.card-title.d-inline &#x30AB;&#x30EC;&#x30F3;&#x30C0;&#x30FC;
+              case calender
+               when 'events-include'
+                 include _parts-calender-include-event.pug
+               when 'events-none'
+                 include _parts-calender-none-event.pug

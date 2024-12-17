@@ -1,6 +1,9 @@
 body {}
 
-#page-mod-questionnaire-view,#page-mod-questionnaire-complete {
+#page-mod-questionnaire-view,
+#page-mod-questionnaire-complete,
+#page-mod-questionnaire-myreport,
+#page-mod-questionnaire-report {
     &.path-mod {
         .activity-header:not(:empty) {
             background: none !important;
@@ -81,7 +84,7 @@ body {}
     div[role=main] {
         width: 100%;
         // background: $cl-graylightest !important;
-        padding: 20px 0px;
+        padding: 20px 10px;
         border: 4px solid $cl-graylightest !important;
         border-radius: $border-radius-middle;
         .mod_questionnaire_viewpage {
@@ -111,5 +114,51 @@ body {}
                 }
             }
         }
+    }
+    .surveyTitle {
+        padding: 2px 12px 15px!important;
+    }
+    .qn-container {
+        margin: 0 0 30px;
+        .qn-content {
+            margin-left: 55px !important;
+        }
+        .qn-info {
+            width: 30px;
+            height: 30px;
+            border-radius: 100px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: $lms-font-size-s !important;
+            color: $cl-gray !important;
+            margin: 5px 0 0;
+            // color: $cl-graylight !important;
+            // border: 2px $cl-graylight solid !important;
+            // background: none !important;
+        }
+        .qn-legend {
+            // float: none;
+            margin: 0 0 0 13px;
+        }
+        .qn-question {
+            background: white;
+            padding: 0 !important;
+        }
+        .req {
+            // display: none;
+        }
+    }
+    .mod_questionnaire_controlbuttons {
+        text-align: left !important;
+    }
+    .control-button-submit,
+    .btn-secondary {
+        float: none !important;
+        margin: 0 0 30px 55px;
+        background: $cl-waogreen;
+        border: none !important;
+        padding: 8px 20px;
+        color: white !important;
     }
 }
