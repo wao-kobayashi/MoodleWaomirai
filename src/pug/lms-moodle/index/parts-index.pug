@@ -1,3 +1,10 @@
+case env
+    when 'stg'
+      div(style='padding:30px;')
+        | hello stg
+    when 'lms'
+      div(style='padding:30px;')
+        | hello lms
 .lms-index-fv 
     .lms-index-main 
       .lms-index-main-left 
