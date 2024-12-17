@@ -1,9 +1,8 @@
-
-extends _layout_moodle.pug
+extends ../_layout_moodle.pug
 block variables
-  - var title = '経済購入詳細 | stg'
+  - var title = 'ダッシュボード | stg'  // 変数の定義
 block contents
-  body#page-enrol-index(class="format-flexsections limitedwidth  path-enrol chrome dir-ltr lang-ja_wp yui-skin-sam yui3-skin-sam lms-waomirai-com pagelayout-incourse course-236 context-1603 category-4 theme uses-drawers")
+  body#page-enrol-index(class="format-flexsections limitedwidth  path-enrol chrome dir-ltr lang-ja_wp yui-skin-sam yui3-skin-sam lms-waomirai-com pagelayout-incourse course-232 context-1603 category-4 theme uses-drawers")
     .toast-wrapper.mx-auto.py-0.fixed-top(role='status' aria-live='polite')
     #page-wrapper.d-print-block
       div
@@ -19,7 +18,7 @@ block contents
       noscript
         iframe(src='https://www.googletagmanager.com/ns.html?id=GTM-W3X8CG9C' height='0' width='0' style='display:none;visibility:hidden')
       // End Google Tag Manager (noscript)
-      include _parts-global-navigation.pug
+      include ../common/_parts-global-navigation.pug
       #theme_boost-drawers-primary.drawer.drawer-left.drawer-primary.d-print-none.not-initialized(data-region='fixed-drawer' data-preference='' data-state='show-drawer-primary' data-forceopen='0' data-close-on-resize='1')
         .drawerheader
           button.btn.drawertoggle.icon-no-margin.hidden(data-toggler='drawers' data-action='closedrawer' data-target='theme_boost-drawers-primary' data-toggle='tooltip' data-placement='right' title='ドロワを閉じる')
@@ -60,7 +59,7 @@ block contents
                     .page-header-image.mr-2
                       .border-radius.item-heading-image(style='background-image: url(https://lms.waomirai.com/pluginfile.php/1603/course/overviewfiles/%E7%84%A1%E9%A1%8C%20%285%29.png)')
                     .page-header-headings
-                      h1.h2 グローバル英語(test)
+                      h1.h2 哲学(思考力)
                 .header-actions-container.ml-auto(data-region='header-actions-container')
           #page-content.pb-3.d-print-block
             #region-main-box
@@ -257,5 +256,3 @@ block contents
                 | Moodle Workplace
           .footer-content-debugging.footer-dark.bg-dark.text-light
             .container-fluid.footer-dark-inner
-
-

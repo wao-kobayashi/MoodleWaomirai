@@ -1,4 +1,4 @@
-extends _layout_moodle.pug
+extends ../_layout_moodle.pug
 block contents
   - var title = '講座の受講方法 | stg'  // 変数の定義
   body#page-admin-tool-catalogue-courseinfo(class="format-topics limitedwidth admin path-admin path-admin-tool path-admin-tool-catalogue chrome dir-ltr lang-ja_wp yui-skin-sam yui3-skin-sam lms-waomirai-com pagelayout-course course-230 context-2506 category-45 theme uses-drawers jsenabled")
@@ -17,7 +17,7 @@ block contents
       noscript
         iframe(src="https://www.googletagmanager.com/ns.html?id=GTM-W3X8CG9C", height="0", width="0", style="display:none;visibility:hidden")
       // End Google Tag Manager (noscript)
-      include _parts-global-navigation.pug
+      include ../common/_parts-global-navigation.pug
       .drawer.drawer-left.drawer-primary.d-print-none(data-region="fixed-drawer", id="theme_boost-drawers-primary",  data-state="show-drawer-primary", data-forceopen="0", data-close-on-resize="1", aria-hidden="true")
         .drawerheader
           button.btn.drawertoggle.icon-no-margin.hidden(data-toggler="drawers", data-action="closedrawer", data-target="theme_boost-drawers-primary", data-toggle="tooltip", data-placement="right", title="ドロワを閉じる",  tabindex="-1")
@@ -43,7 +43,7 @@ block contents
               a#drop-down-67513a8dda6c367513a8dd96392.dropdown-toggle.nav-link(data-toggle="dropdown", aria-haspopup="true", aria-expanded="false", href="#", aria-controls="drop-down-menu-67513a8dda6c367513a8dd96392",  tabindex="-1")
                 span.current-tenant-name.d-inline-block(title="【検証テナント】") 【検証テナント】
               #drop-down-menu-67513a8dda6c367513a8dd96392.dropdown-menu(role="menu", aria-labelledby="drop-down-67513a8dda6c367513a8dd96392")
-                a.dropdown-item(role="menuitem", href="https://lms.waomirai.com/admin/tool/tenant/switchtenant.php?switchtenantid=1&amp;redirecturl=%2Fadmin%2Ftool%2Fcatalogue%2Fcourseinfo.php%3Fid%3D230&amp;sesskey=Z3o5cAXP3q",  tabindex="-1") Default tenant
+                a.dropdown-item(role="menuitem", href="httpsz://lms.waomirai.com/admin/tool/tenant/switchtenant.php?switchtenantid=1&amp;redirecturl=%2Fadmin%2Ftool%2Fcatalogue%2Fcourseinfo.php%3Fid%3D230&amp;sesskey=Z3o5cAXP3q",  tabindex="-1") Default tenant
                 a.dropdown-item(role="menuitem", href="https://lms.waomirai.com/admin/tool/tenant/switchtenant.php?switchtenantid=3&amp;redirecturl=%2Fadmin%2Ftool%2Fcatalogue%2Fcourseinfo.php%3Fid%3D230&amp;sesskey=Z3o5cAXP3q",  tabindex="-1") ワオ未来塾 学習ポータル
                 a.dropdown-item(role="menuitem", href="https://lms.waomirai.com/admin/tool/tenant/switchtenant.php?switchtenantid=4&amp;redirecturl=%2Fadmin%2Ftool%2Fcatalogue%2Fcourseinfo.php%3Fid%3D230&amp;sesskey=Z3o5cAXP3q",  tabindex="-1") ワオ会員テナント
       .drawer.drawer-left.d-print-none(data-region="fixed-drawer", id="theme_boost-drawers-courseindex", data-preference="drawer-open-index", data-state="show-drawer-left", data-forceopen="0", data-close-on-resize="0", aria-hidden="true")
