@@ -128,6 +128,13 @@ $(document).ready(function() {
             // どの科目にも該当しない場合のエラーハンドリング
             if (!isSubjectMain && !isSubjectChild && !isGlobalEnglish && !isProgramming) {
                 console.error("指定された科目に該当しません");
+                // 特定のHTMLを指定要素に挿入する
+                const errorHtml = `
+                <div class="dashboard-left-block-subject-child">
+                    <p>受講している科目がありません。</p>
+                </div>
+            `;
+                $('.dashboard-left-block-wrap.dashboard-left-block-wrap-subject').html(errorHtml); // 挿入先要素（例: .target-container）にHTMLを挿入
             }
             /////////////////////////////////////
             ///カレンダー
