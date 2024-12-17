@@ -8,22 +8,22 @@ const SubjectIds = {
         TwoSubjectPack: { id: 228, name: '2科目セット' },
     },
     SubjectChild: {
-        philosophy: { 
-            L1: { id: 221, name: '哲学 L1' }, 
-            L2: { id: 225, name: '哲学 L2' }, 
-            L3: { id: 242, name: '哲学 L3' }, 
+        philosophy: {
+            L1: { id: 221, name: '哲学 L1' },
+            L2: { id: 225, name: '哲学 L2' },
+            L3: { id: 242, name: '哲学 L3' },
             L4: { id: 243, name: '哲学 L4' }
         },
-        science: { 
-            L1: { id: 223, name: '科学 L1' }, 
-            L2: { id: 222, name: '科学 L2' }, 
-            L3: { id: 244, name: '科学 L3' }, 
+        science: {
+            L1: { id: 223, name: '科学 L1' },
+            L2: { id: 222, name: '科学 L2' },
+            L3: { id: 244, name: '科学 L3' },
             L4: { id: 245, name: '科学 L4' }
         },
-        economy: { 
-            L1: { id: 226, name: '経済 L1' }, 
-            L2: { id: 227, name: '経済 L2' }, 
-            L3: { id: 246, name: '経済 L3' }, 
+        economy: {
+            L1: { id: 226, name: '経済 L1' },
+            L2: { id: 227, name: '経済 L2' },
+            L3: { id: 246, name: '経済 L3' },
             L4: { id: 247, name: '経済 L4' }
         },
     },
@@ -59,12 +59,12 @@ $(document).ready(function() {
             ////////////////////////////
             // 受講中科目の処理
             ////////////////////////////
-            
+
             function renderSubject(subject, icon, isSubjectMain) {
                 // SubjectMain の場合のリンクを変更
-                const courseLink = isSubjectMain 
-                    ? `https://lms.waomirai.com/admin/tool/catalogue/courseinfo.php?id=${subject.id}`
-                    : `https://lms.waomirai.com/course/view.php?id=${subject.id}`;
+                const courseLink = isSubjectMain ?
+                    `https://lms.waomirai.com/admin/tool/catalogue/courseinfo.php?id=${subject.id}` :
+                    `https://lms.waomirai.com/course/view.php?id=${subject.id}`;
                 return `
                     <div class="dashboard-left-block-subject-child">
                         <div class="dashboard-left-block-subject-child-icon">${icon}</div>
@@ -129,6 +129,55 @@ $(document).ready(function() {
             if (!isSubjectMain && !isSubjectChild && !isGlobalEnglish && !isProgramming) {
                 console.error("指定された科目に該当しません");
             }
+            /////////////////////////////////////
+            ///カレンダー
+            ////////////////////////////////////
+            const today = new Date();
+            const todayDay = today.getDate();
+            const todayMonth = today.getMonth() + 1;
+            const todayYear = today.getFullYear();
+            let eventFound = false;
+
+            // カレンダーの日付セルをループして今日の日付を確認
+            $('.day').each(function() {
+                const $cell = $(this);
+                const cellDay = parseInt($cell.attr('data-day'), 10);
+                const $cellLink = $cell.find('a');
+                const cellYear = parseInt($cellLink.data('year') || todayYear, 10);
+                const cellMonth = parseInt($cellLink.data('month') || todayMonth, 10);
+
+                // 今日の日付と一致する場合
+                if (cellDay === todayDay && cellMonth === todayMonth && cellYear === todayYear) {
+                    const $dayContent = $cell.find('[data-region="day-content"]');
+
+                    // HTMLを追加
+                    const html = `
+            <div class="calender-today-speech">
+                <img src="https://go.waomirai.com/l/1026513/2024-12-14/h9lsb/1026513/17342360883dgDGobr/speech_calender.png" alt="特別イベント">
+            </div>`;
+
+                    if ($dayContent.length) {
+                        $dayContent.append(html);
+
+                        // クリックイベントで要素を非表示
+                        $dayContent.on('click', '.calender-today-speech', function() {
+                            $(this).hide();
+                        });
+
+                        // li要素があるか確認
+                        if ($dayContent.find('li').length > 0) {
+                            eventFound = true;
+                            displayEvents($dayContent[0]); // displayEvents関数を実行（引数は純粋なDOM要素）
+                        }
+                    }
+                }
+            });
+
+            // 本日の授業があるかないかを表示
+            $('.dashboard-banner-text-title').text(
+                eventFound ? '本日は授業があります。' : '本日は授業はありません。'
+            );
+
         }
         if (bodyId === "page-my-index" || bodyId === "page-site-index") {
             if (!isSubjectChild && isSubjectMain) {
@@ -137,7 +186,7 @@ $(document).ready(function() {
                 $('.navbar.fixed-top').css({ "top": "70px", "position": "fixed" });
                 // bodyのpaddingを調整
                 $('body').css("padding", "70px 0 0");
-                
+
             }
         }
     }
