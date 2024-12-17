@@ -132,51 +132,65 @@ $(document).ready(function() {
             /////////////////////////////////////
             ///カレンダー
             ////////////////////////////////////
+
+            // カレンダー処理（本日の日付とイベントを確認）
             const today = new Date();
             const todayDay = today.getDate();
             const todayMonth = today.getMonth() + 1;
             const todayYear = today.getFullYear();
             let eventFound = false;
 
-            // カレンダーの日付セルをループして今日の日付を確認
+            // カレンダーの日付セルをループして、今日の授業があるか確認
             $('.day').each(function() {
                 const $cell = $(this);
                 const cellDay = parseInt($cell.attr('data-day'), 10);
                 const $cellLink = $cell.find('a');
-                const cellYear = parseInt($cellLink.data('year') || todayYear, 10);
-                const cellMonth = parseInt($cellLink.data('month') || todayMonth, 10);
+                const cellYear = parseInt($cellLink.attr('data-year') || todayYear, 10);
+                const cellMonth = parseInt($cellLink.attr('data-month') || todayMonth, 10);
 
-                // 今日の日付と一致する場合
+                // 今日の日付と一致する場合に処理実行
                 if (cellDay === todayDay && cellMonth === todayMonth && cellYear === todayYear) {
                     const $dayContent = $cell.find('[data-region="day-content"]');
 
-                    // HTMLを追加
-                    const html = `
-            <div class="calender-today-speech">
-                <img src="https://go.waomirai.com/l/1026513/2024-12-14/h9lsb/1026513/17342360883dgDGobr/speech_calender.png" alt="特別イベント">
-            </div>`;
-
+                    // 特定のHTMLを追加
                     if ($dayContent.length) {
-                        $dayContent.append(html);
+                        $dayContent.append(`
+                            <div class="calender-today-speech">
+                                <img src="https://go.waomirai.com/l/1026513/2024-12-14/h9lsb/1026513/17342360883dgDGobr/speech_calender.png" alt="特別イベント">
+                            </div>
+                        `);
 
-                        // クリックイベントで要素を非表示
+                        // クリックで要素を非表示にする
                         $dayContent.on('click', '.calender-today-speech', function() {
                             $(this).hide();
                         });
 
-                        // li要素があるか確認
-                        if ($dayContent.find('li').length > 0) {
+                        // li要素を確認してイベントを収集
+                        const $events = $dayContent.find('li a[data-action="view-event"]');
+                        const eventDetails = [];
+                        $events.each(function() {
+                            const courseName = $(this).text().trim();
+                            const courseTime = $(this).attr('data-time');
+                            eventDetails.push(courseTime ? `${courseTime} ${courseName}` : courseName);
+                        });
+
+                        // イベントがあれば詳細を表示
+                        if ($events.length > 0) {
                             eventFound = true;
-                            displayEvents($dayContent[0]); // displayEvents関数を実行（引数は純粋なDOM要素）
+                            $('.dashboard-banner-text-title').text(
+                                `本日は、「${eventDetails.join('」「')}」の授業があります。`
+                            );
+                            console.log(eventDetails); // イベント詳細を出力
                         }
                     }
                 }
             });
 
-            // 本日の授業があるかないかを表示
-            $('.dashboard-banner-text-title').text(
-                eventFound ? '本日は授業があります。' : '本日は授業はありません。'
-            );
+            // 本日授業がない場合のメッセージ表示
+            if (!eventFound) {
+                $('.dashboard-banner-text-title').text('本日は授業はありません。');
+            }
+
 
         }
         if (bodyId === "page-my-index" || bodyId === "page-site-index") {
