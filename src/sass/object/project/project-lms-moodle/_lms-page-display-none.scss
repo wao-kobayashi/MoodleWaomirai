@@ -64,7 +64,10 @@ footer.footer-popover {
 
 /* 授業詳細 */
 
-#page-mod-questionnaire-view {
+#page-mod-questionnaire-view,
+#page-mod-questionnaire-complete,
+#page-mod-questionnaire-myreport,
+#page-mod-questionnaire-report {
     .page-header-image {
         display: none;
     }
@@ -72,6 +75,12 @@ footer.footer-popover {
         >h2 {
             display: none;
         }
+    }
+    .req {
+        display: none; //必須マーク削除
+    }
+    .floatprinticon {
+        display: none !important;
     }
 }
 

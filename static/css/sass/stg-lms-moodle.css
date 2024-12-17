@@ -716,11 +716,29 @@ html[data-tenantidnumber=stg] .pagelayout-mydashboard {
 html[data-tenantidnumber=stg] .pagelayout-mydashboard #page-header {
   display: none;
 }
-html[data-tenantidnumber=stg] #page-mod-questionnaire-view .page-header-image {
+html[data-tenantidnumber=stg] #page-mod-questionnaire-view .page-header-image,
+html[data-tenantidnumber=stg] #page-mod-questionnaire-complete .page-header-image,
+html[data-tenantidnumber=stg] #page-mod-questionnaire-myreport .page-header-image,
+html[data-tenantidnumber=stg] #page-mod-questionnaire-report .page-header-image {
   display: none;
 }
-html[data-tenantidnumber=stg] #page-mod-questionnaire-view #region-main > h2 {
+html[data-tenantidnumber=stg] #page-mod-questionnaire-view #region-main > h2,
+html[data-tenantidnumber=stg] #page-mod-questionnaire-complete #region-main > h2,
+html[data-tenantidnumber=stg] #page-mod-questionnaire-myreport #region-main > h2,
+html[data-tenantidnumber=stg] #page-mod-questionnaire-report #region-main > h2 {
   display: none;
+}
+html[data-tenantidnumber=stg] #page-mod-questionnaire-view .req,
+html[data-tenantidnumber=stg] #page-mod-questionnaire-complete .req,
+html[data-tenantidnumber=stg] #page-mod-questionnaire-myreport .req,
+html[data-tenantidnumber=stg] #page-mod-questionnaire-report .req {
+  display: none;
+}
+html[data-tenantidnumber=stg] #page-mod-questionnaire-view .floatprinticon,
+html[data-tenantidnumber=stg] #page-mod-questionnaire-complete .floatprinticon,
+html[data-tenantidnumber=stg] #page-mod-questionnaire-myreport .floatprinticon,
+html[data-tenantidnumber=stg] #page-mod-questionnaire-report .floatprinticon {
+  display: none !important;
 }
 html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo .customfield,
 html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo .customfield_is_payment,
@@ -1768,28 +1786,46 @@ html[data-tenantidnumber=stg] .pagelayout-mydashboard .pagination {
   right: 30px;
   top: 47px;
 }
-html[data-tenantidnumber=stg] #page-mod-questionnaire-view.path-mod .activity-header:not(:empty), html[data-tenantidnumber=stg] #page-mod-questionnaire-complete.path-mod .activity-header:not(:empty) {
+html[data-tenantidnumber=stg] #page-mod-questionnaire-view.path-mod .activity-header:not(:empty),
+html[data-tenantidnumber=stg] #page-mod-questionnaire-complete.path-mod .activity-header:not(:empty),
+html[data-tenantidnumber=stg] #page-mod-questionnaire-myreport.path-mod .activity-header:not(:empty),
+html[data-tenantidnumber=stg] #page-mod-questionnaire-report.path-mod .activity-header:not(:empty) {
   background: none !important;
   padding: 0 !important;
   margin: 0 !important;
 }
-html[data-tenantidnumber=stg] #page-mod-questionnaire-view.path-mod .activity-information .completion-info, html[data-tenantidnumber=stg] #page-mod-questionnaire-complete.path-mod .activity-information .completion-info {
+html[data-tenantidnumber=stg] #page-mod-questionnaire-view.path-mod .activity-information .completion-info,
+html[data-tenantidnumber=stg] #page-mod-questionnaire-complete.path-mod .activity-information .completion-info,
+html[data-tenantidnumber=stg] #page-mod-questionnaire-myreport.path-mod .activity-information .completion-info,
+html[data-tenantidnumber=stg] #page-mod-questionnaire-report.path-mod .activity-information .completion-info {
   border-bottom: none !important;
 }
-html[data-tenantidnumber=stg] #page-mod-questionnaire-view .navigation, html[data-tenantidnumber=stg] #page-mod-questionnaire-complete .navigation {
+html[data-tenantidnumber=stg] #page-mod-questionnaire-view .navigation,
+html[data-tenantidnumber=stg] #page-mod-questionnaire-complete .navigation,
+html[data-tenantidnumber=stg] #page-mod-questionnaire-myreport .navigation,
+html[data-tenantidnumber=stg] #page-mod-questionnaire-report .navigation {
   max-width: 830px !important;
   margin: 0 auto;
 }
-html[data-tenantidnumber=stg] #page-mod-questionnaire-view #page-content, html[data-tenantidnumber=stg] #page-mod-questionnaire-complete #page-content {
+html[data-tenantidnumber=stg] #page-mod-questionnaire-view #page-content,
+html[data-tenantidnumber=stg] #page-mod-questionnaire-complete #page-content,
+html[data-tenantidnumber=stg] #page-mod-questionnaire-myreport #page-content,
+html[data-tenantidnumber=stg] #page-mod-questionnaire-report #page-content {
   max-width: 830px !important;
   margin: 0 auto;
 }
-html[data-tenantidnumber=stg] #page-mod-questionnaire-view .course-lesson, html[data-tenantidnumber=stg] #page-mod-questionnaire-complete .course-lesson {
+html[data-tenantidnumber=stg] #page-mod-questionnaire-view .course-lesson,
+html[data-tenantidnumber=stg] #page-mod-questionnaire-complete .course-lesson,
+html[data-tenantidnumber=stg] #page-mod-questionnaire-myreport .course-lesson,
+html[data-tenantidnumber=stg] #page-mod-questionnaire-report .course-lesson {
   position: relative;
   border-radius: 8px;
   overflow: hidden;
 }
-html[data-tenantidnumber=stg] #page-mod-questionnaire-view .course-lesson .course-lesson-wrap, html[data-tenantidnumber=stg] #page-mod-questionnaire-complete .course-lesson .course-lesson-wrap {
+html[data-tenantidnumber=stg] #page-mod-questionnaire-view .course-lesson .course-lesson-wrap,
+html[data-tenantidnumber=stg] #page-mod-questionnaire-complete .course-lesson .course-lesson-wrap,
+html[data-tenantidnumber=stg] #page-mod-questionnaire-myreport .course-lesson .course-lesson-wrap,
+html[data-tenantidnumber=stg] #page-mod-questionnaire-report .course-lesson .course-lesson-wrap {
   position: absolute;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1809,13 +1845,19 @@ html[data-tenantidnumber=stg] #page-mod-questionnaire-view .course-lesson .cours
   height: 100%;
   color: white;
 }
-html[data-tenantidnumber=stg] #page-mod-questionnaire-view .course-lesson .course-lesson-wrap .course-lesson-wrap-title, html[data-tenantidnumber=stg] #page-mod-questionnaire-complete .course-lesson .course-lesson-wrap .course-lesson-wrap-title {
+html[data-tenantidnumber=stg] #page-mod-questionnaire-view .course-lesson .course-lesson-wrap .course-lesson-wrap-title,
+html[data-tenantidnumber=stg] #page-mod-questionnaire-complete .course-lesson .course-lesson-wrap .course-lesson-wrap-title,
+html[data-tenantidnumber=stg] #page-mod-questionnaire-myreport .course-lesson .course-lesson-wrap .course-lesson-wrap-title,
+html[data-tenantidnumber=stg] #page-mod-questionnaire-report .course-lesson .course-lesson-wrap .course-lesson-wrap-title {
   font-size: 16px;
   color: white;
   font-weight: 500;
   margin: 0 auto 16px;
 }
-html[data-tenantidnumber=stg] #page-mod-questionnaire-view .course-lesson .course-lesson-wrap button, html[data-tenantidnumber=stg] #page-mod-questionnaire-complete .course-lesson .course-lesson-wrap button {
+html[data-tenantidnumber=stg] #page-mod-questionnaire-view .course-lesson .course-lesson-wrap button,
+html[data-tenantidnumber=stg] #page-mod-questionnaire-complete .course-lesson .course-lesson-wrap button,
+html[data-tenantidnumber=stg] #page-mod-questionnaire-myreport .course-lesson .course-lesson-wrap button,
+html[data-tenantidnumber=stg] #page-mod-questionnaire-report .course-lesson .course-lesson-wrap button {
   width: 340px;
   height: 60px;
   display: -webkit-box;
@@ -1841,10 +1883,16 @@ html[data-tenantidnumber=stg] #page-mod-questionnaire-view .course-lesson .cours
   padding: 0;
   border: none;
 }
-html[data-tenantidnumber=stg] #page-mod-questionnaire-view .course-lesson .course-lesson-wrap button:hover, html[data-tenantidnumber=stg] #page-mod-questionnaire-complete .course-lesson .course-lesson-wrap button:hover {
+html[data-tenantidnumber=stg] #page-mod-questionnaire-view .course-lesson .course-lesson-wrap button:hover,
+html[data-tenantidnumber=stg] #page-mod-questionnaire-complete .course-lesson .course-lesson-wrap button:hover,
+html[data-tenantidnumber=stg] #page-mod-questionnaire-myreport .course-lesson .course-lesson-wrap button:hover,
+html[data-tenantidnumber=stg] #page-mod-questionnaire-report .course-lesson .course-lesson-wrap button:hover {
   opacity: 0.7;
 }
-html[data-tenantidnumber=stg] #page-mod-questionnaire-view .course-lesson:before, html[data-tenantidnumber=stg] #page-mod-questionnaire-complete .course-lesson:before {
+html[data-tenantidnumber=stg] #page-mod-questionnaire-view .course-lesson:before,
+html[data-tenantidnumber=stg] #page-mod-questionnaire-complete .course-lesson:before,
+html[data-tenantidnumber=stg] #page-mod-questionnaire-myreport .course-lesson:before,
+html[data-tenantidnumber=stg] #page-mod-questionnaire-report .course-lesson:before {
   content: "";
   display: block;
   position: absolute;
@@ -1856,27 +1904,42 @@ html[data-tenantidnumber=stg] #page-mod-questionnaire-view .course-lesson:before
   width: 100%;
   height: 100%;
 }
-html[data-tenantidnumber=stg] #page-mod-questionnaire-view .course-lesson img, html[data-tenantidnumber=stg] #page-mod-questionnaire-complete .course-lesson img {
+html[data-tenantidnumber=stg] #page-mod-questionnaire-view .course-lesson img,
+html[data-tenantidnumber=stg] #page-mod-questionnaire-complete .course-lesson img,
+html[data-tenantidnumber=stg] #page-mod-questionnaire-myreport .course-lesson img,
+html[data-tenantidnumber=stg] #page-mod-questionnaire-report .course-lesson img {
   border-radius: 8px;
 }
-html[data-tenantidnumber=stg] #page-mod-questionnaire-view div[role=main], html[data-tenantidnumber=stg] #page-mod-questionnaire-complete div[role=main] {
+html[data-tenantidnumber=stg] #page-mod-questionnaire-view div[role=main],
+html[data-tenantidnumber=stg] #page-mod-questionnaire-complete div[role=main],
+html[data-tenantidnumber=stg] #page-mod-questionnaire-myreport div[role=main],
+html[data-tenantidnumber=stg] #page-mod-questionnaire-report div[role=main] {
   width: 100%;
-  padding: 20px 0px;
+  padding: 20px 10px;
   border: 4px solid #f0f2f3 !important;
   border-radius: 8px;
 }
-html[data-tenantidnumber=stg] #page-mod-questionnaire-view div[role=main] .mod_questionnaire_viewpage h2, html[data-tenantidnumber=stg] #page-mod-questionnaire-complete div[role=main] .mod_questionnaire_viewpage h2 {
+html[data-tenantidnumber=stg] #page-mod-questionnaire-view div[role=main] .mod_questionnaire_viewpage h2,
+html[data-tenantidnumber=stg] #page-mod-questionnaire-complete div[role=main] .mod_questionnaire_viewpage h2,
+html[data-tenantidnumber=stg] #page-mod-questionnaire-myreport div[role=main] .mod_questionnaire_viewpage h2,
+html[data-tenantidnumber=stg] #page-mod-questionnaire-report div[role=main] .mod_questionnaire_viewpage h2 {
   font-size: 20px !important;
   border-bottom: 4px #f0f2f3 solid;
   padding: 0 0 16px 0 !important;
   position: relative;
 }
-html[data-tenantidnumber=stg] #page-mod-questionnaire-view div[role=main] .mod_questionnaire_viewpage h2:after, html[data-tenantidnumber=stg] #page-mod-questionnaire-complete div[role=main] .mod_questionnaire_viewpage h2:after {
+html[data-tenantidnumber=stg] #page-mod-questionnaire-view div[role=main] .mod_questionnaire_viewpage h2:after,
+html[data-tenantidnumber=stg] #page-mod-questionnaire-complete div[role=main] .mod_questionnaire_viewpage h2:after,
+html[data-tenantidnumber=stg] #page-mod-questionnaire-myreport div[role=main] .mod_questionnaire_viewpage h2:after,
+html[data-tenantidnumber=stg] #page-mod-questionnaire-report div[role=main] .mod_questionnaire_viewpage h2:after {
   content: "課題の提出";
   line-height: 1;
   padding: 0 0 10px 40px !important;
 }
-html[data-tenantidnumber=stg] #page-mod-questionnaire-view div[role=main] .mod_questionnaire_viewpage h2:before, html[data-tenantidnumber=stg] #page-mod-questionnaire-complete div[role=main] .mod_questionnaire_viewpage h2:before {
+html[data-tenantidnumber=stg] #page-mod-questionnaire-view div[role=main] .mod_questionnaire_viewpage h2:before,
+html[data-tenantidnumber=stg] #page-mod-questionnaire-complete div[role=main] .mod_questionnaire_viewpage h2:before,
+html[data-tenantidnumber=stg] #page-mod-questionnaire-myreport div[role=main] .mod_questionnaire_viewpage h2:before,
+html[data-tenantidnumber=stg] #page-mod-questionnaire-report div[role=main] .mod_questionnaire_viewpage h2:before {
   top: -17px !important;
   width: 6px;
   height: 25px;
@@ -1890,14 +1953,92 @@ html[data-tenantidnumber=stg] #page-mod-questionnaire-view div[role=main] .mod_q
   margin: auto;
   border-radius: 4px;
 }
-html[data-tenantidnumber=stg] #page-mod-questionnaire-view div[role=main] .mod_questionnaire_viewpage .mod_questionnaire_flex-container, html[data-tenantidnumber=stg] #page-mod-questionnaire-complete div[role=main] .mod_questionnaire_viewpage .mod_questionnaire_flex-container {
+html[data-tenantidnumber=stg] #page-mod-questionnaire-view div[role=main] .mod_questionnaire_viewpage .mod_questionnaire_flex-container,
+html[data-tenantidnumber=stg] #page-mod-questionnaire-complete div[role=main] .mod_questionnaire_viewpage .mod_questionnaire_flex-container,
+html[data-tenantidnumber=stg] #page-mod-questionnaire-myreport div[role=main] .mod_questionnaire_viewpage .mod_questionnaire_flex-container,
+html[data-tenantidnumber=stg] #page-mod-questionnaire-report div[role=main] .mod_questionnaire_viewpage .mod_questionnaire_flex-container {
   padding: 30px 20px 20px;
 }
-html[data-tenantidnumber=stg] #page-mod-questionnaire-view div[role=main] .mod_questionnaire_viewpage .mod_questionnaire_flex-container .btn-primary, html[data-tenantidnumber=stg] #page-mod-questionnaire-complete div[role=main] .mod_questionnaire_viewpage .mod_questionnaire_flex-container .btn-primary {
+html[data-tenantidnumber=stg] #page-mod-questionnaire-view div[role=main] .mod_questionnaire_viewpage .mod_questionnaire_flex-container .btn-primary,
+html[data-tenantidnumber=stg] #page-mod-questionnaire-complete div[role=main] .mod_questionnaire_viewpage .mod_questionnaire_flex-container .btn-primary,
+html[data-tenantidnumber=stg] #page-mod-questionnaire-myreport div[role=main] .mod_questionnaire_viewpage .mod_questionnaire_flex-container .btn-primary,
+html[data-tenantidnumber=stg] #page-mod-questionnaire-report div[role=main] .mod_questionnaire_viewpage .mod_questionnaire_flex-container .btn-primary {
   color: #ee7a00;
   border: 1px solid #ee7a00;
   background: white !important;
   padding: 10px 15px;
+}
+html[data-tenantidnumber=stg] #page-mod-questionnaire-view .surveyTitle,
+html[data-tenantidnumber=stg] #page-mod-questionnaire-complete .surveyTitle,
+html[data-tenantidnumber=stg] #page-mod-questionnaire-myreport .surveyTitle,
+html[data-tenantidnumber=stg] #page-mod-questionnaire-report .surveyTitle {
+  padding: 2px 12px 15px !important;
+}
+html[data-tenantidnumber=stg] #page-mod-questionnaire-view .qn-container,
+html[data-tenantidnumber=stg] #page-mod-questionnaire-complete .qn-container,
+html[data-tenantidnumber=stg] #page-mod-questionnaire-myreport .qn-container,
+html[data-tenantidnumber=stg] #page-mod-questionnaire-report .qn-container {
+  margin: 0 0 30px;
+}
+html[data-tenantidnumber=stg] #page-mod-questionnaire-view .qn-container .qn-content,
+html[data-tenantidnumber=stg] #page-mod-questionnaire-complete .qn-container .qn-content,
+html[data-tenantidnumber=stg] #page-mod-questionnaire-myreport .qn-container .qn-content,
+html[data-tenantidnumber=stg] #page-mod-questionnaire-report .qn-container .qn-content {
+  margin-left: 55px !important;
+}
+html[data-tenantidnumber=stg] #page-mod-questionnaire-view .qn-container .qn-info,
+html[data-tenantidnumber=stg] #page-mod-questionnaire-complete .qn-container .qn-info,
+html[data-tenantidnumber=stg] #page-mod-questionnaire-myreport .qn-container .qn-info,
+html[data-tenantidnumber=stg] #page-mod-questionnaire-report .qn-container .qn-info {
+  width: 30px;
+  height: 30px;
+  border-radius: 100px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 12px !important;
+  color: #4d4d4d !important;
+  margin: 5px 0 0;
+}
+html[data-tenantidnumber=stg] #page-mod-questionnaire-view .qn-container .qn-legend,
+html[data-tenantidnumber=stg] #page-mod-questionnaire-complete .qn-container .qn-legend,
+html[data-tenantidnumber=stg] #page-mod-questionnaire-myreport .qn-container .qn-legend,
+html[data-tenantidnumber=stg] #page-mod-questionnaire-report .qn-container .qn-legend {
+  margin: 0 0 0 13px;
+}
+html[data-tenantidnumber=stg] #page-mod-questionnaire-view .qn-container .qn-question,
+html[data-tenantidnumber=stg] #page-mod-questionnaire-complete .qn-container .qn-question,
+html[data-tenantidnumber=stg] #page-mod-questionnaire-myreport .qn-container .qn-question,
+html[data-tenantidnumber=stg] #page-mod-questionnaire-report .qn-container .qn-question {
+  background: white;
+  padding: 0 !important;
+}
+html[data-tenantidnumber=stg] #page-mod-questionnaire-view .mod_questionnaire_controlbuttons,
+html[data-tenantidnumber=stg] #page-mod-questionnaire-complete .mod_questionnaire_controlbuttons,
+html[data-tenantidnumber=stg] #page-mod-questionnaire-myreport .mod_questionnaire_controlbuttons,
+html[data-tenantidnumber=stg] #page-mod-questionnaire-report .mod_questionnaire_controlbuttons {
+  text-align: left !important;
+}
+html[data-tenantidnumber=stg] #page-mod-questionnaire-view .control-button-submit,
+html[data-tenantidnumber=stg] #page-mod-questionnaire-view .btn-secondary,
+html[data-tenantidnumber=stg] #page-mod-questionnaire-complete .control-button-submit,
+html[data-tenantidnumber=stg] #page-mod-questionnaire-complete .btn-secondary,
+html[data-tenantidnumber=stg] #page-mod-questionnaire-myreport .control-button-submit,
+html[data-tenantidnumber=stg] #page-mod-questionnaire-myreport .btn-secondary,
+html[data-tenantidnumber=stg] #page-mod-questionnaire-report .control-button-submit,
+html[data-tenantidnumber=stg] #page-mod-questionnaire-report .btn-secondary {
+  float: none !important;
+  margin: 0 0 30px 55px;
+  background: #005C3F;
+  border: none !important;
+  padding: 8px 20px;
+  color: white !important;
 }
 html[data-tenantidnumber=stg] #page-enrol-index .enrol_fee_payment_region {
   right: calc(50vw - 560px);
