@@ -200,6 +200,9 @@ $(document).ready(function() {
 
 
         }
+        // ==============================
+        // トップページの処理
+        // ==============================
         if (bodyId === "page-my-index" || bodyId === "page-site-index") {
             if (!isSubjectChild && isSubjectMain) {
                 $('.header-banner.alert-setting-level').css("display", "flex");
@@ -208,6 +211,26 @@ $(document).ready(function() {
                 // bodyのpaddingを調整
                 $('body').css("padding", "70px 0 0");
 
+            }
+        }
+
+
+
+        // ==============================
+        //メイン3科目or2,3科目パック購入後はリダイレクトさせる
+        // ==============================
+        if (bodyId === "page-course-view-flexsections") {
+            const courseId = parseInt(window.location.href.split("id=")[1], 10); // URLからidを取得
+            const matchedSubject = Object.values(SubjectIds).find(subject => subject.id === courseId);
+
+            if (matchedSubject) {
+                $("body").prepend(`
+                <div class="subject-banner">
+                    <h1>${matchedSubject.name}のコースページです</h1>
+                </div>
+            `);
+            } else {
+                console.error("指定された科目に該当しません");
             }
         }
     }
