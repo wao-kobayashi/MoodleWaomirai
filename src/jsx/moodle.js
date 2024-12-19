@@ -30,13 +30,13 @@ if (bodyId === "page-my-index") {
             `https://lms.waomirai.com/admin/tool/catalogue/courseinfo.php?id=${subject.id}` :
             `https://lms.waomirai.com/course/view.php?id=${subject.id}`;
         return `
-            <div class="dashboard-left-block-subject-child">
-                <div class="dashboard-left-block-subject-child-icon">${icon}</div>
-                <div class="dashboard-left-block-subject-child-text">
-                    <a href="${courseLink}" target="_blank">${subject.name}</a>
+                <div class="dashboard-left-block-subject-child">
+                    <div class="dashboard-left-block-subject-child-icon">${icon}</div>
+                    <div class="dashboard-left-block-subject-child-text">
+                        <a href="${courseLink}" target="_blank">${subject.name}</a>
+                    </div>
                 </div>
-            </div>
-        `;
+            `;
     }
 
     // アイコンの取得（SubjectMain & SubjectChild 用）
@@ -94,24 +94,24 @@ if (bodyId === "page-my-index") {
         console.error("指定された科目に該当しません");
         // 特定のHTMLを指定要素に挿入する
         const errorHtml = `
-        <div class="dashboard-left-block-subject-child">
-            <p>受講している科目がありません。</p>
-        </div>
-    `;
+            <div class="dashboard-left-block-subject-child">
+                <p>受講している科目がありません。</p>
+            </div>
+        `;
         $('.dashboard-left-block-wrap.dashboard-left-block-wrap-subject').html(errorHtml); // 挿入先要素（例: .target-container）にHTMLを挿入
     }
     /////////////////////////////////////
     ///カレンダー
     ////////////////////////////////////
-
-    // カレンダー処理（本日の日付とイベントを確認）
     const today = new Date();
     const todayDay = today.getDate();
     const todayMonth = today.getMonth() + 1;
     const todayYear = today.getFullYear();
     let eventFound = false;
+    let maxEventCount = 0; // 最大イベント数を保持する変数
+    let eventDetails = []; // イベント詳細を保持する配列
 
-    // カレンダーの日付セルをループして、今日の授業があるか確認
+    // カレンダーの日付セルをループして、各セルのイベント数を確認
     $('.day').each(function() {
         const $cell = $(this);
         const cellDay = parseInt($cell.attr('data-day'), 10);
@@ -119,11 +119,18 @@ if (bodyId === "page-my-index") {
         const cellYear = parseInt($cellLink.attr('data-year') || todayYear, 10);
         const cellMonth = parseInt($cellLink.attr('data-month') || todayMonth, 10);
 
+        // li要素を確認してイベントを収集
+        const $dayContent = $cell.find('[data-region="day-content"]');
+        const $events = $dayContent.find('li a[data-action="view-event"]');
+
+        // イベント数をconsole.logで出力
+        if ($events.length > 0) {
+            console.log(`${cellMonth}月${cellDay}日のイベント数: ${$events.length}`);
+        }
+
         // 今日の日付と一致する場合に処理実行
         if (cellDay === todayDay && cellMonth === todayMonth && cellYear === todayYear) {
-            const $dayContent = $cell.find('[data-region="day-content"]');
-
-            // 特定のHTMLを追加
+            // 今日にイベントがあれば、特定のHTMLを追加
             if ($dayContent.length) {
                 $dayContent.append(`
                     <div class="calender-today-speech">
@@ -136,31 +143,59 @@ if (bodyId === "page-my-index") {
                     $(this).hide();
                 });
 
-                // li要素を確認してイベントを収集
-                const $events = $dayContent.find('li a[data-action="view-event"]');
-                const eventDetails = [];
-                $events.each(function() {
-                    const courseName = $(this).text().trim();
-                    const courseTime = $(this).attr('data-time');
-                    eventDetails.push(courseTime ? `${courseTime} ${courseName}` : courseName);
-                });
-
-                // イベントがあれば詳細を表示
+                // イベントがあれば詳細を収集
                 if ($events.length > 0) {
                     eventFound = true;
-                    $('.dashboard-banner-text-title').text(
-                        `本日は、「${eventDetails.join('」「')}」の授業があります。`
-                    );
-                    console.log(eventDetails); // イベント詳細を出力
+                    // イベント詳細を収集
+                    $events.each(function() {
+                        const courseName = $(this).text().trim();
+                        const courseTime = $(this).attr('data-time');
+                        eventDetails.push(courseTime ? `${courseTime} ${courseName}` : courseName);
+                    });
+                    console.log(`今日のイベント詳細: ${eventDetails.join('」「')}`); // イベント詳細を表示
                 }
             }
         }
+
+        // 最大イベント数を更新
+        const eventCount = $events.length;
+        maxEventCount = Math.max(maxEventCount, eventCount); // 最大数を更新
+        console.log(`${cellMonth}月${cellDay}日のイベント数: ${eventCount}`); // 各日のイベント数を確認
     });
 
+    // 最大イベント数に応じてheadにスタイルを追加
+    let height = '6.5em'; // デフォルト高さ
+    if (maxEventCount === 0) {
+        height = '7.5em'; // maxEventCountが0の場合のスタイル
+    } else if (maxEventCount === 1) {
+        height = '7.5em';
+    } else if (maxEventCount === 2) {
+        height = '7.5em';
+    } else if (maxEventCount >= 3) {
+        height = '10em';
+    }
+
+    // headにスタイルを追加
+    $('head').append(`
+        <style>
+            .pagelayout-mydashboard .calendarwrapper td > div {
+                height: ${height} !important;
+            }
+        </style>
+    `);
+
     // 本日授業がない場合のメッセージ表示
-    if (!eventFound) {
+    if (eventFound) {
+        $('.dashboard-banner-text-title').text(
+            `本日は、「${eventDetails.join('」「')}」の授業があります。`
+        );
+    } else {
         $('.dashboard-banner-text-title').text('本日は授業はありません。');
     }
+
+
+
+
 
 
 }
@@ -218,9 +253,9 @@ if (bodyId === "page-login-signup") {
     const $loginWrapper = $(".login-wrapper");
     if ($loginWrapper.length) {
         const signupLogoHtml = `
-                <div class="signup-logo">
-                    <img src="https://go.waomirai.com/l/1026513/2023-11-16/gddzt/1026513/1700192228BDlbz92f/logo_basic_white.png" style="width: 100%;">
-                </div>`;
+                    <div class="signup-logo">
+                        <img src="https://go.waomirai.com/l/1026513/2023-11-16/gddzt/1026513/1700192228BDlbz92f/logo_basic_white.png" style="width: 100%;">
+                    </div>`;
         $loginWrapper.before(signupLogoHtml);
     }
 }
@@ -240,10 +275,10 @@ if (bodyId === "page-enrol-index") {
     const $buttonElement = $(".enrol_fee_payment_region button");
     if ($buttonElement.length) {
         const customDivHtml = `
-                <div class="page-enrol-set-discount">
-                    <p>セット受講割引でお得！</p>
-                    <p><a href='#'>詳細を見る</a></p>
-                </div>`;
+                    <div class="page-enrol-set-discount">
+                        <p>セット受講割引でお得！</p>
+                        <p><a href='#'>詳細を見る</a></p>
+                    </div>`;
         $buttonElement.after(customDivHtml);
     }
 }
@@ -267,10 +302,10 @@ if (bodyId === "page-course-view-flexsections") {
 
     if (matchedSubject) {
         $("body").prepend(`
-        <div class="subject-banner">
-            <h1>${matchedSubject.name}のコースページです</h1>
-        </div>
-    `);
+            <div class="subject-banner">
+                <h1>${matchedSubject.name}のコースページです</h1>
+            </div>
+        `);
     } else {
         console.error("指定された科目に該当しません");
     }

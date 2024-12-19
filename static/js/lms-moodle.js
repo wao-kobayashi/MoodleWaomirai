@@ -141,6 +141,7 @@ $(document).ready(function() {
             ////////////////////////////////////
 
             // カレンダー処理（本日の日付とイベントを確認）
+
             const today = new Date();
             const todayDay = today.getDate();
             const todayMonth = today.getMonth() + 1;
@@ -188,6 +189,8 @@ $(document).ready(function() {
                                 `本日は、「${eventDetails.join('」「')}」の授業があります。`
                             );
                             console.log(eventDetails); // イベント詳細を出力
+                            console.log($events); // イベント要素全体を出力
+                            console.log(`取得したイベント数: ${$events.length}`);
                         }
                     }
                 }
@@ -197,6 +200,7 @@ $(document).ready(function() {
             if (!eventFound) {
                 $('.dashboard-banner-text-title').text('本日は授業はありません。');
             }
+
 
 
         }

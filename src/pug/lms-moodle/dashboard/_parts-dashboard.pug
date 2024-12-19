@@ -82,7 +82,9 @@
             #yui_3_18_1_1_1732844965795_23.card-body.p-3
               h5#instance-255-header.card-title.d-inline &#x30AB;&#x30EC;&#x30F3;&#x30C0;&#x30FC;
               case calender
-               when 'events-include'
-                 include _parts-calender-include-event.pug
                when 'events-none'
                  include _parts-calender-none-event.pug
+               when 'events-one'
+                 include _parts-calender-include-event-one.pug
+               when 'events-include'
+                 include _parts-calender-include-event.pug

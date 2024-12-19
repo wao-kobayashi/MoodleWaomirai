@@ -1292,9 +1292,6 @@ html[data-tenantidnumber=stg] .pagelayout-mydashboard .block_html .dashboard-ban
 html[data-tenantidnumber=stg] .pagelayout-mydashboard .block_html .dashboard-banner .dashboard-banner-right a {
   background: #005C3F;
 }
-html[data-tenantidnumber=stg] .pagelayout-mydashboard .calendarwrapper td > div {
-  height: 10em !important;
-}
 html[data-tenantidnumber=stg] .pagelayout-mydashboard {
   background: #f0f2f3 !important;
 }
