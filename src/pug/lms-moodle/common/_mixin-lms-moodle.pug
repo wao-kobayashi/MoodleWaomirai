@@ -1,12 +1,12 @@
-//- tenantを設定 ('stg' または 'lms')
-- var tenant = 'stg'; // ここで 'stg' または 'lms' を設定
+
 
 //- tenantに応じてURLを設定
-- var helppage = tenant === 'stg' ? 'https://lms.waomirai.com/admin/tool/catalogue/courseinfo.php?id=230' : tenant === 'lms' ? 'https://a.example.com/helppage' : undefined
+- var helppage = env === 'stg' ? 'https://lms.waomirai.com/admin/tool/catalogue/courseinfo.php?id=230' : env === 'lms' ? 'https://a.example.com/helppage' : undefined
 
 //5教科購入
-- var link_philosophy = tenant === 'stg' ? 'https://lms.waomirai.com/enrol/index.php?id=232' : tenant === 'lms' ? 'https://a.example.com/mainpage' : undefined
-- var link_science = tenant === 'stg' ? 'https://lms.waomirai.com/enrol/index.php?id=211' : tenant === 'lms' ? 'https://a.example.com/mainpage' : undefined
-- var link_economiy = tenant === 'stg' ? 'https://lms.waomirai.com/enrol/index.php?id=233' : tenant === 'lms' ? 'https://a.example.com/mainpage' : undefined
-- var link_english = tenant === 'stg' ? 'https://lms.waomirai.com/enrol/index.php?id=236' : tenant === 'lms' ? 'https://a.example.com/mainpage' : undefined
-- var link_programming = tenant === 'stg' ? 'https://lms.waomirai.com/enrol/index.php?id=235' : tenant === 'lms' ? 'https://a.example.com/mainpage' : undefined
+- var link_philosophy = env === 'stg' ? 'https://lms.waomirai.com/enrol/index.php?id=232' : env === 'lms' ? 'https://a.example.com/mainpage' : undefined
+- var link_science = env === 'stg' ? 'https://lms.waomirai.com/enrol/index.php?id=211' : env === 'lms' ? 'https://a.example.com/mainpage' : undefined
+- var link_economiy = env === 'stg' ? 'https://lms.waomirai.com/enrol/index.php?id=233' : env === 'lms' ? 'https://a.example.com/mainpage' : undefined
+- var link_english = env === 'stg' ? 'https://lms.waomirai.com/enrol/index.php?id=236' : env === 'lms' ? 'https://a.example.com/mainpage' : undefined
+- var link_programming = env === 'stg' ? 'https://lms.waomirai.com/enrol/index.php?id=235' : env === 'lms' ? 'https://a.example.com/mainpage' : undefined
+

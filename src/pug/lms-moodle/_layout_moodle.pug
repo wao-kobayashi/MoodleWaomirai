@@ -1,6 +1,6 @@
 doctype html
 include common/_mixin-lms-moodle.pug
-html(dir="ltr", lang="ja", xml:lang="ja", data-tenantid="2", data-tenantidnumber="stg")
+html(dir="ltr", lang="ja", xml:lang="ja", data-tenantid=(env == 'stg' ? '2' : '3'), data-tenantidnumber=env)
   head
     block variables 
     //- title #{status}
@@ -15,11 +15,18 @@ html(dir="ltr", lang="ja", xml:lang="ja", data-tenantid="2", data-tenantidnumber
     //css
     link(rel="stylesheet", type="text/css", href="https://lms.waomirai.com/theme/workplace/wpcss.php/kenai/1732783105_1/all-2-1713164957")
     //css
-    link(href="../../static/css/sass/stg-lms-moodle.css", rel="stylesheet")    
-    link(href="../static/css/sass/stg-lms-moodle.css", rel="stylesheet")
+    link(href="../../static/css/sass/stg-moodle.css", rel="stylesheet")    
+    link(href="../static/css/sass/stg-moodle.css", rel="stylesheet")
+    link(href="../../static/css/sass/lms-moodle.css", rel="stylesheet")    
+    link(href="../static/css/sass/lms-moodle.css", rel="stylesheet")
     script(src="https://code.jquery.com/jquery-3.3.1.js")
-    script(src="../../static/js/lms-moodle.js")
-    script(src="../static/js/lms-moodle.js")
+    case env
+      when 'stg'
+        script(src="../../static/js/stg.js")
+        script(src="../static/js/stg.js")
+      when 'lmswaomirai'
+        script(src="../../static/js/lmswaomirai.js")
+        script(src="../static/js/lmswaomirai.js")
     script.
       //<![CDATA[
       var M = {}; M.yui = {};
