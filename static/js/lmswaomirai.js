@@ -58,6 +58,25 @@ if (bodyId === "page-my-index") {
     ////////////////////////////
     // 受講中科目の処理
     ////////////////////////////
+    // $(".instance-282-header").on("click", function() {
+    //     // a[data-event-id="479"]をクリック
+    //     $("a[data-event-id='479']").trigger("click");
+    // });
+    $("#instance-282-header").on("click", function() {
+        alert('a');
+        // a[data-event-id="479"]をクリック
+        // $("li#yui_3_18_1_1_1734662794127_232").hide();
+        $(".today li[data-region='event-item']").click();
+        // $("#yui_3_18_1_1_1734662477888_160").trigger("click");
+    });
+
+    $("#instance-255-header").on("click", function() {
+        alert('a');
+        // a[data-event-id="479"]をクリック
+        // $("li#yui_3_18_1_1_1734662794127_232").hide();
+        $(".today li[data-region='event-item']").click();
+        // $("#yui_3_18_1_1_1734662477888_160").trigger("click");
+    });
 
     function renderSubject(subject, icon, isSubjectMain) {
         // SubjectMain の場合のリンクを変更
@@ -147,7 +166,7 @@ if (bodyId === "page-my-index") {
     let eventFound = false;
 
     // .todays-event コンテナを初期化
-    const $todaysEventContainer = $('.footer');
+    const $todaysEventContainer = $('#instance-255-header');
     console.log('todays-event セレクタ:', $todaysEventContainer);
 
     if ($todaysEventContainer.length === 0) {
@@ -180,9 +199,9 @@ if (bodyId === "page-my-index") {
 
             // 特定のHTMLを追加
             $dayContent.append(`
-            <div class="calender-today-speech">
-                <img src="https://go.waomirai.com/l/1026513/2024-12-14/h9lsb/1026513/17342360883dgDGobr/speech_calender.png" alt="特別イベント">
-            </div>
+        <div class="calender-today-speech">
+            <img src="https://go.waomirai.com/l/1026513/2024-12-14/h9lsb/1026513/17342360883dgDGobr/speech_calender.png" alt="特別イベント">
+        </div>
         `);
             console.log('特別イベントのHTMLを追加しました。');
 
@@ -211,11 +230,28 @@ if (bodyId === "page-my-index") {
 
                 // イベントを .todays-event に追加
                 $events.each(function(eventIndex) {
-                    const $eventItem = $(this).clone();
-                    console.log(`クローンするイベント ${eventIndex}:`, $eventItem);
+                    const $originalEvent = $(this).closest('li'); // 元の li 要素を取得
+                    const $eventClone = $originalEvent.clone(); // li 要素をクローン
 
-                    // 要素を追加
-                    $todaysEventContainer.append($eventItem);
+                    console.log(`クローンするイベント ${eventIndex}:`, $eventClone);
+
+                    // クローン要素のクリック処理
+                    $eventClone.on('click', function(event) {
+                        event.preventDefault(); // デフォルトのリンク動作を無効化
+                        console.log('クローン要素がクリックされました:', $eventClone);
+
+                        // 元の li 要素のリンクを発火
+                        const $originalLink = $originalEvent.find('a[data-action="view-event"]');
+                        if ($originalLink.length > 0) {
+                            console.log('元の要素のクリックイベントを発火します:', $originalLink);
+                            $originalLink.trigger("click");
+                        } else {
+                            console.warn('対応するリンクが見つかりません。');
+                        }
+                    });
+
+                    // クローンした要素を表示用コンテナに追加
+                    $todaysEventContainer.append($eventClone);
 
                     // 追加後の状態確認
                     console.log('.todays-event の内容 (追加後):', $todaysEventContainer.html());
@@ -236,6 +272,7 @@ if (bodyId === "page-my-index") {
         $todaysEventContainer.text('本日はイベントはありません。');
         console.log('本日は授業がありません。');
     }
+
 
 
 
