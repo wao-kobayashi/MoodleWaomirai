@@ -146,6 +146,19 @@ if (bodyId === "page-my-index") {
     const todayYear = today.getFullYear();
     let eventFound = false;
 
+    // .todays-event コンテナを初期化
+    const $todaysEventContainer = $('.footer');
+    console.log('todays-event セレクタ:', $todaysEventContainer);
+
+    if ($todaysEventContainer.length === 0) {
+        console.error('.todays-event 要素が見つかりません。セレクタを確認してください。');
+    } else {
+        console.log('.todays-event 初期化前:', $todaysEventContainer.html());
+    }
+
+    $todaysEventContainer.empty();
+    console.log('.todays-event 初期化後:', $todaysEventContainer.html());
+
     // カレンダーの日付セルをループして、今日の授業があるか確認
     $('.day').each(function() {
         const $cell = $(this);
@@ -156,38 +169,63 @@ if (bodyId === "page-my-index") {
 
         // 今日の日付と一致する場合に処理実行
         if (cellDay === todayDay && cellMonth === todayMonth && cellYear === todayYear) {
+            console.log('今日の日付に一致しました:', { cellDay, cellMonth, cellYear });
+
             const $dayContent = $cell.find('[data-region="day-content"]');
+            if ($dayContent.length === 0) {
+                console.warn('data-region="day-content" が見つかりません。');
+                return;
+            }
+            console.log('今日のデータがあります。data-region="day-content" が見つかりました。');
 
             // 特定のHTMLを追加
-            if ($dayContent.length) {
-                $dayContent.append(`
-                    <div class="calender-today-speech">
-                        <img src="https://go.waomirai.com/l/1026513/2024-12-14/h9lsb/1026513/17342360883dgDGobr/speech_calender.png" alt="特別イベント">
-                    </div>
-                `);
+            $dayContent.append(`
+            <div class="calender-today-speech">
+                <img src="https://go.waomirai.com/l/1026513/2024-12-14/h9lsb/1026513/17342360883dgDGobr/speech_calender.png" alt="特別イベント">
+            </div>
+        `);
+            console.log('特別イベントのHTMLを追加しました。');
 
-                // クリックで要素を非表示にする
-                $dayContent.on('click', '.calender-today-speech', function() {
-                    $(this).hide();
+            // クリックで要素を非表示にする
+            $dayContent.on('click', '.calender-today-speech', function() {
+                $(this).hide();
+            });
+
+            // li要素を確認してイベントを収集
+            const $events = $dayContent.find('li a[data-action="view-event"]');
+            console.log('イベント要素を取得:', $events);
+
+            const eventDetails = [];
+            $events.each(function(eventIndex) {
+                const courseName = $(this).text().trim();
+                const courseTime = $(this).attr('data-time');
+                eventDetails.push(courseTime ? `${courseTime} ${courseName}` : courseName);
+
+                console.log(`イベント ${eventIndex}:`, { courseName, courseTime });
+            });
+
+            // イベントがあれば詳細を表示
+            if ($events.length > 0) {
+                eventFound = true;
+                console.log('イベントが見つかりました:', eventDetails);
+
+                // イベントを .todays-event に追加
+                $events.each(function(eventIndex) {
+                    const $eventItem = $(this).clone();
+                    console.log(`クローンするイベント ${eventIndex}:`, $eventItem);
+
+                    // 要素を追加
+                    $todaysEventContainer.append($eventItem);
+
+                    // 追加後の状態確認
+                    console.log('.todays-event の内容 (追加後):', $todaysEventContainer.html());
                 });
 
-                // li要素を確認してイベントを収集
-                const $events = $dayContent.find('li a[data-action="view-event"]');
-                const eventDetails = [];
-                $events.each(function() {
-                    const courseName = $(this).text().trim();
-                    const courseTime = $(this).attr('data-time');
-                    eventDetails.push(courseTime ? `${courseTime} ${courseName}` : courseName);
-                });
-
-                // イベントがあれば詳細を表示
-                if ($events.length > 0) {
-                    eventFound = true;
-                    $('.dashboard-banner-text-title').text(
-                        `本日は、「${eventDetails.join('」「')}」の授業があります。`
-                    );
-                    console.log(eventDetails); // イベント詳細を出力
-                }
+                // ダッシュボードメッセージを更新
+                $('.dashboard-banner-text-title').text(
+                    `本日は、「${eventDetails.join('」「')}」の授業があります。`
+                );
+                console.log('ダッシュボードメッセージを更新しました。');
             }
         }
     });
@@ -195,7 +233,10 @@ if (bodyId === "page-my-index") {
     // 本日授業がない場合のメッセージ表示
     if (!eventFound) {
         $('.dashboard-banner-text-title').text('本日は授業はありません。');
+        $todaysEventContainer.text('本日はイベントはありません。');
+        console.log('本日は授業がありません。');
     }
+
 
 
 }
