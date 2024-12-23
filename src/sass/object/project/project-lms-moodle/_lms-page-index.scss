@@ -66,6 +66,7 @@
     }
     //step
     .lms-index-contents-block-step {
+        overflow: hidden;
         display: grid;
         grid-template-columns: 1fr 40px 1fr 40px 1fr;
         /* 固定幅と可変幅を指定 */
