@@ -168,6 +168,7 @@ if (bodyId === "page-my-index") {
         const todayYear = today.getFullYear();
         let eventFound = false;
         let eventDetails = [];
+        let flagTodaysCalendar = false;
 
         // .calendarwrapper内のロジックを実行（全イベントに色変更を適用）
         $('.day').each(function() {
@@ -183,7 +184,6 @@ if (bodyId === "page-my-index") {
                 $events.each(function() {
                     const $eventLink = $(this);
                     const courseName = $eventLink.text().trim();
-
                     console.log(`Course Name: ${courseName}`);
 
                     // 色変更ロジック
@@ -206,7 +206,7 @@ if (bodyId === "page-my-index") {
             }
 
             // 今日の日付に一致するイベントがあれば、そのイベント詳細を収集
-            if (cellDay === todayDay && cellMonth === todayMonth && cellYear === todayYear) {
+            if (cellDay === todayDay) {
                 console.log('今日の日付に一致しました:', { cellDay, cellMonth, cellYear });
 
                 const $dayContent = $cell.find('[data-region="day-content"]');
@@ -224,14 +224,21 @@ if (bodyId === "page-my-index") {
         });
 
         // 今日のイベントがあればダッシュボードメッセージを更新
-        if (eventFound) {
-            $('.dashboard-banner-text-title').text(
-                `本日は、「${eventDetails.join('」「')}」の授業があります。`
-            );
-            console.log('ダッシュボードメッセージを更新しました。');
-        } else {
-            $('.dashboard-banner-text-title').text('本日は授業はありません。');
-            console.log('本日は授業がありません。');
+        if (!flagTodaysCalendar) {
+            let message = '本日は授業はありません。'; // デフォルトメッセージ
+
+            if (eventFound) {
+                message = `本日は、「${eventDetails.join('」「')}」の授業があります。`;
+                console.log('ダッシュボードメッセージを更新しました。');
+            } else {
+                console.log('本日は授業がありません。');
+            }
+
+            // メッセージをダッシュボードに設定
+            $('.dashboard-banner-text-title').text(message);
+
+            // 今日のカレンダーが見つかったことを示すフラグを設定
+            flagTodaysCalendar = true;
         }
     }
 
