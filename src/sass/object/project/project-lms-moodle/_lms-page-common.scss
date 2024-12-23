@@ -18,7 +18,7 @@ body {
     p {
         margin: 0 0px 0 16px;
         @include responsive-style(768px) {
-            margin: 16px 0px 0px 10px;
+            margin: 16px 0px 0px 16px;
         }
         font-size: $lms-font-size-m !important;
         color: $cl-gray !important;
@@ -119,6 +119,23 @@ body {
     //     background: $cl-waogreen;
     //     color: white;
     // }
+}
+
+.btn-primary {
+    background: $cl-waogreen !important;
+    border: none;
+}
+
+.btn-secondary {
+    background: white !important;
+    border: 1px solid $cl-waogreen;
+    color: $cl-waogreen;
+}
+
+#page-login-index footer.footer-popover {
+    @include responsive-style(768px) {
+        padding: 0 0 210px !important;
+    }
 }
 
 footer.footer-popover {

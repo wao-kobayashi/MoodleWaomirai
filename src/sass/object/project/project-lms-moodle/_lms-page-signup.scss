@@ -25,12 +25,19 @@ footer {
             padding: 46px 0 0 !important;
         }
     }
-    .login-form-submit {
-        .btn-primary {
-            background: $cl-waogreen !important;
-            border: none;
+    .login-container {
+        @include lms-boxshadow;
+        @include responsive-style(768px) {
+            padding: 24px 24px 32px!important;
         }
     }
+    .login-form-forgotpassword a {
+        color: $cl-waogreen;
+    }
+    // .btn-secondary {
+    //     @extend .btn-primary;
+    //     color: white;
+    // }
 }
 
 #page-login-signup {

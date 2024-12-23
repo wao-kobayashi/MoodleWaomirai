@@ -288,6 +288,24 @@ if (bodyId === "page-login-signup") {
         $loginWrapper.before(signupLogoHtml);
     }
 }
+if (bodyId === "page-login-index") {
+
+    const cookiekeywords = ["ブラウザのクッキーを"];
+
+    cookiekeywords.forEach(keyword => {
+        $("*:contains('" + keyword + "')").filter(function() {
+            return $(this).children().length === 0; // 子要素を持たないテキストノードだけ対象
+        }).closest("div").css("display", "none");
+    });
+    const moodlekeywords = ["Moodle", "Powered by"];
+
+    moodlekeywords.forEach(keyword => {
+        $("*:contains('" + keyword + "')").filter(function() {
+            return $(this).children().length === 0; // 子要素を持たないテキストノードだけ対象
+        }).closest("*").css("display", "none");
+    });
+
+}
 
 // ==============================
 // ログイン確認ページの処理

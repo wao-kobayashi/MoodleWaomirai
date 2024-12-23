@@ -133,7 +133,7 @@ html[data-tenantidnumber=stg] .footer-section p {
 }
 @media screen and (max-width: 768px) {
   html[data-tenantidnumber=stg] .footer-section p {
-    margin: 16px 0px 0px 10px;
+    margin: 16px 0px 0px 16px;
   }
 }
 html[data-tenantidnumber=stg] .footer-section p a {
@@ -233,6 +233,20 @@ html[data-tenantidnumber=stg] .header-banner .header-banner-right a:hover {
   text-decoration: none !important;
   opacity: 0.7;
 }
+html[data-tenantidnumber=stg] .btn-primary {
+  background: #005C3F !important;
+  border: none;
+}
+html[data-tenantidnumber=stg] .btn-secondary {
+  background: white !important;
+  border: 1px solid #005C3F;
+  color: #005C3F;
+}
+@media screen and (max-width: 768px) {
+  html[data-tenantidnumber=stg] #page-login-index footer.footer-popover {
+    padding: 0 0 210px !important;
+  }
+}
 html[data-tenantidnumber=stg] footer.footer-popover {
   width: 100% !important;
   max-width: 100% !important;
@@ -314,9 +328,17 @@ html[data-tenantidnumber=stg] footer {
 html[data-tenantidnumber=stg] #page-login-index footer.footer-popover .footer-section.p-3 {
   padding: 46px 0 0 !important;
 }
-html[data-tenantidnumber=stg] #page-login-index .login-form-submit .btn-primary {
-  background: #005C3F !important;
-  border: none;
+html[data-tenantidnumber=stg] #page-login-index .login-container {
+  -webkit-box-shadow: 0px 4px 6px rgba(0, 0, 0, .15) !important;
+          box-shadow: 0px 4px 6px rgba(0, 0, 0, .15) !important;
+}
+@media screen and (max-width: 768px) {
+  html[data-tenantidnumber=stg] #page-login-index .login-container {
+    padding: 24px 24px 32px !important;
+  }
+}
+html[data-tenantidnumber=stg] #page-login-index .login-form-forgotpassword a {
+  color: #005C3F;
 }
 html[data-tenantidnumber=stg] #page-login-signup {
   background: white;
@@ -969,7 +991,14 @@ html[data-tenantidnumber=stg] #page-login-index footer.footer-popover div.footer
 html[data-tenantidnumber=stg] #page-login-index footer.footer-popover .container div:nth-child(3) {
   display: block !important;
 }
-html[data-tenantidnumber=stg] #page-login-index #theme_switch_link {
+@media screen and (max-width: 768px) {
+  html[data-tenantidnumber=stg] #page-login-index footer.footer-popover .container div.footer-popover div:nth-child(3),
+  html[data-tenantidnumber=stg] #page-login-index footer.footer-popover div.footer-popover div:nth-child(3),
+  html[data-tenantidnumber=stg] #page-login-index footer.footer-popover .container div:nth-child(3) {
+    display: none !important;
+  }
+}
+html[data-tenantidnumber=stg] #theme_switch_link {
   display: none !important;
 }
 html[data-tenantidnumber=stg] .pagelayout-frontpage div[role=main] {

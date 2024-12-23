@@ -134,11 +134,15 @@ footer.footer-popover {
             }
             div:nth-child(3) {
                 display: block !important;
+                @include responsive-style(768px) {
+                    display: none !important;
+                }
             }
         }
     }
-    //テーマスイッチを削除
-    #theme_switch_link {
-        display: none !important;
-    }
+}
+
+//テーマスイッチを削除
+#theme_switch_link {
+    display: none !important;
 }
