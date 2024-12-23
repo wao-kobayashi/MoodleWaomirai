@@ -1610,10 +1610,10 @@ html[data-tenantidnumber=lmswaomirai] .pagelayout-mydashboard .calendarmonth:bef
   pointer-events: none;
 }
 html[data-tenantidnumber=lmswaomirai] .pagelayout-mydashboard .today {
-  background: #edfbf5;
+  background: #f0f2f3;
 }
 html[data-tenantidnumber=lmswaomirai] .pagelayout-mydashboard .today .day-number-circle {
-  background: #005C3F;
+  background: #4d4d4d;
 }
 html[data-tenantidnumber=lmswaomirai] .pagelayout-mydashboard .day {
   color: #999 !important;

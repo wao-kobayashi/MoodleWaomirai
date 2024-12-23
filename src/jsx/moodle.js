@@ -148,13 +148,18 @@ if (bodyId === "page-my-index") {
                     console.log(`Course Name: ${courseName}`);
 
                     // 条件に応じて色を変更
-                    if (courseName.includes('科学')) {
-                        console.log('科学が見つかりました。背景色を青に変更します。');
-                        $eventLink.attr('style', 'background: blue !important');
+                    if (courseName.includes('経済')) {
+                        console.log('経済が見つかりました。背景色を青に変更します。');
+                        $eventLink.attr('style', 'background: #AA68AA !important; border-left: #008EC9 2px solid !important;');
+                    } else if (courseName.includes('科学')) {
+                        console.log('哲学が見つかりました。背景色を緑に変更します。');
+                        $eventLink.attr('style', 'background: #B6D43E !important; border-left: #96B128 2px solid !important;');
                     } else if (courseName.includes('哲学')) {
                         console.log('哲学が見つかりました。背景色をオレンジに変更します。');
-                        $eventLink.attr('style', 'background: #FCB72E !important');
-
+                        $eventLink.attr('style', 'background: #FCB72E !important; border-left: #E98800 2px solid !important;');
+                    } else if (courseName.includes('英語')) {
+                        console.log('英語が見つかりました。背景色を紫に変更します。');
+                        $eventLink.attr('style', 'background: #AA68AA !important; border-left: #8D3A8D 2px solid !important;');
                     } else {
                         console.log('条件に一致しない科目: ', courseName);
                     }
