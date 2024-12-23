@@ -164,55 +164,86 @@ if (bodyId === "page-my-index") {
 
         const today = new Date();
         const todayDay = today.getDate();
-        const todayMonth = today.getMonth() + 1;
+        const todayMonth = today.getMonth() + 1; // 月は0から始まるので1を加える
         const todayYear = today.getFullYear();
         let eventFound = false;
+        let eventDetails = [];
 
-        // .calendarwrapper内のロジックを実行
+        // .calendarwrapper内のロジックを実行（全イベントに色変更を適用）
         $('.day').each(function() {
             const $cell = $(this);
-            const $dayContent = $cell.find('[data-region="day-content"]');
+            const cellDay = parseInt($cell.attr('data-day'), 10); // カレンダーの日付
+            const cellMonth = parseInt($cell.attr('data-month'), 10); // カレンダーの月
+            const cellYear = parseInt($cell.attr('data-year'), 10); // カレンダーの年
 
-            if ($dayContent.length) {
+            // 色変更ロジック（すべてのイベントに適用）
+            const $dayContent = $cell.find('[data-region="day-content"]');
+            if ($dayContent.length > 0) {
                 const $events = $dayContent.find('li a[data-action="view-event"]');
-                const eventDetails = [];
                 $events.each(function() {
                     const $eventLink = $(this);
                     const courseName = $eventLink.text().trim();
 
                     console.log(`Course Name: ${courseName}`);
 
-                    // 条件に応じて色を変更
+                    // 色変更ロジック
                     if (courseName.includes('経済')) {
                         console.log('経済が見つかりました。背景色を青に変更します。');
-                        $eventLink.attr('style', 'background: #AA68AA !important; border-left: #008EC9 2px solid !important;');
+                        $eventLink.css({
+                            'background': '#AA68AA !important;',
+                            'border-left': '#008EC9 2px solid'
+                        });
                     } else if (courseName.includes('科学')) {
-                        console.log('哲学が見つかりました。背景色を緑に変更します。');
-                        $eventLink.attr('style', 'background: #B6D43E !important; border-left: #96B128 2px solid !important;');
+                        console.log('科学が見つかりました。背景色を緑に変更します。');
+                        $eventLink.css({
+                            'background': '#B6D43E !important;',
+                            'border-left': '#96B128 2px solid!important;'
+                        });
                     } else if (courseName.includes('哲学')) {
                         console.log('哲学が見つかりました。背景色をオレンジに変更します。');
-                        $eventLink.attr('style', 'background: #FCB72E !important; border-left: #E98800 2px solid !important;');
+                        $eventLink.css({
+                            'background': '#FCB72E',
+                            'border-left': '#E98800 2px solid'
+                        });
                     } else if (courseName.includes('英語')) {
                         console.log('英語が見つかりました。背景色を紫に変更します。');
-                        $eventLink.attr('style', 'background: #AA68AA !important; border-left: #8D3A8D 2px solid !important;');
+                        $eventLink.css({
+                            'background': '#AA68AA',
+                            'border-left': '#8D3A8D 2px solid'
+                        });
                     } else {
                         console.log('条件に一致しない科目: ', courseName);
                     }
-
-                    eventDetails.push(courseName);
                 });
+            }
 
-                // イベントがあれば詳細を表示
-                if ($events.length > 0) {
-                    console.log('イベント詳細: ', eventDetails);
-                    eventFound = true; // 本日授業あり
+            // 今日の日付に一致するイベントがあれば、そのイベント詳細を収集
+            if (cellDay === todayDay && cellMonth === todayMonth && cellYear === todayYear) {
+                console.log('今日の日付に一致しました:', { cellDay, cellMonth, cellYear });
+
+                const $dayContent = $cell.find('[data-region="day-content"]');
+                if ($dayContent.length > 0) {
+                    const $events = $dayContent.find('li a[data-action="view-event"]');
+                    $events.each(function() {
+                        const courseName = $(this).text().trim();
+                        eventDetails.push(courseName);
+                        console.log(`今日のイベント: ${courseName}`);
+                    });
                 }
+
+                eventFound = true; // 今日授業あり
             }
         });
 
-        // 本日授業がない場合のメッセージ表示
-        if (!eventFound) {
+        // 今日のイベントがあればダッシュボードメッセージを更新
+        if (eventFound) {
+            $('.dashboard-banner-text-title').text(
+                `本日は、「${eventDetails.join('」「')}」の授業があります。`
+            );
+            console.log('ダッシュボードメッセージを更新しました。');
+        } else {
             $('.dashboard-banner-text-title').text('本日は授業はありません。');
+            console.log('本日は授業がありません。');
         }
     }
 
@@ -229,6 +260,8 @@ if (bodyId === "page-my-index") {
             executeCalendarLogic();
         }, 300); // 300ミリ秒（0.3秒）
     });
+
+
 
 
 
