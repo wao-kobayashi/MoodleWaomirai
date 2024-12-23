@@ -130,112 +130,117 @@ if (bodyId === "page-my-index") {
     const todayYear = today.getFullYear();
     let eventFound = false;
 
-    // .todays-event コンテナを初期化
-    const $todaysEventContainer = $('#instance-255-header');
-    console.log('todays-event セレクタ:', $todaysEventContainer);
-
-    if ($todaysEventContainer.length === 0) {
-        console.error('.todays-event 要素が見つかりません。セレクタを確認してください。');
-    } else {
-        console.log('.todays-event 初期化前:', $todaysEventContainer.html());
-    }
-
-    $todaysEventContainer.empty();
-    console.log('.todays-event 初期化後:', $todaysEventContainer.html());
-
     // カレンダーの日付セルをループして、今日の授業があるか確認
     $('.day').each(function() {
         const $cell = $(this);
-        const cellDay = parseInt($cell.attr('data-day'), 10);
-        const $cellLink = $cell.find('a');
-        const cellYear = parseInt($cellLink.attr('data-year') || todayYear, 10);
-        const cellMonth = parseInt($cellLink.attr('data-month') || todayMonth, 10);
+        const $dayContent = $cell.find('[data-region="day-content"]');
 
-        // 今日の日付と一致する場合に処理実行
-        if (cellDay === todayDay && cellMonth === todayMonth && cellYear === todayYear) {
-            console.log('今日の日付に一致しました:', { cellDay, cellMonth, cellYear });
+        // 特定のHTMLを追加（当日のみ適用されていた処理を全てのイベントに拡張）
+        if ($dayContent.length) {
+            // $dayContent.append(`
+            //     <div class="calender-today-speech">
+            //         <img src="https://go.waomirai.com/l/1026513/2024-12-14/h9lsb/1026513/17342360883dgDGobr/speech_calender.png" alt="特別イベント">
+            //     </div>
+            // `);
 
-            const $dayContent = $cell.find('[data-region="day-content"]');
-            if ($dayContent.length === 0) {
-                console.warn('data-region="day-content" が見つかりません。');
-                return;
-            }
-            console.log('今日のデータがあります。data-region="day-content" が見つかりました。');
-
-            // 特定のHTMLを追加
-            $dayContent.append(`
-        <div class="calender-today-speech">
-            <img src="https://go.waomirai.com/l/1026513/2024-12-14/h9lsb/1026513/17342360883dgDGobr/speech_calender.png" alt="特別イベント">
-        </div>
-        `);
-            console.log('特別イベントのHTMLを追加しました。');
-
-            // クリックで要素を非表示にする
-            $dayContent.on('click', '.calender-today-speech', function() {
-                $(this).hide();
-            });
+            // // クリックで要素を非表示にする
+            // $dayContent.on('click', '.calender-today-speech', function() {
+            //     $(this).hide();
+            // });
 
             // li要素を確認してイベントを収集
             const $events = $dayContent.find('li a[data-action="view-event"]');
-            console.log('イベント要素を取得:', $events);
-
             const eventDetails = [];
-            $events.each(function(eventIndex) {
-                const courseName = $(this).text().trim();
-                const courseTime = $(this).attr('data-time');
-                eventDetails.push(courseTime ? `${courseTime} ${courseName}` : courseName);
+            $events.each(function() {
+                const $eventLink = $(this);
+                const courseName = $eventLink.text().trim();
 
-                console.log(`イベント ${eventIndex}:`, { courseName, courseTime });
+                // デバッグ: 科目名をログに出力
+                console.log(`Course Name: ${courseName}`);
+
+                // 色を変更する条件が適用されているか確認
+                if (courseName.includes('科学')) {
+                    console.log('科学が見つかりました。背景色を青に変更します。');
+                    $eventLink.attr('style', 'background: blue !important');
+                } else if (courseName.includes('哲学')) {
+                    console.log('哲学が見つかりました。背景色をオレンジに変更します。');
+                    $eventLink.attr('style', 'background: orange !important');
+                } else {
+                    console.log('条件に一致しない科目: ', courseName);
+                }
+
+                eventDetails.push(courseName);
             });
 
             // イベントがあれば詳細を表示
             if ($events.length > 0) {
-                eventFound = true;
-                console.log('イベントが見つかりました:', eventDetails);
-
-                // イベントを .todays-event に追加
-                $events.each(function(eventIndex) {
-                    const $originalEvent = $(this).closest('li'); // 元の li 要素を取得
-                    const $eventClone = $originalEvent.clone(); // li 要素をクローン
-
-                    console.log(`クローンするイベント ${eventIndex}:`, $eventClone);
-
-                    // クローン要素のクリック処理
-                    $eventClone.on('click', function(event) {
-                        event.preventDefault(); // デフォルトのリンク動作を無効化
-                        console.log('クローン要素がクリックされました:', $eventClone);
-
-                        // 元の li 要素のリンクを発火
-                        const $originalLink = $originalEvent.find('a[data-action="view-event"]');
-                        if ($originalLink.length > 0) {
-                            console.log('元の要素のクリックイベントを発火します:', $originalLink);
-                            $originalLink.trigger("click");
-                        } else {
-                            console.warn('対応するリンクが見つかりません。');
-                        }
-                    });
-
-                    // クローンした要素を表示用コンテナに追加
-                    $todaysEventContainer.append($eventClone);
-
-                    // 追加後の状態確認
-                    console.log('.todays-event の内容 (追加後):', $todaysEventContainer.html());
-                });
-
-                // ダッシュボードメッセージを更新
-                $('.dashboard-banner-text-title').text(
-                    `本日は、「${eventDetails.join('」「')}」の授業があります。`
-                );
-                console.log('ダッシュボードメッセージを更新しました。');
+                console.log('イベント詳細: ', eventDetails); // イベント詳細を出力
             }
         }
     });
-
     // 本日授業がない場合のメッセージ表示
     if (!eventFound) {
         $('.dashboard-banner-text-title').text('本日は授業はありません。');
-        $todaysEventContainer.text('本日はイベントはありません。');
-        console.log('本日は授業がありません。');
+    }
+
+    // .calendarwrapper の DOM 要素を監視
+    const targetNode = document.querySelector('.calendarwrapper');
+
+    if (targetNode) {
+        const observer = new MutationObserver((mutationsList) => {
+            for (const mutation of mutationsList) {
+                if (mutation.type === 'childList') {
+                    console.log('DOM変更が検出されました:', mutation);
+
+                    // 必要なロジックを発動
+                    $('.day').each(function() {
+                        const $cell = $(this);
+                        const $dayContent = $cell.find('[data-region="day-content"]');
+
+                        if ($dayContent.length) {
+                            const $events = $dayContent.find('li a[data-action="view-event"]');
+                            const eventDetails = [];
+                            $events.each(function() {
+                                const $eventLink = $(this);
+                                const courseName = $eventLink.text().trim();
+
+                                console.log(`Course Name: ${courseName}`);
+
+                                // 条件に応じて色を変更
+                                if (courseName.includes('科学')) {
+                                    console.log('科学が見つかりました。背景色を青に変更します。');
+                                    $eventLink.attr('style', 'background: blue !important');
+                                } else if (courseName.includes('哲学')) {
+                                    console.log('哲学が見つかりました。背景色をオレンジに変更します。');
+                                    $eventLink.attr('style', 'background: orange !important');
+                                } else {
+                                    console.log('条件に一致しない科目: ', courseName);
+                                }
+
+                                eventDetails.push(courseName);
+                            });
+
+                            if ($events.length > 0) {
+                                console.log('イベント詳細: ', eventDetails);
+                            }
+                        }
+                    });
+                }
+            }
+        });
+
+        // オプション設定: 子ノードの追加/削除を監視
+        const config = {
+            childList: true,
+            subtree: true,
+        };
+
+        // 監視を開始
+        observer.observe(targetNode, config);
+
+        console.log('MutationObserverで監視を開始しました。');
+    } else {
+        console.warn('.calendarwrapper が見つかりませんでした。');
     }
 
 
