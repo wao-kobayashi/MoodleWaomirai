@@ -419,9 +419,9 @@ $default-max-width: 1170px; // 最大幅
         }
     }
     .today {
-        background: #edfbf5;
+        background: $cl-graylightest;
         .day-number-circle {
-            background: $cl-waogreen;
+            background: $cl-gray;
         }
     }
     .day {

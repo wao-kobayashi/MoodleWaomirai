@@ -58,6 +58,25 @@ if (bodyId === "page-my-index") {
     ////////////////////////////
     // 受講中科目の処理
     ////////////////////////////
+    // $(".instance-282-header").on("click", function() {
+    //     // a[data-event-id="479"]をクリック
+    //     $("a[data-event-id='479']").trigger("click");
+    // });
+    $("#instance-282-header").on("click", function() {
+        alert('a');
+        // a[data-event-id="479"]をクリック
+        // $("li#yui_3_18_1_1_1734662794127_232").hide();
+        $(".today li[data-region='event-item']").click();
+        // $("#yui_3_18_1_1_1734662477888_160").trigger("click");
+    });
+
+    $("#instance-255-header").on("click", function() {
+        alert('a');
+        // a[data-event-id="479"]をクリック
+        // $("li#yui_3_18_1_1_1734662794127_232").hide();
+        $(".today li[data-region='event-item']").click();
+        // $("#yui_3_18_1_1_1734662477888_160").trigger("click");
+    });
 
     function renderSubject(subject, icon, isSubjectMain) {
         // SubjectMain の場合のリンクを変更
@@ -139,63 +158,109 @@ if (bodyId === "page-my-index") {
     ///カレンダー
     ////////////////////////////////////
 
-    // カレンダー処理（本日の日付とイベントを確認）
-    const today = new Date();
-    const todayDay = today.getDate();
-    const todayMonth = today.getMonth() + 1;
-    const todayYear = today.getFullYear();
-    let eventFound = false;
+    // ロジックを関数として定義（共通化）
+    function executeCalendarLogic() {
+        console.log('カレンダーロジックを実行します。');
 
-    // カレンダーの日付セルをループして、今日の授業があるか確認
-    $('.day').each(function() {
-        const $cell = $(this);
-        const cellDay = parseInt($cell.attr('data-day'), 10);
-        const $cellLink = $cell.find('a');
-        const cellYear = parseInt($cellLink.attr('data-year') || todayYear, 10);
-        const cellMonth = parseInt($cellLink.attr('data-month') || todayMonth, 10);
+        const today = new Date();
+        const todayDay = today.getDate();
+        const todayMonth = today.getMonth() + 1; // 月は0から始まるので1を加える
+        const todayYear = today.getFullYear();
+        let eventFound = false;
+        let eventDetails = [];
+        let flagTodaysCalendar = false;
 
-        // 今日の日付と一致する場合に処理実行
-        if (cellDay === todayDay && cellMonth === todayMonth && cellYear === todayYear) {
+        // .calendarwrapper内のロジックを実行（全イベントに色変更を適用）
+        $('.day').each(function() {
+            const $cell = $(this);
+            const cellDay = parseInt($cell.attr('data-day'), 10); // カレンダーの日付
+            const cellMonth = parseInt($cell.attr('data-month'), 10); // カレンダーの月
+            const cellYear = parseInt($cell.attr('data-year'), 10); // カレンダーの年
+
+            // 色変更ロジック（すべてのイベントに適用）
             const $dayContent = $cell.find('[data-region="day-content"]');
-
-            // 特定のHTMLを追加
-            if ($dayContent.length) {
-                $dayContent.append(`
-                    <div class="calender-today-speech">
-                        <img src="https://go.waomirai.com/l/1026513/2024-12-14/h9lsb/1026513/17342360883dgDGobr/speech_calender.png" alt="特別イベント">
-                    </div>
-                `);
-
-                // クリックで要素を非表示にする
-                $dayContent.on('click', '.calender-today-speech', function() {
-                    $(this).hide();
-                });
-
-                // li要素を確認してイベントを収集
+            if ($dayContent.length > 0) {
                 const $events = $dayContent.find('li a[data-action="view-event"]');
-                const eventDetails = [];
                 $events.each(function() {
-                    const courseName = $(this).text().trim();
-                    const courseTime = $(this).attr('data-time');
-                    eventDetails.push(courseTime ? `${courseTime} ${courseName}` : courseName);
-                });
+                    const $eventLink = $(this);
+                    const courseName = $eventLink.text().trim();
+                    console.log(`Course Name: ${courseName}`);
 
-                // イベントがあれば詳細を表示
-                if ($events.length > 0) {
-                    eventFound = true;
-                    $('.dashboard-banner-text-title').text(
-                        `本日は、「${eventDetails.join('」「')}」の授業があります。`
-                    );
-                    console.log(eventDetails); // イベント詳細を出力
-                }
+                    // 色変更ロジック
+                    if (courseName.includes('経済')) {
+                        console.log('経済が見つかりました。背景色を青に変更します。');
+                        $eventLink.attr('style', 'background: #AA68AA !important; border-left: #008EC9 2px solid !important;');
+                    } else if (courseName.includes('科学')) {
+                        console.log('哲学が見つかりました。背景色を緑に変更します。');
+                        $eventLink.attr('style', 'background: #B6D43E !important; border-left: #96B128 2px solid !important;');
+                    } else if (courseName.includes('哲学')) {
+                        console.log('哲学が見つかりました。背景色をオレンジに変更します。');
+                        $eventLink.attr('style', 'background: #FCB72E !important; border-left: #E98800 2px solid !important;');
+                    } else if (courseName.includes('英語')) {
+                        console.log('英語が見つかりました。背景色を紫に変更します。');
+                        $eventLink.attr('style', 'background: #AA68AA !important; border-left: #8D3A8D 2px solid !important;');
+                    } else {
+                        console.log('条件に一致しない科目: ', courseName);
+                    }
+                });
             }
+
+            // 今日の日付に一致するイベントがあれば、そのイベント詳細を収集
+            if (cellDay === todayDay) {
+                console.log('今日の日付に一致しました:', { cellDay, cellMonth, cellYear });
+
+                const $dayContent = $cell.find('[data-region="day-content"]');
+                if ($dayContent.length > 0) {
+                    const $events = $dayContent.find('li a[data-action="view-event"]');
+                    $events.each(function() {
+                        const courseName = $(this).text().trim();
+                        eventDetails.push(courseName);
+                        console.log(`今日のイベント: ${courseName}`);
+                    });
+                }
+
+                eventFound = true; // 今日授業あり
+            }
+        });
+
+        // 今日のイベントがあればダッシュボードメッセージを更新
+        if (!flagTodaysCalendar) {
+            let message = '本日は授業はありません。'; // デフォルトメッセージ
+
+            if (eventFound) {
+                message = `本日は、「${eventDetails.join('」「')}」の授業があります。`;
+                console.log('ダッシュボードメッセージを更新しました。');
+            } else {
+                console.log('本日は授業がありません。');
+            }
+
+            // メッセージをダッシュボードに設定
+            $('.dashboard-banner-text-title').text(message);
+
+            // 今日のカレンダーが見つかったことを示すフラグを設定
+            flagTodaysCalendar = true;
         }
+    }
+
+    // ページ読み込み時に発火
+    $(document).ready(function() {
+        console.log('ページ読み込み時のロジックを実行します。');
+        executeCalendarLogic();
     });
 
-    // 本日授業がない場合のメッセージ表示
-    if (!eventFound) {
-        $('.dashboard-banner-text-title').text('本日は授業はありません。');
-    }
+    // .arrow_link のクリック時に0.3秒後に発火
+    $(document).on('click', '.arrow_link', function() {
+        console.log('.arrow_link がクリックされました。0.3秒後にロジックを実行します。');
+        setTimeout(() => {
+            executeCalendarLogic();
+        }, 300); // 300ミリ秒（0.3秒）
+    });
+
+
+
+
+
+
 
 
 }
@@ -212,7 +277,6 @@ if (bodyId === "page-my-index" || bodyId === "page-site-index") {
 
     }
 }
-
 
 
 // ==============================
