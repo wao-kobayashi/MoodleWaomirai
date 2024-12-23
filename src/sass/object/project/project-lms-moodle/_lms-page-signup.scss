@@ -25,14 +25,29 @@ footer {
             padding: 46px 0 0 !important;
         }
     }
+    .login-form-submit {
+        .btn-primary {
+            background: $cl-waogreen !important;
+            border: none;
+        }
+    }
 }
 
 #page-login-signup {
     background: white;
+    .login-container {
+        padding: 1rem;
+        @include responsive-style(768px) {
+            padding: 24px 8px 64px;
+        }
+    }
     .signup-logo {
         margin: 0 auto 16px !important;
         text-align: center;
         width: 320px;
+        @include responsive-style(768px) {
+            width: 70%;
+        }
     }
     .signup-step {
         text-align: center;
@@ -90,6 +105,13 @@ footer {
             content: "）";
         }
     }
+    .login-container h1.login-heading {
+        @include responsive-style(768px) {
+            text-align: center;
+            font-size: $lms-font-size-xl;
+            margin: 0 auto 20px;
+        }
+    }
     @media (min-width: 768px) {
         .login-container h1.login-heading {
             text-align: center !important;
@@ -97,7 +119,7 @@ footer {
         }
         .login-wrapper {
             justify-content: left;
-            padding-top: 1rem;
+            padding-top: 24px;
             padding-left: 0rem !important;
         }
         .login-container {
@@ -154,6 +176,9 @@ footer {
     }
     footer.footer-popover {
         padding: 0 0 0px !important;
+        @include responsive-style(768px) {
+            padding: 0 0 120px !important;
+        }
     }
     .footer-content-popover {
         padding: 55px 0 0 !important;
@@ -168,14 +193,24 @@ footer {
         top: -58px;
         text-align: left;
         width: 300px;
+        @include responsive-style(768px) {
+            left: 10px;
+            top: -30px;
+        }
     }
-    .mform .form-inline .form-group {
-        margin: .1rem .85rem .1rem 0;
+    #fgroup_id_buttonar {
+        .form-group.fitem {
+            text-align: center;
+        }
+        .form-group {
+            margin: 0 !important;
+            width: 100%;
+        }
     }
     #fgroup_id_buttonar .d-flex {
         flex-direction: column;
         #id_submitbutton {
-            width: 320px;
+            width: 100% !important;
             padding: 15px;
             font-size: $lms-font-size-ml;
             margin: 28px auto 15px;
@@ -192,6 +227,9 @@ footer {
     .continuebutton {
         display: none;
     }
+    .btn-secondary {
+        padding: 0 !important;
+    }
 }
 
 #page-login-signup {
@@ -203,12 +241,21 @@ footer {
             max-width: 550px;
             margin: 90px auto 0px;
             line-height: 1.75 !important;
+            @include responsive-style(768px) {
+                margin: 20px auto 0px;
+            }
             p {
                 margin: 0 0 5px !important;
             }
         }
         .logininfo {
             display: none !important;
+        }
+    }
+    #page.drawers .main-inner {
+        padding: 20px 24px;
+        @include responsive-style(768px) {
+            padding: 20px 24px 0px;
         }
     }
 }
@@ -219,6 +266,9 @@ footer {
     }
     .boxaligncenter {
         margin: 90px 30px 0px;
+        @include responsive-style(768px) {
+            margin: 90px 30px 40px;
+        }
     }
     .boxaligncenter p {
         display: none;

@@ -126,6 +126,9 @@ footer.footer-popover {
     max-width: 100% !important;
     padding: 0 0 210px !important;
     border-top: 1px solid $cl-graylightest;
+    @include responsive-style(768px) {
+        padding: 0 0 60px !important;
+    }
     .container div.footer-popover,
     div.footer-popover,
     .container {
@@ -158,6 +161,12 @@ footer.footer-popover {
                 right: 24px;
                 width: 200px;
                 text-align: right;
+                @include responsive-style(768px) {
+                    left: 24px;
+                    right: auto !important;
+                    text-align: left;
+                    top: 280px;
+                }
                 a {
                     color: $cl-gray !important;
                 }

@@ -137,4 +137,8 @@ footer.footer-popover {
             }
         }
     }
+    //テーマスイッチを削除
+    #theme_switch_link {
+        display: none !important;
+    }
 }

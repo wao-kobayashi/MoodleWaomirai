@@ -235,6 +235,11 @@ html[data-tenantidnumber=lmswaomirai] footer.footer-popover {
   padding: 0 0 210px !important;
   border-top: 1px solid #f0f2f3;
 }
+@media screen and (max-width: 768px) {
+  html[data-tenantidnumber=lmswaomirai] footer.footer-popover {
+    padding: 0 0 60px !important;
+  }
+}
 html[data-tenantidnumber=lmswaomirai] footer.footer-popover .container div.footer-popover,
 html[data-tenantidnumber=lmswaomirai] footer.footer-popover div.footer-popover,
 html[data-tenantidnumber=lmswaomirai] footer.footer-popover .container {
@@ -270,6 +275,16 @@ html[data-tenantidnumber=lmswaomirai] footer.footer-popover .container div:nth-c
   width: 200px;
   text-align: right;
 }
+@media screen and (max-width: 768px) {
+  html[data-tenantidnumber=lmswaomirai] footer.footer-popover .container div.footer-popover div:nth-child(1) div,
+  html[data-tenantidnumber=lmswaomirai] footer.footer-popover div.footer-popover div:nth-child(1) div,
+  html[data-tenantidnumber=lmswaomirai] footer.footer-popover .container div:nth-child(1) div {
+    left: 24px;
+    right: auto !important;
+    text-align: left;
+    top: 280px;
+  }
+}
 html[data-tenantidnumber=lmswaomirai] footer.footer-popover .container div.footer-popover div:nth-child(1) div a,
 html[data-tenantidnumber=lmswaomirai] footer.footer-popover div.footer-popover div:nth-child(1) div a,
 html[data-tenantidnumber=lmswaomirai] footer.footer-popover .container div:nth-child(1) div a {
@@ -295,13 +310,31 @@ html[data-tenantidnumber=lmswaomirai] footer {
 html[data-tenantidnumber=lmswaomirai] #page-login-index footer.footer-popover .footer-section.p-3 {
   padding: 46px 0 0 !important;
 }
+html[data-tenantidnumber=lmswaomirai] #page-login-index .login-form-submit .btn-primary {
+  background: #005C3F !important;
+  border: none;
+}
 html[data-tenantidnumber=lmswaomirai] #page-login-signup {
   background: white;
+}
+html[data-tenantidnumber=lmswaomirai] #page-login-signup .login-container {
+  padding: 16px;
+  padding: 1rem;
+}
+@media screen and (max-width: 768px) {
+  html[data-tenantidnumber=lmswaomirai] #page-login-signup .login-container {
+    padding: 24px 8px 64px;
+  }
 }
 html[data-tenantidnumber=lmswaomirai] #page-login-signup .signup-logo {
   margin: 0 auto 16px !important;
   text-align: center;
   width: 320px;
+}
+@media screen and (max-width: 768px) {
+  html[data-tenantidnumber=lmswaomirai] #page-login-signup .signup-logo {
+    width: 70%;
+  }
 }
 html[data-tenantidnumber=lmswaomirai] #page-login-signup .signup-step {
   text-align: center;
@@ -353,6 +386,13 @@ html[data-tenantidnumber=lmswaomirai] #page-login-signup .form-control-static:be
 html[data-tenantidnumber=lmswaomirai] #page-login-signup .form-control-static:after {
   content: "）";
 }
+@media screen and (max-width: 768px) {
+  html[data-tenantidnumber=lmswaomirai] #page-login-signup .login-container h1.login-heading {
+    text-align: center;
+    font-size: 24px;
+    margin: 0 auto 20px;
+  }
+}
 @media (min-width: 768px) {
   html[data-tenantidnumber=lmswaomirai] #page-login-signup .login-container h1.login-heading {
     text-align: center !important;
@@ -362,7 +402,7 @@ html[data-tenantidnumber=lmswaomirai] #page-login-signup .form-control-static:af
     -webkit-box-pack: left;
         -ms-flex-pack: left;
             justify-content: left;
-    padding-top: 1rem;
+    padding-top: 24px;
     padding-left: 0rem !important;
   }
   html[data-tenantidnumber=lmswaomirai] #page-login-signup .login-container {
@@ -422,6 +462,11 @@ html[data-tenantidnumber=lmswaomirai] #page-login-signup .fdescription.required 
 html[data-tenantidnumber=lmswaomirai] #page-login-signup footer.footer-popover {
   padding: 0 0 0px !important;
 }
+@media screen and (max-width: 768px) {
+  html[data-tenantidnumber=lmswaomirai] #page-login-signup footer.footer-popover {
+    padding: 0 0 120px !important;
+  }
+}
 html[data-tenantidnumber=lmswaomirai] #page-login-signup .footer-content-popover {
   padding: 55px 0 0 !important;
 }
@@ -436,9 +481,18 @@ html[data-tenantidnumber=lmswaomirai] #page-login-signup .logininfo {
   text-align: left;
   width: 300px;
 }
-html[data-tenantidnumber=lmswaomirai] #page-login-signup .mform .form-inline .form-group {
-  margin: 1.6px 13.6px 1.6px 0;
-  margin: 0.1rem 0.85rem 0.1rem 0;
+@media screen and (max-width: 768px) {
+  html[data-tenantidnumber=lmswaomirai] #page-login-signup .logininfo {
+    left: 10px;
+    top: -30px;
+  }
+}
+html[data-tenantidnumber=lmswaomirai] #page-login-signup #fgroup_id_buttonar .form-group.fitem {
+  text-align: center;
+}
+html[data-tenantidnumber=lmswaomirai] #page-login-signup #fgroup_id_buttonar .form-group {
+  margin: 0 !important;
+  width: 100%;
 }
 html[data-tenantidnumber=lmswaomirai] #page-login-signup #fgroup_id_buttonar .d-flex {
   -webkit-box-orient: vertical;
@@ -447,7 +501,7 @@ html[data-tenantidnumber=lmswaomirai] #page-login-signup #fgroup_id_buttonar .d-
           flex-direction: column;
 }
 html[data-tenantidnumber=lmswaomirai] #page-login-signup #fgroup_id_buttonar .d-flex #id_submitbutton {
-  width: 320px;
+  width: 100% !important;
   padding: 15px;
   font-size: 16px;
   margin: 28px auto 15px;
@@ -463,6 +517,9 @@ html[data-tenantidnumber=lmswaomirai] #page-login-signup #fitem_id_passwordpolic
 html[data-tenantidnumber=lmswaomirai] #page-login-signup .continuebutton {
   display: none;
 }
+html[data-tenantidnumber=lmswaomirai] #page-login-signup .btn-secondary {
+  padding: 0 !important;
+}
 html[data-tenantidnumber=lmswaomirai] #page-login-signup.pagelayout-base header {
   display: none !important;
 }
@@ -471,17 +528,35 @@ html[data-tenantidnumber=lmswaomirai] #page-login-signup.pagelayout-base #notice
   margin: 90px auto 0px;
   line-height: 1.75 !important;
 }
+@media screen and (max-width: 768px) {
+  html[data-tenantidnumber=lmswaomirai] #page-login-signup.pagelayout-base #notice {
+    margin: 20px auto 0px;
+  }
+}
 html[data-tenantidnumber=lmswaomirai] #page-login-signup.pagelayout-base #notice p {
   margin: 0 0 5px !important;
 }
 html[data-tenantidnumber=lmswaomirai] #page-login-signup.pagelayout-base .logininfo {
   display: none !important;
 }
+html[data-tenantidnumber=lmswaomirai] #page-login-signup #page.drawers .main-inner {
+  padding: 20px 24px;
+}
+@media screen and (max-width: 768px) {
+  html[data-tenantidnumber=lmswaomirai] #page-login-signup #page.drawers .main-inner {
+    padding: 20px 24px 0px;
+  }
+}
 html[data-tenantidnumber=lmswaomirai] #page-login-confirm header {
   display: none;
 }
 html[data-tenantidnumber=lmswaomirai] #page-login-confirm .boxaligncenter {
   margin: 90px 30px 0px;
+}
+@media screen and (max-width: 768px) {
+  html[data-tenantidnumber=lmswaomirai] #page-login-confirm .boxaligncenter {
+    margin: 90px 30px 40px;
+  }
 }
 html[data-tenantidnumber=lmswaomirai] #page-login-confirm .boxaligncenter p {
   display: none;
@@ -889,6 +964,9 @@ html[data-tenantidnumber=lmswaomirai] #page-login-index footer.footer-popover .c
 html[data-tenantidnumber=lmswaomirai] #page-login-index footer.footer-popover div.footer-popover div:nth-child(3),
 html[data-tenantidnumber=lmswaomirai] #page-login-index footer.footer-popover .container div:nth-child(3) {
   display: block !important;
+}
+html[data-tenantidnumber=lmswaomirai] #page-login-index #theme_switch_link {
+  display: none !important;
 }
 html[data-tenantidnumber=lmswaomirai] .pagelayout-frontpage div[role=main] {
   display: none;
