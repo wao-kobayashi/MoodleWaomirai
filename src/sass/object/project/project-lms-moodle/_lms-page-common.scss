@@ -2,6 +2,7 @@
 
 body {
     font-family: 'Noto Sans JP', sans-serif;
+    @include text-m-black;
 }
 
 .border-bottom {
@@ -12,8 +13,14 @@ body {
     padding: 60px 0 0;
     display: flex;
     flex-direction: row-reverse;
+    @include responsive-style(768px) {
+        flex-direction: column;
+    }
     p {
         margin: 0 0px 0 16px;
+        @include responsive-style(768px) {
+            margin: 16px 0px 0px 16px;
+        }
         font-size: $lms-font-size-m !important;
         color: $cl-gray !important;
         a {
@@ -29,6 +36,10 @@ body {
         left: 0px;
         width: 230px !important;
         top: 60px;
+        @include responsive-style(768px) {
+            top: 32px;
+            left: 16px;
+        }
     }
 }
 
@@ -111,11 +122,32 @@ body {
     // }
 }
 
+.btn-primary {
+    background: $cl-waogreen !important;
+    border: none;
+    color: white !important;
+}
+
+.btn-secondary {
+    background: white !important;
+    border: 1px solid $cl-waogreen;
+    color: $cl-waogreen;
+}
+
+#page-login-index footer.footer-popover {
+    @include responsive-style(768px) {
+        padding: 0 0 210px !important;
+    }
+}
+
 footer.footer-popover {
     width: 100% !important;
     max-width: 100% !important;
     padding: 0 0 210px !important;
     border-top: 1px solid $cl-graylightest;
+    @include responsive-style(768px) {
+        padding: 0 0 60px !important;
+    }
     .container div.footer-popover,
     div.footer-popover,
     .container {
@@ -123,6 +155,9 @@ footer.footer-popover {
         width: 100%!important;
         margin: 0px auto 0;
         padding: 50px 0 0;
+        @include responsive-style(768px) {
+            padding: 40px 0 64px;
+        }
         // border-radius: .5rem;
         position: relative;
         >div:nth-child(1) {
@@ -145,6 +180,12 @@ footer.footer-popover {
                 right: 24px;
                 width: 200px;
                 text-align: right;
+                @include responsive-style(768px) {
+                    left: 24px;
+                    right: auto !important;
+                    text-align: left;
+                    top: 280px;
+                }
                 a {
                     color: $cl-gray !important;
                 }

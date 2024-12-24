@@ -17,6 +17,13 @@ $border-radius-small:4px;
 $border-radius-middle:8px;
 $border-radius-big:16px;
 
+/* line-height */
+
+$lineheight-none:1;
+$lineheight-tight:1.25;
+$lineheight-normal:1.5;
+$lineheight-relaxed:1.75;
+
 /* parts */
 
 $overlay:rgba(0, 0, 0, 0.7);
@@ -51,4 +58,28 @@ $overlay:rgba(0, 0, 0, 0.7);
     box-shadow: none;
     appearance: none;
     -webkit-tap-highlight-color: transparent;
+}
+
+@mixin text-m-black {
+    font-size: $lms-font-size-ml;
+    color: $cl-black;
+    line-height: $lineheight-normal;
+}
+
+@mixin text-l-black {
+    font-size: $lms-font-size-l;
+    color: $cl-black;
+    line-height: $lineheight-normal;
+}
+
+@mixin text-xl-black {
+    font-size: $lms-font-size-xl;
+    color: $cl-black;
+    line-height: $lineheight-normal;
+}
+
+@mixin text-xxl-black {
+    font-size: $lms-font-size-xxl;
+    color: $cl-black;
+    line-height: $lineheight-normal;
 }

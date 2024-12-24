@@ -4,6 +4,7 @@ html[data-tenantidnumber=lmswaomirai] {
   /* 全体の幅 */
   /* フォント */
   /* border-radius */
+  /* line-height */
   /* parts */
   /* parts */
   /* boxshadow */
@@ -25,8 +26,56 @@ html[data-tenantidnumber=lmswaomirai] .drawer-toggles .drawer-toggler {
     padding-left: 0;
   }
 }
+html[data-tenantidnumber=lmswaomirai] .drawer.drawer-left.drawer-primary {
+  display: block !important;
+}
 html[data-tenantidnumber=lmswaomirai] .drawer.drawer-left {
   display: none !important;
+}
+html[data-tenantidnumber=lmswaomirai] .drawerheader img {
+  display: none;
+}
+html[data-tenantidnumber=lmswaomirai] .drawer .list-group-item.active {
+  background-color: #005C3F;
+  border-color: #005C3F;
+}
+html[data-tenantidnumber=lmswaomirai] .navbar-toggler {
+  border: none !important;
+}
+@media screen and (max-width: 768px) {
+  html[data-tenantidnumber=lmswaomirai] .navbar.fixed-top {
+    height: 50px !important;
+  }
+}
+@media screen and (max-width: 768px) {
+  html[data-tenantidnumber=lmswaomirai] .navbar {
+    padding: 0.23rem 0rem !important;
+  }
+}
+@media screen and (max-width: 768px) {
+  html[data-tenantidnumber=lmswaomirai] .navbar:after {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 19px;
+    content: "";
+    margin: auto;
+    display: block;
+    background-image: url("https://lms.waomirai.com/pluginfile.php/1/tool_tenant/headerlogo/3/%E3%83%AF%E3%82%AA%E6%9C%AA%E6%9D%A5%E5%A1%BE%E3%83%AD%E3%82%B3%E3%82%99A%EF%BC%88%E5%9F%BA%E6%9C%AC%E5%BD%A2%EF%BC%89.png");
+    background-size: cover;
+    /* 画像のサイズ調整 */
+    background-position: center;
+    /* 画像の位置調整 */
+    width: 140px;
+    /* 必要な幅 */
+    height: 18px;
+    /* 必要な高さ */
+  }
+}
+@media screen and (max-width: 768px) {
+  html[data-tenantidnumber=lmswaomirai] .usermenu .login {
+    display: none !important;
+  }
 }
 @-webkit-keyframes fuwafuwa {
   0% {
@@ -52,6 +101,9 @@ html[data-tenantidnumber=lmswaomirai] .drawer.drawer-left {
 }
 html[data-tenantidnumber=lmswaomirai] body {
   font-family: "Noto Sans JP", sans-serif;
+  font-size: 16px;
+  color: #262626;
+  line-height: 1.5;
 }
 html[data-tenantidnumber=lmswaomirai] .border-bottom {
   border-bottom: none !important;
@@ -66,10 +118,23 @@ html[data-tenantidnumber=lmswaomirai] .footer-section {
       -ms-flex-direction: row-reverse;
           flex-direction: row-reverse;
 }
+@media screen and (max-width: 768px) {
+  html[data-tenantidnumber=lmswaomirai] .footer-section {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+}
 html[data-tenantidnumber=lmswaomirai] .footer-section p {
   margin: 0 0px 0 16px;
   font-size: 14px !important;
   color: #4d4d4d !important;
+}
+@media screen and (max-width: 768px) {
+  html[data-tenantidnumber=lmswaomirai] .footer-section p {
+    margin: 16px 0px 0px 16px;
+  }
 }
 html[data-tenantidnumber=lmswaomirai] .footer-section p a {
   color: #4d4d4d !important;
@@ -83,6 +148,12 @@ html[data-tenantidnumber=lmswaomirai] .footer-section img {
   left: 0px;
   width: 230px !important;
   top: 60px;
+}
+@media screen and (max-width: 768px) {
+  html[data-tenantidnumber=lmswaomirai] .footer-section img {
+    top: 32px;
+    left: 16px;
+  }
 }
 html[data-tenantidnumber=lmswaomirai] .pagelayout-frontpage footer.footer-popover {
   max-width: 1277px !important;
@@ -162,11 +233,31 @@ html[data-tenantidnumber=lmswaomirai] .header-banner .header-banner-right a:hove
   text-decoration: none !important;
   opacity: 0.7;
 }
+html[data-tenantidnumber=lmswaomirai] .btn-primary {
+  background: #005C3F !important;
+  border: none;
+  color: white !important;
+}
+html[data-tenantidnumber=lmswaomirai] .btn-secondary {
+  background: white !important;
+  border: 1px solid #005C3F;
+  color: #005C3F;
+}
+@media screen and (max-width: 768px) {
+  html[data-tenantidnumber=lmswaomirai] #page-login-index footer.footer-popover {
+    padding: 0 0 210px !important;
+  }
+}
 html[data-tenantidnumber=lmswaomirai] footer.footer-popover {
   width: 100% !important;
   max-width: 100% !important;
   padding: 0 0 210px !important;
   border-top: 1px solid #f0f2f3;
+}
+@media screen and (max-width: 768px) {
+  html[data-tenantidnumber=lmswaomirai] footer.footer-popover {
+    padding: 0 0 60px !important;
+  }
 }
 html[data-tenantidnumber=lmswaomirai] footer.footer-popover .container div.footer-popover,
 html[data-tenantidnumber=lmswaomirai] footer.footer-popover div.footer-popover,
@@ -176,6 +267,13 @@ html[data-tenantidnumber=lmswaomirai] footer.footer-popover .container {
   margin: 0px auto 0;
   padding: 50px 0 0;
   position: relative;
+}
+@media screen and (max-width: 768px) {
+  html[data-tenantidnumber=lmswaomirai] footer.footer-popover .container div.footer-popover,
+  html[data-tenantidnumber=lmswaomirai] footer.footer-popover div.footer-popover,
+  html[data-tenantidnumber=lmswaomirai] footer.footer-popover .container {
+    padding: 40px 0 64px;
+  }
 }
 html[data-tenantidnumber=lmswaomirai] footer.footer-popover .container div.footer-popover > div:nth-last-child(3),
 html[data-tenantidnumber=lmswaomirai] footer.footer-popover div.footer-popover > div:nth-last-child(3),
@@ -195,6 +293,16 @@ html[data-tenantidnumber=lmswaomirai] footer.footer-popover .container div:nth-c
   right: 24px;
   width: 200px;
   text-align: right;
+}
+@media screen and (max-width: 768px) {
+  html[data-tenantidnumber=lmswaomirai] footer.footer-popover .container div.footer-popover div:nth-child(1) div,
+  html[data-tenantidnumber=lmswaomirai] footer.footer-popover div.footer-popover div:nth-child(1) div,
+  html[data-tenantidnumber=lmswaomirai] footer.footer-popover .container div:nth-child(1) div {
+    left: 24px;
+    right: auto !important;
+    text-align: left;
+    top: 280px;
+  }
 }
 html[data-tenantidnumber=lmswaomirai] footer.footer-popover .container div.footer-popover div:nth-child(1) div a,
 html[data-tenantidnumber=lmswaomirai] footer.footer-popover div.footer-popover div:nth-child(1) div a,
@@ -221,13 +329,39 @@ html[data-tenantidnumber=lmswaomirai] footer {
 html[data-tenantidnumber=lmswaomirai] #page-login-index footer.footer-popover .footer-section.p-3 {
   padding: 46px 0 0 !important;
 }
+html[data-tenantidnumber=lmswaomirai] #page-login-index .login-container {
+  -webkit-box-shadow: 0px 4px 6px rgba(0, 0, 0, .15) !important;
+          box-shadow: 0px 4px 6px rgba(0, 0, 0, .15) !important;
+}
+@media screen and (max-width: 768px) {
+  html[data-tenantidnumber=lmswaomirai] #page-login-index .login-container {
+    padding: 24px 24px 32px !important;
+  }
+}
+html[data-tenantidnumber=lmswaomirai] #page-login-index .login-form-forgotpassword a {
+  color: #005C3F;
+}
 html[data-tenantidnumber=lmswaomirai] #page-login-signup {
   background: white;
+}
+html[data-tenantidnumber=lmswaomirai] #page-login-signup .login-container {
+  padding: 16px;
+  padding: 1rem;
+}
+@media screen and (max-width: 768px) {
+  html[data-tenantidnumber=lmswaomirai] #page-login-signup .login-container {
+    padding: 24px 8px 64px;
+  }
 }
 html[data-tenantidnumber=lmswaomirai] #page-login-signup .signup-logo {
   margin: 0 auto 16px !important;
   text-align: center;
   width: 320px;
+}
+@media screen and (max-width: 768px) {
+  html[data-tenantidnumber=lmswaomirai] #page-login-signup .signup-logo {
+    width: 70%;
+  }
 }
 html[data-tenantidnumber=lmswaomirai] #page-login-signup .signup-step {
   text-align: center;
@@ -279,6 +413,13 @@ html[data-tenantidnumber=lmswaomirai] #page-login-signup .form-control-static:be
 html[data-tenantidnumber=lmswaomirai] #page-login-signup .form-control-static:after {
   content: "）";
 }
+@media screen and (max-width: 768px) {
+  html[data-tenantidnumber=lmswaomirai] #page-login-signup .login-container h1.login-heading {
+    text-align: center;
+    font-size: 24px;
+    margin: 0 auto 20px;
+  }
+}
 @media (min-width: 768px) {
   html[data-tenantidnumber=lmswaomirai] #page-login-signup .login-container h1.login-heading {
     text-align: center !important;
@@ -288,7 +429,7 @@ html[data-tenantidnumber=lmswaomirai] #page-login-signup .form-control-static:af
     -webkit-box-pack: left;
         -ms-flex-pack: left;
             justify-content: left;
-    padding-top: 1rem;
+    padding-top: 24px;
     padding-left: 0rem !important;
   }
   html[data-tenantidnumber=lmswaomirai] #page-login-signup .login-container {
@@ -348,6 +489,11 @@ html[data-tenantidnumber=lmswaomirai] #page-login-signup .fdescription.required 
 html[data-tenantidnumber=lmswaomirai] #page-login-signup footer.footer-popover {
   padding: 0 0 0px !important;
 }
+@media screen and (max-width: 768px) {
+  html[data-tenantidnumber=lmswaomirai] #page-login-signup footer.footer-popover {
+    padding: 0 0 120px !important;
+  }
+}
 html[data-tenantidnumber=lmswaomirai] #page-login-signup .footer-content-popover {
   padding: 55px 0 0 !important;
 }
@@ -362,9 +508,18 @@ html[data-tenantidnumber=lmswaomirai] #page-login-signup .logininfo {
   text-align: left;
   width: 300px;
 }
-html[data-tenantidnumber=lmswaomirai] #page-login-signup .mform .form-inline .form-group {
-  margin: 1.6px 13.6px 1.6px 0;
-  margin: 0.1rem 0.85rem 0.1rem 0;
+@media screen and (max-width: 768px) {
+  html[data-tenantidnumber=lmswaomirai] #page-login-signup .logininfo {
+    left: 10px;
+    top: -30px;
+  }
+}
+html[data-tenantidnumber=lmswaomirai] #page-login-signup #fgroup_id_buttonar .form-group.fitem {
+  text-align: center;
+}
+html[data-tenantidnumber=lmswaomirai] #page-login-signup #fgroup_id_buttonar .form-group {
+  margin: 0 !important;
+  width: 100%;
 }
 html[data-tenantidnumber=lmswaomirai] #page-login-signup #fgroup_id_buttonar .d-flex {
   -webkit-box-orient: vertical;
@@ -373,7 +528,7 @@ html[data-tenantidnumber=lmswaomirai] #page-login-signup #fgroup_id_buttonar .d-
           flex-direction: column;
 }
 html[data-tenantidnumber=lmswaomirai] #page-login-signup #fgroup_id_buttonar .d-flex #id_submitbutton {
-  width: 320px;
+  width: 100% !important;
   padding: 15px;
   font-size: 16px;
   margin: 28px auto 15px;
@@ -389,6 +544,9 @@ html[data-tenantidnumber=lmswaomirai] #page-login-signup #fitem_id_passwordpolic
 html[data-tenantidnumber=lmswaomirai] #page-login-signup .continuebutton {
   display: none;
 }
+html[data-tenantidnumber=lmswaomirai] #page-login-signup .btn-secondary {
+  padding: 0 !important;
+}
 html[data-tenantidnumber=lmswaomirai] #page-login-signup.pagelayout-base header {
   display: none !important;
 }
@@ -397,17 +555,35 @@ html[data-tenantidnumber=lmswaomirai] #page-login-signup.pagelayout-base #notice
   margin: 90px auto 0px;
   line-height: 1.75 !important;
 }
+@media screen and (max-width: 768px) {
+  html[data-tenantidnumber=lmswaomirai] #page-login-signup.pagelayout-base #notice {
+    margin: 20px auto 0px;
+  }
+}
 html[data-tenantidnumber=lmswaomirai] #page-login-signup.pagelayout-base #notice p {
   margin: 0 0 5px !important;
 }
 html[data-tenantidnumber=lmswaomirai] #page-login-signup.pagelayout-base .logininfo {
   display: none !important;
 }
+html[data-tenantidnumber=lmswaomirai] #page-login-signup #page.drawers .main-inner {
+  padding: 20px 24px;
+}
+@media screen and (max-width: 768px) {
+  html[data-tenantidnumber=lmswaomirai] #page-login-signup #page.drawers .main-inner {
+    padding: 20px 24px 0px;
+  }
+}
 html[data-tenantidnumber=lmswaomirai] #page-login-confirm header {
   display: none;
 }
 html[data-tenantidnumber=lmswaomirai] #page-login-confirm .boxaligncenter {
   margin: 90px 30px 0px;
+}
+@media screen and (max-width: 768px) {
+  html[data-tenantidnumber=lmswaomirai] #page-login-confirm .boxaligncenter {
+    margin: 90px 30px 40px;
+  }
 }
 html[data-tenantidnumber=lmswaomirai] #page-login-confirm .boxaligncenter p {
   display: none;
@@ -816,6 +992,16 @@ html[data-tenantidnumber=lmswaomirai] #page-login-index footer.footer-popover di
 html[data-tenantidnumber=lmswaomirai] #page-login-index footer.footer-popover .container div:nth-child(3) {
   display: block !important;
 }
+@media screen and (max-width: 768px) {
+  html[data-tenantidnumber=lmswaomirai] #page-login-index footer.footer-popover .container div.footer-popover div:nth-child(3),
+  html[data-tenantidnumber=lmswaomirai] #page-login-index footer.footer-popover div.footer-popover div:nth-child(3),
+  html[data-tenantidnumber=lmswaomirai] #page-login-index footer.footer-popover .container div:nth-child(3) {
+    display: none !important;
+  }
+}
+html[data-tenantidnumber=lmswaomirai] #theme_switch_link {
+  display: none !important;
+}
 html[data-tenantidnumber=lmswaomirai] .pagelayout-frontpage div[role=main] {
   display: none;
 }
@@ -870,6 +1056,7 @@ html[data-tenantidnumber=lmswaomirai] .pagelayout-frontpage .lms-index-fv .lms-i
   border-radius: 0px !important;
 }
 html[data-tenantidnumber=lmswaomirai] .pagelayout-frontpage .lms-index-contents-block-step {
+  overflow: hidden;
   display: grid;
   grid-template-columns: 1fr 40px 1fr 40px 1fr;
   /* 固定幅と可変幅を指定 */
@@ -2377,12 +2564,20 @@ html[data-tenantidnumber=lmswaomirai] .category-45 .tool_catalogue-catalogue > .
 html[data-tenantidnumber=lmswaomirai] .category-45 .tool_catalogue-catalogue > .my-3 > .pagesectioncontent {
   padding: 0 0 96px;
 }
+html[data-tenantidnumber=lmswaomirai] .category-45 h1 {
+  font-size: 30px;
+  color: #262626;
+  line-height: 1.5;
+}
 html[data-tenantidnumber=lmswaomirai] .category-45 h2 {
-  font-size: 24px !important;
+  font-size: 24px;
+  color: #262626;
+  line-height: 1.5;
 }
 html[data-tenantidnumber=lmswaomirai] .category-45 h3 {
-  font-size: 20px !important;
-  line-height: 1.5 !important;
+  font-size: 20px;
+  color: #262626;
+  line-height: 1.5;
 }
 html[data-tenantidnumber=lmswaomirai] .category-45 .howto-table-contents {
   background: #f0f2f3 !important;

@@ -10,6 +10,71 @@
     }
 }
 
+.drawer.drawer-left.drawer-primary {
+    display: block !important;
+}
+
 .drawer.drawer-left {
     display: none !important;
+}
+
+// .drawer.drawer-left {
+//     left: 0!important;
+//     visibility: visible !important;
+// }
+.drawerheader img {
+    display: none;
+}
+
+.drawer {
+    .list-group-item.active {
+        background-color: $cl-waogreen;
+        border-color: $cl-waogreen;
+    }
+}
+
+.navbar-toggler {
+    border: none !important;
+    // padding: .5rem 0rem;
+}
+
+.navbar.fixed-top {
+    @include responsive-style(768px) {
+        height: 50px !important;
+    }
+}
+
+.navbar {
+    @include responsive-style(768px) {
+        padding: .23rem 0rem !important;
+    }
+    &:after {
+        @include responsive-style(768px) {
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 19px;
+            content: "";
+            margin: auto;
+            display: block;
+            background-image: url('https://lms.waomirai.com/pluginfile.php/1/tool_tenant/headerlogo/3/%E3%83%AF%E3%82%AA%E6%9C%AA%E6%9D%A5%E5%A1%BE%E3%83%AD%E3%82%B3%E3%82%99A%EF%BC%88%E5%9F%BA%E6%9C%AC%E5%BD%A2%EF%BC%89.png');
+            background-size: cover;
+            /* 画像のサイズ調整 */
+            background-position: center;
+            /* 画像の位置調整 */
+            width: 140px;
+            /* 必要な幅 */
+            height: 18px;
+            /* 必要な高さ */
+        }
+    }
+}
+
+.usermenu {
+    .login {
+        //スマホでのログインしていますかどうかの表現削除
+        @include responsive-style(768px) {
+            display: none !important;
+        }
+    }
 }
