@@ -5,6 +5,11 @@ body {
     @include text-m-black;
 }
 
+img {
+    width: 100%;
+    height: auto;
+}
+
 .border-bottom {
     border-bottom: none !important;
 }
@@ -200,5 +205,23 @@ footer.footer-popover {
         // >div:last-child {
         //     display: none;
         // }
+    }
+}
+
+@media screen and (max-width: 3000px)and (min-width: 767px) {
+    .spimage {
+        display: none !important;
+    }
+    .pcimage {
+        display: inherit;
+    }
+}
+
+@media screen and (max-width: 766px) {
+    .spimage {
+        display: inherit;
+    }
+    .pcimage {
+        display: none !important;
     }
 }

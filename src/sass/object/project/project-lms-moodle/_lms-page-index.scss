@@ -40,7 +40,15 @@
                 bottom: 0;
                 margin: auto;
                 width: 100%;
-                img {}
+                @include responsive-style(1100px) {
+                    max-width: 380px;
+                }
+                @include responsive-style(900px) {
+                    max-width: 340px;
+                }
+                @include responsive-style(830px) {
+                    max-width: 300px;
+                }
             }
             .lms-index-main-right {
                 position: absolute;
@@ -48,6 +56,18 @@
                 top: 0px;
                 z-index: 9;
                 max-width: 550px;
+                @include responsive-style(1100px) {
+                    max-width: 450px;
+                    top: 8%;
+                }
+                @include responsive-style(900px) {
+                    max-width: 450px;
+                    top: 10%;
+                }
+                @include responsive-style(830px) {
+                    max-width: 400px;
+                    top: 15%;
+                }
             }
         }
         .lms-index-bg {
@@ -66,7 +86,6 @@
     }
     //step
     .lms-index-contents-block-step {
-        overflow: hidden;
         display: grid;
         grid-template-columns: 1fr 40px 1fr 40px 1fr;
         /* 固定幅と可変幅を指定 */
@@ -75,18 +94,57 @@
         width: 100%;
         /* 全体幅を固定 */
         gap: 0px;
-        padding: 0 20px;
+        padding: 0 15px;
+        @include responsive-style(768px) {
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 10px;
+            margin: 24px auto 0;
+        }
         /* グリッド間の隙間（必要に応じて変更） */
         .lms-index-contents-block-step-child {
             background: white;
-            padding: 30px 0;
+            padding: 30px 0 30px;
             border-radius: $border-radius-middle;
+            position: relative;
+            @include responsive-style(768px) {
+                display: flex;
+                flex-direction: column-reverse;
+                padding: 20px 0 5px;
+            }
+            .lms-index-contents-block-step-child-step {
+                position: absolute;
+                left: 0;
+                right: 0;
+                top: -15px;
+                margin: auto;
+                width: 30px;
+                height: 30px;
+                background: $cl-graylight;
+                border-radius: $border-radius-full;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                color: white;
+                font-size: 13px;
+            }
             .lms-index-contents-block-step-child-title {
                 font-size: $lms-font-size-l;
+                @include responsive-style(768px) {
+                    font-size: 13px;
+                    display: flex;
+                    align-items: center;
+                }
                 color: $cl-gray;
                 text-align: center;
                 margin: 0 auto 15px;
                 font-weight: 400;
+                height: 40px !important;
+                line-height: $lineheight-tight;
+                span {
+                    @include responsive-style(768px) {
+                        display: none;
+                    }
+                }
             }
             .lms-index-contents-block-step-child-img {
                 text-align: center;
@@ -97,19 +155,31 @@
                     height: 60px !important;
                     width: auto !important;
                     margin: 0 auto;
+                    @include responsive-style(768px) {
+                        height: 40px !important;
+                    }
                 }
             }
         }
         >.lms-index-contents-block-step-child:first-child img {
             // width: 100px !important;
             height: 50px !important;
+            @include responsive-style(768px) {
+                height: 40px !important;
+            }
         }
         >.lms-index-contents-block-step-child:last-child img {
             // width: 100px !important;
             height: 65px !important;
+            @include responsive-style(768px) {
+                height: 50px !important;
+            }
         }
         .lms-index-contents-block-step-child-arrow {
             position: relative;
+            @include responsive-style(768px) {
+                display: none;
+            }
             &::before,
             &::after {
                 content: "";
@@ -140,13 +210,17 @@
         margin: 0 auto 64px;
         padding: 64px 0 0;
         @include responsive-style(768px) {
-            padding: 0 20px;
+            padding: 48px 0px 0;
+            margin: 0 auto 32px;
         }
         img {
             width: 100% !important;
         }
         .lms-index-contents-block:first-child {
             margin: 0px 0 96px;
+            @include responsive-style(768px) {
+                margin: 0px 0 64px;
+            }
         }
         .lms-index-contents-block-title {
             margin: 0px 0 16px;
@@ -175,22 +249,21 @@
             grid-row-gap: 40px;
             padding: 0 20px 10px;
             @include responsive-style(768px) {
-                display: block;
+                // display: block;
+                grid-template-columns: repeat(2, 1fr);
+                grid-template-rows: repeat(3, 1fr);
+                grid-column-gap: 16px;
+                grid-row-gap: 20px;
             }
             .lms-index-contents-block-cards-course {
                 background: white;
                 border-radius: $border-radius-middle !important;
                 @include lms-boxshadow;
                 transition: all 300ms;
-                @include responsive-style(768px) {
-                    margin: 0 auto 30px;
-                    display: block;
-                }
                 &:hover {
                     transform: translateY(-5px);
                     opacity: 0.7;
                     text-decoration: none !important;
-                    div {}
                 }
             }
             .lms-index-contents-block-cards-course-img-overlay {
@@ -229,6 +302,9 @@
                 border-radius: 10px 10px 0 0 !important;
                 height: 180px;
                 object-fit: cover;
+                @include responsive-style(768px) {
+                    height: 90px;
+                }
             }
             .lms-index-contents-block-cards-course-detail {
                 // background: white;
@@ -237,9 +313,15 @@
                 // border-left: 4px solid $cl-english;
                 // margin: 15px 20px 20px;
                 position: relative;
+                @include responsive-style(768px) {
+                    padding: 4px 10px 8px;
+                }
                 .lms-index-contents-block-cards-course-detail-wrap {
                     padding: 0 0 0 20px;
                     position: relative;
+                    @include responsive-style(768px) {
+                        padding: 0 0 0 0px;
+                    }
                     &:before {
                         content: "";
                         position: absolute;
@@ -249,49 +331,100 @@
                         border-radius: 100px;
                         display: block;
                         z-index: 1;
+                        @include responsive-style(768px) {
+                            width: 4px;
+                            display: none;
+                        }
                         // background: #000;
                     }
                 }
                 // height: 85px;
                 .lms-index-contents-block-cards-course-detail-title {
-                    font-size: $lms-font-size-l !important;
+                    font-size: $lms-font-size-l;
                     font-weight: bold;
                     line-height: 1.25 !important;
                     color: $cl-black;
                     margin: 5px 0 5px 0px!important;
                     line-height: 1.5;
+                    position: relative;
+                    @include responsive-style(768px) {
+                        font-size: $lms-font-size-ml;
+                        padding: 0 0 0 12px;
+                    }
+                    &:before {
+                        @include responsive-style(768px) {
+                            content: "";
+                            position: absolute;
+                            left: 0px;
+                            width: 5px;
+                            height: 100%;
+                            border-radius: 100px;
+                            display: block;
+                            z-index: 1;
+                            background: #000;
+                        }
+                        // background: #000;
+                    }
                 }
                 .lms-index-contents-block-cards-course-detail-text {
                     // margin: 0 0 0 20px!important;
-                    font-size: $lms-font-size-m !important;
+                    font-size: $lms-font-size-m;
                     color: $cl-black;
                     line-height: 1.5;
                     font-weight: normal;
+                    @include responsive-style(768px) {
+                        font-size: $lms-font-size-s;
+                    }
                 }
             }
             .block-philosophy {
                 &:before {
                     background: $cl-philosophy
                 }
+                .lms-index-contents-block-cards-course-detail-title {
+                    &:before {
+                        background: $cl-philosophy
+                    }
+                }
             }
             .block-science {
                 &:before {
                     background: $cl-science;
+                }
+                .lms-index-contents-block-cards-course-detail-title {
+                    &:before {
+                        background: $cl-science;
+                    }
                 }
             }
             .block-economiy {
                 &:before {
                     background: $cl-economiy;
                 }
+                .lms-index-contents-block-cards-course-detail-title {
+                    &:before {
+                        background: $cl-economiy;
+                    }
+                }
             }
             .block-english {
                 &:before {
                     background: $cl-english;
                 }
+                .lms-index-contents-block-cards-course-detail-title {
+                    &:before {
+                        background: $cl-english;
+                    }
+                }
             }
             .block-programming {
                 &:before {
                     background: $cl-programming;
+                }
+                .lms-index-contents-block-cards-course-detail-title {
+                    &:before {
+                        background: $cl-programming;
+                    }
                 }
             }
         }
