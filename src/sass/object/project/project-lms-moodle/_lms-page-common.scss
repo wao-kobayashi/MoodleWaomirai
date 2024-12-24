@@ -2,6 +2,7 @@
 
 body {
     font-family: 'Noto Sans JP', sans-serif;
+    @include text-m-black;
 }
 
 .border-bottom {
@@ -124,6 +125,7 @@ body {
 .btn-primary {
     background: $cl-waogreen !important;
     border: none;
+    color: white !important;
 }
 
 .btn-secondary {

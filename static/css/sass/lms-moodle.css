@@ -4,6 +4,7 @@ html[data-tenantidnumber=lmswaomirai] {
   /* 全体の幅 */
   /* フォント */
   /* border-radius */
+  /* line-height */
   /* parts */
   /* parts */
   /* boxshadow */
@@ -100,6 +101,9 @@ html[data-tenantidnumber=lmswaomirai] .navbar-toggler {
 }
 html[data-tenantidnumber=lmswaomirai] body {
   font-family: "Noto Sans JP", sans-serif;
+  font-size: 16px;
+  color: #262626;
+  line-height: 1.5;
 }
 html[data-tenantidnumber=lmswaomirai] .border-bottom {
   border-bottom: none !important;
@@ -232,6 +236,7 @@ html[data-tenantidnumber=lmswaomirai] .header-banner .header-banner-right a:hove
 html[data-tenantidnumber=lmswaomirai] .btn-primary {
   background: #005C3F !important;
   border: none;
+  color: white !important;
 }
 html[data-tenantidnumber=lmswaomirai] .btn-secondary {
   background: white !important;
@@ -2559,12 +2564,20 @@ html[data-tenantidnumber=lmswaomirai] .category-45 .tool_catalogue-catalogue > .
 html[data-tenantidnumber=lmswaomirai] .category-45 .tool_catalogue-catalogue > .my-3 > .pagesectioncontent {
   padding: 0 0 96px;
 }
+html[data-tenantidnumber=lmswaomirai] .category-45 h1 {
+  font-size: 30px;
+  color: #262626;
+  line-height: 1.5;
+}
 html[data-tenantidnumber=lmswaomirai] .category-45 h2 {
-  font-size: 24px !important;
+  font-size: 24px;
+  color: #262626;
+  line-height: 1.5;
 }
 html[data-tenantidnumber=lmswaomirai] .category-45 h3 {
-  font-size: 20px !important;
-  line-height: 1.5 !important;
+  font-size: 20px;
+  color: #262626;
+  line-height: 1.5;
 }
 html[data-tenantidnumber=lmswaomirai] .category-45 .howto-table-contents {
   background: #f0f2f3 !important;

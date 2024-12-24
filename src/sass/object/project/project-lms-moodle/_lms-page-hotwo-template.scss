@@ -18,12 +18,14 @@ $howto-page-width:680px;
         padding: 0 0 96px;
     }
     //以下要素の装飾
+    h1 {
+        @include text-xxl-black;
+    }
     h2 {
-        font-size: $lms-font-size-xl !important;
+        @include text-xl-black;
     }
     h3 {
-        font-size: $lms-font-size-l !important;
-        line-height: 1.5 !important;
+        @include text-l-black;
     }
     .howto-table-contents {
         background: $cl-graylightest !important;
