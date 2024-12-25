@@ -208,3 +208,83 @@ $subject-default-max-width: 1120px; // 最大幅
         font-size: $lms-font-size-m;
     }
 }
+
+.global-english-inner {
+    display: grid;
+}
+
+.global-english-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    /* 自動調整で横並び */
+    gap: 20px;
+    /* 各アイテム間のスペース */
+    padding: 20px;
+    /* グリッド全体の余白 */
+}
+
+.global-english-item {
+    background-color: #f9f9f9;
+    /* 背景色 */
+    padding: 20px;
+    /* 内側余白 */
+    border: 1px solid #ddd;
+    /* 境界線 */
+    border-radius: 5px;
+    /* 角丸 */
+    box-sizing: border-box;
+    /* 幅計算にパディングを含める */
+}
+
+.lesson-title {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    /* タイトル下の余白 */
+}
+
+.global-english-desc {
+    font-size: 14px;
+    line-height: 1.6;
+    /* 行間 */
+    color: #333;
+    /* テキスト色 */
+}
+
+.global-english-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    /* 自動調整で横並び */
+    gap: 20px;
+    /* 各アイテム間のスペース */
+    padding: 20px;
+    /* グリッド全体の余白 */
+}
+
+.global-english-item {
+    background-color: #f9f9f9;
+    /* 背景色 */
+    padding: 20px;
+    /* 内側余白 */
+    border: 1px solid #ddd;
+    /* 境界線 */
+    border-radius: 5px;
+    /* 角丸 */
+    box-sizing: border-box;
+    /* 幅計算にパディングを含める */
+}
+
+.lesson-title {
+    @include text-xl-black;
+    font-weight: bold;
+    margin-bottom: 10px;
+    /* タイトル下の余白 */
+}
+
+.global-english-desc {
+    @include text-m-black;
+    line-height: 1.6;
+    /* 行間 */
+    color: #333;
+    /* テキスト色 */
+}
