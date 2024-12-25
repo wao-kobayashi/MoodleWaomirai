@@ -139,12 +139,11 @@ img {
     color: $cl-waogreen;
 }
 
-#page-login-index footer.footer-popover {
-    @include responsive-style(768px) {
-        padding: 0 0 210px !important;
-    }
-}
-
+// #page-login-index footer.footer-popover {
+//     @include responsive-style(768px) {
+//         padding: 0 0 210px !important;
+//     }
+// }
 footer.footer-popover {
     width: 100% !important;
     max-width: 100% !important;

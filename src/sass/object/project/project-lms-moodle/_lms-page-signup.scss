@@ -11,7 +11,8 @@ footer {
     margin: 90px 0 0;
 }
 
-#page-login-index {
+#page-login-index,
+#page-login-forgot_password {
     // .login-wrapper {
     //     height: 100% !important;
     // }
@@ -22,7 +23,7 @@ footer {
     }
     footer.footer-popover {
         .footer-section.p-3 {
-            padding: 46px 0 0 !important;
+            padding: 20px 0 0 !important;
         }
     }
     .login-container {
@@ -290,5 +291,15 @@ footer {
         padding: 15px 20px;
         color: white;
         font-size: $lms-font-size-ml;
+    }
+}
+
+#page-login-forgot_password {
+    .col-form-label {
+        display: none !important;
+    }
+    .form-control {
+        width: 100%;
+        margin: 5px 0 0;
     }
 }

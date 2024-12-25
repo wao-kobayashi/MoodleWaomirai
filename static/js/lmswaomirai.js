@@ -282,7 +282,7 @@ if (bodyId === "page-my-index" || bodyId === "page-site-index") {
 // ==============================
 // ログイン・サインアップページの処理
 // ==============================
-if (bodyId === "page-login-signup") {
+if (bodyId === "page-login-signup" || bodyId === "page-login-forgot_password") {
     // ログインページのタイトルを変更
     $(".login-heading").text("新規会員登録");
 
@@ -314,7 +314,7 @@ if (bodyId === "page-login-signup") {
     });
 
     // ロゴを挿入
-    const $loginWrapper = $(".login-wrapper");
+    const $loginWrapper = $("#page-login-signup .login-wrapper");
     if ($loginWrapper.length) {
         const signupLogoHtml = `
                 <div class="signup-logo">
