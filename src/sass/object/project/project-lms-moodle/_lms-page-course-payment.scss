@@ -1,45 +1,4 @@
-// .course-235 {
-//     #page.drawers {
-//         &:before {
-//             background: #FFE9B8 !important;
-//             // background: $cl-graylightest;
-//         }
-//     }
-// }
-// .course-236 {
-//     #page.drawers {
-//         &:before {
-//             background: #faeefa !important;
-//             // background: $cl-graylightest;
-//         }
-//     }
-// }
-// .course-232 {
-//     #page.drawers {
-//         &:before {
-//             background: #FFE9B8!important;
-//             // background: $cl-graylightest;
-//         }
-//     }
-// }
-// .course-232 {
-//     #page.drawers {
-//         &:before {
-//             background: #FFE9B8!important;
-//             // background: $cl-graylightest;
-//         }
-//     }
-// }
-// .course-211 {
-//     #page.drawers {
-//         &:before {
-//             background: #f5ffcd!important;
-//             // background: $cl-graylightest;
-//         }
-//     }
-// }
 //コース購入
-
 $subject-sidebar-width: 250px; // サイドバーの幅
 $subject-body-padding: 40px; // サイドバーとの距離
 $subject-default-max-width: 1120px; // 最大幅
@@ -47,7 +6,7 @@ $subject-default-max-width: 1120px; // 最大幅
     .enrol_fee_payment_region {
         right: calc((100vw - 1120px)/2);
         @include responsive-style($default-max-width) {
-         right:15px !important;
+            right: 15px !important;
         }
     }
     #page.drawers {
@@ -103,7 +62,6 @@ $subject-default-max-width: 1120px; // 最大幅
             width: 100%;
         }
     }
-
     .enrol_buy_as_a_set {
         position: fixed;
         top: calc(5rem + 330px);
@@ -160,7 +118,7 @@ $subject-default-max-width: 1120px; // 最大幅
             max-width: 235px !important;
             right: 15px;
             margin: 2em auto !important;
-            p{
+            p {
                 display: block !important;
             }
         }
@@ -201,3 +159,7 @@ $subject-default-max-width: 1120px; // 最大幅
         }
     }
 }
+
+//英語ページ
+#page-enrol-index,
+#page-admin-tool-catalogue-courseinfo {}

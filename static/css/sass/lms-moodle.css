@@ -1131,7 +1131,7 @@ html[data-tenantidnumber=lmswaomirai] .pagelayout-frontpage .lms-index-contents-
   html[data-tenantidnumber=lmswaomirai] .pagelayout-frontpage .lms-index-contents-block-step {
     grid-template-columns: 1fr 1fr 1fr;
     gap: 10px;
-    margin: 24px auto 0;
+    margin: 36px auto 0;
   }
 }
 html[data-tenantidnumber=lmswaomirai] .pagelayout-frontpage .lms-index-contents-block-step .lms-index-contents-block-step-child {
@@ -1172,11 +1172,12 @@ html[data-tenantidnumber=lmswaomirai] .pagelayout-frontpage .lms-index-contents-
       -ms-flex-align: center;
           align-items: center;
   color: white;
-  font-size: 13px;
+  font-size: 12px;
+  font-weight: 400;
 }
 html[data-tenantidnumber=lmswaomirai] .pagelayout-frontpage .lms-index-contents-block-step .lms-index-contents-block-step-child .lms-index-contents-block-step-child-title {
   font-size: 20px;
-  color: #4d4d4d;
+  color: #262626;
   text-align: center;
   margin: 0 auto 15px;
   font-weight: 400;
@@ -1297,15 +1298,15 @@ html[data-tenantidnumber=lmswaomirai] .pagelayout-frontpage .lms-index-contents 
 }
 html[data-tenantidnumber=lmswaomirai] .pagelayout-frontpage .lms-index-contents .lms-index-contents-block-title .lms-index-contents-block-title-main {
   font-size: 26px !important;
-  color: #4d4d4d;
+  color: #262626;
   font-weight: 600;
   margin: 0 0 12px;
   letter-spacing: 0.5px;
 }
 html[data-tenantidnumber=lmswaomirai] .pagelayout-frontpage .lms-index-contents .lms-index-contents-block-title .lms-index-contents-block-title-sub {
   font-size: 15px !important;
-  color: #4d4d4d;
-  font-weight: 500;
+  color: #262626;
+  font-weight: 400;
   margin: 0 0 24px;
   letter-spacing: 1px;
 }
