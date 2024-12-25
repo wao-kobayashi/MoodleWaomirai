@@ -2428,6 +2428,11 @@ html[data-tenantidnumber=lmswaomirai] #page-admin-tool-catalogue-courseinfo .enr
   text-decoration: underline !important;
   display: block;
 }
+html[data-tenantidnumber=lmswaomirai] #page-enrol-index div,
+html[data-tenantidnumber=lmswaomirai] #page-admin-tool-catalogue-courseinfo div {
+  color: #005C3F;
+  font-size: 14px;
+}
 html[data-tenantidnumber=lmswaomirai] #page-course-view-flexsections .course-detail-banner {
   padding: 25px 20px 30px;
   border-radius: 8px;

@@ -6,9 +6,10 @@ p|これも、テストのページです
 section.global-english
   .global-english-inner
 
-    // ライブ形式のレッスン
+    //- // ライブ形式のレッスン
+    //- https://storage.pardot.com/1026513/1727340661pAjGn14E/about01.png
     .global-english-live-lesson
-      h3.lesson-title 脱授業！ライブ形式のレッスンで楽しく学べる
+      h2.lesson-title 脱授業！ライブ形式のレッスンで楽しく学べる
       p.global-english-desc
         | 日本語の通じるネイティブ講師＆日本人講師が、ユーモアたっぷりに英語を教えてくれるから、
         | レッスンの時間が待ち遠しくなる！ゲームやアクティビティを交えながら、
@@ -16,13 +17,11 @@ section.global-english
 
       .global-english-lesson-images
         figure.global-english-lesson-figure
-          img.global-english-lesson-img(alt="レッスン風景1")
-        figure.global-english-lesson-figure
-          img.global-english-lesson-img(alt="レッスン風景2")
+          img.global-english-lesson-img(src="https://storage.pardot.com/1026513/1727340661pAjGn14E/about01.png" alt="レッスン風景1")
 
-    // 英語はスポーツと同じ！練習が重要
+    //- // 英語はスポーツと同じ！練習が重要
     .global-english-live-lesson
-      h3.global-english-sport-training-title 英語はスポーツと同じ！練習が重要。目からウロコの英会話トレーニングで英語力アップ！
+      h3.lesson-title 英語はスポーツと同じ！練習が重要。目からウロコの英会話トレーニングで英語力アップ！
       p.global-english-desc
         | テニスが上手くなりたい人が、練習もせず試合に出たらどうなりますか？
         | 英会話も同じです。いきなり外国人と話す機会があっても、練習をしていなければ
@@ -30,83 +29,235 @@ section.global-english
         | ひらがなで発音力をあげるなど、斬新な英会話トレーニングをご用意しています。
 
       .global-english-sample-phrase
-        figure.global-english-sample-phrase-figure
-          img.global-english-sample-phrase-img(src="path/to/phrase_example.jpg" alt="わるゆわな例")
+        figure.global-english-sample-phrase-figure.
+                <iframe src="https://player.vimeo.com/video/1013057465?autoplay=1&muted=1&background=1"
+          frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>？
 
-    // レッスンを楽しみながら自然に慣れる
+    //- // レッスンを楽しみながら自然に慣れる、https://go.waomirai.com/l/1026513/2024-09-26/h4gcq/1026513/1727333515lZs4Z30Z/enjoy_detail03.png
     .global-english-live-lesson
-      h2.lesson-title レッスン後も楽しく英語に触れることができる
+      h3.lesson-title レッスン後も楽しく英語に触れることができる
       p.global-english-desc
         | 学校の英語やテキスト型英会話スクールでは、どんどん次のページに進み、
         | 繰り返しがありません。英語を定着させるには、何度も同じフレーズに触れる事が重要です。
         | 私たちのプログラムでは、ライブレッスンの前や後に何度も練習できる動画レッスンをご用意しています。
-        | “覚える”暗記型の英語から、何度も触れて“残る”英語に。       
-    // 受講費用・科目詳細
-    .global-english-course-info
-      h3.global-english-course-info-title 受講費用・科目詳細
-      
+        | “覚える”暗記型の英語から、何度も触れて“残る”英語に。
+    .global-english-live-lesson-images
+      figure.global-english-lesson-figure
+        img.global-english-lesson-img(src="https://go.waomirai.com/l/1026513/2024-09-26/h4gcq/1026513/1727333515lZs4Z30Z/enjoy_detail03.png" alt="レッスン風景")
 
-      // 料金
-      .global-english-fee
-        p.global-english-fee-text
-          | 受講費用： ¥6,600(税込)/月
-        ul.global-english-fee-benefits
-          li 入会金無料
-          li 当月配信される侍学の授業への参加
-          li 小3~高校生までの全ての授業
-          li 課題の提出
-          li 前月分のアーカイブ授業の視聴
-          li いつでも退会可能
+section.coursedetail-info
+  .coursedetail-info-inner
+    h3.coursedetail-course-info-title 受講費用・科目詳細
 
+    //----- 授業コース -----
+    .coursedetail-info-course
+      h3.coursedetail-info-course-title 授業コース
+      p.coursedetail-info-course-desc
+        | 英語初挑戦なら、「LEVEL1:LOCAL STAGE」で自分の周りに焦点を当てて会話スキルを身につけましょう。
+        | 英語が少し話せるなら、「LEVEL2:NATION STAGE」で日本について説明できるフレーズを身につけていきます。
+        | 体験授業では両方のステージを受講することができ、体験授業終了後にどちらかのステージを選択することができます。
+        | まずは両方受講し自分に合ったステージを決めましょう。
 
-.lp-section-schedule
-    p.global-english-schedule-text
+    //----- 受講費用 -----
+    .coursedetail-info-fee
+      h3.coursedetail-info-fee-title 受講費用
+      p.coursedetail-info-fee-price
+        |¥6600/月(税込)
+      ul.coursedetail-info-fee-benefits
+        li 入会金無料
+        li 当月配信される哲学の授業への参加
+        li 小3~高校生までの全ての授業
+        li 課題の提出
+        li 前月配信のアーカイブ授業の視聴
+        li いつでも退会可能
+
+    //----- 授業スケジュール -----
+    //- 脱授業、等々がh2タグにすると非表示になってしまう？？
+    .coursedetail-info-schedule
+      h3.coursedetail-info-schedule-title 授業スケジュール
+      p.coursedetail-info-schedule-desc
         | 授業は平日に2回受講する「平日スタイル」と、土曜にまとめて受講する「土曜スタイル」を選択可能！
         | どちらも都合がつかない場合は、アーカイブで授業を受けることができます。
-        figure.wp-block-table.is-style-regular(style="font-size:16px")
-            table
-                tbody
-                  tr
-                    td.has-text-align-center(data-align="center")
-                    td.has-text-align-center(style="line-height:1.3 !important; padding:0.8em 0.5em !important;",data-align="center")
-                      strong LEVEL1:LOCAL STAGE
-                      br
-                      span(style='font-size:70%; !important; color:#999 !important;')
-                        |※めやす 小３〜
-                    td.has-text-align-center(style="line-height:1.3 !important; padding:0.8em 0.5em !important;",data-align="center")
-                      strong LEVEL2:NATION STAGE
-                      br
-                      br
-                      span(style='font-size:70%; !important; color:#999 !important;')
-                        | 
-                  tr
-                    td.has-text-align-center(data-align="center") 月
-                    td.has-text-align-center(data-align="center")
-                    td.has-text-align-center(data-align="center")
-                  tr
-                    td.has-text-align-center(data-align="gcenter") 火★
-                    td.has-text-align-center(data-align="center") ［前半］17:00-17:25
-                    td.has-text-align-center(data-align="center") ［前半］ 17:40-18:05
-                  tr
-                    td.has-text-align-center(data-align="center") 水
-                    td.has-text-align-center(data-align="center")
-                    td.has-text-align-center(data-align="center")
-                  tr
-                    td.has-text-align-center(data-align="center") 木
-                    td.has-text-align-center(data-align="center") ［後半］17:00-17:25
-                    td.has-text-align-center(data-align="center") ［後半］ 17:40-18:05
-                  tr
-                    td.has-text-align-center(data-align="center") 金
-                    td.has-text-align-center(data-align="center")
-                    td.has-text-align-center(data-align="center")
-                  tr
-                    td.has-text-align-center(data-align="center") 土
-                    td.has-text-align-center(data-align="center") ［前半］17:30-17:55
-                      br
-                      | ［後半］18:05-18:30
-                    td.has-text-align-center(data-align="center") 
-                  tr
-                    td.has-text-align-center(data-align="center") 日
-                    td.has-text-align-center(data-align="center")
-                    td.has-text-align-center(data-align="center")
-                .wp-block-spacer(style="height:16px", aria-hidden="true")
+
+      // 表の部分
+      table
+        tbody
+          tr
+            td.has-text-align-center(data-align="center")
+            td.has-text-align-center(style="line-height:1.3 !important; padding:0.8em 0.5em !important;", data-align="center")
+              strong LEVEL1:LOCAL STAGE
+              br
+              span(style="font-size:70%; !important; color:#999 !important;")
+                | ※めやす 小３〜
+            td.has-text-align-center(style="line-height:1.3 !important; padding:0.8em 0.5em !important;", data-align="center")
+              strong LEVEL2:NATION STAGE
+              br
+              span(style="font-size:70%; !important; color:#999 !important;")
+                | 
+          tr
+            td.has-text-align-center(data-align="center") 月
+            td.has-text-align-center(data-align="center")
+            td.has-text-align-center(data-align="center")
+          tr
+            td.has-text-align-center(data-align="center") 火★
+            td.has-text-align-center(data-align="center") ［前半］17:00-17:25
+            td.has-text-align-center(data-align="center") ［前半］ 17:40-18:05
+          tr
+            td.has-text-align-center(data-align="center") 水
+            td.has-text-align-center(data-align="center")
+            td.has-text-align-center(data-align="center")
+          tr
+            td.has-text-align-center(data-align="center") 木
+            td.has-text-align-center(data-align="center") ［後半］17:00-17:25
+            td.has-text-align-center(data-align="center") ［後半］ 17:40-18:05
+          tr
+            td.has-text-align-center(data-align="center") 金
+            td.has-text-align-center(data-align="center")
+            td.has-text-align-center(data-align="center")
+          tr
+            td.has-text-align-center(data-align="center") 土
+            td.has-text-align-center(data-align="center")
+              | ［前半］17:30-17:55
+              br
+              | ［後半］18:05-18:30
+            td.has-text-align-center(data-align="center")
+          tr
+            td.has-text-align-center(data-align="center") 日
+            td.has-text-align-center(data-align="center")
+            td.has-text-align-center(data-align="center")
+        .wp-block-spacer(style="height:16px", aria-hidden="true")
+
+//- section.global-english-info
+//-   .global-english-info__inner
+//-       h2.global-english-course-info-title 受講費用・科目詳細
+
+
+    
+//-     .global-english-info__course
+//-       h2.global-english-info__course-title 授業コース
+//-       p.global-english-info__course-desc
+//-         | 英語初挑戦なら、「LEVEL1:LOCAL STAGE」で自分の周りに焦点を当てて会話スキルを身につけましょう。
+//-         | 英語が少し話せるなら、「LEVEL2:NATION STAGE」で日本について説明できるフレーズを身につけていきます。
+//-         | 体験授業では両方のステージを受講することができ、体験授業終了後にどちらかのステージを選択することができます。
+//-         | まずは両方受講し自分に合ったステージを決めましょう。
+
+//-     //----- 受講費用 -----
+//-     .global-english-info__fee
+//-       h2.global-english-info__fee-title 受講費用
+//-       p.global-english-info__fee-price ¥6,600/月(税込)
+//-       //- 6600円（税込）のフォントの変え方（6600)だけフォントがでかくて、後は小さい、クラスで分け分けにするのか？等々
+//-       ul.global-english-info__fee-benefits
+//-         li 入会金無料
+//-         li 当月配信される哲学の授業への参加
+//-         li 小3~高校生までの全ての授業
+//-         li 課題の提出
+//-         li 前月配信のアーカイブ授業の視聴
+//-         li いつでも退会可能
+
+//-     //----- 授業スケジュール -----
+//-     .global-english-info__schedule
+//-       h2.global-english-info__schedule-title 授業スケジュール
+//-       p.global-english-info__schedule-desc
+//-         | 授業は平日に2回受講する「平日スタイル」と、土曜にまとめて受講する「土曜スタイル」を選択可能！
+//-         | どちらも都合がつかない場合は、アーカイブで授業を受けることができます。
+
+//-       //-  表の部分
+//-       table
+//-         tbody
+//-           tr
+//-             td.has-text-align-center(data-align="center")
+//-             td.has-text-align-center(style="line-height:1.3 !important; padding:0.8em 0.5em !important;",data-align="center")
+//-               strong LEVEL1:LOCAL STAGE
+//-               br
+//-               span(style='font-size:70%; !important; color:#999 !important;')
+//-                 | ※めやす 小３〜
+//-             td.has-text-align-center(style="line-height:1.3 !important; padding:0.8em 0.5em !important;",data-align="center")
+//-               strong LEVEL2:NATION STAGE
+//-               br
+//-               span(style='font-size:70%; !important; color:#999 !important;')
+//-                 | 
+//-           tr
+//-             td.has-text-align-center(data-align="center") 月
+//-             td.has-text-align-center(data-align="center")
+//-             td.has-text-align-center(data-align="center")
+//-           tr
+//-             td.has-text-align-center(data-align="center") 火★
+//-             td.has-text-align-center(data-align="center") ［前半］17:00-17:25
+//-             td.has-text-align-center(data-align="center") ［前半］ 17:40-18:05
+//-           tr
+//-             td.has-text-align-center(data-align="center") 水
+//-             td.has-text-align-center(data-align="center")
+//-             td.has-text-align-center(data-align="center")
+//-           tr
+//-             td.has-text-align-center(data-align="center") 木
+//-             td.has-text-align-center(data-align="center") ［後半］17:00-17:25
+//-             td.has-text-align-center(data-align="center") ［後半］ 17:40-18:05
+//-           tr
+//-             td.has-text-align-center(data-align="center") 金
+//-             td.has-text-align-center(data-align="center")
+//-             td.has-text-align-center(data-align="center")
+//-           tr
+//-             td.has-text-align-center(data-align="center") 土
+//-             td.has-text-align-center(data-align="center")
+//-               | ［前半］17:30-17:55
+//-               br
+//-               | ［後半］18:05-18:30
+//-             td.has-text-align-center(data-align="center") 
+//-           tr
+//-             td.has-text-align-center(data-align="center") 日
+//-             td.has-text-align-center(data-align="center")
+//-             td.has-text-align-center(data-align="center")
+//-         .wp-block-spacer(style="height:16px", aria-hidden="true")
+
+
+//- .lp-section-schedule
+//-     p.global-english-schedule-text
+//-         | 授業は平日に2回受講する「平日スタイル」と、土曜にまとめて受講する「土曜スタイル」を選択可能！
+//-         | どちらも都合がつかない場合は、アーカイブで授業を受けることができます。
+//-         figure.wp-block-table.is-style-regular(style="font-size:16px")
+//-             table
+//-                 tbody
+//-                   tr
+//-                     td.has-text-align-center(data-align="center")
+//-                     td.has-text-align-center(style="line-height:1.3 !important; padding:0.8em 0.5em !important;",data-align="center")
+//-                       strong LEVEL1:LOCAL STAGE
+//-                       br
+//-                       span(style='font-size:70%; !important; color:#999 !important;')
+//-                         |※めやす 小３〜
+//-                     td.has-text-align-center(style="line-height:1.3 !important; padding:0.8em 0.5em !important;",data-align="center")
+//-                       strong LEVEL2:NATION STAGE
+//-                       br
+//-                       br
+//-                       span(style='font-size:70%; !important; color:#999 !important;')
+//-                         | 
+//-                   tr
+//-                     td.has-text-align-center(data-align="center") 月
+//-                     td.has-text-align-center(data-align="center")
+//-                     td.has-text-align-center(data-align="center")
+//-                   tr
+//-                     td.has-text-align-center(data-align="gcenter") 火★
+//-                     td.has-text-align-center(data-align="center") ［前半］17:00-17:25
+//-                     td.has-text-align-center(data-align="center") ［前半］ 17:40-18:05
+//-                   tr
+//-                     td.has-text-align-center(data-align="center") 水
+//-                     td.has-text-align-center(data-align="center")
+//-                     td.has-text-align-center(data-align="center")
+//-                   tr
+//-                     td.has-text-align-center(data-align="center") 木
+//-                     td.has-text-align-center(data-align="center") ［後半］17:00-17:25
+//-                     td.has-text-align-center(data-align="center") ［後半］ 17:40-18:05
+//-                   tr
+//-                     td.has-text-align-center(data-align="center") 金
+//-                     td.has-text-align-center(data-align="center")
+//-                     td.has-text-align-center(data-align="center")
+//-                   tr
+//-                     td.has-text-align-center(data-align="center") 土
+//-                     td.has-text-align-center(data-align="center") ［前半］17:30-17:55
+//-                       br
+//-                       | ［後半］18:05-18:30
+//-                     td.has-text-align-center(data-align="center") 
+//-                   tr
+//-                     td.has-text-align-center(data-align="center") 日
+//-                     td.has-text-align-center(data-align="center")
+//-                     td.has-text-align-center(data-align="center")
+//-                 .wp-block-spacer(style="height:16px", aria-hidden="true")

@@ -2432,6 +2432,11 @@ html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo .enrol_fee_p
   text-decoration: underline !important;
   display: block;
 }
+html[data-tenantidnumber=stg] #page-enrol-index div,
+html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo div {
+  color: #005C3F;
+  font-size: 14px;
+}
 html[data-tenantidnumber=stg] #page-course-view-flexsections .course-detail-banner {
   padding: 25px 20px 30px;
   border-radius: 8px;
