@@ -1,89 +1,105 @@
-$calender-width:960px;
+.card-title {
+  // display: none !important;
+  // padding: 15px 0 15px 10px !important;
+  margin: 0 -15px 8px !important;
+  padding: 3px 35px 15px;
+  border-bottom: 4px $cl-graylightest solid;
+  width: calc(100% + 30px);
+  // background: red;
+  display: block !important;
+  font-size: $lms-font-size-l !important;
+  position: relative;
+  &:before {
+    @include lms-left-waogreen;
+  }
+}
+
+$calender-width: 960px;
 //alert-banner
 .pagelayout-mydashboard {
-    .drawers {
-        // max-width: $body-width;
-        // margin-right: calc((100% - $body-width) /2);
-        // position: relative;
+  .drawers {
+    // max-width: $body-width;
+    // margin-right: calc((100% - $body-width) /2);
+    // position: relative;
+  }
+  @media (min-width: 768px) {
+    #page.drawers .main-inner,
+    body.limitedwidth #page.drawers .main-inner {
+      max-width: 1200px !important;
     }
-    @media (min-width: 768px) {
-        #page.drawers .main-inner,
-        body.limitedwidth #page.drawers .main-inner {
-            max-width: 1200px !important;
-        }
+  }
+  .block_html {
+    background: transparent !important;
+    .card-body {
+      padding: 0 !important;
     }
-    .block_html {
-        background: transparent !important;
-        .card-body {
-            padding: 0 !important;
-        }
-        .card-title {
-            display: none!important;
-        }
-        .dashboard-banner {
-            padding: 0px 12px;
-            border-radius: $border-radius-middle;
-            width: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            .dashboard-banner-left {
-                display: flex;
-                align-items: center;
-                padding: 12px 0;
-            }
-            .dashboard-banner-left-icon {
-                width: 24px;
-                height: 24px;
-                margin: 0 10px 0 3px;
-                i {
-                    font-size: 24px;
-                    display: block;
-                    line-height: 1;
-                }
-            }
-            .dashboard-banner-text-title {
-                font-size: $lms-font-size-ml;
-                font-weight: 500;
-            }
-            .dashboard-banner-text-read {
-                font-size: $lms-font-size-ml;
-            }
-            .dashboard-banner-right a {
-                padding: 8px 16px;
-                border-radius: $border-radius-small;
-                color: white;
-                font-size: $lms-font-size-m;
-                font-weight: bold;
-                border: none !important;
-                &:hover {
-                    text-decoration: none !important;
-                    opacity: 0.7;
-                }
-            }
-            &.alert-setting-level {
-                // background: $cl-alert;
-                background: $cl-alert;
-                color: white;
-            }
-            &.alert-buy-course {
-                // background: $cl-alert;
-                border: 2px solid $cl-waogreen;
-                background: #edfbf5;
-                .dashboard-banner-left-icon {
-                    i {
-                        color: $cl-waogreen;
-                    }
-                }
-            }
-            .dashboard-banner-right a {
-                background: $cl-waogreen;
-            }
-        }
+    .card-title {
+      display: none !important;
     }
-    .calendarwrapper td>div {
-        height: 10em !important;
+    .dashboard-banner {
+      padding: 0px 12px;
+      border-radius: $border-radius-middle;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      .dashboard-banner-left {
+        display: flex;
+        align-items: center;
+        padding: 12px 0;
+      }
+      .dashboard-banner-left-icon {
+        width: 24px;
+        height: 24px;
+        margin: 0 10px 0 3px;
+        i {
+          font-size: 24px;
+          display: block;
+          line-height: 1;
+        }
+      }
+      .dashboard-banner-text-title {
+        font-size: $lms-font-size-ml;
+        font-weight: 500;
+      }
+      .dashboard-banner-text-read {
+        font-size: $lms-font-size-ml;
+      }
+      .dashboard-banner-right a {
+        padding: 8px 16px;
+        border-radius: $border-radius-small;
+        color: white;
+        font-size: $lms-font-size-m;
+        font-weight: bold;
+        border: none !important;
+        &:hover {
+          text-decoration: none !important;
+          opacity: 0.7;
+        }
+      }
+      &.alert-setting-level {
+        // background: $cl-alert;
+        background: $cl-alert;
+        color: white;
+      }
+      &.alert-buy-course {
+        // background: $cl-alert;
+        border: 2px solid $cl-waogreen;
+        background: #edfbf5;
+        .dashboard-banner-left-icon {
+          i {
+            color: $cl-waogreen;
+          }
+        }
+      }
+      .dashboard-banner-right a {
+        background: $cl-waogreen;
+      }
     }
+  }
+  .calendarwrapper td > div {
+    height: 10em !important;
+  }
 }
 
 //calender
@@ -97,556 +113,548 @@ $body-padding: 30px; // サイドバーとの距離
 $default-max-width: 1170px; // 最大幅
 // Layout for Dashboard
 .pagelayout-mydashboard {
-    .block-region {
-        max-width: $default-max-width - $dashboard-sidebar-width - $body-padding !important;
-        margin-right: auto !important;
-        // Responsive styles
-        @include responsive-style($default-max-width) {
-            max-width: calc(100vw - #{$dashboard-sidebar-width + $body-padding}) !important;
+  .block-region {
+    max-width: $default-max-width - $dashboard-sidebar-width - $body-padding !important;
+    margin-right: auto !important;
+    // Responsive styles
+    @include responsive-style($default-max-width) {
+      max-width: calc(
+        100vw - #{$dashboard-sidebar-width + $body-padding}
+      ) !important;
+    }
+  }
+  .dashboard-left {
+    width: calc($dashboard-sidebar-width - 0px);
+    height: 360px;
+    display: block;
+    z-index: 1;
+    position: absolute;
+    right: calc(-1 * ($dashboard-sidebar-width + $body-padding));
+    top: 0px;
+  }
+  .block_html.block.card.mb-3 {
+    display: inline;
+  }
+  // section[role=complementary] {
+  //     display: inline;
+  // }
+  .mt-3,
+  .my-3 {
+    margin-top: 0 !important;
+    margin-bottom: 1rem !important;
+  }
+  #page.drawers .main-inner {
+    padding: 0px 0rem !important;
+    margin-top: 30px !important;
+  }
+  // .d-print-block {
+  //     width: 960px;
+  //     margin-right: 0 !important;
+  // }
+  #page.drawers .main-inner {
+    // margin-left: calc((100% - $body-width) /2);
+    // margin-left: 0 !important;
+  }
+  .dashboard-left {
+    .dashboard-left-block {
+      margin: 0 0 40px;
+    }
+    .dashboard-left-block-title {
+      padding: 0 0px 8px;
+      // border-bottom: 3px solid $cl-graylightest;
+      font-size: $lms-font-size-ml;
+      color: $cl-gray;
+      font-weight: 500;
+      letter-spacing: 0.5px;
+      // text-align: center;
+      // width: 85%;
+      // margin: 0 auto;
+    }
+    .dashboard-left-block-wrap {
+      background: white;
+      border-radius: $border-radius-middle;
+    }
+    .dashboard-left-block-wrap-subject {
+      padding: 0px 15px 0px !important;
+    }
+    .dashboard-left-block-wrap-english {
+      padding: 16px 15px !important;
+      .dashboard-left-block-wrap-english-text {
+        text-align: center;
+      }
+      .dashboard-left-block-wrap-english-course {
+        padding: 12px 16px;
+        background: $cl-graylightest;
+        border-radius: $border-radius-middle;
+        margin: 16px auto 0px;
+        .dashboard-left-block-wrap-english-course-title {
+          text-align: center;
+          margin: 0 auto 4px;
         }
-    }
-    .dashboard-left {
-        width: calc($dashboard-sidebar-width - 0px);
-        height: 360px;
-        display: block;
-        z-index: 1;
-        position: absolute;
-        right: calc(-1 * ($dashboard-sidebar-width + $body-padding));
-        top: 0px;
-    }
-    .block_html.block.card.mb-3 {
-        display: inline;
-    }
-    // section[role=complementary] {
-    //     display: inline;
-    // }
-    .mt-3,
-    .my-3 {
-        margin-top: 0 !important;
-        margin-bottom: 1rem !important;
-    }
-    #page.drawers .main-inner {
-        padding: 0px 0rem !important;
-        margin-top: 30px !important;
-    }
-    // .d-print-block {
-    //     width: 960px;
-    //     margin-right: 0 !important;
-    // }
-    #page.drawers .main-inner {
-        // margin-left: calc((100% - $body-width) /2);
-        // margin-left: 0 !important;
-    }
-    .dashboard-left {
-        .dashboard-left-block {
-            margin: 0 0 40px;
+        .dashboard-left-block-wrap-english-course-button a {
+          padding: 6px 8px;
+          border-radius: $border-radius-small;
+          color: $cl-waogreen;
+          font-size: $lms-font-size-m;
+          font-weight: normal;
+          border: 1.5px solid $cl-waogreen;
+          justify-content: center;
+          display: flex;
+          background: white;
+          &:hover {
+            text-decoration: none !important;
+            opacity: 0.7;
+          }
         }
-        .dashboard-left-block-title {
-            padding: 0 0px 8px;
-            // border-bottom: 3px solid $cl-graylightest;
-            font-size: $lms-font-size-ml;
-            color: $cl-gray;
-            font-weight: 500;
-            letter-spacing: 0.5px;
-            // text-align: center;
-            // width: 85%;
-            // margin: 0 auto;
-        }
-        .dashboard-left-block-wrap {
-            background: white;
-            border-radius: $border-radius-middle;
-        }
-        .dashboard-left-block-wrap-subject {
-            padding: 0px 15px 0px !important;
-        }
-        .dashboard-left-block-wrap-english {
-            padding: 16px 15px !important;
-            .dashboard-left-block-wrap-english-text {
-                text-align: center;
-            }
-            .dashboard-left-block-wrap-english-course {
-                padding: 12px 16px;
-                background: $cl-graylightest;
-                border-radius: $border-radius-middle;
-                margin: 16px auto 0px;
-                .dashboard-left-block-wrap-english-course-title {
-                    text-align: center;
-                    margin: 0 auto 4px;
-                }
-                .dashboard-left-block-wrap-english-course-button a {
-                    padding: 6px 8px;
-                    border-radius: $border-radius-small;
-                    color: $cl-waogreen;
-                    font-size: $lms-font-size-m;
-                    font-weight: normal;
-                    border: 1.5px solid $cl-waogreen;
-                    justify-content: center;
-                    display: flex;
-                    background: white;
-                    &:hover {
-                        text-decoration: none !important;
-                        opacity: 0.7;
-                    }
-                }
-            }
-        }
-        .dashboard-left-block-subject-child {
-            font-size: $lms-font-size-m;
-            color: $cl-gray;
-            padding: 10px 0px;
-            display: flex;
-            align-items: center;
-            border-bottom: 2px solid $cl-graylightest;
-            &.subject-philosophy {
-                .dashboard-left-block-subject-child-icon {
-                    background: #FFDB96;
-                }
-            }
-            &.subject-science {
-                .dashboard-left-block-subject-child-icon {
-                    background: #EEFABF;
-                }
-            }
-            &.subject-economiy {
-                .dashboard-left-block-subject-child-icon {
-                    background: #C1EDFF;
-                }
-            }
-            &.subject-english {
-                .dashboard-left-block-subject-child-icon {
-                    background: #F5DBFF;
-                    font-size: 18px !important;
-                    line-height: 1.3 !important;
-                    padding: 0 0 3px 3px;
-                }
-            }
-            &.subject-programming {
-                .dashboard-left-block-subject-child-icon {
-                    background: #FFC3C5;
-                    font-size: 18px !important;
-                    line-height: 1.3 !important;
-                    padding: 0 0 3px 1px;
-                }
-            }
-            .dashboard-left-block-subject-child-icon {
-                width: 30px;
-                height: 30px;
-                border-radius: 100px;
-                margin: 0 7px 0 0;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                font-size: 15px;
-            }
-        }
-        ul {
-            background: white;
-            border-radius: $border-radius-middle;
-            list-style: none;
-            padding: 20px 20px 12px;
-            li {
-                line-height: 1.35;
-                margin: 0 0 15px;
-                a {
-                    color: $cl-waogreen;
-                    text-decoration: underline;
-                }
-            }
-        }
+      }
     }
-    #page.drawers {
-        padding-left: 0px !important;
-        padding-right: 0px !important;
-    }
-    // 背景設定
-    background: $cl-graylightest !important;
-    // ページの内側部分（drawers）の背景を透明化
-    .maincalendar .calendartable li {
-        padding: 4px 2px !important;
-    }
-    #page.drawers .main-inner {
-        background: transparent;
-    }
-    h4 {
-        margin-bottom: 0 !important;
-        font-size: $lms-font-size-l !important;
-        font-weight: 600 !important;
-        margin-bottom: none !important;
-        float: none !important;
-    }
-    div.mb-3 {
-        margin-bottom: 32px !important;
-    }
-    // カードの枠線を非表示
-    .card.block {
-        border: none;
-    }
-    .maincalendar .header {
-        margin: 0px 0 0px !important;
-        position: relative;
-        overflow: visible !important;
-        &.p-1 {
-            padding: 0 !important;
+    .dashboard-left-block-subject-child {
+      font-size: $lms-font-size-m;
+      color: $cl-gray;
+      padding: 10px 0px;
+      display: flex;
+      align-items: center;
+      border-bottom: 2px solid $cl-graylightest;
+      &.subject-philosophy {
+        .dashboard-left-block-subject-child-icon {
+          background: #ffdb96;
         }
-        .custom-select {
-            max-width: 250px;
-            position: absolute;
-            left: 0;
-            top: 10px;
-            z-index: 1;
+      }
+      &.subject-science {
+        .dashboard-left-block-subject-child-icon {
+          background: #eefabf;
         }
-    }
-    .calendar-controls {
+      }
+      &.subject-economiy {
+        .dashboard-left-block-subject-child-icon {
+          background: #c1edff;
+        }
+      }
+      &.subject-english {
+        .dashboard-left-block-subject-child-icon {
+          background: #f5dbff;
+          font-size: 18px !important;
+          line-height: 1.3 !important;
+          padding: 0 0 3px 3px;
+        }
+      }
+      &.subject-programming {
+        .dashboard-left-block-subject-child-icon {
+          background: #ffc3c5;
+          font-size: 18px !important;
+          line-height: 1.3 !important;
+          padding: 0 0 3px 1px;
+        }
+      }
+      .dashboard-left-block-subject-child-icon {
+        width: 30px;
+        height: 30px;
+        border-radius: 100px;
+        margin: 0 7px 0 0;
         display: flex;
         justify-content: center;
         align-items: center;
-        margin: 0px 0 20px !important;
-        .previous {
-            transform: rotate(-180deg);
-        }
-        .next,
-        .previous {
-            // display: inline-block;
-            // vertical-align: middle;
-            // color: #333;
-            // line-height: 1;
-            // width: 1em;
-            // height: 1em;
-            // transform: translateX(25%) rotate(-135deg);
-            // background: red;
-            position: relative;
-            color: white;
-            line-height: 0 !important;
-            span {
-                line-height: 0 !important;
-            }
-            &:active,
-            &:focus {
-                background: none;
-                color: white;
-                // outline: none;
-                // user-select: none;
-                // /* テキスト選択を無効化 */
-                @include focus-tapblack-none;
-                /* タップ時のハイライトを無効化 */
-            }
-            &:hover {
-                background: $cl-graylightest;
-                // border: 1px solid $cl-waogreen;
-                &::before,
-                &::after {
-                    // background-color: white;
-                }
-            }
-            &::before,
-            &::after {
-                content: "";
-                position: absolute;
-                top: calc(50% - 2px);
-                left: 0;
-                right: 0;
-                right: 0;
-                margin: auto;
-                width: 10px;
-                height: 2px;
-                border-radius: 9999px;
-                background-color: $cl-graylight;
-                transform-origin: calc(100% - 2px) 50%;
-            }
-            &::before {
-                transform: rotate(45deg);
-            }
-            &::after {
-                transform: rotate(-45deg);
-                top: calc(50% - 0.5px);
-            }
-        }
-        .arrow_link {
-            position: relative;
-            width: 35px;
-            height: 35px;
-            border-radius: 100px;
-            border: 1.5px solid $cl-graylight;
-            display: block;
-            text-indent: -9999px;
-            background: none;
-            line-height: 0 !important;
-            span {
-                display: none;
-            }
-        }
-        .current {
-            width: 155px;
-            display: block;
-        }
+        font-size: 15px;
+      }
     }
-    // レスポンシブ設定: 768px以上の画面幅でページの幅を設定
-    .card-body {
-        padding: 13px 15px 13px !important;
-    }
-    // カレンダーブロック内のタイトルを非表示
-    .card-title {
-        // display: none !important;
-        // padding: 15px 0 15px 10px !important;
-        margin: 0 -15px 8px!important;
-        padding: 3px 35px 15px;
-        border-bottom: 4px $cl-graylightest solid;
-        width: calc(100% + 30px);
-        // background: red;
-        display: block !important;
-        font-size: $lms-font-size-l !important;
-        position: relative;
-        &:before {
-            @include lms-left-waogreen;
+    ul {
+      background: white;
+      border-radius: $border-radius-middle;
+      list-style: none;
+      padding: 20px 20px 12px;
+      li {
+        line-height: 1.35;
+        margin: 0 0 15px;
+        a {
+          color: $cl-waogreen;
+          text-decoration: underline;
         }
+      }
     }
-    // カレンダー全体のスタイル設定
-    .calendarmonth {
-        border-radius: $border-radius-middle; // 角を丸くする
-        border: none; // 枠線を非表示
-        position: relative; // 子要素の位置指定用
-        // カレンダーの装飾用スタイル
-        &:before {
-            content: "";
-            position: absolute;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 9;
-            border-radius: $border-radius-middle;
-            border: 1px solid #dee2e6;
-            pointer-events: none; // マウスイベントを無効化
-        }
+  }
+  #page.drawers {
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+  }
+  // 背景設定
+  background: $cl-graylightest !important;
+  // ページの内側部分（drawers）の背景を透明化
+  .maincalendar .calendartable li {
+    padding: 4px 2px !important;
+  }
+  #page.drawers .main-inner {
+    background: transparent;
+  }
+  h4 {
+    margin-bottom: 0 !important;
+    font-size: $lms-font-size-l !important;
+    font-weight: 600 !important;
+    margin-bottom: none !important;
+    float: none !important;
+  }
+  div.mb-3 {
+    margin-bottom: 32px !important;
+  }
+  // カードの枠線を非表示
+  .card.block {
+    border: none;
+  }
+  .maincalendar .header {
+    margin: 0px 0 0px !important;
+    position: relative;
+    overflow: visible !important;
+    &.p-1 {
+      padding: 0 !important;
     }
-    .today {
+    .custom-select {
+      max-width: 250px;
+      position: absolute;
+      left: 0;
+      top: 10px;
+      z-index: 1;
+    }
+  }
+  .calendar-controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0px 0 20px !important;
+    .previous {
+      transform: rotate(-180deg);
+    }
+    .next,
+    .previous {
+      // display: inline-block;
+      // vertical-align: middle;
+      // color: #333;
+      // line-height: 1;
+      // width: 1em;
+      // height: 1em;
+      // transform: translateX(25%) rotate(-135deg);
+      // background: red;
+      position: relative;
+      color: white;
+      line-height: 0 !important;
+      span {
+        line-height: 0 !important;
+      }
+      &:active,
+      &:focus {
+        background: none;
+        color: white;
+        // outline: none;
+        // user-select: none;
+        // /* テキスト選択を無効化 */
+        @include focus-tapblack-none;
+        /* タップ時のハイライトを無効化 */
+      }
+      &:hover {
         background: $cl-graylightest;
-        .day-number-circle {
-            background: $cl-gray;
+        // border: 1px solid $cl-waogreen;
+        &::before,
+        &::after {
+          // background-color: white;
         }
-    }
-    .day {
-        color: $cl-graylight !important;
-        position: relative;
-        cursor: default;
-        &:hover {
-            background: none !important;
-        }
-    }
-    // td:hover{
-    //   background-color: inherit !important; /* ホバー時のスタイルを無効化 */
-    // *:hover,*:focus{
-    //   background-color: inherit; /* ホバー時のスタイルを無効化 */
-    //   }
-    // }
-    td>div {
-        overflow: visible !important;
-    }
-    .calender-today-speech {
+      }
+      &::before,
+      &::after {
+        content: "";
         position: absolute;
-        height: auto !important;
+        top: calc(50% - 2px);
         left: 0;
         right: 0;
-        top: -60px;
-        margin: auto -10px !important;
-        text-align: center;
-        width: calc(100% + 20px);
-        z-index: 99;
-        img {
-            width: 100%;
-            animation-name: fuwafuwa;
-            animation-duration: 2.2s;
-            animation-iteration-count: infinite;
-            animation-timing-function: ease
-        }
+        right: 0;
+        margin: auto;
+        width: 10px;
+        height: 2px;
+        border-radius: 9999px;
+        background-color: $cl-graylight;
+        transform-origin: calc(100% - 2px) 50%;
+      }
+      &::before {
+        transform: rotate(45deg);
+      }
+      &::after {
+        transform: rotate(-45deg);
+        top: calc(50% - 0.5px);
+      }
     }
-    .maincalendar .calendarmonth ul li {
-        &:focus,
-        &:active {
-            box-shadow: none;
-            appearance: none;
-            -webkit-tap-highlight-color: transparent;
-        }
-        >a {
-            background: #038D61!important;
-            color: white !important;
-            font-size: 11.5px !important;
-            padding: 5px 2px 5px 5px;
-            border-left: $cl-waogreen 2px solid !important;
-            display: block;
-            font-weight: bold;
-            border-radius: 2px;
-            &:focus,
-            &:active {
-                box-shadow: none;
-                appearance: none;
-                -webkit-tap-highlight-color: transparent;
-            }
-            &:hover {
-                text-decoration: none !important;
-                * {
-                    text-decoration: none !important;
-                }
-            }
-        }
-    }
-    .maincalendar .calendarmonth ul li .calendar-circle.calendar_event_course {
+    .arrow_link {
+      position: relative;
+      width: 35px;
+      height: 35px;
+      border-radius: 100px;
+      border: 1.5px solid $cl-graylight;
+      display: block;
+      text-indent: -9999px;
+      background: none;
+      line-height: 0 !important;
+      span {
         display: none;
+      }
     }
-    // カレンダーのヘッダー（曜日部分）のスタイル
-    .maincalendar .calendarmonth th {
-        text-align: left;
-        padding: 8px 10px 7px 13px; // 左側に余白を追加
-        background: $cl-graylightest !important;
+    .current {
+      width: 155px;
+      display: block;
     }
-    // カレンダーセルの枠線と角丸設定
-    .maincalendar .calendarmonth tr td:last-child,
-    .maincalendar .calendarmonth tr td:first-child {
-        border-right: none; // 最初と最後のセルの右枠線を非表示
+  }
+  // レスポンシブ設定: 768px以上の画面幅でページの幅を設定
+  .card-body {
+    padding: 13px 15px 13px !important;
+  }
+  // カレンダーブロック内のタイトルを非表示
+
+  // カレンダー全体のスタイル設定
+  .calendarmonth {
+    border-radius: $border-radius-middle; // 角を丸くする
+    border: none; // 枠線を非表示
+    position: relative; // 子要素の位置指定用
+    // カレンダーの装飾用スタイル
+    &:before {
+      content: "";
+      position: absolute;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 9;
+      border-radius: $border-radius-middle;
+      border: 1px solid #dee2e6;
+      pointer-events: none; // マウスイベントを無効化
     }
-    .maincalendar tbody tr:last-child td:first-child {
-        border-bottom-left-radius: 10px;
+  }
+  .today {
+    background: $cl-graylightest;
+    .day-number-circle {
+      background: $cl-gray;
     }
-    .maincalendar tbody tr:last-child td:last-child {
-        border-bottom-right-radius: 10px;
+  }
+  .day {
+    color: $cl-graylight !important;
+    position: relative;
+    cursor: default;
+    &:hover {
+      background: none !important;
     }
-    // ヘッダーとデータセルの共通スタイル
-    .maincalendar .calendarmonth th,
-    .maincalendar .calendarmonth td {
-        color: $cl-graylight;
-        font-size: $lms-font-size-m !important;
+  }
+  // td:hover{
+  //   background-color: inherit !important; /* ホバー時のスタイルを無効化 */
+  // *:hover,*:focus{
+  //   background-color: inherit; /* ホバー時のスタイルを無効化 */
+  //   }
+  // }
+  td > div {
+    overflow: visible !important;
+  }
+  .calender-today-speech {
+    position: absolute;
+    height: auto !important;
+    left: 0;
+    right: 0;
+    top: -60px;
+    margin: auto -10px !important;
+    text-align: center;
+    width: calc(100% + 20px);
+    z-index: 99;
+    img {
+      width: 100%;
+      animation-name: fuwafuwa;
+      animation-duration: 2.2s;
+      animation-iteration-count: infinite;
+      animation-timing-function: ease;
     }
-    // ヘッダー専用スタイル
-    .maincalendar .calendarmonth tr th {
-        border: none; // 枠線を非表示
-        font-size: $lms-font-size-s !important; // 小さいフォントサイズに調整
+  }
+  .maincalendar .calendarmonth ul li {
+    &:focus,
+    &:active {
+      box-shadow: none;
+      appearance: none;
+      -webkit-tap-highlight-color: transparent;
     }
-    .maincalendar .calendarmonth tr th:first-child {
-        border-top-left-radius: 10px; // 左上の角を丸く
+    > a {
+      background: #038d61 !important;
+      color: white !important;
+      font-size: 11.5px !important;
+      padding: 5px 2px 5px 5px;
+      border-left: $cl-waogreen 2px solid !important;
+      display: block;
+      font-weight: bold;
+      border-radius: 2px;
+      &:focus,
+      &:active {
+        box-shadow: none;
+        appearance: none;
+        -webkit-tap-highlight-color: transparent;
+      }
+      &:hover {
+        text-decoration: none !important;
+        * {
+          text-decoration: none !important;
+        }
+      }
     }
-    .maincalendar .calendarmonth tr th:last-child {
-        border-top-right-radius: 10px; // 右上の角を丸く
-    }
-    // フッターリンクの非表示
-    .footer-link {
-        display: none;
-    }
+  }
+  .maincalendar .calendarmonth ul li .calendar-circle.calendar_event_course {
+    display: none;
+  }
+  // カレンダーのヘッダー（曜日部分）のスタイル
+  .maincalendar .calendarmonth th {
+    text-align: left;
+    padding: 8px 10px 7px 13px; // 左側に余白を追加
+    background: $cl-graylightest !important;
+  }
+  // カレンダーセルの枠線と角丸設定
+  .maincalendar .calendarmonth tr td:last-child,
+  .maincalendar .calendarmonth tr td:first-child {
+    border-right: none; // 最初と最後のセルの右枠線を非表示
+  }
+  .maincalendar tbody tr:last-child td:first-child {
+    border-bottom-left-radius: 10px;
+  }
+  .maincalendar tbody tr:last-child td:last-child {
+    border-bottom-right-radius: 10px;
+  }
+  // ヘッダーとデータセルの共通スタイル
+  .maincalendar .calendarmonth th,
+  .maincalendar .calendarmonth td {
+    color: $cl-graylight;
+    font-size: $lms-font-size-m !important;
+  }
+  // ヘッダー専用スタイル
+  .maincalendar .calendarmonth tr th {
+    border: none; // 枠線を非表示
+    font-size: $lms-font-size-s !important; // 小さいフォントサイズに調整
+  }
+  .maincalendar .calendarmonth tr th:first-child {
+    border-top-left-radius: 10px; // 左上の角を丸く
+  }
+  .maincalendar .calendarmonth tr th:last-child {
+    border-top-right-radius: 10px; // 右上の角を丸く
+  }
+  // フッターリンクの非表示
+  .footer-link {
+    display: none;
+  }
 }
 
 //modal
 .pagelayout-mydashboard {
-    .modal {
-        .calendar_event_course {
-            background: $cl-graylightest;
-        }
-        .modal-body {
-            padding: 16px 16px 48px!important;
-        }
+  .modal {
+    .calendar_event_course {
+      background: $cl-graylightest;
     }
-    .summary-modal-container {
-        //ダミー用の画像
-        .aa img {
-            width: 100%;
-            border-radius: $border-radius-middle;
-        }
-        .col-1 {
-            display: none;
-        }
-        .col-11 {
-            flex: 1;
-            max-width: 100%;
-            padding: 0 5px !important;
-        }
-        .row:nth-child(1),
-        .row:nth-child(2),
-        .row:nth-child(5) {
-            display: none;
-        }
-        i {
-            display: none;
-        }
-        .location-content {
-            $modal-button-width: 230px;
-            $modal-button-height: 55px;
-            position: relative;
-            display: block;
-            height: $modal-button-height;
-            width: $modal-button-width;
-            margin: 32px 0 0;
-            a {
-                text-indent: -9999px;
-                display: block;
-                height: $modal-button-height;
-                width: $modal-button-width;
-                margin: 0 auto;
-                &:focus,
-                &:active {
-                    box-shadow: none;
-                    appearance: none;
-                    -webkit-tap-highlight-color: transparent;
-                }
-            }
-            &:before {
-                content: "授業を受講する";
-                // position: absolute;
-                background: $cl-waogreen;
-                border-radius: $border-radius-small;
-                width: $modal-button-width;
-                height: $modal-button-height;
-                text-align: center;
-                color: white;
-                margin: 0 auto;
-                padding: 10px;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                font-size: 18px;
-                position: absolute;
-                left: 0;
-                right: 0;
-                pointer-events: none;
-                &:hover {
-                    opacity: 0.8;
-                }
-            }
-        }
+    .modal-body {
+      padding: 16px 16px 48px !important;
     }
+  }
+  .summary-modal-container {
+    //ダミー用の画像
+    .aa img {
+      width: 100%;
+      border-radius: $border-radius-middle;
+    }
+    .col-1 {
+      display: none;
+    }
+    .col-11 {
+      flex: 1;
+      max-width: 100%;
+      padding: 0 5px !important;
+    }
+    .row:nth-child(1),
+    .row:nth-child(2),
+    .row:nth-child(5) {
+      display: none;
+    }
+    i {
+      display: none;
+    }
+    .location-content {
+      $modal-button-width: 230px;
+      $modal-button-height: 55px;
+      position: relative;
+      display: block;
+      height: $modal-button-height;
+      width: $modal-button-width;
+      margin: 32px 0 0;
+      a {
+        text-indent: -9999px;
+        display: block;
+        height: $modal-button-height;
+        width: $modal-button-width;
+        margin: 0 auto;
+        &:focus,
+        &:active {
+          box-shadow: none;
+          appearance: none;
+          -webkit-tap-highlight-color: transparent;
+        }
+      }
+      &:before {
+        content: "授業を受講する";
+        // position: absolute;
+        background: $cl-waogreen;
+        border-radius: $border-radius-small;
+        width: $modal-button-width;
+        height: $modal-button-height;
+        text-align: center;
+        color: white;
+        margin: 0 auto;
+        padding: 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 18px;
+        position: absolute;
+        left: 0;
+        right: 0;
+        pointer-events: none;
+        &:hover {
+          opacity: 0.8;
+        }
+      }
+    }
+  }
 }
 
 //carousel-card
 .pagelayout-mydashboard {
-    .block_myinprogress .tool_catalogue-carousel {
-        overflow: hidden !important;
-    }
-    .pagination {
-        position: absolute;
-        right: 30px;
-        top: 47px;
-    }
+  .block_myinprogress .tool_catalogue-carousel {
+    overflow: hidden !important;
+  }
+  .pagination {
+    position: absolute;
+    right: 30px;
+    top: 47px;
+  }
 }
 
 //スマホ用
 .pagelayout-mydashboard {
-    .dashboard-main {
-        .dashboard-main-navi {
-            display: grid;
-            grid-template-columns: 1fr 1fr 1fr;
-            gap: 20px;
-            .dashboard-main-navi-child {
-                background: white;
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                padding: 10px 0;
-                border-radius: $border-radius-middle;
-                @include lms-boxshadow;
-                .dashboard-main-navi-child-img {
-                    width: 30px;
-                    margin: 0 auto;
-                }
-                .dashboard-main-navi-child-text {
-                    text-align: center;
-                }
-            }
+  .dashboard-main {
+    .dashboard-main-navi {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 20px;
+      .dashboard-main-navi-child {
+        background: white;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 10px 0;
+        border-radius: $border-radius-middle;
+        @include lms-boxshadow;
+        .dashboard-main-navi-child-img {
+          width: 30px;
+          margin: 0 auto;
         }
+        .dashboard-main-navi-child-text {
+          text-align: center;
+        }
+      }
     }
+    .dashboard-main-class {
+      background: white;
+      padding: 13px 15px 13px !important;
+    }
+  }
 }

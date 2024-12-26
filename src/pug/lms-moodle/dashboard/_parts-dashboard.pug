@@ -71,7 +71,7 @@
                       
                       //ダッシュボードのバナー
                       //メモ、hiddenにする、.c-pc-hidden
-                      .dashboard-main-navi 
+                      .dashboard-main-navi.c-pc-hidden
                           a.dashboard-main-navi-child(href='#dashboard-calender') 
                              .dashboard-main-navi-child-img 
                                  img(src='https://go.waomirai.com/l/1026513/2024-12-05/h92qm/1026513/1733375701LPzGnEfa/sample.png')
@@ -87,11 +87,59 @@
                                  img(src='https://go.waomirai.com/l/1026513/2024-12-05/h92qm/1026513/1733375701LPzGnEfa/sample.png')
                              .dashboard-main-navi-child-text 
                                 |受講ガイド   
+                      
                       .dashboard-main-class
-                         h5|本日の授業
+                         h5.card-title|本日の授業
                          .dashboard-main-class-content#dashboard-main-today-class 
+                            //何も受講していない時
+                            .dashboard-main-contents-block-cards 
+                                a(href=link_philosophy).common-contents-block-cards-course
+                                  .common-contents-block-cards-course-img 
+                                        img(src='https://go.waomirai.com/l/1026513/2024-08-08/gzqbj/1026513/1723092444vFKe6VRn/subject_01.jpg')
+                                  .common-contents-block-cards-course-detail
+                                    .common-contents-block-cards-course-detail-wrap.block-philosophy
+                                      .common-contents-block-cards-course-detail-title 
+                                          |哲学（思考力）
+                                      .common-contents-block-cards-course-detail-text 
+                                          |自分で考える力を鍛える
+                                a(href=link_science).common-contents-block-cards-course
+                                  .common-contents-block-cards-course-img 
+                                        img(src='https://go.waomirai.com/l/1026513/2024-08-08/gzqbx/1026513/1723092445qaV639ZU/subject_02.jpg')
+                                  .common-contents-block-cards-course-detail 
+                                    .common-contents-block-cards-course-detail-wrap.block-science
+                                      .common-contents-block-cards-course-detail-title 
+                                          |科学リテラシー
+                                      .common-contents-block-cards-course-detail-text 
+                                          |知らない世界にも視野を広げ、知的好奇心を育む
+                                a(href=link_economiy).common-contents-block-cards-course
+                                  .common-contents-block-cards-course-img 
+                                        img(src='https://go.waomirai.com/l/1026513/2024-08-08/gzqbt/1026513/1723092445zMMVlFVz/subject_03.jpg')
+                                  .common-contents-block-cards-course-detail
+                                    .common-contents-block-cards-course-detail-wrap.block-economiy
+                                      .common-contents-block-cards-course-detail-title 
+                                          |経済（お金）
+                                      .common-contents-block-cards-course-detail-text 
+                                          |お金の基礎知識と考え方・付き合い方を身につける経済
+                                a(href=link_english).common-contents-block-cards-course
+                                  .common-contents-block-cards-course-img 
+                                        img(src='https://go.waomirai.com/l/1026513/2024-08-08/gzqbq/1026513/1723092445NpS1HkfH/subject_04.jpg')
+                                  .common-contents-block-cards-course-detail
+                                    .common-contents-block-cards-course-detail-wrap.block-english
+                                      .common-contents-block-cards-course-detail-title 
+                                          |グローバル英語
+                                      .common-contents-block-cards-course-detail-text 
+                                          |シンプルで実用的な英語を使いこなす
+                                a(href=link_programming).common-contents-block-cards-course
+                                  .common-contents-block-cards-course-img 
+                                        img(src='https://go.waomirai.com/l/1026513/2024-08-08/gzqbm/1026513/1723092444UDZaTUyz/subject_05.jpg')
+                                  .common-contents-block-cards-course-detail
+                                    .common-contents-block-cards-course-detail-wrap.block-programming
+                                        .common-contents-block-cards-course-detail-title 
+                                            |クリエイティブ・プログラミング
+                                        .common-contents-block-cards-course-detail-text 
+                                            |子どもの習いごとで終わらせない
                             //授業ない時
-                            .dashboard-main-class-content-text() 
+                            .dashboard-main-class-content-text
                              |本日は授業がありません 
                             //授業ある時
                             .dashboard-main-class-content-lesson 
@@ -104,6 +152,7 @@
                                  |12/7(火) 18:30- 科学WEEK 1
                                button.dashboard-main-class-content-lesson-button   
                                  |詳細を見る / 参加する
+                      //何かしらの受講科目がある時に表示
                       .dashboard-main-class
                           h5|今月中に開催される授業
                           .dashboard-main-class-content#dashboard-main-upcoming-class 
