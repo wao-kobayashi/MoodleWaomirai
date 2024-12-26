@@ -12,8 +12,8 @@
               .card-text.content.mt-3
                 .no-overflow
                   .dashboard-textblock
-                    div.todays-event(style='padding:20px; background:white;border-radius:8px; margin:0 0 30px;')
-                      p|today-eventdiv
+                    //- div.todays-event(style='padding:20px; background:white;border-radius:8px; margin:0 0 30px;')
+                    //-   p|today-eventdiv
                     case calender
                       when 'events-none'
                         .toppage-courses(style='display:none').
@@ -67,17 +67,81 @@
                             //stg241
                             a(href='https://lms.waomirai.com/admin/tool/catalogue/courseinfo.php?id=241')
                               |授業のレベルを変更したい        
-                    .dashboard-banner.alert-buy-course
-                      .dashboard-banner-left 
-                          .dashboard-banner-left-icon
-                            //- i.fa-solid.fa-ice-cream.fa-5x
-                            i.icon.fa.fa-solid.fa-circle-exclamation
-                          .dashboard-banner-text 
-                            .dashboard-banner-text-title 
-                              |
-                      //- .dashboard-banner-right
-                      //-     a(href='https://lms.waomirai.com/')
-                      //-       |授業科目一覧を見る
+                    .dashboard-main 
+                      
+                      //ダッシュボードのバナー
+                      //メモ、hiddenにする、.c-pc-hidden
+                      .dashboard-main-navi 
+                          a.dashboard-main-navi-child(href='#dashboard-calender') 
+                             .dashboard-main-navi-child-img 
+                                 img(src='https://go.waomirai.com/l/1026513/2024-12-05/h92qm/1026513/1733375701LPzGnEfa/sample.png')
+                             .dashboard-main-navi-child-text 
+                                |受講カレンダー
+                          a.dashboard-main-navi-child(href='#dashboard-subject') 
+                             .dashboard-main-navi-child-img 
+                                 img(src='https://go.waomirai.com/l/1026513/2024-12-05/h92qm/1026513/1733375701LPzGnEfa/sample.png')
+                             .dashboard-main-navi-child-text 
+                                |受講科目の確認
+                          a.dashboard-main-navi-child(href='#dashboard-guide') 
+                             .dashboard-main-navi-child-img 
+                                 img(src='https://go.waomirai.com/l/1026513/2024-12-05/h92qm/1026513/1733375701LPzGnEfa/sample.png')
+                             .dashboard-main-navi-child-text 
+                                |受講ガイド   
+                      .dashboard-main-class
+                         h5|本日の授業
+                         .dashboard-main-class-content#dashboard-main-today-class 
+                            //授業ない時
+                            .dashboard-main-class-content-text() 
+                             |本日は授業がありません 
+                            //授業ある時
+                            .dashboard-main-class-content-lesson 
+                               .dashboard-main-class-content-lesson-title
+                                 |12/7(火) 17:30- 哲学WEEK 1
+                               button.dashboard-main-class-content-lesson-button   
+                                 |詳細を見る / 参加する
+                            .dashboard-main-class-content-lesson 
+                               .dashboard-main-class-content-lesson-title
+                                 |12/7(火) 18:30- 科学WEEK 1
+                               button.dashboard-main-class-content-lesson-button   
+                                 |詳細を見る / 参加する
+                      .dashboard-main-class
+                          h5|今月中に開催される授業
+                          .dashboard-main-class-content#dashboard-main-upcoming-class 
+                              //授業ない時
+                              .dashboard-main-class-content-text() 
+                              |本日は授業がありません 
+                              //授業ある時
+                              .dashboard-main-class-content-lesson 
+                                .dashboard-main-class-content-lesson-title
+                                  |12/7(火) 17:30- 哲学WEEK 1
+                              .dashboard-main-class-content-lesson 
+                                .dashboard-main-class-content-lesson-title
+                                  |12/7(火) 17:30- 哲学WEEK 1
+                              .dashboard-main-class-content-lesson 
+                                .dashboard-main-class-content-lesson-title
+                                  |12/7(火) 17:30- 哲学WEEK 1
+                              .dashboard-main-class-content-lesson 
+                                .dashboard-main-class-content-lesson-title
+                                  |12/7(火) 17:30- 哲学WEEK 1
+                              .dashboard-main-class-content-lesson 
+                                .dashboard-main-class-content-lesson-title
+                                  |12/7(火) 17:30- 哲学WEEK 1
+                              .dashboard-main-class-content-lesson 
+                                .dashboard-main-class-content-lesson-title
+                                  |12/7(火) 17:30- 哲学WEEK 1                          
+ 
+                      //ダッシュボードのバナー
+                      .dashboard-banner.alert-buy-course
+                        .dashboard-banner-left 
+                            .dashboard-banner-left-icon
+                              //- i.fa-solid.fa-ice-cream.fa-5x
+                              i.icon.fa.fa-solid.fa-circle-exclamation
+                            .dashboard-banner-text 
+                              .dashboard-banner-text-title 
+                                |
+                        //- .dashboard-banner-right
+                        //-     a(href='https://lms.waomirai.com/')
+                        //-       |授業科目一覧を見る
                 .footer
           a.sr-only.sr-only-focusable(href='#sb-1') &#x30AB;&#x30EC;&#x30F3;&#x30C0;&#x30FC; &#x3092;&#x30B9;&#x30AD;&#x30C3;&#x30D7;&#x3059;&#x308B;
           section#inst255.block_calendar_month.block.card.mb-3(role='complementary' data-block='calendar_month' data-instance-id='255' aria-labelledby='instance-255-header')

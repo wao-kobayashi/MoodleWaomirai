@@ -313,20 +313,14 @@ html[data-tenantidnumber=lmswaomirai] footer.footer-popover div.footer-popover >
 html[data-tenantidnumber=lmswaomirai] footer.footer-popover .container > div:last-child {
   display: none;
 }
-@media screen and (max-width: 3000px) and (min-width: 767px) {
-  html[data-tenantidnumber=lmswaomirai] .spimage {
+@media screen and (max-width: 3000px) and (min-width: 769px) {
+  html[data-tenantidnumber=lmswaomirai] .c-sp-hidden {
     display: none !important;
-  }
-  html[data-tenantidnumber=lmswaomirai] .pcimage {
-    display: inherit;
   }
 }
-@media screen and (max-width: 766px) {
-  html[data-tenantidnumber=lmswaomirai] .spimage {
-    display: inherit;
-  }
-  html[data-tenantidnumber=lmswaomirai] .pcimage {
-    display: none !important;
+@media screen and (max-width: 768px) {
+  html[data-tenantidnumber=lmswaomirai] .c-pc-hidden {
+    display: none;
   }
 }
 html[data-tenantidnumber=lmswaomirai] .pagelayout-login #page div[role=main],
@@ -911,9 +905,6 @@ html[data-tenantidnumber=lmswaomirai] .logininfo {
 }
 html[data-tenantidnumber=lmswaomirai] .pagelayout-mydashboard {
   /* こんにちは⚪︎⚪︎さん */
-}
-html[data-tenantidnumber=lmswaomirai] .pagelayout-mydashboard #page-header {
-  display: none;
 }
 html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-view .page-header-image,
 html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-complete .page-header-image,
@@ -2192,6 +2183,35 @@ html[data-tenantidnumber=lmswaomirai] .pagelayout-mydashboard .pagination {
   position: absolute;
   right: 30px;
   top: 47px;
+}
+html[data-tenantidnumber=lmswaomirai] .pagelayout-mydashboard .dashboard-main .dashboard-main-navi {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 20px;
+}
+html[data-tenantidnumber=lmswaomirai] .pagelayout-mydashboard .dashboard-main .dashboard-main-navi .dashboard-main-navi-child {
+  background: white;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 10px 0;
+  border-radius: 8px;
+  -webkit-box-shadow: 0px 4px 6px rgba(0, 0, 0, .15) !important;
+          box-shadow: 0px 4px 6px rgba(0, 0, 0, .15) !important;
+}
+html[data-tenantidnumber=lmswaomirai] .pagelayout-mydashboard .dashboard-main .dashboard-main-navi .dashboard-main-navi-child .dashboard-main-navi-child-img {
+  width: 30px;
+  margin: 0 auto;
+}
+html[data-tenantidnumber=lmswaomirai] .pagelayout-mydashboard .dashboard-main .dashboard-main-navi .dashboard-main-navi-child .dashboard-main-navi-child-text {
+  text-align: center;
 }
 html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-view.path-mod .activity-header:not(:empty),
 html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-complete.path-mod .activity-header:not(:empty),

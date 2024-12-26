@@ -623,3 +623,30 @@ $default-max-width: 1170px; // 最大幅
         top: 47px;
     }
 }
+
+//スマホ用
+.pagelayout-mydashboard {
+    .dashboard-main {
+        .dashboard-main-navi {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 20px;
+            .dashboard-main-navi-child {
+                background: white;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                padding: 10px 0;
+                border-radius: $border-radius-middle;
+                @include lms-boxshadow;
+                .dashboard-main-navi-child-img {
+                    width: 30px;
+                    margin: 0 auto;
+                }
+                .dashboard-main-navi-child-text {
+                    text-align: center;
+                }
+            }
+        }
+    }
+}

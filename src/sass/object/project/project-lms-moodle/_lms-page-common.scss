@@ -207,20 +207,14 @@ footer.footer-popover {
     }
 }
 
-@media screen and (max-width: 3000px)and (min-width: 767px) {
-    .spimage {
+@media screen and (max-width: 3000px)and (min-width: 769px) {
+    .c-sp-hidden {
         display: none !important;
-    }
-    .pcimage {
-        display: inherit;
     }
 }
 
-@media screen and (max-width: 766px) {
-    .spimage {
-        display: inherit;
-    }
-    .pcimage {
-        display: none !important;
+@media screen and (max-width: 768px) {
+    .c-pc-hidden {
+        display: none;
     }
 }
