@@ -70,11 +70,28 @@ if (bodyId === "page-my-index") {
 
     // メイン科目（SubjectMain）の処理
     if (isSubjectMain) {
-        console.log("メイン科目（SubjectMain）に該当しています");
-        const subjectMainNames = Object.values(SubjectIds.SubjectMain)
-            .filter(subSubject => bodyClasses.includes(subSubject.id))
-            .map(subSubject => renderSubject(subSubject, getIcon(subSubject), true)) // true を渡してSubjectMain用のリンクにする
+         console.log("メイン科目（SubjectMain）に該当しています");
+         // サブ科目が存在するか確認する関数
+         function hasRelatedChildSubject(subjectKey) {
+            const childSubjects = SubjectIds.SubjectChild[subjectKey];
+            if (!childSubjects) return false;
+
+            return Object.values(childSubjects).some(child => bodyClasses.includes(child.id));
+          }
+
+             const subjectMainNames = Object.entries(SubjectIds.SubjectMain)
+            .filter(([key, subSubject]) => {
+                // サブ科目が存在する場合、メイン科目をスキップ
+                const hasChild = hasRelatedChildSubject(key);
+                if (hasChild) {
+                    console.log(`スキップ: サブ科目が存在するため ${subSubject.name}`);
+                    return false;
+                }
+                return bodyClasses.includes(subSubject.id);
+            })
+            .map(([key, subSubject]) => renderSubject(subSubject, getIcon(subSubject), true)) // true を渡してSubjectMain用のリンクにする
             .join("");
+
         if (subjectMainNames) {
             $(".dashboard-left-block-wrap.dashboard-left-block-wrap-subject").append(subjectMainNames);
         }
@@ -171,6 +188,8 @@ if (bodyId === "page-my-index") {
                         console.log('条件に一致しない科目: ', courseName);
                     }
                 });
+                
+
             }
 
             // 今日の日付に一致するイベントがあれば、そのイベント詳細を収集
@@ -181,9 +200,31 @@ if (bodyId === "page-my-index") {
                 if ($dayContent.length > 0) {
                     const $events = $dayContent.find('li a[data-action="view-event"]');
                     $events.each(function() {
-                        const courseName = $(this).text().trim();
+                        var courseName = $(this).text().trim();
                         eventDetails.push(courseName);
-                        console.log(`今日のイベント: ${courseName}`);
+                        console.log('今日のイベント: ' + courseName);
+                
+                        // 新しい要素を作成
+                        var $lessonContainer = $('<div>', { 'class': 'dashboard-main-class-content-lesson' });
+                        var $lessonTitle = $('<div>', { 'class': 'dashboard-main-class-content-lesson-title', 'text': courseName });
+                        var $lessonLink = $('<a>', { 
+                            'class': 'dashboard-main-class-content-lesson-button', 
+                            'href': $(this).attr('href'), // 元のリンクのhref属性をコピー
+                            'text': '授業に参加する' 
+                        });
+                
+                        // リンクのクリックイベント設定（通常のリンク動作）
+                        $lessonLink.on('click', function(event) {
+                            // event.preventDefault(); // デフォルトのリンク動作を無効化
+                            console.log('リンクがクリックされました:', courseName);
+                
+                            // ここで元のリンクの動作を発火させる場合は次の行を有効にできます。
+                            // window.location.href = $(this).attr('href');
+                        });
+                
+                        // コンテナに要素を追加
+                        $lessonContainer.append($lessonTitle).append($lessonLink);
+                        $('#todays-event-class-scheduled').prepend($lessonContainer);
                     });
                 }
 
@@ -200,11 +241,12 @@ if (bodyId === "page-my-index") {
                 console.log('ダッシュボードメッセージを更新しました。');
             } else {
                 console.log('本日は授業がありません。');
+                $('#todays-event-class-none').show();
             }
 
             // メッセージをダッシュボードに設定
             $('#todays-subject-pc .c-alert-banner-text-title').text(message);
-            $('#todays-event-class-none').show();
+           
             
 
             // 今日のカレンダーが見つかったことを示すフラグを設定

@@ -2448,6 +2448,7 @@ html[data-tenantidnumber=lmswaomirai] .pagelayout-mydashboard .dashboard-main .d
   z-index: 1;
   -webkit-box-shadow: 0px 4px 6px rgba(0, 0, 0, .15) !important;
           box-shadow: 0px 4px 6px rgba(0, 0, 0, .15) !important;
+  height: 80px;
 }
 html[data-tenantidnumber=lmswaomirai] .pagelayout-mydashboard .dashboard-main .dashboard-main-navi .dashboard-main-navi-child .dashboard-main-navi-child-img {
   width: 30px;
@@ -2455,6 +2456,8 @@ html[data-tenantidnumber=lmswaomirai] .pagelayout-mydashboard .dashboard-main .d
 }
 html[data-tenantidnumber=lmswaomirai] .pagelayout-mydashboard .dashboard-main .dashboard-main-navi .dashboard-main-navi-child .dashboard-main-navi-child-text {
   text-align: center;
+  color: #4d4d4d;
+  font-size: 12px;
 }
 html[data-tenantidnumber=lmswaomirai] .pagelayout-mydashboard .dashboard-main .dashboard-main-class {
   background: white;
@@ -2484,11 +2487,7 @@ html[data-tenantidnumber=lmswaomirai] .pagelayout-mydashboard .dashboard-main .d
           flex-direction: column;
   gap: 8px;
 }
-html[data-tenantidnumber=lmswaomirai] .pagelayout-mydashboard .dashboard-main .dashboard-main-class-content-lesson-title {
-  color: #4d4d4d;
-  font-weight: bold;
-}
-html[data-tenantidnumber=lmswaomirai] .pagelayout-mydashboard .dashboard-main .dashboard-main-class-content-lesson-button {
+html[data-tenantidnumber=lmswaomirai] .pagelayout-mydashboard .dashboard-main #todays-event-class-scheduled a {
   color: white;
   border-radius: 8px;
   background: #005C3F;
@@ -2496,6 +2495,19 @@ html[data-tenantidnumber=lmswaomirai] .pagelayout-mydashboard .dashboard-main .d
   border: none;
   width: 100%;
   height: 40px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+html[data-tenantidnumber=lmswaomirai] .pagelayout-mydashboard .dashboard-main .dashboard-main-class-content-lesson-title {
+  color: #4d4d4d;
+  font-weight: bold;
 }
 html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-view.path-mod .activity-header:not(:empty),
 html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-complete.path-mod .activity-header:not(:empty),
