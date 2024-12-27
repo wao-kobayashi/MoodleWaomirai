@@ -209,22 +209,70 @@ $subject-default-max-width: 1120px; // 最大幅
     }
 }
 
-.global-english-inner {
-    display: grid;
+.global-english {
+    img {
+        width: 100%;
+    }
+    .global-english-inner {
+        // display: flex;
+    }
+    .global-english-live-lesson-second {
+        flex-direction: row-reverse;
+    }
+    .global-english-live-lesson {
+        display: flex;
+        // flex-direction: row;
+        // gap: 20px; // 本文と画像間のスペースを調整
+        padding: 15px;
+        border-radius: 8px;
+        .global-english-live-lesson-text {
+            flex: 4;
+        }
+        .global-english-lesson-images {
+            flex: 6;
+        }
+        .lesson-content {
+            // flex: 1; // 本文部分を画像と均等に分割
+            .lesson-title {
+                font-size: 1.2rem;
+                margin-bottom: 10px;
+            }
+            .global-english-desc {
+                font-size: 1rem;
+                line-height: 1.5;
+            }
+        }
+        .global-english-lesson-images {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            figure {
+                width: 413px;
+                height: 307px;
+                overflow: hidden;
+                img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                }
+            }
+        }
+    }
 }
 
 .global-english-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    /* 自動調整で横並び */
-    gap: 20px;
+    // display: grid;
+    // grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    // /* 自動調整で横並び */
+    // gap: 20px;
     /* 各アイテム間のスペース */
     padding: 20px;
     /* グリッド全体の余白 */
 }
 
 .global-english-item {
-    background-color: #f9f9f9;
+    background-color: $cl-graylightest;
     /* 背景色 */
     padding: 20px;
     /* 内側余白 */
@@ -247,7 +295,7 @@ $subject-default-max-width: 1120px; // 最大幅
     font-size: 14px;
     line-height: 1.6;
     /* 行間 */
-    color: #333;
+    color: $cl-black;
     /* テキスト色 */
 }
 
@@ -262,7 +310,7 @@ $subject-default-max-width: 1120px; // 最大幅
 }
 
 .global-english-item {
-    background-color: #f9f9f9;
+    background-color: $cl-graylightest;
     /* 背景色 */
     padding: 20px;
     /* 内側余白 */
@@ -285,6 +333,6 @@ $subject-default-max-width: 1120px; // 最大幅
     @include text-m-black;
     line-height: 1.6;
     /* 行間 */
-    color: #333;
+    color: $cl-black;
     /* テキスト色 */
 }

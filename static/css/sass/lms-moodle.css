@@ -2433,20 +2433,74 @@ html[data-tenantidnumber=lmswaomirai] #page-admin-tool-catalogue-courseinfo div 
   color: #005C3F;
   font-size: 14px;
 }
-html[data-tenantidnumber=lmswaomirai] .global-english-inner {
-  display: grid;
+html[data-tenantidnumber=lmswaomirai] .global-english img {
+  width: 100%;
+}
+html[data-tenantidnumber=lmswaomirai] .global-english .global-english-live-lesson-second {
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: reverse;
+      -ms-flex-direction: row-reverse;
+          flex-direction: row-reverse;
+}
+html[data-tenantidnumber=lmswaomirai] .global-english .global-english-live-lesson {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 15px;
+  border-radius: 8px;
+}
+html[data-tenantidnumber=lmswaomirai] .global-english .global-english-live-lesson .global-english-live-lesson-text {
+  -webkit-box-flex: 4;
+      -ms-flex: 4;
+          flex: 4;
+}
+html[data-tenantidnumber=lmswaomirai] .global-english .global-english-live-lesson .global-english-lesson-images {
+  -webkit-box-flex: 6;
+      -ms-flex: 6;
+          flex: 6;
+}
+html[data-tenantidnumber=lmswaomirai] .global-english .global-english-live-lesson .lesson-content .lesson-title {
+  font-size: 19.2px;
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+}
+html[data-tenantidnumber=lmswaomirai] .global-english .global-english-live-lesson .lesson-content .global-english-desc {
+  font-size: 16px;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+html[data-tenantidnumber=lmswaomirai] .global-english .global-english-live-lesson .global-english-lesson-images {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+html[data-tenantidnumber=lmswaomirai] .global-english .global-english-live-lesson .global-english-lesson-images figure {
+  width: 413px;
+  height: 307px;
+  overflow: hidden;
+}
+html[data-tenantidnumber=lmswaomirai] .global-english .global-english-live-lesson .global-english-lesson-images figure img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 html[data-tenantidnumber=lmswaomirai] .global-english-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  /* 自動調整で横並び */
-  gap: 20px;
   /* 各アイテム間のスペース */
   padding: 20px;
   /* グリッド全体の余白 */
 }
 html[data-tenantidnumber=lmswaomirai] .global-english-item {
-  background-color: #f9f9f9;
+  background-color: #f0f2f3;
   /* 背景色 */
   padding: 20px;
   /* 内側余白 */
@@ -2468,7 +2522,7 @@ html[data-tenantidnumber=lmswaomirai] .global-english-desc {
   font-size: 14px;
   line-height: 1.6;
   /* 行間 */
-  color: #333;
+  color: #262626;
   /* テキスト色 */
 }
 html[data-tenantidnumber=lmswaomirai] .global-english-grid {
@@ -2481,7 +2535,7 @@ html[data-tenantidnumber=lmswaomirai] .global-english-grid {
   /* グリッド全体の余白 */
 }
 html[data-tenantidnumber=lmswaomirai] .global-english-item {
-  background-color: #f9f9f9;
+  background-color: #f0f2f3;
   /* 背景色 */
   padding: 20px;
   /* 内側余白 */
@@ -2507,7 +2561,7 @@ html[data-tenantidnumber=lmswaomirai] .global-english-desc {
   line-height: 1.5;
   line-height: 1.6;
   /* 行間 */
-  color: #333;
+  color: #262626;
   /* テキスト色 */
 }
 html[data-tenantidnumber=lmswaomirai] #page-course-view-flexsections .course-detail-banner {
