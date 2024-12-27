@@ -265,7 +265,12 @@ if (bodyId === "page-my-index") {
                     $events.each(function() {
                         var courseName = $(this).text().trim();
                         console.log('courseName:', courseName); // courseNameを確認
-            
+                        今日の日付を取得
+                        const today = new Date();
+                        const currentMonth = today.getMonth() + 1; // 現在の月（0から始まるので1を足す）
+                        const todayDay = today.getDate(); // 今日の日付
+                        const todayYear = today.getFullYear(); // 今日の年
+                        console.log('Today:', today); // 今日の日付を確認
                         // cellMonthは現在の月
                         const cellDay = parseInt($cell.attr('data-day'), 10); // カレンダーの日付
                         const cellMonth = currentMonth; // 現在の月を設定
