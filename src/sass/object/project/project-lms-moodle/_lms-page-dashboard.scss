@@ -646,5 +646,10 @@ $default-max-width: 1170px; // 最大幅
       color: $cl-gray;
       font-weight: bold;
     }
+    .dashboard-main-class-content-lesson-details {
+      span:first-child {
+        margin: 0 10px 0 0;
+      }
+    }
   }
 }

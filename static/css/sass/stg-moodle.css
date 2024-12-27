@@ -2513,6 +2513,9 @@ html[data-tenantidnumber=stg] .pagelayout-mydashboard .dashboard-main .dashboard
   color: #4d4d4d;
   font-weight: bold;
 }
+html[data-tenantidnumber=stg] .pagelayout-mydashboard .dashboard-main .dashboard-main-class-content-lesson-details span:first-child {
+  margin: 0 10px 0 0;
+}
 html[data-tenantidnumber=stg] #page-mod-questionnaire-view.path-mod .activity-header:not(:empty),
 html[data-tenantidnumber=stg] #page-mod-questionnaire-complete.path-mod .activity-header:not(:empty),
 html[data-tenantidnumber=stg] #page-mod-questionnaire-myreport.path-mod .activity-header:not(:empty),

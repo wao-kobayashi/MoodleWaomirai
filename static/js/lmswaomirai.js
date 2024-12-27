@@ -265,6 +265,60 @@ if (bodyId === "page-my-index") {
 
                 eventFound = true; // 今日授業あり
             }
+            // 今日以降のイベント（明日以降も含む）をアップカミングに追加
+            if (cellDay > todayDay) {
+                const $dayContent = $cell.find('[data-region="day-content"]');
+                console.log('$dayContent:', $dayContent); // 取得したdayContentを確認
+            
+                if ($dayContent.length > 0) {
+                    const $events = $dayContent.find('li a[data-action="view-event"]');
+                    console.log('$events:', $events); // 取得したeventsを確認
+            
+                    $events.each(function() {
+                        var courseName = $(this).text().trim();
+                        console.log('courseName:', courseName); // courseNameを確認
+            
+                        // 今日の日付を取得
+                        const today = new Date();
+                        const currentMonth = today.getMonth() + 1; // 現在の月（0から始まるので1を足す）
+                        const todayDay = today.getDate(); // 今日の日付
+                        const todayYear = today.getFullYear(); // 今日の年
+                        console.log('Today:', today); // 今日の日付を確認
+            
+                        // cellMonthは現在の月
+                        const cellDay = parseInt($cell.attr('data-day'), 10); // カレンダーの日付
+                        const cellMonth = currentMonth; // 現在の月を設定
+                        const cellYear = parseInt($cell.attr('data-year'), 10); // カレンダーの年
+                        console.log('cellDay:', cellDay);  // cellDay
+                        console.log('cellMonth:', cellMonth); // cellMonth
+                        console.log('cellYear:', cellYear); // cellYear
+            
+                        // イベントの日付を作成
+                        const eventDate = new Date(cellYear, cellMonth - 1, cellDay); // 月は0から始まるので、cellMonth - 1にする
+                        console.log('Event Date Object:', eventDate); // イベントの日付オブジェクトを確認
+            
+                        // 日付を「12/27(金)」の形式でフォーマット
+                        const dateString = `${cellMonth}/${cellDay }`;
+                        console.log('Formatted event dateString:', dateString); // フォーマットされた日付を確認
+            
+                        // 新しいdivを作成
+                        var $lessonContainer = $('<div>', { 'class': 'dashboard-main-class-content-lesson' });
+            
+                        // courseName と dateString を同じ div 内に追加
+                        var $lessonTitleAndDate = $('<span>', { 'class': 'dashboard-main-class-content-lesson-details' })
+                            .append($('<span>', { 'class': 'date', 'text': dateString }))
+                            .append($('<span>', { 'class': 'title', 'text': courseName }));
+            
+                        // $lessonContainer に $lessonTitleAndDate を追加
+                        $lessonContainer.append($lessonTitleAndDate);
+            
+                        // 画面に追加
+                        $('#dashboard-main-upcoming-class-scheduled').append($lessonContainer);
+                        upcomingEventFound = true; // 明日以降のイベントが見つかった
+                    });
+                }
+            }
+
         });
 
         // 今日のイベントがあればダッシュボードメッセージを更新
@@ -286,6 +340,10 @@ if (bodyId === "page-my-index") {
 
             // 今日のカレンダーが見つかったことを示すフラグを設定
             flagTodaysCalendar = true;
+        }
+         // 明日以降のスケジュールがない場合は、Noneメッセージを表示
+        if (!upcomingEventFound) {
+            $('#dashboard-main-upcoming-class-none').show();
         }
     }
 
@@ -311,11 +369,6 @@ if (bodyId === "page-my-index") {
 
     // #page-content直下に配置
     $('#page-content').append(wrappedContent);
-
-
-
-
-
 
 }
 // ==============================
