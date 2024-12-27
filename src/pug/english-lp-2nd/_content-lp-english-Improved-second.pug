@@ -70,14 +70,17 @@ mixin cv
                    button.button-level2-weekdays
                     |全ての日程をみる  
       .lp-cv-button 
-        a.form-link(href=linkUrl,onclick="gtag('event', 'click', {'event_category': 'click','event_label': 'click-english-lp-button'});", target='_blank') 
-            .lp-cv-button-sub 
-                |かんたん1分
-            .lp-cv-button-main
-                |無料体験レッスンはこちら
+        a.form-link(onclick="gtag('event', 'click', {'event_category': 'click','event_label': 'click-english-lp-button'});") 
+                .lp-cv-button-main
+                  .lp-cv-button-main-free 
+                    img(src='https://go.waomirai.com/l/1026513/2024-12-26/hb7cj/1026513/1735195715mm6pE3mm/free_icon.svg')
+                  .lp-cv-button-main-text
+                    |受講申し込みはこちら
+                  .lp-cv-button-main-arrow
+                    |
         script.
           var formLink = document.getElementById("form-link"); // IDを使う
-- var linkUrl = 'https://go.waomirai.com/english-trial-form'
+- var linkUrl = ''
 //- include _mixin-lp-english.pug
 noscript
   iframe(src="https://www.googletagmanager.com/ns.html?id=GTM-W3X8CG9C", height="0", width="0", style="display:none;visibility:hidden")
@@ -98,11 +101,16 @@ div.fvsp.spimage
         br
         |英語がもっと身近に
       .lp-cv-button 
-            a.form-link(href=linkUrl,onclick="gtag('event', 'click', {'event_category': 'click','event_label': 'click-english-lp-button'});" target='_blank')   
+            a.form-link(onclick="gtag('event', 'click', {'event_category': 'click','event_label': 'click-english-lp-button'});" )   
                 .english-fv-absolute-cvtop.cv-limit-text
-                    |10/30までに申し込むと11月中は無料
+                    |無料期間中のみの受講もOK！！
                 .lp-cv-button-main
-                    |無料体験レッスンはこちら
+                  .lp-cv-button-main-free 
+                    img(src='https://go.waomirai.com/l/1026513/2024-12-26/hb7cj/1026513/1735195715mm6pE3mm/free_icon.svg')
+                  .lp-cv-button-main-text
+                    |受講申し込みはこちら
+                  .lp-cv-button-main-arrow
+                    |
             script.
               var formLink = document.getElementById("form-link"); // IDを使う
       .lp-sp-scroll.fv-scroll
@@ -114,11 +122,16 @@ div.fvpc.pcimage
       .fvpc-left-text
         img(src='https://go.waomirai.com/l/1026513/2024-10-02/h4vnt/1026513/1727854663K3AnjpfW/text.svg')
       div 
-        a.form-link(href=linkUrl,onclick="gtag('event', 'click', {'event_category': 'click','event_label': 'click-english-lp-button'});" target='_blank')   
+        a.form-link(onclick="gtag('event', 'click', {'event_category': 'click','event_label': 'click-english-lp-button'});")   
           .english-fv-absolute-cvtop.cv-limit-text
-              |10/31までに申し込むと11月中は無料
+              | \ 無料期間中のみの受講もOK！ /
           .lp-cv-button-main
-              |無料体験レッスンはこちら
+            .lp-cv-button-main-free 
+               img(src='https://go.waomirai.com/l/1026513/2024-12-26/hb7cj/1026513/1735195715mm6pE3mm/free_icon.svg')
+            .lp-cv-button-main-text
+              |受講申し込みはこちら
+            .lp-cv-button-main-arrow
+              |
         script.
           var formLink = document.getElementById("form-link"); // IDを使う
    .fvpc-center.fv-scroll
@@ -378,8 +391,18 @@ section.section-el-second.section-el-second-who
            |これらの力を英語と共に身につけてほしいという想いから、私たちは「Presenter」で表現力を、「Interviewer」で聞く力を、「Reporter」で伝える力を、それぞれ育てるプログラムを開発しました。
       .section-el-second-content-bottom 
          img(src='https://go.waomirai.com/l/1026513/2024-10-08/h57kn/1026513/1728363121Eyys9LMc/whoweare.png')     
-         
-+cv 
+section.section-el-cv
+      .lp-cv-button 
+        a.form-link(onclick="gtag('event', 'click', {'event_category': 'click','event_label': 'click-english-lp-button'});") 
+                .english-fv-absolute-cvtop.cv-limit-text
+                    |無料期間中のみの受講もOK！！
+                .lp-cv-button-main
+                  .lp-cv-button-main-free 
+                    img(src='https://go.waomirai.com/l/1026513/2024-12-26/hb7cj/1026513/1735195715mm6pE3mm/free_icon.svg')
+                  .lp-cv-button-main-text
+                    |受講申し込みはこちら
+                  .lp-cv-button-main-arrow
+                    |
 
 section.section-el-second.section-el-second-coarce
   .section-el-second-top
@@ -529,43 +552,53 @@ section.section-el-second.section-el-second-price
     .section-el-second-top-text
      |PRICE
   .section-el-second-content
-    .section-el-second-content-title 
-       .section-el-second-content-title-text.section-el-second-content-title-text-center
-        |料金
+    //- .section-el-second-content-title 
+    //-    .section-el-second-content-title-text.section-el-second-content-title-text-center
+    //-     |料金
     .lp-section-price
       .lp-section-price-box
         .lp-section-price-box-left 
-            .lp-section-price-box-left-badge-wrap
-                .lp-section-price-box-left-badge 
-                  .lp-section-price-box-left-badge-body
-                .lp-section-price-box-left-badge-text
-                  |無料
+            //- .lp-section-price-box-left-badge-wrap
+            //-     .lp-section-price-box-left-badge 
+            //-       .lp-section-price-box-left-badge-body
+            //-     .lp-section-price-box-left-badge-text
+            //-       |無料
             .lp-section-price-box-left-text 
-                    |レッスン利用料金
-                    br
-                    |１ヶ月無料！
+                    |入会月無料！
         .lp-section-price-box-right
             |6,600円
             span.lp-section-price-box-right-small 
               | (税込）/月
     .lp-section-price-note
-      |※いつでも解約可能です
-section.section-el-second.section-el-second-try
-  .section-el-second-top
-    .section-el-second-top-text
-        |
-  .section-el-second-content
-    .section-el-second-content-title 
-       .section-el-second-content-title-text.section-el-second-content-title-text-center
-         |無料体験レッスン
-         br.spimage
-         |までの流れ
-    .lp-section-trial-flow
-      .pcimage
-        img(src='https://go.waomirai.com/l/1026513/2024-09-17/h3m5j/1026513/1726548611mDNqtkmT/trial_lesson.png')
-      .spimage
-        img(src='https://storage.pardot.com/1026513/1726640348sRjJhEhl/img_flow_sp.png')
-+cv 
+      |※無料期間でご解約の場合、費用は一切かかりません。
+    section.section-el-cv
+          .lp-cv-button 
+            a.form-link(onclick="gtag('event', 'click', {'event_category': 'click','event_label': 'click-english-lp-button'});") 
+                .english-fv-absolute-cvtop
+                  |無料期間中のみの受講もOK！！
+                .lp-cv-button-main
+                  .lp-cv-button-main-free 
+                    img(src='https://go.waomirai.com/l/1026513/2024-12-26/hb7cj/1026513/1735195715mm6pE3mm/free_icon.svg')
+                  .lp-cv-button-main-text
+                    |受講申し込みはこちら
+                  .lp-cv-button-main-arrow
+                    |
+//- section.section-el-second.section-el-second-try
+//-   .section-el-second-top
+//-     .section-el-second-top-text
+//-         |
+//-   .section-el-second-content
+//-     .section-el-second-content-title 
+//-        .section-el-second-content-title-text.section-el-second-content-title-text-center
+//-          |無料体験レッスン
+//-          br.spimage
+//-          |までの流れ
+//-     .lp-section-trial-flow
+//-       .pcimage
+//-         img(src='https://go.waomirai.com/l/1026513/2024-09-17/h3m5j/1026513/1726548611mDNqtkmT/trial_lesson.png')
+//-       .spimage
+//-         img(src='https://storage.pardot.com/1026513/1726640348sRjJhEhl/img_flow_sp.png')
+
 
 mixin faqItem(title, text)
   .lp-section-faq
@@ -630,11 +663,16 @@ footer
     |© ワオ・コーポレーション All rights reserved.
 .fixed-button(style='display:none;')
           .lp-cv-button 
-              a.form-link(href=linkUrl,onclick="gtag('event', 'click', {'event_category': 'click','event_label': 'click-english-lp-button'});" target='_blank')   
+              a.form-link(onclick="gtag('event', 'click', {'event_category': 'click','event_label': 'click-english-lp-button'});")   
                 .english-fv-absolute-cvtop.cv-limit-text
-                    |10/31までに申し込むと11月中は無料
+                    |無料期間中のみの受講もOK！
                 .lp-cv-button-main
-                    |無料体験レッスンはこちら
+                  .lp-cv-button-main-free 
+                    img(src='https://go.waomirai.com/l/1026513/2024-12-26/hb7cj/1026513/1735195715mm6pE3mm/free_icon.svg')
+                  .lp-cv-button-main-text
+                    |受講申し込みはこちら
+                  .lp-cv-button-main-arrow
               script.
                 var formLink = document.getElementById("form-link"); // IDを使う
 include _js-lp-english-second.pug
+
