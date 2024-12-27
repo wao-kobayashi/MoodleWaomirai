@@ -85,8 +85,8 @@ if (bodyId === "page-my-index") {
         if (subject.name.includes('哲学')) return "&#x1f4D6;"; // 📖
         if (subject.name.includes('科学')) return "&#x1f52C;"; // 🔬
         if (subject.name.includes('経済')) return "&#x1f4B0;"; // 💰
-        if (subject.name === 'グローバル英語') return "&#x1f4D6;"; // 📖
-        if (subject.name === 'プログラミング') return "&#x1f52C;"; // 🔬
+        if (subject.name.includes('英語')) return "&#x1f4ac;"; // 📖
+        if (subject.name.includes('プログラミング')) return "&#x1f52C;"; // 🔬
         return "&#x1f9ea;"; // デフォルト
     };
 
@@ -265,13 +265,6 @@ if (bodyId === "page-my-index") {
                     $events.each(function() {
                         var courseName = $(this).text().trim();
                         console.log('courseName:', courseName); // courseNameを確認
-            
-                        // 今日の日付を取得
-                        const today = new Date();
-                        const currentMonth = today.getMonth() + 1; // 現在の月（0から始まるので1を足す）
-                        const todayDay = today.getDate(); // 今日の日付
-                        const todayYear = today.getFullYear(); // 今日の年
-                        console.log('Today:', today); // 今日の日付を確認
             
                         // cellMonthは現在の月
                         const cellDay = parseInt($cell.attr('data-day'), 10); // カレンダーの日付
