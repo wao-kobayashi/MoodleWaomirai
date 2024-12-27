@@ -2108,12 +2108,14 @@ html[data-tenantidnumber=stg] .pagelayout-mydashboard .maincalendar .header {
 html[data-tenantidnumber=stg] .pagelayout-mydashboard .maincalendar .header.p-1 {
   padding: 0 !important;
 }
-html[data-tenantidnumber=stg] .pagelayout-mydashboard .maincalendar .header .custom-select {
-  max-width: 250px;
-  position: absolute;
-  left: 0;
-  top: 10px;
-  z-index: 1;
+@media screen and (min-width: 769px) {
+  html[data-tenantidnumber=stg] .pagelayout-mydashboard .maincalendar .header .custom-select {
+    max-width: 250px;
+    position: absolute;
+    left: 0;
+    top: 10px;
+    z-index: 1;
+  }
 }
 html[data-tenantidnumber=stg] .pagelayout-mydashboard .calendar-controls {
   display: -webkit-box;
@@ -2525,6 +2527,12 @@ html[data-tenantidnumber=stg] .pagelayout-mydashboard .dashboard-main .dashboard
 }
 html[data-tenantidnumber=stg] .pagelayout-mydashboard .dashboard-main .dashboard-main-class-content-lesson-details span:first-child {
   margin: 0 10px 0 0;
+}
+html[data-tenantidnumber=stg] .maincalendar .d-none {
+  display: block !important;
+}
+html[data-tenantidnumber=stg] .maincalendar .hidden-desktop {
+  display: none !important;
 }
 html[data-tenantidnumber=stg] #page-mod-questionnaire-view.path-mod .activity-header:not(:empty),
 html[data-tenantidnumber=stg] #page-mod-questionnaire-complete.path-mod .activity-header:not(:empty),

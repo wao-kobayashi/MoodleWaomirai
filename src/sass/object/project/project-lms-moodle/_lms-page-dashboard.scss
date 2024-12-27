@@ -261,11 +261,13 @@ $default-max-width: 1170px; // 最大幅
       padding: 0 !important;
     }
     .custom-select {
-      max-width: 250px;
-      position: absolute;
-      left: 0;
-      top: 10px;
-      z-index: 1;
+      @include min-responsive-style(769px) {
+        max-width: 250px;
+        position: absolute;
+        left: 0;
+        top: 10px;
+        z-index: 1;
+      }
     }
   }
   .calendar-controls {
@@ -662,5 +664,25 @@ $default-max-width: 1170px; // 最大幅
         margin: 0 10px 0 0;
       }
     }
+    // .calendarwrapper {
+    //   .hidden-phone {
+    //     display: block !important;
+    //   }
+    // }
   }
 }
+.maincalendar {
+  .d-none {
+    display: block !important;
+  }
+  .hidden-desktop {
+    display: none !important;
+  }
+}
+
+// .maincalendar
+//   .calendartable.calendarmonth
+//   td.hasevent
+//   [data-region="day-content"] {
+//   display: block !important;
+// }
