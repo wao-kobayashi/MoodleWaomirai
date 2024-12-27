@@ -210,6 +210,7 @@ $subject-default-max-width: 1120px; // 最大幅
 }
 
 .global-english {
+    @import "../../../foundation/_wpstyle.scss";
     img {
         width: 100%;
     }
@@ -259,29 +260,36 @@ $subject-default-max-width: 1120px; // 最大幅
             }
         }
     }
-}
-
-.global-english-grid {
-    // display: grid;
-    // grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    // /* 自動調整で横並び */
-    // gap: 20px;
-    /* 各アイテム間のスペース */
-    padding: 20px;
-    /* グリッド全体の余白 */
-}
-
-.global-english-item {
-    background-color: $cl-graylightest;
-    /* 背景色 */
-    padding: 20px;
-    /* 内側余白 */
-    border: 1px solid #ddd;
-    /* 境界線 */
-    border-radius: 5px;
-    /* 角丸 */
-    box-sizing: border-box;
-    /* 幅計算にパディングを含める */
+    .global-english-grid {
+        // display: grid;
+        // grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        // /* 自動調整で横並び */
+        // gap: 20px;
+        /* 各アイテム間のスペース */
+        padding: 20px;
+        /* グリッド全体の余白 */
+    }
+    .global-english-item {
+        background-color: $cl-graylightest;
+        /* 背景色 */
+        padding: 20px;
+        /* 内側余白 */
+        border: 1px solid #ddd;
+        /* 境界線 */
+        border-radius: 5px;
+        /* 角丸 */
+        box-sizing: border-box;
+        /* 幅計算にパディングを含める */
+    }
+    .coursedetail-info-fee-benefits {
+        display: grid;
+        max-width: 600px;
+        width: 100%;
+        grid-template-columns: repeat(2, 1fr);
+        grid-column-gap: 10px;
+        grid-row-gap: 10px;
+        background: red;
+    }
 }
 
 .lesson-title {
@@ -336,3 +344,25 @@ $subject-default-max-width: 1120px; // 最大幅
     color: $cl-black;
     /* テキスト色 */
 }
+
+.box-container {
+    background-color: #f0f0f0;
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+    padding: 40px;
+    .coursedetail-info-fee-benefits {
+        display: grid;
+        max-width: 600px;
+        width: 100%;
+        grid-template-columns: repeat(2, 1fr);
+        grid-column-gap: 10px;
+        grid-row-gap: 10px;
+    }
+}
+
+// .coursedetail-info-course,
+// .coursedetail-info-fee,
+// .coursedetail-info-schedule {
+//     background-color: $cl-graylightest;
+// }
