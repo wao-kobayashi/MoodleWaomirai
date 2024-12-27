@@ -295,10 +295,9 @@ html[data-tenantidnumber=stg] .lms-index-contents-block-cards .block-programming
 html[data-tenantidnumber=stg] .dashboard-main-contents-block-cards {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(2, 1fr);
   grid-column-gap: 32px;
   grid-row-gap: 32px;
-  padding: 20px 20px 10px;
+  padding: 20px 10px 10px;
 }
 @media screen and (max-width: 768px) {
   html[data-tenantidnumber=stg] .dashboard-main-contents-block-cards {
@@ -2417,6 +2416,11 @@ html[data-tenantidnumber=stg] .pagelayout-mydashboard .pagination {
   right: 30px;
   top: 47px;
 }
+@media screen and (min-width: 769px) {
+  html[data-tenantidnumber=stg] .pagelayout-mydashboard #todays-event-subject-none .c-alert-banner {
+    margin: 0 10px;
+  }
+}
 html[data-tenantidnumber=stg] .pagelayout-mydashboard .dashboard-main .dashboard-main-navi {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
@@ -2466,6 +2470,12 @@ html[data-tenantidnumber=stg] .pagelayout-mydashboard .dashboard-main .dashboard
 html[data-tenantidnumber=stg] .pagelayout-mydashboard .dashboard-main .dashboard-main-class {
   background: white;
   padding: 13px 15px 13px !important;
+  border-radius: 12px;
+}
+@media screen and (max-width: 768px) {
+  html[data-tenantidnumber=stg] .pagelayout-mydashboard .dashboard-main .dashboard-main-class {
+    border-radius: 0px;
+  }
 }
 html[data-tenantidnumber=stg] .pagelayout-mydashboard .dashboard-main #todays-event-class-scheduled,
 html[data-tenantidnumber=stg] .pagelayout-mydashboard .dashboard-main #dashboard-main-upcoming-class-scheduled {

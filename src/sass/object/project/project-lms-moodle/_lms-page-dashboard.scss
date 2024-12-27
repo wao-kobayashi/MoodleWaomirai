@@ -567,6 +567,13 @@ $default-max-width: 1170px; // 最大幅
     top: 47px;
   }
 }
+.pagelayout-mydashboard {
+  #todays-event-subject-none .c-alert-banner {
+    @include min-responsive-style(769px) {
+      margin: 0 10px;
+    }
+  }
+}
 
 //スマホ用
 .pagelayout-mydashboard {
@@ -613,6 +620,10 @@ $default-max-width: 1170px; // 最大幅
     .dashboard-main-class {
       background: white;
       padding: 13px 15px 13px !important;
+      border-radius: $border-radius-big;
+      @include responsive-style(768px) {
+        border-radius: 0px;
+      }
     }
     #todays-event-class-scheduled,
     #dashboard-main-upcoming-class-scheduled {

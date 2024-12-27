@@ -132,6 +132,7 @@ if (bodyId === "page-my-index") {
         console.error("指定された科目に該当しません");
         // 特定のHTMLを指定要素に挿入する
         $("#todays-event-subject-none,#dashboard-main-upcoming-class-none").show();
+        $('#todays-subject-pc').hide();
         const errorHtml = `
         <div class="dashboard-left-block-subject-child">
             <p>受講している科目がありません。</p>
