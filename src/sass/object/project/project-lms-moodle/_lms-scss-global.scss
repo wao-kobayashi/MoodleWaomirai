@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Noto+Sans+JP:400,500,700,900');
+@import url("https://fonts.googleapis.com/css?family=Noto+Sans+JP:400,500,700,900");
 @import "../../../foundation/_mixin"; //よく使う関数など定義したもの
 @import "../../../foundation/_constant"; //色などの変数定義
 @import "_lms-settings-variable"; //色などの変数定義
@@ -6,6 +6,7 @@
 @import "_lms-settings-drawer"; //moodleのドロワー撲滅
 @import "_lms-settings-animation"; //アニメーション
 @import "common/_lms-common-subject-cards"; //教科カード
+@import "common/_lms-common-alert"; //アラートバー
 @import "_lms-page-common"; //共通
 @import "_lms-page-signup"; //授業詳細
 @import "_lms-page-course-header"; //授業詳細

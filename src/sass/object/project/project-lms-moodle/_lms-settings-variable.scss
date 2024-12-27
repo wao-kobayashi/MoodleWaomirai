@@ -1,100 +1,84 @@
 /* 全体の幅 */
 
-$body-width:1200px;
+$body-width: 1200px;
 
 /* フォント */
 
-$lms-font-size-s:12px;
-$lms-font-size-m:14px;
-$lms-font-size-ml:16px;
-$lms-font-size-l:20px;
-$lms-font-size-xl:24px;
-$lms-font-size-xxl:30px;
+$lms-font-size-s: 12px;
+$lms-font-size-m: 14px;
+$lms-font-size-ml: 16px;
+$lms-font-size-l: 20px;
+$lms-font-size-xl: 24px;
+$lms-font-size-xxl: 30px;
 
 /* border-radius */
 
-$border-radius-small:4px;
-$border-radius-middle:8px;
-$border-radius-big:12px;
-$border-radius-full:10000px;
+$border-radius-small: 4px;
+$border-radius-middle: 8px;
+$border-radius-big: 12px;
+$border-radius-full: 10000px;
 
 /* line-height */
 
-$lineheight-none:1;
-$lineheight-tight:1.25;
-$lineheight-normal:1.5;
-$lineheight-relaxed:1.75;
+$lineheight-none: 1;
+$lineheight-tight: 1.25;
+$lineheight-normal: 1.5;
+$lineheight-relaxed: 1.75;
 
 /* parts */
 
-$overlay:rgba(0, 0, 0, 0.7);
+$overlay: rgba(0, 0, 0, 0.7);
 
 /* parts */
 
 @mixin lms-left-waogreen {
-    width: 6px;
-    height: 25px;
-    content: "";
-    background: $cl-waogreen;
-    display: block;
-    position: absolute;
-    left: 17px;
-    top: -12px;
-    bottom: 0;
-    margin: auto;
-    border-radius: 4px;
+  width: 6px;
+  height: 25px;
+  content: "";
+  background: $cl-waogreen;
+  display: block;
+  position: absolute;
+  left: 17px;
+  top: 0px;
+  bottom: 0;
+  margin: auto;
+  border-radius: 4px;
 }
-
-@mixin lms-left-waogreen {
-    width: 6px;
-    height: 25px;
-    content: "";
-    background: $cl-waogreen;
-    display: block;
-    position: absolute;
-    left: 17px;
-    top: -12px;
-    bottom: 0;
-    margin: auto;
-    border-radius: 4px;
-}
-
 
 /* boxshadow */
 
 @mixin lms-boxshadow {
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.15) !important;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.15) !important;
 }
-
 
 /* other */
 
 @mixin focus-tapblack-none {
-    box-shadow: none;
-    appearance: none;
-    -webkit-tap-highlight-color: transparent;
+  box-shadow: none;
+  appearance: none;
+  -webkit-tap-highlight-color: transparent;
 }
 
 @mixin text-m-black {
-    font-size: $lms-font-size-ml;
-    color: $cl-black;
-    line-height: $lineheight-normal;
+  font-size: $lms-font-size-ml;
+  color: $cl-black;
+  line-height: $lineheight-normal;
 }
 
 @mixin text-l-black {
-    font-size: $lms-font-size-l;
-    color: $cl-black;
-    line-height: $lineheight-normal;
+  font-size: $lms-font-size-l;
+  color: $cl-black;
+  line-height: $lineheight-normal;
 }
 
 @mixin text-xl-black {
-    font-size: $lms-font-size-xl;
-    color: $cl-black;
-    line-height: $lineheight-normal;
+  font-size: $lms-font-size-xl;
+  color: $cl-black;
+  line-height: $lineheight-normal;
 }
 
 @mixin text-xxl-black {
-    font-size: $lms-font-size-xxl;
-    color: $cl-black;
-    line-height: $lineheight-normal;
+  font-size: $lms-font-size-xxl;
+  color: $cl-black;
+  line-height: $lineheight-normal;
 }

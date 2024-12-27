@@ -1,0 +1,60 @@
+.c-alert-banner {
+  padding: 0px 12px;
+  border-radius: $border-radius-middle;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  .c-alert-banner-left {
+    display: flex;
+    align-items: center;
+    padding: 12px 0;
+  }
+  .c-alert-banner-left-icon {
+    width: 24px;
+    height: 24px;
+    margin: 0 10px 0 3px;
+    i {
+      font-size: 24px;
+      display: block;
+      line-height: 1;
+    }
+  }
+  .c-alert-banner-text-title {
+    font-size: $lms-font-size-ml;
+    font-weight: 500;
+  }
+  .c-alert-banner-text-read {
+    font-size: $lms-font-size-ml;
+  }
+  .c-alert-banner-right a {
+    padding: 8px 16px;
+    border-radius: $border-radius-small;
+    color: white;
+    font-size: $lms-font-size-m;
+    font-weight: bold;
+    border: none !important;
+    &:hover {
+      text-decoration: none !important;
+      opacity: 0.7;
+    }
+  }
+  &.alert-setting-level {
+    // background: $cl-alert;
+    background: $cl-alert;
+    color: white;
+  }
+  &.alert-buy-course {
+    // background: $cl-alert;
+    border: 2px solid $cl-waogreen;
+    background: #edfbf5;
+    .c-alert-banner-left-icon {
+      i {
+        color: $cl-waogreen;
+      }
+    }
+  }
+  .c-alert-banner-right a {
+    background: $cl-waogreen;
+  }
+}

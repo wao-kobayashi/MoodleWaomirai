@@ -256,7 +256,14 @@ if (bodyId === "page-my-index") {
         }, 300); // 300ミリ秒（0.3秒）
     });
 
+    // .dashboard-leftの内容を取得してclone
+    var contentToClone = $('.dashboard-left').clone();
 
+    // #page-content直下に配置
+    var wrappedContent = $('<div>', { id: 'dashboard-sp-content' }).append(contentToClone);
+
+    // #page-content直下に配置
+    $('#page-content').append(wrappedContent);
 
 
 

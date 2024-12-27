@@ -161,15 +161,16 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(2, 1fr);
-  grid-column-gap: 40px;
-  grid-row-gap: 40px;
-  padding: 0 0px 10px;
+  grid-column-gap: 32px;
+  grid-row-gap: 32px;
+  padding: 20px 20px 10px;
 
   @include responsive-style(768px) {
     grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(3, 1fr);
-    grid-column-gap: 16px;
+    grid-template-rows: auto;
+    grid-column-gap: 20px;
     grid-row-gap: 20px;
+    padding: 20px 5px 10px;
   }
 
   .common-contents-block-cards-course {
@@ -259,6 +260,7 @@
       @include responsive-style(768px) {
         font-size: $lms-font-size-ml;
         padding: 0 0 0 12px;
+        line-height: $lineheight-tight;
       }
 
       &:before {
