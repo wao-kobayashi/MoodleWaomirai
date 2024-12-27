@@ -109,9 +109,10 @@ if (bodyId === "page-my-index") {
     }
 
     // どの科目にも該当しない場合のエラーハンドリング
-    if (!isSubjectMain && !isSubjectChild && !isGlobalEnglish && !isProgramming) {
+    if (!isSubjectMain && !isSubjectChild &&  !isProgramming) {
         console.error("指定された科目に該当しません");
         // 特定のHTMLを指定要素に挿入する
+        $("#todays-event-subject-none,#dashboard-main-upcoming-class-none").show();
         const errorHtml = `
         <div class="dashboard-left-block-subject-child">
             <p>受講している科目がありません。</p>
@@ -200,7 +201,9 @@ if (bodyId === "page-my-index") {
             }
 
             // メッセージをダッシュボードに設定
-            $('.dashboard-banner-text-title').text(message);
+            $('#todays-subject-pc .c-alert-banner-text-title').text(message);
+            $('#todays-event-class-none').show();
+            
 
             // 今日のカレンダーが見つかったことを示すフラグを設定
             flagTodaysCalendar = true;
