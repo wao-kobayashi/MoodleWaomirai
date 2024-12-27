@@ -5,10 +5,6 @@ body {
   color: #262626;
 }
 
-.course-grid {
-  display: g;
-}
-
 #english-lp-improved-second {
   overflow-x: hidden;
 }
@@ -1542,7 +1538,7 @@ header {
       justify-content: center;
       width: 450px;
       @include responsive-style(768px) {
-        width: 320px;
+        width: 340px;
         padding: 10px 0px;
       }
       .english-fv-absolute-cvtop {
@@ -1576,7 +1572,7 @@ header {
       .lp-cv-button-main {
         color: white;
         font-weight: 500;
-        margin: 0 0 0 7px;
+        margin: 0 10px 0 10px;
         font-size: 22px;
         display: flex;
         justify-content: space-between;

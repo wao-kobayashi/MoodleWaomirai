@@ -70,7 +70,7 @@ mixin cv
                    button.button-level2-weekdays
                     |全ての日程をみる  
       .lp-cv-button 
-        a.form-link(onclick="gtag('event', 'click', {'event_category': 'click','event_label': 'click-english-lp-button'});") 
+        a.form-link(href=linkUrl,onclick="gtag('event', 'click', {'event_category': 'click','event_label': 'click-english-lp-button'});",target="_blank") 
                 .lp-cv-button-main
                   .lp-cv-button-main-free 
                     img(src='https://go.waomirai.com/l/1026513/2024-12-26/hb7cj/1026513/1735195715mm6pE3mm/free_icon.svg')
@@ -80,7 +80,7 @@ mixin cv
                     |
         script.
           var formLink = document.getElementById("form-link"); // IDを使う
-- var linkUrl = ''
+- var linkUrl = 'https://go.waomirai.com/howto-signup-english'
 //- include _mixin-lp-english.pug
 noscript
   iframe(src="https://www.googletagmanager.com/ns.html?id=GTM-W3X8CG9C", height="0", width="0", style="display:none;visibility:hidden")
@@ -101,9 +101,9 @@ div.fvsp.spimage
         br
         |英語がもっと身近に
       .lp-cv-button 
-            a.form-link(onclick="gtag('event', 'click', {'event_category': 'click','event_label': 'click-english-lp-button'});" )   
+            a.form-link(href=linkUrl,onclick="gtag('event', 'click', {'event_category': 'click','event_label': 'click-english-lp-button'});",target="_blank" )   
                 .english-fv-absolute-cvtop.cv-limit-text
-                    |無料期間中のみの受講もOK！！
+                    |無料期間中のみの受講もOK！
                 .lp-cv-button-main
                   .lp-cv-button-main-free 
                     img(src='https://go.waomirai.com/l/1026513/2024-12-26/hb7cj/1026513/1735195715mm6pE3mm/free_icon.svg')
@@ -122,7 +122,7 @@ div.fvpc.pcimage
       .fvpc-left-text
         img(src='https://go.waomirai.com/l/1026513/2024-10-02/h4vnt/1026513/1727854663K3AnjpfW/text.svg')
       div 
-        a.form-link(onclick="gtag('event', 'click', {'event_category': 'click','event_label': 'click-english-lp-button'});")   
+        a.form-link(href=linkUrl,onclick="gtag('event', 'click', {'event_category': 'click','event_label': 'click-english-lp-button'});",target="_blank")   
           .english-fv-absolute-cvtop.cv-limit-text
               | \ 無料期間中のみの受講もOK！ /
           .lp-cv-button-main
@@ -393,9 +393,9 @@ section.section-el-second.section-el-second-who
          img(src='https://go.waomirai.com/l/1026513/2024-10-08/h57kn/1026513/1728363121Eyys9LMc/whoweare.png')     
 section.section-el-cv
       .lp-cv-button 
-        a.form-link(onclick="gtag('event', 'click', {'event_category': 'click','event_label': 'click-english-lp-button'});") 
+        a.form-link(href=linkUrl,onclick="gtag('event', 'click', {'event_category': 'click','event_label': 'click-english-lp-button'});",target="_blank") 
                 .english-fv-absolute-cvtop.cv-limit-text
-                    |無料期間中のみの受講もOK！！
+                    |無料期間中のみの受講もOK！
                 .lp-cv-button-main
                   .lp-cv-button-main-free 
                     img(src='https://go.waomirai.com/l/1026513/2024-12-26/hb7cj/1026513/1735195715mm6pE3mm/free_icon.svg')
@@ -573,9 +573,9 @@ section.section-el-second.section-el-second-price
       |※無料期間でご解約の場合、費用は一切かかりません。
     section.section-el-cv
           .lp-cv-button 
-            a.form-link(onclick="gtag('event', 'click', {'event_category': 'click','event_label': 'click-english-lp-button'});") 
+            a.form-link(href=linkUrl,onclick="gtag('event', 'click', {'event_category': 'click','event_label': 'click-english-lp-button'});",target="_blank") 
                 .english-fv-absolute-cvtop
-                  |無料期間中のみの受講もOK！！
+                  |無料期間中のみの受講もOK！
                 .lp-cv-button-main
                   .lp-cv-button-main-free 
                     img(src='https://go.waomirai.com/l/1026513/2024-12-26/hb7cj/1026513/1735195715mm6pE3mm/free_icon.svg')
@@ -663,7 +663,7 @@ footer
     |© ワオ・コーポレーション All rights reserved.
 .fixed-button(style='display:none;')
           .lp-cv-button 
-              a.form-link(onclick="gtag('event', 'click', {'event_category': 'click','event_label': 'click-english-lp-button'});")   
+              a.form-link(href=linkUrl,onclick="gtag('event', 'click', {'event_category': 'click','event_label': 'click-english-lp-button'});",target="_blank")   
                 .english-fv-absolute-cvtop.cv-limit-text
                     |無料期間中のみの受講もOK！
                 .lp-cv-button-main

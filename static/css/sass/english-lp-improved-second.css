@@ -4972,10 +4972,6 @@ body {
   color: #262626;
 }
 
-.course-grid {
-  display: g;
-}
-
 #english-lp-improved-second {
   overflow-x: hidden;
 }
@@ -6954,7 +6950,7 @@ header div img {
 }
 @media screen and (max-width: 768px) {
   .section-el-cv .lp-cv-button a {
-    width: 320px;
+    width: 340px;
     padding: 10px 0px;
   }
 }
@@ -7002,7 +6998,7 @@ header div img {
 .section-el-cv .lp-cv-button a .lp-cv-button-main {
   color: white;
   font-weight: 500;
-  margin: 0 0 0 7px;
+  margin: 0 10px 0 10px;
   font-size: 22px;
   display: -webkit-box;
   display: -ms-flexbox;
