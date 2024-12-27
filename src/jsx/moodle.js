@@ -23,25 +23,7 @@ if (bodyId === "page-my-index") {
     ////////////////////////////
     // 受講中科目の処理
     ////////////////////////////
-    // $(".instance-282-header").on("click", function() {
-    //     // a[data-event-id="479"]をクリック
-    //     $("a[data-event-id='479']").trigger("click");
-    // });
-    $("#instance-282-header").on("click", function() {
-        alert('a');
-        // a[data-event-id="479"]をクリック
-        // $("li#yui_3_18_1_1_1734662794127_232").hide();
-        $(".today li[data-region='event-item']").click();
-        // $("#yui_3_18_1_1_1734662477888_160").trigger("click");
-    });
 
-    $("#instance-255-header").on("click", function() {
-        alert('a');
-        // a[data-event-id="479"]をクリック
-        // $("li#yui_3_18_1_1_1734662794127_232").hide();
-        $(".today li[data-region='event-item']").click();
-        // $("#yui_3_18_1_1_1734662477888_160").trigger("click");
-    });
 
     function renderSubject(subject, icon, isSubjectMain) {
         // SubjectMain の場合のリンクを変更
@@ -445,9 +427,6 @@ if (bodyId === "page-enrol-index") {
 if (bodyId === "page-course-index-category") {
     window.location.href = "https://lms.waomirai.com/";
 }
-
-
-
 
 // ==============================
 //メイン3科目or2,3科目パック購入後はリダイレクトさせる
