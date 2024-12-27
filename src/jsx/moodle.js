@@ -225,7 +225,7 @@ if (bodyId === "page-my-index") {
                     $events.each(function() {
                         var courseName = $(this).text().trim();
                         console.log('courseName:', courseName); // courseNameを確認
-                        今日の日付を取得
+                        //今日の日付を取得
                         const today = new Date();
                         const currentMonth = today.getMonth() + 1; // 現在の月（0から始まるので1を足す）
                         const todayDay = today.getDate(); // 今日の日付
