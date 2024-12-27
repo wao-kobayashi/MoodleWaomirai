@@ -6,6 +6,7 @@ const SubjectIds = {
         economy: { id: 213, name: '経済' },
         ThreeSubjectPack: { id: 229, name: '3科目セット' },
         TwoSubjectPack: { id: 228, name: '2科目セット' },
+        GlobalEnglish: { id: 236, name: 'グローバル英語' },
     },
     SubjectChild: {
         philosophy: {
@@ -26,7 +27,11 @@ const SubjectIds = {
             L3: { id: 246, name: '経済 L3' },
             L4: { id: 247, name: '経済 L4' }
         },
+        GlobalEnglish: {
+            L1: { id: 253, name: 'グローバル英語 L1' },
+            L2: { id: 254, name: 'グローバル英語 L2' },
+        },
     },
-    GlobalEnglish: { id: 236, name: 'グローバル英語' },
+   
     Programming: { id: 235, name: 'プログラミング' }
 };

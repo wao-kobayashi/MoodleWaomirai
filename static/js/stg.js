@@ -6,6 +6,7 @@ const SubjectIds = {
         economy: { id: 213, name: '経済' },
         ThreeSubjectPack: { id: 229, name: '3科目セット' },
         TwoSubjectPack: { id: 228, name: '2科目セット' },
+        GlobalEnglish: { id: 236, name: 'グローバル英語' },
     },
     SubjectChild: {
         philosophy: {
@@ -26,8 +27,12 @@ const SubjectIds = {
             L3: { id: 246, name: '経済 L3' },
             L4: { id: 247, name: '経済 L4' }
         },
+        GlobalEnglish: {
+            L1: { id: 253, name: 'グローバル英語 L1' },
+            L2: { id: 254, name: 'グローバル英語 L2' },
+        },
     },
-    GlobalEnglish: { id: 236, name: 'グローバル英語' },
+   
     Programming: { id: 235, name: 'プログラミング' }
 };
 $(document).ready(function() {
@@ -46,8 +51,8 @@ function checkGroup(subjectIds) {
 
 // 科目グループ判定
 const isSubjectMain = checkGroup(SubjectIds.SubjectMain);
-const isSubjectChild = ['philosophy', 'science', 'economy'].some(subject => checkGroup(SubjectIds.SubjectChild[subject]));
-const isGlobalEnglish = bodyClasses.includes(SubjectIds.GlobalEnglish.id);
+const isSubjectChild = ['philosophy', 'science', 'economy', 'GlobalEnglish'].some(subject => checkGroup(SubjectIds.SubjectChild[subject]));
+// const isGlobalEnglish = bodyClasses.includes(SubjectIds.GlobalEnglish.id);
 const isProgramming = bodyClasses.includes(SubjectIds.Programming.id);
 
 // ==============================
@@ -103,23 +108,11 @@ if (bodyId === "page-my-index") {
         return "&#x1f9ea;"; // デフォルト
     };
 
-    // メイン科目（SubjectMain）の処理
-    if (!isSubjectChild && isSubjectMain) {
-        console.log("メイン科目（SubjectMain）に該当しています");
-        const subjectMainNames = Object.values(SubjectIds.SubjectMain)
-            .filter(subSubject => bodyClasses.includes(subSubject.id))
-            .map(subSubject => renderSubject(subSubject, getIcon(subSubject), true)) // true を渡してSubjectMain用のリンクにする
-            .join("");
-        if (subjectMainNames) {
-            $(".dashboard-left-block-wrap.dashboard-left-block-wrap-subject").append(subjectMainNames);
-        }
-    }
-
     // 詳細科目（SubjectChild）の処理
     if (isSubjectChild) {
         console.log("詳細科目（SubjectChild）に該当しています");
         const subjectChildNames = [];
-        ['philosophy', 'science', 'economy'].forEach(subjectKey => {
+        ['philosophy', 'science', 'economy', 'GlobalEnglish'].forEach(subjectKey => {
             Object.values(SubjectIds.SubjectChild[subjectKey])
                 .filter(subSubject => bodyClasses.includes(subSubject.id))
                 .forEach(subSubject => {
@@ -130,18 +123,50 @@ if (bodyId === "page-my-index") {
             $(".dashboard-left-block-wrap.dashboard-left-block-wrap-subject").append(subjectChildNames.join(""));
         }
     }
+    // メイン科目（SubjectMain）の処理
+    if (isSubjectMain) {
+        console.log("メイン科目（SubjectMain）に該当しています");
+        // サブ科目が存在するか確認する関数
+        function hasRelatedChildSubject(subjectKey) {
+            const childSubjects = SubjectIds.SubjectChild[subjectKey];
+            if (!childSubjects) return false;
 
-    // グローバル英語（GlobalEnglish）の処理
-    if (isGlobalEnglish) {
-        console.log("グローバル英語に該当しています");
-        $(".dashboard-left-block-wrap.dashboard-left-block-wrap-subject").append(renderSubject(SubjectIds.GlobalEnglish, getIcon(SubjectIds.GlobalEnglish), false));
+            return Object.values(childSubjects).some(child => bodyClasses.includes(child.id));
+        }
+
+        const subjectMainNames = Object.entries(SubjectIds.SubjectMain)
+            .filter(([key, subSubject]) => {
+                // サブ科目が存在する場合、メイン科目をスキップ
+                const hasChild = hasRelatedChildSubject(key);
+                if (hasChild) {
+                    console.log(`スキップ: サブ科目が存在するため ${subSubject.name}`);
+                    return false;
+                }
+                return bodyClasses.includes(subSubject.id);
+            })
+            .map(([key, subSubject]) => renderSubject(subSubject, getIcon(subSubject), true)) // true を渡してSubjectMain用のリンクにする
+            .join("");
+
+        if (subjectMainNames) {
+            $(".dashboard-left-block-wrap.dashboard-left-block-wrap-subject").append(subjectMainNames);
+        }
     }
+
+
+
 
     // プログラミング（Programming）の処理
     if (isProgramming) {
         console.log("プログラミングに該当しています");
         $(".dashboard-left-block-wrap.dashboard-left-block-wrap-subject").append(renderSubject(SubjectIds.Programming, getIcon(SubjectIds.Programming), false));
     }
+
+    // グローバル英語（GlobalEnglish）の処理
+    // if (isGlobalEnglish) {
+    //     console.log("グローバル英語に該当しています");
+    //     $(".dashboard-left-block-wrap.dashboard-left-block-wrap-subject").append(renderSubject(SubjectIds.GlobalEnglish, getIcon(SubjectIds.GlobalEnglish), false));
+    // }
+
 
     // どの科目にも該当しない場合のエラーハンドリング
     if (!isSubjectMain && !isSubjectChild &&  !isProgramming) {
@@ -279,12 +304,13 @@ if (bodyId === "page-my-index") {
 // ==============================
 if (bodyId === "page-my-index" || bodyId === "page-site-index") {
     if (!isSubjectChild && isSubjectMain) {
-        $('.header-banner.alert-setting-level').css("display", "flex");
-        // ナビゲーションバーの位置を調整
-        $('.navbar.fixed-top').css({ "top": "70px", "position": "fixed" });
-        // bodyのpaddingを調整
-        $('body').css("padding", "70px 0 0");
-
+        //複雑になりそうなので後回し
+        //メイン教科にあって、かつサブ教科持っていない場合
+        // $('.header-banner.alert-setting-level').css("display", "flex");
+        // // ナビゲーションバーの位置を調整
+        // $('.navbar.fixed-top').css({ "top": "70px", "position": "fixed" });
+        // // bodyのpaddingを調整
+        // $('body').css("padding", "70px 0 0");
     }
 }
 
