@@ -9,21 +9,21 @@ const bodyClasses = $("body")
 
 // 汎用的なグループチェック関数
 function checkGroup(subjectIds) {
-    return Object.values(subjectIds).some(id => bodyClasses.includes(id.id));
+    return Object.values(subjectIds).some(id => bodyClasses.includes(id.id)); //someは1個でも要素があればtrueを返す
 }
 
 ////////////////////////////////////////////////
 // 汎用的な科目チェック関数
 ////////////////////////////////////////////////
-function isSubjectMainCategory(subject) {
-  return bodyClasses.includes(SubjectIds.SubjectMain[subject]?.id);
+function isBuySubjectMainCategory(subject) {
+  return bodyClasses.includes(SubjectIds.SubjectMain[subject]?.id); //subjectMainが存在するかどうかを返す
 }
 // 検証する科目
 const subjects = ['philosophy', 'science','economy', 'ThreeSubjectPack', 'TwoSubjectPack', 'GlobalEnglish'];
 
 // 各科目に該当するかどうかをチェック
 const subjectFlags = subjects.reduce((flags, subject) => {
-  flags[subject] = isSubjectMainCategory(subject);
+  flags[subject] = isBuySubjectMainCategory(subject);
   return flags;
 }, {});
 
@@ -36,13 +36,13 @@ Object.entries(subjectFlags).forEach(([subject, flag]) => {
 ////////////////////////////////////////////////
 // 汎用的なグループチェック関数（SubjectChild用）
 ////////////////////////////////////////////////
-function isSubjectChildFunction(subject) {
+function isBuySubjectChildFunction(subject) {
   return bodyClasses.some(cls => Object.values(SubjectIds.SubjectChild[subject] || {}).some(child => cls === child.id));
 }
 
 // 検証する科目
 const subjectFlagsChild = ['philosophy', 'science', 'economy', 'GlobalEnglish'].reduce((flags, subject) => {
-  flags[subject] = isSubjectChildFunction(subject);
+  flags[subject] = isBuySubjectChildFunction(subject);
   return flags;
 }, {});
 
@@ -54,29 +54,29 @@ Object.entries(subjectFlagsChild).forEach(([subject, flag]) => {
 });
 
 /// 哲学、経済、科学、英語、２科目、３科目パックに属しているか
-const isSubjectMain = checkGroup(SubjectIds.SubjectMain); //メイン科目に該当しているかどうか
-const isSubjectMainPhilosophy = subjectFlags['philosophy']; //哲学買っているかどうか
-const isSubjectMainScience = subjectFlags['science']; //科学買っているかどうか
-const isSubjectMainEconomy = subjectFlags['economy']; //経済買っているかどうか
-const isSubjectMainTwoSubjectPack = subjectFlags['TwoSubjectPack']; //２科目パック買っているかどうか
-const isSubjectMainThreeSubjectPack = subjectFlags['ThreeSubjectPack']; //３科目パック買っているかどうか
-const isSubjectMainGlobalEnglish = subjectFlags['GlobalEnglish']; //英語買っているかどうか
+const isBuySubjectMain = checkGroup(SubjectIds.SubjectMain); //メイン科目に該当しているかどうか
+const isBuySubjectMainPhilosophy = subjectFlags['philosophy']; //哲学買っているかどうか
+const isBuySubjectMainScience = subjectFlags['science']; //科学買っているかどうか
+const isBuySubjectMainEconomy = subjectFlags['economy']; //経済買っているかどうか
+const isBuySubjectMainTwoSubjectPack = subjectFlags['TwoSubjectPack']; //２科目パック買っているかどうか
+const isBuySubjectMainThreeSubjectPack = subjectFlags['ThreeSubjectPack']; //３科目パック買っているかどうか
+const isBuySubjectMainGlobalEnglish = subjectFlags['GlobalEnglish']; //英語買っているかどうか
 
 /// L1~L4のグループ判定
-const isSubjectChild = ['philosophy', 'science', 'economy', 'GlobalEnglish'].some(subject => checkGroup(SubjectIds.SubjectChild[subject])); //サブ科目1個でもあるかどうか
-const isSubjectChildPhilosophy = subjectFlagsChild['philosophy']; //哲学 L1~L4 1個でもあるかどうか
-const isSubjectChildScience = subjectFlagsChild['science']; //科学L1~L4 1個でもあるかどうか
-const isSubjectChildEconomy = subjectFlagsChild['economy']; //経済L1~L4 1個でもあるかどうか
-const isSubjectChildGlobalEnglish = subjectFlagsChild['GlobalEnglish']; //英語L1~L2 1個でもあるかどうか
+const isBuySubjectChild = ['philosophy', 'science', 'economy', 'GlobalEnglish'].some(subject => checkGroup(SubjectIds.SubjectChild[subject])); //サブ科目1個でもあるかどうか
+const isBuySubjectChildPhilosophy = subjectFlagsChild['philosophy']; //哲学 L1~L4 1個でもあるかどうか
+const isBuySubjectChildScience = subjectFlagsChild['science']; //科学L1~L4 1個でもあるかどうか
+const isBuySubjectChildEconomy = subjectFlagsChild['economy']; //経済L1~L4 1個でもあるかどうか
+const isBuySubjectChildGlobalEnglish = subjectFlagsChild['GlobalEnglish']; //英語L1~L2 1個でもあるかどうか
 
 /// プログラミング受講判定
-const isProgramming = bodyClasses.includes(SubjectIds.Programming.id); //プログラミング買っているかどうか
+const isBuyProgramming = bodyClasses.includes(SubjectIds.Programming.id); //プログラミング買っているかどうか
 
 
 // プログラミング（Programming）の処理
 
 //実験
-if (isSubjectChildEconomy) {
+if (isBuySubjectChildEconomy) {
       console.log('科学L1~L4のいずれか');
 }
 
@@ -135,9 +135,9 @@ if (bodyId === "page-my-index") {
     // 受講中科目の処理
     ////////////////////////////
 
-    function renderSubject(subject, icon, isSubjectMain) {
+    function renderSubject(subject, icon, isBuySubjectMain) {
         // SubjectMain の場合のリンクを変更
-        const courseLink = isSubjectMain ?
+        const courseLink = isBuySubjectMain ?
             `https://lms.waomirai.com/admin/tool/catalogue/courseinfo.php?id=${subject.id}` :
             `https://lms.waomirai.com/course/view.php?id=${subject.id}`;
         return `
@@ -161,7 +161,8 @@ if (bodyId === "page-my-index") {
     };
 
     // メイン科目（SubjectMain）の処理
-    if (isSubjectMain) {
+    // メモ：この関数うまくいかないようだったら切り離したい。サブ科目だけ
+    if (isBuySubjectMain) {
          console.log("メイン科目（SubjectMain）に該当しています");
          // サブ科目が存在するか確認する関数
          function hasRelatedChildSubject(subjectKey) {
@@ -190,7 +191,7 @@ if (bodyId === "page-my-index") {
     }
 
     // 詳細科目（SubjectChild）の処理
-    if (isSubjectChild) {
+    if (isBuySubjectChild) {
         console.log("詳細科目（SubjectChild）に該当しています");
         const subjectChildNames = [];
         ['philosophy', 'science', 'economy', 'GlobalEnglish'].forEach(subjectKey => {
@@ -207,20 +208,13 @@ if (bodyId === "page-my-index") {
 
 
     // プログラミング（Programming）の処理
-    if (isProgramming) {
+    if (isBuyProgramming) {
         console.log("プログラミングに該当しています");
         $(".dashboard-left-block-wrap.dashboard-left-block-wrap-subject").append(renderSubject(SubjectIds.Programming, getIcon(SubjectIds.Programming), false));
     }
 
-    // グローバル英語（GlobalEnglish）の処理
-    // if (isGlobalEnglish) {
-    //     console.log("グローバル英語に該当しています");
-    //     $(".dashboard-left-block-wrap.dashboard-left-block-wrap-subject").append(renderSubject(SubjectIds.GlobalEnglish, getIcon(SubjectIds.GlobalEnglish), false));
-    // }
-
-
     // どの科目にも該当しない場合のエラーハンドリング
-    if (!isSubjectMain && !isSubjectChild &&  !isProgramming) {
+    if (!isBuySubjectMain && !isBuySubjectChild &&  !isBuyProgramming) {
         console.error("指定された科目に該当しません");
         // 特定のHTMLを指定要素に挿入する
         $("#todays-event-subject-none,#dashboard-main-upcoming-class-none").show();
@@ -431,7 +425,7 @@ if (bodyId === "page-my-index") {
 // トップページの処理
 // ==============================
 if (bodyId === "page-my-index" || bodyId === "page-site-index") {
-    if (!isSubjectChild && isSubjectMain) {
+    if (!isBuySubjectChild && isBuySubjectMain) {
         //複雑になりそうなので後回し
         //メイン教科にあって、かつサブ教科持っていない場合
         // $('.header-banner.alert-setting-level').css("display", "flex");
@@ -530,7 +524,7 @@ if (bodyId === "page-enrol-index") {
   
   // コースに応じた処理を実行
   if (CurrentViewCourseData.category === 'philosophy') {
-    if (isSubjectMainTwoSubjectPack) {
+    if (isBuySubjectMainTwoSubjectPack) {
      console.log('君は２科目パックを買っているよ')
    }
   }
