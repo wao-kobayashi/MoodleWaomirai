@@ -22,7 +22,7 @@ const SubjectIds = {
             L4: { id: 245, name: '科学 L4' }
         },
         economy: {
-            L1: { id: 226, name: '経済 L1' },
+            economyL1: { id: 226, name: '経済 L1' },
             L2: { id: 227, name: '経済 L2' },
             L3: { id: 246, name: '経済 L3' },
             L4: { id: 247, name: '経済 L4' }

@@ -12,14 +12,10 @@ function checkGroup(subjectIds) {
     return Object.values(subjectIds).some(id => bodyClasses.includes(id.id));
 }
 
-// 科目グループ判定
-const isSubjectMain = checkGroup(SubjectIds.SubjectMain);
-
 // 汎用的な科目チェック関数
 function isSubjectMainCategory(subject) {
   return bodyClasses.includes(SubjectIds.SubjectMain[subject]?.id);
 }
-
 // 検証する科目
 const subjects = ['philosophy', 'science','economy', 'ThreeSubjectPack', 'TwoSubjectPack', 'GlobalEnglish'];
 
@@ -35,6 +31,8 @@ Object.entries(subjectFlags).forEach(([subject, flag]) => {
   console.log(`${subjectName}に該当:`, flag);
 });
 
+/// 哲学、経済、科学、英語、２科目、３科目パックに属しているか
+const isSubjectMain = checkGroup(SubjectIds.SubjectMain);
 const isSubjectMainPhilosophy = subjectFlags['philosophy'];
 const isSubjectMainScience = subjectFlags['science'];
 const isSubjectMainEconomy = subjectFlags['economy'];
@@ -42,11 +40,13 @@ const isSubjectMainThreeSubjectPack = subjectFlags['ThreeSubjectPack'];
 const isSubjectMainTwoSubjectPack = subjectFlags['TwoSubjectPack'];
 const isSubjectMainGlobalEnglish = subjectFlags['GlobalEnglish'];
 
-// 各科目の条件分岐
+/// L1~L4のグループ判定
 const isSubjectChild = ['philosophy', 'science', 'economy', 'GlobalEnglish'].some(subject => checkGroup(SubjectIds.SubjectChild[subject]));
 
-// const isGlobalEnglish = bodyClasses.includes(SubjectIds.GlobalEnglish.id);
+/// プログラミング受講判定
 const isProgramming = bodyClasses.includes(SubjectIds.Programming.id);
+
+
 
 
 ////////////////////////////
@@ -498,11 +498,7 @@ if (bodyId === "page-enrol-index") {
         $buttonElement.after(customDivHtml);
     }
   
-
-
-
-
-  // コースに応じた処理を直接実行
+  // コースに応じた処理を実行
   if (CurrentViewCourseData.category === 'philosophy') {
     if (isSubjectMainTwoSubjectPack) {
      console.log('君は２科目パックを買っているよ')
