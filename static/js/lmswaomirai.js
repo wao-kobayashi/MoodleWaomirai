@@ -33,6 +33,9 @@ const SubjectIds = {
 $(document).ready(function() {
     const tenantIdNumber = $("html").data("tenantidnumber");
     if (tenantIdNumber === "lmswaomirai") {
+////////////////////////////
+// すでに購入しているコースの判定
+////////////////////////////
 const bodyId = $("body").attr("id");
 const bodyClasses = $("body")
     .attr("class")
@@ -46,9 +49,86 @@ function checkGroup(subjectIds) {
 
 // 科目グループ判定
 const isSubjectMain = checkGroup(SubjectIds.SubjectMain);
+
+// 汎用的な科目チェック関数
+function isSubjectMainCategory(subject) {
+  return bodyClasses.includes(SubjectIds.SubjectMain[subject]?.id);
+}
+
+// 検証する科目
+const subjects = ['philosophy', 'science','economy', 'ThreeSubjectPack', 'TwoSubjectPack', 'GlobalEnglish'];
+
+// 各科目に該当するかどうかをチェック
+const subjectFlags = subjects.reduce((flags, subject) => {
+  flags[subject] = isSubjectMainCategory(subject);
+  return flags;
+}, {});
+
+// 判定結果をログに表示
+Object.entries(subjectFlags).forEach(([subject, flag]) => {
+  const subjectName = SubjectIds.SubjectMain[subject]?.name || subject;
+  console.log(`${subjectName}に該当:`, flag);
+});
+
+const isSubjectMainPhilosophy = subjectFlags['philosophy'];
+const isSubjectMainScience = subjectFlags['science'];
+const isSubjectMainEconomy = subjectFlags['economy'];
+const isSubjectMainThreeSubjectPack = subjectFlags['ThreeSubjectPack'];
+const isSubjectMainTwoSubjectPack = subjectFlags['TwoSubjectPack'];
+const isSubjectMainGlobalEnglish = subjectFlags['GlobalEnglish'];
+
+// 各科目の条件分岐
 const isSubjectChild = ['philosophy', 'science', 'economy', 'GlobalEnglish'].some(subject => checkGroup(SubjectIds.SubjectChild[subject]));
+
 // const isGlobalEnglish = bodyClasses.includes(SubjectIds.GlobalEnglish.id);
 const isProgramming = bodyClasses.includes(SubjectIds.Programming.id);
+
+
+////////////////////////////
+// 今見ているページコースの判定
+////////////////////////////
+
+// 現在のページのコースIDを取得
+// 現在のページのコースIDを取得
+function getCurrentCourseId() {
+  const bodyClass = document.body.className;
+  const match = bodyClass.match(/course-(\d+)/);
+  return match ? parseInt(match[1], 10) : null;
+}
+
+// コースIDから該当の科目データを取得
+function findCourseById(courseId, data) {
+  for (const key in data) {
+    // データがオブジェクトであり、idが一致する場合
+    if (typeof data[key] === 'object' && data[key].id === courseId) {
+      return { category: key, course: data[key] };
+    }
+    // データがオブジェクトでネストされている場合、再帰的に検索
+    if (typeof data[key] === 'object') {
+      const nestedResult = findCourseById(courseId, data[key]);
+      if (nestedResult) return nestedResult;
+    }
+  }
+  return null;
+}
+
+// ユーティリティ関数: 値からキーを取得
+function getKeyByValue(object, value) {
+  return Object.keys(object).find(key => object[key] === value);
+}
+
+const CurrentViewCourseId = getCurrentCourseId();
+if (!CurrentViewCourseId) {
+  return console.error('コースIDが見つかりませんでした。');
+}
+
+const CurrentViewCourseData = findCourseById(CurrentViewCourseId, SubjectIds);
+
+if (CurrentViewCourseData) {
+  console.log(`現在のコース: ${CurrentViewCourseData.course.name} (カテゴリ: ${CurrentViewCourseData.category})`);
+} 
+
+
 
 // ==============================
 // ダッシュボードページでの処理
@@ -452,6 +532,19 @@ if (bodyId === "page-enrol-index") {
                 </div>`;
         $buttonElement.after(customDivHtml);
     }
+  
+
+
+
+
+  // コースに応じた処理を直接実行
+  if (CurrentViewCourseData.category === 'philosophy') {
+    if (isSubjectMainTwoSubjectPack) {
+     console.log('君は２科目パックを買っているよ')
+   }
+  }
+
+
 }
 
 // ==============================
