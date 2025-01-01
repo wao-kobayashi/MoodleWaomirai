@@ -27,7 +27,7 @@ const subjectFlags = subjects.reduce((flags, subject) => {
   return flags;
 }, {});
 
-// 判定結果をログに表示
+// 【テスト用、消してもOK】判定結果をログに表示
 Object.entries(subjectFlags).forEach(([subject, flag]) => {
   const subjectName = SubjectIds.SubjectMain[subject]?.name || subject;
   console.log(`${subjectName}に該当:`, flag);
@@ -46,7 +46,7 @@ const subjectFlagsChild = ['philosophy', 'science', 'economy', 'GlobalEnglish'].
   return flags;
 }, {});
 
-// 判定結果をログに表示
+// 【テスト用、消してもOK】判定結果をログに表示
 Object.entries(subjectFlagsChild).forEach(([subject, flag]) => {
   const subjectName = SubjectIds.SubjectChild[subject] ? Object.values(SubjectIds.SubjectChild[subject])[0]?.name : subject;
   console.log(`${subjectName}に該当:`, flag);
