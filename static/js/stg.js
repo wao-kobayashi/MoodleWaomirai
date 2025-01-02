@@ -48,17 +48,26 @@ const bodyClasses = $("body")
     .split(" ")
     .map(cls => parseInt(cls.replace("course-id-", "").trim()));
 
-// 汎用的なグループチェック関数
-function checkGroup(subjectIds) {
-    return Object.values(subjectIds).some(id => bodyClasses.includes(id.id)); //someは1個でも要素があればtrueを返す
-}
-
 ////////////////////////////////////////////////
 // 汎用的な科目チェック関数
 ////////////////////////////////////////////////
 
-// 複数のメイン科目がbodyClassesに含まれているか判定する関数
-function isBuySubjectsMainCheck(subjectKeys) {
+// 汎用的なグループチェック関数
+function checkGroup(subjectIds) {
+  return Object.values(subjectIds).some(id => bodyClasses.includes(id.id)); //someは1個でも要素があればtrueを返す
+}
+
+/// メイン科目いずれかに属しているかの関数
+const isBuySubjectMain = checkGroup(SubjectIds.SubjectMain); //メイン科目に該当しているかどうか
+
+/// サブ科目（L1~L4)いずれかに属しているかの関数
+const isBuySubjectChild = ['philosophy', 'science', 'economy', 'GlobalEnglish'].some(subject => checkGroup(SubjectIds.SubjectChild[subject])); //サブ科目1個でもあるかどうか
+
+/// プログラミングを受講しているかどうかの関数
+const isBuyProgramming = bodyClasses.includes(SubjectIds.Programming.id); //プログラミング買っているかどうか
+
+// 複数のレベルをまとめてチェックする関数(メイン科目)
+function isBuySubjectMainCheck(subjectKeys) {
   return subjectKeys.some(subjectKey => {
     const subject = SubjectIds.SubjectMain[subjectKey];
     if (!subject) return false; // 指定された科目が存在しない場合はfalseを返す
@@ -66,63 +75,15 @@ function isBuySubjectsMainCheck(subjectKeys) {
     return bodyClasses.includes(subject.id); // mainLevelがbodyClassesに含まれているか確認
   });
 }
-
-// scienceまたはmathの科目が選ばれているか判定
-if (isBuySubjectsMainCheck(['science', 'philosophy'])) {
-  alert('科学または哲学のメインレベルに該当します。');
-}
-
-// function isBuySubjectMainCategory(subject) {
-//   return bodyClasses.includes(SubjectIds.SubjectMain[subject]?.id); //subjectMainが存在するかどうかを返す
-// }
-// // 検証する科目
-// const subjects = ['philosophy', 'science','economy', 'ThreeSubjectPack', 'TwoSubjectPack', 'GlobalEnglish'];
-
-// // 各科目に該当するかどうかをチェック
-// const subjectFlags = subjects.reduce((flags, subject) => {
-//   flags[subject] = isBuySubjectMainCategory(subject);
-//   return flags;
-// }, {});
-
-// // 判定結果をログに表示
-// Object.entries(subjectFlags).forEach(([subject, flag]) => {
-//   const subjectName = SubjectIds.SubjectMain[subject]?.name || subject;
-//   console.log(`${subjectName}に該当:`, flag);
-// });
-
-////////////////////////////////////////////////
-// 汎用的なグループチェック関数（SubjectChild用）
-////////////////////////////////////////////////
-function isBuySubjectChildSingle(subject, level) {
-  const subjectGroup = SubjectIds.SubjectChild[subject];
-  if (!subjectGroup || !subjectGroup[level]) return false; // グループまたはレベルが存在しない場合はfalse
-  return bodyClasses.includes(subjectGroup[level].id); // 該当するかを判定
-}
-
-// 複数のレベルをまとめてチェックする関数
-function isBuySubjectChildLevels(subject, levels) {
+// 複数のレベルをまとめてチェックする関数(サブ科目)
+function isBuySubjectChildCheck(subject, levels) {
   const subjectGroup = SubjectIds.SubjectChild[subject];
   if (!subjectGroup) return false; // グループが存在しない場合はfalse
   return levels.some(level => subjectGroup[level] && bodyClasses.includes(subjectGroup[level].id));
-}
+}      
+      
 
-/// 哲学、経済、科学、英語、２科目、３科目パックに属しているか
-const isBuySubjectMain = checkGroup(SubjectIds.SubjectMain); //メイン科目に該当しているかどうか
-// const isBuySubjectMainPhilosophy = subjectFlags['philosophy']; //哲学買っているかどうか
-// const isBuySubjectMainScience = subjectFlags['science']; //科学買っているかどうか
-// const isBuySubjectMainEconomy = subjectFlags['economy']; //経済買っているかどうか
-// const isBuySubjectMainTwoSubjectPack = subjectFlags['TwoSubjectPack']; //２科目パック買っているかどうか
-// const isBuySubjectMainThreeSubjectPack = subjectFlags['ThreeSubjectPack']; //３科目パック買っているかどうか
-// const isBuySubjectMainGlobalEnglish = subjectFlags['GlobalEnglish']; //英語買っているかどうか
-
-/// L1~L4のグループ判定
-const isBuySubjectChild = ['philosophy', 'science', 'economy', 'GlobalEnglish'].some(subject => checkGroup(SubjectIds.SubjectChild[subject])); //サブ科目1個でもあるかどうか
-
-/// プログラミング受講判定
-const isBuyProgramming = bodyClasses.includes(SubjectIds.Programming.id); //プログラミング買っているかどうか
-
-
-if (isBuySubjectChildLevels('science', ['sc_L1', 'sc_L3'])) {
+if (isBuySubjectChildCheck('science', ['sc_L1', 'sc_L3'])) {
   alert('科学 L1 または L3 に該当します。');
 }
 
@@ -569,8 +530,8 @@ if (bodyId === "page-enrol-index") {
   
   // コースに応じた処理を実行
   if (CurrentViewCourseData.category === 'philosophy') {
-    if (isBuySubjectMainTwoSubjectPack) {
-     console.log('君は２科目パックを買っているよ')
+    if (isBuySubjectMainCheck(['TwoSubjectPack'])) {
+      alert('君は２科目パックを買っているよ');
    }
   }
 
