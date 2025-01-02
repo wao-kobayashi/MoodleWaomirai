@@ -1,45 +1,47 @@
 // 検証テナントの変数定義
 const SubjectIds = {
-    SubjectMain: {
-        philosophy: { id: 212, name: '哲学' },
-        science: { id: 211, name: '科学' },
-        economy: { id: 213, name: '経済' },
-        ThreeSubjectPack: { id: 229, name: '3科目セット' },
-        TwoSubjectPack: { id: 228, name: '2科目セット' },
-        GlobalEnglish: { id: 236, name: 'グローバル英語' },
-    },
-    SubjectChild: {
-        philosophy: {
-            L1: { id: 221, name: '哲学 L1' },
-            L2: { id: 225, name: '哲学 L2' },
-            L3: { id: 242, name: '哲学 L3' },
-            L4: { id: 243, name: '哲学 L4' }
-        },
-        science: {
-            L1: { id: 223, name: '科学 L1' },
-            L2: { id: 222, name: '科学 L2' },
-            L3: { id: 244, name: '科学 L3' },
-            L4: { id: 245, name: '科学 L4' }
-        },
-        economy: {
-            economyL1: { id: 226, name: '経済 L1' },
-            L2: { id: 227, name: '経済 L2' },
-            L3: { id: 246, name: '経済 L3' },
-            L4: { id: 247, name: '経済 L4' }
-        },
-        GlobalEnglish: {
-            L1: { id: 253, name: 'グローバル英語 L1' },
-            L2: { id: 254, name: 'グローバル英語 L2' },
-        },
-    },
-   
-    Programming: { id: 235, name: 'プログラミング' }
+  SubjectMain: {
+      philosophy: { id: 212, name: '哲学' },
+      science: { id: 211, name: '科学' },
+      economy: { id: 213, name: '経済' },
+      ThreeSubjectPack: { id: 229, name: '3科目セット' },
+      TwoSubjectPack: { id: 228, name: '2科目セット' },
+      GlobalEnglish: { id: 236, name: 'グローバル英語' },
+  },
+  SubjectChild: {
+      philosophy: {
+          ph_L1: { id: 221, name: '哲学 L1' },
+          ph_L2: { id: 225, name: '哲学 L2' },
+          ph_L3: { id: 242, name: '哲学 L3' },
+          ph_L4: { id: 243, name: '哲学 L4' }
+      },
+      science: {
+          sc_L1: { id: 223, name: '科学 L1' },
+          sc_L2: { id: 222, name: '科学 L2' },
+          sc_L3: { id: 244, name: '科学 L3' },
+          sc_L4: { id: 245, name: '科学 L4' }
+      },
+      economy: {
+          ec_L1: { id: 226, name: '経済 L1' },
+          ec_L2: { id: 227, name: '経済 L2' },
+          ec_L3: { id: 246, name: '経済 L3' },
+          ec_L4: { id: 247, name: '経済 L4' }
+      },
+      GlobalEnglish: {
+          en_L1: { id: 253, name: 'グローバル英語 L1' },
+          en_L2: { id: 254, name: 'グローバル英語 L2' },
+      },
+  },
+ 
+  Programming: { id: 235, name: 'プログラミング' }
 };
+
 $(document).ready(function() {
     const tenantIdNumber = $("html").data("tenantidnumber");
     if (tenantIdNumber === "stg") {
+
 ////////////////////////////
-// すでに購入しているコースの判定
+// 購入しているコースの判定
 ////////////////////////////
 const bodyId = $("body").attr("id");
 const bodyClasses = $("body")
@@ -49,76 +51,61 @@ const bodyClasses = $("body")
 
 // 汎用的なグループチェック関数
 function checkGroup(subjectIds) {
-    return Object.values(subjectIds).some(id => bodyClasses.includes(id.id)); //someは1個でも要素があればtrueを返す
+    return Object.values(subjectIds).some(id => bodyClasses.includes(id.id));
 }
 
-////////////////////////////////////////////////
-// 汎用的な科目チェック関数
-////////////////////////////////////////////////
-function isBuySubjectMainCategory(subject) {
-  return bodyClasses.includes(SubjectIds.SubjectMain[subject]?.id); //subjectMainが存在するかどうかを返す
+      
+/////////
+// 汎用的な科目チェック関数（SubjectMain用）
+/////////
+function isSubjectMain(subject) {
+  return bodyClasses.includes(SubjectIds.SubjectMain[subject]?.id);
 }
+
 // 検証する科目
 const subjects = ['philosophy', 'science','economy', 'ThreeSubjectPack', 'TwoSubjectPack', 'GlobalEnglish'];
 
 // 各科目に該当するかどうかをチェック
 const subjectFlags = subjects.reduce((flags, subject) => {
-  flags[subject] = isBuySubjectMainCategory(subject);
+  flags[subject] = isSubjectMain(subject);
   return flags;
 }, {});
 
-// 【テスト用、消してもOK】判定結果をログに表示
+// 判定結果をログに表示
 Object.entries(subjectFlags).forEach(([subject, flag]) => {
   const subjectName = SubjectIds.SubjectMain[subject]?.name || subject;
   console.log(`${subjectName}に該当:`, flag);
 });
 
-////////////////////////////////////////////////
-// 汎用的なグループチェック関数（SubjectChild用）
-////////////////////////////////////////////////
-function isBuySubjectChildFunction(subject) {
-  return bodyClasses.some(cls => Object.values(SubjectIds.SubjectChild[subject] || {}).some(child => cls === child.id));
+
+
+
+///////////
+// 汎用的な科目チェック関数（SubjectChild用）
+///////////
+function isSubjectChild(subject, level) {
+    const subjectGroup = SubjectIds.SubjectChild[subject];
+    if (!subjectGroup || !subjectGroup[level]) return false; // グループまたはレベルが存在しない場合はfalse
+    return bodyClasses.includes(subjectGroup[level].id); // 該当するかを判定
 }
 
-// 検証する科目
-const subjectFlagsChild = ['philosophy', 'science', 'economy', 'GlobalEnglish'].reduce((flags, subject) => {
-  flags[subject] = isBuySubjectChildFunction(subject);
-  return flags;
-}, {});
-
-// 【テスト用、消してもOK】判定結果をログに表示
-Object.entries(subjectFlagsChild).forEach(([subject, flag]) => {
-  const subjectName = SubjectIds.SubjectChild[subject] ? Object.values(SubjectIds.SubjectChild[subject])[0]?.name : subject;
-  console.log(`${subjectName}に該当:`, flag);
-
-});
-
-/// 哲学、経済、科学、英語、２科目、３科目パックに属しているか
-const isBuySubjectMain = checkGroup(SubjectIds.SubjectMain); //メイン科目に該当しているかどうか
-const isBuySubjectMainPhilosophy = subjectFlags['philosophy']; //哲学買っているかどうか
-const isBuySubjectMainScience = subjectFlags['science']; //科学買っているかどうか
-const isBuySubjectMainEconomy = subjectFlags['economy']; //経済買っているかどうか
-const isBuySubjectMainTwoSubjectPack = subjectFlags['TwoSubjectPack']; //２科目パック買っているかどうか
-const isBuySubjectMainThreeSubjectPack = subjectFlags['ThreeSubjectPack']; //３科目パック買っているかどうか
-const isBuySubjectMainGlobalEnglish = subjectFlags['GlobalEnglish']; //英語買っているかどうか
-
-/// L1~L4のグループ判定
-const isBuySubjectChild = ['philosophy', 'science', 'economy', 'GlobalEnglish'].some(subject => checkGroup(SubjectIds.SubjectChild[subject])); //サブ科目1個でもあるかどうか
-const isBuySubjectChildPhilosophy = subjectFlagsChild['philosophy']; //哲学 L1~L4 1個でもあるかどうか
-const isBuySubjectChildScience = subjectFlagsChild['science']; //科学L1~L4 1個でもあるかどうか
-const isBuySubjectChildEconomy = subjectFlagsChild['economy']; //経済L1~L4 1個でもあるかどうか
-const isBuySubjectChildGlobalEnglish = subjectFlagsChild['GlobalEnglish']; //英語L1~L2 1個でもあるかどうか
-
-/// プログラミング受講判定
-const isBuyProgramming = bodyClasses.includes(SubjectIds.Programming.id); //プログラミング買っているかどうか
-
-
-// プログラミング（Programming）の処理
-
-//実験
-if (isBuySubjectChildEconomy) {
-      console.log('科学L1~L4のいずれか');
+// 複数のレベルをまとめてチェックする関数
+function isSubjectChildLevels(subject, levels) {
+    const subjectGroup = SubjectIds.SubjectChild[subject];
+    if (!subjectGroup) return false; // グループが存在しない場合はfalse
+    return levels.some(level => subjectGroup[level] && bodyClasses.includes(subjectGroup[level].id));
 }
+
+
+const isSubjectMainPhilosophy = subjectFlags['philosophy'];
+const isSubjectMainScience = subjectFlags['science'];
+const isSubjectMainEconomy = subjectFlags['economy'];
+const isSubjectMainThreeSubjectPack = subjectFlags['ThreeSubjectPack'];
+const isSubjectMainTwoSubjectPack = subjectFlags['TwoSubjectPack'];
+const isSubjectMainGlobalEnglish = subjectFlags['GlobalEnglish'];
+
+// const isGlobalEnglish = bodyClasses.includes(SubjectIds.GlobalEnglish.id);
+const isProgramming = bodyClasses.includes(SubjectIds.Programming.id);
 
 
 ////////////////////////////
