@@ -61,7 +61,6 @@ const isBuySubjectMainGlobalEnglish = subjectFlags['GlobalEnglish']; //英語買
 /// L1~L4のグループ判定
 const isBuySubjectChild = ['philosophy', 'science', 'economy', 'GlobalEnglish'].some(subject => checkGroup(SubjectIds.SubjectChild[subject])); //サブ科目1個でもあるかどうか
 
-
 /// プログラミング受講判定
 const isBuyProgramming = bodyClasses.includes(SubjectIds.Programming.id); //プログラミング買っているかどうか
 

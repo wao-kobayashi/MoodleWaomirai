@@ -1,7 +1,7 @@
 // 検証テナントの変数定義
 const SubjectIds = {
   SubjectMain: {
-      philosophy: { id: 999, name: '哲学' },
+      philosophy: { id: 1001, name: '哲学' },
       science: { id: 999, name: '科学' },
       economy: { id: 999, name: '経済' },
       ThreeSubjectPack: { id: 999, name: '3科目セット' },

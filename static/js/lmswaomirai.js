@@ -1,7 +1,7 @@
 // 検証テナントの変数定義
 const SubjectIds = {
   SubjectMain: {
-      philosophy: { id: 999, name: '哲学' },
+      philosophy: { id: 1001, name: '哲学' },
       science: { id: 999, name: '科学' },
       economy: { id: 999, name: '経済' },
       ThreeSubjectPack: { id: 999, name: '3科目セット' },
@@ -101,7 +101,6 @@ const isBuySubjectMainGlobalEnglish = subjectFlags['GlobalEnglish']; //英語買
 
 /// L1~L4のグループ判定
 const isBuySubjectChild = ['philosophy', 'science', 'economy', 'GlobalEnglish'].some(subject => checkGroup(SubjectIds.SubjectChild[subject])); //サブ科目1個でもあるかどうか
-
 
 /// プログラミング受講判定
 const isBuyProgramming = bodyClasses.includes(SubjectIds.Programming.id); //プログラミング買っているかどうか
