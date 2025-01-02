@@ -71,22 +71,18 @@ Object.entries(subjectFlags).forEach(([subject, flag]) => {
 ////////////////////////////////////////////////
 // 汎用的なグループチェック関数（SubjectChild用）
 ////////////////////////////////////////////////
-function isBuySubjectChildFunction(subject) {
-  return bodyClasses.some(cls => Object.values(SubjectIds.SubjectChild[subject] || {}).some(child => cls === child.id));
+function isBuySubjectChildSingle(subject, level) {
+  const subjectGroup = SubjectIds.SubjectChild[subject];
+  if (!subjectGroup || !subjectGroup[level]) return false; // グループまたはレベルが存在しない場合はfalse
+  return bodyClasses.includes(subjectGroup[level].id); // 該当するかを判定
 }
 
-// 検証する科目
-const subjectFlagsChild = ['philosophy', 'science', 'economy', 'GlobalEnglish'].reduce((flags, subject) => {
-  flags[subject] = isBuySubjectChildFunction(subject);
-  return flags;
-}, {});
-
-// 判定結果をログに表示
-Object.entries(subjectFlagsChild).forEach(([subject, flag]) => {
-  const subjectName = SubjectIds.SubjectChild[subject] ? Object.values(SubjectIds.SubjectChild[subject])[0]?.name : subject;
-  console.log(`${subjectName}に該当:`, flag);
-
-});
+// 複数のレベルをまとめてチェックする関数
+function isBuySubjectChildLevels(subject, levels) {
+  const subjectGroup = SubjectIds.SubjectChild[subject];
+  if (!subjectGroup) return false; // グループが存在しない場合はfalse
+  return levels.some(level => subjectGroup[level] && bodyClasses.includes(subjectGroup[level].id));
+}
 
 /// 哲学、経済、科学、英語、２科目、３科目パックに属しているか
 const isBuySubjectMain = checkGroup(SubjectIds.SubjectMain); //メイン科目に該当しているかどうか
@@ -99,21 +95,11 @@ const isBuySubjectMainGlobalEnglish = subjectFlags['GlobalEnglish']; //英語買
 
 /// L1~L4のグループ判定
 const isBuySubjectChild = ['philosophy', 'science', 'economy', 'GlobalEnglish'].some(subject => checkGroup(SubjectIds.SubjectChild[subject])); //サブ科目1個でもあるかどうか
-const isBuySubjectChildPhilosophy = subjectFlagsChild['philosophy']; //哲学 L1~L4 1個でもあるかどうか
-const isBuySubjectChildScience = subjectFlagsChild['science']; //科学L1~L4 1個でもあるかどうか
-const isBuySubjectChildEconomy = subjectFlagsChild['economy']; //経済L1~L4 1個でもあるかどうか
-const isBuySubjectChildGlobalEnglish = subjectFlagsChild['GlobalEnglish']; //英語L1~L2 1個でもあるかどうか
+
 
 /// プログラミング受講判定
 const isBuyProgramming = bodyClasses.includes(SubjectIds.Programming.id); //プログラミング買っているかどうか
 
-
-// プログラミング（Programming）の処理
-
-//実験
-if (isBuySubjectChildEconomy) {
-      console.log('科学L1~L4のいずれか');
-}
 
 
 ////////////////////////////
