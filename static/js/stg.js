@@ -1,86 +1,163 @@
 // 検証テナントの変数定義
 const SubjectIds = {
-    SubjectMain: {
-        philosophy: { id: 212, name: '哲学' },
-        science: { id: 211, name: '科学' },
-        economy: { id: 213, name: '経済' },
-        ThreeSubjectPack: { id: 229, name: '3科目セット' },
-        TwoSubjectPack: { id: 228, name: '2科目セット' },
-    },
-    SubjectChild: {
-        philosophy: {
-            L1: { id: 221, name: '哲学 L1' },
-            L2: { id: 225, name: '哲学 L2' },
-            L3: { id: 242, name: '哲学 L3' },
-            L4: { id: 243, name: '哲学 L4' }
-        },
-        science: {
-            L1: { id: 223, name: '科学 L1' },
-            L2: { id: 222, name: '科学 L2' },
-            L3: { id: 244, name: '科学 L3' },
-            L4: { id: 245, name: '科学 L4' }
-        },
-        economy: {
-            L1: { id: 226, name: '経済 L1' },
-            L2: { id: 227, name: '経済 L2' },
-            L3: { id: 246, name: '経済 L3' },
-            L4: { id: 247, name: '経済 L4' }
-        },
-    },
-    GlobalEnglish: { id: 236, name: 'グローバル英語' },
-    Programming: { id: 235, name: 'プログラミング' }
+  SubjectMain: {
+      philosophy: { id: 212, name: '哲学' },
+      science: { id: 211, name: '科学' },
+      economy: { id: 213, name: '経済' },
+      ThreeSubjectPack: { id: 229, name: '3科目セット' },
+      TwoSubjectPack: { id: 228, name: '2科目セット' },
+      GlobalEnglish: { id: 236, name: 'グローバル英語' },
+  },
+  SubjectChild: {
+      philosophy: {
+          ph_L1: { id: 221, name: '哲学 L1' },
+          ph_L2: { id: 225, name: '哲学 L2' },
+          ph_L3: { id: 242, name: '哲学 L3' },
+          ph_L4: { id: 243, name: '哲学 L4' }
+      },
+      science: {
+          sc_L1: { id: 223, name: '科学 L1' },
+          sc_L2: { id: 222, name: '科学 L2' },
+          sc_L3: { id: 244, name: '科学 L3' },
+          sc_L4: { id: 245, name: '科学 L4' }
+      },
+      economy: {
+          ec_L1: { id: 226, name: '経済 L1' },
+          ec_L2: { id: 227, name: '経済 L2' },
+          ec_L3: { id: 246, name: '経済 L3' },
+          ec_L4: { id: 247, name: '経済 L4' }
+      },
+      GlobalEnglish: {
+          en_L1: { id: 253, name: 'グローバル英語 L1' },
+          en_L2: { id: 254, name: 'グローバル英語 L2' },
+      },
+  },
+ 
+  Programming: { id: 235, name: 'プログラミング' }
 };
+
 $(document).ready(function() {
     const tenantIdNumber = $("html").data("tenantidnumber");
     if (tenantIdNumber === "stg") {
+////////////////////////////
+// すでに購入しているコースの判定
+////////////////////////////
 const bodyId = $("body").attr("id");
 const bodyClasses = $("body")
     .attr("class")
     .split(" ")
     .map(cls => parseInt(cls.replace("course-id-", "").trim()));
 
+////////////////////////////////////////////////
+// 汎用的な科目チェック関数
+////////////////////////////////////////////////
+
 // 汎用的なグループチェック関数
 function checkGroup(subjectIds) {
-    return Object.values(subjectIds).some(id => bodyClasses.includes(id.id));
+  return Object.values(subjectIds).some(id => bodyClasses.includes(id.id)); //someは1個でも要素があればtrueを返す
 }
 
-// 科目グループ判定
-const isSubjectMain = checkGroup(SubjectIds.SubjectMain);
-const isSubjectChild = ['philosophy', 'science', 'economy'].some(subject => checkGroup(SubjectIds.SubjectChild[subject]));
-const isGlobalEnglish = bodyClasses.includes(SubjectIds.GlobalEnglish.id);
-const isProgramming = bodyClasses.includes(SubjectIds.Programming.id);
+/// メイン科目いずれかに属しているかの関数
+const isBuySubjectMain = checkGroup(SubjectIds.SubjectMain); //メイン科目、いずれか購入しているか
+
+/// サブ科目（L1~L4)いずれかに属しているかの関数
+const isBuySubjectChild = ['philosophy', 'science', 'economy', 'GlobalEnglish'].some(subject => checkGroup(SubjectIds.SubjectChild[subject])); //サブ科目、いずれか設定しているか
+
+/// プログラミングを受講しているかどうかの関数
+const isBuyProgramming = bodyClasses.includes(SubjectIds.Programming.id); //プログラミングの科目を買っているかどうか
+
+// 複数のレベルをまとめてチェックする関数(メイン科目)
+function isBuySubjectMainCheck(subjectKeys) {
+  return subjectKeys.some(subjectKey => {
+    const subject = SubjectIds.SubjectMain[subjectKey];
+    if (!subject) return false; // 指定された科目が存在しない場合はfalseを返す
+    console.log('Checking subject:', subject);
+    return bodyClasses.includes(subject.id); // mainLevelがbodyClassesに含まれているか確認
+  });
+}
+// 複数のレベルをまとめてチェックする関数(サブ科目)
+function isBuySubjectChildCheck(subject, levels) {
+  const subjectGroup = SubjectIds.SubjectChild[subject];
+  if (!subjectGroup) return false; // グループが存在しない場合はfalse
+  return levels.some(level => subjectGroup[level] && bodyClasses.includes(subjectGroup[level].id));
+}      
+      
+
+if (isBuySubjectChildCheck('science', ['sc_L1', 'sc_L3'])) {
+  alert('科学 L1 または L3 に該当します。');
+}
+
+////////////////////////////
+// 今見ているページコースの判定
+////////////////////////////
+
+// 現在のページのコースIDを取得
+function getCurrentCourseId() {
+  const bodyClass = document.body.className;
+  const match = bodyClass.match(/course-(\d+)/);
+  return match ? parseInt(match[1], 10) : null;
+}
+
+// コースIDから該当の科目データを取得
+function findCourseById(courseId, data) {
+  for (const key in data) {
+    // データがオブジェクトであり、idが一致する場合
+    if (typeof data[key] === 'object' && data[key].id === courseId) {
+      return { category: key, course: data[key] };
+    }
+    // データがオブジェクトでネストされている場合、再帰的に検索
+    if (typeof data[key] === 'object') {
+      const nestedResult = findCourseById(courseId, data[key]);
+      if (nestedResult) return nestedResult;
+    }
+  }
+  return null;
+}
+
+// ユーティリティ関数: 値からキーを取得
+function getKeyByValue(object, value) {
+  return Object.keys(object).find(key => object[key] === value);
+}
+
+const CurrentViewCourseId = getCurrentCourseId();
+if (!CurrentViewCourseId) {
+  return console.error('コースIDが見つかりませんでした。');
+}
+
+const CurrentViewCourseData = findCourseById(CurrentViewCourseId, SubjectIds);
+
+if (CurrentViewCourseData) {
+  console.log(`現在のコース: ${CurrentViewCourseData.course.name} (カテゴリ: ${CurrentViewCourseData.category})`);
+} 
+
+
 
 // ==============================
 // ダッシュボードページでの処理
 // ==============================
 if (bodyId === "page-my-index") {
 
+    /////////////////////////////////////
+    ///初期表示状態
+    ////////////////////////////////////
+  
+    //何も受講していない時は、科目勝手欲しい要素出す
+    if (!isBuySubjectMain && !isBuySubjectChild && !isBuyProgramming) {
+      $("#todays-event-subject-none,#dashboard-main-upcoming-class-none").show();
+      $('#todays-subject-pc').hide();  
+    
+    } else { 
+      if ($(window).width() >= 768) {
+        $(".dashboard-main-class").hide();
+      }
+    }
     ////////////////////////////
     // 受講中科目の処理
     ////////////////////////////
-    // $(".instance-282-header").on("click", function() {
-    //     // a[data-event-id="479"]をクリック
-    //     $("a[data-event-id='479']").trigger("click");
-    // });
-    $("#instance-282-header").on("click", function() {
-        alert('a');
-        // a[data-event-id="479"]をクリック
-        // $("li#yui_3_18_1_1_1734662794127_232").hide();
-        $(".today li[data-region='event-item']").click();
-        // $("#yui_3_18_1_1_1734662477888_160").trigger("click");
-    });
 
-    $("#instance-255-header").on("click", function() {
-        alert('a');
-        // a[data-event-id="479"]をクリック
-        // $("li#yui_3_18_1_1_1734662794127_232").hide();
-        $(".today li[data-region='event-item']").click();
-        // $("#yui_3_18_1_1_1734662477888_160").trigger("click");
-    });
-
-    function renderSubject(subject, icon, isSubjectMain) {
+    function renderSubject(subject, icon, isBuySubjectMain) {
         // SubjectMain の場合のリンクを変更
-        const courseLink = isSubjectMain ?
+        const courseLink = isBuySubjectMain ?
             `https://lms.waomirai.com/admin/tool/catalogue/courseinfo.php?id=${subject.id}` :
             `https://lms.waomirai.com/course/view.php?id=${subject.id}`;
         return `
@@ -98,28 +175,46 @@ if (bodyId === "page-my-index") {
         if (subject.name.includes('哲学')) return "&#x1f4D6;"; // 📖
         if (subject.name.includes('科学')) return "&#x1f52C;"; // 🔬
         if (subject.name.includes('経済')) return "&#x1f4B0;"; // 💰
-        if (subject.name === 'グローバル英語') return "&#x1f4D6;"; // 📖
-        if (subject.name === 'プログラミング') return "&#x1f52C;"; // 🔬
+        if (subject.name.includes('英語')) return "&#x1f4ac;"; // 📖
+        if (subject.name.includes('プログラミング')) return "&#x1f52C;"; // 🔬
         return "&#x1f9ea;"; // デフォルト
     };
 
     // メイン科目（SubjectMain）の処理
-    if (!isSubjectChild && isSubjectMain) {
-        console.log("メイン科目（SubjectMain）に該当しています");
-        const subjectMainNames = Object.values(SubjectIds.SubjectMain)
-            .filter(subSubject => bodyClasses.includes(subSubject.id))
-            .map(subSubject => renderSubject(subSubject, getIcon(subSubject), true)) // true を渡してSubjectMain用のリンクにする
+    // メモ：この関数うまくいかないようだったら切り離したい。サブ科目だけ
+    if (isBuySubjectMain) {
+         console.log("メイン科目（SubjectMain）に該当しています");
+         // サブ科目が存在するか確認する関数
+         function hasRelatedChildSubject(subjectKey) {
+            const childSubjects = SubjectIds.SubjectChild[subjectKey];
+            if (!childSubjects) return false;
+
+            return Object.values(childSubjects).some(child => bodyClasses.includes(child.id));
+          }
+
+             const subjectMainNames = Object.entries(SubjectIds.SubjectMain)
+            .filter(([key, subSubject]) => {
+                // サブ科目が存在する場合、メイン科目をスキップ
+                const hasChild = hasRelatedChildSubject(key);
+                if (hasChild) {
+                    console.log(`スキップ: サブ科目が存在するため ${subSubject.name}`);
+                    return false;
+                }
+                return bodyClasses.includes(subSubject.id);
+            })
+            .map(([key, subSubject]) => renderSubject(subSubject, getIcon(subSubject), true)) // true を渡してSubjectMain用のリンクにする
             .join("");
+
         if (subjectMainNames) {
             $(".dashboard-left-block-wrap.dashboard-left-block-wrap-subject").append(subjectMainNames);
         }
     }
 
     // 詳細科目（SubjectChild）の処理
-    if (isSubjectChild) {
+    if (isBuySubjectChild) {
         console.log("詳細科目（SubjectChild）に該当しています");
         const subjectChildNames = [];
-        ['philosophy', 'science', 'economy'].forEach(subjectKey => {
+        ['philosophy', 'science', 'economy', 'GlobalEnglish'].forEach(subjectKey => {
             Object.values(SubjectIds.SubjectChild[subjectKey])
                 .filter(subSubject => bodyClasses.includes(subSubject.id))
                 .forEach(subSubject => {
@@ -131,22 +226,18 @@ if (bodyId === "page-my-index") {
         }
     }
 
-    // グローバル英語（GlobalEnglish）の処理
-    if (isGlobalEnglish) {
-        console.log("グローバル英語に該当しています");
-        $(".dashboard-left-block-wrap.dashboard-left-block-wrap-subject").append(renderSubject(SubjectIds.GlobalEnglish, getIcon(SubjectIds.GlobalEnglish), false));
-    }
 
     // プログラミング（Programming）の処理
-    if (isProgramming) {
+    if (isBuyProgramming) {
         console.log("プログラミングに該当しています");
         $(".dashboard-left-block-wrap.dashboard-left-block-wrap-subject").append(renderSubject(SubjectIds.Programming, getIcon(SubjectIds.Programming), false));
     }
 
     // どの科目にも該当しない場合のエラーハンドリング
-    if (!isSubjectMain && !isSubjectChild && !isGlobalEnglish && !isProgramming) {
+    if (!isBuySubjectMain && !isBuySubjectChild &&  !isBuyProgramming) {
         console.error("指定された科目に該当しません");
         // 特定のHTMLを指定要素に挿入する
+
         const errorHtml = `
         <div class="dashboard-left-block-subject-child">
             <p>受講している科目がありません。</p>
@@ -154,10 +245,20 @@ if (bodyId === "page-my-index") {
     `;
         $('.dashboard-left-block-wrap.dashboard-left-block-wrap-subject').html(errorHtml); // 挿入先要素（例: .target-container）にHTMLを挿入
     }
+    // .dashboard-leftの内容を取得してclone
+    var contentToClone = $('.dashboard-left').clone();
+
+    // #page-content直下に配置
+    var wrappedContent = $('<div>', { id: 'dashboard-sp-content' }).append(contentToClone);
+
+    // #page-content直下に配置
+    $('#page-content').append(wrappedContent);  
+  
     /////////////////////////////////////
     ///カレンダー
     ////////////////////////////////////
-
+    let executed = false;  // 初回実行を管理するフラグ
+  
     // ロジックを関数として定義（共通化）
     function executeCalendarLogic() {
         console.log('カレンダーロジックを実行します。');
@@ -203,24 +304,92 @@ if (bodyId === "page-my-index") {
                         console.log('条件に一致しない科目: ', courseName);
                     }
                 });
+                
+
             }
 
             // 今日の日付に一致するイベントがあれば、そのイベント詳細を収集
-            if (cellDay === todayDay) {
+            if (cellDay === todayDay && !executed) {
                 console.log('今日の日付に一致しました:', { cellDay, cellMonth, cellYear });
 
                 const $dayContent = $cell.find('[data-region="day-content"]');
                 if ($dayContent.length > 0) {
                     const $events = $dayContent.find('li a[data-action="view-event"]');
                     $events.each(function() {
-                        const courseName = $(this).text().trim();
+                        var courseName = $(this).text().trim();
                         eventDetails.push(courseName);
-                        console.log(`今日のイベント: ${courseName}`);
+                        console.log('今日のイベント: ' + courseName);
+                
+                        // 新しい要素を作成
+                        var $lessonContainer = $('<div>', { 'class': 'dashboard-main-class-content-lesson' });
+                        var $lessonTitle = $('<div>', { 'class': 'dashboard-main-class-content-lesson-title', 'text': courseName });
+                        var $lessonLink = $('<a>', { 
+                            'class': 'dashboard-main-class-content-lesson-button', 
+                            'href': $(this).attr('href'), // 元のリンクのhref属性をコピー
+                            'text': '授業に参加する' 
+                        });
+                        // コンテナに要素を追加
+                        $lessonContainer.append($lessonTitle).append($lessonLink);
+                        $('#todays-event-class-scheduled').prepend($lessonContainer);
                     });
+                    eventFound = true; // 今日授業あり
                 }
 
-                eventFound = true; // 今日授業あり
             }
+            // 今日以降のイベント（明日以降も含む）をアップカミングに追加
+            if (cellDay > todayDay && !executed) {
+                const $dayContent = $cell.find('[data-region="day-content"]');
+                console.log('$dayContent:', $dayContent); // 取得したdayContentを確認
+            
+                if ($dayContent.length > 0) {
+                    const $events = $dayContent.find('li a[data-action="view-event"]');
+                    console.log('$events:', $events); // 取得したeventsを確認
+            
+                    $events.each(function() {
+                        var courseName = $(this).text().trim();
+                        console.log('courseName:', courseName); // courseNameを確認
+                        //今日の日付を取得
+                        const today = new Date();
+                        const currentMonth = today.getMonth() + 1; // 現在の月（0から始まるので1を足す）
+                        const todayDay = today.getDate(); // 今日の日付
+                        const todayYear = today.getFullYear(); // 今日の年
+                        console.log('Today:', today); // 今日の日付を確認
+                        // cellMonthは現在の月
+                        const cellDay = parseInt($cell.attr('data-day'), 10); // カレンダーの日付
+                        const cellMonth = currentMonth; // 現在の月を設定
+                        const cellYear = parseInt($cell.attr('data-year'), 10); // カレンダーの年
+                        console.log('cellDay:', cellDay);  // cellDay
+                        console.log('cellMonth:', cellMonth); // cellMonth
+                        console.log('cellYear:', cellYear); // cellYear
+            
+                        // イベントの日付を作成
+                        const eventDate = new Date(cellYear, cellMonth - 1, cellDay); // 月は0から始まるので、cellMonth - 1にする
+                        console.log('Event Date Object:', eventDate); // イベントの日付オブジェクトを確認
+            
+                        // 日付を「12/27(金)」の形式でフォーマット
+                        const dateString = `${cellMonth}/${cellDay }`;
+                        console.log('Formatted event dateString:', dateString); // フォーマットされた日付を確認
+            
+                        // 新しいdivを作成
+                        var $lessonContainer = $('<div>', { 'class': 'dashboard-main-class-content-lesson' });
+            
+                        // courseName と dateString を同じ div 内に追加
+                        var $lessonTitleAndDate = $('<span>', { 'class': 'dashboard-main-class-content-lesson-details' })
+                            .append($('<span>', { 'class': 'date', 'text': dateString }))
+                            .append($('<span>', { 'class': 'title', 'text': courseName }));
+            
+                        // $lessonContainer に $lessonTitleAndDate を追加
+                        $lessonContainer.append($lessonTitleAndDate);
+            
+                        // 画面に追加
+                        $('#dashboard-main-upcoming-class-scheduled').append($lessonContainer);
+                        upcomingEventFound = true; // 明日以降のイベントが見つかった
+                    });
+                }
+            }
+            // 初回実行後にフラグをtrueに設定
+          
+
         });
 
         // 今日のイベントがあればダッシュボードメッセージを更新
@@ -232,14 +401,19 @@ if (bodyId === "page-my-index") {
                 console.log('ダッシュボードメッセージを更新しました。');
             } else {
                 console.log('本日は授業がありません。');
+                $('#todays-event-class-none').show();
             }
 
             // メッセージをダッシュボードに設定
-            $('.dashboard-banner-text-title').text(message);
-
+            $('#todays-subject-pc .c-alert-banner-text-title').text(message);
             // 今日のカレンダーが見つかったことを示すフラグを設定
             flagTodaysCalendar = true;
         }
+         // 明日以降のスケジュールがない場合は、スマホにNoneメッセージを表示
+        if (!upcomingEventFound) {
+            $('#dashboard-main-upcoming-class-none').show();
+        }
+        executed = true;
     }
 
     // ページ読み込み時に発火
@@ -257,10 +431,7 @@ if (bodyId === "page-my-index") {
     });
 
 
-
-
-
-
+  
 
 
 }
@@ -268,13 +439,14 @@ if (bodyId === "page-my-index") {
 // トップページの処理
 // ==============================
 if (bodyId === "page-my-index" || bodyId === "page-site-index") {
-    if (!isSubjectChild && isSubjectMain) {
-        $('.header-banner.alert-setting-level').css("display", "flex");
-        // ナビゲーションバーの位置を調整
-        $('.navbar.fixed-top').css({ "top": "70px", "position": "fixed" });
-        // bodyのpaddingを調整
-        $('body').css("padding", "70px 0 0");
-
+    if (!isBuySubjectChild && isBuySubjectMain) {
+        //複雑になりそうなので後回し
+        //メイン教科にあって、かつサブ教科持っていない場合
+        // $('.header-banner.alert-setting-level').css("display", "flex");
+        // // ナビゲーションバーの位置を調整
+        // $('.navbar.fixed-top').css({ "top": "70px", "position": "fixed" });
+        // // bodyのpaddingを調整
+        // $('body').css("padding", "70px 0 0");
     }
 }
 
@@ -282,7 +454,7 @@ if (bodyId === "page-my-index" || bodyId === "page-site-index") {
 // ==============================
 // ログイン・サインアップページの処理
 // ==============================
-if (bodyId === "page-login-signup") {
+if (bodyId === "page-login-signup" || bodyId === "page-login-forgot_password") {
     // ログインページのタイトルを変更
     $(".login-heading").text("新規会員登録");
 
@@ -314,7 +486,7 @@ if (bodyId === "page-login-signup") {
     });
 
     // ロゴを挿入
-    const $loginWrapper = $(".login-wrapper");
+    const $loginWrapper = $("#page-login-signup .login-wrapper");
     if ($loginWrapper.length) {
         const signupLogoHtml = `
                 <div class="signup-logo">
@@ -363,6 +535,15 @@ if (bodyId === "page-enrol-index") {
                 </div>`;
         $buttonElement.after(customDivHtml);
     }
+  
+  // コースに応じた処理を実行
+  if (CurrentViewCourseData.category === 'philosophy') {
+    if (isBuySubjectMainCheck(['TwoSubjectPack'])) {
+      alert('君は２科目パックを買っているよ');
+   }
+  }
+
+
 }
 
 // ==============================
@@ -371,9 +552,6 @@ if (bodyId === "page-enrol-index") {
 if (bodyId === "page-course-index-category") {
     window.location.href = "https://lms.waomirai.com/";
 }
-
-
-
 
 // ==============================
 //メイン3科目or2,3科目パック購入後はリダイレクトさせる

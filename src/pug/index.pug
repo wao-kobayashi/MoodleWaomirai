@@ -81,6 +81,8 @@ html(lang="jp")
                 ul
                   li
                     a(href=`${environment}/signup/page-moodle-login.html`) ログイン
+                  li
+                    a(href=`${environment}/signup/page-moodle-forgot-password.html`) パスワード紛失
                   li 
                     a(href=`${environment}/signup/page-moodle-signup-input.html`) 入力画面
                   li 
@@ -100,18 +102,41 @@ html(lang="jp")
 
               li
                 | ダッシュボード
+                div(style='font-size:87%; margin:20px 0 0 20px;') 
+                    |何も買っていない
                 ul
                   li
-                    a(href=`${environment}/dashboard/page-dashboard-default.html`) 何も買っていない
+                    a(href=`${environment}/dashboard/page-single-none.html`) 何も買っていない
+                div(style='font-size:87%; margin:0 0 0 20px;') 
+                    |１科目購入
+                ul
                   li 
-                    a(href=`${environment}/dashboard/page-purchased-economics.html`) １科目購入（経済）
+                    a(href=`${environment}/dashboard/page-single-ph.html`) １科目購入（哲学）
                   li 
-                    a(href=`${environment}/dashboard/page-purchased-economics-english.html`) １科目購入（経済）＋英語
+                    a(href=`${environment}/dashboard/page-single-sc.html`) １科目購入（科学）
                   li 
-                    a(href=`${environment}/dashboard/page-purchased-english.html`) １科目購入（英語）
+                    a(href=`${environment}/dashboard/page-single-ec.html`) １科目購入（経済）
                   li 
-                    a(href=`${environment}/dashboard/page-two-subjects-purchased.html`) ２科目購入
-
+                    a(href=`${environment}/dashboard/page-single-en.html`) １科目購入（英語）
+                  li 
+                    a(href=`${environment}/dashboard/page-single-pr.html`) １科目購入（プログラミング）
+                  li 
+                    a(href=`${environment}/dashboard/page-single-two.html`) １科目購入（2科目パック）
+                  li 
+                    a(href=`${environment}/dashboard/page-single-three.html`) １科目購入（3科目パック）
+                div(style='font-size:87%; margin:20px 0 0 20px;') 
+                    |サブ科目購入
+                ul
+                  li 
+                    a(href=`${environment}/dashboard/page-multi-sc-sc2.html`) 科学＋科学L2
+                  li 
+                    a(href=`${environment}/dashboard/page-multi-sc-sc2-en.html`) 科学＋科学L2＋英語
+                  li 
+                    a(href=`${environment}/dashboard/page-multi-sc-sc2-ec.html`) 科学＋科学L2＋経済
+                  li 
+                    a(href=`${environment}/dashboard/page-multi-two-sc2-ec2.html`) ２科目＋科学L2＋経済L2
+                  li 
+                    a(href=`${environment}/dashboard/page-multi-three-sc3-ec3-ph3.html`) ３科目＋哲学L3＋科学L3＋経済L3
               li
                 | 科目購入
                 ul
@@ -121,6 +146,8 @@ html(lang="jp")
                     a(href=`${environment}/course/page-course-payment-science.html`) 科学
                   li 
                     a(href=`${environment}/course/page-course-payment-economiy.html`) 経済
+                  li 
+                    a(href=`${environment}/course/page-course-payment-economiy-l1-226.html`) 経済L1
               li
                 | 科目詳細
                 ul
