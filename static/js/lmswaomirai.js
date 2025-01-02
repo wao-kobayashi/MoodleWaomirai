@@ -58,13 +58,13 @@ function checkGroup(subjectIds) {
 }
 
 /// メイン科目いずれかに属しているかの関数
-const isBuySubjectMain = checkGroup(SubjectIds.SubjectMain); //メイン科目に該当しているかどうか
+const isBuySubjectMain = checkGroup(SubjectIds.SubjectMain); //メイン科目、いずれか購入しているか
 
 /// サブ科目（L1~L4)いずれかに属しているかの関数
-const isBuySubjectChild = ['philosophy', 'science', 'economy', 'GlobalEnglish'].some(subject => checkGroup(SubjectIds.SubjectChild[subject])); //サブ科目1個でもあるかどうか
+const isBuySubjectChild = ['philosophy', 'science', 'economy', 'GlobalEnglish'].some(subject => checkGroup(SubjectIds.SubjectChild[subject])); //サブ科目、いずれか設定しているか
 
 /// プログラミングを受講しているかどうかの関数
-const isBuyProgramming = bodyClasses.includes(SubjectIds.Programming.id); //プログラミング買っているかどうか
+const isBuyProgramming = bodyClasses.includes(SubjectIds.Programming.id); //プログラミングの科目を買っているかどうか
 
 // 複数のレベルをまとめてチェックする関数(メイン科目)
 function isBuySubjectMainCheck(subjectKeys) {
@@ -137,6 +137,20 @@ if (CurrentViewCourseData) {
 // ==============================
 if (bodyId === "page-my-index") {
 
+    /////////////////////////////////////
+    ///初期表示状態
+    ////////////////////////////////////
+  
+    //何も受講していない時は、科目勝手欲しい要素出す
+    if (!isBuySubjectMain && !isBuySubjectChild && !isBuyProgramming) {
+      $("#todays-event-subject-none,#dashboard-main-upcoming-class-none").show();
+      $('#todays-subject-pc').hide();  
+    
+    } else { 
+      if ($(window).width() >= 768) {
+        $(".dashboard-main-class").hide();
+      }
+    }
     ////////////////////////////
     // 受講中科目の処理
     ////////////////////////////
@@ -223,8 +237,7 @@ if (bodyId === "page-my-index") {
     if (!isBuySubjectMain && !isBuySubjectChild &&  !isBuyProgramming) {
         console.error("指定された科目に該当しません");
         // 特定のHTMLを指定要素に挿入する
-        $("#todays-event-subject-none,#dashboard-main-upcoming-class-none").show();
-        $('#todays-subject-pc').hide();
+
         const errorHtml = `
         <div class="dashboard-left-block-subject-child">
             <p>受講している科目がありません。</p>
@@ -232,10 +245,20 @@ if (bodyId === "page-my-index") {
     `;
         $('.dashboard-left-block-wrap.dashboard-left-block-wrap-subject').html(errorHtml); // 挿入先要素（例: .target-container）にHTMLを挿入
     }
+    // .dashboard-leftの内容を取得してclone
+    var contentToClone = $('.dashboard-left').clone();
+
+    // #page-content直下に配置
+    var wrappedContent = $('<div>', { id: 'dashboard-sp-content' }).append(contentToClone);
+
+    // #page-content直下に配置
+    $('#page-content').append(wrappedContent);  
+  
     /////////////////////////////////////
     ///カレンダー
     ////////////////////////////////////
-
+    let executed = false;  // 初回実行を管理するフラグ
+  
     // ロジックを関数として定義（共通化）
     function executeCalendarLogic() {
         console.log('カレンダーロジックを実行します。');
@@ -286,7 +309,7 @@ if (bodyId === "page-my-index") {
             }
 
             // 今日の日付に一致するイベントがあれば、そのイベント詳細を収集
-            if (cellDay === todayDay) {
+            if (cellDay === todayDay && !executed) {
                 console.log('今日の日付に一致しました:', { cellDay, cellMonth, cellYear });
 
                 const $dayContent = $cell.find('[data-region="day-content"]');
@@ -305,26 +328,16 @@ if (bodyId === "page-my-index") {
                             'href': $(this).attr('href'), // 元のリンクのhref属性をコピー
                             'text': '授業に参加する' 
                         });
-                
-                        // リンクのクリックイベント設定（通常のリンク動作）
-                        $lessonLink.on('click', function(event) {
-                            // event.preventDefault(); // デフォルトのリンク動作を無効化
-                            console.log('リンクがクリックされました:', courseName);
-                
-                            // ここで元のリンクの動作を発火させる場合は次の行を有効にできます。
-                            // window.location.href = $(this).attr('href');
-                        });
-                
                         // コンテナに要素を追加
                         $lessonContainer.append($lessonTitle).append($lessonLink);
                         $('#todays-event-class-scheduled').prepend($lessonContainer);
                     });
+                    eventFound = true; // 今日授業あり
                 }
 
-                eventFound = true; // 今日授業あり
             }
             // 今日以降のイベント（明日以降も含む）をアップカミングに追加
-            if (cellDay > todayDay) {
+            if (cellDay > todayDay && !executed) {
                 const $dayContent = $cell.find('[data-region="day-content"]');
                 console.log('$dayContent:', $dayContent); // 取得したdayContentを確認
             
@@ -374,6 +387,8 @@ if (bodyId === "page-my-index") {
                     });
                 }
             }
+            // 初回実行後にフラグをtrueに設定
+          
 
         });
 
@@ -391,16 +406,14 @@ if (bodyId === "page-my-index") {
 
             // メッセージをダッシュボードに設定
             $('#todays-subject-pc .c-alert-banner-text-title').text(message);
-           
-            
-
             // 今日のカレンダーが見つかったことを示すフラグを設定
             flagTodaysCalendar = true;
         }
-         // 明日以降のスケジュールがない場合は、Noneメッセージを表示
+         // 明日以降のスケジュールがない場合は、スマホにNoneメッセージを表示
         if (!upcomingEventFound) {
             $('#dashboard-main-upcoming-class-none').show();
         }
+        executed = true;
     }
 
     // ページ読み込み時に発火
@@ -417,14 +430,9 @@ if (bodyId === "page-my-index") {
         }, 300); // 300ミリ秒（0.3秒）
     });
 
-    // .dashboard-leftの内容を取得してclone
-    var contentToClone = $('.dashboard-left').clone();
 
-    // #page-content直下に配置
-    var wrappedContent = $('<div>', { id: 'dashboard-sp-content' }).append(contentToClone);
+  
 
-    // #page-content直下に配置
-    $('#page-content').append(wrappedContent);
 
 }
 // ==============================
