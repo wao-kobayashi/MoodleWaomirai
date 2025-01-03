@@ -5,8 +5,9 @@
 @import "setting/_lms-settings-animation"; //アニメーション
 @import "setting/_lms-settings-courseid"; //コースidの定義
 @import "setting/_lms-settings-drawer"; //moodleのドロワー撲滅
-@import "common/_lms-common-subject-cards"; //教科カード
-@import "common/_lms-common-alert"; //アラートバー
+@import "parts/_lms-parts-button"; //ボタン
+@import "parts/_lms-parts-subject-cards"; //教科カード
+@import "parts/_lms-parts-alert"; //アラートバー
 @import "common/_lms-page-common"; //共通
 @import "common/_lms-page-display-none"; //moodle本来ある要素を非表示にしたもの
 @import "page-signup/_lms-page-signup"; //授業詳細

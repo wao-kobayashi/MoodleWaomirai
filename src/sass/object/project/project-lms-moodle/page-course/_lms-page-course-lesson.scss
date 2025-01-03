@@ -45,13 +45,8 @@ body {}
             }
             button {
                 width: 340px;
-                height: 60px;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                font-size: $lms-font-size-ml !important;
+                @include button-size-big;
                 background: $cl-main-orange !important;
-                border-radius: 4px;
                 color: white;
                 /* button style reset */
                 appearance: none;
@@ -107,10 +102,10 @@ body {}
             .mod_questionnaire_flex-container {
                 padding: 30px 20px 20px;
                 .btn-primary {
-                    color: $cl-main-orange;
+                    color: $cl-main-orange !important;
                     border: 1px solid $cl-main-orange;
                     background: white !important;
-                    padding: 10px 15px;
+                    @include button-size-middle;
                 }
             }
         }

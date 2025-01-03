@@ -1,3 +1,4 @@
+
 .c-alert-banner {
   padding: 0px 12px;
   border-radius: $border-radius-middle;
@@ -5,15 +6,28 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap:12px;
+  @include responsive-style(768px) {
+  display: block;
+}
   .c-alert-banner-left {
     display: flex;
     align-items: center;
     padding: 12px 0;
+    flex: 1;
+    @include responsive-style(768px) {
+      align-items: flex-start;
+      
+     }
   }
   .c-alert-banner-left-icon {
     width: 24px;
     height: 24px;
     margin: 0 10px 0 3px;
+    @include responsive-style(768px) {
+      margin: 5px 10px 0 3px;
+      
+     }
     i {
       font-size: 24px;
       display: block;
@@ -28,21 +42,36 @@
     font-size: $lms-font-size-ml;
   }
   .c-alert-banner-right a {
-    padding: 8px 16px;
-    border-radius: $border-radius-small;
-    color: white;
-    font-size: $lms-font-size-m;
+    @include button-size-middle;
     font-weight: bold;
     border: none !important;
+    flex: 1;
+    width: 200px;
     &:hover {
       text-decoration: none !important;
       opacity: 0.7;
     }
+    @include responsive-style(768px) {
+     margin: 0 0 16px 36px ;
+    }
   }
-  &.alert-setting-level {
+  &.alert{
     // background: $cl-alert;
-    background: $cl-alert;
-    color: white;
+    border: 2px solid $cl-alert;
+    background: white;
+    .c-alert-banner-left-icon {
+      i {
+        color: $cl-alert;
+      }
+    }
+    .c-alert-banner-text-read {
+      color: $cl-alert;
+      font-weight: bold;
+    }
+    .c-alert-banner-right a {
+      background: $cl-alert;
+      color: white;
+    }
   }
   &.alert-buy-course {
     // background: $cl-alert;
@@ -53,6 +82,7 @@
         color: $cl-waogreen;
       }
     }
+
   }
   .c-alert-banner-right a {
     background: $cl-waogreen;
