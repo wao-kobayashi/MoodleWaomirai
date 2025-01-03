@@ -155,7 +155,11 @@ function scss() {
     const processors = [cssnext()];
     return gulp.src([srcpaths.scss, srcpaths.sass])
         .pipe(plumber())
-        .pipe(sass().on('error', sass.logError))
+        .pipe(
+          sass({
+              quietDeps: true // Sassの警告を抑制
+          }).on('error', sass.logError)
+        )
         .pipe(postcss(processors))
         .pipe(gulp.dest(dstpaths.css))
         .pipe(browserSync.stream());
