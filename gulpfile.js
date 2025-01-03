@@ -141,14 +141,7 @@ function pugLms() {
 // すべてのPugタスクを並列実行
 const allPug = gulp.parallel(pugTask, pugStg, pugLms);
 
-// Jadeタスク
-function jade() {
-    return gulp.src([srcpaths.jade, '!./src/jade/**/_*.jade'])
-        .pipe(plumber())
-        .pipe(jade())
-        .pipe(gulp.dest('./'))
-        .pipe(browserSync.stream());
-}
+
 
 // SCSSタスク
 function scss() {
