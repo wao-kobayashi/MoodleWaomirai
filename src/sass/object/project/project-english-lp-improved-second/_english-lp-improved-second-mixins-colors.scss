@@ -1,3 +1,10 @@
+@use "../../../foundation/_constant";
+@use "../../../foundation/_mixin";
+
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans+JP:400,500,700,900');
+@import url('https://fonts.cdnfonts.com/css/avenir-lt-pro');
+@import url('https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+
 $section-maxwidth:1200px;
 $section-middlewidth:800px;
 $english-yellow:#F6E245;
@@ -9,7 +16,7 @@ $cl-waogray:#4d4d4d; //グレー
 @mixin section-maxwidth {
     max-width: 1200px;
     padding: 0 30px;
-    @include responsive-style(768px) {
+    @include mixin.responsive-style(768px) {
         padding: 0 20px;
     }
 }
@@ -29,35 +36,35 @@ $cl-waogray:#4d4d4d; //グレー
 
 @mixin font-size-s {
     font-size: 12px;
-    @include responsive-style(768px) {
+    @include mixin.responsive-style(768px) {
         font-size: 11.5px;
     }
 }
 
 @mixin font-size-m {
     font-size: 17px;
-    @include responsive-style(768px) {
+    @include mixin.responsive-style(768px) {
         font-size: 16px;
     }
 }
 
 @mixin font-size-ml {
     font-size: 22px;
-    @include responsive-style(768px) {
+    @include mixin.responsive-style(768px) {
         font-size: 20px;
     }
 }
 
 @mixin font-size-l {
     font-size: 27px;
-    @include responsive-style(768px) {
+    @include mixin.responsive-style(768px) {
         font-size: 24px;
     }
 }
 
 @mixin font-size-xl {
     font-size: 34px;
-    @include responsive-style(768px) {
+    @include mixin.responsive-style(768px) {
         font-size: 30px;
     }
 }
@@ -113,7 +120,7 @@ $cl-waogray:#4d4d4d; //グレー
     // height: 300px;
     width: 100%;
     padding: 0 0 210px;
-    @include responsive-style(768px) {
+    @include mixin.responsive-style(768px) {
         padding: 0 0 120px;
     }
     .section-el-second-content {
@@ -130,7 +137,7 @@ $cl-waogray:#4d4d4d; //グレー
             margin: 0 auto;
             letter-spacing: 2px;
             width: 90%;
-            @include responsive-style(768px) {
+            @include mixin.responsive-style(768px) {
                 text-align: left;
             }
         }
@@ -139,7 +146,7 @@ $cl-waogray:#4d4d4d; //グレー
             text-align: center;
             line-height: 1.75;
             margin: 10px 0 0;
-            @include responsive-style(768px) {
+            @include mixin.responsive-style(768px) {
                 text-align: left;
                 padding: 0 20px;
             }
@@ -157,7 +164,7 @@ $cl-waogray:#4d4d4d; //グレー
     .section-el-second-top {
         background: $top-bg;
         &:before {
-            background: $top-before-bg;
+            background:$top-before-bg;
         }
     }
 }
@@ -177,12 +184,12 @@ $cl-waogray:#4d4d4d; //グレー
 
 //授業コース
 .section-el-second-coarce {
-    @include section-styles($cl-english-pale, #fff, $cl-english-pale);
+    @include section-styles(constant.$cl-english-pale, #fff, constant.$cl-english-pale);
 }
 
 //授業の流れ
 .section-el-second-process {
-    @include section-styles(#fff, $cl-english-pale, #fff);
+    @include section-styles(#fff, constant.$cl-english-pale, #fff);
 }
 
 //お客様からの声
@@ -197,14 +204,14 @@ $cl-waogray:#4d4d4d; //グレー
 
 //無料体験レッスンまでの流れ
 .section-el-second-try {
-    @include section-styles($cl-graylightest, #fff, $cl-graylightest);
+    @include section-styles(constant.$cl-graylightest, #fff, constant.$cl-graylightest);
 }
 
 //よくある質問
 .section-el-second-faq {
-    @include section-styles($cl-graylightest, #fff, $cl-graylightest);
+    @include section-styles(constant.$cl-graylightest, #fff, constant.$cl-graylightest);
     border-radius: 0px 0px 100px 100px;
-    @include responsive-style(768px) {
+    @include mixin.responsive-style(768px) {
         padding: 0 0 30px;
         border-radius: 0px 0px 50px 50px;
     }
@@ -215,7 +222,7 @@ $cl-waogray:#4d4d4d; //グレー
     position: relative;
     // border-radius: 100px 100px 0 0;
     margin: 0 auto 40px;
-    @include responsive-style(768px) {
+    @include mixin.responsive-style(768px) {
         margin: 0 auto 0px;
     }
     .section-el-second-top-text {
@@ -228,7 +235,7 @@ $cl-waogray:#4d4d4d; //グレー
         font-weight: 800;
         letter-spacing: 7px;
         font-size: 110px;
-        @include responsive-style(768px) {
+        @include mixin.responsive-style(768px) {
             font-size: 50px;
             top: -30px;
             letter-spacing: 3px;
@@ -274,7 +281,7 @@ $cl-waogray:#4d4d4d; //グレー
         background: #ccc;
         content: "";
         display: block;
-        @include responsive-style(768px) {
+        @include mixin.responsive-style(768px) {
             border-radius: 50px 50px 0 0;
         }
     }
@@ -310,7 +317,7 @@ $cl-waogray:#4d4d4d; //グレー
     text-align: center;
     height: 70px;
     margin: 0 auto 30px;
-    @include responsive-style(768px) {
+    @include mixin.responsive-style(768px) {
         height: 40px;
         margin: 0 auto 10px;
     }
@@ -321,14 +328,14 @@ $cl-waogray:#4d4d4d; //グレー
         line-height: 1;
         @include font-size-xl;
         text-align: center;
-        color: $cl-gray;
+        color: constant.$cl-gray;
         .purple-large {
-            color: $cl-english;
+            color: constant.$cl-english;
             font-size: 60px;
             font-weight: 500;
         }
         .purple {
-            color: $cl-english;
+            color: constant.$cl-english;
         }
     }
     .lp-section-title-txt {
@@ -343,7 +350,7 @@ $cl-waogray:#4d4d4d; //グレー
         opacity: 0.7;
         user-select: none;
         font-size: 200px;
-        @include responsive-style(768px) {
+        @include mixin.responsive-style(768px) {
             font-size: 90px;
             top: -40px;
         }
@@ -352,14 +359,14 @@ $cl-waogray:#4d4d4d; //グレー
 
 .lp-section-text {
     width: 100%;
-    // max-width: $section-maxwidth;
+    // max-width: constant.$section-maxwidth;
     line-height: 1.5;
     @include font-size-m;
     position: relative;
     margin: 20px auto 0;
     // @include section-maxwidth;
     @include section-middlewidth;
-    @include responsive-style(768px) {
+    @include mixin.responsive-style(768px) {
         margin: 10px auto 20px;
     }
 }

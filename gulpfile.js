@@ -6,14 +6,14 @@ const browserSync = require('browser-sync').create();
 const plumber = require('gulp-plumber');
 const pug = require('gulp-pug');
 const pugbem = require('gulp-pugbem');
-const sass = require('gulp-sass')(require('sass'));
+const sass = require('gulp-sass')(require('sass')); // sassを最新に更新
 const postcss = require('gulp-postcss');
 const cssnext = require('postcss-cssnext');
 const rename = require('gulp-rename');
 const fs = require('fs').promises;
 const replace = require('gulp-replace');
 const data = require('gulp-data');
-const path = require('path'); // path モジュールを追加
+const path = require('path');
 
 // パスの設定
 const srcpaths = {
