@@ -20,7 +20,6 @@ const srcpaths = {
     scss: './src/**/*.scss',
     sass: './src/**/*.sass',
     jsx: './src/jsx/**/*.js',
-    jade: './src/jade/**/*.jade',
     pug: './src/pug/**/*.pug',
     envPug: './src/pug/lms-moodle/**/*.pug'
 };
@@ -79,11 +78,6 @@ function serve() {
     });
 
     gulp.watch([srcpaths.scss, srcpaths.sass], gulp.series(scss, (done) => {
-        browserSync.reload();
-        done();
-    }));
-
-    gulp.watch(srcpaths.jade, gulp.series(jade, (done) => {
         browserSync.reload();
         done();
     }));
