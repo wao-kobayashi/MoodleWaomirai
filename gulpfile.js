@@ -14,6 +14,7 @@ const fs = require('fs').promises;
 const replace = require('gulp-replace');
 const data = require('gulp-data');
 const path = require('path');
+const newer = require('gulp-newer');
 
 // パスの設定
 const srcpaths = {
@@ -92,50 +93,71 @@ function serve() {
     // );
 
     // lms-moodle 配下のみ変更された時に pugStg と pugLms を実行
-    // gulp.watch(srcpaths.envPug, gulp.series(pugStg, pugLms, (done) => {
-    //     browserSync.reload();
-    //     done();
-    // }));
 
+    // gulp.watch(srcpaths.envPug, gulp.series(pugStg, pugLms, (done) => {
+      //     browserSync.reload();
+      //     done();
+    // }));
+    gulp.watch('src/pug/index.pug', gulp.series(pugIndexPage,  (done) => {
+      browserSync.reload();
+      done();
+   }));
+  
+    gulp.watch('src/pug/lms-moodle/**/*.pug', gulp.series(pugStgSingle,pugLmsSingle,  (done) => {
+        browserSync.reload();
+        done();
+    }));
+  
     gulp.watch(srcpaths.jsx, gulp.series(splitJs, (done) => {
         browserSync.reload();
         done();
     }));
 }
 
+// stg, lms専用のPugタスク
+function pugEnvTask(envValue, outputPath) {
+  return gulp.src(['src/pug/lms-moodle/**/*.pug', '!src/pug/lms-moodle/**/_*.pug'])
+      .pipe(plumber())
+      .pipe(data(() => ({ env: envValue })))  // 'env'に値を渡す
+      .pipe(pug({ plugins: [pugbem] }))
+      .pipe(gulp.dest(outputPath));  // 出力先を動的に変更
+}
+function pugEnvTaskSingle(envValue, outputPath) {
+  return gulp.src(['src/pug/lms-moodle/**/*.pug', '!src/pug/lms-moodle/**/_*.pug'])
+      .pipe(plumber())
+      .pipe(newer({
+        dest: outputPath,
+        ext: '.html'  // 出力ファイルの拡張子を明示
+      }))
+      .pipe(data(() => ({ env: envValue })))  // 'env'に値を渡す
+      .pipe(pug({ plugins: [pugbem] }))
+      .pipe(gulp.dest(outputPath));  // 出力先を動的に変更
+}
 
-// 通常のPugタスク（./ 直下に出力）
-// function pugTask() {
-//     return gulp.src([srcpaths.pug, '!./src/pug/**/_*.pug', '!./src/pug/lms-moodle/**/*.pug'])
-//         .pipe(plumber())
-//         .pipe(pug({ plugins: [pugbem] }))
-//         .pipe(gulp.dest('./'))
-//         .pipe(browserSync.stream());
-// }
+// stg用Pugタスク
+function pugStg() {
+  return pugEnvTask('stg', './moodle-stg');
+}
+// stg用Pugタスク
+function pugLms() {
+  return pugEnvTask('lmswaomirai', './moodle-lms');
+}
 
-// // stg, lms専用のPugタスク
-// function pugEnvTask(env, outputPath) {
-//     return gulp.src([srcpaths.envPug, '!./src/pug/lms-moodle/**/_*.pug'])
-//         .pipe(plumber())
-//         .pipe(data(() => ({ env }))) // 環境変数をPugに渡す
-//         .pipe(pug({ plugins: [pugbem] }))
-//         .pipe(gulp.dest(outputPath));
-// }
+// stg用Pugタスク
+function pugStgSingle() {
+  return pugEnvTaskSingle('stg', './moodle-stg');
+}
+// stg用Pugタスク
+function pugLmsSingle() {
+  return pugEnvTaskSingle('lmswaomirai', './moodle-lms');
+}
 
-// // stg用Pugタスク
-// function pugStg() {
-//     return pugEnvTask('stg', dstpaths.stg);
-// }
-
-// // lms用Pugタスク
-// function pugLms() {
-//     return pugEnvTask('lmswaomirai', dstpaths.lmswaomirai);
-// }
-
-// すべてのPugタスクを並列実行
-// const allPug = gulp.parallel(pugTask, pugStg, pugLms);
-
-
+function pugIndexPage() {
+  return gulp.src(['src/pug/index.pug'])
+      .pipe(plumber())
+      .pipe(pug({ plugins: [pugbem] }))
+      .pipe(gulp.dest("./")); 
+}
 
 // SCSSタスク
 function scss() {
@@ -153,10 +175,8 @@ function scss() {
 }
 
 // デフォルトタスク
-exports.default = gulp.series(scss, serve);
-// exports.pug = pugTask;
-// exports.pugStg = pugStg;
-// exports.pugLms = pugLms;
-// exports.allPug = allPug; // 手動実行用
+exports.default = gulp.series(scss, serve, pugStg, pugLms, pugIndexPage);
 exports.scss = scss;
 exports.splitJs = splitJs;
+exports.pugStg = pugStg;
+exports.pugLms = pugLms;
