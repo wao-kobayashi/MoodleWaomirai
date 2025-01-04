@@ -1,9 +1,0 @@
-
-@use "foundation/_base"; //ベースのcss、フォントなどの定義
-@use "foundation/_mixin"; //よく使う関数など定義したもの
-@use "foundation/_constant"; //色などの変数定義
-@use "foundation/_wpstyle"; //色などの変数定義
-@use "foundation/_reset"; //デフォルトのスタイルをリセットしたもの
-@use "object/project/project-english-lp-improved-second/_english-lp-improved-second-mixins-colors";
-@use "object/project/project-english-lp-improved-second/_english-lp-improved-second-modal";
-@use "object/project/project-english-lp-improved-second/_english-lp-improved-second-main";
