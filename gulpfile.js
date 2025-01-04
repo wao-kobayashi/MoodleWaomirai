@@ -19,10 +19,8 @@ const newer = require('gulp-newer');
 // パスの設定
 const srcpaths = {
     scss: './src/**/*.scss',
-    sass: './src/**/*.sass',
-    jsx: './src/jsx/**/*.js',
-    pug: './src/pug/**/*.pug',
-    envPug: './src/pug/lms-moodle/**/*.pug'
+    js: './src/js/**/*.js',
+    pug: './src/pug/lms-moodle/**/*.pug'
 };
 
 const dstpaths = {
@@ -35,11 +33,11 @@ const dstpaths = {
 // stg.js と lms.js を分割するタスク（非同期処理を減らし、gulpで同期的に処理）
 async function splitJs(done) {
     try {
-        const stgVariableJsContent = await fs.readFile(path.resolve('src/jsx/stg-variable.js'), 'utf8');
-        const lmsVariableJsContent = await fs.readFile(path.resolve('src/jsx/lms-variable.js'), 'utf8');
+        const stgVariableJsContent = await fs.readFile(path.resolve('src/js/stg-variable.js'), 'utf8');
+        const lmsVariableJsContent = await fs.readFile(path.resolve('src/js/lms-variable.js'), 'utf8');
 
         // stg.js 用
-        gulp.src('src/jsx/moodle.js')
+        gulp.src('src/js/moodle.js')
             .pipe(replace(/^/,
                 `${stgVariableJsContent}\n` +
                 `$(document).ready(function() {\n` +
@@ -52,7 +50,7 @@ async function splitJs(done) {
             .pipe(gulp.dest(dstpaths.js));
 
         // lms.js 用
-        gulp.src('src/jsx/moodle.js')
+        gulp.src('src/js/moodle.js')
             .pipe(replace(/^/,
                 `${lmsVariableJsContent}\n` +
                 `$(document).ready(function() {\n` +
@@ -78,26 +76,11 @@ function serve() {
         index: "index.html"
     });
 
-    gulp.watch([srcpaths.scss, srcpaths.sass], gulp.series(scss, (done) => {
+    gulp.watch([srcpaths.scss], gulp.series(scss, (done) => {
         browserSync.reload();
         done();
     }));
 
-    // 通常のPugファイルの監視（lms-moodleを除く）
-    // gulp.watch(
-    //     [srcpaths.pug, '!./src/pug/lms-moodle/**/*.pug'],
-    //     gulp.series(pugTask, (done) => {
-    //         browserSync.reload();
-    //         done();
-    //     })
-    // );
-
-    // lms-moodle 配下のみ変更された時に pugStg と pugLms を実行
-
-    // gulp.watch(srcpaths.envPug, gulp.series(pugStg, pugLms, (done) => {
-      //     browserSync.reload();
-      //     done();
-    // }));
     gulp.watch('src/pug/index.pug', gulp.series(pugIndexPage,  (done) => {
       browserSync.reload();
       done();
@@ -108,7 +91,7 @@ function serve() {
         done();
     }));
   
-    gulp.watch(srcpaths.jsx, gulp.series(splitJs, (done) => {
+    gulp.watch(srcpaths.js, gulp.series(splitJs, (done) => {
         browserSync.reload();
         done();
     }));
@@ -136,20 +119,20 @@ function pugEnvTaskSingle(envValue, outputPath) {
 
 // stg用Pugタスク
 function pugStg() {
-  return pugEnvTask('stg', './moodle-stg');
+  return pugEnvTask('stg', stg);
 }
 // stg用Pugタスク
 function pugLms() {
-  return pugEnvTask('lmswaomirai', './moodle-lms');
+  return pugEnvTask('lmswaomirai', lmswaomirai);
 }
 
 // stg用Pugタスク
 function pugStgSingle() {
-  return pugEnvTaskSingle('stg', './moodle-stg');
+  return pugEnvTaskSingle('stg', stg);
 }
 // stg用Pugタスク
 function pugLmsSingle() {
-  return pugEnvTaskSingle('lmswaomirai', './moodle-lms');
+  return pugEnvTaskSingle('lmswaomirai', lmswaomirai);
 }
 
 function pugIndexPage() {
@@ -162,7 +145,7 @@ function pugIndexPage() {
 // SCSSタスク
 function scss() {
     const processors = [cssnext()];
-    return gulp.src([srcpaths.scss, srcpaths.sass])
+    return gulp.src([srcpaths.scss])
         .pipe(plumber())
         .pipe(
           sass({
