@@ -1,1 +1,13 @@
-div|あ
+extends ../_layout_moodle_enrol.pug
+block variables
+  - var title = 'グローバル英語'  // 変数の定義
+  - var pagetitle = 'グローバル英語'  // 変数の定義
+  - var courseId = env === 'stg' ? [236] : env === 'lmswaomirai' ? [] : []
+  // SubjectIds 配列の定義
+block contents
+  - var path = locals.filename
+  - var currentPage = path.split('/').pop().replace('.pug', '')
+  div
+    #{path}
+  p  
+    |あーい
