@@ -83,19 +83,19 @@ function serve() {
     }));
 
     // 通常のPugファイルの監視（lms-moodleを除く）
-    gulp.watch(
-        [srcpaths.pug, '!./src/pug/lms-moodle/**/*.pug'],
-        gulp.series(pugTask, (done) => {
-            browserSync.reload();
-            done();
-        })
-    );
+    // gulp.watch(
+    //     [srcpaths.pug, '!./src/pug/lms-moodle/**/*.pug'],
+    //     gulp.series(pugTask, (done) => {
+    //         browserSync.reload();
+    //         done();
+    //     })
+    // );
 
     // lms-moodle 配下のみ変更された時に pugStg と pugLms を実行
-    gulp.watch(srcpaths.envPug, gulp.series(pugStg, pugLms, (done) => {
-        browserSync.reload();
-        done();
-    }));
+    // gulp.watch(srcpaths.envPug, gulp.series(pugStg, pugLms, (done) => {
+    //     browserSync.reload();
+    //     done();
+    // }));
 
     gulp.watch(srcpaths.jsx, gulp.series(splitJs, (done) => {
         browserSync.reload();
@@ -105,35 +105,35 @@ function serve() {
 
 
 // 通常のPugタスク（./ 直下に出力）
-function pugTask() {
-    return gulp.src([srcpaths.pug, '!./src/pug/**/_*.pug', '!./src/pug/lms-moodle/**/*.pug'])
-        .pipe(plumber())
-        .pipe(pug({ plugins: [pugbem] }))
-        .pipe(gulp.dest('./'))
-        .pipe(browserSync.stream());
-}
+// function pugTask() {
+//     return gulp.src([srcpaths.pug, '!./src/pug/**/_*.pug', '!./src/pug/lms-moodle/**/*.pug'])
+//         .pipe(plumber())
+//         .pipe(pug({ plugins: [pugbem] }))
+//         .pipe(gulp.dest('./'))
+//         .pipe(browserSync.stream());
+// }
 
-// stg, lms専用のPugタスク
-function pugEnvTask(env, outputPath) {
-    return gulp.src([srcpaths.envPug, '!./src/pug/lms-moodle/**/_*.pug'])
-        .pipe(plumber())
-        .pipe(data(() => ({ env }))) // 環境変数をPugに渡す
-        .pipe(pug({ plugins: [pugbem] }))
-        .pipe(gulp.dest(outputPath));
-}
+// // stg, lms専用のPugタスク
+// function pugEnvTask(env, outputPath) {
+//     return gulp.src([srcpaths.envPug, '!./src/pug/lms-moodle/**/_*.pug'])
+//         .pipe(plumber())
+//         .pipe(data(() => ({ env }))) // 環境変数をPugに渡す
+//         .pipe(pug({ plugins: [pugbem] }))
+//         .pipe(gulp.dest(outputPath));
+// }
 
-// stg用Pugタスク
-function pugStg() {
-    return pugEnvTask('stg', dstpaths.stg);
-}
+// // stg用Pugタスク
+// function pugStg() {
+//     return pugEnvTask('stg', dstpaths.stg);
+// }
 
-// lms用Pugタスク
-function pugLms() {
-    return pugEnvTask('lmswaomirai', dstpaths.lmswaomirai);
-}
+// // lms用Pugタスク
+// function pugLms() {
+//     return pugEnvTask('lmswaomirai', dstpaths.lmswaomirai);
+// }
 
 // すべてのPugタスクを並列実行
-const allPug = gulp.parallel(pugTask, pugStg, pugLms);
+// const allPug = gulp.parallel(pugTask, pugStg, pugLms);
 
 
 
@@ -153,10 +153,10 @@ function scss() {
 }
 
 // デフォルトタスク
-exports.default = gulp.series(scss, allPug, serve);
-exports.pug = pugTask;
-exports.pugStg = pugStg;
-exports.pugLms = pugLms;
-exports.allPug = allPug; // 手動実行用
+exports.default = gulp.series(scss, serve);
+// exports.pug = pugTask;
+// exports.pugStg = pugStg;
+// exports.pugLms = pugLms;
+// exports.allPug = allPug; // 手動実行用
 exports.scss = scss;
 exports.splitJs = splitJs;
