@@ -2,7 +2,7 @@ nav.navbar.fixed-top.navbar-light.bg-white.navbar-expand(aria-label="サイト�
   button.navbar-toggler.aabtn.d-block.d-md-none.my-1.mr-2(data-toggler="drawers", data-action="toggle", data-target="theme_boost-drawers-primary")
     span.navbar-toggler-icon
     span.sr-only サイドパネル
-  a.navbar-brand.d-none.d-md-flex.align-items-center.m-0.mr-3.p-0.aabtn(href="page-index.html")
+  a.navbar-brand.d-none.d-md-flex.align-items-center.m-0.mr-3.p-0.aabtn(href="http://localhost:3000/")
     img.logo.mr-1(src="https://lms.waomirai.com/pluginfile.php/1/tool_tenant/headerlogo/2/%E7%84%A1%E9%A1%8C.png", alt="stg")
   ul.navbar-nav.d-none.d-md-flex.mr-3.tenantswitch
   .primary-navigation
@@ -11,33 +11,12 @@ nav.navbar.fixed-top.navbar-light.bg-white.navbar-expand(aria-label="サイト�
         li.nav-item(data-key="home", role="none", data-forceintomoremenu="false")
           a.nav-link(role="menuitem", href="http://localhost:3000/lms-moodle/index/page-index-logged-in.html", tabindex="-1")
             | ホーム
-        li.nav-item(data-key="home", role="none", data-forceintomoremenu="false")
-          a.nav-link(role="menuitem", href="http://localhost:3000/lms-moodle/index/page-index-logged-in-purchased.html", tabindex="-1")
-            | ホーム(p)
         li.nav-item(data-key="myhome", role="none", data-forceintomoremenu="false")
           a.nav-link.active(role="menuitem", href="http://localhost:3000/lms-moodle/dashboard/page-dashboard.html", aria-current="true")
-            | DB
-        li.nav-item(data-key="myhome", role="none", data-forceintomoremenu="false")
-          a.nav-link.active(role="menuitem", href="http://localhost:3000/lms-moodle/dashboard/page-dashboard-purchased.html", aria-current="true")
-            | DB(p)
-        li.nav-item(data-key="mycourses", role="none", data-forceintomoremenu="false")
-          a.nav-link(role="menuitem", href="http://localhost:3000/lms-moodle/course/page-course-payment.html", tabindex="-1")
-            | 科目購入
-        li.nav-item(data-key="mycourses", role="none", data-forceintomoremenu="false")
-          a.nav-link(role="menuitem", href="http://localhost:3000/lms-moodle/course/page-course-member.html", tabindex="-1")
-            | 科目詳細
-        li.nav-item(data-key="mycourses", role="none", data-forceintomoremenu="false")
-          a.nav-link(role="menuitem", href="http://localhost:3000/lms-moodle/course/page-course-lesson.html", tabindex="-1")
-            | 授業詳細  
-        li.nav-item(data-key="mycourses", role="none", data-forceintomoremenu="false")
-          a.nav-link(role="menuitem", href="http://localhost:3000/lms-moodle/help/page-howto-attend-lesson.html", tabindex="-1")
-            | 受講ヘルプページ  
+            | 受講カレンダー
         li.nav-item(role="none", data-forceintomoremenu="false")
           a.nav-link(role="menuitem", href="https://lms.waomirai.com/user/profile.php", tabindex="-1")
             | マイページ
-        li.nav-item(role="none", data-forceintomoremenu="false")
-          a.nav-link(role="menuitem", href="https://lms.waomirai.com/user/preferences.php", tabindex="-1")
-            | ユーザ設定
         li.nav-item.dropdown.dropdownmoremenu.d-none(role="none", data-region="morebutton")
           a#moremenu-dropdown-67490eb9241e2.dropdown-toggle.nav-link(href="#", role="menuitem", data-toggle="dropdown", aria-haspopup="true", aria-expanded="false", tabindex="-1")
             | さらに

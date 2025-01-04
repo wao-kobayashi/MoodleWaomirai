@@ -1,3 +1,7 @@
+@use "../../../foundation/_constant";
+@use "../../../foundation/_mixin";
+@use "english-lp-improved-second-mixins-colors.scss" as english-mixin;
+
 $z-indexes: (
   "background": -1,
   "overlay": 100,
@@ -63,26 +67,26 @@ $z-indexes: (
   .modal-wrapper-head {
     padding: 20px 0 10px;
     text-align: center;
-    background: $cl-waogreen;
+    background: constant.$cl-waogreen;
     color: white;
-    @include font-size-ml;
+    @include english-mixin.font-size-ml;
     font-weight: bold;
     letter-spacing: 1px;
     border-radius: 20px 20px 0 0;
     &.level-2 {
-      background: $cl-english !important;
+      background: constant.$cl-english !important;
     }
   }
   .modal-wrapper-content {
     padding: 20px;
     .modal-wrapper-content-text {
       text-align: center;
-      @include font-size-m;
+      @include english-mixin.font-size-m;
       margin: 0px 0 10px;
     }
     .modal-wrapper-content-text-select {
       text-align: center;
-      @include font-size-ml;
+      @include english-mixin.font-size-ml;
       margin: 20px 0 20px;
     }
     .modal-level-select {
@@ -93,8 +97,8 @@ $z-indexes: (
     }
     .modal-wrapper-content-close {
       text-align: center;
-      color: $cl-graylight;
-      @include font-size-m;
+      color: constant.$cl-graylight;
+      @include english-mixin.font-size-m;
       text-decoration: underline;
       margin: 20px 0 10px;
       cursor: pointer;

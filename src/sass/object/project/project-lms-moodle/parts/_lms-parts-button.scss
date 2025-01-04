@@ -1,0 +1,47 @@
+/*****************
+/* ボタンスタイルの定義
+/* 基本的にはsizeとstyleセットで使う
+******************/
+
+@mixin button-size-small{
+  /* 横幅はまちまちなので指定しない */
+  height: 48px;
+  border-radius: $border-radius-small;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: $lms-font-size-s !important;
+  border-radius: $border-radius-small;
+}
+
+@mixin button-size-middle{
+  /* 横幅はまちまちなので指定しない */
+  height: 48px;
+  border-radius: $border-radius-small;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: $lms-font-size-ml !important;
+  border-radius: $border-radius-middle;
+  line-height: 1;
+}
+@mixin button-size-big{
+  /* 横幅はまちまちなので指定しない */
+  height: 60px;
+  border-radius: $border-radius-small;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: $lms-font-size-ml !important;
+  line-height: 1;
+}
+
+@mixin button-style-primary{
+  background: $cl-waogreen !important;
+  color: $cl-white !important;
+  border:none !important
+}
+@mixin button-style-secondaly{
+  color:$cl-waogreen !important;
+  border: 1px solid $cl-waogreen;
+}

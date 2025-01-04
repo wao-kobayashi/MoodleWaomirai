@@ -1,0 +1,61 @@
+//メモ category-45はstg環境のカテゴリ
+$howto-page-width:680px;
+.category-45 {
+
+    #page.drawers .main-inner {
+        max-width: $howto-page-width!important;
+    }
+    // background: #ccc !important;
+    .more-nav.nav-tabs {
+        display: none;
+    }
+    .moremenu {
+        height: 10px;
+    }
+    .tool_catalogue-catalogue>.my-3>.position-relative {
+        display: none !important;
+    }
+    .tool_catalogue-catalogue>.my-3>.pagesectioncontent {
+        padding: 0 0 96px;
+    }
+    //以下要素の装飾
+    h1 {
+        @include text-xxl-black;
+    }
+    h2 {
+        @include text-xl-black;
+    }
+    h3 {
+        @include text-l-black;
+    }
+    .howto-table-contents {
+        background: $cl-graylightest !important;
+        border-radius: $border-radius-middle;
+        padding: 20px 25px;
+        font-size: $lms-font-size-ml;
+        line-height: 1.5;
+        font-weight: bold;
+        a {
+            color: $cl-waogreen;
+            text-decoration: underline;
+            &:hover,
+            &:focus {
+                @include focus-tapblack-none;
+                background: none;
+            }
+        }
+    }
+    .howto-block {
+        padding: 0 0 60px;
+    }
+    .howto-image img {
+        max-width: $howto-page-width;
+        width: 100%;
+        margin: 10px 0 0;
+    }
+    .p-alert {
+        color: $cl-alert !important;
+        font-weight: bold;
+    }
+    
+}

@@ -1,6 +1,10 @@
-// @import "foundation/_base"; //ベースのcss、フォントなどの定義
-@import "foundation/_mixin"; //よく使う関数など定義したもの
-@import "foundation/_constant"; //色などの変数定義
-@import "foundation/_wpstyle"; //色などの変数定義
-// @import "foundation/_reset"; //デフォルトのスタイルをリセットしたもの
-@import "object/project/project-english-lp/_english-lp"; //ハピタスLPの本体のcss
+/////////
+// dart scssの警告がうるさいのでいったん抑制している
+/////////
+
+// // @import "foundation/_base"; //ベースのcss、フォントなどの定義
+// @import "foundation/_mixin"; //よく使う関数など定義したもの
+// @import "foundation/_constant"; //色などの変数定義
+// @import "foundation/_wpstyle"; //色などの変数定義
+// // @import "foundation/_reset"; //デフォルトのスタイルをリセットしたもの
+// @import "object/project/project-english-lp/_english-lp"; //ハピタスLPの本体のcss

@@ -1,3 +1,7 @@
+@use "../../../foundation/_constant";
+@use "../../../foundation/_mixin";
+@use "english-lp-improved-second-mixins-colors.scss" as english-mixin;
+
 body {
   font-family: "Avenir LT Pro", "Jost", "Noto Sans JP", sans-serif;
   // color: $cl-gray;
@@ -25,10 +29,10 @@ body {
     left: 4.8%;
     top: 22%;
     width: 31%;
-    @include responsive-style(900px) {
+    @include mixin.responsive-style(900px) {
       top: 17%;
     }
-    @include responsive-style(1100px) {
+    @include mixin.responsive-style(1100px) {
       top: 20%;
     }
     .fvpc-left-text {
@@ -36,7 +40,7 @@ body {
     }
     a {
       padding: 10px 0px;
-      background: $cl-main-orange !important;
+      background: constant.$cl-main-orange !important;
       box-shadow: 0 4px 0 #9d4e00;
       animation: lp-cta__btn 3s infinite;
       display: inline-flex;
@@ -56,7 +60,7 @@ body {
         // background: white;
         // border: 1px solid $cl-main-orange;
         // border-radius: 100px;
-        color: $cl-main-orange;
+        color: constant.$cl-main-orange;
         text-align: center;
         // padding: 8px 13px 5px;
         display: block;
@@ -76,13 +80,13 @@ body {
         width: 95%;
         line-height: 1;
         position: relative;
-        @include responsive-style(1170px) {
+        @include mixin.responsive-style(1170px) {
           font-size: 24px;
         }
-        @include responsive-style(1000px) {
+        @include mixin.responsive-style(1000px) {
           font-size: 20px;
         }
-        @include responsive-style(900px) {
+        @include mixin.responsive-style(900px) {
           font-size: 17.5px;
         }
         .lp-cv-button-main-text {
@@ -139,20 +143,20 @@ body {
     animation-direction: alternate;
     animation-timing-function: ease;
     bottom: -7%;
-    @include responsive-style(1300px) {
+    @include mixin.responsive-style(1300px) {
       bottom: -7%;
     }
-    @include responsive-style(1050px) {
+    @include mixin.responsive-style(1050px) {
       bottom: -7%;
     }
-    @include responsive-style(900px) {
+    @include mixin.responsive-style(900px) {
       bottom: -10%;
     }
   }
   .fvpc-bg img {
     width: 83%;
     margin: -20px 0 0 auto;
-    @include responsive-style(1200px) {
+    @include mixin.responsive-style(1200px) {
       width: 100%;
     }
   }
@@ -204,7 +208,7 @@ body {
     border-radius: 0px 20px 20px 0;
     box-shadow: 0 0 30px rgba(50, 50, 70, 0.15);
     .fvsp-left-top {
-      color: $cl-english;
+      color: constant.$cl-english;
       font-size: 18px;
       letter-spacing: 2px;
     }
@@ -219,7 +223,7 @@ body {
       text-align: center;
       a {
         width: 100%;
-        background: $cl-main-orange !important;
+        background: constant.$cl-main-orange !important;
         box-shadow: 0 4px 0 #9d4e00;
         // animation: lp-cta__btn 3s infinite;
         display: inline-flex;
@@ -237,14 +241,14 @@ body {
           margin: auto;
           top: -14px;
           background: white;
-          border: 1px solid $cl-main-orange;
+          border: 1px solid constant.$cl-main-orange;
           border-radius: 100px;
-          color: $cl-main-orange;
+          color: constant.$cl-main-orange;
           text-align: center;
           padding: 5px 0px 2px;
           display: block;
           width: 240px;
-          @include font-size-s;
+          @include  english-mixin.font-size-s;
           justify-content: center;
         }
         .lp-cv-button-main {
@@ -307,14 +311,14 @@ body {
     }
   }
   .english-fvsp-nextlesson {
-    border: $cl-english 1px solid;
+    border: constant.$cl-english 1px solid;
     width: 100%;
     padding: 15px 15px;
     margin: 0px auto 0px;
     border-radius: 10px;
     .lp-cv-lessonday-time-title {
-      color: $cl-english;
-      @include font-size-m;
+      color: constant.$cl-english;
+      @include english-mixin.font-size-m;
       margin: 0 0 5px;
     }
     .lp-cv-lessonday-time {
@@ -323,7 +327,7 @@ body {
     }
     .lp-cv-lessonday-time-day {
       font-size: 35px;
-      color: $cl-english;
+      color: constant.$cl-english;
       line-height: 0.8;
       .lp-cv-lessonday-time-day-monthday {
         font-weight: 600;
@@ -339,7 +343,7 @@ body {
       color: white;
       align-items: center;
       justify-content: center;
-      background: $cl-english;
+      background: constant.$cl-english;
       border-radius: 100px;
       font-size: 18px;
       font-weight: 600;
@@ -349,7 +353,7 @@ body {
       font-size: 30px;
       font-weight: 600;
       line-height: 0.8;
-      color: $cl-english;
+      color: constant.$cl-english;
       margin: 0 0 0 8px;
     }
   }
@@ -362,18 +366,18 @@ header {
   display: flex;
   align-items: center;
   padding: 0 20px;
-  @include responsive-style(768px) {
+  @include mixin.responsive-style(768px) {
     height: 42px;
     padding: 0 14px;
   }
   div {
-    @include responsive-style(768px) {
+    @include mixin.responsive-style(768px) {
       width: 146px;
     }
     img {
       height: 24px;
       margin: 0 !important;
-      @include responsive-style(768px) {
+      @include mixin.responsive-style(768px) {
         width: 146px;
         height: 22px;
       }
@@ -386,7 +390,7 @@ header {
   right: 20px;
   bottom: 20px;
   z-index: 99;
-  @include responsive-style(768px) {
+  @include mixin.responsive-style(768px) {
     width: 340px;
     left: 0;
     right: 0;
@@ -396,7 +400,7 @@ header {
   .lp-cv-button {
     a {
       padding: 10px 10px;
-      background: $cl-main-orange !important;
+      background: constant.$cl-main-orange !important;
       display: inline-flex;
       margin: 0 auto;
       border-radius: 6px;
@@ -405,7 +409,7 @@ header {
       position: relative;
       justify-content: center;
       width: 400px;
-      @include responsive-style(768px) {
+      @include mixin.responsive-style(768px) {
         width: 340px;
         padding: 10px 10px;
       }
@@ -416,14 +420,14 @@ header {
         margin: auto;
         top: -14px;
         background: white;
-        border: 1px solid $cl-main-orange;
+        border: 1px solid constant.$cl-main-orange;
         border-radius: 100px;
-        color: $cl-main-orange;
+        color: constant.$cl-main-orange;
         text-align: center;
         padding: 8px 13px 5px;
         display: table;
         line-height: 1;
-        @include font-size-s;
+        @include  english-mixin.font-size-s;
       }
 
       .lp-cv-button-main {
@@ -435,7 +439,7 @@ header {
         align-items: center;
         width: 100%;
         font-size: 19px;
-        @include responsive-style(768px) {
+        @include mixin.responsive-style(768px) {
           font-size: 17px;
         }
         position: relative;
@@ -446,7 +450,7 @@ header {
           text-align: center;
         }
         .lp-cv-button-main-free {
-          @include responsive-style(768px) {
+          @include mixin.responsive-style(768px) {
             width: 45px;
           }
         }
@@ -485,7 +489,7 @@ header {
 }
 
 .section-el-second-why {
-  @include min-responsive-style(768px) {
+  @include mixin.min-responsive-style(768px) {
     margin: 160px auto 0px;
   }
   .section-el-second-content-title {
@@ -501,7 +505,7 @@ header {
     border-radius: 50px;
     padding: 50px 45px;
     width: 95%;
-    @include responsive-style(768px) {
+    @include mixin.responsive-style(768px) {
       padding: 50px 20px;
       margin: 60px auto 0;
     }
@@ -511,36 +515,36 @@ header {
     .section-el-second-content-detail-reason {
       display: inline-block;
       padding: 15px 25px 10px;
-      background: $cl-english;
-      @include font-size-l;
+      background: constant.$cl-english;
+      @include english-mixin.font-size-l;
       border-radius: 100px;
       line-height: 1;
       color: white;
-      @include responsive-style(768px) {
+      @include mixin.responsive-style(768px) {
         transform: scale(0.75);
         transform-origin: left center;
       }
     }
     .section-el-second-content-detail-title {
-      @include font-size-xl;
+      @include english-mixin.font-size-xl;
       font-weight: 600;
       line-height: 1.35;
       margin: 17px 0 0px;
-      @include responsive-style(768px) {
+      @include mixin.responsive-style(768px) {
         margin: 10px 0 0px;
       }
     }
     .section-el-second-content-detail-text {
-      @include font-size-m;
+      @include english-mixin.font-size-m;
       line-height: 1.75;
       margin: 10px 0 0px;
-      color: $cl-waogray;
+      color: english-mixin.$cl-waogray;
       font-weight: 400;
       strong {
-        color: $cl-gray;
+        color: constant.$cl-gray;
         font-weight: 700;
       }
-      @include responsive-style(768px) {
+      @include mixin.responsive-style(768px) {
         margin: 10px 0 20px;
       }
     }
@@ -550,7 +554,7 @@ header {
       // object-fit: cover;
       margin: 15px 0 0px;
       border-radius: 50px;
-      @include responsive-style(768px) {
+      @include mixin.responsive-style(768px) {
         margin: 5px 0 10px;
         border-radius: 20px;
         height: 180px;
@@ -563,13 +567,13 @@ header {
 //グローバル英語は楽しむ仕組みがいっぱい
 .section-el-second-enjoy {
   border-radius: 0px 0px 100px 100px;
-  background: $cl-graylightest;
+  background: constant.$cl-graylightest;
   padding: 0 0 100px;
-  @include responsive-style(768px) {
+  @include mixin.responsive-style(768px) {
     border-radius: 0px 0px 50px 50px;
   }
   .section-el-second-top-text {
-    @include responsive-style(768px) {
+    @include mixin.responsive-style(768px) {
       top: -15px;
       line-height: 1;
     }
@@ -581,7 +585,7 @@ header {
     display: grid;
     grid-template-columns: 1fr 1.5fr;
     grid-column-gap: 60px;
-    @include responsive-style(768px) {
+    @include mixin.responsive-style(768px) {
       display: block;
       margin: 0 auto 105px;
     }
@@ -595,7 +599,7 @@ header {
         // border: 8px solid white;
         border-radius: 20px;
         box-shadow: 0 0 30px rgba(50, 50, 70, 0.15);
-        @include responsive-style(768px) {
+        @include mixin.responsive-style(768px) {
           right: -10px;
           bottom: -40px;
         }
@@ -606,7 +610,7 @@ header {
     }
     &.section-el-second-content-grid-one {
       margin: 90px auto 90px;
-      @include responsive-style(768px) {
+      @include mixin.responsive-style(768px) {
         margin: 0px auto 105px;
       }
       .section-el-second-content-grid-title {
@@ -615,24 +619,24 @@ header {
     }
     .section-el-second-content-grid-title {
       text-align: left;
-      @include font-size-xl;
+      @include english-mixin.font-size-xl;
       font-weight: 600;
       position: relative;
       display: inline-block;
       margin: 20px 0 0;
-      @include responsive-style(768px) {
+      @include mixin.responsive-style(768px) {
         line-height: 1.5;
       }
     }
     .section-el-second-content-grid-txt {
-      @include font-size-m;
+      @include english-mixin.font-size-m;
       text-align: left;
       line-height: 1.75;
       margin: 10px 0 0;
     }
     .section-el-second-content-grid-img img {
       border-radius: 100px;
-      @include responsive-style(768px) {
+      @include mixin.responsive-style(768px) {
         border-radius: 40px;
         margin: 20px 0 0;
       }
@@ -645,7 +649,7 @@ header {
       height: 0;
       overflow: hidden;
       border-radius: 100px;
-      @include responsive-style(768px) {
+      @include mixin.responsive-style(768px) {
         margin: 20px 0 0;
       }
       iframe {
@@ -660,9 +664,9 @@ header {
     }
   }
   .section-el-second-top {
-    background: $english-yellow;
+    background:  english-mixin.$english-yellow;
     &:before {
-      background: $cl-graylightest;
+      background: constant.$cl-graylightest;
     }
   }
   .section-el-second-content-grid-3columns {
@@ -673,41 +677,41 @@ header {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-column-gap: 75px;
-    @include responsive-style(768px) {
+    @include mixin.responsive-style(768px) {
       display: block;
     }
     .section-el-second-content-grid-3columns-box {
       &:not(:last-child) {
-        @include responsive-style(768px) {
+        @include mixin.responsive-style(768px) {
           margin: 0 auto 60px;
         }
       }
     }
     .section-el-second-content-grid-3columns-image img {
       border-radius: 70px;
-      @include responsive-style(768px) {
+      @include mixin.responsive-style(768px) {
         border-radius: 45px;
       }
     }
     .section-el-second-content-grid-3columns-title {
-      @include font-size-l;
+      @include english-mixin.font-size-l;
       font-weight: 600;
       margin: 20px 0 5px;
       letter-spacing: 1px;
     }
     .section-el-second-content-grid-3columns-text {
-      @include font-size-m;
+      @include english-mixin.font-size-m;
       font-weight: 300;
       margin: 0px 0 10px;
       line-height: 1.75;
-      @include responsive-style(768px) {
+      @include mixin.responsive-style(768px) {
         letter-spacing: 0px;
       }
     }
   }
   .section-el-second-content-grid-image {
     img {
-      @include responsive-style(768px) {
+      @include mixin.responsive-style(768px) {
         border-radius: 30px !important;
       }
     }
@@ -734,7 +738,7 @@ header {
 
 .section-el-second-movie {
   padding: 75px 75px;
-  background: $cl-english-pale;
+  background: constant.$cl-english-pale;
   max-width: 1200px;
   width: 90%;
   border-radius: 100px;
@@ -744,7 +748,7 @@ header {
   display: grid;
   grid-template-columns: 1fr 1.7fr;
   grid-column-gap: 60px;
-  @include responsive-style(768px) {
+  @include mixin.responsive-style(768px) {
     display: block;
     width: 100%;
     border-radius: 50px;
@@ -756,19 +760,19 @@ header {
     flex-direction: column;
     .section-el-second-movie-left-title {
       text-align: left;
-      @include font-size-xl;
+      @include english-mixin.font-size-xl;
       font-weight: 600;
       letter-spacing: 3px;
       margin: 0 0 20px;
-      @include responsive-style(768px) {
+      @include mixin.responsive-style(768px) {
         margin: 0 0 10px;
       }
     }
     .section-el-second-movie-left-text {
-      @include font-size-m;
+      @include english-mixin.font-size-m;
       text-align: left;
       line-height: 1.75;
-      @include responsive-style(768px) {
+      @include mixin.responsive-style(768px) {
         margin: 0 0 10px;
       }
     }
@@ -778,7 +782,7 @@ header {
 //英語を学んで目指すもの
 .section-el-second-ability {
   .section-el-second-content-ability-box {
-    @include section-middlewidth;
+    @include english-mixin.section-middlewidth;
     margin: 30px auto 0;
     background: white;
     display: grid;
@@ -786,7 +790,7 @@ header {
     grid-column-gap: 30px;
     padding: 30px;
     border-radius: 50px;
-    @include responsive-style(768px) {
+    @include mixin.responsive-style(768px) {
       display: block;
       width: 90%;
       margin: 30px auto 0;
@@ -796,7 +800,7 @@ header {
     .section-el-second-content-ability-box-left img {
       border-radius: 50px;
       object-fit: cover;
-      @include responsive-style(768px) {
+      @include mixin.responsive-style(768px) {
         display: block;
         height: 200px;
         width: 100%;
@@ -805,22 +809,22 @@ header {
       }
     }
     .section-el-second-content-ability-box-right-subtitle {
-      @include font-size-xl;
-      color: $cl-philosophy;
+      @include english-mixin.font-size-xl;
+      color: constant.$cl-philosophy;
       letter-spacing: 3px;
       font-weight: 600;
       margin: 0 0 10px;
-      @include responsive-style(768px) {
+      @include mixin.responsive-style(768px) {
         display: none;
       }
     }
     .section-el-second-content-ability-box-right-title {
-      @include font-size-l;
+      @include english-mixin.font-size-l;
       font-weight: 600;
       line-height: 1.45;
       margin: 0 0 10px;
       letter-spacing: 1.5px;
-      color: $cl-gray;
+      color: constant.$cl-gray;
     }
     .section-el-second-content-ability-box-right-image img {
       display: block;
@@ -831,15 +835,15 @@ header {
       object-fit: cover;
     }
     .section-el-second-content-ability-box-right-txt {
-      @include font-size-m;
+      @include english-mixin.font-size-m;
       line-height: 1.6;
       font-weight: 400;
-      color: $cl-waogray;
-      @include responsive-style(768px) {
+      color: english-mixin.$cl-waogray;
+      @include mixin.responsive-style(768px) {
         margin: 0 0 20px;
       }
       strong {
-        color: $cl-gray;
+        color: constant.$cl-gray;
         font-weight: 700;
       }
     }
@@ -853,7 +857,7 @@ header {
   .section-el-second-content-head {
     width: 80%;
     margin: 60px 0 0;
-    @include responsive-style(768px) {
+    @include mixin.responsive-style(768px) {
       width: 95%;
       margin: 0px 0 0;
     }
@@ -862,16 +866,16 @@ header {
     width: 50%;
     margin: 0px auto 0 !important;
     text-align: left !important;
-    @include responsive-style(768px) {
+    @include mixin.responsive-style(768px) {
       width: 90%;
       padding: 0px !important;
     }
     .section-el-second-content-text-head {
-      @include font-size-xl;
+      @include english-mixin.font-size-xl;
       line-height: 1.5;
       font-weight: bold;
       margin: 60px 0 15px;
-      @include responsive-style(768px) {
+      @include mixin.responsive-style(768px) {
         margin: 25px 0 15px;
       }
     }
@@ -879,7 +883,7 @@ header {
   .section-el-second-content-bottom {
     width: 55%;
     margin: 45px auto 0 !important;
-    @include responsive-style(768px) {
+    @include mixin.responsive-style(768px) {
       width: 90%;
       margin: 20px auto 0 !important;
     }
@@ -893,7 +897,7 @@ header {
   }
   .section-el-second-content-coarce {
     .lp-section-text {
-      @include section-middlewidth;
+      @include english-mixin.section-middlewidth;
     }
     .lp-section-course-box {
       display: grid;
@@ -901,8 +905,8 @@ header {
       grid-column-gap: 30px;
       width: 100%;
       margin: 30px auto 0;
-      @include section-middlewidth;
-      @include responsive-style(768px) {
+      @include english-mixin.section-middlewidth;
+      @include mixin.responsive-style(768px) {
         grid-template-columns: 1fr;
         grid-template-rows: repeat(2, 1fr);
         grid-column-gap: 0px;
@@ -916,7 +920,7 @@ header {
   .lp-section-schedule {
     width: 100%;
     margin: 30px auto 0;
-    @include section-middlewidth;
+    @include english-mixin.section-middlewidth;
     table {
       background: white;
     }
@@ -934,7 +938,7 @@ header {
     position: relative;
     margin: 60px 0 0;
     height: 340px;
-    @include responsive-style(768px) {
+    @include mixin.responsive-style(768px) {
       margin: 30px 0 0;
     }
     div:first-child {
@@ -975,7 +979,7 @@ header {
         display: inline-block;
         border-style: solid;
         border-width: 14px 0 14px 14px;
-        border-color: transparent transparent transparent $cl-english;
+        border-color: transparent transparent transparent constant.$cl-english;
       }
     }
     .lp-section-study-process-img-nagare {
@@ -1032,10 +1036,10 @@ header {
     background: white;
     padding: 30px 45px !important;
     border-radius: 50px;
-    @include section-middlewidth;
+    @include english-mixin.section-middlewidth;
     place-content: center;
     align-items: center;
-    @include responsive-style(768px) {
+    @include mixin.responsive-style(768px) {
       margin: 0px auto 0;
       grid-template-columns: 1fr;
       grid-template-rows: repeat(2, 1fr);
@@ -1049,7 +1053,7 @@ header {
       // width: 80px;
       // height: 80px;
       border-radius: 100px;
-      @include responsive-style(768px) {
+      @include mixin.responsive-style(768px) {
         width: 60%;
         margin: 0 auto 30px;
       }
@@ -1062,10 +1066,10 @@ header {
 
 .section-el-second-price {
   .lp-section-price {
-    @include section-middlewidth;
+    @include english-mixin.section-middlewidth;
     margin: 30px auto 18px;
     position: relative;
-    @include responsive-style(768px) {
+    @include mixin.responsive-style(768px) {
       margin: 30px auto 18px;
     }
     .lp-section-price-box {
@@ -1077,20 +1081,20 @@ header {
       background: white;
       border-radius: 50px;
       overflow: hidden;
-      @include responsive-style(768px) {
+      @include mixin.responsive-style(768px) {
         height: auto;
         display: block;
         border-radius: 25px;
       }
     }
     .lp-section-price-box-left {
-      background: $cl-english;
+      background: constant.$cl-english;
       display: flex;
       align-items: center;
       flex: 1;
       padding: 0px 0 0 0px;
       height: 150px;
-      @include responsive-style(768px) {
+      @include mixin.responsive-style(768px) {
         height: 90px;
       }
       .lp-section-price-box-left-text {
@@ -1098,7 +1102,7 @@ header {
         width: calc(100% - 0px);
         text-align: center;
         color: white;
-        @include font-size-l;
+        @include english-mixin.font-size-l;
         font-weight: bold;
         letter-spacing: 1px;
       }
@@ -1130,7 +1134,7 @@ header {
       .lp-section-price-box-left-badge-body,
       .lp-section-price-box-left-badge-body:before {
         position: absolute;
-        background-color: $english-yellow;
+        background-color:  english-mixin.$english-yellow;
         width: 45px;
         height: 45px;
         // left: 0;
@@ -1164,27 +1168,27 @@ header {
       display: flex;
       justify-content: center;
       align-items: flex-end;
-      color: $cl-english;
+      color: constant.$cl-english;
       background: white;
-      @include font-size-xl;
+      @include english-mixin.font-size-xl;
       font-weight: 600;
       line-height: 0.7;
-      @include responsive-style(768px) {
+      @include mixin.responsive-style(768px) {
         padding: 30px 0;
       }
       .lp-section-price-box-right-small {
-        @include font-size-m;
+        @include english-mixin.font-size-m;
       }
     }
   }
   .lp-section-price-note {
-    @include section-middlewidth;
+    @include english-mixin.section-middlewidth;
     margin: 0 auto;
-    color: $cl-graylight;
+    color: constant.$cl-graylight;
     line-height: 1.8;
     text-align: right;
-    @include font-size-s;
-    @include responsive-style(768px) {
+    @include  english-mixin.font-size-s;
+    @include mixin.responsive-style(768px) {
       text-align: center;
     }
   }
@@ -1193,14 +1197,14 @@ header {
 .section-el-second-try {
   padding: 0 0 120px !important;
   border-radius: 0px 0px 100px 100px;
-  @include responsive-style(768px) {
+  @include mixin.responsive-style(768px) {
     border-radius: 0px 0px 50px 50px;
   }
   .lp-section-trial-flow {
     width: 100%;
     margin: 30px auto 0;
-    @include section-maxwidth;
-    @include responsive-style(768px) {
+    @include english-mixin.section-maxwidth;
+    @include mixin.responsive-style(768px) {
       margin: 0px auto 0;
     }
   }
@@ -1218,7 +1222,7 @@ header {
   display: grid;
   grid-template-columns: 1fr 1.45fr;
   grid-column-gap: 75px;
-  @include responsive-style(768px) {
+  @include mixin.responsive-style(768px) {
     display: block;
     width: 90%;
     border-radius: 50px;
@@ -1232,41 +1236,41 @@ header {
     .section-el-second-contact-right-title {
       text-align: left;
       font-size: 40px;
-      @include responsive-style(768px) {
+      @include mixin.responsive-style(768px) {
         font-size: 30px;
       }
       font-weight: 600;
       letter-spacing: 1px;
       margin: 0 0 15px;
       text-align: center;
-      @include responsive-style(768px) {
+      @include mixin.responsive-style(768px) {
         margin: 0 0 10px;
       }
       span {
-        color: $cl-brand-line;
+        color:constant.$cl-brand-line;
       }
     }
     .section-el-second-contact-right-text {
-      @include font-size-m;
+      @include english-mixin.font-size-m;
       text-align: center;
       line-height: 1.75;
-      @include responsive-style(768px) {
+      @include mixin.responsive-style(768px) {
         text-align: left !important;
       }
     }
     .section-el-second-contact-right-button a {
       width: 90%;
       max-width: 420px;
-      background: $cl-brand-line;
+      background: constant.$cl-brand-line;
       display: flex;
       justify-content: center;
       padding: 20px;
       align-items: center;
       text-decoration: none !important;
-      box-shadow: 0 5.5px 0 darken($cl-brand-line, 10%);
+      box-shadow: 0 5.5px 0 darken(constant.$cl-brand-line, 10%);
       border-radius: 6px;
       margin: 30px auto 0;
-      @include responsive-style(768px) {
+      @include mixin.responsive-style(768px) {
         margin: 20px auto 0;
         width: 100%;
       }
@@ -1280,7 +1284,7 @@ header {
         margin: 0 0 0 10px;
         font-size: 24px;
         font-weight: bold;
-        @include responsive-style(768px) {
+        @include mixin.responsive-style(768px) {
           font-size: 22px;
         }
       }
@@ -1300,7 +1304,7 @@ header {
   border-radius: 100px;
   margin: 120px auto 150px;
   display: grid;
-  @include responsive-style(768px) {
+  @include mixin.responsive-style(768px) {
     width: 95%;
     border-radius: 40px;
     margin: 60px auto 90px;
@@ -1310,7 +1314,7 @@ header {
   .lp-cv-title-text {
     text-align: center;
     font-size: 34px;
-    @include responsive-style(768px) {
+    @include mixin.responsive-style(768px) {
       font-size: 24px;
     }
     // color: white;
@@ -1318,7 +1322,7 @@ header {
     line-height: 1.3;
   }
   .lp-cv-title-note {
-    @include font-size-s;
+    @include english-mixin.font-size-s;
     text-align: center;
     // color: white;
     margin: 5px 0 0;
@@ -1330,7 +1334,7 @@ header {
       align-items: center;
       justify-content: center;
       transform: scale(0.95);
-      @include responsive-style(768px) {
+      @include mixin.responsive-style(768px) {
         display: block;
         transform: scale(1);
       }
@@ -1342,7 +1346,7 @@ header {
       overflow: hidden;
       max-width: 165px;
       margin: 0 15px;
-      @include responsive-style(768px) {
+      @include mixin.responsive-style(768px) {
         margin: 0 auto 20px;
         max-width: 100%;
         border-radius: 10px;
@@ -1361,7 +1365,7 @@ header {
         // background: $cl-waogreen;
         border-radius: 100px;
         background: #333;
-        @include responsive-style(768px) {
+        @include mixin.responsive-style(768px) {
           width: 25px;
           height: 25px;
           margin: 0 0 0px 5px;
@@ -1372,7 +1376,7 @@ header {
       }
       .lp-cv-lessonday-wrapper-block-head {
         color: white;
-        background: $cl-waogreen;
+        background: constant.$cl-waogreen;
         display: flex;
         padding: 10px 10px 3px 10px;
         text-align: center;
@@ -1383,9 +1387,9 @@ header {
           letter-spacing: 1px;
         }
         &.level-2 {
-          background: $cl-english !important;
+          background: constant.$cl-english !important;
         }
-        @include responsive-style(768px) {
+        @include mixin.responsive-style(768px) {
           flex-direction: row;
           padding: 14px 15px 7px 15px;
         }
@@ -1395,7 +1399,7 @@ header {
         padding: 20px 15px 5px;
         flex-direction: column;
         align-items: center;
-        @include responsive-style(768px) {
+        @include mixin.responsive-style(768px) {
           flex-direction: row;
           padding: 22px 20px 3px;
         }
@@ -1407,7 +1411,7 @@ header {
           font-weight: 600;
           font-family: "Avenir LT Pro", "Jost", "Noto Sans JP", sans-serif;
           margin: 0 0 13px;
-          @include responsive-style(768px) {
+          @include mixin.responsive-style(768px) {
             font-size: 35px;
           }
           .lp-cv-lessonday-time-day-monthday {
@@ -1422,7 +1426,7 @@ header {
           line-height: 0.7;
           font-weight: 600;
           margin: 0 0 3px 5px;
-          @include responsive-style(768px) {
+          @include mixin.responsive-style(768px) {
             font-size: 28px;
             margin: 0 0 6px 5px;
           }
@@ -1431,7 +1435,7 @@ header {
       }
       .lp-cv-lessonday-wrapper-block-button button {
         background: transparent;
-        border: 1px solid $cl-waogreen;
+        border: 1px solid constant.$cl-waogreen;
         border-radius: 6px;
         cursor: pointer;
         outline: none;
@@ -1439,20 +1443,20 @@ header {
         appearance: none;
         margin: 5px 0 10px;
         width: 85%;
-        color: $cl-waogreen;
+        color: constant.$cl-waogreen;
         font-size: 15px;
-        @include responsive-style(768px) {
+        @include mixin.responsive-style(768px) {
           margin: -8px 0 15px;
         }
         &:hover {
-          background: $cl-waogreen;
+          background: constant.$cl-waogreen;
           color: white;
         }
         &.button-level2-weekdays {
-          border: 1px solid $cl-english !important;
-          color: $cl-english !important;
+          border: 1px solid constant.$cl-english !important;
+          color: constant.$cl-english !important;
           &:hover {
-            background: $cl-english;
+            background: constant.$cl-english;
             color: white !important;
           }
         }
@@ -1460,10 +1464,10 @@ header {
     }
     .lp-cv-lessonday-wrapper-block-or {
       text-align: center;
-      @include font-size-l;
-      color: $cl-graylight;
+      @include english-mixin.font-size-l;
+      color: constant.$cl-graylight;
       display: none;
-      @include responsive-style(768px) {
+      @include mixin.responsive-style(768px) {
         margin: 10px auto;
       }
     }
@@ -1478,7 +1482,7 @@ header {
       font-weight: 600;
       margin: 0 0 3px 5px;
       padding: 3px 0 0;
-      @include responsive-style(768px) {
+      @include mixin.responsive-style(768px) {
         width: 18px;
         height: 18px;
         margin: 0 0 0px 5px;
@@ -1488,7 +1492,7 @@ header {
       // }
     }
     .lp-cv-lessonday-title {
-      @include font-size-m;
+      @include english-mixin.font-size-m;
       text-align: center;
       // color: white;
       margin: 0 auto 13px;
@@ -1502,7 +1506,7 @@ header {
       font-size: 60px;
       color: white;
       line-height: 0.7;
-      @include responsive-style(768px) {
+      @include mixin.responsive-style(768px) {
         font-size: 50px;
       }
       .lp-cv-lessonday-time-day-monthday {
@@ -1518,7 +1522,7 @@ header {
       line-height: 0.8;
       color: white;
       margin: 0 0 0 8px;
-      @include responsive-style(768px) {
+      @include mixin.responsive-style(768px) {
         font-size: 36px;
       }
     }
@@ -1527,7 +1531,7 @@ header {
     margin: 40px auto 0;
     a {
       padding: 17px 10px 14px;
-      background: $cl-main-orange !important;
+      background: constant.$cl-main-orange !important;
       animation: lp-cta__btn 3s infinite;
       display: inline-flex;
       margin: 0 auto;
@@ -1537,7 +1541,7 @@ header {
       text-decoration: none;
       justify-content: center;
       width: 450px;
-      @include responsive-style(768px) {
+      @include mixin.responsive-style(768px) {
         width: 340px;
         padding: 10px 0px;
       }
@@ -1548,14 +1552,14 @@ header {
         margin: auto;
         top: -14px;
         background: white;
-        border: 1px solid $cl-main-orange;
+        border: 1px solid constant.$cl-main-orange;
         border-radius: 100px;
-        color: $cl-main-orange;
+        color: constant.$cl-main-orange;
         text-align: center;
         padding: 5px 0px 2px;
         display: block;
         width: 240px;
-        @include font-size-s;
+        @include english-mixin.font-size-s;
         justify-content: center;
       }
       .lp-cv-button-sub {
@@ -1578,7 +1582,7 @@ header {
         justify-content: space-between;
         align-items: center;
         width: 100%;
-        @include responsive-style(768px) {
+        @include mixin.responsive-style(768px) {
           font-size: 18px;
         }
         position: relative;
@@ -1626,10 +1630,10 @@ footer {
   width: 100%;
   padding: 120px 0px 0px;
   text-align: center;
-  background: $cl-black;
+  background: constant.$cl-black;
   color: white;
   border-radius: 100px 100px 0 0;
-  @include responsive-style(768px) {
+  @include mixin.responsive-style(768px) {
     padding: 100px 0px 0px;
     border-radius: 50px 50px 0 0;
   }
@@ -1643,7 +1647,7 @@ footer {
     a {
       color: white;
       text-decoration: none;
-      @include font-size-m;
+      @include english-mixin.font-size-m;
     }
   }
   .footer-logo img {
@@ -1662,19 +1666,19 @@ footer {
 }
 
 .lp-section-faq {
-  @include section-middlewidth;
+  @include english-mixin.section-middlewidth;
   display: flex;
   margin: 60px auto 0;
-  @include responsive-style(768px) {
+  @include mixin.responsive-style(768px) {
     margin: 0px auto 60px;
   }
   .lp-section-faq-left {
-    color: $cl-english;
+    color: constant.$cl-english;
     width: 42px;
-    @include font-size-xl;
+    @include english-mixin.font-size-xl;
     line-height: 1;
     font-weight: 500;
-    @include responsive-style(768px) {
+    @include mixin.responsive-style(768px) {
       line-height: 1.5;
       width: 37px;
     }
@@ -1684,11 +1688,11 @@ footer {
     flex: 1;
     padding: 6px 0 0;
     .lp-section-faq-right-title {
-      @include font-size-m;
+      @include english-mixin.font-size-m;
       font-weight: bold;
     }
     .lp-section-faq-right-txt {
-      @include font-size-m;
+      @include english-mixin.font-size-m;
       margin: 10px 0 0;
     }
   }
@@ -1708,13 +1712,13 @@ footer {
   text-align: center;
   .lp-cv-title-text {
     text-align: center;
-    @include font-size-xl;
+    @include english-mixin.font-size-xl;
     color: white;
     font-weight: 700;
     line-height: 1.3;
   }
   .lp-cv-title-note {
-    @include font-size-s;
+    @include  english-mixin.font-size-s;
     text-align: center;
     color: white;
     margin: 5px 0 0;
@@ -1725,7 +1729,7 @@ footer {
       display: inline-flex;
       width: 30px;
       height: 30px;
-      color: $cl-gray;
+      color: constant.$cl-gray;
       align-items: center;
       justify-content: center;
       background: white;
@@ -1733,13 +1737,13 @@ footer {
       font-size: 18px;
       font-weight: 600;
       margin: 0 0 0 5px;
-      @include responsive-style(768px) {
+      @include mixin.responsive-style(768px) {
         width: 25px;
         height: 25px;
       }
     }
     .lp-cv-lessonday-title {
-      @include font-size-m;
+      @include english-mixin.font-size-m;
       text-align: center;
       color: white;
       margin: 0 auto 7px;
@@ -1753,7 +1757,7 @@ footer {
       font-size: 60px;
       color: white;
       line-height: 0.8;
-      @include responsive-style(768px) {
+      @include mixin.responsive-style(768px) {
         font-size: 50px;
       }
       .lp-cv-lessonday-time-day-monthday {
@@ -1769,7 +1773,7 @@ footer {
       line-height: 0.8;
       color: white;
       margin: 0 0 0 8px;
-      @include responsive-style(768px) {
+      @include mixin.responsive-style(768px) {
         font-size: 32px;
       }
     }
@@ -1778,7 +1782,7 @@ footer {
     margin: 20px auto 0;
     a {
       padding: 20px 60px;
-      background: $cl-main-orange !important;
+      background: constant.$cl-main-orange !important;
       box-shadow: 0 4px 0 #9d4e00;
       animation: lp-cta__btn 3s infinite;
       display: inline-flex;
@@ -1787,7 +1791,7 @@ footer {
       flex-direction: row;
       text-decoration: none;
       justify-content: center;
-      @include responsive-style(768px) {
+      @include mixin.responsive-style(768px) {
         width: 90%;
         padding: 20px 0px;
       }
@@ -1803,7 +1807,7 @@ footer {
         line-height: 1;
       }
       .lp-cv-button-main {
-        @include font-size-m;
+        @include english-mixin.font-size-m;
         color: white;
         font-weight: 500;
         margin: 0 0 0 7px;

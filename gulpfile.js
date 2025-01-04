@@ -6,14 +6,14 @@ const browserSync = require('browser-sync').create();
 const plumber = require('gulp-plumber');
 const pug = require('gulp-pug');
 const pugbem = require('gulp-pugbem');
-const sass = require('gulp-sass')(require('sass'));
+const sass = require('gulp-sass')(require('sass')); // sassを最新に更新
 const postcss = require('gulp-postcss');
 const cssnext = require('postcss-cssnext');
 const rename = require('gulp-rename');
 const fs = require('fs').promises;
 const replace = require('gulp-replace');
 const data = require('gulp-data');
-const path = require('path'); // path モジュールを追加
+const path = require('path');
 
 // パスの設定
 const srcpaths = {
@@ -141,21 +141,18 @@ function pugLms() {
 // すべてのPugタスクを並列実行
 const allPug = gulp.parallel(pugTask, pugStg, pugLms);
 
-// Jadeタスク
-function jade() {
-    return gulp.src([srcpaths.jade, '!./src/jade/**/_*.jade'])
-        .pipe(plumber())
-        .pipe(jade())
-        .pipe(gulp.dest('./'))
-        .pipe(browserSync.stream());
-}
+
 
 // SCSSタスク
 function scss() {
     const processors = [cssnext()];
     return gulp.src([srcpaths.scss, srcpaths.sass])
         .pipe(plumber())
-        .pipe(sass().on('error', sass.logError))
+        .pipe(
+          sass({
+              quietDeps: true // Sassの警告を抑制
+          }).on('error', sass.logError)
+        )
         .pipe(postcss(processors))
         .pipe(gulp.dest(dstpaths.css))
         .pipe(browserSync.stream());

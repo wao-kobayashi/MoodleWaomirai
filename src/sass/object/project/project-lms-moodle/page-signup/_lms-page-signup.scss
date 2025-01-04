@@ -219,9 +219,11 @@ footer {
         flex-direction: column;
         #id_submitbutton {
             width: 100% !important;
-            padding: 15px;
+            @include button-size-middle;
             font-size: $lms-font-size-ml;
+            padding: 0 30px;
             margin: 28px auto 15px;
+
         }
         #id_cancel {
             background: transparent;

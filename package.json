@@ -13,14 +13,13 @@
         "gulp-pugbem": "^2.2.4",
         "gulp-rename": "^2.0.0",
         "gulp-replace": "^1.1.4",
-        "gulp-sass": "^5.1.0",
+        "gulp-sass": "^6.0.0",
         "postcss-cssnext": "^3.1.1",
-        "sass": "^1.77.8",
+        "sass": "^1.83.0",
         "vinyl-source-stream": "^2.0.0"
     },
     "dependencies": {
         "browser-sync": "^3.0.2",
         "clone-stats": "^1.0.0"
     }
-
 }

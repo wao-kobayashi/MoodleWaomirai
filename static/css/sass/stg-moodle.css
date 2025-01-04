@@ -13,12 +13,38 @@ html[data-tenantidnumber=stg] {
   /* parts */
   /* boxshadow */
   /* other */
+  /*****************
+  /* ボタンスタイルの定義
+  /* 基本的にはsizeとstyleセットで使う
+  ******************/
   /* footer */
   /* マイページ */
   /* 共通追従フッター削除 */
   /* ダッシュボード */
   /* 授業詳細 */
   /* 授業購入画面(まだ買っていない) */
+}
+@-webkit-keyframes fuwafuwa {
+  0% {
+    -webkit-transform: translate(0, 0);
+  }
+  50% {
+    -webkit-transform: translate(0, -20px);
+  }
+  100% {
+    -webkit-transform: translate(0, 0);
+  }
+}
+@keyframes fuwafuwa {
+  0% {
+    -webkit-transform: translate(0, 0);
+  }
+  50% {
+    -webkit-transform: translate(0, -20px);
+  }
+  100% {
+    -webkit-transform: translate(0, 0);
+  }
 }
 html[data-tenantidnumber=stg] .drawer-toggles .drawer-toggler {
   display: none !important;
@@ -79,28 +105,6 @@ html[data-tenantidnumber=stg] .navbar-toggler {
 @media screen and (max-width: 768px) {
   html[data-tenantidnumber=stg] .usermenu .login {
     display: none !important;
-  }
-}
-@-webkit-keyframes fuwafuwa {
-  0% {
-    -webkit-transform: translate(0, 0);
-  }
-  50% {
-    -webkit-transform: translate(0, -20px);
-  }
-  100% {
-    -webkit-transform: translate(0, 0);
-  }
-}
-@keyframes fuwafuwa {
-  0% {
-    -webkit-transform: translate(0, 0);
-  }
-  50% {
-    -webkit-transform: translate(0, -20px);
-  }
-  100% {
-    -webkit-transform: translate(0, 0);
   }
 }
 html[data-tenantidnumber=stg] .lms-index-contents-block-cards {
@@ -495,6 +499,12 @@ html[data-tenantidnumber=stg] .c-alert-banner {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  gap: 12px;
+}
+@media screen and (max-width: 768px) {
+  html[data-tenantidnumber=stg] .c-alert-banner {
+    display: block;
+  }
 }
 html[data-tenantidnumber=stg] .c-alert-banner .c-alert-banner-left {
   display: -webkit-box;
@@ -504,11 +514,26 @@ html[data-tenantidnumber=stg] .c-alert-banner .c-alert-banner-left {
       -ms-flex-align: center;
           align-items: center;
   padding: 12px 0;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+@media screen and (max-width: 768px) {
+  html[data-tenantidnumber=stg] .c-alert-banner .c-alert-banner-left {
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+  }
 }
 html[data-tenantidnumber=stg] .c-alert-banner .c-alert-banner-left-icon {
   width: 24px;
   height: 24px;
   margin: 0 10px 0 3px;
+}
+@media screen and (max-width: 768px) {
+  html[data-tenantidnumber=stg] .c-alert-banner .c-alert-banner-left-icon {
+    margin: 5px 10px 0 3px;
+  }
 }
 html[data-tenantidnumber=stg] .c-alert-banner .c-alert-banner-left-icon i {
   font-size: 24px;
@@ -523,18 +548,49 @@ html[data-tenantidnumber=stg] .c-alert-banner .c-alert-banner-text-read {
   font-size: 16px;
 }
 html[data-tenantidnumber=stg] .c-alert-banner .c-alert-banner-right a {
-  padding: 8px 16px;
+  /* 横幅はまちまちなので指定しない */
+  height: 48px;
   border-radius: 4px;
-  color: white;
-  font-size: 14px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 16px !important;
+  border-radius: 8px;
+  line-height: 1;
   font-weight: bold;
   border: none !important;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  width: 200px;
 }
 html[data-tenantidnumber=stg] .c-alert-banner .c-alert-banner-right a:hover {
   text-decoration: none !important;
   opacity: 0.7;
 }
-html[data-tenantidnumber=stg] .c-alert-banner.alert-setting-level {
+@media screen and (max-width: 768px) {
+  html[data-tenantidnumber=stg] .c-alert-banner .c-alert-banner-right a {
+    margin: 0 0 16px 36px;
+  }
+}
+html[data-tenantidnumber=stg] .c-alert-banner.alert {
+  border: 2px solid #F35053;
+  background: white;
+}
+html[data-tenantidnumber=stg] .c-alert-banner.alert .c-alert-banner-left-icon i {
+  color: #F35053;
+}
+html[data-tenantidnumber=stg] .c-alert-banner.alert .c-alert-banner-text-read {
+  color: #F35053;
+  font-weight: bold;
+}
+html[data-tenantidnumber=stg] .c-alert-banner.alert .c-alert-banner-right a {
   background: #F35053;
   color: white;
 }
@@ -772,6 +828,146 @@ html[data-tenantidnumber=stg] footer.footer-popover .container > div:last-child 
     display: none !important;
   }
 }
+html[data-tenantidnumber=stg] .drawer-toggles .drawer-toggler {
+  display: none !important;
+}
+html[data-tenantidnumber=stg] .nav a[href="https://lms.waomirai.com/my/courses.php"] {
+  /* 要素を非表示 */
+}
+html[data-tenantidnumber=stg] a[href="https://lms.waomirai.com/my/courses.php"] {
+  display: none;
+  /* 要素を非表示 */
+}
+html[data-tenantidnumber=stg] #page-user-preferences #page-content a[href*="user/language.php"],
+html[data-tenantidnumber=stg] #page-user-preferences #page-content a[href*="user/forum.php"],
+html[data-tenantidnumber=stg] #page-user-preferences #page-content a[href*="user/calendar.php"],
+html[data-tenantidnumber=stg] #page-user-preferences #page-content a[href*="/user/contentbank.php"],
+html[data-tenantidnumber=stg] #page-user-preferences #page-content a[href*="/user/editor.php"] {
+  display: none;
+}
+html[data-tenantidnumber=stg] #forced-footer {
+  display: none !important;
+}
+html[data-tenantidnumber=stg] .logininfo {
+  display: none;
+}
+html[data-tenantidnumber=stg] .pagelayout-mydashboard {
+  /* こんにちは⚪︎⚪︎さん */
+}
+html[data-tenantidnumber=stg] #page-mod-questionnaire-view .page-header-image,
+html[data-tenantidnumber=stg] #page-mod-questionnaire-complete .page-header-image,
+html[data-tenantidnumber=stg] #page-mod-questionnaire-myreport .page-header-image,
+html[data-tenantidnumber=stg] #page-mod-questionnaire-report .page-header-image {
+  display: none;
+}
+html[data-tenantidnumber=stg] #page-mod-questionnaire-view #region-main > h2,
+html[data-tenantidnumber=stg] #page-mod-questionnaire-complete #region-main > h2,
+html[data-tenantidnumber=stg] #page-mod-questionnaire-myreport #region-main > h2,
+html[data-tenantidnumber=stg] #page-mod-questionnaire-report #region-main > h2 {
+  display: none;
+}
+html[data-tenantidnumber=stg] #page-mod-questionnaire-view .req,
+html[data-tenantidnumber=stg] #page-mod-questionnaire-complete .req,
+html[data-tenantidnumber=stg] #page-mod-questionnaire-myreport .req,
+html[data-tenantidnumber=stg] #page-mod-questionnaire-report .req {
+  display: none;
+}
+html[data-tenantidnumber=stg] #page-mod-questionnaire-view .floatprinticon,
+html[data-tenantidnumber=stg] #page-mod-questionnaire-complete .floatprinticon,
+html[data-tenantidnumber=stg] #page-mod-questionnaire-myreport .floatprinticon,
+html[data-tenantidnumber=stg] #page-mod-questionnaire-report .floatprinticon {
+  display: none !important;
+}
+html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo .customfield,
+html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo .customfield_is_payment,
+html[data-tenantidnumber=stg] #page-enrol-index .customfield,
+html[data-tenantidnumber=stg] #page-enrol-index .customfield_is_payment {
+  display: none !important;
+}
+html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo #covercollapsec-dates,
+html[data-tenantidnumber=stg] #page-enrol-index #covercollapsec-dates {
+  display: none !important;
+}
+html[data-tenantidnumber=stg] #page-course-view-flexsections.course-233 #section-0 {
+  border: none !important;
+}
+html[data-tenantidnumber=stg] #page-course-view-flexsections.course-233 #section-0 .course-section-header {
+  display: none !important;
+}
+html[data-tenantidnumber=stg] #page-course-view-flexsections.course-233 #section-0 .my-3 {
+  display: none;
+}
+html[data-tenantidnumber=stg] #page-course-view-flexsections.course-233 #section-0 .flexsections-level-0 > .course-section.main .activity.activity-wrapper.forum {
+  display: none !important;
+}
+html[data-tenantidnumber=stg] #page-course-view-flexsections.course-211 #section-0 {
+  border: none !important;
+}
+html[data-tenantidnumber=stg] #page-course-view-flexsections.course-211 #section-0 .course-section-header {
+  display: none !important;
+}
+html[data-tenantidnumber=stg] #page-course-view-flexsections.course-211 #section-0 .my-3 {
+  display: none;
+}
+html[data-tenantidnumber=stg] #page-course-view-flexsections.course-211 #section-0 .flexsections-level-0 > .course-section.main .activity.activity-wrapper.forum {
+  display: none !important;
+}
+html[data-tenantidnumber=stg] #page-course-view-flexsections.course-232 #section-0 {
+  border: none !important;
+}
+html[data-tenantidnumber=stg] #page-course-view-flexsections.course-232 #section-0 .course-section-header {
+  display: none !important;
+}
+html[data-tenantidnumber=stg] #page-course-view-flexsections.course-232 #section-0 .my-3 {
+  display: none;
+}
+html[data-tenantidnumber=stg] #page-course-view-flexsections.course-232 #section-0 .flexsections-level-0 > .course-section.main .activity.activity-wrapper.forum {
+  display: none !important;
+}
+html[data-tenantidnumber=stg] #page-course-view-flexsections.course-236 #section-0 {
+  border: none !important;
+}
+html[data-tenantidnumber=stg] #page-course-view-flexsections.course-236 #section-0 .course-section-header {
+  display: none !important;
+}
+html[data-tenantidnumber=stg] #page-course-view-flexsections.course-236 #section-0 .my-3 {
+  display: none;
+}
+html[data-tenantidnumber=stg] #page-course-view-flexsections.course-236 #section-0 .flexsections-level-0 > .course-section.main .activity.activity-wrapper.forum {
+  display: none !important;
+}
+html[data-tenantidnumber=stg] #page-course-view-flexsections.course-235 #section-0 {
+  border: none !important;
+}
+html[data-tenantidnumber=stg] #page-course-view-flexsections.course-235 #section-0 .course-section-header {
+  display: none !important;
+}
+html[data-tenantidnumber=stg] #page-course-view-flexsections.course-235 #section-0 .my-3 {
+  display: none;
+}
+html[data-tenantidnumber=stg] #page-course-view-flexsections.course-235 #section-0 .flexsections-level-0 > .course-section.main .activity.activity-wrapper.forum {
+  display: none !important;
+}
+html[data-tenantidnumber=stg] #page-login-index footer.footer-popover .container div.footer-popover div:nth-child(2),
+html[data-tenantidnumber=stg] #page-login-index footer.footer-popover div.footer-popover div:nth-child(2),
+html[data-tenantidnumber=stg] #page-login-index footer.footer-popover .container div:nth-child(2) {
+  display: none;
+}
+html[data-tenantidnumber=stg] #page-login-index footer.footer-popover .container div.footer-popover div:nth-child(3),
+html[data-tenantidnumber=stg] #page-login-index footer.footer-popover div.footer-popover div:nth-child(3),
+html[data-tenantidnumber=stg] #page-login-index footer.footer-popover .container div:nth-child(3) {
+  display: block !important;
+}
+@media screen and (max-width: 768px) {
+  html[data-tenantidnumber=stg] #page-login-index footer.footer-popover .container div.footer-popover div:nth-child(3),
+  html[data-tenantidnumber=stg] #page-login-index footer.footer-popover div.footer-popover div:nth-child(3),
+  html[data-tenantidnumber=stg] #page-login-index footer.footer-popover .container div:nth-child(3) {
+    display: none !important;
+  }
+}
+html[data-tenantidnumber=stg] #theme_switch_link {
+  display: none !important;
+}
 html[data-tenantidnumber=stg] .pagelayout-login #page div[role=main],
 html[data-tenantidnumber=stg] .login-wrapper {
   height: auto !important;
@@ -992,8 +1188,23 @@ html[data-tenantidnumber=stg] #page-login-signup #fgroup_id_buttonar .d-flex {
 }
 html[data-tenantidnumber=stg] #page-login-signup #fgroup_id_buttonar .d-flex #id_submitbutton {
   width: 100% !important;
-  padding: 15px;
+  /* 横幅はまちまちなので指定しない */
+  height: 48px;
+  border-radius: 4px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 16px !important;
+  border-radius: 8px;
+  line-height: 1;
   font-size: 16px;
+  padding: 0 30px;
   margin: 28px auto 15px;
 }
 html[data-tenantidnumber=stg] #page-login-signup #fgroup_id_buttonar .d-flex #id_cancel {
@@ -1328,146 +1539,6 @@ html[data-tenantidnumber=stg] #page-course-view-topics.course-235 .page-context-
 }
 html[data-tenantidnumber=stg] #page-course-view-topics.course-235 .h5.mt-4, html[data-tenantidnumber=stg] #page-course-view-flexsections.course-235 .h5.mt-4, html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo.course-235 .h5.mt-4, html[data-tenantidnumber=stg] #page-enrol-index.course-235 .h5.mt-4 {
   display: none;
-}
-html[data-tenantidnumber=stg] .drawer-toggles .drawer-toggler {
-  display: none !important;
-}
-html[data-tenantidnumber=stg] .nav a[href="https://lms.waomirai.com/my/courses.php"] {
-  /* 要素を非表示 */
-}
-html[data-tenantidnumber=stg] a[href="https://lms.waomirai.com/my/courses.php"] {
-  display: none;
-  /* 要素を非表示 */
-}
-html[data-tenantidnumber=stg] #page-user-preferences #page-content a[href*="user/language.php"],
-html[data-tenantidnumber=stg] #page-user-preferences #page-content a[href*="user/forum.php"],
-html[data-tenantidnumber=stg] #page-user-preferences #page-content a[href*="user/calendar.php"],
-html[data-tenantidnumber=stg] #page-user-preferences #page-content a[href*="/user/contentbank.php"],
-html[data-tenantidnumber=stg] #page-user-preferences #page-content a[href*="/user/editor.php"] {
-  display: none;
-}
-html[data-tenantidnumber=stg] #forced-footer {
-  display: none !important;
-}
-html[data-tenantidnumber=stg] .logininfo {
-  display: none;
-}
-html[data-tenantidnumber=stg] .pagelayout-mydashboard {
-  /* こんにちは⚪︎⚪︎さん */
-}
-html[data-tenantidnumber=stg] #page-mod-questionnaire-view .page-header-image,
-html[data-tenantidnumber=stg] #page-mod-questionnaire-complete .page-header-image,
-html[data-tenantidnumber=stg] #page-mod-questionnaire-myreport .page-header-image,
-html[data-tenantidnumber=stg] #page-mod-questionnaire-report .page-header-image {
-  display: none;
-}
-html[data-tenantidnumber=stg] #page-mod-questionnaire-view #region-main > h2,
-html[data-tenantidnumber=stg] #page-mod-questionnaire-complete #region-main > h2,
-html[data-tenantidnumber=stg] #page-mod-questionnaire-myreport #region-main > h2,
-html[data-tenantidnumber=stg] #page-mod-questionnaire-report #region-main > h2 {
-  display: none;
-}
-html[data-tenantidnumber=stg] #page-mod-questionnaire-view .req,
-html[data-tenantidnumber=stg] #page-mod-questionnaire-complete .req,
-html[data-tenantidnumber=stg] #page-mod-questionnaire-myreport .req,
-html[data-tenantidnumber=stg] #page-mod-questionnaire-report .req {
-  display: none;
-}
-html[data-tenantidnumber=stg] #page-mod-questionnaire-view .floatprinticon,
-html[data-tenantidnumber=stg] #page-mod-questionnaire-complete .floatprinticon,
-html[data-tenantidnumber=stg] #page-mod-questionnaire-myreport .floatprinticon,
-html[data-tenantidnumber=stg] #page-mod-questionnaire-report .floatprinticon {
-  display: none !important;
-}
-html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo .customfield,
-html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo .customfield_is_payment,
-html[data-tenantidnumber=stg] #page-enrol-index .customfield,
-html[data-tenantidnumber=stg] #page-enrol-index .customfield_is_payment {
-  display: none !important;
-}
-html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo #covercollapsec-dates,
-html[data-tenantidnumber=stg] #page-enrol-index #covercollapsec-dates {
-  display: none !important;
-}
-html[data-tenantidnumber=stg] #page-course-view-flexsections.course-233 #section-0 {
-  border: none !important;
-}
-html[data-tenantidnumber=stg] #page-course-view-flexsections.course-233 #section-0 .course-section-header {
-  display: none !important;
-}
-html[data-tenantidnumber=stg] #page-course-view-flexsections.course-233 #section-0 .my-3 {
-  display: none;
-}
-html[data-tenantidnumber=stg] #page-course-view-flexsections.course-233 #section-0 .flexsections-level-0 > .course-section.main .activity.activity-wrapper.forum {
-  display: none !important;
-}
-html[data-tenantidnumber=stg] #page-course-view-flexsections.course-211 #section-0 {
-  border: none !important;
-}
-html[data-tenantidnumber=stg] #page-course-view-flexsections.course-211 #section-0 .course-section-header {
-  display: none !important;
-}
-html[data-tenantidnumber=stg] #page-course-view-flexsections.course-211 #section-0 .my-3 {
-  display: none;
-}
-html[data-tenantidnumber=stg] #page-course-view-flexsections.course-211 #section-0 .flexsections-level-0 > .course-section.main .activity.activity-wrapper.forum {
-  display: none !important;
-}
-html[data-tenantidnumber=stg] #page-course-view-flexsections.course-232 #section-0 {
-  border: none !important;
-}
-html[data-tenantidnumber=stg] #page-course-view-flexsections.course-232 #section-0 .course-section-header {
-  display: none !important;
-}
-html[data-tenantidnumber=stg] #page-course-view-flexsections.course-232 #section-0 .my-3 {
-  display: none;
-}
-html[data-tenantidnumber=stg] #page-course-view-flexsections.course-232 #section-0 .flexsections-level-0 > .course-section.main .activity.activity-wrapper.forum {
-  display: none !important;
-}
-html[data-tenantidnumber=stg] #page-course-view-flexsections.course-236 #section-0 {
-  border: none !important;
-}
-html[data-tenantidnumber=stg] #page-course-view-flexsections.course-236 #section-0 .course-section-header {
-  display: none !important;
-}
-html[data-tenantidnumber=stg] #page-course-view-flexsections.course-236 #section-0 .my-3 {
-  display: none;
-}
-html[data-tenantidnumber=stg] #page-course-view-flexsections.course-236 #section-0 .flexsections-level-0 > .course-section.main .activity.activity-wrapper.forum {
-  display: none !important;
-}
-html[data-tenantidnumber=stg] #page-course-view-flexsections.course-235 #section-0 {
-  border: none !important;
-}
-html[data-tenantidnumber=stg] #page-course-view-flexsections.course-235 #section-0 .course-section-header {
-  display: none !important;
-}
-html[data-tenantidnumber=stg] #page-course-view-flexsections.course-235 #section-0 .my-3 {
-  display: none;
-}
-html[data-tenantidnumber=stg] #page-course-view-flexsections.course-235 #section-0 .flexsections-level-0 > .course-section.main .activity.activity-wrapper.forum {
-  display: none !important;
-}
-html[data-tenantidnumber=stg] #page-login-index footer.footer-popover .container div.footer-popover div:nth-child(2),
-html[data-tenantidnumber=stg] #page-login-index footer.footer-popover div.footer-popover div:nth-child(2),
-html[data-tenantidnumber=stg] #page-login-index footer.footer-popover .container div:nth-child(2) {
-  display: none;
-}
-html[data-tenantidnumber=stg] #page-login-index footer.footer-popover .container div.footer-popover div:nth-child(3),
-html[data-tenantidnumber=stg] #page-login-index footer.footer-popover div.footer-popover div:nth-child(3),
-html[data-tenantidnumber=stg] #page-login-index footer.footer-popover .container div:nth-child(3) {
-  display: block !important;
-}
-@media screen and (max-width: 768px) {
-  html[data-tenantidnumber=stg] #page-login-index footer.footer-popover .container div.footer-popover div:nth-child(3),
-  html[data-tenantidnumber=stg] #page-login-index footer.footer-popover div.footer-popover div:nth-child(3),
-  html[data-tenantidnumber=stg] #page-login-index footer.footer-popover .container div:nth-child(3) {
-    display: none !important;
-  }
-}
-html[data-tenantidnumber=stg] #theme_switch_link {
-  display: none !important;
 }
 html[data-tenantidnumber=stg] .pagelayout-frontpage div[role=main] {
   display: none;
@@ -2420,7 +2491,8 @@ html[data-tenantidnumber=stg] .pagelayout-mydashboard .pagination {
 }
 @media screen and (min-width: 769px) {
   html[data-tenantidnumber=stg] .pagelayout-mydashboard #todays-event-subject-none .c-alert-banner {
-    margin: 0 10px;
+    margin: 20px 10px 0 !important;
+    width: calc(100% - 20px);
   }
 }
 html[data-tenantidnumber=stg] .pagelayout-mydashboard .dashboard-main .dashboard-main-navi {
@@ -2504,13 +2576,9 @@ html[data-tenantidnumber=stg] .pagelayout-mydashboard .dashboard-main .dashboard
   gap: 8px;
 }
 html[data-tenantidnumber=stg] .pagelayout-mydashboard .dashboard-main #todays-event-class-scheduled a {
-  color: white;
-  border-radius: 8px;
-  background: #005C3F;
-  outline: none;
-  border: none;
-  width: 100%;
-  height: 40px;
+  /* 横幅はまちまちなので指定しない */
+  height: 48px;
+  border-radius: 4px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -2520,6 +2588,15 @@ html[data-tenantidnumber=stg] .pagelayout-mydashboard .dashboard-main #todays-ev
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  font-size: 16px !important;
+  border-radius: 8px;
+  line-height: 1;
+  background: #005C3F !important;
+  color: #ffffff !important;
+  border: none !important;
+  outline: none;
+  border: none;
+  width: 100%;
 }
 html[data-tenantidnumber=stg] .pagelayout-mydashboard .dashboard-main .dashboard-main-class-content-lesson-title {
   color: #4d4d4d;
@@ -2607,7 +2684,9 @@ html[data-tenantidnumber=stg] #page-mod-questionnaire-complete .course-lesson .c
 html[data-tenantidnumber=stg] #page-mod-questionnaire-myreport .course-lesson .course-lesson-wrap button,
 html[data-tenantidnumber=stg] #page-mod-questionnaire-report .course-lesson .course-lesson-wrap button {
   width: 340px;
+  /* 横幅はまちまちなので指定しない */
   height: 60px;
+  border-radius: 4px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -2618,8 +2697,8 @@ html[data-tenantidnumber=stg] #page-mod-questionnaire-report .course-lesson .cou
       -ms-flex-align: center;
           align-items: center;
   font-size: 16px !important;
+  line-height: 1;
   background: #ee7a00 !important;
-  border-radius: 4px;
   color: white;
   /* button style reset */
   -webkit-appearance: none;
@@ -2711,10 +2790,24 @@ html[data-tenantidnumber=stg] #page-mod-questionnaire-view div[role=main] .mod_q
 html[data-tenantidnumber=stg] #page-mod-questionnaire-complete div[role=main] .mod_questionnaire_viewpage .mod_questionnaire_flex-container .btn-primary,
 html[data-tenantidnumber=stg] #page-mod-questionnaire-myreport div[role=main] .mod_questionnaire_viewpage .mod_questionnaire_flex-container .btn-primary,
 html[data-tenantidnumber=stg] #page-mod-questionnaire-report div[role=main] .mod_questionnaire_viewpage .mod_questionnaire_flex-container .btn-primary {
-  color: #ee7a00;
+  color: #ee7a00 !important;
   border: 1px solid #ee7a00;
   background: white !important;
-  padding: 10px 15px;
+  /* 横幅はまちまちなので指定しない */
+  height: 48px;
+  border-radius: 4px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 16px !important;
+  border-radius: 8px;
+  line-height: 1;
 }
 html[data-tenantidnumber=stg] #page-mod-questionnaire-view .surveyTitle,
 html[data-tenantidnumber=stg] #page-mod-questionnaire-complete .surveyTitle,
@@ -2911,7 +3004,7 @@ html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo .enrol_fee_p
   -webkit-box-shadow: 0px 4px 4px rgba(0, 0, 0, .1) !important;
           box-shadow: 0px 4px 4px rgba(0, 0, 0, .1) !important;
   z-index: 99;
-  font-size: 14px;
+  font-size: 16px;
   width: 100%;
 }
 @media screen and (max-width: 1170px) {
@@ -2945,7 +3038,9 @@ html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo .enrol_fee_p
 html[data-tenantidnumber=stg] #page-enrol-index .enrol_fee_payment_region .btn.btn-secondary,
 html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo .enrol_fee_payment_region .btn.btn-secondary {
   width: 100%;
+  /* 横幅はまちまちなので指定しない */
   height: 48px;
+  border-radius: 4px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -2955,9 +3050,12 @@ html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo .enrol_fee_p
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  font-size: 14px !important;
+  font-size: 16px !important;
+  border-radius: 8px;
+  line-height: 1;
   background: #005C3F !important;
-  border-radius: 4px;
+  color: #ffffff !important;
+  border: none !important;
 }
 html[data-tenantidnumber=stg] #page-enrol-index .enrol_fee_payment_region .page-enrol-set-discount,
 html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo .enrol_fee_payment_region .page-enrol-set-discount {
@@ -3149,59 +3247,11 @@ html[data-tenantidnumber=stg] .category-45 .howto-block {
   padding: 0 0 60px;
 }
 html[data-tenantidnumber=stg] .category-45 .howto-image img {
-  width: 680px;
+  max-width: 680px;
+  width: 100%;
   margin: 10px 0 0;
 }
 html[data-tenantidnumber=stg] .category-45 .p-alert {
   color: #F35053 !important;
-  font-weight: bold;
-}
-html[data-tenantidnumber=stg] .category-45 .howto-block-banner {
-  padding: 12px 16px;
-  border-radius: 8px;
-  width: 100%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  margin: 16px 0 0;
-}
-html[data-tenantidnumber=stg] .category-45 .howto-block-banner.alert {
-  background: #FEF6F6;
-  border: #F35053 2px solid;
-  color: white;
-}
-html[data-tenantidnumber=stg] .category-45 .howto-block-banner .howto-block-banner-left {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-html[data-tenantidnumber=stg] .category-45 .howto-block-banner .howto-block-banner-icon {
-  width: 40px;
-  height: 40px;
-  margin: 0 16px 0 3px;
-}
-html[data-tenantidnumber=stg] .category-45 .howto-block-banner .howto-block-banner-icon i {
-  font-size: 36px;
-  display: block;
-  line-height: 1;
-  color: #F35053;
-}
-html[data-tenantidnumber=stg] .category-45 .howto-block-banner .howto-block-banner-text-title {
-  font-size: 20px;
-  font-weight: 600;
-  color: #F35053;
-}
-html[data-tenantidnumber=stg] .category-45 .howto-block-banner .howto-block-banner-text-read {
-  font-size: 16px;
-  color: #F35053;
   font-weight: bold;
 }
