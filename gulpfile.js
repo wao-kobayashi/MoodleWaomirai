@@ -164,3 +164,4 @@ exports.splitJs = splitJs;
 exports.pugStg = pugStg;
 exports.pugLms = pugLms;
 exports.pugIndexPage = pugIndexPage;
+exports.pugAll = gulp.series(pugStg, pugLms, pugIndexPage);
