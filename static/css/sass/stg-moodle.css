@@ -1944,26 +1944,9 @@ html[data-tenantidnumber=stg] .pagelayout-frontpage .main-inner .container {
     max-width: 100% !important;
   }
 }
-html[data-tenantidnumber=stg] .card-title, html[data-tenantidnumber=stg] .pagelayout-mydashboard #dashboard-sp-content .dashboard-left-block .dashboard-left-block-title {
-  margin: 0 -15px 12px !important;
-  padding: 0px 35px 0px;
-  width: calc(100% + 30px);
-  display: block !important;
-  font-size: 20px !important;
-  position: relative;
-}
-html[data-tenantidnumber=stg] .card-title:before, html[data-tenantidnumber=stg] .pagelayout-mydashboard #dashboard-sp-content .dashboard-left-block .dashboard-left-block-title:before {
-  width: 6px;
-  height: 25px;
-  content: "";
-  background: #005C3F;
-  display: block;
-  position: absolute;
-  left: 17px;
-  top: 0px;
-  bottom: 0;
-  margin: auto;
-  border-radius: 4px;
+html[data-tenantidnumber=stg] #page-my-index #page-wrapper {
+  overflow-x: hidden;
+  width: 100%;
 }
 html[data-tenantidnumber=stg] .pagelayout-mydashboard #block-region-content section:first-child .card-title.d-inline, html[data-tenantidnumber=stg] .pagelayout-mydashboard #block-region-content section:first-child #dashboard-sp-content .dashboard-left-block .d-inline.dashboard-left-block-title, html[data-tenantidnumber=stg] .pagelayout-mydashboard #dashboard-sp-content .dashboard-left-block #block-region-content section:first-child .d-inline.dashboard-left-block-title {
   display: none !important;
@@ -1989,6 +1972,27 @@ html[data-tenantidnumber=stg] .pagelayout-mydashboard .calendarwrapper td > div 
 }
 html[data-tenantidnumber=stg] .pagelayout-mydashboard {
   background: #f0f2f3 !important;
+}
+html[data-tenantidnumber=stg] .pagelayout-mydashboard .card-title, html[data-tenantidnumber=stg] .pagelayout-mydashboard #dashboard-sp-content .dashboard-left-block .dashboard-left-block-title {
+  margin: 0 -15px 12px !important;
+  padding: 0px 35px 0px;
+  width: calc(100% + 30px);
+  display: block !important;
+  font-size: 20px !important;
+  position: relative;
+}
+html[data-tenantidnumber=stg] .pagelayout-mydashboard .card-title:before, html[data-tenantidnumber=stg] .pagelayout-mydashboard #dashboard-sp-content .dashboard-left-block .dashboard-left-block-title:before {
+  width: 6px;
+  height: 25px;
+  content: "";
+  background: #005C3F;
+  display: block;
+  position: absolute;
+  left: 17px;
+  top: 0px;
+  bottom: 0;
+  margin: auto;
+  border-radius: 4px;
 }
 html[data-tenantidnumber=stg] .pagelayout-mydashboard .dashboard-textblock .dashboard-left {
   width: 225px;
@@ -2490,6 +2494,9 @@ html[data-tenantidnumber=stg] .pagelayout-mydashboard .calendarmonth:before {
   border-radius: 8px;
   border: 1px solid #dee2e6;
   pointer-events: none;
+}
+html[data-tenantidnumber=stg] .pagelayout-mydashboard td.hasevent [data-region=day-content] {
+  display: block !important;
 }
 html[data-tenantidnumber=stg] .pagelayout-mydashboard .today {
   background: #f0f2f3;

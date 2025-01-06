@@ -1,21 +1,11 @@
-.card-title {
-  // display: none !important;
-  // padding: 15px 0 15px 10px !important;
-  margin: 0 -15px 12px !important;
-  padding: 0px 35px 0px;
-  // border-bottom: 4px $cl-graylightest solid;
-  width: calc(100% + 30px);
-  // background: red;
-  display: block !important;
-  font-size: $lms-font-size-l !important;
-  position: relative;
-  &:before {
-    @include lms-left-waogreen;
-  }
-}
-
 $calender-width: 960px;
 //alert-banner
+
+#page-my-index #page-wrapper {
+  overflow-x: hidden;
+  width: 100%;
+}
+
 .pagelayout-mydashboard {
   #block-region-content {
     section:first-child {
@@ -66,6 +56,22 @@ $body-padding: 25px; // サイドバーとの距離
 $default-max-width: 1170px; // 最大幅
 // Layout for Dashboard
 .pagelayout-mydashboard {
+  .card-title {
+    // display: none !important;
+    // padding: 15px 0 15px 10px !important;
+    margin: 0 -15px 12px !important;
+    padding: 0px 35px 0px;
+    // border-bottom: 4px $cl-graylightest solid;
+    width: calc(100% + 30px);
+    // background: red;
+    display: block !important;
+    font-size: $lms-font-size-l !important;
+    position: relative;
+    &:before {
+      @include lms-left-waogreen;
+    }
+  }
+
   .dashboard-textblock {
     .dashboard-left {
       width: calc($dashboard-sidebar-width - 0px);
@@ -423,6 +429,9 @@ $default-max-width: 1170px; // 最大幅
       border: 1px solid #dee2e6;
       pointer-events: none; // マウスイベントを無効化
     }
+  }
+  td.hasevent [data-region="day-content"] {
+    display: block !important;
   }
   .today {
     background: $cl-graylightest;

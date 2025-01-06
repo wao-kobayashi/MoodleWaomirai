@@ -360,7 +360,7 @@ if (bodyId === "page-my-index") {
                         // cellMonthは現在の月
                         const cellDay = parseInt($cell.attr('data-day'), 10); // カレンダーの日付
                         const cellMonth = currentMonth; // 現在の月を設定
-                        const cellYear = parseInt($cell.attr('data-year'), 10); // カレンダーの年
+                        const cellYear = todayYear; // カレンダーの年
                         console.log('cellDay:', cellDay);  // cellDay
                         console.log('cellMonth:', cellMonth); // cellMonth
                         console.log('cellYear:', cellYear); // cellYear
@@ -372,13 +372,16 @@ if (bodyId === "page-my-index") {
                         // 日付を「12/27(金)」の形式でフォーマット
                         const dateString = `${cellMonth}/${cellDay }`;
                         console.log('Formatted event dateString:', dateString); // フォーマットされた日付を確認
-            
+                        const Week = ["(日)", "(月)", "(火)", "(水)", "(木)", "(金)", "(土)"];
+                        const dayOfWeek = Week[eventDate.getDay()]; // (土)
+                        console.log(dayOfWeek); // (土)
+
                         // 新しいdivを作成
                         var $lessonContainer = $('<div>', { 'class': 'dashboard-main-class-content-lesson' });
             
                         // courseName と dateString を同じ div 内に追加
                         var $lessonTitleAndDate = $('<span>', { 'class': 'dashboard-main-class-content-lesson-details' })
-                            .append($('<span>', { 'class': 'date', 'text': dateString }))
+                            .append($('<span>', { 'class': 'date', 'text': dateString + dayOfWeek}))
                             .append($('<span>', { 'class': 'title', 'text': courseName }));
             
                         // $lessonContainer に $lessonTitleAndDate を追加
@@ -407,6 +410,8 @@ if (bodyId === "page-my-index") {
                 //何かしらの科目を買っているときは本日の授業のところに「本日は授業がありません」を表示
                 if ( isBuySubjectMain || isBuySubjectChild || isBuyProgramming) {
                     $('#todays-event-class-none').show();  
+                //何も授業買っていない時に授業なければ、今月は授業がありませんを表示
+                } else if  (!isBuySubjectMain && !isBuySubjectChild && !isBuyProgramming) {
                     $('#dashboard-main-upcoming-class-none').show();
                 }
              
