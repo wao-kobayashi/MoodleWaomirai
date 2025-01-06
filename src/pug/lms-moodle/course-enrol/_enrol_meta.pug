@@ -1,0 +1,6 @@
+- var enrolpage = enrolpages.find(u => u.id === pageid)
+- var template = enrolpage.template
+- var courseID = 'course-'+ enrolpage.courseID
+- var paymentID = enrolpage.paymentID.map((id) => `course-id-${id}`) //ここのidはただの引数
+- var allID = [courseID, ...paymentID].join(' ')
+- var existingClasses = "format-flexsections limitedwidth  path-enrol chrome dir-ltr lang-ja_wp yui-skin-sam yui3-skin-sam lms-waomirai-com pagelayout-incourse context-1603 category-4 theme uses-drawers"

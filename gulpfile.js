@@ -119,20 +119,20 @@ function pugEnvTaskSingle(envValue, outputPath) {
 
 // stg用Pugタスク
 function pugStg() {
-  return pugEnvTask('stg', stg);
+  return pugEnvTask('stg', dstpaths.stg);
 }
 // stg用Pugタスク
 function pugLms() {
-  return pugEnvTask('lmswaomirai', lmswaomirai);
+  return pugEnvTask('lmswaomirai', dstpaths.lmswaomirai);
 }
 
 // stg用Pugタスク
 function pugStgSingle() {
-  return pugEnvTaskSingle('stg', stg);
+  return pugEnvTaskSingle('stg', dstpaths.stg);
 }
 // stg用Pugタスク
 function pugLmsSingle() {
-  return pugEnvTaskSingle('lmswaomirai', lmswaomirai);
+  return pugEnvTaskSingle('lmswaomirai', dstpaths.lmswaomirai);
 }
 
 function pugIndexPage() {
@@ -163,3 +163,5 @@ exports.scss = scss;
 exports.splitJs = splitJs;
 exports.pugStg = pugStg;
 exports.pugLms = pugLms;
+exports.pugIndexPage = pugIndexPage;
+exports.pugAll = gulp.series(pugStg, pugLms, pugIndexPage);

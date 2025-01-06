@@ -1,0 +1,9 @@
+
+extends ../_layout_moodle.pug
+block variables
+  - var title = 'あああ英語購入ページ'
+  - var pageid = 'page-enrol-en'
+  include _enrol_meta
+block contents
+  //英語ページのテンプレを読込
+  include _parts-enrol-en.pug 

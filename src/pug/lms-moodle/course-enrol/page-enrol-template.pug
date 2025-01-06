@@ -1,0 +1,18 @@
+
+extends ../_layout_moodle.pug
+block variables
+  - var title = 'ページテンプレ'
+  - var pageid = 'page-enrol-en'
+  include _enrol_meta
+  //- - var paymentID = 'course-id-'+ enrolpage.courseID
+  //- - var courseID = 'course-id-' + enrolpage.courseID
+  //- - var template  = 'enrol'  // 変数の定義
+  //- - var title = 'グローバル英語'  // 変数の定義
+  //- - var pagetitle = 'グローバル英語'  // 変数の定義
+  //- - var courseId = env === 'stg' ? [236] : env === 'lmswaomirai' ? [] : []
+block contents
+  p=allID
+  p=courseID
+  p=paymentID
+  p 
+    |こんにちわ
