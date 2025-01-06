@@ -2495,11 +2495,16 @@ html[data-tenantidnumber=stg] .pagelayout-mydashboard .pagination {
     width: calc(100% - 20px);
   }
 }
+@media screen and (max-width: 769px) {
+  html[data-tenantidnumber=stg] .pagelayout-mydashboard #page-header {
+    padding: 0 15px;
+  }
+}
 html[data-tenantidnumber=stg] .pagelayout-mydashboard .dashboard-main .dashboard-main-navi {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  gap: 20px;
-  padding: 0 15px;
+  gap: 16px;
+  padding: 0 15px 48px;
   position: relative;
   background: white;
 }
@@ -2524,17 +2529,56 @@ html[data-tenantidnumber=stg] .pagelayout-mydashboard .dashboard-main .dashboard
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  padding: 10px 0;
+  padding: 15px 0 20px;
   border-radius: 8px;
   position: relative;
   z-index: 1;
   -webkit-box-shadow: 0px 4px 6px rgba(0, 0, 0, .15) !important;
           box-shadow: 0px 4px 6px rgba(0, 0, 0, .15) !important;
-  height: 80px;
+}
+html[data-tenantidnumber=stg] .pagelayout-mydashboard .dashboard-main .dashboard-main-navi .dashboard-main-navi-child .dashboard-main-navi-child-arrow {
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  right: 0;
+  margin: auto;
+  width: 30px;
+  height: 30px;
+}
+html[data-tenantidnumber=stg] .pagelayout-mydashboard .dashboard-main .dashboard-main-navi .dashboard-main-navi-child .dashboard-main-navi-child-arrow .dashboard-main-navi-child-arrow-wrap {
+  position: relative;
+  width: 30px;
+  height: 30px;
+  -webkit-transform: rotate(90deg);
+          transform: rotate(90deg);
+}
+html[data-tenantidnumber=stg] .pagelayout-mydashboard .dashboard-main .dashboard-main-navi .dashboard-main-navi-child .dashboard-main-navi-child-arrow .dashboard-main-navi-child-arrow-wrap::before, html[data-tenantidnumber=stg] .pagelayout-mydashboard .dashboard-main .dashboard-main-navi .dashboard-main-navi-child .dashboard-main-navi-child-arrow .dashboard-main-navi-child-arrow-wrap::after {
+  content: "";
+  position: absolute;
+  top: calc(50% - 2px);
+  left: 0;
+  right: 0;
+  right: 0;
+  margin: auto;
+  width: 10px;
+  height: 2px;
+  border-radius: 9999px;
+  background-color: #999;
+  -webkit-transform-origin: calc(100% - 2px) 50%;
+          transform-origin: calc(100% - 2px) 50%;
+}
+html[data-tenantidnumber=stg] .pagelayout-mydashboard .dashboard-main .dashboard-main-navi .dashboard-main-navi-child .dashboard-main-navi-child-arrow .dashboard-main-navi-child-arrow-wrap::before {
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+}
+html[data-tenantidnumber=stg] .pagelayout-mydashboard .dashboard-main .dashboard-main-navi .dashboard-main-navi-child .dashboard-main-navi-child-arrow .dashboard-main-navi-child-arrow-wrap::after {
+  -webkit-transform: rotate(-45deg);
+          transform: rotate(-45deg);
+  top: calc(50% - 0.5px);
 }
 html[data-tenantidnumber=stg] .pagelayout-mydashboard .dashboard-main .dashboard-main-navi .dashboard-main-navi-child .dashboard-main-navi-child-img {
   width: 30px;
-  margin: 0 auto;
+  margin: 0 auto 4px;
 }
 html[data-tenantidnumber=stg] .pagelayout-mydashboard .dashboard-main .dashboard-main-navi .dashboard-main-navi-child .dashboard-main-navi-child-text {
   text-align: center;
@@ -2543,7 +2587,7 @@ html[data-tenantidnumber=stg] .pagelayout-mydashboard .dashboard-main .dashboard
 }
 html[data-tenantidnumber=stg] .pagelayout-mydashboard .dashboard-main .dashboard-main-class {
   background: white;
-  padding: 13px 15px 13px !important;
+  padding: 0px 15px 48px !important;
   border-radius: 12px;
 }
 @media screen and (max-width: 768px) {
@@ -2604,6 +2648,14 @@ html[data-tenantidnumber=stg] .pagelayout-mydashboard .dashboard-main .dashboard
 }
 html[data-tenantidnumber=stg] .pagelayout-mydashboard .dashboard-main .dashboard-main-class-content-lesson-details span:first-child {
   margin: 0 10px 0 0;
+}
+html[data-tenantidnumber=stg] .pagelayout-mydashboard #dashboard-sp-content {
+  width: 100%;
+}
+@media screen and (max-width: 769px) {
+  html[data-tenantidnumber=stg] .pagelayout-mydashboard #dashboard-sp-content {
+    padding: 0 20px;
+  }
 }
 html[data-tenantidnumber=stg] .maincalendar .d-none {
   display: block !important;

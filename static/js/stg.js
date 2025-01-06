@@ -249,7 +249,7 @@ if (bodyId === "page-my-index") {
     var contentToClone = $('.dashboard-left').clone();
 
     // #page-content直下に配置
-    var wrappedContent = $('<div>', { id: 'dashboard-sp-content' }).append(contentToClone);
+    var wrappedContent = $('<div>', { id: 'dashboard-sp-content', class: 'c-pc-hidden' }).append(contentToClone);
 
     // #page-content直下に配置
     $('#page-content').append(wrappedContent);  
@@ -569,5 +569,26 @@ if (bodyId === "page-course-view-flexsections") {
     } else {
         console.error("指定された科目に該当しません");
     }
-}   }
+}
+// ==============================
+// 汎用的な関数
+// ==============================
+
+
+// classを指定してスクロールできるように
+$('.scroll-to').on('click', function (e) {
+    e.preventDefault(); // デフォルトの動作を防ぐ
+    var targetClass = $(this).data('target'); // data-target属性からターゲットのクラスを取得
+    var $target = $(targetClass); // ターゲット要素を取得
+
+    if ($target.length) { // ターゲットが存在する場合のみ実行
+        $('html, body').animate(
+            {
+                scrollTop: $target.offset().top, // ターゲット要素の位置にスクロール
+            },
+            0 // スクロール速度 (ミリ秒)
+        );
+    }
+});
+   }
 });

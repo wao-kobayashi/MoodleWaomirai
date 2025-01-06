@@ -1,7 +1,7 @@
 //ダッシュボードにコピペするブロック
 .dashboard-textblock
   .dashboard-left
-    .dashboard-left-block.dashboard-left-block-subject()
+    .dashboard-left-block.dashboard-left-block-subject
       .dashboard-left-block-title
         |現在受講中の科目
       .dashboard-left-block-wrap.dashboard-left-block-wrap-subject
@@ -26,7 +26,7 @@
             .dashboard-left-block-wrap-english-course-button
                 a(href='#', onclick="alert('開発中です(トレーニング動画に行く予定)')") 
                   |学習動画はこちら                 
-    .dashboard-left-block 
+    .dashboard-left-block.dashboard-left-block-guide 
       .dashboard-left-block-title
         |使い方ガイド
       ul.dashboard-left-block-links
@@ -61,22 +61,28 @@
     //ダッシュボードのバナー
     //メモ、hiddenにする、.c-pc-hidden
     .dashboard-main-navi.c-pc-hidden
-        a.dashboard-main-navi-child(href='#dashboard-calender') 
+        a.dashboard-main-navi-child.scroll-to(href='#', data-target=".block_calendar_month") 
             .dashboard-main-navi-child-img 
-                img(src='https://go.waomirai.com/l/1026513/2024-12-05/h92qm/1026513/1733375701LPzGnEfa/sample.png')
+                img(src='https://go.waomirai.com/l/1026513/2025-01-05/hbd34/1026513/1736131604vz7kVmsa/icn_calender.svg')
             .dashboard-main-navi-child-text 
               |受講カレンダー
-        a.dashboard-main-navi-child(href='#dashboard-subject') 
+            //下の矢印
+            .dashboard-main-navi-child-arrow 
+              .dashboard-main-navi-child-arrow-wrap 
+        a.dashboard-main-navi-child.scroll-to(href='#', data-target="#dashboard-sp-content .dashboard-left-block-subject") 
             .dashboard-main-navi-child-img 
-                img(src='https://go.waomirai.com/l/1026513/2024-12-05/h92qm/1026513/1733375701LPzGnEfa/sample.png')
+                img(src='https://go.waomirai.com/l/1026513/2025-01-05/hbd31/1026513/17361316040W4smv7Z/icn_subject.svg')
             .dashboard-main-navi-child-text 
               |受講科目の確認
-        a.dashboard-main-navi-child(href='#dashboard-guide') 
+            .dashboard-main-navi-child-arrow 
+              .dashboard-main-navi-child-arrow-wrap 
+        a.dashboard-main-navi-child.scroll-to(href='#', data-target="#dashboard-sp-content .dashboard-left-block-guide") 
             .dashboard-main-navi-child-img 
-                img(src='https://go.waomirai.com/l/1026513/2024-12-05/h92qm/1026513/1733375701LPzGnEfa/sample.png')
+                img(src='https://go.waomirai.com/l/1026513/2025-01-05/hbd37/1026513/1736131604KlZKQe9J/icn_guide.svg')
             .dashboard-main-navi-child-text 
               |受講ガイド   
-    
+            .dashboard-main-navi-child-arrow 
+              .dashboard-main-navi-child-arrow-wrap
     .dashboard-main-class
         h5.card-title|本日の授業
         .dashboard-main-class-content#dashboard-main-today-class 
