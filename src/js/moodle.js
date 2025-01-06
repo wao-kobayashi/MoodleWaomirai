@@ -120,12 +120,12 @@ if (bodyId === "page-my-index") {
             `https://lms.waomirai.com/admin/tool/catalogue/courseinfo.php?id=${subject.id}` :
             `https://lms.waomirai.com/course/view.php?id=${subject.id}`;
         return `
-            <div class="dashboard-left-block-subject-child">
+            <a href="${courseLink}" class="dashboard-left-block-subject-child ${subject.key}">
                 <div class="dashboard-left-block-subject-child-icon">${icon}</div>
                 <div class="dashboard-left-block-subject-child-text">
-                    <a href="${courseLink}" target="_blank">${subject.name}</a>
+                    <div>${subject.name}</div>
                 </div>
-            </div>
+            </a>
         `;
     }
 
@@ -360,7 +360,12 @@ if (bodyId === "page-my-index") {
                 console.log('ダッシュボードメッセージを更新しました。');
             } else {
                 console.log('本日は授業がありません。');
-                $('#todays-event-class-none').show();
+                //何かしらの科目を買っているときは本日の授業のところに「本日は授業がありません」を表示
+                if ( isBuySubjectMain || isBuySubjectChild || isBuyProgramming) {
+                    $('#todays-event-class-none').show();  
+                    $('#dashboard-main-upcoming-class-none').show();
+                }
+             
             }
 
             // メッセージをダッシュボードに設定

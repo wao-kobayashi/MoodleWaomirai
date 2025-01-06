@@ -50,6 +50,9 @@ $overlay: rgba(0, 0, 0, 0.7);
 @mixin lms-boxshadow {
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.15) !important;
 }
+@mixin lms-boxshadow-small {
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.06) !important;
+}
 
 /* other */
 
@@ -57,6 +60,11 @@ $overlay: rgba(0, 0, 0, 0.7);
   box-shadow: none;
   appearance: none;
   -webkit-tap-highlight-color: transparent;
+}
+@mixin text-s-black {
+  font-size: $lms-font-size-s;
+  color: $cl-black;
+  line-height: $lineheight-normal;
 }
 
 @mixin text-m-black {
