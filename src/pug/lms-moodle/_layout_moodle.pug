@@ -4,7 +4,7 @@ include common/_mixin-lms-moodle.pug
 html(dir="ltr", lang="ja", xml:lang="ja", data-tenantid=(env == 'stg' ? '2' : '3'), data-tenantidnumber=env)
   head
     //course用のページIDを読み込
-    include course/_id_enrolpages 
+    include course-enrol/_id_enrolpages 
     block variables 
     //- - var additionalClasses = [courseIDClass, ...paymentIDClasses].join(' ')
     //- title #{status}
@@ -73,7 +73,7 @@ html(dir="ltr", lang="ja", xml:lang="ja", data-tenantid=(env == 'stg' ? '2' : '3
         }
   case template 
    when 'enrol'
-    body(class=existingClasses + ' ' + allID)
+    body#page-enrol-index(class=existingClasses + ' ' + allID)
       .toast-wrapper.mx-auto.py-0.fixed-top(role='status' aria-live='polite')
       #page-wrapper.d-print-block
         div
@@ -130,7 +130,9 @@ html(dir="ltr", lang="ja", xml:lang="ja", data-tenantid=(env == 'stg' ? '2' : '3
                       .page-header-image.mr-2
                         .border-radius.item-heading-image(style='background-image: url(https://lms.waomirai.com/pluginfile.php/1603/course/overviewfiles/%E7%84%A1%E9%A1%8C%20%285%29.png)')
                       .page-header-headings
-                        h1.h2 経済
+                        //- p|あああ
+                        //- h1.h2 #{SubjectPageTitle}
+                        h1.h2=enrolpage.SubjectPageTitle
                   .header-actions-container.ml-auto(data-region='header-actions-container')
             #page-content.pb-3.d-print-block
               #region-main-box

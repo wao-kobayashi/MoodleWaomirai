@@ -1,8 +1,9 @@
 
 extends ../_layout_moodle.pug
 block variables
-  - var pageid = 'page-enrol-template2'
-  include _course_meta
+  - var title = 'ページテンプレ'
+  - var pageid = 'page-enrol-en'
+  include _enrol_meta
   //- - var paymentID = 'course-id-'+ enrolpage.courseID
   //- - var courseID = 'course-id-' + enrolpage.courseID
   //- - var template  = 'enrol'  // 変数の定義
@@ -10,10 +11,6 @@ block variables
   //- - var pagetitle = 'グローバル英語'  // 変数の定義
   //- - var courseId = env === 'stg' ? [236] : env === 'lmswaomirai' ? [] : []
 block contents
-  //- - var path = locals.filename
-  //- - var currentPage = path.split('/').pop().replace('.pug', '')
-  //- div
-  //-   #{path}
   p=allID
   p=courseID
   p=paymentID
