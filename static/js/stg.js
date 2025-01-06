@@ -39,6 +39,9 @@ const SubjectIds = {
 $(document).ready(function() {
     const tenantIdNumber = $("html").data("tenantidnumber");
     if (tenantIdNumber === "stg") {
+
+
+
 ////////////////////////////
 // すでに購入しているコースの判定
 ////////////////////////////

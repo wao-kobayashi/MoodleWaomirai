@@ -1,0 +1,10 @@
+
+extends ../_layout_moodle.pug
+block variables
+  - var title = 'ダッシュボード'  // 変数の定義
+  - var status = 'purchased'
+  - var calender = 'events-none' //今日予定なし
+  - var calenderAfterTomorrow = 'AfterTomorrow' //明日以降予定あり
+  - var SubjectIds = env === 'stg' ? [213] : env === 'lmswaomirai' ? [1001] : []
+block contents
+  include _parts-main-dashboard.pug

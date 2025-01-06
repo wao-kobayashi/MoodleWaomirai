@@ -73,12 +73,7 @@ body#page-my-index(class=existingClasses + ' ' + additionalClasses)
                         section#inst255.block_calendar_month.block.card.mb-3(role='complementary' data-block='calendar_month' data-instance-id='255' aria-labelledby='instance-255-header')
                           #yui_3_18_1_1_1732844965795_23.card-body.p-3
                             h5#instance-255-header.card-title.d-inline &#x30AB;&#x30EC;&#x30F3;&#x30C0;&#x30FC;
-                            case calender
-                              when 'events-include'
-                                include _parts-calender-include-event.pug
-                              when 'events-none'
-                                include _parts-calender-none-event.pug
-
+                            include _parts-calender-include-event.pug
           div 
             include _parts-modal.pug
           footer#page-footer.footer-popover.bg-white
@@ -342,12 +337,40 @@ body#page-my-index(class=existingClasses + ' ' + additionalClasses)
                   a(href="https://lms.waomirai.com/course/view.php?id=143") Default tenant members
           //- .toppage-courses
           //-  a(href="#")|L1
-        script.
-            $(document).on('click', 'li[data-region="event-item"]', function () {
-                // 発火時に実行するコード
-                $('.modal-div').show(); // 特定の要素を表示
-            });
-            $(document).on('click', '.close', function () {
-                // 発火時に実行するコード
-                $('.modal-div').hide(); // 特定の要素を表示
-            });
+case calender 
+ when 'events-none'
+   //event-noneの時はtodayにイベント入れない
+ default
+  script.
+        const dayContentHtml = $(`
+            <div data-region="day-content" id="yui_3_18_1_1_1736149007413_191">
+                <ul id="yui_3_18_1_1_1736149007413_190">
+                    <li data-region="event-item" data-event-component="" data-event-eventtype="course" data-event-folded="false" data-eventtype-course="1" draggable="true" data-drag-type="move" data-min-day-timestamp="1731682800" data-min-day-error="コース開始日前にイベントを設定できません" id="yui_3_18_1_1_1736149007413_189">
+                        <a data-action="view-event" data-event-id="469" href="https://lms.waomirai.com/course/view.php?id=212&amp;_gl=1*16eh05d*_gcl_au*MTI2NDk3MzM5MC4xNzMyODQxNjgx*_ga*MjA3NzA5ODkzNS4xNzI0MTE5Nzgw*_ga_C5TLB720G3*MTczNjE0ODk5NS4xLjEuMTczNjE0OTAwOS40Ni4wLjA." title="17:30 哲学Week1" style="background: #FCB72E !important; border-left: #E98800 2px solid !important;" id="yui_3_18_1_1_1736149007413_188">
+                            <span class="calendar-circle calendar_event_course"></span>
+                            <span class="eventname">17:30 哲学Week1</span>
+                        </a>
+                    </li>
+                    <li data-region="event-item" data-event-component="" data-event-eventtype="course" data-event-folded="false" data-eventtype-course="1" draggable="true" data-drag-type="move" data-min-day-timestamp="1731682800" data-min-day-error="コース開始日前にイベントを設定できません">
+                        <a data-action="view-event" data-event-id="466" href="https://lms.waomirai.com/course/view.php?id=211" title="18:30 科学week1" style="background: #B6D43E !important; border-left: #96B128 2px solid !important;">
+                            <span class="calendar-circle calendar_event_course"></span>
+                            <span class="eventname">18:30 科学week1</span>
+                        </a>
+                    </li>
+              
+                </ul>
+            </div>
+        `);
+
+        $(".day").each(function () {
+          const $cell = $(this);
+          const cellDay = parseInt($cell.attr("data-day"), 10);
+          const today = new Date();
+          const todayDay = today.getDate();
+          
+          if (cellDay === todayDay) {
+            console.log(`Today matches: ${cellDay}`);
+            // .day-number-circleの中に新しいHTMLを追加
+            $cell.find('.hidden-phone .day-number-circle').after(dayContentHtml);
+          }
+        });

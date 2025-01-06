@@ -38,12 +38,17 @@ $calender-width: 960px;
   }
   .block_html {
     background: transparent !important;
+
     .card-body {
       padding: 0 !important;
     }
     // .card-title {
     //   display: none !important;
     // }
+  }
+  .block_html > div > h5 {
+    /* テキストブロックの文言を非表示に */
+    display: none !important;
   }
   .calendarwrapper td > div {
     height: 10em !important;
@@ -139,9 +144,10 @@ $default-max-width: 1170px; // 最大幅
       padding: 20px 15px 18px !important;
       display: flex;
       flex-wrap: wrap;
-      gap: 20px;
+      gap: 20px 14px;
       justify-content: flex-start;
       @include responsive-style(768px) {
+        gap: 20px;
         padding: 20px 20px 24px !important;
       }
     }
@@ -179,48 +185,62 @@ $default-max-width: 1170px; // 最大幅
     .dashboard-left-block-subject-child {
       font-size: $lms-font-size-m;
       color: $cl-gray;
-      padding: 0px 0px 10px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      border-bottom: 2px solid $cl-graylightest;
-      width: calc(50% - 7px);
-      box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.15) !important;
-      margin: 0;
-      @include lms-boxshadow-small;
-      @include responsive-style(768px) {
-        width: calc(50% - 10px);
-        padding: 20px 0px 20px;
+      //何かしらの教科がある時にカードスタイル適用。何もない時は適用しない
+      @mixin dashboard-left-block-subject-child-card {
+        padding: 0px 0px 10px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        border-bottom: 2px solid $cl-graylightest;
+        width: calc(50% - 7px);
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.15) !important;
+        margin: 0;
+        @include lms-boxshadow-small;
+        @include responsive-style(768px) {
+          width: calc(50% - 10px);
+          padding: 20px 0px 20px;
+        }
       }
       &:hover {
         text-decoration: none !important;
       }
       .dashboard-left-block-subject-child-icon {
-        // background: #eefabf;
       }
       &.philosophy {
+        @include dashboard-left-block-subject-child-card;
         .dashboard-left-block-subject-child-icon {
           background: #ffdb96;
         }
       }
       &.science {
+        @include dashboard-left-block-subject-child-card;
         .dashboard-left-block-subject-child-icon {
           background: #eefabf;
         }
       }
       &.economy {
+        @include dashboard-left-block-subject-child-card;
         .dashboard-left-block-subject-child-icon {
           background: #c1edff;
         }
       }
       &.globalenglish {
+        @include dashboard-left-block-subject-child-card;
         .dashboard-left-block-subject-child-icon {
           background: #f5dbff;
         }
       }
       &.programming {
+        @include dashboard-left-block-subject-child-card;
         .dashboard-left-block-subject-child-icon {
           background: #ffc3c5;
+        }
+      }
+      &.twosubjectpack,
+      &.threesubjectpack {
+        @include dashboard-left-block-subject-child-card;
+        .dashboard-left-block-subject-child-icon {
+          background: $cl-graylightest;
         }
       }
       .dashboard-left-block-subject-child-icon {
@@ -382,7 +402,7 @@ $default-max-width: 1170px; // 最大幅
   }
   // レスポンシブ設定: 768px以上の画面幅でページの幅を設定
   .card-body {
-    padding: 13px 15px 13px !important;
+    padding: 20px 15px 18px !important;
   }
   // カレンダーブロック内のタイトルを非表示
 
@@ -698,8 +718,10 @@ $default-max-width: 1170px; // 最大幅
       background: white;
       padding: 0px 15px 48px !important;
       border-radius: $border-radius-big;
+      padding: 20px 15px 18px !important;
       @include responsive-style(768px) {
         border-radius: 0px;
+        padding: 0px 15px 48px !important;
       }
     }
     #todays-event-class-scheduled,

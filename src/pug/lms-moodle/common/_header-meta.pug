@@ -1,12 +1,14 @@
+
 link(href="../../static/css/sass/stg-moodle.css", rel="stylesheet")    
 link(href="../static/css/sass/stg-moodle.css", rel="stylesheet")
 link(href="../../static/css/sass/lms-moodle.css", rel="stylesheet")    
 link(href="../static/css/sass/lms-moodle.css", rel="stylesheet")
 script(src="https://code.jquery.com/jquery-3.3.1.js")
-case env
-    when 'stg'
+case js 
+    when 'no-js'
+        //jsないよ
+    default
         script(src="../../static/js/stg.js")
         script(src="../static/js/stg.js")
-    when 'lmswaomirai'
         script(src="../../static/js/lmswaomirai.js")
         script(src="../static/js/lmswaomirai.js")
