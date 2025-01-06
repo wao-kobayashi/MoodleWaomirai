@@ -86,7 +86,7 @@ function serve() {
       done();
    }));
   
-    gulp.watch('src/pug/lms-moodle/**/*.pug', gulp.series(pugStgSingle,pugLmsSingle,  (done) => {
+    gulp.watch(['src/pug/lms-moodle/**/*.pug','!src/pug/lms-moodle/**/_*.pug'], gulp.series(pugStgSingle,pugLmsSingle,  (done) => {
         browserSync.reload();
         done();
     }));
