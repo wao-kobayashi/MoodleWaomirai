@@ -1,6 +1,43 @@
-- 
+-
+  // enrolpages配列の定義。この配列は登録ページの設定を格納。
   var enrolpages = [
-    { id: 'page-enrol-template', template: 'enrol', courseID: env === 'stg' ? 213 : flag === 'lms' ? 999 : 0, paymentID: env === 'stg' ? [228,999,99999] : flag === 'lms' ? [999,999] : [0] },
-    { id: 'page-enrol-en', template: 'enrol', SubjectPageTitle: '英語', courseID: env === 'stg' ? 236 : flag === 'lms' ? 999 : 0, paymentID: env === 'stg' ? [999,99999] : flag === 'lms' ? [999,999] : [0] },
-    { id: 'page-enrol-ph-none', template: 'enrol', SubjectPageTitle: '哲学', courseID: env === 'stg' ? 212 : flag === 'lms' ? 999 : 0, paymentID: env === 'stg' ? [] : flag === 'lms' ? [] : [0] }
+    // 登録ページテンプレートの基本設定
+    { 
+      id: 'page-enrol-template', // ページID
+      template: 'enrol', // 使用するテンプレート名
+      courseID: env === 'stg' ? 213 : env === 'lms' ? 999 : 0, // 環境ごとに異なるコースIDを設定
+      paymentID: env === 'stg' ? [228,999,99999] : env === 'lms' ? [999,999] : [0], // 環境ごとに異なる支払いIDを設定
+      categoryID: env === 'stg' ? 'category-54' : env === 'lms' ? 'category-50' : '', 
+    },
+    { 
+      id: 'page-enrol-en', // 英語登録ページ
+      template: 'enrol', // 使用するテンプレート名
+      SubjectPageTitle: '英語', // サブジェクトページのタイトル
+      courseID: env === 'stg' ? 236 : env === 'lms' ? 999 : 0, // 環境ごとに異なるコースIDを設定
+      paymentID: env === 'stg' ? [999,99999] : env === 'lms' ? [999,999] : [0], // 環境ごとに異なる支払いIDを設定
+      categoryID: env === 'stg' ? 'category-54' : env === 'lms' ? 'category-50' : '', 
+
+    },
+    { 
+      id: 'page-enrol-ph-none', // 哲学登録ページ
+      template: 'enrol', // 使用するテンプレート名
+      SubjectPageTitle: '哲学', // サブジェクトページのタイトル
+      courseID: env === 'stg' ? 212 : env === 'lms' ? 999 : 0, // 環境ごとに異なるコースIDを設定
+      paymentID: env === 'stg' ? [] : env === 'lms' ? [] : [0], // 支払いIDは空の設定
+      categoryID: env === 'stg' ? 'category-51' : env === 'lms' ? 'category-47' : '', 
+    },
+    { 
+      id: 'page-enrol-two-none', // 2科目のページ
+      template: 'enrol', // 使用するテンプレート名
+      SubjectPageTitle: '２科目セット', // サブジェクトページのタイトル
+      courseID: env === 'stg' ? 228 : env === 'lms' ? 270 : 0, // 環境ごとに異なるコースIDを設定
+      paymentID: env === 'stg' ? [] : env === 'lms' ? [] : [0] // 支払いIDは空の設定
+    },
+    { 
+      id: 'page-enrol-three-none', // 3科目のページ
+      template: 'enrol', // 使用するテンプレート名
+      SubjectPageTitle: '３科目セット', // サブジェクトページのタイトル
+      courseID: env === 'stg' ? 229 : env === 'lms' ? 271 : 0, // 環境ごとに異なるコースIDを設定
+      paymentID: env === 'stg' ? [] : env === 'lms' ? [] : [0] // 支払いIDは空の設定
+    }
   ]
