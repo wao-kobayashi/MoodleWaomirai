@@ -3330,6 +3330,11 @@ html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo .global-engl
           box-sizing: border-box;
   /* 幅計算にパディングを含める */
 }
+html[data-tenantidnumber=stg] #page-enrol-index .global-english .coursedetail-info-fee,
+html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo .global-english .coursedetail-info-fee {
+  margin-bottom: 10px;
+  /* 吹き出しとタイトルの間に余白を追加 */
+}
 html[data-tenantidnumber=stg] #page-enrol-index .global-english .coursedetail-info-fee-benefits,
 html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo .global-english .coursedetail-info-fee-benefits {
   display: grid;
@@ -3398,9 +3403,14 @@ html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo .global-engl
   color: #262626;
   /* テキスト色 */
 }
+html[data-tenantidnumber=stg] #page-enrol-index .coursedetail-info-inner h3.coursedetail-course-info,
+html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo .coursedetail-info-inner h3.coursedetail-course-info {
+  margin-bottom: 24px;
+  /* タイトルと.box-containerの間に24pxの余白を作成 */
+}
 html[data-tenantidnumber=stg] #page-enrol-index .box-container,
 html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo .box-container {
-  background-color: #f0f0f0;
+  background-color: red;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -3409,16 +3419,165 @@ html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo .box-contain
       -ms-flex-direction: column;
           flex-direction: column;
   gap: 60px;
-  padding: 40px;
+  padding: 40px 32px;
+  border-radius: 16px;
 }
 html[data-tenantidnumber=stg] #page-enrol-index .box-container .coursedetail-info-fee-benefits,
 html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo .box-container .coursedetail-info-fee-benefits {
-  display: grid;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  /* グリッドからフレックスボックスに変更 */
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  /* 内容が折り返されるように */
+  gap: 16px;
+  /* 各子要素間のスペース */
   max-width: 600px;
+  /* 全体の幅を制限 */
+  background: #f5f5f5;
+  /* 吹き出し全体の背景色 */
+  border-radius: 16px;
+  /* 吹き出し全体の角を丸める */
+  padding: 20px;
+  /* 吹き出し内部の余白 */
+  -webkit-box-shadow: 0px 4px 6px rgba(0, 0, 0, .1);
+          box-shadow: 0px 4px 6px rgba(0, 0, 0, .1);
+  /* 軽い影を追加 */
+  position: relative;
+  /* 吹き出しの三角形 */
+}
+html[data-tenantidnumber=stg] #page-enrol-index .box-container .coursedetail-info-fee-benefits::after,
+html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo .box-container .coursedetail-info-fee-benefits::after {
+  content: "";
+  position: absolute;
+  top: -16px;
+  left: 20px;
+  border-left: 16px solid transparent;
+  border-right: 16px solid transparent;
+  border-bottom: 16px solid #f5f5f5;
+  /* 吹き出しの背景色と一致 */
+  width: 0;
+  height: 0;
+}
+html[data-tenantidnumber=stg] #page-enrol-index .box-container .coursedetail-info-fee-benefits .grid-child,
+html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo .box-container .coursedetail-info-fee-benefits .grid-child {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 14px;
+  /* テキストサイズ */
+  font-weight: bold;
+  color: #333;
+  /* テキストの色 */
+  background: transparent;
+  /* 子要素は背景色なし */
+  width: 48%;
+  /* 各子要素の幅を50%未満にして2列レイアウト */
+  text-align: left;
+}
+html[data-tenantidnumber=stg] #page-enrol-index .coursedetail-info-fee-title,
+html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo .coursedetail-info-fee-title {
+  font-size: 1.5em;
+  font-weight: bold;
+  margin-bottom: 0.5em;
+}
+html[data-tenantidnumber=stg] #page-enrol-index .price,
+html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo .price {
+  font-size: 2em;
+  /* 金額部分を大きくする */
+  font-weight: bold;
+  /* 太字にする */
+}
+html[data-tenantidnumber=stg] #page-enrol-index .small-text,
+html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo .small-text {
+  font-size: 1em;
+  /* 通常の文字サイズ */
+  color: #555;
+  /* 必要に応じて薄い色に変更 */
+  margin-left: 0.2em;
+  /* 金額との間に少し余白を追加 */
+}
+html[data-tenantidnumber=stg] #page-enrol-index .price,
+html[data-tenantidnumber=stg] #page-enrol-index .small-text,
+html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo .price,
+html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo .small-text {
+  display: inline;
+  /* 横並びを維持する */
+}
+html[data-tenantidnumber=stg] #page-enrol-index .image-container,
+html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo .image-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 20px;
+  /* 画像間のスペース */
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  /* 中央揃え */
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  /* 縦方向の中央揃え */
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  /* 必要に応じて折り返し */
+}
+html[data-tenantidnumber=stg] #page-enrol-index .image-container img.stage,
+html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo .image-container img.stage {
   width: 100%;
-  grid-template-columns: repeat(2, 1fr);
-  grid-column-gap: 10px;
-  grid-row-gap: 10px;
+  max-width: 300px;
+  /* 各画像の最大幅を設定 */
+  height: auto;
+  /* アスペクト比を維持 */
+  border-radius: 8px;
+  /* 角を丸める */
+}
+html[data-tenantidnumber=stg] #page-enrol-index table,
+html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo table {
+  width: 100%;
+  background-color: white;
+  /* テーブル全体の幅を親要素にフィット */
+  border-collapse: collapse;
+  /* ボーダーの隙間をなくす */
+  text-align: center;
+  /* テキストを中央揃え */
+  font-family: Arial, sans-serif;
+  /* フォントを指定 */
+  /* 特定の列のスタイルを調整 */
+  /* 行間の高さを調整 */
+}
+html[data-tenantidnumber=stg] #page-enrol-index table th,
+html[data-tenantidnumber=stg] #page-enrol-index table td,
+html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo table th,
+html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo table td {
+  border: 1px solid black;
+  /* セルの境界線 */
+  padding: 10px;
+  /* セル内の余白 */
+}
+html[data-tenantidnumber=stg] #page-enrol-index table td,
+html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo table td {
+  vertical-align: middle;
+  /* 内容を縦方向中央揃え */
+}
+html[data-tenantidnumber=stg] #page-enrol-index table td:first-child,
+html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo table td:first-child {
+  font-weight: bold;
+  /* 一列目の文字を強調 */
+}
+html[data-tenantidnumber=stg] #page-enrol-index table td.has-text-align-center,
+html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo table td.has-text-align-center {
+  line-height: 1.5 !important;
+  padding: 0.8em 0.5em !important;
+}
+html[data-tenantidnumber=stg] #page-enrol-index .wp-block-spacer,
+html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo .wp-block-spacer {
+  height: 16px;
 }
 html[data-tenantidnumber=stg] #page-course-view-flexsections .course-detail-banner {
   padding: 25px 20px 30px;
