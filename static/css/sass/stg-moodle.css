@@ -3106,15 +3106,18 @@ html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo .global-engl
 }
 html[data-tenantidnumber=stg] #page-enrol-index .global-english .global-english-live-lesson .lesson-content .lesson-title,
 html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo .global-english .global-english-live-lesson .lesson-content .lesson-title {
-  font-size: 19.2px;
-  font-size: 1.2rem;
+  font-size: 20px;
   margin-bottom: 10px;
 }
 html[data-tenantidnumber=stg] #page-enrol-index .global-english .global-english-live-lesson .lesson-content .global-english-desc,
 html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo .global-english .global-english-live-lesson .lesson-content .global-english-desc {
-  font-size: 16px;
-  font-size: 1rem;
+  font-size: 14px;
   line-height: 1.5;
+}
+html[data-tenantidnumber=stg] #page-enrol-index .global-english .global-english-live-lesson .global-english-sample-phrase-figure iframe,
+html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo .global-english .global-english-live-lesson .global-english-sample-phrase-figure iframe {
+  width: 398px;
+  height: 222px;
 }
 html[data-tenantidnumber=stg] #page-enrol-index .global-english .global-english-live-lesson .global-english-lesson-images,
 html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo .global-english .global-english-live-lesson .global-english-lesson-images {
@@ -3173,14 +3176,14 @@ html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo .global-engl
 }
 html[data-tenantidnumber=stg] #page-enrol-index .lesson-title,
 html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo .lesson-title {
-  font-size: 18px;
+  font-size: 20px;
   font-weight: bold;
   margin-bottom: 10px;
 }
 html[data-tenantidnumber=stg] #page-enrol-index .global-english-desc,
 html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo .global-english-desc {
   font-size: 14px;
-  line-height: 1.6;
+  line-height: 1.5;
   color: #262626;
 }
 html[data-tenantidnumber=stg] #page-enrol-index .global-english-grid,
@@ -3194,7 +3197,7 @@ html[data-tenantidnumber=stg] #page-enrol-index .global-english-item,
 html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo .global-english-item {
   background-color: #f0f2f3;
   padding: 20px;
-  border: 1px solid #ddd;
+  border: 1px solid #ffffff;
   border-radius: 4px;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
@@ -3212,11 +3215,12 @@ html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo .global-engl
   font-size: 16px;
   color: #262626;
   line-height: 1.5;
-  line-height: 1.6;
+  line-height: 1.5;
   color: #262626;
 }
 html[data-tenantidnumber=stg] #page-enrol-index .coursedetail-info-inner h3.coursedetail-course-info,
 html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo .coursedetail-info-inner h3.coursedetail-course-info {
+  margin-top: 64px;
   margin-bottom: 24px;
 }
 html[data-tenantidnumber=stg] #page-enrol-index .box-container,
@@ -3242,11 +3246,9 @@ html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo .box-contain
       flex-wrap: wrap;
   gap: 16px;
   max-width: 600px;
-  background: #f5f5f5;
+  background: #ffffff;
   border-radius: 12px;
   padding: 20px;
-  -webkit-box-shadow: 0px 4px 6px rgba(0, 0, 0, .1);
-          box-shadow: 0px 4px 6px rgba(0, 0, 0, .1);
   position: relative;
 }
 html[data-tenantidnumber=stg] #page-enrol-index .box-container .coursedetail-info-fee-benefits::after,
@@ -3257,7 +3259,7 @@ html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo .box-contain
   left: 20px;
   border-left: 16px solid transparent;
   border-right: 16px solid transparent;
-  border-bottom: 16px solid #f5f5f5;
+  border-bottom: 16px solid #ffffff;
   width: 0;
   height: 0;
 }
@@ -3278,7 +3280,7 @@ html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo .box-contain
 }
 html[data-tenantidnumber=stg] #page-enrol-index .coursedetail-info-fee-title,
 html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo .coursedetail-info-fee-title {
-  font-size: 1.5em;
+  font-size: 24px;
   font-weight: bold;
   margin-bottom: 15px;
 }
@@ -3288,13 +3290,13 @@ html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo .coursedetai
 }
 html[data-tenantidnumber=stg] #page-enrol-index .price,
 html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo .price {
-  font-size: 2em;
+  font-size: 30px;
   color: #262626;
   font-weight: bold;
 }
 html[data-tenantidnumber=stg] #page-enrol-index .small-text,
 html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo .small-text {
-  font-size: 1em;
+  font-size: 14px;
   color: #262626;
   margin-left: 0.2em;
 }
@@ -3335,10 +3337,11 @@ html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo .image-conta
 html[data-tenantidnumber=stg] #page-enrol-index table,
 html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo table {
   width: 100%;
-  background-color: #FAEBFF;
+  background-color: #ffffff;
   border-collapse: collapse;
   text-align: center;
   font-family: Arial, sans-serif;
+  margin-bottom: 53px;
 }
 html[data-tenantidnumber=stg] #page-enrol-index table th,
 html[data-tenantidnumber=stg] #page-enrol-index table td,

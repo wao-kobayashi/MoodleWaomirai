@@ -182,12 +182,18 @@ $subject-default-max-width: 1120px; // 最大幅
             }
             .lesson-content {
                 .lesson-title {
-                    font-size: 1.2rem;
+                    font-size: $lms-font-size-l;
                     margin-bottom: 10px;
                 }
                 .global-english-desc {
-                    font-size: 1rem;
-                    line-height: 1.5;
+                    font-size: $lms-font-size-m;
+                    line-height: $lineheight-normal;
+                }
+            }
+            .global-english-sample-phrase-figure {
+                iframe {
+                    width: 398px; // 幅を398pxに指定
+                    height: 222px; // 高さを222pxに指定に応じて固定値も可）
                 }
             }
             .global-english-lesson-images {
@@ -231,13 +237,13 @@ $subject-default-max-width: 1120px; // 最大幅
         }
     }
     .lesson-title {
-        font-size: 18px;
+        font-size: $lms-font-size-l;
         font-weight: bold;
         margin-bottom: 10px;
     }
     .global-english-desc {
         font-size: 14px;
-        line-height: 1.6;
+        line-height: $lineheight-normal;
         color: $cl-black;
     }
     .global-english-grid {
@@ -249,7 +255,7 @@ $subject-default-max-width: 1120px; // 最大幅
     .global-english-item {
         background-color: $cl-graylightest;
         padding: 20px;
-        border: 1px solid #ddd;
+        border: 1px solid $cl-white;
         border-radius: $border-radius-small;
         box-sizing: border-box;
     }
@@ -260,11 +266,12 @@ $subject-default-max-width: 1120px; // 最大幅
     }
     .global-english-desc {
         @include text-m-black;
-        line-height: 1.6;
+        line-height: $lineheight-normal;
         color: $cl-black;
     }
     .coursedetail-info-inner {
         h3.coursedetail-course-info {
+            margin-top: 64px;
             margin-bottom: 24px;
         }
     }
@@ -281,10 +288,9 @@ $subject-default-max-width: 1120px; // 最大幅
             gap: 16px;
             max-width: 600px;
             // 全部白の場合、定義された変数では表現できない
-            background: #f5f5f5;
+            background: $cl-white;
             border-radius: $border-radius-big;
             padding: 20px;
-            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
             position: relative;
             &::after {
                 content: '';
@@ -294,14 +300,14 @@ $subject-default-max-width: 1120px; // 最大幅
                 border-left: 16px solid transparent;
                 border-right: 16px solid transparent;
                 // 全部白の場合、定義された変数では表現できない
-                border-bottom: 16px solid #f5f5f5;
+                border-bottom: 16px solid $cl-white;
                 width: 0;
                 height: 0;
             }
             .grid-child {
                 display: flex;
                 align-items: center;
-                font-size: 14px;
+                font-size: $lms-font-size-m;
                 font-weight: bold;
                 color: $cl-black;
                 background: transparent;
@@ -311,7 +317,7 @@ $subject-default-max-width: 1120px; // 最大幅
         }
     }
     .coursedetail-info-fee-title {
-        font-size: 1.5em;
+        font-size: $lms-font-size-xl;
         font-weight: bold;
         margin-bottom: 15px;
     }
@@ -319,12 +325,12 @@ $subject-default-max-width: 1120px; // 最大幅
         margin-bottom: 15px; // 余白を追加
     }
     .price {
-        font-size: 2em;
+        font-size: $lms-font-size-xxl;
         color: $cl-black;
         font-weight: bold;
     }
     .small-text {
-        font-size: 1em;
+        font-size: $lms-font-size-m;
         color: $cl-black;
         margin-left: 0.2em;
     }
@@ -353,10 +359,12 @@ $subject-default-max-width: 1120px; // 最大幅
     table {
         width: 100%;
         // 全部白の場合、定義された変数では表現できない
-        background-color: $cl-english-pale;
+        background-color: $cl-white;
         border-collapse: collapse;
         text-align: center;
         font-family: Arial, sans-serif;
+        // figmaより、53pxが指定されていたので
+        margin-bottom: 53px;
         th,
         td {
             border: 1px solid $cl-black;
@@ -369,7 +377,7 @@ $subject-default-max-width: 1120px; // 最大幅
             font-weight: bold;
         }
         td.has-text-align-center {
-            line-height: 1.5 !important;
+            line-height: $lineheight-normal !important;
             padding: 0.8em 0.5em !important;
         }
     }
