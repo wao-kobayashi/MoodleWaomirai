@@ -3004,174 +3004,6 @@ html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo .enrol_fee_p
   -webkit-box-shadow: 0px 4px 4px rgba(0, 0, 0, .1) !important;
           box-shadow: 0px 4px 4px rgba(0, 0, 0, .1) !important;
   z-index: 99;
-  font-size: 16px;
-  width: 100%;
-}
-@media screen and (max-width: 1170px) {
-  html[data-tenantidnumber=stg] #page-enrol-index .enrol_fee_payment_region,
-  html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo .enrol_fee_payment_region {
-    max-width: 235px !important;
-    right: 15px;
-    margin: 2em auto !important;
-  }
-  html[data-tenantidnumber=stg] #page-enrol-index .enrol_fee_payment_region p,
-  html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo .enrol_fee_payment_region p {
-    display: block !important;
-  }
-}
-html[data-tenantidnumber=stg] #page-enrol-index .enrol_fee_payment_region::before,
-html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo .enrol_fee_payment_region::before {
-  content: "プラン登録" !important;
-  position: relative;
-  display: inline-table;
-  font-size: 20px;
-  margin: 0 0 20px !important;
-}
-html[data-tenantidnumber=stg] #page-enrol-index .enrol_fee_payment_region b,
-html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo .enrol_fee_payment_region b {
-  display: none;
-}
-html[data-tenantidnumber=stg] #page-enrol-index .enrol_fee_payment_region p:nth-child(2),
-html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo .enrol_fee_payment_region p:nth-child(2) {
-  margin: 0 auto 15px !important;
-}
-html[data-tenantidnumber=stg] #page-enrol-index .enrol_fee_payment_region .btn.btn-secondary,
-html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo .enrol_fee_payment_region .btn.btn-secondary {
-  width: 100%;
-  /* 横幅はまちまちなので指定しない */
-  height: 48px;
-  border-radius: 4px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  font-size: 16px !important;
-  border-radius: 8px;
-  line-height: 1;
-  background: #005C3F !important;
-  color: #ffffff !important;
-  border: none !important;
-}
-html[data-tenantidnumber=stg] #page-enrol-index .enrol_fee_payment_region .page-enrol-set-discount,
-html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo .enrol_fee_payment_region .page-enrol-set-discount {
-  margin: 20px 0 0px;
-  padding: 20px 0 0;
-  border-top: 1px dashed #999;
-  line-height: 1.5 !important;
-}
-html[data-tenantidnumber=stg] #page-enrol-index .enrol_fee_payment_region .page-enrol-set-discount a,
-html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo .enrol_fee_payment_region .page-enrol-set-discount a {
-  margin: 7px 0 0 !important;
-  color: #005C3F;
-  text-decoration: underline !important;
-  display: block;
-}
-html[data-tenantidnumber=stg] #page-enrol-index #page-navbar,
-html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo #page-navbar {
-  display: none;
-}
-html[data-tenantidnumber=stg] #page-enrol-index #page.drawers div[role=main],
-html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo #page.drawers div[role=main] {
-  padding: 0 !important;
-}
-html[data-tenantidnumber=stg] #page-enrol-index .header-maxwidth,
-html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo .header-maxwidth {
-  padding-left: 0 !important;
-  padding-right: 0 !important;
-}
-html[data-tenantidnumber=stg] #page-enrol-index a[aria-controls=covercollapsec-dates],
-html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo a[aria-controls=covercollapsec-dates] {
-  display: none;
-}
-html[data-tenantidnumber=stg] #page-enrol-index a[aria-controls=covercollapsec-dates] + h3,
-html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo a[aria-controls=covercollapsec-dates] + h3 {
-  display: none !important;
-}
-html[data-tenantidnumber=stg] #page-enrol-index .lesson-detail-img,
-html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo .lesson-detail-img {
-  width: 100%;
-}
-html[data-tenantidnumber=stg] #page-enrol-index .lesson-detail-img img,
-html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo .lesson-detail-img img {
-  width: 100%;
-}
-html[data-tenantidnumber=stg] #page-enrol-index .enrol_buy_as_a_set,
-html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo .enrol_buy_as_a_set {
-  position: fixed;
-  top: calc(5rem + 330px);
-  right: calc(50% - 560px);
-  max-width: 250px !important;
-  width: 100%;
-  padding: 20px 20px;
-  background: white;
-  -webkit-box-shadow: 0px 4px 6px rgba(0, 0, 0, .15) !important;
-          box-shadow: 0px 4px 6px rgba(0, 0, 0, .15) !important;
-  border-radius: 8px;
-  z-index: 3;
-}
-@media screen and (max-width: 1170px) {
-  html[data-tenantidnumber=stg] #page-enrol-index .enrol_buy_as_a_set,
-  html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo .enrol_buy_as_a_set {
-    max-width: 250px !important;
-  }
-}
-html[data-tenantidnumber=stg] #page-enrol-index .enrol_buy_as_a_set .enrol_buy_as_a_set_img,
-html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo .enrol_buy_as_a_set .enrol_buy_as_a_set_img {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  margin: 15px auto 15px;
-}
-html[data-tenantidnumber=stg] #page-enrol-index .enrol_buy_as_a_set .enrol_buy_as_a_set_img .enrol_buy_as_a_set_img_child,
-html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo .enrol_buy_as_a_set .enrol_buy_as_a_set_img .enrol_buy_as_a_set_img_child {
-  width: 80px;
-  height: 30px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  border-radius: 8px;
-  background: #f0f2f3;
-  font-size: 12px;
-}
-html[data-tenantidnumber=stg] #page-enrol-index .enrol_buy_as_a_set .enrol_buy_as_a_set_detail,
-html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo .enrol_buy_as_a_set .enrol_buy_as_a_set_detail {
-  border-top: 1px solid #999;
-  padding: 15px 0 0;
-  font-size: 12px !important;
-}
-html[data-tenantidnumber=stg] #page-enrol-index .enrol_buy_as_a_set .enrol_buy_as_a_set_detail a,
-html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo .enrol_buy_as_a_set .enrol_buy_as_a_set_detail a {
-  color: #005C3F !important;
-}
-html[data-tenantidnumber=stg] #page-enrol-index .enrol_fee_payment_region,
-html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo .enrol_fee_payment_region {
-  max-width: 250px !important;
-  background: #fff !important;
-  border-radius: 8px;
-  padding: 0px 20px 5px;
-  text-align: left !important;
-  line-height: 1.65 !important;
-  font-weight: normal !important;
-  -webkit-box-shadow: 0px 4px 4px rgba(0, 0, 0, .1) !important;
-          box-shadow: 0px 4px 4px rgba(0, 0, 0, .1) !important;
-  z-index: 99;
   font-size: 14px;
   width: 100%;
 }
@@ -3236,7 +3068,7 @@ html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo .enrol_fee_p
 }
 html[data-tenantidnumber=stg] #page-enrol-index div,
 html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo div {
-  color: #005C3F;
+  color: #262626;
   font-size: 14px;
 }
 html[data-tenantidnumber=stg] #page-enrol-index .global-english img,
@@ -3249,12 +3081,14 @@ html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo .global-engl
   -webkit-box-direction: reverse;
       -ms-flex-direction: row-reverse;
           flex-direction: row-reverse;
+  gap: 40px;
 }
 html[data-tenantidnumber=stg] #page-enrol-index .global-english .global-english-live-lesson,
 html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo .global-english .global-english-live-lesson {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  gap: 40px;
   padding: 15px;
   border-radius: 8px;
 }
@@ -3312,28 +3146,20 @@ html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo .global-engl
 }
 html[data-tenantidnumber=stg] #page-enrol-index .global-english .global-english-grid,
 html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo .global-english .global-english-grid {
-  /* 各アイテム間のスペース */
   padding: 20px;
-  /* グリッド全体の余白 */
 }
 html[data-tenantidnumber=stg] #page-enrol-index .global-english .global-english-item,
 html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo .global-english .global-english-item {
   background-color: #f0f2f3;
-  /* 背景色 */
   padding: 20px;
-  /* 内側余白 */
   border: 1px solid #ddd;
-  /* 境界線 */
-  border-radius: 5px;
-  /* 角丸 */
+  border-radius: 4px;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  /* 幅計算にパディングを含める */
 }
 html[data-tenantidnumber=stg] #page-enrol-index .global-english .coursedetail-info-fee,
 html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo .global-english .coursedetail-info-fee {
   margin-bottom: 10px;
-  /* 吹き出しとタイトルの間に余白を追加 */
 }
 html[data-tenantidnumber=stg] #page-enrol-index .global-english .coursedetail-info-fee-benefits,
 html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo .global-english .coursedetail-info-fee-benefits {
@@ -3350,39 +3176,28 @@ html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo .lesson-titl
   font-size: 18px;
   font-weight: bold;
   margin-bottom: 10px;
-  /* タイトル下の余白 */
 }
 html[data-tenantidnumber=stg] #page-enrol-index .global-english-desc,
 html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo .global-english-desc {
   font-size: 14px;
   line-height: 1.6;
-  /* 行間 */
   color: #262626;
-  /* テキスト色 */
 }
 html[data-tenantidnumber=stg] #page-enrol-index .global-english-grid,
 html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo .global-english-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  /* 自動調整で横並び */
   gap: 20px;
-  /* 各アイテム間のスペース */
   padding: 20px;
-  /* グリッド全体の余白 */
 }
 html[data-tenantidnumber=stg] #page-enrol-index .global-english-item,
 html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo .global-english-item {
   background-color: #f0f2f3;
-  /* 背景色 */
   padding: 20px;
-  /* 内側余白 */
   border: 1px solid #ddd;
-  /* 境界線 */
-  border-radius: 5px;
-  /* 角丸 */
+  border-radius: 4px;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  /* 幅計算にパディングを含める */
 }
 html[data-tenantidnumber=stg] #page-enrol-index .lesson-title,
 html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo .lesson-title {
@@ -3391,7 +3206,6 @@ html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo .lesson-titl
   line-height: 1.5;
   font-weight: bold;
   margin-bottom: 10px;
-  /* タイトル下の余白 */
 }
 html[data-tenantidnumber=stg] #page-enrol-index .global-english-desc,
 html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo .global-english-desc {
@@ -3399,18 +3213,15 @@ html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo .global-engl
   color: #262626;
   line-height: 1.5;
   line-height: 1.6;
-  /* 行間 */
   color: #262626;
-  /* テキスト色 */
 }
 html[data-tenantidnumber=stg] #page-enrol-index .coursedetail-info-inner h3.coursedetail-course-info,
 html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo .coursedetail-info-inner h3.coursedetail-course-info {
   margin-bottom: 24px;
-  /* タイトルと.box-containerの間に24pxの余白を作成 */
 }
 html[data-tenantidnumber=stg] #page-enrol-index .box-container,
 html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo .box-container {
-  background-color: red;
+  background-color: #f0f2f3;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -3420,32 +3231,23 @@ html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo .box-contain
           flex-direction: column;
   gap: 60px;
   padding: 40px 32px;
-  border-radius: 16px;
+  border-radius: 12px;
 }
 html[data-tenantidnumber=stg] #page-enrol-index .box-container .coursedetail-info-fee-benefits,
 html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo .box-container .coursedetail-info-fee-benefits {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  /* グリッドからフレックスボックスに変更 */
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-  /* 内容が折り返されるように */
   gap: 16px;
-  /* 各子要素間のスペース */
   max-width: 600px;
-  /* 全体の幅を制限 */
   background: #f5f5f5;
-  /* 吹き出し全体の背景色 */
-  border-radius: 16px;
-  /* 吹き出し全体の角を丸める */
+  border-radius: 12px;
   padding: 20px;
-  /* 吹き出し内部の余白 */
   -webkit-box-shadow: 0px 4px 6px rgba(0, 0, 0, .1);
           box-shadow: 0px 4px 6px rgba(0, 0, 0, .1);
-  /* 軽い影を追加 */
   position: relative;
-  /* 吹き出しの三角形 */
 }
 html[data-tenantidnumber=stg] #page-enrol-index .box-container .coursedetail-info-fee-benefits::after,
 html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo .box-container .coursedetail-info-fee-benefits::after {
@@ -3456,7 +3258,6 @@ html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo .box-contain
   border-left: 16px solid transparent;
   border-right: 16px solid transparent;
   border-bottom: 16px solid #f5f5f5;
-  /* 吹き出しの背景色と一致 */
   width: 0;
   height: 0;
 }
@@ -3469,44 +3270,43 @@ html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo .box-contain
       -ms-flex-align: center;
           align-items: center;
   font-size: 14px;
-  /* テキストサイズ */
   font-weight: bold;
-  color: #333;
-  /* テキストの色 */
+  color: #262626;
   background: transparent;
-  /* 子要素は背景色なし */
   width: 48%;
-  /* 各子要素の幅を50%未満にして2列レイアウト */
   text-align: left;
 }
 html[data-tenantidnumber=stg] #page-enrol-index .coursedetail-info-fee-title,
 html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo .coursedetail-info-fee-title {
   font-size: 1.5em;
   font-weight: bold;
-  margin-bottom: 0.5em;
+  margin-bottom: 15px;
+}
+html[data-tenantidnumber=stg] #page-enrol-index .coursedetail-info-fee-price,
+html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo .coursedetail-info-fee-price {
+  margin-bottom: 15px;
 }
 html[data-tenantidnumber=stg] #page-enrol-index .price,
 html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo .price {
   font-size: 2em;
-  /* 金額部分を大きくする */
+  color: #262626;
   font-weight: bold;
-  /* 太字にする */
 }
 html[data-tenantidnumber=stg] #page-enrol-index .small-text,
 html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo .small-text {
   font-size: 1em;
-  /* 通常の文字サイズ */
-  color: #555;
-  /* 必要に応じて薄い色に変更 */
+  color: #262626;
   margin-left: 0.2em;
-  /* 金額との間に少し余白を追加 */
 }
 html[data-tenantidnumber=stg] #page-enrol-index .price,
 html[data-tenantidnumber=stg] #page-enrol-index .small-text,
 html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo .price,
 html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo .small-text {
   display: inline;
-  /* 横並びを維持する */
+}
+html[data-tenantidnumber=stg] #page-enrol-index .coursedetail-info-course-desc,
+html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo .coursedetail-info-course-desc {
+  margin-bottom: 0;
 }
 html[data-tenantidnumber=stg] #page-enrol-index .image-container,
 html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo .image-container {
@@ -3514,61 +3314,46 @@ html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo .image-conta
   display: -ms-flexbox;
   display: flex;
   gap: 20px;
-  /* 画像間のスペース */
   -webkit-box-pack: start;
       -ms-flex-pack: start;
           justify-content: flex-start;
-  /* 中央揃え */
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  /* 縦方向の中央揃え */
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-  /* 必要に応じて折り返し */
+  margin-top: 0;
 }
 html[data-tenantidnumber=stg] #page-enrol-index .image-container img.stage,
 html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo .image-container img.stage {
   width: 100%;
   max-width: 300px;
-  /* 各画像の最大幅を設定 */
   height: auto;
-  /* アスペクト比を維持 */
   border-radius: 8px;
-  /* 角を丸める */
+  display: block;
 }
 html[data-tenantidnumber=stg] #page-enrol-index table,
 html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo table {
   width: 100%;
-  background-color: white;
-  /* テーブル全体の幅を親要素にフィット */
+  background-color: #FAEBFF;
   border-collapse: collapse;
-  /* ボーダーの隙間をなくす */
   text-align: center;
-  /* テキストを中央揃え */
   font-family: Arial, sans-serif;
-  /* フォントを指定 */
-  /* 特定の列のスタイルを調整 */
-  /* 行間の高さを調整 */
 }
 html[data-tenantidnumber=stg] #page-enrol-index table th,
 html[data-tenantidnumber=stg] #page-enrol-index table td,
 html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo table th,
 html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo table td {
-  border: 1px solid black;
-  /* セルの境界線 */
+  border: 1px solid #262626;
   padding: 10px;
-  /* セル内の余白 */
 }
 html[data-tenantidnumber=stg] #page-enrol-index table td,
 html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo table td {
   vertical-align: middle;
-  /* 内容を縦方向中央揃え */
 }
 html[data-tenantidnumber=stg] #page-enrol-index table td:first-child,
 html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo table td:first-child {
   font-weight: bold;
-  /* 一列目の文字を強調 */
 }
 html[data-tenantidnumber=stg] #page-enrol-index table td.has-text-align-center,
 html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo table td.has-text-align-center {
