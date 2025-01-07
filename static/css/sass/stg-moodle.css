@@ -2903,6 +2903,13 @@ html[data-tenantidnumber=stg] #page-enrol-index #page.drawers .main-inner {
     max-width: calc(100vw - 305px) !important;
   }
 }
+@media screen and (max-width: 768px) {
+  html[data-tenantidnumber=stg] #page-enrol-index #page.drawers .main-inner {
+    max-width: 100% !important;
+    margin-left: 0px;
+    overflow-x: hidden;
+  }
+}
 html[data-tenantidnumber=stg] #page-enrol-index #page-navbar,
 html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo #page-navbar {
   display: none;
@@ -3017,6 +3024,12 @@ html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo .enrol_fee_p
   html[data-tenantidnumber=stg] #page-enrol-index .enrol_fee_payment_region p,
   html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo .enrol_fee_payment_region p {
     display: block !important;
+  }
+}
+@media screen and (max-width: 768px) {
+  html[data-tenantidnumber=stg] #page-enrol-index .enrol_fee_payment_region,
+  html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo .enrol_fee_payment_region {
+    display: none;
   }
 }
 html[data-tenantidnumber=stg] #page-enrol-index .enrol_fee_payment_region::before,
