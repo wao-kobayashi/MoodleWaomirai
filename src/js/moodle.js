@@ -309,34 +309,39 @@ if (bodyId === "page-my-index") {
             
                     $events.each(function() {
                         var courseName = $(this).text().trim();
-                        console.log('courseName:', courseName); // courseNameを確認
+                        const getSubjectCategory = (courseName) => {
+                            if (courseName.includes("哲学")) return "philosophy";
+                            if (courseName.includes("科学")) return "science";
+                            if (courseName.includes("経済")) return "economy";
+                            if (courseName.includes("英語")) return "english";
+                            if (courseName.includes("プログラミング")) return "programming";
+                            return "defalut-subject"; // デフォルト: 試験管
+                          };
+                          
+                        // 使用例
+                        const getSubjectCategoryValue = getSubjectCategory(courseName);
+
                         //今日の日付を取得
                         const today = new Date();
                         const currentMonth = today.getMonth() + 1; // 現在の月（0から始まるので1を足す）
                         const todayDay = today.getDate(); // 今日の日付
                         const todayYear = today.getFullYear(); // 今日の年
-                        console.log('Today:', today); // 今日の日付を確認
                         // cellMonthは現在の月
                         const cellDay = parseInt($cell.attr('data-day'), 10); // カレンダーの日付
                         const cellMonth = currentMonth; // 現在の月を設定
                         const cellYear = todayYear; // カレンダーの年
-                        console.log('cellDay:', cellDay);  // cellDay
-                        console.log('cellMonth:', cellMonth); // cellMonth
-                        console.log('cellYear:', cellYear); // cellYear
             
                         // イベントの日付を作成
                         const eventDate = new Date(cellYear, cellMonth - 1, cellDay); // 月は0から始まるので、cellMonth - 1にする
-                        console.log('Event Date Object:', eventDate); // イベントの日付オブジェクトを確認
             
                         // 日付を「12/27(金)」の形式でフォーマット
                         const dateString = `${cellMonth}/${cellDay }`;
-                        console.log('Formatted event dateString:', dateString); // フォーマットされた日付を確認
                         const Week = ["(日)", "(月)", "(火)", "(水)", "(木)", "(金)", "(土)"];
                         const dayOfWeek = Week[eventDate.getDay()]; // (土)
                         console.log(dayOfWeek); // (土)
 
                         // 新しいdivを作成
-                        var $lessonContainer = $('<div>', { 'class': 'dashboard-main-class-content-lesson' });
+                        var $lessonContainer = $('<div>', { 'class': 'dashboard-main-class-content-lesson ' + getSubjectCategoryValue });
             
                         // courseName と dateString を同じ div 内に追加
                         var $lessonTitleAndDate = $('<span>', { 'class': 'dashboard-main-class-content-lesson-details' })

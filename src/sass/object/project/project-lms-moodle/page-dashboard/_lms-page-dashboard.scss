@@ -59,7 +59,7 @@ $default-max-width: 1170px; // 最大幅
   .card-title {
     // display: none !important;
     // padding: 15px 0 15px 10px !important;
-    margin: 0 -15px 12px !important;
+    margin: 0 -15px 16px !important;
     padding: 0px 35px 0px;
     // border-bottom: 4px $cl-graylightest solid;
     width: calc(100% + 30px);
@@ -741,11 +741,33 @@ $default-max-width: 1170px; // 最大幅
     }
     .dashboard-main-class-content-lesson {
       padding: 16px;
-      border: 1px solid $cl-graylight;
+      // border: 1px solid $cl-graylight;
       border-radius: $border-radius-middle;
       display: flex;
       flex-direction: column;
       gap: 8px;
+      @include lms-boxshadow;
+      &.philosophy {
+        border-left: 4px $cl-philosophy solid;
+        border-radius: 2px;
+      }
+      &.science {
+        border-left: 4px $cl-science solid;
+        border-radius: 2px;
+      }
+
+      &.economy {
+        border-left: 4px $cl-economiy solid;
+        border-radius: 2px;
+      }
+      &.english {
+        border-left: 4px $cl-english solid;
+        border-radius: 2px;
+      }
+      &.programming {
+        border-left: 4px $cl-programming solid;
+        border-radius: 2px;
+      }
     }
     #todays-event-class-scheduled {
       a {
