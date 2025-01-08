@@ -547,6 +547,30 @@ if (bodyId === "page-course-view-flexsections") {
         console.error("指定された科目に該当しません");
     }
 }
+
+
+// ==============================
+//受講レベルの設定
+// ==============================
+if (bodyId === "page-user-edit") {
+    var SelectPhilosophy = $('#id_profile_field_Philosophy_Level'); //
+    var SelectScience = $('#id_profile_field_Science_Level');
+    var SelectEconomy = $('#id_profile_field_Economy_Level');
+    var SelectEnglish = $('#id_profile_field_English_Level');
+    var SelectTwoCourse = $('#id_profile_field_2cources_subject');
+    SelectPhilosophy.after('<p>受講レベルを設定しましょう</p>');
+    SelectScience.after('<p>受講レベルを設定しましょう</p>');
+    SelectEconomy.after('<p>受講レベルを設定しましょう</p>');
+    SelectEnglish.after('<p>受講レベルを設定しましょう</p>');
+    SelectTwoCourse.after('<p>科目を２つ設定しましょう</p>');
+    if (isBuySubjectMainCheck(['philosophy'])&& (!isBuySubjectChildCheck('philosophy', ['ph_L1', 'ph_L2', 'ph_L3', 'ph_L4']))){
+        alert('哲学かってるよ');
+    }
+    if (isBuySubjectMainCheck(['TwoSubjectPack'])){
+        alert('2科目かってるよ');
+    }
+}
+
 // ==============================
 // 汎用的な関数
 // ==============================
@@ -567,3 +591,4 @@ $('.scroll-to').on('click', function (e) {
         );
     }
 });
+
