@@ -594,22 +594,31 @@ if (bodyId === "page-course-view-flexsections") {
 //受講レベルの設定
 // ==============================
 if (bodyId === "page-user-edit") {
-    var SelectPhilosophy = $('#id_profile_field_Philosophy_Level'); //
-    var SelectScience = $('#id_profile_field_Science_Level');
-    var SelectEconomy = $('#id_profile_field_Economy_Level');
-    var SelectEnglish = $('#id_profile_field_English_Level');
-    var SelectTwoCourse = $('#id_profile_field_2cources_subject');
-    SelectPhilosophy.after('<p>受講レベルを設定しましょう</p>');
-    SelectScience.after('<p>受講レベルを設定しましょう</p>');
-    SelectEconomy.after('<p>受講レベルを設定しましょう</p>');
-    SelectEnglish.after('<p>受講レベルを設定しましょう</p>');
-    SelectTwoCourse.after('<p>科目を２つ設定しましょう</p>');
+    var SelectPhilosophy = $('#fitem_id_profile_field_Philosophy_Level'); //
+    var SelectScience = $('#fitem_id_profile_field_Science_Level');
+    var SelectEconomy = $('#fitem_id_profile_field_Economy_Level');
+    var SelectEnglish = $('#fitem_id_profile_field_English_Level');
+    var SelectTwoCourse = $('#fitem_id_profile_field_2cources_subject');
+    // SelectPhilosophy.after('<p>受講レベルを設定しましょう</p>');
+    // SelectScience.after('<p>受講レベルを設定しましょう</p>');
+    // SelectEconomy.after('<p>受講レベルを設定しましょう</p>');
+    // SelectEnglish.after('<p>受講レベルを設定しましょう</p>');
+    // SelectTwoCourse.after('<p>科目を２つ設定しましょう</p>');
+    var selectElements = [SelectPhilosophy, SelectScience, SelectEconomy, SelectEnglish,SelectTwoCourse];
+
+    //特定の科目だけ表示するロジック、
     if (isBuySubjectMainArray(['philosophy'])&& (!isBuySubjectChildArray('philosophy', ['ph_L1', 'ph_L2', 'ph_L3', 'ph_L4']))){
-        alert('哲学かってるよ');
+        selectElements.filter(function(selectElement) {
+            return selectElement !== SelectPhilosophy; // SelectPhilosophyを除外
+        }).forEach(function(selectElement) {
+            selectElement.hide();
+        });
     }
-    if (isBuySubjectMain Arry(['TwoSubjectPack'])){
-        alert('2科目かってるよ');
+    //哲学いずれかサブレベル持っているとき
+    if  (isBuySubjectChildArray('philosophy', ['ph_L1', 'ph_L2', 'ph_L3', 'ph_L4'])){
+        alert('哲学L1~L4いずれかにいるよ');
     }
+
 }
 
 // ==============================
