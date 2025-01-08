@@ -617,6 +617,9 @@ if (bodyId === "page-user-edit") {
     // AreaElements.forEach(function(AreaElement) {
     //     AreaElement.hide();
     // });
+    if (isBuySubjectMainArray(['philosophy']) ) {
+        alert('経済＋科学?');
+    }
 
     //初期のレベル判定ロジック
     if (isBuySubjectMainArray(['philosophy']) && !isBuySubjectMainArray(['science','economy'])) {
@@ -631,9 +634,7 @@ if (bodyId === "page-user-edit") {
     //     alert('経済のみ?');
     // }
     //哲学＋科学
-    if (isBuySubjectMainArray(['philosophy','science'], true) ) {
-        alert('経済＋科学?');
-    }
+
     // //経済＋科学
     // if (isBuySubjectMainArray(['economy','science'], true) && !isBuySubjectMainArray(['philosophy'])) {
     //     alert('科学＋経済');
