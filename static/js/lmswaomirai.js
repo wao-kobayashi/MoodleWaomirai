@@ -68,14 +68,18 @@ const isBuySubjectChild = ['philosophy', 'science', 'economy', 'GlobalEnglish'].
 const isBuyProgramming = bodyClasses.includes(SubjectIds.Programming.id); //プログラミングの科目を買っているかどうか
 
 // 複数のレベルをまとめてチェックする関数(メイン科目)
-function isBuySubjectMainArray(subjectKeys) {
-  return subjectKeys.some(subjectKey => {
-    const subject = SubjectIds.SubjectMain[subjectKey];
-    if (!subject) return false; // 指定された科目が存在しない場合はfalseを返す
-    console.log('Checking subject:', subject);
-    return bodyClasses.includes(subject.id); // mainLevelがbodyClassesに含まれているか確認
-  });
-}
+//trueの時はeveryで全てを条件に
+function isBuySubjectMainArray(subjectKeys, isAllRequired = false) {
+    const checkMethod = isAllRequired ? 'every' : 'some';  // isAllRequiredがtrueならeveryを、falseならsomeを使う
+    return subjectKeys[checkMethod](subjectKey => {
+      const subject = SubjectIds.SubjectMain[subjectKey];
+      if (!subject) return false; // 指定された科目が存在しない場合はfalseを返す
+      console.log('Checking subject:', subject);
+      return bodyClasses.includes(subject.id); // mainLevelがbodyClassesに含まれているか確認
+    });
+  }
+
+
 // 複数のレベルをまとめてチェックする関数(サブ科目)
 function isBuySubjectChildArray(subject, levels) {
   const subjectGroup = SubjectIds.SubjectChild[subject];
@@ -592,29 +596,73 @@ if (bodyId === "page-course-view-flexsections") {
 //受講レベルの設定
 // ==============================
 if (bodyId === "page-user-edit") {
-    var SelectPhilosophy = $('#fitem_id_profile_field_Philosophy_Level'); //
-    var SelectScience = $('#fitem_id_profile_field_Science_Level');
-    var SelectEconomy = $('#fitem_id_profile_field_Economy_Level');
-    var SelectEnglish = $('#fitem_id_profile_field_English_Level');
-    var SelectTwoCourse = $('#fitem_id_profile_field_2cources_subject');
+    var SelectPhilosophy = $('#id_profile_field_Philosophy_Level'); //
+    var SelectScience = $('#id_profile_field_Science_Level');
+    var SelectEconomy = $('#id_profile_field_Economy_Level');
+    var SelectEnglish = $('#id_profile_field_English_Level');
+    var SelectTwoCourse = $('#id_profile_field_2cources_subject');
+    var SelectSignleCourse = $('#id_profile_field_1cource_Subject');
+    var AreaPhilosophy = $('#fitem_id_profile_field_Philosophy_Level'); 
+    var AreaScience = $('#fitem_id_profile_field_Science_Level');
+    var AreaEconomy = $('#fitem_id_profile_field_Economy_Level');
+    var AreaEnglish = $('#fitem_id_profile_field_English_Level');
+    var AreaTwoCourse = $('#fitem_id_profile_field_2cources_subject');
+    var AreaSingleCourse = $('#fitem_id_profile_field_1cource_Subject');
     // SelectPhilosophy.after('<p>受講レベルを設定しましょう</p>');
     // SelectScience.after('<p>受講レベルを設定しましょう</p>');
     // SelectEconomy.after('<p>受講レベルを設定しましょう</p>');
     // SelectEnglish.after('<p>受講レベルを設定しましょう</p>');
     // SelectTwoCourse.after('<p>科目を２つ設定しましょう</p>');
-    var selectElements = [SelectPhilosophy, SelectScience, SelectEconomy, SelectEnglish,SelectTwoCourse];
+    var AreaElements = [AreaPhilosophy, AreaScience, AreaEconomy, AreaEnglish, AreaTwoCourse, AreaSingleCourse];
+    // AreaElements.forEach(function(AreaElement) {
+    //     AreaElement.hide();
+    // });
 
-    //特定の科目だけ表示するロジック、
-    if (isBuySubjectMainArray(['philosophy'])&& (!isBuySubjectChildArray('philosophy', ['ph_L1', 'ph_L2', 'ph_L3', 'ph_L4']))){
-        selectElements.filter(function(selectElement) {
-            return selectElement !== SelectPhilosophy; // SelectPhilosophyを除外
-        }).forEach(function(selectElement) {
-            selectElement.hide();
-        });
+    //初期のレベル判定ロジック
+    if (isBuySubjectMainArray(['philosophy']) && !isBuySubjectMainArray(['science','economy'])) {
+        alert('哲学のみ?');
+        // AreaPhilosophy.show();
     }
-    //哲学いずれかサブレベル持っているとき
+    // if (isBuySubjectMainArray(['science']) && !isBuySubjectMainArray(['philosophy','economy'])) {
+    //     alert('科学のみ?');
+    //     // AreaPhilosophy.show();
+    // }
+    // if (isBuySubjectMainArray(['economy']) && !isBuySubjectMainArray(['philosophy','science']) {
+    //     alert('経済のみ?');
+    // }
+    //哲学＋科学
+    if (isBuySubjectMainArray(['philosophy','science'], true) ) {
+        alert('経済＋科学?');
+    }
+    // //経済＋科学
+    // if (isBuySubjectMainArray(['economy','science'], true) && !isBuySubjectMainArray(['philosophy'])) {
+    //     alert('科学＋経済');
+    // }
+    // //哲学＋経済
+    // if (isBuySubjectMainArray(['philosophy','economy'], true) && !isBuySubjectMainArray(['science'])) {
+    //     alert('哲学＋経済');
+    // }
+
+
+   
+    function getSelectElement(AreaPhilosophy) {
+        var selectElement = AreaPhilosophy.find('select');  // 返すのもの
+        return selectElement;
+    }
+    if (isBuySubjectMainArray(['philosophy'])&& (!isBuySubjectChildArray('philosophy', ['ph_L1', 'ph_L2', 'ph_L3', 'ph_L4']))){
+        AreaSingleCourse.show();
+       
+    }
+
+    //メイン科目で哲学設定｜哲学L1~L4は未設定
+    if (isBuySubjectMainArray(['philosophy'])&& (!isBuySubjectChildArray('philosophy', ['ph_L1', 'ph_L2', 'ph_L3', 'ph_L4']))){
+        AreaPhilosophy.show();
+    }
+    // //哲学いずれかサブレベル持っているとき
     if  (isBuySubjectChildArray('philosophy', ['ph_L1', 'ph_L2', 'ph_L3', 'ph_L4'])){
-        alert('哲学L1~L4いずれかにいるよ');
+        AreaPhilosophy.show();
+        getSelectElement(AreaPhilosophy).prop('disabled', true);
+        getSelectElement(AreaPhilosophy).after('<p>受講レベルを途中で変更する場合はフォームより問い合わせください</p>');
     }
 
 }

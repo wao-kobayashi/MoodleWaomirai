@@ -27,6 +27,22 @@
       paymentID: env === 'stg' ? [236] : env === 'lms' ? [135] : [0]
     },
     {
+      id: 'ph-and-sc',
+      paymentID: env === 'stg' ? [255,265] : env === 'lms' ? [212,211] : [0]
+    },
+    {
+      id: 'ph-and-ec',
+      paymentID: env === 'stg' ? [255,260] : env === 'lms' ? [212,213] : [0]
+    },
+    {
+      id: 'sc-and-ec',
+      paymentID: env === 'stg' ? [265,260] : env === 'lms' ? [211,213] : [0]
+    },
+      {
+      id: 'sc-and-ec-and-ph',
+      paymentID: env === 'stg' ? [265,260,255] : env === 'lms' ? [211,213,212] : [0]
+    },
+    {
       id: 'ph-register',
       paymentID: env === 'stg' ? [212, 221] : env === 'lms' ? [255, 256] : [0]
     },
