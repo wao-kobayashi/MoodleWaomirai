@@ -1,0 +1,9 @@
+extends ../_layout_moodle.pug
+block variables
+  - var title = 'テンプレ'
+  - var pageid = 'ph-none'
+  include _id-user-edit
+  include _meta-user-edit
+block contents
+ body#page-user-edit(class=paymentID + existingClasses)
+  include _parts-page-user-edit-content
