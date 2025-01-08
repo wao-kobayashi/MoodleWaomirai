@@ -2,9 +2,53 @@
   // enrolpages配列の定義。この配列は登録ページの設定を格納。
   var useredit = [
     // 登録ページテンプレートの基本設定
-    { 
+    {
       id: 'ph-none',
-      paymentID: env === 'stg' ? [212,222,222] : env === 'lms' ? [255] : [0], // 環境ごとに異なる支払いIDを設定
+      paymentID: env === 'stg' ? [212] : env === 'lms' ? [255] : [0]
+    },
+    {
+      id: 'sc-none',
+      paymentID: env === 'stg' ? [211] : env === 'lms' ? [265] : [0]
+    },
+    {
+      id: 'ec-none',
+      paymentID: env === 'stg' ? [213] : env === 'lms' ? [260] : [0]
+    },
+    {
+      id: 'two-none',
+      paymentID: env === 'stg' ? [228] : env === 'lms' ? [270] : [0]
+    },
+    {
+      id: 'three-none',
+      paymentID: env === 'stg' ? [229] : env === 'lms' ? [271] : [0]
+    },
+    {
+      id: 'en-none',
+      paymentID: env === 'stg' ? [236] : env === 'lms' ? [135] : [0]
+    },
+    {
+      id: 'ph-register',
+      paymentID: env === 'stg' ? [212, 221] : env === 'lms' ? [255, 256] : [0]
+    },
+    {
+      id: 'sc-register',
+      paymentID: env === 'stg' ? [211, 223] : env === 'lms' ? [265, 266] : [0]
+    },
+    {
+      id: 'ec-register',
+      paymentID: env === 'stg' ? [213, 226] : env === 'lms' ? [260, 261] : [0]
+    },
+    {
+      id: 'two-register',
+      paymentID: env === 'stg' ? [228, 223, 221] : env === 'lms' ? [270, 266, 256] : [0]
+    },
+    {
+      id: 'three-register',
+      paymentID: env === 'stg' ? [229, 223, 221, 226] : env === 'lms' ? [271, 266, 256, 261] : [0]
+    },
+    {
+      id: 'en-register',
+      paymentID: env === 'stg' ? [236, 253] : env === 'lms' ? [135, 130] : [0]
     }
-   
+
   ]

@@ -35,9 +35,9 @@ async function splitJs(done) {
     try {
         const stgVariableJsContent = await fs.readFile(path.resolve('src/js/stg-variable.js'), 'utf8');
         const lmsVariableJsContent = await fs.readFile(path.resolve('src/js/lms-variable.js'), 'utf8');
-
+        const moodlejs = ['src/js/moodle.js','src/js/page-user-edit.js',]
         // stg.js 用
-        gulp.src('src/js/moodle.js')
+        gulp.src(moodlejs)
             .pipe(replace(/^/,
                 `${stgVariableJsContent}\n` +
                 `$(document).ready(function() {\n` +
@@ -50,7 +50,7 @@ async function splitJs(done) {
             .pipe(gulp.dest(dstpaths.js));
 
         // lms.js 用
-        gulp.src('src/js/moodle.js')
+        gulp.src(moodlejs)
             .pipe(replace(/^/,
                 `${lmsVariableJsContent}\n` +
                 `$(document).ready(function() {\n` +
