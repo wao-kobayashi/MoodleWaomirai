@@ -70,7 +70,7 @@ const isBuySubjectChild = ['philosophy', 'science', 'economy', 'GlobalEnglish'].
 const isBuyProgramming = bodyClasses.includes(SubjectIds.Programming.id); //プログラミングの科目を買っているかどうか
 
 // 複数のレベルをまとめてチェックする関数(メイン科目)
-function isBuySubjectMainCheck(subjectKeys) {
+function isBuySubjectMainArray(subjectKeys) {
   return subjectKeys.some(subjectKey => {
     const subject = SubjectIds.SubjectMain[subjectKey];
     if (!subject) return false; // 指定された科目が存在しない場合はfalseを返す
@@ -79,14 +79,14 @@ function isBuySubjectMainCheck(subjectKeys) {
   });
 }
 // 複数のレベルをまとめてチェックする関数(サブ科目)
-function isBuySubjectChildCheck(subject, levels) {
+function isBuySubjectChildArray(subject, levels) {
   const subjectGroup = SubjectIds.SubjectChild[subject];
   if (!subjectGroup) return false; // グループが存在しない場合はfalse
   return levels.some(level => subjectGroup[level] && bodyClasses.includes(subjectGroup[level].id));
 }      
       
 
-if (isBuySubjectChildCheck('science', ['sc_L1', 'sc_L3'])) {
+if (isBuySubjectChildArray('science', ['sc_L1', 'sc_L3'])) {
   alert('科学 L1 または L3 に該当します。');
 }
 
@@ -556,7 +556,7 @@ if (bodyId === "page-enrol-index") {
   
   // コースに応じた処理を実行
   if (CurrentViewCourseData.category === 'philosophy') {
-    if (isBuySubjectMainCheck(['TwoSubjectPack'])) {
+    if (isBuySubjectMainArray(['TwoSubjectPack'])) {
       alert('君は２科目パックを買っているよ');
    }
   }
@@ -604,10 +604,10 @@ if (bodyId === "page-user-edit") {
     SelectEconomy.after('<p>受講レベルを設定しましょう</p>');
     SelectEnglish.after('<p>受講レベルを設定しましょう</p>');
     SelectTwoCourse.after('<p>科目を２つ設定しましょう</p>');
-    if (isBuySubjectMainCheck(['philosophy'])&& (!isBuySubjectChildCheck('philosophy', ['ph_L1', 'ph_L2', 'ph_L3', 'ph_L4']))){
+    if (isBuySubjectMainArray(['philosophy'])&& (!isBuySubjectChildArray('philosophy', ['ph_L1', 'ph_L2', 'ph_L3', 'ph_L4']))){
         alert('哲学かってるよ');
     }
-    if (isBuySubjectMainCheck(['TwoSubjectPack'])){
+    if (isBuySubjectMain Arry(['TwoSubjectPack'])){
         alert('2科目かってるよ');
     }
 }
