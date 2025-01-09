@@ -564,11 +564,17 @@ if (bodyId === "page-enrol-index") {
     // "世界" を含む要素を検索
     const SubjectpPrice = $('.enrol_fee_payment_region b:contains("¥")');
     // alert(SubjectpPrice.text()); // n>
-    const SubjectpPriceContent = `<div class="fixed-subject-price">${SubjectpPrice.text()}</div>`;
-    console.log(SubjectpPriceContent);
+    if (CurrentViewCourseData.category === 'Programming') {
+        var SubjectPriceContent = `<div class="fixed-subject-price">${SubjectpPrice.text()}</div>`;
+    } else {
+        var SubjectPriceContent = `<div class="fixed-subject-price">${SubjectpPrice.text()}</div>`;
+    }
+    console.log(SubjectPriceContent);
     // const SubjectpPriceContent = $('<div>', { class: 'fixed-subject-price' }).after(SubjectpPrice.clone());
     // alert(SubjectpPriceContent); // n>
-    $('#page.drawers').after(SubjectpPriceContent);
+    $('#page.drawers').after(SubjectPriceContent);
+
+
 }
 
 // ==============================
