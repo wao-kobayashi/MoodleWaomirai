@@ -565,13 +565,10 @@ if (bodyId === "page-enrol-index") {
     if (CurrentViewCourseData.category === 'Programming') {
         var SubjectPriceContent = `<div class="fixed-subject-price">${SubjectpPrice.text()}</div>`;
     } else {
-        var SubjectPriceContent = `<div class="fixed-subject-price">${SubjectpPrice.text()}</div>`;
+        var SubjectPriceContent = `<div class="fixed-subject-price">${SubjectpPrice.text()} /月</div>`;
     }
     console.log(SubjectPriceContent);
-    // const SubjectpPriceContent = $('<div>', { class: 'fixed-subject-price' }).after(SubjectpPrice.clone());
-    // alert(SubjectpPriceContent); // n>
     $('#page.drawers').after(SubjectPriceContent);
-
 
 }
 

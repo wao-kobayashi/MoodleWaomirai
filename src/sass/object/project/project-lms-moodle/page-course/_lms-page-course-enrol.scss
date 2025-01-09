@@ -46,12 +46,14 @@ $subject-default-max-width: 1120px; // 最大幅
     //     content: "";
     // }
   }
+
   .fixed-subject-price {
     position: fixed;
     left: 20px;
-    bottom: 10px;
+    bottom: 20px;
     z-index: 99;
     color: #000;
+    font-size: $lms-font-size-ml;
   }
 
   &:after {
@@ -60,9 +62,9 @@ $subject-default-max-width: 1120px; // 最大幅
       background: white;
       width: 100%;
       content: "";
-      height: 60px;
+      height: 80px;
       position: fixed;
-      z-index: 1;
+      z-index: 9;
       bottom: 0;
     }
   }
@@ -180,9 +182,9 @@ $subject-default-max-width: 1120px; // 最大幅
       border-radius: $border-radius-small;
       color: white;
       line-height: $lineheight-none;
-      z-index: 2;
+      z-index: 999;
       @include responsive-style(768px) {
-        width: 60%;
+        width: 62%;
         right: 0px;
         bottom: 10px;
         left: auto;
