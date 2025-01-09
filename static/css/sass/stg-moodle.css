@@ -3741,11 +3741,6 @@ html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo .enrol_fee_p
   text-decoration: underline !important;
   display: block;
 }
-html[data-tenantidnumber=stg] #page-enrol-index div,
-html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo div {
-  color: #005C3F;
-  font-size: 14px;
-}
 html[data-tenantidnumber=stg] #page-enrol-index .global-english img,
 html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo .global-english img {
   width: 100%;
