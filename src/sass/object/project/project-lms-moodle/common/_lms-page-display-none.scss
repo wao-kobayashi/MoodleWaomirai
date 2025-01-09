@@ -1,66 +1,64 @@
 // ドロワー撲滅
 .drawer-toggles .drawer-toggler {
-    display: none !important;
+  display: none !important;
 }
 
 //登録済み講座
-.nav a[href="https://lms.waomirai.com/my/courses.php"] {
-    // display: none !important;
-    /* 要素を非表示 */
+.nav a[href="https://lms.waomirai.com/my/courses.php"]
+{
+  // display: none !important;
+  /* 要素を非表示 */
 }
 
 //プライベートファイル
-a[href="https://lms.waomirai.com/my/courses.php"] {
-    display: none;
-    /* 要素を非表示 */
+a[href="https://lms.waomirai.com/my/courses.php"]
+{
+  display: none;
+  /* 要素を非表示 */
 }
-
 
 /* マイページ */
 
 #page-user-preferences {
-    #page-content {
-        a[href*="user/language.php"],
-        a[href*="user/forum.php"],
-        a[href*="user/calendar.php"],
-        a[href*="/user/contentbank.php"],
-        a[href*="/user/editor.php"] {
-            display: none;
-        }
+  #page-content {
+    a[href*="user/language.php"],
+    a[href*="user/forum.php"],
+    a[href*="user/calendar.php"],
+    a[href*="/user/contentbank.php"],
+    a[href*="/user/editor.php"] {
+      display: none;
     }
+  }
 }
-
 
 /* 共通追従フッター削除 */
 
 #forced-footer {
-    display: none !important;
+  display: none !important;
 }
 
 .logininfo {
-    display: none
+  display: none;
 }
 
 footer.footer-popover {
-    .container div.footer-popover,
-    div.footer-popover,
-    .container {
-        div:nth-child(3) {
-            // display: none;
-        }
+  .container div.footer-popover,
+  div.footer-popover,
+  .container {
+    div:nth-child(3) {
+      // display: none;
     }
+  }
 }
-
 
 /* ダッシュボード */
 
 .pagelayout-mydashboard {
-    /* こんにちは⚪︎⚪︎さん */
-    // #page-header {
-    //     display: none;
-    // }
+  /* こんにちは⚪︎⚪︎さん */
+  // #page-header {
+  //     display: none;
+  // }
 }
-
 
 /* 授業詳細 */
 
@@ -68,81 +66,88 @@ footer.footer-popover {
 #page-mod-questionnaire-complete,
 #page-mod-questionnaire-myreport,
 #page-mod-questionnaire-report {
-    .page-header-image {
-        display: none;
+  .page-header-image {
+    display: none;
+  }
+  #region-main {
+    > h2 {
+      display: none;
     }
-    #region-main {
-        >h2 {
-            display: none;
-        }
+  }
+  .req {
+    display: none; //必須マーク削除
+  }
+  .floatprinticon {
+    display: none !important;
+  }
+  .secondary-navigation {
+    @include responsive-style(768px) {
+      display: none;
     }
-    .req {
-        display: none; //必須マーク削除
-    }
-    .floatprinticon {
-        display: none !important;
-    }
+  }
+  .completion-info {
+    //やるべきこと
+    display: none;
+  }
 }
-
 
 /* 授業購入画面(まだ買っていない) */
 
 #page-admin-tool-catalogue-courseinfo,
 #page-enrol-index {
-    //不要なもの消す
-    .customfield,
-    .customfield_is_payment {
-        display: none !important;
-    }
-    #covercollapsec-dates {
-        display: none !important;
-    }
+  //不要なもの消す
+  .customfield,
+  .customfield_is_payment {
+    display: none !important;
+  }
+  #covercollapsec-dates {
+    display: none !important;
+  }
 }
 
 #page-course-view-flexsections {
-    @each $course-id,
-    $common-style-key in $course-styles-for-tenant {
-        // スタイルを取得
-        $styles: map-get($common-course-styles, $common-style-key);
-        // コースIDに基づいてスタイルを適用
-        &.#{$course-id} {
-            #section-0 {
-                border: none !important;
-                .course-section-header {
-                    display: none !important;
-                }
-                .my-3 {
-                    display: none;
-                }
-                .flexsections-level-0>.course-section.main {
-                    .activity.activity-wrapper.forum {
-                        display: none !important;
-                    }
-                }
-            }
+  @each $course-id, $common-style-key in $course-styles-for-tenant {
+    // スタイルを取得
+    $styles: map-get($common-course-styles, $common-style-key);
+    // コースIDに基づいてスタイルを適用
+    &.#{$course-id} {
+      #section-0 {
+        border: none !important;
+        .course-section-header {
+          display: none !important;
         }
+        .my-3 {
+          display: none;
+        }
+        .flexsections-level-0 > .course-section.main {
+          .activity.activity-wrapper.forum {
+            display: none !important;
+          }
+        }
+      }
     }
+  }
 }
 
 #page-login-index {
-    footer.footer-popover {
-        .container div.footer-popover,
-        div.footer-popover,
-        .container {
-            div:nth-child(2) {
-                display: none;
-            }
-            div:nth-child(3) {
-                display: block !important;
-                @include responsive-style(768px) {
-                    display: none !important;
-                }
-            }
+  footer.footer-popover {
+    .container div.footer-popover,
+    div.footer-popover,
+    .container {
+      div:nth-child(2) {
+        display: none;
+      }
+      div:nth-child(3) {
+        display: block !important;
+        @include responsive-style(768px) {
+          display: none !important;
         }
+      }
     }
+  }
 }
 
 //テーマスイッチを削除
 #theme_switch_link {
-    display: none !important;
+  display: none !important;
 }

@@ -567,6 +567,21 @@ if (bodyId === "page-enrol-index") {
 }
 
 // ==============================
+// 受講ページ
+// ==============================
+if (bodyId === "page-mod-questionnaire-view") {
+    //スマホ版でタイトルを動画の下にうつすロジック
+    var contentToClone = $('#page-header').clone();
+    var wrappedContent = $('<div>', { id: 'sp-page-header', class: 'c-pc-hidden' }).append(contentToClone);
+    // #page-content直下に配置
+    $('.activity-description').append(wrappedContent);  
+
+    //課題提出の下にリード文を入れる
+    $(".mod_questionnaire_viewpage h2").after('<p>授業の視聴が終わったら課題を提出しましょう</p>');
+}
+
+
+// ==============================
 // カテゴリページの処理
 // ==============================
 if (bodyId === "page-course-index-category") {

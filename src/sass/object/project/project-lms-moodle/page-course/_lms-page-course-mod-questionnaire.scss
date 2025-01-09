@@ -1,159 +1,244 @@
-body {}
+body {
+}
 
 #page-mod-questionnaire-view,
 #page-mod-questionnaire-complete,
 #page-mod-questionnaire-myreport,
 #page-mod-questionnaire-report {
-    &.path-mod {
-        .activity-header:not(:empty) {
-            background: none !important;
-            padding: 0 !important;
-            margin: 0 !important;
+  #page.drawers {
+    margin-top: 48px !important;
+    .main-inner {
+      @include responsive-style(768px) {
+        padding: 0rem 20px;
+        margin-top: 0rem;
+      }
+    }
+  }
+  #page-header {
+    @include responsive-style(768px) {
+      display: none;
+    }
+  }
+  #sp-page-header {
+    margin: 16px 0 12px;
+    #page-header {
+      display: block !important;
+    }
+  }
+  &.path-mod {
+    .activity-description {
+      padding-top: 0 !important;
+      padding-bottom: 8px !important;
+    }
+    .activity-header:not(:empty) {
+      background: none !important;
+      padding: 0 !important;
+      margin: 0 !important;
+    }
+    .activity-information .completion-info {
+      border-bottom: none !important;
+    }
+  }
+
+  .navigation {
+    max-width: 830px !important;
+    margin: 0 auto;
+  }
+  #page-content {
+    max-width: 830px !important;
+    margin: 0 auto;
+  }
+
+  .no-overflow {
+    @include responsive-style(768px) {
+      margin: 0 -20px;
+    }
+  }
+  #page-navbar {
+    //ぱんくず
+    @include responsive-style(768px) {
+      font-size: $lms-font-size-s !important;
+    }
+    .breadcrumb {
+      @include responsive-style(768px) {
+        padding: 0rem 0 !important;
+        margin-bottom: 0 !important;
+      }
+    }
+  }
+  //動画視聴の部分
+  .course-lesson {
+    position: relative;
+    border-radius: $border-radius-middle;
+    overflow: hidden;
+    @include responsive-style(768px) {
+      border-radius: 0;
+    }
+    .course-lesson-wrap {
+      position: absolute;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      z-index: 1;
+      width: 100%;
+      height: 100%;
+      color: white;
+
+      .course-lesson-wrap-title {
+        color: white;
+        font-weight: 500;
+        margin: 0 auto 16px;
+        font-size: $lms-font-size-ml;
+        @include responsive-style(768px) {
+          font-size: $lms-font-size-m;
         }
-        .activity-information .completion-info {
-            border-bottom: none !important;
+      }
+      button {
+        @include button-size-big;
+        background: $cl-main-orange !important;
+        color: white;
+        /* button style reset */
+        appearance: none;
+        box-shadow: none !important;
+        outline: none;
+        padding: 0;
+        border: none;
+        width: 340px;
+        @include responsive-style(768px) {
+          width: 220px;
+          @include button-size-middle;
         }
+        &:hover {
+          opacity: 0.7;
+        }
+      }
     }
-    .navigation {
-        max-width: 830px !important;
-        margin: 0 auto;
+    &:before {
+      content: "";
+      display: block;
+      position: absolute;
+      z-index: 99;
+      left: 0;
+      top: 0;
+      background: $overlay;
+      z-index: 1;
+      width: 100%;
+      height: 100%;
     }
-    #page-content {
-        max-width: 830px !important;
-        margin: 0 auto;
+    img {
+      border-radius: $border-radius-middle;
     }
-    //動画視聴の部分
-    .course-lesson {
+  }
+  //課題提出の部分
+  div[role="main"] {
+    width: 100%;
+    // background: $cl-graylightest !important;
+    padding: 20px 10px 20px;
+    border: 4px solid $cl-graylightest !important;
+    border-radius: $border-radius-middle;
+    margin: 20px 0 0;
+    @include responsive-style(768px) {
+      padding: 30px 0px 20px;
+      margin: 0px 0 0;
+    }
+    .mod_questionnaire_viewpage {
+      h2 {
+        font-size: $lms-font-size-l !important;
+        padding: 0 0 20px 0 !important;
+        margin: 0 0 0 !important;
+        &:after {
+          content: "課題の提出";
+          line-height: 1;
+          padding: 0 0 10px 40px !important;
+        }
         position: relative;
-        border-radius: $border-radius-middle;
-        overflow: hidden;
-        .course-lesson-wrap {
-            position: absolute;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-            z-index: 1;
-            width: 100%;
-            height: 100%;
-            color: white;
-            .course-lesson-wrap-title {
-                font-size: $lms-font-size-ml;
-                color: white;
-                font-weight: 500;
-                margin: 0 auto 16px;
-            }
-            button {
-                width: 340px;
-                @include button-size-big;
-                background: $cl-main-orange !important;
-                color: white;
-                /* button style reset */
-                appearance: none;
-                box-shadow: none !important;
-                outline: none;
-                padding: 0;
-                border: none;
-                &:hover {
-                    opacity: 0.7;
-                }
-            }
-        }
         &:before {
-            content: "";
-            display: block;
-            position: absolute;
-            z-index: 99;
-            left: 0;
-            top: 0;
-            background: $overlay;
-            z-index: 1;
-            width: 100%;
-            height: 100%;
+          // left: 0px !important;
+          top: -17px !important;
+          @include lms-left-waogreen;
         }
-        img {
-            border-radius: $border-radius-middle;
-        }
-    }
-    //課題提出の部分
-    div[role=main] {
+      }
+      p {
+        padding: 0 16px;
+        @include text-m-black;
+      }
+      .mod_questionnaire_flex-container {
+        padding: 30px 20px 20px;
         width: 100%;
-        // background: $cl-graylightest !important;
-        padding: 20px 10px;
-        border: 4px solid $cl-graylightest !important;
-        border-radius: $border-radius-middle;
-        .mod_questionnaire_viewpage {
-            h2 {
-                font-size: $lms-font-size-l !important;
-                border-bottom: 4px $cl-graylightest solid;
-                padding: 0 0 16px 0 !important;
-                &:after {
-                    content: "課題の提出";
-                    line-height: 1;
-                    padding: 0 0 10px 40px !important;
-                }
-                position: relative;
-                &:before {
-                    // left: 0px !important;
-                    top: -17px !important;
-                    @include lms-left-waogreen;
-                }
+        justify-content: center;
+
+        .allresponses {
+          margin: 0 !important;
+        }
+        @include responsive-style(768px) {
+          flex-direction: column;
+          gap: 20px;
+        }
+        > div {
+          width: 300px;
+          flex-grow: none !important;
+          @include responsive-style(768px) {
+            width: 100%;
+          }
+          .btn-primary {
+            color: $cl-main-orange !important;
+            border: 1px solid $cl-main-orange;
+            background: white !important;
+            @include button-size-middle;
+            width: 300px;
+            @include responsive-style(768px) {
+              width: 100%;
             }
-            .mod_questionnaire_flex-container {
-                padding: 30px 20px 20px;
-                .btn-primary {
-                    color: $cl-main-orange !important;
-                    border: 1px solid $cl-main-orange;
-                    background: white !important;
-                    @include button-size-middle;
-                }
-            }
+          }
         }
+      }
     }
-    .surveyTitle {
-        padding: 2px 12px 15px!important;
+  }
+  .surveyTitle {
+    padding: 2px 12px 15px !important;
+  }
+  .qn-container {
+    margin: 0 0 30px;
+    .qn-content {
+      margin-left: 55px !important;
     }
-    .qn-container {
-        margin: 0 0 30px;
-        .qn-content {
-            margin-left: 55px !important;
-        }
-        .qn-info {
-            width: 30px;
-            height: 30px;
-            border-radius: 100px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: $lms-font-size-s !important;
-            color: $cl-gray !important;
-            margin: 5px 0 0;
-            // color: $cl-graylight !important;
-            // border: 2px $cl-graylight solid !important;
-            // background: none !important;
-        }
-        .qn-legend {
-            // float: none;
-            margin: 0 0 0 13px;
-        }
-        .qn-question {
-            background: white;
-            padding: 0 !important;
-        }
-        .req {
-            // display: none;
-        }
+    .qn-info {
+      width: 30px;
+      height: 30px;
+      border-radius: 100px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: $lms-font-size-s !important;
+      color: $cl-gray !important;
+      margin: 5px 0 0;
+      // color: $cl-graylight !important;
+      // border: 2px $cl-graylight solid !important;
+      // background: none !important;
     }
-    .mod_questionnaire_controlbuttons {
-        text-align: left !important;
+    .qn-legend {
+      // float: none;
+      margin: 0 0 0 13px;
     }
-    .control-button-submit,
-    .btn-secondary {
-        float: none !important;
-        margin: 0 0 30px 55px;
-        background: $cl-waogreen;
-        border: none !important;
-        padding: 8px 20px;
-        color: white !important;
+    .qn-question {
+      background: white;
+      padding: 0 !important;
     }
+    .req {
+      // display: none;
+    }
+  }
+  .mod_questionnaire_controlbuttons {
+    text-align: left !important;
+  }
+  .control-button-submit,
+  .btn-secondary {
+    float: none !important;
+    margin: 0 0 30px 55px;
+    background: $cl-waogreen;
+    border: none !important;
+    padding: 8px 20px;
+    color: white !important;
+  }
 }
