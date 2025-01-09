@@ -24,6 +24,7 @@ $subject-default-max-width: 1120px; // 最大幅
     @include responsive-style(768px) {
       margin-left: 0 !important;
       max-width: 100% !important;
+      padding: 0 15px !important;
     }
   }
 }
@@ -44,6 +45,30 @@ $subject-default-max-width: 1120px; // 最大幅
     //     background: $cl-graylightest;
     //     content: "";
     // }
+  }
+  .fixed-subject-price {
+    position: fixed;
+    left: 20px;
+    bottom: 10px;
+    z-index: 99;
+    color: #000;
+  }
+
+  &:after {
+    @include responsive-style(768px) {
+      width: 100%;
+      background: white;
+      width: 100%;
+      content: "";
+      height: 60px;
+      position: fixed;
+      z-index: 1;
+      bottom: 0;
+    }
+  }
+  .generalbox {
+    background: white !important;
+    border: none !important;
   }
   #page.drawers div[role="main"] {
     padding: 0 !important;
@@ -115,6 +140,7 @@ $subject-default-max-width: 1120px; // 最大幅
     z-index: 99;
     font-size: $lms-font-size-m;
     width: 100%;
+
     @include responsive-style($default-max-width) {
       max-width: 235px !important;
       right: 15px;
@@ -124,7 +150,11 @@ $subject-default-max-width: 1120px; // 最大幅
       }
     }
     @include responsive-style(768px) {
-      display: none;
+      position: relative;
+      width: 100%;
+      max-width: 100% !important;
+      right: 0 !important;
+      margin: 0 auto 60px !important;
     }
     &::before {
       content: "プラン登録" !important;
@@ -148,6 +178,15 @@ $subject-default-max-width: 1120px; // 最大幅
       font-size: $lms-font-size-m !important;
       background: $cl-waogreen !important;
       border-radius: $border-radius-small;
+      color: white;
+      line-height: $lineheight-none;
+      z-index: 2;
+      @include responsive-style(768px) {
+        width: 60%;
+        right: 0px;
+        bottom: 10px;
+        left: auto;
+      }
     }
     .page-enrol-set-discount {
       margin: 20px 0 0px;
@@ -166,6 +205,9 @@ $subject-default-max-width: 1120px; // 最大幅
     color: $cl-black;
     font-size: $lms-font-size-m;
   }
+
+  /* ここから英語 */
+
   .global-english {
     //   @import "../../../foundation/_wpstyle.scss";
     img {

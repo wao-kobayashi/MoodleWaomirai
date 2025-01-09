@@ -558,14 +558,17 @@ if (bodyId === "page-enrol-index") {
         $buttonElement.after(customDivHtml);
     }
   
-  // コースに応じた処理を実行
-  if (CurrentViewCourseData.category === 'philosophy') {
-    if (isBuySubjectMainArray(['TwoSubjectPack'])) {
-      alert('君は２科目パックを買っているよ');
-   }
-  }
+    // alert('a');
 
 
+    // "世界" を含む要素を検索
+    const SubjectpPrice = $('.enrol_fee_payment_region b:contains("¥")');
+    // alert(SubjectpPrice.text()); // n>
+    const SubjectpPriceContent = `<div class="fixed-subject-price">${SubjectpPrice.text()}</div>`;
+    console.log(SubjectpPriceContent);
+    // const SubjectpPriceContent = $('<div>', { class: 'fixed-subject-price' }).after(SubjectpPrice.clone());
+    // alert(SubjectpPriceContent); // n>
+    $('#page.drawers').after(SubjectpPriceContent);
 }
 
 // ==============================

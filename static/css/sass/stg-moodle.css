@@ -902,6 +902,10 @@ html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo #covercollap
 html[data-tenantidnumber=stg] #page-enrol-index #covercollapsec-dates {
   display: none !important;
 }
+html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo .tool_catalogue-catalogue .position-relative,
+html[data-tenantidnumber=stg] #page-enrol-index .tool_catalogue-catalogue .position-relative {
+  display: none !important;
+}
 html[data-tenantidnumber=stg] #page-course-view-flexsections.category-53 #section-0 {
   border: none !important;
 }
@@ -3414,11 +3418,42 @@ html[data-tenantidnumber=stg] #page-enrol-index #page.drawers .main-inner {
   html[data-tenantidnumber=stg] #page-enrol-index #page.drawers .main-inner {
     margin-left: 0 !important;
     max-width: 100% !important;
+    padding: 0 15px !important;
   }
+}
+html[data-tenantidnumber=stg] #page-enrol-index,
+html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo {
+  /* ここから英語 */
 }
 html[data-tenantidnumber=stg] #page-enrol-index #page-navbar,
 html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo #page-navbar {
   display: none;
+}
+html[data-tenantidnumber=stg] #page-enrol-index .fixed-subject-price,
+html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo .fixed-subject-price {
+  position: fixed;
+  left: 20px;
+  bottom: 10px;
+  z-index: 99;
+  color: #000;
+}
+@media screen and (max-width: 768px) {
+  html[data-tenantidnumber=stg] #page-enrol-index:after,
+  html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo:after {
+    width: 100%;
+    background: white;
+    width: 100%;
+    content: "";
+    height: 60px;
+    position: fixed;
+    z-index: 1;
+    bottom: 0;
+  }
+}
+html[data-tenantidnumber=stg] #page-enrol-index .generalbox,
+html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo .generalbox {
+  background: white !important;
+  border: none !important;
 }
 html[data-tenantidnumber=stg] #page-enrol-index #page.drawers div[role=main],
 html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo #page.drawers div[role=main] {
@@ -3535,7 +3570,11 @@ html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo .enrol_fee_p
 @media screen and (max-width: 768px) {
   html[data-tenantidnumber=stg] #page-enrol-index .enrol_fee_payment_region,
   html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo .enrol_fee_payment_region {
-    display: none;
+    position: relative;
+    width: 100%;
+    max-width: 100% !important;
+    right: 0 !important;
+    margin: 0 auto 60px !important;
   }
 }
 html[data-tenantidnumber=stg] #page-enrol-index .enrol_fee_payment_region::before,
@@ -3570,6 +3609,18 @@ html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo .enrol_fee_p
   font-size: 14px !important;
   background: #005C3F !important;
   border-radius: 4px;
+  color: white;
+  line-height: 1;
+  z-index: 2;
+}
+@media screen and (max-width: 768px) {
+  html[data-tenantidnumber=stg] #page-enrol-index .enrol_fee_payment_region .btn.btn-secondary,
+  html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo .enrol_fee_payment_region .btn.btn-secondary {
+    width: 60%;
+    right: 0px;
+    bottom: 10px;
+    left: auto;
+  }
 }
 html[data-tenantidnumber=stg] #page-enrol-index .enrol_fee_payment_region .page-enrol-set-discount,
 html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo .enrol_fee_payment_region .page-enrol-set-discount {
