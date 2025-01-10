@@ -556,17 +556,19 @@ if (bodyId === "page-enrol-index") {
         $buttonElement.after(customDivHtml);
     }
   
-    // alert('a');
+    //メモカテゴリ：
+    //stgプログラミング131
+    //
 
-
-    // "世界" を含む要素を検索
+    // "¥" を含む要素を検索
     const SubjectpPrice = $('.enrol_fee_payment_region b:contains("¥")');
     // alert(SubjectpPrice.text()); // n>
-    if (CurrentViewCourseData.category === 'Programming') {
-        var SubjectPriceContent = `<div class="fixed-subject-price">${SubjectpPrice.text()}</div>`;
-    } else {
-        var SubjectPriceContent = `<div class="fixed-subject-price">${SubjectpPrice.text()} /月</div>`;
-    }
+    // if (CurrentViewCourseData.category === 'Programming') {
+    //     var SubjectPriceContent = `<div class="fixed-subject-price">${SubjectpPrice.text()}</div>`;
+    // } else {
+    //     var SubjectPriceContent = `<div class="fixed-subject-price">${SubjectpPrice.text()} /月</div>`;
+    // }
+    var SubjectPriceContent = `<div class="c-pc-hidden fixed-subject-price">${SubjectpPrice.text()} /月</div>`;
     console.log(SubjectPriceContent);
     $('#page.drawers').after(SubjectPriceContent);
 
