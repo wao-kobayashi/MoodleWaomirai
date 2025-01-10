@@ -1111,28 +1111,30 @@
                                   option(value='哲学＋経済') &#x54F2;&#x5B66;&#xFF0B;&#x7D4C;&#x6E08;
                                   option(value='科学＋経済') &#x79D1;&#x5B66;&#xFF0B;&#x7D4C;&#x6E08;
                           #id_error_profile_field_2cources_subject.form-control-feedback.invalid-feedback
-                      #fitem_id_profile_field_3cources_subject.form-group.row.fitem
-                        .col-md-3.col-form-label.d-flex.pb-0.pr-md-0
-                          label#id_profile_field_3cources_subject_label.d-inline.word-break(for='id_profile_field_3cources_subject')
-                            | 3&#x79D1;&#x76EE;&#x30BB;&#x30C3;&#x30C8;&#x53D7;&#x8B1B;&#x306E;&#x65B9;&#xFF1A;&#x53D7;&#x8B1B;&#x79D1;&#x76EE;&#x30BB;&#x30C3;&#x30C8;&#x3092;&#x9078;&#x629E;&#x3057;&#x3066;&#x304F;&#x3060;&#x3055;&#x3044;
-                          .form-label-addon.d-flex.align-items-center.align-self-start
-                        #yui_3_18_1_1_1736314136943_849.col-md-9.form-inline.align-items-start.felement(data-fieldtype='select')
-                          select#id_profile_field_3cources_subject.custom-select(name='profile_field_3cources_subject' data-initial-value='-')
-                            option(value='-' selected='') -
-                            option(value='哲学＋科学＋経済') &#x54F2;&#x5B66;&#xFF0B;&#x79D1;&#x5B66;&#xFF0B;&#x7D4C;&#x6E08;
-                          #id_error_profile_field_3cources_subject.form-control-feedback.invalid-feedback
+
                       #fitem_id_profile_field_Philosophy_Level.form-group.row.fitem
                         .col-md-3.col-form-label.d-flex.pb-0.pr-md-0
                           label#id_profile_field_Philosophy_Level_label.d-inline.word-break(for='id_profile_field_Philosophy_Level')
                             | &#x54F2;&#x5B66;&#x53D7;&#x8B1B;&#x306E;&#x65B9;&#xFF1A;&#x53D7;&#x8B1B;&#x30EC;&#x30D9;&#x30EB;&#x3092;&#x9078;&#x629E;&#x3057;&#x3066;&#x304F;&#x3060;&#x3055;&#x3044;
                           .form-label-addon.d-flex.align-items-center.align-self-start
                         .col-md-9.form-inline.align-items-start.felement(data-fieldtype='select')
-                          select#id_profile_field_Philosophy_Level.custom-select(name='profile_field_Philosophy_Level')
-                            option(value='-' selected='') -
-                            option(value='Level1　（小3〜4年生対象）') Level1&#x3000;&#xFF08;&#x5C0F;3&#x301C;4&#x5E74;&#x751F;&#x5BFE;&#x8C61;&#xFF09;
-                            option(value='Level2　（小5〜6年生対象）') Level2&#x3000;&#xFF08;&#x5C0F;5&#x301C;6&#x5E74;&#x751F;&#x5BFE;&#x8C61;&#xFF09;
-                            option(value='Level3　（中学生対象）') Level3&#x3000;&#xFF08;&#x4E2D;&#x5B66;&#x751F;&#x5BFE;&#x8C61;&#xFF09;
-                            option(value='Level4　（高校生対象）') Level4&#x3000;&#xFF08;&#x9AD8;&#x6821;&#x751F;&#x5BFE;&#x8C61;&#xFF09;
+                          case pageid
+                            default
+                              select#id_profile_field_Philosophy_Level.custom-select(name='profile_field_Philosophy_Level')
+                                option(value='-' selected='') -
+                                option(value='Level1　（小3〜4年生対象）') Level1&#x3000;&#xFF08;&#x5C0F;3&#x301C;4&#x5E74;&#x751F;&#x5BFE;&#x8C61;&#xFF09;
+                                option(value='Level2　（小5〜6年生対象）') Level2&#x3000;&#xFF08;&#x5C0F;5&#x301C;6&#x5E74;&#x751F;&#x5BFE;&#x8C61;&#xFF09;
+                                option(value='Level3　（中学生対象）') Level3&#x3000;&#xFF08;&#x4E2D;&#x5B66;&#x751F;&#x5BFE;&#x8C61;&#xFF09;
+                                option(value='Level4　（高校生対象）') Level4&#x3000;&#xFF08;&#x9AD8;&#x6821;&#x751F;&#x5BFE;&#x8C61;&#xFF09;
+                            when 'three-register'
+                            when 'ph-register' 
+                            when 'two-register'
+                              select#id_profile_field_Philosophy_Level.custom-select(name='profile_field_Philosophy_Level')
+                                option(value='-') -
+                                option(value='Level1　（小3〜4年生対象）' selected='') Level1&#x3000;&#xFF08;&#x5C0F;3&#x301C;4&#x5E74;&#x751F;&#x5BFE;&#x8C61;&#xFF09;
+                                option(value='Level2　（小5〜6年生対象）') Level2&#x3000;&#xFF08;&#x5C0F;5&#x301C;6&#x5E74;&#x751F;&#x5BFE;&#x8C61;&#xFF09;
+                                option(value='Level3　（中学生対象）') Level3&#x3000;&#xFF08;&#x4E2D;&#x5B66;&#x751F;&#x5BFE;&#x8C61;&#xFF09;
+                                option(value='Level4　（高校生対象）') Level4&#x3000;&#xFF08;&#x9AD8;&#x6821;&#x751F;&#x5BFE;&#x8C61;&#xFF09;
                           #id_error_profile_field_Philosophy_Level.form-control-feedback.invalid-feedback
                       #fitem_id_profile_field_Science_Level.form-group.row.fitem
                         .col-md-3.col-form-label.d-flex.pb-0.pr-md-0
@@ -1140,12 +1142,23 @@
                             | &#x79D1;&#x5B66;&#x53D7;&#x8B1B;&#x306E;&#x65B9;&#xFF1A;&#x53D7;&#x8B1B;&#x30EC;&#x30D9;&#x30EB;&#x3092;&#x9078;&#x629E;&#x3057;&#x3066;&#x304F;&#x3060;&#x3055;&#x3044;
                           .form-label-addon.d-flex.align-items-center.align-self-start
                         .col-md-9.form-inline.align-items-start.felement(data-fieldtype='select')
-                          select#id_profile_field_Science_Level.custom-select(name='profile_field_Science_Level')
-                            option(value='-' selected='') -
-                            option(value='Level1　（小3〜4年生対象）') Level1&#x3000;&#xFF08;&#x5C0F;3&#x301C;4&#x5E74;&#x751F;&#x5BFE;&#x8C61;&#xFF09;
-                            option(value='Level2　（小5〜6年生対象）') Level2&#x3000;&#xFF08;&#x5C0F;5&#x301C;6&#x5E74;&#x751F;&#x5BFE;&#x8C61;&#xFF09;
-                            option(value='Level3　（中学生対象）') Level3&#x3000;&#xFF08;&#x4E2D;&#x5B66;&#x751F;&#x5BFE;&#x8C61;&#xFF09;
-                            option(value='Level4　（高校生対象）') Level4&#x3000;&#xFF08;&#x9AD8;&#x6821;&#x751F;&#x5BFE;&#x8C61;&#xFF09;
+                          case pageid
+                            default
+                              select#id_profile_field_Science_Level.custom-select(name='profile_field_Science_Level')
+                                  option(value='-' selected='') -
+                                  option(value='Level1　（小3〜4年生対象）') Level1&#x3000;&#xFF08;&#x5C0F;3&#x301C;4&#x5E74;&#x751F;&#x5BFE;&#x8C61;&#xFF09;
+                                  option(value='Level2　（小5〜6年生対象）') Level2&#x3000;&#xFF08;&#x5C0F;5&#x301C;6&#x5E74;&#x751F;&#x5BFE;&#x8C61;&#xFF09;
+                                  option(value='Level3　（中学生対象）') Level3&#x3000;&#xFF08;&#x4E2D;&#x5B66;&#x751F;&#x5BFE;&#x8C61;&#xFF09;
+                                  option(value='Level4　（高校生対象）') Level4&#x3000;&#xFF08;&#x9AD8;&#x6821;&#x751F;&#x5BFE;&#x8C61;&#xFF09;
+                            when 'three-register'
+                            when 'two-register'
+                            when 'sc-register'      
+                              select#id_profile_field_Science_Level.custom-select(name='profile_field_Science_Level')
+                                  option(value='-') -
+                                  option(value='Level1　（小3〜4年生対象）' selected='') Level1&#x3000;&#xFF08;&#x5C0F;3&#x301C;4&#x5E74;&#x751F;&#x5BFE;&#x8C61;&#xFF09;
+                                  option(value='Level2　（小5〜6年生対象）') Level2&#x3000;&#xFF08;&#x5C0F;5&#x301C;6&#x5E74;&#x751F;&#x5BFE;&#x8C61;&#xFF09;
+                                  option(value='Level3　（中学生対象）') Level3&#x3000;&#xFF08;&#x4E2D;&#x5B66;&#x751F;&#x5BFE;&#x8C61;&#xFF09;
+                                  option(value='Level4　（高校生対象）') Level4&#x3000;&#xFF08;&#x9AD8;&#x6821;&#x751F;&#x5BFE;&#x8C61;&#xFF09;
                           #id_error_profile_field_Science_Level.form-control-feedback.invalid-feedback
                       #fitem_id_profile_field_Economy_Level.form-group.row.fitem
                         .col-md-3.col-form-label.d-flex.pb-0.pr-md-0
@@ -1153,12 +1166,21 @@
                             | &#x7D4C;&#x6E08;&#x53D7;&#x8B1B;&#x306E;&#x65B9;&#xFF1A;&#x53D7;&#x8B1B;&#x30EC;&#x30D9;&#x30EB;&#x3092;&#x9078;&#x629E;&#x3057;&#x3066;&#x304F;&#x3060;&#x3055;&#x3044;
                           .form-label-addon.d-flex.align-items-center.align-self-start
                         .col-md-9.form-inline.align-items-start.felement(data-fieldtype='select')
-                          select#id_profile_field_Economy_Level.custom-select(name='profile_field_Economy_Level')
-                            option(value='-' selected='') -
-                            option(value='Level1　（小3〜4年生対象）') Level1&#x3000;&#xFF08;&#x5C0F;3&#x301C;4&#x5E74;&#x751F;&#x5BFE;&#x8C61;&#xFF09;
-                            option(value='Level2　（小5〜6年生対象）') Level2&#x3000;&#xFF08;&#x5C0F;5&#x301C;6&#x5E74;&#x751F;&#x5BFE;&#x8C61;&#xFF09;
-                            option(value='Level3　（中学生対象）') Level3&#x3000;&#xFF08;&#x4E2D;&#x5B66;&#x751F;&#x5BFE;&#x8C61;&#xFF09;
-                            option(value='Level4　（高校生対象）') Level4&#x3000;&#xFF08;&#x9AD8;&#x6821;&#x751F;&#x5BFE;&#x8C61;&#xFF09;
+                          case pageid
+                            default
+                              select#id_profile_field_Economy_Level.custom-select(name='profile_field_Economy_Level')
+                                option(value='-' selected='') -
+                                option(value='Level1　（小3〜4年生対象）') Level1&#x3000;&#xFF08;&#x5C0F;3&#x301C;4&#x5E74;&#x751F;&#x5BFE;&#x8C61;&#xFF09;
+                                option(value='Level2　（小5〜6年生対象）') Level2&#x3000;&#xFF08;&#x5C0F;5&#x301C;6&#x5E74;&#x751F;&#x5BFE;&#x8C61;&#xFF09;
+                                option(value='Level3　（中学生対象）') Level3&#x3000;&#xFF08;&#x4E2D;&#x5B66;&#x751F;&#x5BFE;&#x8C61;&#xFF09;
+                                option(value='Level4　（高校生対象）') Level4&#x3000;&#xFF08;&#x9AD8;&#x6821;&#x751F;&#x5BFE;&#x8C61;&#xFF09;
+                            when 'three-register'  ||'ec-register' 
+                              select#id_profile_field_Economy_Level.custom-select(name='profile_field_Economy_Level')
+                                option(value='-') -
+                                option(value='Level1　（小3〜4年生対象）' selected='') Level1&#x3000;&#xFF08;&#x5C0F;3&#x301C;4&#x5E74;&#x751F;&#x5BFE;&#x8C61;&#xFF09;
+                                option(value='Level2　（小5〜6年生対象）') Level2&#x3000;&#xFF08;&#x5C0F;5&#x301C;6&#x5E74;&#x751F;&#x5BFE;&#x8C61;&#xFF09;
+                                option(value='Level3　（中学生対象）') Level3&#x3000;&#xFF08;&#x4E2D;&#x5B66;&#x751F;&#x5BFE;&#x8C61;&#xFF09;
+                                option(value='Level4　（高校生対象）') Level4&#x3000;&#xFF08;&#x9AD8;&#x6821;&#x751F;&#x5BFE;&#x8C61;&#xFF09;                                
                           #id_error_profile_field_Economy_Level.form-control-feedback.invalid-feedback
                       #fitem_id_profile_field_English_Level.form-group.row.fitem
                         .col-md-3.col-form-label.d-flex.pb-0.pr-md-0
@@ -1166,11 +1188,17 @@
                             | &#x82F1;&#x8A9E;&#x53D7;&#x8B1B;&#x306E;&#x65B9;&#xFF1A;&#x53D7;&#x8B1B;&#x30EC;&#x30D9;&#x30EB;&#x3092;&#x9078;&#x629E;&#x3057;&#x3066;&#x304F;&#x3060;&#x3055;&#x3044;
                           .form-label-addon.d-flex.align-items-center.align-self-start
                         .col-md-9.form-inline.align-items-start.felement(data-fieldtype='select')
-                          select#id_profile_field_English_Level.custom-select(name='profile_field_English_Level')
-                            option(value='-') -
-                            option(value='Level1　（英語初挑戦の方）') Level1&#x3000;&#xFF08;&#x82F1;&#x8A9E;&#x521D;&#x6311;&#x6226;&#x306E;&#x65B9;&#xFF09;
-                            option(value='Level2　（英語が少し話せる方）') Level2&#x3000;&#xFF08;&#x82F1;&#x8A9E;&#x304C;&#x5C11;&#x3057;&#x8A71;&#x305B;&#x308B;&#x65B9;&#xFF09;
-                            option(value='' selected='')
+                          case pageid
+                            default
+                              select#id_profile_field_English_Level.custom-select(name='profile_field_English_Level')
+                                option(value='-' selected='') -
+                                option(value='Level1　（英語初挑戦の方）') Level1&#x3000;&#xFF08;&#x82F1;&#x8A9E;&#x521D;&#x6311;&#x6226;&#x306E;&#x65B9;&#xFF09;
+                                option(value='Level2　（英語が少し話せる方）') Level2&#x3000;&#xFF08;&#x82F1;&#x8A9E;&#x304C;&#x5C11;&#x3057;&#x8A71;&#x305B;&#x308B;&#x65B9;&#xFF09;
+                            when 'en-register'
+                              select#id_profile_field_English_Level.custom-select(name='profile_field_English_Level')
+                                option(value='-') -
+                                option(value='Level1　（英語初挑戦の方）' selected='') Level1&#x3000;&#xFF08;&#x82F1;&#x8A9E;&#x521D;&#x6311;&#x6226;&#x306E;&#x65B9;&#xFF09;
+                                option(value='Level2　（英語が少し話せる方）') Level2&#x3000;&#xFF08;&#x82F1;&#x8A9E;&#x304C;&#x5C11;&#x3057;&#x8A71;&#x305B;&#x308B;&#x65B9;&#xFF09;
                           #id_error_profile_field_English_Level.form-control-feedback.invalid-feedback
 
 

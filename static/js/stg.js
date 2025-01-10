@@ -90,9 +90,7 @@ function isBuySubjectChildArray(subject, levels) {
 }      
       
 
-if (isBuySubjectChildArray('science', ['sc_L1', 'sc_L3'])) {
-  alert('科学 L1 または L3 に該当します。');
-}
+
 
 ////////////////////////////
 // 今見ているページコースの判定
@@ -622,16 +620,21 @@ if (bodyId === "page-course-view-flexsections") {
 // ==============================
 if (bodyId === "page-user-edit") {
     
-    var AreaPhilosophy = $('#fitem_id_profile_field_Philosophy_Level'); 
-    var AreaScience = $('#fitem_id_profile_field_Science_Level');
-    var AreaEconomy = $('#fitem_id_profile_field_Economy_Level');
-    var AreaEnglish = $('#fitem_id_profile_field_English_Level');
-    var AreaSingleCourse = $('#fitem_id_profile_field_1cource_Subject');
-    var AreaTwoCourse = $('#fitem_id_profile_field_2cources_subject');
-    var AreaThreeCourse = $('#fitem_id_profile_field_3cources_subject');
+    var AreaPhilosophy = $('#fitem_id_profile_field_Philosophy_Level');  //哲学の入力エリア
+    var AreaScience = $('#fitem_id_profile_field_Science_Level');  //科学の入力エリア
+    var AreaEconomy = $('#fitem_id_profile_field_Economy_Level'); //経済の入力エリア
+    var AreaEnglish = $('#fitem_id_profile_field_English_Level'); //英語の入力エリア
+    var AreaSingleCourse = $('#fitem_id_profile_field_1cource_Subject'); //１科目受講の入力エリア
+    var AreaTwoCourse = $('#fitem_id_profile_field_2cources_subject');//２科目受講の入力エリア
+
+    //初回受講レベル登録時、submitあたりで注意文言を出す
+    function AlertSubjectSettingFirst() {
+        $('#fgroup_id_buttonar').before(`<div id="id_submitbutton-subject">一度受講レベルを設定すると、2回目以降のレベル変更時の反映は当月末になりますのでご注意くださいませ。</div>`);
+    }
+
 
     //memo AreaSingleCourse
-    var AreaElements = [AreaPhilosophy, AreaScience, AreaEconomy, AreaEnglish, AreaTwoCourse,AreaThreeCourse ];
+    var AreaElements = [AreaPhilosophy, AreaScience, AreaEconomy, AreaEnglish,AreaSingleCourse, AreaTwoCourse];
     AreaElements.forEach(function(AreaElement) {
         AreaElement.hide();
     });
@@ -648,6 +651,8 @@ if (bodyId === "page-user-edit") {
         return selectElement; // <select>要素を返す
     }
 
+    //選択した科目フィールドのセレクト(select)を監視する関数
+    //この関数は、２科目、３科目の場合考慮することが多そうなので一旦使わない。
     function handleMultipleSelectChange(selectors, callback) {
         // インデックスを格納する配列
         var selectedIndexes = [];
@@ -678,62 +683,51 @@ if (bodyId === "page-user-edit") {
           // コールバック関数を実行し、更新されたインデックス配列を渡す
           callback(selectedIndexes);
         });
-      }
-
-
-
+    }
 
     //哲学のみ購入
     if (isBuySubjectMainArray(['philosophy']) && !isBuySubjectMainArray(['science','economy'])) {
-        AreaPhilosophy.show();
+        AreaPhilosophy.show(); //哲学を表示
         selectOptionByIndex(AreaSingleCourse, 1); //1科目受講を哲学に
-        // selectOptionByIndex(AreaTwoCourse, 0); //2科目受講セレクトを初期化
-        // selectOptionByIndex(AreaThreeCourse, 0);  //3科目受講セレクトを初期化
-        // AreaPhilosophy.show();
-        handleMultipleSelectChange(getSelectElement(AreaPhilosophy), function (selectedIndexes) {
-            console.log("選ばれたインデックスの配列: " + selectedIndexes);
-            if(!selectedIndexes.includes(0)){
-                 $('body').after('<div class="fixed-scroll">↓スクロールして受講レベルを確定しましょう↓</div>');
-            }
-        });
+        //初回受講レベル登録時、submitあたりで注意文言を出す
+        if  (!isBuySubjectChildArray('philosophy', ['ph_L1', 'ph_L2', 'ph_L3', 'ph_L4'])){
+            AlertSubjectSettingFirst();
+        } 
     }
     //科学のみ購入
     if (isBuySubjectMainArray(['science']) && !isBuySubjectMainArray(['philosophy','economy'])) {
-        AreaScience.show();
+        AreaScience.show(); //科学を表示
         selectOptionByIndex(AreaSingleCourse, 2); //1科目受講を科学に
-        // selectOptionByIndex(AreaTwoCourse, 0); //2科目受講セレクトを初期化
-        // selectOptionByIndex(AreaThreeCourse, 0); //3科目受講セレクトを初期化
-        // AreaPhilosophy.show();
-        handleMultipleSelectChange(getSelectElement(AreaPhilosophy), function (selectedIndexes) {
-            console.log("選ばれたインデックスの配列: " + selectedIndexes);
-            if(!selectedIndexes.includes(0)){
-                    $('body').after('<div class="fixed-scroll">↓スクロールして受講レベルを確定しましょう↓</div>');
-            }
-        });
+        //初回受講レベル登録時、submitあたりで注意文言を出す
+        if  (!isBuySubjectChildArray('science', ['sc_L1', 'sc_L2', 'sc_L3', 'sc_L4'])){
+            AlertSubjectSettingFirst();
+        } 
     }
+    //経済のみ購入
     if (isBuySubjectMainArray(['economy']) && !isBuySubjectMainArray(['philosophy','science'])) {
-        alert('経済');
         AreaEconomy.show(); //経済エリアを表示
         selectOptionByIndex(AreaSingleCourse, 3); //1科目受講を経済に
-        // selectOptionByIndex(AreaTwoCourse, 0); //2科目受講セレクトを初期化
-        // selectOptionByIndex(AreaThreeCourse, 0); //3科目受講セレクトを初期化
-        // AreaPhilosophy.show();
-        handleMultipleSelectChange(getSelectElement(AreaPhilosophy), function (selectedIndexes) {
-            console.log("選ばれたインデックスの配列: " + selectedIndexes);
-            if(!selectedIndexes.includes(0)){
-                    $('body').after('<div class="fixed-scroll">↓スクロールして受講レベルを確定しましょう↓</div>');
-            }
-        });
+        //初回受講レベル登録時、submitあたりで注意文言を出す
+        if  (!isBuySubjectChildArray('economy', ['ec_L1', 'ec_L2', 'ec_L3', 'ec_L4'])){
+            AlertSubjectSettingFirst();
+        } 
+    }
+    //英語購入
+    //英語は他３科目と違い、英語単体で判定する
+    if (isBuySubjectMainArray(['GlobalEnglish']) ) {
+        AreaEnglish.show(); //英語エリアを表示
+        //初回受講レベル登録時、submitあたりで注意文言を出す
+        if  (!isBuySubjectChildArray('GlobalEnglishence', ['en_L1', 'en_L2'])){
+            AlertSubjectSettingFirst();
+        } 
     }
 
-    //【２科目】２科目パック
+    //【２科目】２科目セット買った時
     if (isBuySubjectMainArray(['TwoSubjectPack'], true)) {
         //2科目セットの場合は選べるので2科目のプルダウンは抑制しない
-        alert('2科目セット');
         AreaTwoCourse.show(); //2科のプルダウンを表示
         selectOptionByIndex(AreaSingleCourse, 0); //1科目受講
-        selectOptionByIndex(AreaThreeCourse, 0); //3科目受講
-        // // 2科目変更ロジック
+        // // 2科目のプルダウンを変更した時に実行する関数
         function updateAreaOnSelection() {
             var selectedIndex = getSelectElement(AreaTwoCourse).prop('selectedIndex'); // 選択された<option>のインデックスを取得
 
@@ -768,54 +762,91 @@ if (bodyId === "page-user-edit") {
         }
         //ページロード時に実行
         updateAreaOnSelection();
-        // 変更した時も実行
+        //プルダウンを変更した時も実行
         getSelectElement(AreaTwoCourse).on('change', updateAreaOnSelection);
+        getSelectElement(AreaTwoCourse).after("<div class='subject-select-levelnotset'>受講レベルを設定してください</div>");
+        //初回受講レベル登録時、submitあたりで注意文言を出す
+        if (
+            !isBuySubjectChildArray('economy', ['ec_L1', 'ec_L2', 'ec_L3', 'ec_L4']) &&
+            !isBuySubjectChildArray('philosophy', ['ph_L1', 'ph_L2', 'ph_L3', 'ph_L4']) &&
+            !isBuySubjectChildArray('science', ['sc_L1', 'sc_L2', 'sc_L3', 'sc_L4'])
+        ) {
+            AlertSubjectSettingFirst();
+        }
+
     }
 
-    //【３科目】３科目パックと単品で３科目勝った時
-    if (isBuySubjectMainArray(['ThreeSubjectPack'], true)||isBuySubjectMainArray(['philosophy','economy','science'], true)) {
-        alert('3科目セット');
+    //【３科目】３科目セット買った時
+    if (isBuySubjectMainArray(['ThreeSubjectPack'], true)) {
         AreaPhilosophy.show(); //科学を表示
         AreaScience.show(); //哲学を表示
         AreaEconomy.show(); //経済を表示
-        // selectOptionByIndex(AreaSingleCourse, 0); //1科目受講
-        // selectOptionByIndex(AreaTwoCourse, 0); //2科目受講
-        selectOptionByIndex(AreaThreeCourse, 1); //3科目受講
+        //初回受講レベル登録時、submitあたりで注意文言を出す
+        if (
+            !isBuySubjectChildArray('economy', ['ec_L1', 'ec_L2', 'ec_L3', 'ec_L4']) &&
+            !isBuySubjectChildArray('philosophy', ['ph_L1', 'ph_L2', 'ph_L3', 'ph_L4']) &&
+            !isBuySubjectChildArray('science', ['sc_L1', 'sc_L2', 'sc_L3', 'sc_L4'])
+        ) {
+            AlertSubjectSettingFirst();
+        }
     }
-
     //メイン科目で哲学設定｜哲学L1~L4は未設定
     if (isBuySubjectMainArray(['philosophy'])&& (!isBuySubjectChildArray('philosophy', ['ph_L1', 'ph_L2', 'ph_L3', 'ph_L4']))){
         AreaPhilosophy.show();
     }
-    alert('3');
 
-    //哲学いずれかサブレベル持っているとき
-    if  (isBuySubjectChildArray('philosophy', ['ph_L1', 'ph_L2', 'ph_L3', 'ph_L4'])){
-    alert('効いている?');
-    getSelectElement(AreaPhilosophy).after('<p>受講レベルは月末に反映されます。変更しても即時で反映されませんのでご注意くださいませ。</p>');
-    } else {
-    getSelectElement(AreaPhilosophy).after('<p>受講レベルを設定してください</p>');
-    }
-    //経済いずれかサブレベル持っているとき
-    if  (isBuySubjectChildArray('science', ['sc_L1', 'sc_L2', 'sc_L3', 'sc_L4'])){
-    getSelectElement(AreaScience).after('<p>受講レベルは月末に反映されます。変更しても即時で反映されませんのでご注意くださいませ。</p>');
-    } else {
-    getSelectElement(AreaScience).after('<p>受講レベルを設定してください</p>');
-    }
-    //哲学いずれかサブレベル持っているとき
-    if  (isBuySubjectChildArray('economy', ['ec_L1', 'ec_L2', 'ec_L3', 'ec_L4'])){
-    getSelectElement(AreaEconomy).after('<p>受講レベルは月末に反映されます。変更しても即時で反映されませんのでご注意くださいませ。</p>');
-    }else {
-    getSelectElement(AreaEconomy).after('<p>受講レベルを設定してください</p>');
-    }
+
+    // 科目の設定を配列で定義
+    const subjectConfigs = [
+        {
+        subject: 'philosophy',
+        area: AreaPhilosophy,
+        levels: ['ph_L1', 'ph_L2', 'ph_L3', 'ph_L4']
+        },
+        {
+        subject: 'science',
+        area: AreaScience,
+        levels: ['sc_L1', 'sc_L2', 'sc_L3', 'sc_L4']
+        },
+        {
+        subject: 'economy',
+        area: AreaEconomy,
+        levels: ['ec_L1', 'ec_L2', 'ec_L3', 'ec_L4']
+        },
+        {
+        subject: 'GlobalEnglish',
+        area: AreaEnglish,
+        levels: ['en_L1', 'en_L2']
+        }
+    ];
+    
+    // メッセージの定義
+    const messages = {
+        levelSet: '<div class="subject-select-levelset">受講レベルは月末に反映されます。変更しても即時で反映されませんのでご注意くださいませ。</div>',
+        levelNotSet: '<div class="subject-select-levelnotset">受講レベルを設定してください</div>'
+    };
+    
+    // 全科目の処理を一括で行う
+    subjectConfigs.forEach(({ subject, area, levels }) => {
+        const message = isBuySubjectChildArray(subject, levels)
+        ? messages.levelSet
+        : messages.levelNotSet;
+        
+        getSelectElement(area).after(message);
+    });
 
     $('#id_category_10 > .d-flex').after(`
         <p class="subject-level-note">
           受講科目のレベルを選択してください。<br />
           選択した科目のレベルを設定しないと授業を受けることができません。<br />
-          ※一度設定すると、次回のレベルの反映は月末になりますのでご注意くださいませ。
+         一度受講レベルを設定すると、2回目以降のレベル変更時の反映は当月末になりますのでご注意ください。  
         </p>
-      `);
+    `);
+
+    //最初に説明文を挿入
+   
+
+    
 }
 
 // ==============================
