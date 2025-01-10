@@ -580,6 +580,7 @@ if (bodyId === "page-course-view-flexsections") {
 //受講レベルの設定
 // ==============================
 if (bodyId === "page-user-edit") {
+    
     var AreaPhilosophy = $('#fitem_id_profile_field_Philosophy_Level'); 
     var AreaScience = $('#fitem_id_profile_field_Science_Level');
     var AreaEconomy = $('#fitem_id_profile_field_Economy_Level');
@@ -588,7 +589,8 @@ if (bodyId === "page-user-edit") {
     var AreaTwoCourse = $('#fitem_id_profile_field_2cources_subject');
     var AreaThreeCourse = $('#fitem_id_profile_field_3cources_subject');
 
-    var AreaElements = [AreaPhilosophy, AreaScience, AreaEconomy, AreaEnglish, AreaSingleCourse, AreaTwoCourse,AreaThreeCourse ];
+    //memo AreaSingleCourse
+    var AreaElements = [AreaPhilosophy, AreaScience, AreaEconomy, AreaEnglish, AreaTwoCourse,AreaThreeCourse ];
     AreaElements.forEach(function(AreaElement) {
         AreaElement.hide();
     });
@@ -639,21 +641,46 @@ if (bodyId === "page-user-edit") {
 
 
 
-    console.log('効いている？');
-    console.log(getSelectElement(AreaPhilosophy));
 
-    //初期のレベル判定ロジック
+    //哲学のみ購入
     if (isBuySubjectMainArray(['philosophy']) && !isBuySubjectMainArray(['science','economy'])) {
-        // alert('哲学のみ?');
         AreaPhilosophy.show();
-        selectOptionByIndex(AreaSingleCourse, 1);
-        selectOptionByIndex(AreaTwoCourse, 0); //2科目受講
-        selectOptionByIndex(AreaThreeCourse, 0); //3科目受講
+        selectOptionByIndex(AreaSingleCourse, 1); //1科目受講を哲学に
+        // selectOptionByIndex(AreaTwoCourse, 0); //2科目受講セレクトを初期化
+        // selectOptionByIndex(AreaThreeCourse, 0);  //3科目受講セレクトを初期化
         // AreaPhilosophy.show();
         handleMultipleSelectChange(getSelectElement(AreaPhilosophy), function (selectedIndexes) {
             console.log("選ばれたインデックスの配列: " + selectedIndexes);
             if(!selectedIndexes.includes(0)){
                  $('body').after('<div class="fixed-scroll">↓スクロールして受講レベルを確定しましょう↓</div>');
+            }
+        });
+    }
+    //科学のみ購入
+    if (isBuySubjectMainArray(['science']) && !isBuySubjectMainArray(['philosophy','economy'])) {
+        AreaScience.show();
+        selectOptionByIndex(AreaSingleCourse, 2); //1科目受講を科学に
+        // selectOptionByIndex(AreaTwoCourse, 0); //2科目受講セレクトを初期化
+        // selectOptionByIndex(AreaThreeCourse, 0); //3科目受講セレクトを初期化
+        // AreaPhilosophy.show();
+        handleMultipleSelectChange(getSelectElement(AreaPhilosophy), function (selectedIndexes) {
+            console.log("選ばれたインデックスの配列: " + selectedIndexes);
+            if(!selectedIndexes.includes(0)){
+                    $('body').after('<div class="fixed-scroll">↓スクロールして受講レベルを確定しましょう↓</div>');
+            }
+        });
+    }
+    if (isBuySubjectMainArray(['economy']) && !isBuySubjectMainArray(['philosophy','science'])) {
+        alert('経済');
+        AreaEconomy.show(); //経済エリアを表示
+        selectOptionByIndex(AreaSingleCourse, 3); //1科目受講を経済に
+        // selectOptionByIndex(AreaTwoCourse, 0); //2科目受講セレクトを初期化
+        // selectOptionByIndex(AreaThreeCourse, 0); //3科目受講セレクトを初期化
+        // AreaPhilosophy.show();
+        handleMultipleSelectChange(getSelectElement(AreaPhilosophy), function (selectedIndexes) {
+            console.log("選ばれたインデックスの配列: " + selectedIndexes);
+            if(!selectedIndexes.includes(0)){
+                    $('body').after('<div class="fixed-scroll">↓スクロールして受講レベルを確定しましょう↓</div>');
             }
         });
     }
@@ -665,61 +692,53 @@ if (bodyId === "page-user-edit") {
         AreaTwoCourse.show(); //2科のプルダウンを表示
         selectOptionByIndex(AreaSingleCourse, 0); //1科目受講
         selectOptionByIndex(AreaThreeCourse, 0); //3科目受講
-        //何かしらのサブ科目受講時はロックする
-        if (
-            isBuySubjectChildArray('economy', ['ec_L1', 'ec_L2', 'ec_L3', 'ec_L4']) ||
-            isBuySubjectChildArray('science', ['sc_L1', 'sc_L2', 'sc_L3', 'sc_L4']) ||
-            isBuySubjectChildArray('economy', ['ec_L1', 'ec_L2', 'ec_L3', 'ec_L4'])
-        ) {
-            getSelectElement(AreaTwoCourse).prop('disabled', true);
+        // // 2科目変更ロジック
+        function updateAreaOnSelection() {
+            var selectedIndex = getSelectElement(AreaTwoCourse).prop('selectedIndex'); // 選択された<option>のインデックスを取得
+
+            // インデックスに基づいて処理を変更
+            switch (selectedIndex) {    
+                case 1:
+                    // 哲学＋科学
+                    AreaPhilosophy.show();
+                    AreaScience.show();
+                    AreaEconomy.hide();
+                    break;
+                
+                case 2:
+                    // 科学＋経済    
+                    AreaPhilosophy.show();
+                    AreaScience.hide();
+                    AreaEconomy.show();
+                    break;
+                
+                case 3:
+                    // 科学＋経済   
+                    AreaPhilosophy.hide();
+                    AreaScience.show();
+                    AreaEconomy.show();
+                    break;
+                default:
+                    // デフォルトの処理（必要に応じて）
+                    AreaPhilosophy.hide();
+                    AreaScience.hide();
+                    AreaEconomy.hide();
+            }
         }
+        //ページロード時に実行
+        updateAreaOnSelection();
+        // 変更した時も実行
+        getSelectElement(AreaTwoCourse).on('change', updateAreaOnSelection);
     }
-
-    // 2科目変更ロジック
-    function updateAreaOnSelection() {
-        var selectedIndex = SelectTwoCourse.prop('selectedIndex'); // 選択された<option>のインデックスを取得
-
-        // インデックスに基づいて処理を変更
-        switch (selectedIndex) {
-            // 哲学＋科学
-            case 1:
-                AreaPhilosophy.show();
-                AreaScience.show();
-                AreaEconomy.hide();
-                break;
-            // 科学＋経済    
-            case 2:
-                AreaPhilosophy.show();
-                AreaScience.hide();
-                AreaEconomy.show();
-                break;
-            // 科学＋経済   
-            case 3:
-                AreaPhilosophy.hide();
-                AreaScience.show();
-                AreaEconomy.show();
-                break;
-            default:
-                // デフォルトの処理（必要に応じて）
-                AreaPhilosophy.hide();
-                AreaScience.hide();
-                AreaEconomy.hide();
-        }
-    }
-    //ページロード時に実行
-    updateAreaOnSelection();
-
-    // 変更した時も実行
-    SelectTwoCourse.on('change', updateAreaOnSelection);
 
     //【３科目】３科目パックと単品で３科目勝った時
     if (isBuySubjectMainArray(['ThreeSubjectPack'], true)||isBuySubjectMainArray(['philosophy','economy','science'], true)) {
         alert('3科目セット');
-        AreaPhilosophy.show();
-        AreaScience.show();
-        AreaEconomy.show();
-        selectOptionByIndex(AreaSingleCourse, 0); //1科目受講
-        selectOptionByIndex(AreaTwoCourse, 0); //2科目受講
+        AreaPhilosophy.show(); //科学を表示
+        AreaScience.show(); //哲学を表示
+        AreaEconomy.show(); //経済を表示
+        // selectOptionByIndex(AreaSingleCourse, 0); //1科目受講
+        // selectOptionByIndex(AreaTwoCourse, 0); //2科目受講
         selectOptionByIndex(AreaThreeCourse, 1); //3科目受講
     }
 
@@ -727,26 +746,24 @@ if (bodyId === "page-user-edit") {
     if (isBuySubjectMainArray(['philosophy'])&& (!isBuySubjectChildArray('philosophy', ['ph_L1', 'ph_L2', 'ph_L3', 'ph_L4']))){
         AreaPhilosophy.show();
     }
+    alert('3');
 
     //哲学いずれかサブレベル持っているとき
     if  (isBuySubjectChildArray('philosophy', ['ph_L1', 'ph_L2', 'ph_L3', 'ph_L4'])){
     alert('効いている?');
-    getSelectElement(AreaPhilosophy).prop('disabled', true);
-    getSelectElement(AreaPhilosophy).after('<p>受講レベルを途中で変更する場合はフォームより問い合わせください</p>');
+    getSelectElement(AreaPhilosophy).after('<p>受講レベルは月末に反映されます。変更しても即時で反映されませんのでご注意くださいませ。</p>');
     } else {
     getSelectElement(AreaPhilosophy).after('<p>受講レベルを設定してください</p>');
     }
     //経済いずれかサブレベル持っているとき
     if  (isBuySubjectChildArray('science', ['sc_L1', 'sc_L2', 'sc_L3', 'sc_L4'])){
-    getSelectElement(AreaScience).prop('disabled', true);
-    getSelectElement(AreaScience).after('<p>受講レベルを途中で変更する場合はフォームより問い合わせください</p>');
+    getSelectElement(AreaScience).after('<p>受講レベルは月末に反映されます。変更しても即時で反映されませんのでご注意くださいませ。</p>');
     } else {
     getSelectElement(AreaScience).after('<p>受講レベルを設定してください</p>');
     }
     //哲学いずれかサブレベル持っているとき
     if  (isBuySubjectChildArray('economy', ['ec_L1', 'ec_L2', 'ec_L3', 'ec_L4'])){
-    getSelectElement(AreaEconomy).prop('disabled', true);
-    getSelectElement(AreaEconomy).after('<p>受講レベルを途中で変更する場合はフォームより問い合わせください</p>');
+    getSelectElement(AreaEconomy).after('<p>受講レベルは月末に反映されます。変更しても即時で反映されませんのでご注意くださいませ。</p>');
     }else {
     getSelectElement(AreaEconomy).after('<p>受講レベルを設定してください</p>');
     }
@@ -755,7 +772,7 @@ if (bodyId === "page-user-edit") {
         <p class="subject-level-note">
           受講科目のレベルを選択してください。<br />
           選択した科目のレベルを設定しないと授業を受けることができません。<br />
-          ※一度設定した後はフォームで申請し、月末に変更可能です。
+          ※一度設定すると、次回のレベルの反映は月末になりますのでご注意くださいませ。
         </p>
       `);
 }

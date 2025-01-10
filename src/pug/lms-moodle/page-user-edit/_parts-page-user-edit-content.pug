@@ -1097,11 +1097,19 @@
                             | 2&#x79D1;&#x76EE;&#x30BB;&#x30C3;&#x30C8;&#x53D7;&#x8B1B;&#x306E;&#x65B9;&#xFF1A;&#x53D7;&#x8B1B;&#x79D1;&#x76EE;&#x30BB;&#x30C3;&#x30C8;&#x3092;&#x9078;&#x629E;&#x3057;&#x3066;&#x304F;&#x3060;&#x3055;&#x3044;
                           .form-label-addon.d-flex.align-items-center.align-self-start
                         .col-md-9.form-inline.align-items-start.felement(data-fieldtype='select')
-                          select#id_profile_field_2cources_subject.custom-select(name='profile_field_2cources_subject')
-                            option(value='-' selected='') -
-                            option(value='哲学＋科学') &#x54F2;&#x5B66;&#xFF0B;&#x79D1;&#x5B66;
-                            option(value='哲学＋経済') &#x54F2;&#x5B66;&#xFF0B;&#x7D4C;&#x6E08;
-                            option(value='科学＋経済') &#x79D1;&#x5B66;&#xFF0B;&#x7D4C;&#x6E08;
+                          case pageid
+                            default
+                              select#id_profile_field_2cources_subject.custom-select(name='profile_field_2cources_subject')
+                                option(value='-' selected='') -
+                                option(value='哲学＋科学') &#x54F2;&#x5B66;&#xFF0B;&#x79D1;&#x5B66;
+                                option(value='哲学＋経済') &#x54F2;&#x5B66;&#xFF0B;&#x7D4C;&#x6E08;
+                                option(value='科学＋経済') &#x79D1;&#x5B66;&#xFF0B;&#x7D4C;&#x6E08;
+                            when 'two-register'
+                              select#id_profile_field_2cources_subject.custom-select(name='profile_field_2cources_subject')
+                                  option(value='-') -
+                                  option(value='哲学＋科学' selected='') &#x54F2;&#x5B66;&#xFF0B;&#x79D1;&#x5B66;
+                                  option(value='哲学＋経済') &#x54F2;&#x5B66;&#xFF0B;&#x7D4C;&#x6E08;
+                                  option(value='科学＋経済') &#x79D1;&#x5B66;&#xFF0B;&#x7D4C;&#x6E08;
                           #id_error_profile_field_2cources_subject.form-control-feedback.invalid-feedback
                       #fitem_id_profile_field_3cources_subject.form-group.row.fitem
                         .col-md-3.col-form-label.d-flex.pb-0.pr-md-0
