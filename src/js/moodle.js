@@ -657,36 +657,7 @@ if (bodyId === "page-user-edit") {
             }
         });
     }
-    //【２科目】哲学＋科学
-    if (isBuySubjectMainArray(['philosophy','science'], true) && !isBuySubjectMainArray(['economy'])) {
-        alert('経済＋科学?');
-        AreaPhilosophy.show();
-        AreaScience.show();
-        // AreaEconomy.show();
-        selectOptionByIndex(AreaSingleCourse, 0); //1科目受講
-        selectOptionByIndex(AreaTwoCourse, 1); //2科目受講
-        selectOptionByIndex(AreaThreeCourse, 0); //3科目受講
-    }
-    //【２科目】哲学＋経済
-    if (isBuySubjectMainArray(['philosophy','economy'], true) && !isBuySubjectMainArray(['science'])) {
-        alert('哲学＋経済?');
-        AreaPhilosophy.show();
-        // AreaScience.show();
-        AreaEconomy.show();
-        selectOptionByIndex(AreaSingleCourse, 0); //1科目受講
-        selectOptionByIndex(AreaTwoCourse, 2); //2科目受講
-        selectOptionByIndex(AreaThreeCourse, 0); //3科目受講
-    }
-    //【２科目】科学＋経済
-    if (isBuySubjectMainArray(['science','economy'], true) && !isBuySubjectMainArray(['philosophy'])) {
-        alert('科学＋経済?');
-        // AreaPhilosophy.show();
-        AreaScience.show();
-        AreaEconomy.show();
-        selectOptionByIndex(AreaSingleCourse, 0); //1科目受講
-        selectOptionByIndex(AreaTwoCourse,3); //2科目受講
-        selectOptionByIndex(AreaThreeCourse, 0); //3科目受講
-    }
+
     //【２科目】２科目パック
     if (isBuySubjectMainArray(['TwoSubjectPack'], true)) {
         //2科目セットの場合は選べるので2科目のプルダウンは抑制しない
