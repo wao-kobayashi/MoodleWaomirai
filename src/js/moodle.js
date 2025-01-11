@@ -52,6 +52,20 @@ function isBuySubjectChildArray(subject, levels) {
   );
 }
 
+function getSubjectChildId(subject, levels, bodyClasses) {
+  const subjectGroup = SubjectIds.SubjectChild[subject];
+  if (!subjectGroup) return null; // グループが存在しない場合はnullを返す
+
+  // levelsのいずれかのIDがbodyClassesに含まれている場合、そのIDを返す
+  for (const level of levels) {
+    if (subjectGroup[level] && bodyClasses.includes(subjectGroup[level].id)) {
+      return subjectGroup[level].id; // 該当するIDを返す
+    }
+  }
+
+  return null; // 該当するIDがない場合はnullを返す
+}
+
 ////////////////////////////
 // 今見ているページコースの判定
 ////////////////////////////
@@ -723,20 +737,12 @@ if (bodyId === "page-course-index-category") {
 //メイン3科目or2,3科目パック購入後はリダイレクトさせる
 // ==============================
 if (bodyId === "page-course-view-flexsections") {
-  const courseId = parseInt(window.location.href.split("id=")[1], 10); // URLからidを取得
-  const matchedSubject = Object.values(SubjectIds).find(
-    (subject) => subject.id === courseId
+  const currentId = getSubjectChildId(
+    "philosophy",
+    ["ph_L1", "ph_L2", "ph_L3", "ph_L4"],
+    bodyClasses
   );
-
-  if (matchedSubject) {
-    $("body").prepend(`
-        <div class="subject-banner">
-            <h1>${matchedSubject.name}のコースページです</h1>
-        </div>
-    `);
-  } else {
-    console.error("指定された科目に該当しません");
-  }
+  alert(currentId);
 }
 
 // ==============================
