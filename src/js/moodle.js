@@ -97,6 +97,40 @@ if (CurrentViewCourseData) {
   );
 }
 
+function createModal(options = {}) {
+  const modal = `
+    <div class="c-modal">
+      <div class="c-modal-wrap">
+        ${options.close ? '<div class="c-modal-wrap-close"></div>' : ""}
+        ${
+          options.title
+            ? `<div class="c-modal-wrap-title">${options.title}</div>`
+            : ""
+        }
+        ${
+          options.text
+            ? `<div class="c-modal-wrap-text">${options.text}</div>`
+            : ""
+        }
+        ${
+          options.buttonText
+            ? `<a href="${options.url || "#"}" class="c-modal-wrap-button">${
+                options.buttonText
+              }</a>`
+            : ""
+        }
+      </div>
+    </div>
+    <div class="c-modal-bg"></div>
+  `;
+
+  const $modal = $(modal).appendTo("body");
+
+  $(".c-modal-wrap-close, .c-modal-bg", $modal).on("click", function () {
+    $modal.remove();
+  });
+}
+
 // ==============================
 // ダッシュボードページでの処理
 // ==============================
@@ -585,8 +619,13 @@ if (bodyId === "page-enrol-index") {
     $(".enrol_fee_payment_region button").on("click", function (event) {
       event.preventDefault(); //ボタンイベンを無効
       if (isBuySubjectMainArray(["science", "economy"])) {
-        alert(
-          "「哲学 ・経済・化学」の教科で２科目以上受講する際はセット購入がお得です。セット購入の際はフォームより申し込みをお願いいたします。"
+        $("body").append(
+          createModal({
+            close: true,
+            text: "「哲学 ・経済・化学」の教科で２科目以上受講する際はセット購入がお得です。セット購入の際はフォームより申し込みをお願いいたします。",
+            buttonText: "ボタンのテキスト",
+            url: "https://example.com",
+          })
         );
       } else if (
         isBuySubjectMainArray(["TwoSubjectPack", "ThreeSubjectPack"])

@@ -10,10 +10,11 @@ mixin c-modal(options)
         .c-modal-wrap-text= options.text
       if options.buttonText
         button.c-modal-wrap-button= options.buttonText
+
 //- ミックスインの呼び出し
 +c-modal({
   close: true,
-  title: false,
+  title: "タイトル",
   text: 'モーダルのテキスト、モーダルのテキストモーダルのテキストモーダルのテキストモーダルのテキスト',
   buttonText: 'ボタンのテキスト'
 })
