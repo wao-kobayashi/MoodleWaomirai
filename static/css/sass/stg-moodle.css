@@ -669,12 +669,16 @@ html[data-tenantidnumber=stg] .c-modal-wrap-button {
   padding: 0 20px;
   margin: 0 auto;
 }
+html[data-tenantidnumber=stg] .c-modal-wrap-button:hover {
+  text-decoration: none !important;
+}
 html[data-tenantidnumber=stg] .c-modal-wrap-close {
   position: absolute;
   right: 13px;
   top: 13px;
   width: 25px;
   height: 25px;
+  cursor: pointer;
 }
 html[data-tenantidnumber=stg] .c-modal-wrap-close::before, html[data-tenantidnumber=stg] .c-modal-wrap-close::after {
   position: absolute;

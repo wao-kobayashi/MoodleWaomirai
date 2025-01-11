@@ -655,92 +655,83 @@ if (bodyId === "page-enrol-index") {
   console.log(SubjectPriceContent);
   $("#page.drawers").after(SubjectPriceContent);
 
-  if (CurrentViewCourseData.category === "philosophy") {
-    //哲学の講座購入時
-    $(".enrol_fee_payment_region button").on("click", function (event) {
-      event.preventDefault(); //ボタンイベンを無効
-      if (isBuySubjectMainArray(["science", "economy"])) {
+  // カテゴリーごとの購入処理
+  $(".enrol_fee_payment_region button").on("click", function (event) {
+    const category = CurrentViewCourseData.category;
+
+    // 科目別の処理（哲学、科学、経済）
+    if (["philosophy", "science", "economy"].includes(category)) {
+      event.preventDefault();
+
+      const otherSubjects = {
+        philosophy: ["science", "economy"],
+        science: ["philosophy", "economy"],
+        economy: ["philosophy", "science"],
+      };
+
+      if (isBuySubjectMainArray(otherSubjects[category])) {
+        //1科買っていてもう1科買おうとしたとき
         $("body").append(
           createModal({
             close: true,
-            text: "「哲学 ・経済・化学」の教科で２科目以上受講する際はセット購入がお得です。セット購入の際はフォームより申し込みをお願いいたします。",
-            buttonText: "ボタンのテキスト",
+            text: "「哲学・経済・化学」の教科で２科目以上受講する際はセット購入がお得です。セット購入の際はフォームより申し込みをお願いいたします。",
+            buttonText: "変更フォームへ",
             url: "https://example.com",
           })
         );
       } else if (
+        //2科買っていてもうセットパック買おうとしたとき
         isBuySubjectMainArray(["TwoSubjectPack", "ThreeSubjectPack"])
       ) {
-        alert(
-          "すでに2科目セットを受講登録されています。受講科目の選択は「ユーザ設定」→「登録情報の変更」より登録をお願いします。"
+        $("body").append(
+          createModal({
+            close: true,
+            text: "すでに複数受講できる科目セットを購入されています。受講科目の選択はXXXXXXX（ここは未定）",
+            buttonText: "ここは未定",
+            url: "https://example.com",
+          })
         );
       }
-    });
-  }
+    }
 
-  if (CurrentViewCourseData.category === "science") {
-    //哲学の講座購入時
-    $(".enrol_fee_payment_region button").on("click", function (event) {
-      event.preventDefault(); //ボタンイベンを無効
-      if (isBuySubjectMainArray(["philosophy", "economy"])) {
-        alert(
-          "「哲学 ・経済・化学」の教科で２科目以上受講する際はセット購入がお得です。セット購入の際はフォームより申し込みをお願いいたします。"
+    // セットパック購入時の処理
+    if (["TwoSubjectPack", "ThreeSubjectPack"].includes(category)) {
+      if (isBuySubjectMainArray(["philosophy", "science", "economy"])) {
+        $("body").append(
+          createModal({
+            close: true,
+            text: "「哲学・化学・経済」の科目のいずれかを受講している場合、こちらのボタンからセット受講を購入することはできません。下記フォームより購入を申し込む必要がございます。",
+            buttonText: "複数科目セットの購入フォームへ",
+            url: "https://example.com",
+          })
         );
       } else if (
-        isBuySubjectMainArray(["TwoSubjectPack", "ThreeSubjectPack"])
+        category === "TwoSubjectPack" &&
+        isBuySubjectMainArray(["ThreeSubjectPack"])
       ) {
-        alert(
-          "すでに2科目セットを受講登録されています。受講科目の選択は「ユーザ設定」→「登録情報の変更」より登録をお願いします。"
-        );
-      }
-    });
-  }
-  if (CurrentViewCourseData.category === "economy") {
-    //哲学の講座購入時
-    $(".enrol_fee_payment_region button").on("click", function (event) {
-      event.preventDefault(); //ボタンイベンを無効
-      if (isBuySubjectMainArray(["philosophy", "science"])) {
-        alert(
-          "「哲学 ・経済・化学」の教科で２科目以上受講する際はセット購入がお得です。セット購入の際はフォームより申し込みをお願いいたします。"
+        $("body").append(
+          createModal({
+            close: true,
+            text: "「３科目セット」を購入済みです。２科目セットへ受講変更したい場合はフォームよりお問い合わせをお願いいたします。",
+            buttonText: "受講変更フォームへ",
+            url: "https://example.com",
+          })
         );
       } else if (
-        isBuySubjectMainArray(["TwoSubjectPack", "ThreeSubjectPack"])
+        category === "ThreeSubjectPack" &&
+        isBuySubjectMainArray(["TwoSubjectPack"])
       ) {
-        alert(
-          "すでに2科目セットを受講登録されています。受講科目の選択は「ユーザ設定」→「登録情報の変更」より登録をお願いします。"
+        $("body").append(
+          createModal({
+            close: true,
+            text: "「２科目セット」を購入済みです。３科目セットへ受講変更したい場合はフォームよりお問い合わせをお願いいたします。",
+            buttonText: "受講変更フォームへ",
+            url: "https://example.com",
+          })
         );
       }
-    });
-  }
-
-  if (CurrentViewCourseData.category === "TwoSubjectPack") {
-    //哲学の講座購入時
-    $(".enrol_fee_payment_region button").on("click", function (event) {
-      if (isBuySubjectMainArray(["philosophy", "science", "economy"])) {
-        alert(
-          "「哲学・化学・経済」の科目いずれかを受講している場合、こちらのボタンから購入することはできません。下記フォームより申し込む必要がございます。"
-        );
-      } else if (isBuySubjectMainArray(["ThreeSubjectPack"])) {
-        alert(
-          "「３科目セット」を購入済みです。２科目セットへ受講変更したい場合はフォームよりお問い合わせをお願いいたします。"
-        );
-      }
-    });
-  }
-  if (CurrentViewCourseData.category === "ThreeSubjectPack") {
-    //哲学の講座購入時
-    $(".enrol_fee_payment_region button").on("click", function (event) {
-      if (isBuySubjectMainArray(["philosophy", "science", "economy"])) {
-        alert(
-          "「哲学・化学・経済」の科目いずれかを受講している場合、こちらのボタンから購入することはできません。下記フォームより申し込む必要がございます。"
-        );
-      } else if (isBuySubjectMainArray(["TwoSubjectPack"])) {
-        alert(
-          "「２科目セット」を購入済みです。３科目セットへ受講変更したい場合はフォームよりお問い合わせをお願いいたします。"
-        );
-      }
-    });
-  }
+    }
+  });
 }
 
 // ==============================

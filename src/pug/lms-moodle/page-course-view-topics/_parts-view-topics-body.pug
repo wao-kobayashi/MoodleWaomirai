@@ -1,7 +1,4 @@
-extends ../_layout_moodle.pug
-block contents
-  - var title = '哲学メンバー詳細 | stg'  // 変数の定義
-  body#page-course-view-flexsections(class="format-flexsections limitedwidth  path-course path-course-view chrome dir-ltr lang-ja_wp yui-skin-sam yui3-skin-sam lms-waomirai-com pagelayout-course course-232 context-2389 category-43 theme uses-drawers")
+body#page-course-view-flexsections(class=allID + ' ' + existingClasses)
     .toast-wrapper.mx-auto.py-0.fixed-top(role="status", aria-live="polite")
     #page-wrapper.d-print-block
       div
@@ -424,7 +421,7 @@ block contents
                     #674d05f17946b674d05f16578c32-course-format.stateready(data-flexsections-accordion='' data-flexsections-mainsection='0')
                       h2.accesshide &#x30C8;&#x30D4;&#x30C3;&#x30AF;&#x30A2;&#x30A6;&#x30C8;&#x30E9;&#x30A4;&#x30F3;
                       ul#yui_3_18_1_1_1733101041575_64.flexsections.flexsections-level-0(data-for='course_sectionlist')
-                        include parts_course-member.pug
+                        include _parts-view-topics-body-content.pug
                   #wp-site-status-disclaimer
                     | &#x3042;&#x306A;&#x305F;&#x306E;&#x30B5;&#x30A4;&#x30C8;&#x306F;&#x307E;&#x3060;&#x767B;&#x9332;&#x3055;&#x308C;&#x3066;&#x3044;&#x307E;&#x305B;&#x3093;&#x3002;
                     a(href='https://lms.waomirai.com/admin/registration/index.php') &#x3042;&#x306A;&#x305F;&#x306E;&#x30B5;&#x30A4;&#x30C8;&#x3092;&#x767B;&#x9332;&#x3059;&#x308B;
