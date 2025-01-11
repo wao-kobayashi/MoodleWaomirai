@@ -206,21 +206,14 @@ html(lang="jp")
                     a(href=`${environment}/course-enrol/page-enrol-three-ec.html`) 3科目パック（経済購入済）
                   li
                     a(href=`${environment}/course-enrol/page-enrol-three-two.html`) 3科目パック（2科目セット購入済）
-
+              
               li
-                | 科目詳細
+                | 購入した後の科目ページ（course-view-topics）
+                include lms-moodle/page-course-view-topics/_id-user-edit.pug
                 ul
-                  li
-                    a(href=`${environment}/course-enrol/page-course-member.html`)  科目詳細
-
-              li
-                | 授業参加
-                ul
-                  li
-                    a(href=`${environment}/page-mod-questionnaire-view/page-course-lesson.html`) 授業参加（動画）
-                  li 
-                    a(href=`${environment}/page-mod-questionnaire-view/page-course-lesson-question.html`) 授業参加（動画）＋回答
-
+                  each item in useredit
+                    li
+                      a(href=`${environment}/page-course-view-topics/${item.id}.html`) #{item.SubjectPageTitle}
               li
                 |講座の受講ヘルプページ
                 ul
