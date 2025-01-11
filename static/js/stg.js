@@ -546,6 +546,7 @@ if (bodyId === "page-login-confirm") {
 // 購入処理
 // ==============================
 if (bodyId === "page-enrol-index") {
+    //セット割引要素を購入右に追加
     const $buttonElement = $(".enrol_fee_payment_region button");
     if ($buttonElement.length) {
         const customDivHtml = `
@@ -555,19 +556,9 @@ if (bodyId === "page-enrol-index") {
                 </div>`;
         $buttonElement.after(customDivHtml);
     }
-  
-    //メモカテゴリ：
-    //stgプログラミング131
-    //
 
-    // "¥" を含む要素を検索
+    // 画面下に追従に"円"の要素を入れる
     const SubjectpPrice = $('.enrol_fee_payment_region b:contains("¥")');
-    // alert(SubjectpPrice.text()); // n>
-    // if (CurrentViewCourseData.category === 'Programming') {
-    //     var SubjectPriceContent = `<div class="fixed-subject-price">${SubjectpPrice.text()}</div>`;
-    // } else {
-    //     var SubjectPriceContent = `<div class="fixed-subject-price">${SubjectpPrice.text()} /月</div>`;
-    // }
     var SubjectPriceContent = `<div class="c-pc-hidden fixed-subject-price">${SubjectpPrice.text()} /月</div>`;
     console.log(SubjectPriceContent);
     $('#page.drawers').after(SubjectPriceContent);
@@ -843,10 +834,7 @@ if (bodyId === "page-user-edit") {
         </p>
     `);
 
-    //最初に説明文を挿入
-   
 
-    
 }
 
 // ==============================
