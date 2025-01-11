@@ -1,10 +1,25 @@
-.c-modal
-  .c-modal-wrap
-    .c-modal-wrap-close 
-    .c-modal-wrap-title
-      |モーダルタイトルモーダル
-    .c-modal-wrap-text
-      |モーダルのテキスト、モーダルのテキストモーダルのテキストモーダルのテキストモーダルのテキスト
-    button.c-modal-wrap-button 
-        |ボタンのテキスト
-.c-modal-bg
+//- ミックスイン定義
+mixin c-modal(options)
+  .c-modal
+    .c-modal-wrap
+      if options.close
+        .c-modal-wrap-close
+      if options.title
+        .c-modal-wrap-title= options.title
+      if options.text
+        .c-modal-wrap-text= options.text
+      if options.buttonText
+        button.c-modal-wrap-button= options.buttonText
+//- ミックスインの呼び出し
++c-modal({
+  close: true,
+  title: false,
+  text: 'モーダルのテキスト、モーダルのテキストモーダルのテキストモーダルのテキストモーダルのテキスト',
+  buttonText: 'ボタンのテキスト'
+})
+//- +c-modal({
+//-   close: true,
+//-   title: 'ああモーダルタイトルモーダル',
+//-   text: 'モーダルのテキスト、モーダルのテキストモーダルのテキストモーダルのテキストモーダルのテキスト',
+//-   buttonText: 'ボタンのテキスト'
+//- })
