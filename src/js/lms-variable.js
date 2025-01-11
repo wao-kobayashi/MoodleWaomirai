@@ -1,3 +1,5 @@
+alert('きいている');
+
 const SubjectIds = {
     SubjectMain: {
         philosophy: { id: 255, name: '哲学', key: 'philosophy' },
