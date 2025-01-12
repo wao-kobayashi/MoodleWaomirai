@@ -1,0 +1,7 @@
+- var userEdit = useredit.find(u => u.id === pageid)
+//- - var template = userEdit.template
+- var courseID = 'course-'+ userEdit .courseID
+- var paymentID = userEdit.paymentID.map((id) => `course-id-${id}`) //ここのidはただの引数
+- var categoryID =  userEdit.categoryID
+- var allID = [courseID, categoryID,...paymentID].join(' ')
+- var existingClasses = "format-flexsections limitedwidth  path-course path-course-view chrome dir-ltr lang-ja_wp yui-skin-sam yui3-skin-sam lms-waomirai-com pagelayout-course theme uses-drawers"

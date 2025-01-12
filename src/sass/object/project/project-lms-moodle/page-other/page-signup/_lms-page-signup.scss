@@ -1,0 +1,307 @@
+.pagelayout-login #page div[role="main"],
+.login-wrapper {
+    height: auto !important;
+}
+
+body.pagelayout-login {
+    // background-attachment: local !important;
+}
+
+footer {
+    margin: 90px 0 0;
+}
+
+#page-login-index,
+#page-login-forgot_password {
+    // .login-wrapper {
+    //     height: 100% !important;
+    // }
+    @media (min-width: 768px) {
+        .login-wrapper {
+            padding-left: 5rem !important;
+        }
+    }
+    footer.footer-popover {
+        .footer-section.p-3 {
+            padding: 20px 0 0 !important;
+        }
+    }
+    .login-container {
+        @include lms-boxshadow;
+        @include responsive-style(768px) {
+            padding: 24px 24px 32px!important;
+        }
+    }
+    .login-form-forgotpassword a {
+        color: $cl-waogreen;
+    }
+    // .btn-secondary {
+    //     @extend .btn-primary;
+    //     color: white;
+    // }
+}
+
+#page-login-signup {
+    background: white;
+    .login-container {
+        padding: 1rem;
+        @include responsive-style(768px) {
+            padding: 24px 8px 64px;
+        }
+    }
+    .signup-logo {
+        margin: 0 auto 16px !important;
+        text-align: center;
+        width: 320px;
+        @include responsive-style(768px) {
+            width: 70%;
+        }
+    }
+    .signup-step {
+        text-align: center;
+        img {
+            margin: 0 auto 20px;
+            max-width: 350px;
+            width: 90%;
+        }
+    }
+    #id_profile_field_kojin_check~div {
+        display: none;
+    }
+    label[for="id_profile_field_kojin_check"] {
+        margin-bottom: -2px !important;
+    }
+    #id_category_6 {
+        padding-bottom: 24px !important;
+    }
+    #id_profile_field_kojin_check {}
+    label[for="id_profile_field_termsofservice"],
+    label[for="id_profile_field_kojin_check"] {
+        padding: 0 !important;
+    }
+    .ml-2.d-flex.align-items-center.align-self-start>.text-danger[title="必須"] {
+        display: none;
+    }
+    #fitem_id_profile_field_postnumber {
+        margin-bottom: 2rem !important;
+    }
+    form {
+        label {
+            font-size: $lms-font-size-m !important;
+            padding: 0 0 0 9px;
+        }
+        #id_profile_field_birthday_label {
+            padding: 0 0 0 9px;
+        }
+    }
+    .text-danger {
+        font-size: $lms-font-size-l !important;
+        position: absolute;
+        left: 0;
+        top: 0;
+    }
+    .container-fluid {
+        margin: 0 auto 75px !important;
+    }
+    .form-control-static {
+        // font-size: $lms-font-size-s !important;
+        // color: $cl-graylight !important;
+        &:before {
+            content: "（";
+        }
+        &:after {
+            content: "）";
+        }
+    }
+    .login-container h1.login-heading {
+        @include responsive-style(768px) {
+            text-align: center;
+            font-size: $lms-font-size-xl;
+            margin: 0 auto 20px;
+        }
+    }
+    @media (min-width: 768px) {
+        .login-container h1.login-heading {
+            text-align: center !important;
+            margin: 0 auto 20px;
+        }
+        .login-wrapper {
+            justify-content: left;
+            padding-top: 24px;
+            padding-left: 0rem !important;
+        }
+        .login-container {
+            margin: 0 auto !important;
+            padding: 0 !important;
+            max-width: 650px !important;
+            width: 650px !important;
+        }
+        .signupform {
+            padding: 48px 36px 0px !important;
+        }
+        // .form-group {
+        //     margin-bottom: 24px !important;
+        // }
+    }
+    .fdate_selector {
+        display: grid;
+        /* グリッドレイアウトを適用 */
+        grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+        /* カラム幅の設定 */
+        // gap: 10px;
+        /* アイテム間のスペース */
+    }
+    .fdate_selector>div:nth-child(1) {
+        order: 3;
+        /* 1番目の要素を2番目に表示 */
+    }
+    .fdate_selector>div:nth-child(2) {
+        order: 2;
+        /* 2番目の要素を1番目に表示 */
+    }
+    .fdate_selector>div:nth-child(3) {
+        order: 1;
+        /* 3番目の要素はそのまま */
+    }
+    .fdate_selector>a {
+        order: 4;
+        /* 4番目の要素を4番目に表示 */
+    }
+    .btn-primary:focus,
+    .btn-primary.focus {
+        background: $cl-waogreen !important;
+        outline: .2rem solid $cl-waogreen!important;
+    }
+    .btn-primary {
+        background: $cl-waogreen !important;
+        border: none !important;
+    }
+    .fdescription.required {
+        display: none;
+        // margin: 30px 0 0;
+        // color: #ca3120;
+        // font-size: $lms-font-size-s !important;
+    }
+    footer.footer-popover {
+        padding: 0 0 0px !important;
+        @include responsive-style(768px) {
+            padding: 0 0 120px !important;
+        }
+    }
+    .footer-content-popover {
+        padding: 55px 0 0 !important;
+        div:nth-child(2) {
+            display: none;
+        }
+    }
+    .logininfo {
+        display: block !important;
+        position: absolute;
+        left: calc(((100% - 460px) / 2) + 0px);
+        top: -58px;
+        text-align: left;
+        width: 300px;
+        @include responsive-style(768px) {
+            left: 10px;
+            top: -30px;
+        }
+    }
+    #fgroup_id_buttonar {
+        .form-group.fitem {
+            text-align: center;
+        }
+        .form-group {
+            margin: 0 !important;
+            width: 100%;
+        }
+    }
+    #fgroup_id_buttonar .d-flex {
+        flex-direction: column;
+        #id_submitbutton {
+            width: 100% !important;
+            @include button-size-middle;
+            font-size: $lms-font-size-ml;
+            padding: 0 30px;
+            margin: 28px auto 15px;
+
+        }
+        #id_cancel {
+            background: transparent;
+            border: none;
+            color: $cl-graylight !important;
+        }
+    }
+    #fitem_id_passwordpolicyinfo {
+        display: none !important;
+    }
+    .continuebutton {
+        display: none;
+    }
+    .btn-secondary {
+        padding: 0 !important;
+    }
+}
+
+#page-login-signup {
+    &.pagelayout-base {
+        header {
+            display: none !important;
+        }
+        #notice {
+            max-width: 550px;
+            margin: 90px auto 0px;
+            line-height: 1.75 !important;
+            @include responsive-style(768px) {
+                margin: 20px auto 0px;
+            }
+            p {
+                margin: 0 0 5px !important;
+            }
+        }
+        .logininfo {
+            display: none !important;
+        }
+    }
+    #page.drawers .main-inner {
+        padding: 20px 24px;
+        @include responsive-style(768px) {
+            padding: 20px 24px 0px;
+        }
+    }
+}
+
+#page-login-confirm {
+    header {
+        display: none;
+    }
+    .boxaligncenter {
+        margin: 90px 30px 0px;
+        @include responsive-style(768px) {
+            margin: 90px 30px 40px;
+        }
+    }
+    .boxaligncenter p {
+        display: none;
+    }
+    .boxaligncenter h3 {
+        font-size: $lms-font-size-l;
+        margin: 0 auto 16px;
+    }
+    .singlebutton button {
+        width: 300px;
+        background: $cl-waogreen;
+        padding: 15px 20px;
+        color: white;
+        font-size: $lms-font-size-ml;
+    }
+}
+
+#page-login-forgot_password {
+    .col-form-label {
+        display: none !important;
+    }
+    .form-control {
+        width: 100%;
+        margin: 5px 0 0;
+    }
+}

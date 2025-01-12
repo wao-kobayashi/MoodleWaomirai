@@ -54,9 +54,26 @@ body#page-my-index(class=existingClasses + ' ' + additionalClasses)
               //- div 
               //-    p|#{title}
               //-    p|#{SubjectIds}
-              include _parts-dashboard.pug
-
-
+              //- include _parts-dashboard.pug
+              #page-content.pb-3.d-print-block
+                #region-main-box
+                  section#region-main(aria-label='コンテンツ')
+                    span#user-notifications.notifications
+                    #yui_3_18_1_1_1732844965795_24(role='main')
+                      span#maincontent
+                      aside#block-region-content.block-region(data-blockregion='content' data-droptarget='1')
+                        section#inst274.block_html.block.card.mb-3(role='complementary' data-block='html' data-instance-id='274' aria-labelledby='instance-274-header')
+                          .card-body.p-3
+                            h5#instance-274-header.card-title.d-inline &#x30C6;&#x30AD;&#x30B9;&#x30C8;&#x30D6;&#x30ED;&#x30C3;&#x30AF;
+                            .card-text.content.mt-3
+                              .no-overflow
+                                include _parts-dashboard-textblock.pug
+                              .footer
+                        a.sr-only.sr-only-focusable(href='#sb-1') &#x30AB;&#x30EC;&#x30F3;&#x30C0;&#x30FC; &#x3092;&#x30B9;&#x30AD;&#x30C3;&#x30D7;&#x3059;&#x308B;
+                        section#inst255.block_calendar_month.block.card.mb-3(role='complementary' data-block='calendar_month' data-instance-id='255' aria-labelledby='instance-255-header')
+                          #yui_3_18_1_1_1732844965795_23.card-body.p-3
+                            h5#instance-255-header.card-title.d-inline &#x30AB;&#x30EC;&#x30F3;&#x30C0;&#x30FC;
+                            include _parts-calender-include-event.pug
           div 
             include _parts-modal.pug
           footer#page-footer.footer-popover.bg-white
@@ -220,112 +237,40 @@ body#page-my-index(class=existingClasses + ' ' + additionalClasses)
                   | Moodle Workplace
             .footer-content-debugging.footer-dark.bg-dark.text-light
               .container-fluid.footer-dark-inner
-            .toppage-courses
-              ul
-                li
-                  a(href="https://lms.waomirai.com/course/view.php?id=135") グローバル英語【購入用】
-                li
-                  a(href="https://lms.waomirai.com/course/view.php?id=130") グローバル英語 LEVE LOCAL STAGE
-                li
-                  a(href="https://lms.waomirai.com/course/view.php?id=138") グローバル英語 LEVE NATION STAGE
-                li
-                  a(href="https://lms.waomirai.com/course/view.php?id=112") よくある質問とお問い合わせ
-                li
-                  a(href="https://lms.waomirai.com/course/view.php?id=196") 【無料！夏休み特別企画】選べる！深まる！リサイクル
-                li
-                  a(href="https://lms.waomirai.com/course/view.php?id=120") 【小中高生対象：Unityゲームプログラミング体験講座】本格プログラマーへの第一歩
-                li
-                  a(href="https://lms.waomirai.com/course/view.php?id=206") 【会員登録特典】ワオ未来塾の授業（フルバージョン）を無料視聴！
-                li
-                  a(href="https://lms.waomirai.com/course/view.php?id=183") 【ワオ会員用】グローバル英語【購入用】
-                li
-                  a(href="https://lms.waomirai.com/course/view.php?id=236") グローバル英語（テスト）
-                //- li
-                //-   a(href="https://lms.waomirai.com/course/view.php?id=235") 経済L1
-                li
-                  a(href="https://lms.waomirai.com/course/view.php?id=231") 科目のレベル設定方法
-                li
-                  a(href="https://lms.waomirai.com/course/view.php?id=185") code snipet
-                li
-                  a(href="https://lms.waomirai.com/course/view.php?id=184") venue埋め込みテスト
-                li
-                  a(href="https://lms.waomirai.com/course/view.php?id=181") グローバル英語（ワオ会員専用）
-                li
-                  a(href="https://lms.waomirai.com/course/view.php?id=15") 栗谷 実験用コース
-                li
-                  a(href="https://lms.waomirai.com/course/view.php?id=114") コース説明下書き用
-                li
-                  a(href="https://lms.waomirai.com/course/view.php?id=237") テストコース12/6
-                li
-                  a(href="https://lms.waomirai.com/course/view.php?id=211") 科学
-                li
-                  a(href="https://lms.waomirai.com/course/view.php?id=212") 哲学
-                li
-                  a(href="https://lms.waomirai.com/course/view.php?id=214") 哲学＋科学
-                li
-                  a(href="https://lms.waomirai.com/course/view.php?id=224") 1科目受講＋マニュアル
-                li
-                  a(href="https://lms.waomirai.com/course/view.php?id=221") ワオL1
-                li
-                  a(href="https://lms.waomirai.com/course/view.php?id=234") テストコース２
-                li
-                  a(href="https://lms.waomirai.com/course/view.php?id=230") 講座の受講方法
-                li
-                  a(href="https://lms.waomirai.com/course/view.php?id=131") クリエイティブ・プログラミング
-                li
-                  a(href="https://lms.waomirai.com/course/view.php?id=136") クリエイティブ・プログラミング サポートコース
-                li
-                  a(href="https://lms.waomirai.com/course/view.php?id=205") アーカイブ視聴ページ
-                li
-                  a(href="https://lms.waomirai.com/course/view.php?id=89") 栗谷さん購入検証
-                li
-                  a(href="https://lms.waomirai.com/course/view.php?id=99") 【12月】哲学思考（小学部）
-                li
-                  a(href="https://lms.waomirai.com/course/view.php?id=98") 【12月】科学リテラシー（小学部）
-                li
-                  a(href="https://lms.waomirai.com/course/view.php?id=100") 【12月】お金の教育（小学部）
-                li
-                  a(href="https://lms.waomirai.com/course/view.php?id=105") 【12月】グローバル英語（小学部）
-                li
-                  a(href="https://lms.waomirai.com/course/view.php?id=101") 【12月】クリエイティブプログラミング（小学部）
-                li
-                  a(href="https://lms.waomirai.com/course/view.php?id=103") 【12月】哲学思考（中高部）
-                li
-                  a(href="https://lms.waomirai.com/course/view.php?id=104") 【12月】科学リテラシー（中高部）
-                li
-                  a(href="https://lms.waomirai.com/course/view.php?id=106") 【12月】グローバル英語（中高部）
-                li
-                  a(href="https://lms.waomirai.com/course/view.php?id=102") 【12月】クリエイティブプログラミング（中高部）
-                li
-                  a(href="https://lms.waomirai.com/course/view.php?id=171") モニターアンケート
-                li
-                  a(href="https://lms.waomirai.com/course/view.php?id=165") （小学生向け）お金の怖さを学ぶ　NO!MORE!お金のトラブル教室～ほんとにあった怖いお金の話～
-                li
-                  a(href="https://lms.waomirai.com/course/view.php?id=166") （中高生向け）10代のうちに身に付けよう！「お金の失敗をしちゃった」と素直に言う方法
-                li
-                  a(href="https://lms.waomirai.com/course/view.php?id=167") （小学生向け）どうして1000円札の顔になったの！？～野口英世の研究と真実～
-                li
-                  a(href="https://lms.waomirai.com/course/view.php?id=168") （中高生向け）科学史シリーズ！細菌学研究の闇～野口英世の研究と真実～
-                li
-                  a(href="https://lms.waomirai.com/course/view.php?id=169") （小学生向け）「正義」はダレが決める？～アナタが裁く「昔話桃太郎」～
-                li
-                  a(href="https://lms.waomirai.com/course/view.php?id=170") （中高生向け）『具体と抽象』で思考力UP！～身近な悩み事や社会現象を新たな視点で紐解こう～
-                li
-                  a(href="https://lms.waomirai.com/course/view.php?id=180") 2024.5.28 経済（お金）　見逃し配信
-                li
-                  a(href="https://lms.waomirai.com/course/view.php?id=179") 2024.5.30 科学リテラシー　見逃し配信
-                li
-                  a(href="https://lms.waomirai.com/course/view.php?id=178") 2024.5.31 哲学思考　見逃し配信
-                li
-                  a(href="https://lms.waomirai.com/course/view.php?id=143") Default tenant members
-          //- .toppage-courses
-          //-  a(href="#")|L1
-        script.
-            $(document).on('click', 'li[data-region="event-item"]', function () {
-                // 発火時に実行するコード
-                $('.modal-div').show(); // 特定の要素を表示
-            });
-            $(document).on('click', '.close', function () {
-                // 発火時に実行するコード
-                $('.modal-div').hide(); // 特定の要素を表示
-            });
+case calender 
+ when 'events-none'
+   //event-noneの時はtodayにイベント入れない
+ default
+  script.
+        const dayContentHtml = $(`
+            <div data-region="day-content" id="yui_3_18_1_1_1736149007413_191">
+                <ul id="yui_3_18_1_1_1736149007413_190">
+                    <li data-region="event-item" data-event-component="" data-event-eventtype="course" data-event-folded="false" data-eventtype-course="1" draggable="true" data-drag-type="move" data-min-day-timestamp="1731682800" data-min-day-error="コース開始日前にイベントを設定できません" id="yui_3_18_1_1_1736149007413_189">
+                        <a data-action="view-event" data-event-id="469" href="https://lms.waomirai.com/course/view.php?id=212&amp;_gl=1*16eh05d*_gcl_au*MTI2NDk3MzM5MC4xNzMyODQxNjgx*_ga*MjA3NzA5ODkzNS4xNzI0MTE5Nzgw*_ga_C5TLB720G3*MTczNjE0ODk5NS4xLjEuMTczNjE0OTAwOS40Ni4wLjA." title="17:30 哲学Week1" style="background: #FCB72E !important; border-left: #E98800 2px solid !important;" id="yui_3_18_1_1_1736149007413_188">
+                            <span class="calendar-circle calendar_event_course"></span>
+                            <span class="eventname">17:30 哲学Week1</span>
+                        </a>
+                    </li>
+                    <li data-region="event-item" data-event-component="" data-event-eventtype="course" data-event-folded="false" data-eventtype-course="1" draggable="true" data-drag-type="move" data-min-day-timestamp="1731682800" data-min-day-error="コース開始日前にイベントを設定できません">
+                        <a data-action="view-event" data-event-id="466" href="https://lms.waomirai.com/course/view.php?id=211" title="18:30 科学week1" style="background: #B6D43E !important; border-left: #96B128 2px solid !important;">
+                            <span class="calendar-circle calendar_event_course"></span>
+                            <span class="eventname">18:30 科学week1</span>
+                        </a>
+                    </li>
+              
+                </ul>
+            </div>
+        `);
+
+        $(".day").each(function () {
+          const $cell = $(this);
+          const cellDay = parseInt($cell.attr("data-day"), 10);
+          const today = new Date();
+          const todayDay = today.getDate();
+          
+          if (cellDay === todayDay) {
+            console.log(`Today matches: ${cellDay}`);
+            // .day-number-circleの中に新しいHTMLを追加
+            $cell.find('.hidden-phone .day-number-circle').after(dayContentHtml);
+          }
+        });

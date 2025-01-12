@@ -1,0 +1,10 @@
+extends ../_layout_moodle.pug
+block variables
+  - var title = '3科目セット(哲学L1)'
+  - var pageid = 'three-l1'
+  // 購入IDを読み込み
+  include _id-user-edit 
+  // 購入IDをbodyなどに格納する処理
+  include _meta-user-edit
+block contents
+  include _parts-view-topics-body.pug

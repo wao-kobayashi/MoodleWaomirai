@@ -103,6 +103,11 @@ html(lang="jp")
               li
                 | ダッシュボード
                 div(style='font-size:87%; margin:20px 0 0 20px;') 
+                    |JSなし、ダッシュボードコピペ用
+                ul
+                  li
+                    a(href=`${environment}/dashboard/page-nojs.html`) JSなし、ダッシュボードコピペ用
+                div(style='font-size:87%; margin:20px 0 0 20px;') 
                     |何も買っていない
                 ul
                   li
@@ -137,6 +142,18 @@ html(lang="jp")
                     a(href=`${environment}/dashboard/page-multi-two-sc2-ec2.html`) ２科目＋科学L2＋経済L2
                   li 
                     a(href=`${environment}/dashboard/page-multi-three-sc3-ec3-ph3.html`) ３科目＋哲学L3＋科学L3＋経済L3
+                div(style='font-size:87%; margin:20px 0 0 20px;') 
+                    |カレンダー検証
+                ul
+                  li 
+                    a(href=`${environment}/dashboard/page-calender-01none.html`) 01_今日予定なし｜明日以降予定なし
+                  li 
+                    a(href=`${environment}/dashboard/page-calender-02todayonly.html`) 02_今日予定あり｜明日以降予定なし
+                  li 
+                    a(href=`${environment}/dashboard/page-calender-03aftertomorrow.html`) 03_今日予定なし｜明日以降予定あり
+                  li 
+                    a(href=`${environment}/dashboard/page-calender-04today_after.html`) 04_今日予定あり｜明日以降予定あり
+
               li
                 | 科目購入
                 div(style='font-size:87%; margin:20px 0 0 20px;') 
@@ -145,87 +162,110 @@ html(lang="jp")
                   li
                     a(href=`${environment}/course-enrol/page-enrol-ph-none.html`) 哲学（何も買っていない）
                   li
-                    a(href=`${environment}/course-enrol/page-enrol-ph-two.html`) 経済（２科目パック購入済）
+                    a(href=`${environment}/course-enrol/page-enrol-ph-sc.html`) 哲学（科学購入済）
                   li
-                    a(href=`${environment}/course-enrol/page-enrol-ph-three.html`) 哲学（３科目パック購入済）
-                div(style='font-size:87%; margin:20px 0 0 20px;') 
-                  |経済
-                ul
+                    a(href=`${environment}/course-enrol/page-enrol-ph-two.html`) 哲学（2科目セット購入済）
                   li
-                    a(href=`${environment}/course-enrol/page-enrol-ec-none.html`) 経済（何も買っていない）
-                  li
-                    a(href=`${environment}/course-enrol/page-enrol-ec-two.html`) 経済（２科目パック購入済）
-                  li
-                    a(href=`${environment}/course-enrol/page-enrol-ec-three.html`) 経済（３科目パック購入済）
+                    a(href=`${environment}/course-enrol/page-enrol-ph-three.html`) 哲学（3科目セット購入済）
                 div(style='font-size:87%; margin:20px 0 0 20px;') 
                   |科学
                 ul
                   li
                     a(href=`${environment}/course-enrol/page-enrol-sc-none.html`) 科学（何も買っていない）
+
+                div(style='font-size:87%; margin:20px 0 0 20px;') 
+                  |経済
+                ul
                   li
-                    a(href=`${environment}/course-enrol/page-enrol-sc-two.html`) 科学（２科目パック購入済）
-                  li
-                    a(href=`${environment}/course-enrol/page-enrol-sc-three.html`) 科学（３科目パック購入済）
+                    a(href=`${environment}/course-enrol/page-enrol-two-none.html`) 経済（何も買っていない）
+
                 div(style='font-size:87%; margin:20px 0 0 20px;') 
                   |英語
                 ul
                   li
                     a(href=`${environment}/course-enrol/page-enrol-en.html`) 英語（何も買っていない）
                 div(style='font-size:87%; margin:20px 0 0 20px;') 
-                  |英語
+                  |2科目パック
                 ul
                   li
-                    a(href=`${environment}/course-enrol/page-enrol-en.html`) 英語（何も買っていない）
+                    a(href=`${environment}/course-enrol/page-enrol-two-none.html`) 2科目パック（何も買っていない）
+                  li
+                    a(href=`${environment}/course-enrol/page-enrol-two-sc.html`) 2科目パック（科学購入済）
+                  li
+                    a(href=`${environment}/course-enrol/page-enrol-two-ec.html`) 2科目パック（経済購入済）
+                  li
+                    a(href=`${environment}/course-enrol/page-enrol-two-three.html`) 2科目パック（3科目セット購入済）
                 div(style='font-size:87%; margin:20px 0 0 20px;') 
-                  |２科目パック
+                  |3科目パック
                 ul
                   li
-                    a(href=`${environment}/course-enrol/page-enrol-two-none.html`) ２科目パック（何も買っていない）
+                    a(href=`${environment}/course-enrol/page-enrol-three-none.html`) 3科目パック（何も買っていない）
                   li
-                    a(href=`${environment}/course-enrol/page-enrol-two-ph.html`) ２科目パック（哲学購入済）
+                    a(href=`${environment}/course-enrol/page-enrol-three-sc.html`) 3科目パック（科学購入済）
                   li
-                    a(href=`${environment}/course-enrol/page-enrol-two-ec.html`) ２科目パック（経済購入済）
+                    a(href=`${environment}/course-enrol/page-enrol-three-ec.html`) 3科目パック（経済購入済）
                   li
-                    a(href=`${environment}/course-enrol/page-enrol-two-sc.html`) ２科目パック（科学購入済）
-                  li
-                    a(href=`${environment}/course-enrol/page-enrol-two-en.html`) ２科目パック（英語購入済）
-                  li
-                    a(href=`${environment}/course-enrol/page-enrol-two-three.html`) ２科目パック（３科目パック購入済）
-        
-                div(style='font-size:87%; margin:20px 0 0 20px;') 
-                  |３科目パック
-                ul
-                  li
-                    a(href=`${environment}/course-enrol/page-enrol-three-none.html`) ３科目パック（何も買っていない）
-                  li
-                    a(href=`${environment}/course-enrol/page-enrol-three-ph.html`) ３科目パック（哲学購入済）
-                  li
-                    a(href=`${environment}/course-enrol/page-enrol-three-ec.html`) ３科目パック（経済購入済）
-                  li
-                    a(href=`${environment}/course-enrol/page-enrol-three-sc.html`) ３科目パック（科学購入済）
-                  li
-                    a(href=`${environment}/course-enrol/page-enrol-three-en.html`) ３科目パック（英語購入済）
-                  li
-                    a(href=`${environment}/course-enrol/page-enrol-three-two.html`) ２科目パック（２科目パック購入済）
+                    a(href=`${environment}/course-enrol/page-enrol-three-two.html`) 3科目パック（2科目セット購入済）
+              
               li
-                | 科目詳細
+                | 購入した後の科目ページ（course-view-topics）
+                include lms-moodle/page-course-view-topics/_id-user-edit.pug
                 ul
-                  li
-                    a(href=`${environment}/course-enrol/page-course-member.html`)  科目詳細
-
-              li
-                | 授業参加
-                ul
-                  li
-                    a(href=`${environment}/lesson/page-course-lesson.html`) 授業参加（動画）
-                  li 
-                    a(href=`${environment}/lesson/page-course-lesson-question.html`) 授業参加（動画）＋回答
-
+                  each item in useredit
+                    li
+                      a(href=`${environment}/page-course-view-topics/${item.id}.html`) #{item.SubjectPageTitle}
               li
                 |講座の受講ヘルプページ
                 ul
                   li
                     a(href=`${environment}/help/page-howto-attend-lesson.html`)  授業参加（動画）
+              li
+                | 授業レベル設定ロジック
+                div(style='font-size:87%; margin:20px 0 0 20px;') 
+                  | 何も買っていない
+                ul
+                  li
+                    a(href=`${environment}/page-user-edit/page-user-edit-template.html`) 何も買っていない
+                div(style='font-size:87%; margin:20px 0 0 20px;') 
+                  | サブ科目設定なし
+                ul
+                  li
+                    a(href=`${environment}/page-user-edit/ph-none.html`) 哲学
+                  li
+                    a(href=`${environment}/page-user-edit/sc-none.html`) 科学
+                  li
+                    a(href=`${environment}/page-user-edit/ec-none.html`) 経済
+                  li
+                    a(href=`${environment}/page-user-edit/en-none.html`) 英語
+                  //- li
+                  //-   a(href=`${environment}/page-user-edit/ph-and-sc.html`) 哲学＋科学
+                  //- li
+                  //-   a(href=`${environment}/page-user-edit/ph-and-ec.html`) 哲学＋経済
+                  //- li
+                  //-   a(href=`${environment}/page-user-edit/sc-and-ec.html`) 科学＋経済
+                  //- li
+                  //-   a(href=`${environment}/page-user-edit/sc-and-ec-and-ph.html`) 科学＋経済＋科学
+                  li
+                    a(href=`${environment}/page-user-edit/two-none.html`) 2科目セット
+                  li
+                    a(href=`${environment}/page-user-edit/three-none.html`) 3科目セット
+
+                div(style='font-size:87%; margin:20px 0 0 20px;') 
+                  | すでに登録
+                ul
+                  li
+                    a(href=`${environment}/page-user-edit/ph-register.html`) 哲学
+                  li
+                    a(href=`${environment}/page-user-edit/sc-register.html`) 科学
+                  li
+                    a(href=`${environment}/page-user-edit/ec-register.html`) 経済
+                  li
+                    a(href=`${environment}/page-user-edit/two-register.html`) 2科目セット
+                  li
+                    a(href=`${environment}/page-user-edit/three-register.html`) 3科目セット
+                  li
+                    a(href=`${environment}/page-user-edit/en-register.html`) 英語
+
               li
                 | 設定関連
                 ul

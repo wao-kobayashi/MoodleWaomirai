@@ -1,0 +1,11 @@
+extends ../_layout_moodle.pug
+block variables
+  - var title = '英語のみ購入｜サブ科目設定なし'
+  - var pageid = 'en-none'
+  // 購入IDを読み込み
+  include _id-user-edit 
+  // 購入IDをbodyなどに格納する処理
+  include _meta-user-edit
+block contents
+ body#page-user-edit(class=paymentID + ' ' + existingClasses)
+  include _parts-page-user-edit-content

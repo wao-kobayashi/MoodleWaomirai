@@ -33,18 +33,18 @@ $common-course-styles: (
 ////////////////////////
 // stg環境でのコースID
 $course-styles-stg: (
-  "course-213": "economiy",
-  "course-211": "science",
-  "course-212": "philosophy",
-  "course-236": "english",
-  "course-235": "programming",
+  "category-53": "economiy",
+  "category-52": "science",
+  "category-51": "philosophy",
+  "category-54": "english",
+  "course-999999": "programming",
 );
 // lms環境でのコースID
 $course-styles-lms: (
-  "course-99": "economiy",
-  "course-999": "science",
-  "course-9999": "philosophy",
-  "course-99999": "english",
+  "category-48": "economiy",
+  "category-49": "science",
+  "category-47": "philosophy",
+  "category-50": "english",
   "course-999999": "programming",
 );
 $course-styles-for-tenant: if(

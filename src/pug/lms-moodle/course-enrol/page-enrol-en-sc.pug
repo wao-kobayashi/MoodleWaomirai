@@ -1,0 +1,9 @@
+
+extends ../_layout_moodle.pug
+block variables
+  - var title = '科学、経済'
+  - var pageid = 'page-enrol-ph-sc'
+  include _enrol_meta
+block contents
+  //英語ページのテンプレを読込
+  include _parts-enrol-en.pug 
