@@ -737,12 +737,38 @@ if (bodyId === "page-course-index-category") {
 //メイン3科目or2,3科目パック購入後はリダイレクトさせる
 // ==============================
 if (bodyId === "page-course-view-flexsections") {
-  const currentId = getSubjectChildId(
-    "philosophy",
-    ["ph_L1", "ph_L2", "ph_L3", "ph_L4"],
-    bodyClasses
-  );
-  alert(currentId);
+  function handleSubjectRedirect(subject, levels, bodyClasses) {
+    const currentId = getSubjectChildId(subject, levels, bodyClasses);
+    if (currentId) {
+      window.location.href = `https://lms.waomirai.com/course/view.php?id=${currentId}`;
+    }
+  }
+
+  if (bodyId === "page-course-view-flexsections") {
+    // 哲学の条件
+    if (
+      !isBuySubjectMainArray(["philosophy"]) ||
+      isBuySubjectChildArray("philosophy", ["ph_L1", "ph_L2", "ph_L3", "ph_L4"])
+    ) {
+      handleSubjectRedirect(
+        "philosophy",
+        ["ph_L1", "ph_L2", "ph_L3", "ph_L4"],
+        bodyClasses
+      );
+    }
+
+    // 科学の条件
+    if (
+      !isBuySubjectMainArray(["science"]) ||
+      isBuySubjectChildArray("science", ["sc_L1", "sc_L2", "sc_L3", "sc_L4"])
+    ) {
+      handleSubjectRedirect(
+        "science",
+        ["sc_L1", "sc_L2", "sc_L3", "sc_L4"],
+        bodyClasses
+      );
+    }
+  }
 }
 
 // ==============================
