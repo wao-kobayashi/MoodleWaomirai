@@ -116,7 +116,27 @@ const SubjectIds = {
 $(document).ready(function() {
     const tenantIdNumber = $("html").data("tenantidnumber");
     if (tenantIdNumber === "stg") {
-const bodyId = $("body").attr("id");
+const bodyId = $("body").attr("id"); //ページ判定のbody ID取得
+
+// 現在のページのコースIDを取得
+function getCurrentCourseId() {
+  const bodyClass = document.body.className;
+  const match = bodyClass.match(/course-(\d+)/);
+  return match ? parseInt(match[1], 10) : null;
+}
+
+// コースIDから該当の科目データを取得
+function findCourseById(courseId) {
+  return SubjectIds.subjects.find((subject) => subject.id === courseId);
+}
+const CurrentViewCourseId = getCurrentCourseId();
+
+if (!CurrentViewCourseId) {
+  return console.error("コースIDが見つかりませんでした。");
+}
+
+const CurrentViewCourseData = findCourseById(CurrentViewCourseId, SubjectIds);
+
 const bodyClasses = $("body")
   .attr("class")
   .split(" ")
@@ -158,18 +178,7 @@ function isBuySubjectChildArray(subjectKey, levels) {
     .some((subject) => bodyClasses.includes(subject.id));
 }
 
-// 現在のページのコースIDを取得
-function getCurrentCourseId() {
-  const bodyClass = document.body.className;
-  const match = bodyClass.match(/course-(\d+)/);
-  return match ? parseInt(match[1], 10) : null;
-}
-
-// コースIDから該当の科目データを取得
-function findCourseById(courseId) {
-  return SubjectIds.subjects.find((subject) => subject.id === courseId);
-}
-
+//モーダルのコンポーネント
 function createModal(options = {}) {
   const modal = `
     <div class="c-modal">
@@ -203,223 +212,6 @@ function createModal(options = {}) {
     $modal.remove();
   });
 }
-
-// const CurrentViewCourseId = getCurrentCourseId();
-// const CurrentViewCourseData = findCourseById(CurrentViewCourseId, SubjectIds);
-// alert(CurrentViewCourseData.key);
-
-// ==============================
-// 購入処理
-// ==============================
-if (bodyId === "page-enrol-index") {
-  //セット割引要素を購入右に追加
-  const $buttonElement = $(".enrol_fee_payment_region button");
-  if ($buttonElement.length) {
-    const customDivHtml = `
-                <div class="page-enrol-set-discount">
-                    <p>セット受講割引でお得！</p>
-                    <p><a href='#'>詳細を見る</a></p>
-                </div>`;
-    $buttonElement.after(customDivHtml);
-  }
-
-  // 画面下に追従に"円"の要素を入れる
-  const SubjectpPrice = $('.enrol_fee_payment_region b:contains("¥")');
-  var SubjectPriceContent = `<div class="c-pc-hidden fixed-subject-price">${SubjectpPrice.text()} /月</div>`;
-  console.log(SubjectPriceContent);
-  $("#page.drawers").after(SubjectPriceContent);
-
-  // カテゴリーごとの購入処理
-  $(".enrol_fee_payment_region button").on("click", function (event) {
-    const category = CurrentViewCourseData.key;
-
-    // 科目別の処理（哲学、科学、経済）
-    if (["philosophy", "science", "economy"].includes(category)) {
-      event.preventDefault();
-
-      const otherSubjects = {
-        philosophy: ["science", "economy"],
-        science: ["philosophy", "economy"],
-        economy: ["philosophy", "science"],
-      };
-
-      if (isBuySubjectMainArray(otherSubjects[category])) {
-        //1科買っていてもう1科買おうとしたとき
-        $("body").append(
-          createModal({
-            close: true,
-            text: "「哲学・経済・化学」の教科で２科目以上受講する際はセット購入がお得です。セット購入の際はフォームより申し込みをお願いいたします。",
-            buttonText: "変更フォームへ",
-            url: "https://example.com",
-          })
-        );
-      } else if (
-        //2科買っていてもうセットパック買おうとしたとき
-        isBuySubjectMainArray(["twosubjectpack", "threesubjectpack"])
-      ) {
-        $("body").append(
-          createModal({
-            close: true,
-            text: "すでに複数受講できる科目セットを購入されています。受講科目の選択はXXXXXXX（ここは未定）",
-            buttonText: "ここは未定",
-            url: "https://example.com",
-          })
-        );
-      }
-    }
-
-    // セットパック購入時の処理
-    if (["twosubjectpack", "threesubjectpack"].includes(category)) {
-      if (isBuySubjectMainArray(["philosophy", "science", "economy"])) {
-        $("body").append(
-          createModal({
-            close: true,
-            text: "「哲学・化学・経済」の科目のいずれかを受講している場合、こちらのボタンからセット受講を購入することはできません。下記フォームより購入を申し込む必要がございます。",
-            buttonText: "複数科目セットの購入フォームへ",
-            url: "https://example.com",
-          })
-        );
-      } else if (
-        category === "twosubjectpack" &&
-        isBuySubjectMainArray(["threesubjectpack"])
-      ) {
-        $("body").append(
-          createModal({
-            close: true,
-            text: "「３科目セット」を購入済みです。２科目セットへ受講変更したい場合はフォームよりお問い合わせをお願いいたします。",
-            buttonText: "受講変更フォームへ",
-            url: "https://example.com",
-          })
-        );
-      } else if (
-        category === "threesubjectpack" &&
-        isBuySubjectMainArray(["twosubjectpack"])
-      ) {
-        $("body").append(
-          createModal({
-            close: true,
-            text: "「２科目セット」を購入済みです。３科目セットへ受講変更したい場合はフォームよりお問い合わせをお願いいたします。",
-            buttonText: "受講変更フォームへ",
-            url: "https://example.com",
-          })
-        );
-      }
-    }
-  });
-}
-
-// ////////////////////////////
-// // すでに購入しているコースの判定
-// ////////////////////////////
-// const bodyId = $("body").attr("id");
-// const bodyClasses = $("body")
-//   .attr("class")
-//   .split(" ")
-//   .map((cls) => parseInt(cls.replace("course-id-", "").trim()));
-
-// ////////////////////////////////////////////////
-// // 汎用的な科目チェック関数
-// ////////////////////////////////////////////////
-
-// // 汎用的なグループチェック関数
-// function checkGroup(subjectIds) {
-//   return Object.values(subjectIds).some((id) => bodyClasses.includes(id.id)); //someは1個でも要素があればtrueを返す
-// }
-
-// /// メイン科目いずれかに属しているかの関数
-// const isBuySubjectMain = checkGroup(SubjectIds.SubjectMain); //メイン科目、いずれか購入しているか
-
-// /// サブ科目（L1~L4)いずれかに属しているかの関数
-// const isBuySubjectChild = [
-//   "philosophy",
-//   "science",
-//   "economy",
-//   "GlobalEnglish",
-// ].some((subject) => checkGroup(SubjectIds.SubjectChild[subject])); //サブ科目、いずれか設定しているか
-
-// /// プログラミングを受講しているかどうかの関数
-// const isBuyProgramming = bodyClasses.includes(SubjectIds.Programming.id); //プログラミングの科目を買っているかどうか
-
-// // 複数のレベルをまとめてチェックする関数(メイン科目)
-// //trueの時はeveryで全てを条件に
-// function isBuySubjectMainArray(subjectKeys, isAllRequired = false) {
-//   const checkMethod = isAllRequired ? "every" : "some"; // isAllRequiredがtrueならeveryを、falseならsomeを使う
-//   return subjectKeys[checkMethod]((subjectKey) => {
-//     const subject = SubjectIds.SubjectMain[subjectKey];
-//     if (!subject) return false; // 指定された科目が存在しない場合はfalseを返す
-//     console.log("Checking subject:", subject);
-//     return bodyClasses.includes(subject.id); // mainLevelがbodyClassesに含まれているか確認
-//   });
-// }
-
-// // 複数のレベルをまとめてチェックする関数(サブ科目)
-// function isBuySubjectChildArray(subject, levels) {
-//   const subjectGroup = SubjectIds.SubjectChild[subject];
-//   if (!subjectGroup) return false; // グループが存在しない場合はfalse
-//   return levels.some(
-//     (level) =>
-//       subjectGroup[level] && bodyClasses.includes(subjectGroup[level].id)
-//   );
-// }
-
-// function getSubjectChildId(subject, levels, bodyClasses) {
-//   const subjectGroup = SubjectIds.SubjectChild[subject];
-//   if (!subjectGroup) return null; // グループが存在しない場合はnullを返す
-
-//   // levelsのいずれかのIDがbodyClassesに含まれている場合、そのIDを返す
-//   for (const level of levels) {
-//     if (subjectGroup[level] && bodyClasses.includes(subjectGroup[level].id)) {
-//       return subjectGroup[level].id; // 該当するIDを返す
-//     }
-//   }
-
-//   return null; // 該当するIDがない場合はnullを返す
-// }
-
-// ////////////////////////////
-// // 今見ているページコースの判定
-// ////////////////////////////
-
-// // 現在のページのコースIDを取得
-// function getCurrentCourseId() {
-//   const bodyClass = document.body.className;
-//   const match = bodyClass.match(/course-(\d+)/);
-//   return match ? parseInt(match[1], 10) : null;
-// }
-
-// // コースIDから該当の科目データを取得
-// function findCourseById(courseId, data) {
-//   for (const key in data) {
-//     // データがオブジェクトであり、idが一致する場合
-//     if (typeof data[key] === "object" && data[key].id === courseId) {
-//       return { category: key, course: data[key] };
-//     }
-//     // データがオブジェクトでネストされている場合、再帰的に検索
-//     if (typeof data[key] === "object") {
-//       const nestedResult = findCourseById(courseId, data[key]);
-//       if (nestedResult) return nestedResult;
-//     }
-//   }
-//   return null;
-// }
-
-// // ユーティリティ関数: 値からキーを取得
-// function getKeyByValue(object, value) {
-//   return Object.keys(object).find((key) => object[key] === value);
-// }
-
-// const CurrentViewCourseId = getCurrentCourseId();
-// if (!CurrentViewCourseId) {
-//   return console.error("コースIDが見つかりませんでした。");
-// }
-
-// const CurrentViewCourseData = findCourseById(CurrentViewCourseId, SubjectIds);
-
-// if (CurrentViewCourseData) {
-//   console.log(
-//     `現在のコース: ${CurrentViewCourseData.course.name} (カテゴリ: ${CurrentViewCourseData.category})`
-//   );
-// }
 
 // ==============================
 // ダッシュボードページでの処理
@@ -788,214 +580,200 @@ if (bodyId === "page-my-index") {
     }, 300); // 300ミリ秒（0.3秒）
   });
 }
-// // ==============================
-// // トップページの処理
-// // ==============================
-// if (bodyId === "page-my-index" || bodyId === "page-site-index") {
-//   if (!isBuySubjectChild && isBuySubjectMain) {
-//     //複雑になりそうなので後回し
-//     //メイン教科にあって、かつサブ教科持っていない場合
-//     // $('.header-banner.alert-setting-level').css("display", "flex");
-//     // // ナビゲーションバーの位置を調整
-//     // $('.navbar.fixed-top').css({ "top": "70px", "position": "fixed" });
-//     // // bodyのpaddingを調整
-//     // $('body').css("padding", "70px 0 0");
-//   }
-// }
 
-// // ==============================
-// // ログイン・サインアップページの処理
-// // ==============================
-// if (bodyId === "page-login-signup" || bodyId === "page-login-forgot_password") {
-//   // ログインページのタイトルを変更
-//   $(".login-heading").text("新規会員登録");
+// ==============================
+// ログイン・サインアップページの処理
+// ==============================
+if (bodyId === "page-login-signup" || bodyId === "page-login-forgot_password") {
+  // ログインページのタイトルを変更
+  $(".login-heading").text("新規会員登録");
 
-//   // フォームのプレースホルダーを設定
-//   const placeholders = {
-//     id_username: "例）waomirai",
-//     id_email: "例）sample@gmail.com",
-//     id_email2: "例）sample@gmail.com",
-//     id_lastname: "例）鈴木",
-//     id_firstname: "例）太郎",
-//     id_profile_field_furigana: "例）スズキタロウ",
-//     id_profile_field_postnumber: "例）0000000",
-//   };
+  // フォームのプレースホルダーを設定
+  const placeholders = {
+    id_username: "例）waomirai",
+    id_email: "例）sample@gmail.com",
+    id_email2: "例）sample@gmail.com",
+    id_lastname: "例）鈴木",
+    id_firstname: "例）太郎",
+    id_profile_field_furigana: "例）スズキタロウ",
+    id_profile_field_postnumber: "例）0000000",
+  };
 
-//   $.each(placeholders, function (id, placeholder) {
-//     $("#" + id).attr("placeholder", placeholder);
-//   });
+  $.each(placeholders, function (id, placeholder) {
+    $("#" + id).attr("placeholder", placeholder);
+  });
 
-//   // パスワードポリシーの説明を移動
-//   const $sourceElement = $("#fitem_id_passwordpolicyinfo .form-control-static");
-//   const $targetParent = $("label#id_password_label");
-//   if ($sourceElement.length && $targetParent.length) {
-//     $targetParent.append($sourceElement);
-//   }
+  // パスワードポリシーの説明を移動
+  const $sourceElement = $("#fitem_id_passwordpolicyinfo .form-control-static");
+  const $targetParent = $("label#id_password_label");
+  if ($sourceElement.length && $targetParent.length) {
+    $targetParent.append($sourceElement);
+  }
 
-//   // アイコン（!）を "*" に置き換え
-//   $(".fa-exclamation-circle").each(function () {
-//     $(this).replaceWith("*");
-//   });
+  // アイコン（!）を "*" に置き換え
+  $(".fa-exclamation-circle").each(function () {
+    $(this).replaceWith("*");
+  });
 
-//   // ロゴを挿入
-//   const $loginWrapper = $("#page-login-signup .login-wrapper");
-//   if ($loginWrapper.length) {
-//     const signupLogoHtml = `
-//                 <div class="signup-logo">
-//                     <img src="https://go.waomirai.com/l/1026513/2023-11-16/gddzt/1026513/1700192228BDlbz92f/logo_basic_white.png" style="width: 100%;">
-//                 </div>`;
-//     $loginWrapper.before(signupLogoHtml);
-//   }
-// }
-// if (bodyId === "page-login-index") {
-//   const cookiekeywords = ["ブラウザのクッキーを"];
+  // ロゴを挿入
+  const $loginWrapper = $("#page-login-signup .login-wrapper");
+  if ($loginWrapper.length) {
+    const signupLogoHtml = `
+                <div class="signup-logo">
+                    <img src="https://go.waomirai.com/l/1026513/2023-11-16/gddzt/1026513/1700192228BDlbz92f/logo_basic_white.png" style="width: 100%;">
+                </div>`;
+    $loginWrapper.before(signupLogoHtml);
+  }
+}
+if (bodyId === "page-login-index") {
+  const cookiekeywords = ["ブラウザのクッキーを"];
 
-//   cookiekeywords.forEach((keyword) => {
-//     $("*:contains('" + keyword + "')")
-//       .filter(function () {
-//         return $(this).children().length === 0; // 子要素を持たないテキストノードだけ対象
-//       })
-//       .closest("div")
-//       .css("display", "none");
-//   });
-//   const moodlekeywords = ["Moodle", "Powered by"];
+  cookiekeywords.forEach((keyword) => {
+    $("*:contains('" + keyword + "')")
+      .filter(function () {
+        return $(this).children().length === 0; // 子要素を持たないテキストノードだけ対象
+      })
+      .closest("div")
+      .css("display", "none");
+  });
+  const moodlekeywords = ["Moodle", "Powered by"];
 
-//   moodlekeywords.forEach((keyword) => {
-//     $("*:contains('" + keyword + "')")
-//       .filter(function () {
-//         return $(this).children().length === 0; // 子要素を持たないテキストノードだけ対象
-//       })
-//       .closest("*")
-//       .css("display", "none");
-//   });
-// }
+  moodlekeywords.forEach((keyword) => {
+    $("*:contains('" + keyword + "')")
+      .filter(function () {
+        return $(this).children().length === 0; // 子要素を持たないテキストノードだけ対象
+      })
+      .closest("*")
+      .css("display", "none");
+  });
+}
 
-// // ==============================
-// // ログイン確認ページの処理
-// // ==============================
-// if (bodyId === "page-login-confirm") {
-//   $(".boxaligncenter h3").text("ご登録ありがとうございます。");
-//   $(".singlebutton button").text("ワオ未来塾TOPへ");
-// }
+// ==============================
+// ログイン確認ページの処理
+// ==============================
+if (bodyId === "page-login-confirm") {
+  $(".boxaligncenter h3").text("ご登録ありがとうございます。");
+  $(".singlebutton button").text("ワオ未来塾TOPへ");
+}
 
-// // ==============================
-// // 購入処理
-// // ==============================
-// if (bodyId === "page-enrol-index") {
-//   //セット割引要素を購入右に追加
-//   const $buttonElement = $(".enrol_fee_payment_region button");
-//   if ($buttonElement.length) {
-//     const customDivHtml = `
-//                 <div class="page-enrol-set-discount">
-//                     <p>セット受講割引でお得！</p>
-//                     <p><a href='#'>詳細を見る</a></p>
-//                 </div>`;
-//     $buttonElement.after(customDivHtml);
-//   }
+// ==============================
+// 購入処理
+// ==============================
+if (bodyId === "page-enrol-index") {
+  //セット割引要素を購入右に追加
+  const $buttonElement = $(".enrol_fee_payment_region button");
+  if ($buttonElement.length) {
+    const customDivHtml = `
+                <div class="page-enrol-set-discount">
+                    <p>セット受講割引でお得！</p>
+                    <p><a href='#'>詳細を見る</a></p>
+                </div>`;
+    $buttonElement.after(customDivHtml);
+  }
 
-//   // 画面下に追従に"円"の要素を入れる
-//   const SubjectpPrice = $('.enrol_fee_payment_region b:contains("¥")');
-//   var SubjectPriceContent = `<div class="c-pc-hidden fixed-subject-price">${SubjectpPrice.text()} /月</div>`;
-//   console.log(SubjectPriceContent);
-//   $("#page.drawers").after(SubjectPriceContent);
+  // 画面下に追従に"円"の要素を入れる
+  const SubjectpPrice = $('.enrol_fee_payment_region b:contains("¥")');
+  var SubjectPriceContent = `<div class="c-pc-hidden fixed-subject-price">${SubjectpPrice.text()} /月</div>`;
+  console.log(SubjectPriceContent);
+  $("#page.drawers").after(SubjectPriceContent);
 
-//   // カテゴリーごとの購入処理
-//   $(".enrol_fee_payment_region button").on("click", function (event) {
-//     const category = CurrentViewCourseData.category;
+  // カテゴリーごとの購入処理
+  $(".enrol_fee_payment_region button").on("click", function (event) {
+    const category = CurrentViewCourseData.key;
 
-//     // 科目別の処理（哲学、科学、経済）
-//     if (["philosophy", "science", "economy"].includes(category)) {
-//       event.preventDefault();
+    // 科目別の処理（哲学、科学、経済）
+    if (["philosophy", "science", "economy"].includes(category)) {
+      event.preventDefault();
 
-//       const otherSubjects = {
-//         philosophy: ["science", "economy"],
-//         science: ["philosophy", "economy"],
-//         economy: ["philosophy", "science"],
-//       };
+      const otherSubjects = {
+        philosophy: ["science", "economy"],
+        science: ["philosophy", "economy"],
+        economy: ["philosophy", "science"],
+      };
 
-//       if (isBuySubjectMainArray(otherSubjects[category])) {
-//         //1科買っていてもう1科買おうとしたとき
-//         $("body").append(
-//           createModal({
-//             close: true,
-//             text: "「哲学・経済・化学」の教科で２科目以上受講する際はセット購入がお得です。セット購入の際はフォームより申し込みをお願いいたします。",
-//             buttonText: "変更フォームへ",
-//             url: "https://example.com",
-//           })
-//         );
-//       } else if (
-//         //2科買っていてもうセットパック買おうとしたとき
-//         isBuySubjectMainArray(["twosubjectpack", "threesubjectpack"])
-//       ) {
-//         $("body").append(
-//           createModal({
-//             close: true,
-//             text: "すでに複数受講できる科目セットを購入されています。受講科目の選択はXXXXXXX（ここは未定）",
-//             buttonText: "ここは未定",
-//             url: "https://example.com",
-//           })
-//         );
-//       }
-//     }
+      if (isBuySubjectMainArray(otherSubjects[category])) {
+        //1科買っていてもう1科買おうとしたとき
+        $("body").append(
+          createModal({
+            close: true,
+            text: "「哲学・経済・化学」の教科で２科目以上受講する際はセット購入がお得です。セット購入の際はフォームより申し込みをお願いいたします。",
+            buttonText: "変更フォームへ",
+            url: "https://example.com",
+          })
+        );
+      } else if (
+        //2科買っていてもうセットパック買おうとしたとき
+        isBuySubjectMainArray(["twosubjectpack", "threesubjectpack"])
+      ) {
+        $("body").append(
+          createModal({
+            close: true,
+            text: "すでに複数受講できる科目セットを購入されています。受講科目の選択はXXXXXXX（ここは未定）",
+            buttonText: "ここは未定",
+            url: "https://example.com",
+          })
+        );
+      }
+    }
 
-//     // セットパック購入時の処理
-//     if (["twosubjectpack", "threesubjectpack"].includes(category)) {
-//       if (isBuySubjectMainArray(["philosophy", "science", "economy"])) {
-//         $("body").append(
-//           createModal({
-//             close: true,
-//             text: "「哲学・化学・経済」の科目のいずれかを受講している場合、こちらのボタンからセット受講を購入することはできません。下記フォームより購入を申し込む必要がございます。",
-//             buttonText: "複数科目セットの購入フォームへ",
-//             url: "https://example.com",
-//           })
-//         );
-//       } else if (
-//         category === "twosubjectpack" &&
-//         isBuySubjectMainArray(["threesubjectpack"])
-//       ) {
-//         $("body").append(
-//           createModal({
-//             close: true,
-//             text: "「３科目セット」を購入済みです。２科目セットへ受講変更したい場合はフォームよりお問い合わせをお願いいたします。",
-//             buttonText: "受講変更フォームへ",
-//             url: "https://example.com",
-//           })
-//         );
-//       } else if (
-//         category === "threesubjectpack" &&
-//         isBuySubjectMainArray(["twosubjectpack"])
-//       ) {
-//         $("body").append(
-//           createModal({
-//             close: true,
-//             text: "「２科目セット」を購入済みです。３科目セットへ受講変更したい場合はフォームよりお問い合わせをお願いいたします。",
-//             buttonText: "受講変更フォームへ",
-//             url: "https://example.com",
-//           })
-//         );
-//       }
-//     }
-//   });
-// }
+    // セットパック購入時の処理
+    if (["twosubjectpack", "threesubjectpack"].includes(category)) {
+      if (isBuySubjectMainArray(["philosophy", "science", "economy"])) {
+        $("body").append(
+          createModal({
+            close: true,
+            text: "「哲学・化学・経済」の科目のいずれかを受講している場合、こちらのボタンからセット受講を購入することはできません。下記フォームより購入を申し込む必要がございます。",
+            buttonText: "複数科目セットの購入フォームへ",
+            url: "https://example.com",
+          })
+        );
+      } else if (
+        category === "twosubjectpack" &&
+        isBuySubjectMainArray(["threesubjectpack"])
+      ) {
+        $("body").append(
+          createModal({
+            close: true,
+            text: "「３科目セット」を購入済みです。２科目セットへ受講変更したい場合はフォームよりお問い合わせをお願いいたします。",
+            buttonText: "受講変更フォームへ",
+            url: "https://example.com",
+          })
+        );
+      } else if (
+        category === "threesubjectpack" &&
+        isBuySubjectMainArray(["twosubjectpack"])
+      ) {
+        $("body").append(
+          createModal({
+            close: true,
+            text: "「２科目セット」を購入済みです。３科目セットへ受講変更したい場合はフォームよりお問い合わせをお願いいたします。",
+            buttonText: "受講変更フォームへ",
+            url: "https://example.com",
+          })
+        );
+      }
+    }
+  });
+}
 
-// // ==============================
-// // 受講ページ
-// // ==============================
-// if (bodyId === "page-mod-questionnaire-view") {
-//   //スマホ版でタイトルを動画の下にうつすロジック
-//   var contentToClone = $("#page-header").clone();
-//   var wrappedContent = $("<div>", {
-//     id: "sp-page-header",
-//     class: "c-pc-hidden",
-//   }).append(contentToClone);
-//   // #page-content直下に配置
-//   $(".activity-description").append(wrappedContent);
+// ==============================
+// 受講ページ
+// ==============================
+if (bodyId === "page-mod-questionnaire-view") {
+  //スマホ版でタイトルを動画の下にうつすロジック
+  var contentToClone = $("#page-header").clone();
+  var wrappedContent = $("<div>", {
+    id: "sp-page-header",
+    class: "c-pc-hidden",
+  }).append(contentToClone);
+  // #page-content直下に配置
+  $(".activity-description").append(wrappedContent);
 
-//   //課題提出の下にリード文を入れる
-//   $(".mod_questionnaire_viewpage h2").after(
-//     "<p>授業の視聴が終わったら課題を提出しましょう</p>"
-//   );
-// }
+  //課題提出の下にリード文を入れる
+  $(".mod_questionnaire_viewpage h2").after(
+    "<p>授業の視聴が終わったら課題を提出しましょう</p>"
+  );
+}
 
 // // ==============================
 // // カテゴリページの処理
@@ -1004,43 +782,15 @@ if (bodyId === "page-my-index") {
 //   window.location.href = "https://lms.waomirai.com/";
 // }
 
-// // ==============================
-// //メイン3科目or2,3科目パック購入後はリダイレクトさせる
-// // ==============================
-// if (bodyId === "page-course-view-flexsections") {
-//   function handleSubjectRedirect(subject, levels, bodyClasses) {
-//     const currentId = getSubjectChildId(subject, levels, bodyClasses);
-//     if (currentId) {
-//       window.location.href = `https://lms.waomirai.com/course/view.php?id=${currentId}`;
-//     }
-//   }
-
-//   if (bodyId === "page-course-view-flexsections") {
-//     // 哲学の条件
-//     if (
-//       !isBuySubjectMainArray(["philosophy"]) ||
-//       isBuySubjectChildArray("philosophy", ["ph_L1", "ph_L2", "ph_L3", "ph_L4"])
-//     ) {
-//       handleSubjectRedirect(
-//         "philosophy",
-//         ["ph_L1", "ph_L2", "ph_L3", "ph_L4"],
-//         bodyClasses
-//       );
-//     }
-
-//     // 科学の条件
-//     if (
-//       !isBuySubjectMainArray(["science"]) ||
-//       isBuySubjectChildArray("science", ["sc_L1", "sc_L2", "sc_L3", "sc_L4"])
-//     ) {
-//       handleSubjectRedirect(
-//         "science",
-//         ["sc_L1", "sc_L2", "sc_L3", "sc_L4"],
-//         bodyClasses
-//       );
-//     }
-//   }
-// }
+// ==============================
+//メイン3科目or2,3科目パック購入後はリダイレクトさせる
+// ==============================
+if (bodyId === "page-course-view-flexsections") {
+  //哲学のみ購入
+  if (isBuySubjectMainArray(["philosophy"])) {
+    alert("哲学勝ってるよん");
+  }
+}
 
 // // ==============================
 // //受講レベルの設定
@@ -1322,25 +1072,25 @@ if (bodyId === "page-user-edit") {
     `);
 }
 
-// // ==============================
-// // 汎用的な関数
-// // ==============================
+// ==============================
+// 汎用的な関数
+// ==============================
 
-// // classを指定してスクロールできるように
-// $(".scroll-to").on("click", function (e) {
-//   e.preventDefault(); // デフォルトの動作を防ぐ
-//   var targetClass = $(this).data("target"); // data-target属性からターゲットのクラスを取得
-//   var $target = $(targetClass); // ターゲット要素を取得
+// classを指定してスクロールできるように
+$(".scroll-to").on("click", function (e) {
+  e.preventDefault(); // デフォルトの動作を防ぐ
+  var targetClass = $(this).data("target"); // data-target属性からターゲットのクラスを取得
+  var $target = $(targetClass); // ターゲット要素を取得
 
-//   if ($target.length) {
-//     // ターゲットが存在する場合のみ実行
-//     $("html, body").animate(
-//       {
-//         scrollTop: $target.offset().top, // ターゲット要素の位置にスクロール
-//       },
-//       0 // スクロール速度 (ミリ秒)
-//     );
-//   }
-// });
+  if ($target.length) {
+    // ターゲットが存在する場合のみ実行
+    $("html, body").animate(
+      {
+        scrollTop: $target.offset().top, // ターゲット要素の位置にスクロール
+      },
+      0 // スクロール速度 (ミリ秒)
+    );
+  }
+});
    }
 });
