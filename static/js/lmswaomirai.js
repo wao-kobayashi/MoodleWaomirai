@@ -1,40 +1,40 @@
-alert('きいている');
+// alert('きいている');
 
-const SubjectIds = {
-    SubjectMain: {
-        philosophy: { id: 255, name: '哲学', key: 'philosophy' },
-        science: { id: 265, name: '科学', key: 'science' },
-        economy: { id: 260, name: '経済', key: 'economy' },
-        ThreeSubjectPack: { id: 271, name: '3科目セット', key: 'threesubjectpack' },
-        TwoSubjectPack: { id: 270, name: '2科目セット', key: 'twosubjectpack' },
-        GlobalEnglish: { id: 135, name: 'グローバル英語', key: 'globalenglish' },
-    },
-    SubjectChild: {
-        philosophy: {
-            ph_L1: { id: 256, name: '哲学 L1', key: 'philosophy' },
-            ph_L2: { id: 257, name: '哲学 L2', key: 'philosophy' },
-            ph_L3: { id: 258, name: '哲学 L3', key: 'philosophy' },
-            ph_L4: { id: 259, name: '哲学 L4', key: 'philosophy' }
-        },
-        science: {
-            sc_L1: { id: 266, name: '科学 L1', key: 'science' },
-            sc_L2: { id: 267, name: '科学 L2', key: 'science' },
-            sc_L3: { id: 268, name: '科学 L3', key: 'science' },
-            sc_L4: { id: 269, name: '科学 L4', key: 'science' }
-        },
-        economy: {
-            ec_L1: { id: 261, name: '経済 L1', key: 'economy' },
-            ec_L2: { id: 262, name: '経済 L2', key: 'economy' },
-            ec_L3: { id: 263, name: '経済 L3', key: 'economy' },
-            ec_L4: { id: 264, name: '経済 L4', key: 'economy' }
-        },
-        GlobalEnglish: {
-            en_L1: { id: 130, name: 'グローバル英語 L1', key: 'globalenglish' },
-            en_L2: { id: 138, name: 'グローバル英語 L2', key: 'globalenglish' },
-        },
-    },
-    Programming: { id: 235, name: 'プログラミング', key: 'programming' }
-};
+// const SubjectIds = {
+//     SubjectMain: {
+//         philosophy: { id: 255, name: '哲学', key: 'philosophy' },
+//         science: { id: 265, name: '科学', key: 'science' },
+//         economy: { id: 260, name: '経済', key: 'economy' },
+//         ThreeSubjectPack: { id: 271, name: '3科目セット', key: 'threesubjectpack' },
+//         TwoSubjectPack: { id: 270, name: '2科目セット', key: 'twosubjectpack' },
+//         GlobalEnglish: { id: 135, name: 'グローバル英語', key: 'globalenglish' },
+//     },
+//     SubjectChild: {
+//         philosophy: {
+//             ph_L1: { id: 256, name: '哲学 L1', key: 'philosophy' },
+//             ph_L2: { id: 257, name: '哲学 L2', key: 'philosophy' },
+//             ph_L3: { id: 258, name: '哲学 L3', key: 'philosophy' },
+//             ph_L4: { id: 259, name: '哲学 L4', key: 'philosophy' }
+//         },
+//         science: {
+//             sc_L1: { id: 266, name: '科学 L1', key: 'science' },
+//             sc_L2: { id: 267, name: '科学 L2', key: 'science' },
+//             sc_L3: { id: 268, name: '科学 L3', key: 'science' },
+//             sc_L4: { id: 269, name: '科学 L4', key: 'science' }
+//         },
+//         economy: {
+//             ec_L1: { id: 261, name: '経済 L1', key: 'economy' },
+//             ec_L2: { id: 262, name: '経済 L2', key: 'economy' },
+//             ec_L3: { id: 263, name: '経済 L3', key: 'economy' },
+//             ec_L4: { id: 264, name: '経済 L4', key: 'economy' }
+//         },
+//         GlobalEnglish: {
+//             en_L1: { id: 130, name: 'グローバル英語 L1', key: 'globalenglish' },
+//             en_L2: { id: 138, name: 'グローバル英語 L2', key: 'globalenglish' },
+//         },
+//     },
+//     Programming: { id: 235, name: 'プログラミング', key: 'programming' }
+// };
 
 $(document).ready(function() {
     const tenantIdNumber = $("html").data("tenantidnumber");
@@ -95,7 +95,41 @@ function findCourseById(courseId) {
 
 const CurrentViewCourseId = getCurrentCourseId();
 const CurrentViewCourseData = findCourseById(CurrentViewCourseId, SubjectIds);
-alert(CurrentViewCourseData);
+alert(CurrentViewCourseData.key);
+
+function createModal(options = {}) {
+  const modal = `
+    <div class="c-modal">
+      <div class="c-modal-wrap">
+        ${options.close ? '<div class="c-modal-wrap-close"></div>' : ""}
+        ${
+          options.title
+            ? `<div class="c-modal-wrap-title">${options.title}</div>`
+            : ""
+        }
+        ${
+          options.text
+            ? `<div class="c-modal-wrap-text">${options.text}</div>`
+            : ""
+        }
+        ${
+          options.buttonText
+            ? `<a href="${options.url || "#"}" class="c-modal-wrap-button">${
+                options.buttonText
+              }</a>`
+            : ""
+        }
+      </div>
+    </div>
+    <div class="c-modal-bg"></div>
+  `;
+
+  const $modal = $(modal).appendTo("body");
+
+  $(".c-modal-wrap-close, .c-modal-bg", $modal).on("click", function () {
+    $modal.remove();
+  });
+}
 
 // ==============================
 // 購入処理
@@ -120,7 +154,7 @@ if (bodyId === "page-enrol-index") {
 
   // カテゴリーごとの購入処理
   $(".enrol_fee_payment_region button").on("click", function (event) {
-    const category = CurrentViewCourseData.category;
+    const category = CurrentViewCourseData.key;
 
     // 科目別の処理（哲学、科学、経済）
     if (["philosophy", "science", "economy"].includes(category)) {
@@ -144,7 +178,7 @@ if (bodyId === "page-enrol-index") {
         );
       } else if (
         //2科買っていてもうセットパック買おうとしたとき
-        isBuySubjectMainArray(["TwoSubjectPack", "ThreeSubjectPack"])
+        isBuySubjectMainArray(["twosubjectpack", "threesubjectpack"])
       ) {
         $("body").append(
           createModal({
@@ -158,7 +192,7 @@ if (bodyId === "page-enrol-index") {
     }
 
     // セットパック購入時の処理
-    if (["TwoSubjectPack", "ThreeSubjectPack"].includes(category)) {
+    if (["twosubjectpack", "threesubjectpack"].includes(category)) {
       if (isBuySubjectMainArray(["philosophy", "science", "economy"])) {
         $("body").append(
           createModal({
@@ -169,8 +203,8 @@ if (bodyId === "page-enrol-index") {
           })
         );
       } else if (
-        category === "TwoSubjectPack" &&
-        isBuySubjectMainArray(["ThreeSubjectPack"])
+        category === "twosubjectpack" &&
+        isBuySubjectMainArray(["threesubjectpack"])
       ) {
         $("body").append(
           createModal({
@@ -181,8 +215,8 @@ if (bodyId === "page-enrol-index") {
           })
         );
       } else if (
-        category === "ThreeSubjectPack" &&
-        isBuySubjectMainArray(["TwoSubjectPack"])
+        category === "threesubjectpack" &&
+        isBuySubjectMainArray(["twosubjectpack"])
       ) {
         $("body").append(
           createModal({
@@ -308,40 +342,6 @@ if (bodyId === "page-enrol-index") {
 //   console.log(
 //     `現在のコース: ${CurrentViewCourseData.course.name} (カテゴリ: ${CurrentViewCourseData.category})`
 //   );
-// }
-
-// function createModal(options = {}) {
-//   const modal = `
-//     <div class="c-modal">
-//       <div class="c-modal-wrap">
-//         ${options.close ? '<div class="c-modal-wrap-close"></div>' : ""}
-//         ${
-//           options.title
-//             ? `<div class="c-modal-wrap-title">${options.title}</div>`
-//             : ""
-//         }
-//         ${
-//           options.text
-//             ? `<div class="c-modal-wrap-text">${options.text}</div>`
-//             : ""
-//         }
-//         ${
-//           options.buttonText
-//             ? `<a href="${options.url || "#"}" class="c-modal-wrap-button">${
-//                 options.buttonText
-//               }</a>`
-//             : ""
-//         }
-//       </div>
-//     </div>
-//     <div class="c-modal-bg"></div>
-//   `;
-
-//   const $modal = $(modal).appendTo("body");
-
-//   $(".c-modal-wrap-close, .c-modal-bg", $modal).on("click", function () {
-//     $modal.remove();
-//   });
 // }
 
 // // ==============================
@@ -853,7 +853,7 @@ if (bodyId === "page-enrol-index") {
 //         );
 //       } else if (
 //         //2科買っていてもうセットパック買おうとしたとき
-//         isBuySubjectMainArray(["TwoSubjectPack", "ThreeSubjectPack"])
+//         isBuySubjectMainArray(["twosubjectpack", "threesubjectpack"])
 //       ) {
 //         $("body").append(
 //           createModal({
@@ -867,7 +867,7 @@ if (bodyId === "page-enrol-index") {
 //     }
 
 //     // セットパック購入時の処理
-//     if (["TwoSubjectPack", "ThreeSubjectPack"].includes(category)) {
+//     if (["twosubjectpack", "threesubjectpack"].includes(category)) {
 //       if (isBuySubjectMainArray(["philosophy", "science", "economy"])) {
 //         $("body").append(
 //           createModal({
@@ -878,8 +878,8 @@ if (bodyId === "page-enrol-index") {
 //           })
 //         );
 //       } else if (
-//         category === "TwoSubjectPack" &&
-//         isBuySubjectMainArray(["ThreeSubjectPack"])
+//         category === "twosubjectpack" &&
+//         isBuySubjectMainArray(["threesubjectpack"])
 //       ) {
 //         $("body").append(
 //           createModal({
@@ -890,8 +890,8 @@ if (bodyId === "page-enrol-index") {
 //           })
 //         );
 //       } else if (
-//         category === "ThreeSubjectPack" &&
-//         isBuySubjectMainArray(["TwoSubjectPack"])
+//         category === "threesubjectpack" &&
+//         isBuySubjectMainArray(["twosubjectpack"])
 //       ) {
 //         $("body").append(
 //           createModal({
@@ -1104,7 +1104,7 @@ if (bodyId === "page-enrol-index") {
 //   }
 
 //   //【２科目】２科目セット買った時
-//   if (isBuySubjectMainArray(["TwoSubjectPack"], true)) {
+//   if (isBuySubjectMainArray(["twosubjectpack"], true)) {
 //     //2科目セットの場合は選べるので2科目のプルダウンは抑制しない
 //     AreaTwoCourse.show(); //2科のプルダウンを表示
 //     selectOptionByIndex(AreaSingleCourse, 0); //1科目受講
@@ -1169,7 +1169,7 @@ if (bodyId === "page-enrol-index") {
 //   }
 
 //   //【３科目】３科目セット買った時
-//   if (isBuySubjectMainArray(["ThreeSubjectPack"], true)) {
+//   if (isBuySubjectMainArray(["threesubjectpack"], true)) {
 //     AreaPhilosophy.show(); //科学を表示
 //     AreaScience.show(); //哲学を表示
 //     AreaEconomy.show(); //経済を表示
