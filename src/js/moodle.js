@@ -52,9 +52,9 @@ function findCourseById(courseId) {
   return SubjectIds.subjects.find((subject) => subject.id === courseId);
 }
 
-const CurrentViewCourseId = getCurrentCourseId();
-const CurrentViewCourseData = findCourseById(CurrentViewCourseId, SubjectIds);
-alert(CurrentViewCourseData.key);
+// const CurrentViewCourseId = getCurrentCourseId();
+// const CurrentViewCourseData = findCourseById(CurrentViewCourseId, SubjectIds);
+// alert(CurrentViewCourseData.key);
 
 function createModal(options = {}) {
   const modal = `
@@ -932,282 +932,282 @@ if (bodyId === "page-enrol-index") {
 // // ==============================
 // //受講レベルの設定
 // // ==============================
-// if (bodyId === "page-user-edit") {
-//   var AreaPhilosophy = $("#fitem_id_profile_field_Philosophy_Level"); //哲学の入力エリア
-//   var AreaScience = $("#fitem_id_profile_field_Science_Level"); //科学の入力エリア
-//   var AreaEconomy = $("#fitem_id_profile_field_Economy_Level"); //経済の入力エリア
-//   var AreaEnglish = $("#fitem_id_profile_field_English_Level"); //英語の入力エリア
-//   var AreaSingleCourse = $("#fitem_id_profile_field_1cource_Subject"); //１科目受講の入力エリア
-//   var AreaTwoCourse = $("#fitem_id_profile_field_2cources_subject"); //２科目受講の入力エリア
+if (bodyId === "page-user-edit") {
+  var AreaPhilosophy = $("#fitem_id_profile_field_Philosophy_Level"); //哲学の入力エリア
+  var AreaScience = $("#fitem_id_profile_field_Science_Level"); //科学の入力エリア
+  var AreaEconomy = $("#fitem_id_profile_field_Economy_Level"); //経済の入力エリア
+  var AreaEnglish = $("#fitem_id_profile_field_English_Level"); //英語の入力エリア
+  var AreaSingleCourse = $("#fitem_id_profile_field_1cource_Subject"); //１科目受講の入力エリア
+  var AreaTwoCourse = $("#fitem_id_profile_field_2cources_subject"); //２科目受講の入力エリア
 
-//   //初回受講レベル登録時、submitあたりで注意文言を出す
-//   function AlertSubjectSettingFirst() {
-//     $("#fgroup_id_buttonar").before(
-//       `<div id="id_submitbutton-subject">一度受講レベルを設定すると、2回目以降のレベル変更時の反映は当月末になりますのでご注意くださいませ。</div>`
-//     );
-//   }
+  //初回受講レベル登録時、submitあたりで注意文言を出す
+  function AlertSubjectSettingFirst() {
+    $("#fgroup_id_buttonar").before(
+      `<div id="id_submitbutton-subject">一度受講レベルを設定すると、2回目以降のレベル変更時の反映は当月末になりますのでご注意くださいませ。</div>`
+    );
+  }
 
-//   //memo AreaSingleCourse
-//   var AreaElements = [
-//     AreaPhilosophy,
-//     AreaScience,
-//     AreaEconomy,
-//     AreaEnglish,
-//     AreaSingleCourse,
-//     AreaTwoCourse,
-//   ];
-//   AreaElements.forEach(function (AreaElement) {
-//     AreaElement.hide();
-//   });
-//   //選択した科目フィールドのセレクト(select)を取得する関数
-//   function getSelectElement(Area) {
-//     var selectElement = Area.find("select"); // 返すのもの
-//     return selectElement;
-//   }
-//   //選択した科目フィールドのセレクト(select)のオプションを操作する関数
-//   function selectOptionByIndex(Area, optionIndex = 0) {
-//     var selectElement = getSelectElement(Area); // 既存の関数を利用
-//     // console.log(selectElement);
-//     selectElement.find(`option:eq(${optionIndex})`).prop("selected", true); // 指定された番号の<option>を選択
-//     return selectElement; // <select>要素を返す
-//   }
+  //memo AreaSingleCourse
+  var AreaElements = [
+    AreaPhilosophy,
+    AreaScience,
+    AreaEconomy,
+    AreaEnglish,
+    AreaSingleCourse,
+    AreaTwoCourse,
+  ];
+  AreaElements.forEach(function (AreaElement) {
+    AreaElement.hide();
+  });
+  //選択した科目フィールドのセレクト(select)を取得する関数
+  function getSelectElement(Area) {
+    var selectElement = Area.find("select"); // 返すのもの
+    return selectElement;
+  }
+  //選択した科目フィールドのセレクト(select)のオプションを操作する関数
+  function selectOptionByIndex(Area, optionIndex = 0) {
+    var selectElement = getSelectElement(Area); // 既存の関数を利用
+    // console.log(selectElement);
+    selectElement.find(`option:eq(${optionIndex})`).prop("selected", true); // 指定された番号の<option>を選択
+    return selectElement; // <select>要素を返す
+  }
 
-//   //選択した科目フィールドのセレクト(select)を監視する関数
-//   //この関数は、２科目、３科目の場合考慮することが多そうなので一旦使わない。
-//   function handleMultipleSelectChange(selectors, callback) {
-//     // インデックスを格納する配列
-//     var selectedIndexes = [];
+  //選択した科目フィールドのセレクト(select)を監視する関数
+  //この関数は、２科目、３科目の場合考慮することが多そうなので一旦使わない。
+  function handleMultipleSelectChange(selectors, callback) {
+    // インデックスを格納する配列
+    var selectedIndexes = [];
 
-//     // セレクタで指定された複数の select 要素の各 option のインデックスを取得
-//     $(selectors).each(function () {
-//       // 各 <select> の選ばれた <option> のインデックスを取得
-//       var selectedIndex = $(this).prop("selectedIndex");
-//       // インデックスを配列に格納
-//       selectedIndexes.push(selectedIndex);
-//     });
+    // セレクタで指定された複数の select 要素の各 option のインデックスを取得
+    $(selectors).each(function () {
+      // 各 <select> の選ばれた <option> のインデックスを取得
+      var selectedIndex = $(this).prop("selectedIndex");
+      // インデックスを配列に格納
+      selectedIndexes.push(selectedIndex);
+    });
 
-//     // コールバック関数を実行し、格納されたインデックス配列を渡す
-//     callback(selectedIndexes);
+    // コールバック関数を実行し、格納されたインデックス配列を渡す
+    callback(selectedIndexes);
 
-//     // 各 select 要素に対して change イベントを再度設定
-//     $(selectors).on("change", function () {
-//       // インデックス配列を再初期化
-//       selectedIndexes = [];
+    // 各 select 要素に対して change イベントを再度設定
+    $(selectors).on("change", function () {
+      // インデックス配列を再初期化
+      selectedIndexes = [];
 
-//       // 再度インデックスを取得し、配列に格納
-//       $(selectors).each(function () {
-//         var selectedIndex = $(this).prop("selectedIndex");
-//         selectedIndexes.push(selectedIndex);
-//       });
+      // 再度インデックスを取得し、配列に格納
+      $(selectors).each(function () {
+        var selectedIndex = $(this).prop("selectedIndex");
+        selectedIndexes.push(selectedIndex);
+      });
 
-//       // コールバック関数を実行し、更新されたインデックス配列を渡す
-//       callback(selectedIndexes);
-//     });
-//   }
+      // コールバック関数を実行し、更新されたインデックス配列を渡す
+      callback(selectedIndexes);
+    });
+  }
 
-//   //哲学のみ購入
-//   if (
-//     isBuySubjectMainArray(["philosophy"]) &&
-//     !isBuySubjectMainArray(["science", "economy"])
-//   ) {
-//     AreaPhilosophy.show(); //哲学を表示
-//     selectOptionByIndex(AreaSingleCourse, 1); //1科目受講を哲学に
-//     //初回受講レベル登録時、submitあたりで注意文言を出す
-//     if (
-//       !isBuySubjectChildArray("philosophy", [
-//         "ph_L1",
-//         "ph_L2",
-//         "ph_L3",
-//         "ph_L4",
-//       ])
-//     ) {
-//       AlertSubjectSettingFirst();
-//     }
-//   }
-//   //科学のみ購入
-//   if (
-//     isBuySubjectMainArray(["science"]) &&
-//     !isBuySubjectMainArray(["philosophy", "economy"])
-//   ) {
-//     AreaScience.show(); //科学を表示
-//     selectOptionByIndex(AreaSingleCourse, 2); //1科目受講を科学に
-//     //初回受講レベル登録時、submitあたりで注意文言を出す
-//     if (
-//       !isBuySubjectChildArray("science", ["sc_L1", "sc_L2", "sc_L3", "sc_L4"])
-//     ) {
-//       AlertSubjectSettingFirst();
-//     }
-//   }
-//   //経済のみ購入
-//   if (
-//     isBuySubjectMainArray(["economy"]) &&
-//     !isBuySubjectMainArray(["philosophy", "science"])
-//   ) {
-//     AreaEconomy.show(); //経済エリアを表示
-//     selectOptionByIndex(AreaSingleCourse, 3); //1科目受講を経済に
-//     //初回受講レベル登録時、submitあたりで注意文言を出す
-//     if (
-//       !isBuySubjectChildArray("economy", ["ec_L1", "ec_L2", "ec_L3", "ec_L4"])
-//     ) {
-//       AlertSubjectSettingFirst();
-//     }
-//   }
-//   //英語購入
-//   //英語は他３科目と違い、英語単体で判定する
-//   if (isBuySubjectMainArray(["GlobalEnglish"])) {
-//     AreaEnglish.show(); //英語エリアを表示
-//     //初回受講レベル登録時、submitあたりで注意文言を出す
-//     if (!isBuySubjectChildArray("GlobalEnglishence", ["en_L1", "en_L2"])) {
-//       AlertSubjectSettingFirst();
-//     }
-//   }
+  //哲学のみ購入
+  if (
+    isBuySubjectMainArray(["philosophy"]) &&
+    !isBuySubjectMainArray(["science", "economy"])
+  ) {
+    AreaPhilosophy.show(); //哲学を表示
+    selectOptionByIndex(AreaSingleCourse, 1); //1科目受講を哲学に
+    //初回受講レベル登録時、submitあたりで注意文言を出す
+    if (
+      !isBuySubjectChildArray("philosophy", [
+        "ph_L1",
+        "ph_L2",
+        "ph_L3",
+        "ph_L4",
+      ])
+    ) {
+      AlertSubjectSettingFirst();
+    }
+  }
+  //科学のみ購入
+  if (
+    isBuySubjectMainArray(["science"]) &&
+    !isBuySubjectMainArray(["philosophy", "economy"])
+  ) {
+    AreaScience.show(); //科学を表示
+    selectOptionByIndex(AreaSingleCourse, 2); //1科目受講を科学に
+    //初回受講レベル登録時、submitあたりで注意文言を出す
+    if (
+      !isBuySubjectChildArray("science", ["sc_L1", "sc_L2", "sc_L3", "sc_L4"])
+    ) {
+      AlertSubjectSettingFirst();
+    }
+  }
+  //経済のみ購入
+  if (
+    isBuySubjectMainArray(["economy"]) &&
+    !isBuySubjectMainArray(["philosophy", "science"])
+  ) {
+    AreaEconomy.show(); //経済エリアを表示
+    selectOptionByIndex(AreaSingleCourse, 3); //1科目受講を経済に
+    //初回受講レベル登録時、submitあたりで注意文言を出す
+    if (
+      !isBuySubjectChildArray("economy", ["ec_L1", "ec_L2", "ec_L3", "ec_L4"])
+    ) {
+      AlertSubjectSettingFirst();
+    }
+  }
+  //英語購入
+  //英語は他３科目と違い、英語単体で判定する
+  if (isBuySubjectMainArray(["GlobalEnglish"])) {
+    AreaEnglish.show(); //英語エリアを表示
+    //初回受講レベル登録時、submitあたりで注意文言を出す
+    if (!isBuySubjectChildArray("GlobalEnglishence", ["en_L1", "en_L2"])) {
+      AlertSubjectSettingFirst();
+    }
+  }
 
-//   //【２科目】２科目セット買った時
-//   if (isBuySubjectMainArray(["twosubjectpack"], true)) {
-//     //2科目セットの場合は選べるので2科目のプルダウンは抑制しない
-//     AreaTwoCourse.show(); //2科のプルダウンを表示
-//     selectOptionByIndex(AreaSingleCourse, 0); //1科目受講
-//     // // 2科目のプルダウンを変更した時に実行する関数
-//     function updateAreaOnSelection() {
-//       var selectedIndex = getSelectElement(AreaTwoCourse).prop("selectedIndex"); // 選択された<option>のインデックスを取得
+  //【２科目】２科目セット買った時
+  if (isBuySubjectMainArray(["twosubjectpack"], true)) {
+    //2科目セットの場合は選べるので2科目のプルダウンは抑制しない
+    AreaTwoCourse.show(); //2科のプルダウンを表示
+    selectOptionByIndex(AreaSingleCourse, 0); //1科目受講
+    // // 2科目のプルダウンを変更した時に実行する関数
+    function updateAreaOnSelection() {
+      var selectedIndex = getSelectElement(AreaTwoCourse).prop("selectedIndex"); // 選択された<option>のインデックスを取得
 
-//       // インデックスに基づいて処理を変更
-//       switch (selectedIndex) {
-//         case 1:
-//           // 哲学＋科学
-//           AreaPhilosophy.show();
-//           AreaScience.show();
-//           AreaEconomy.hide();
-//           break;
+      // インデックスに基づいて処理を変更
+      switch (selectedIndex) {
+        case 1:
+          // 哲学＋科学
+          AreaPhilosophy.show();
+          AreaScience.show();
+          AreaEconomy.hide();
+          break;
 
-//         case 2:
-//           // 科学＋経済
-//           AreaPhilosophy.show();
-//           AreaScience.hide();
-//           AreaEconomy.show();
-//           break;
+        case 2:
+          // 科学＋経済
+          AreaPhilosophy.show();
+          AreaScience.hide();
+          AreaEconomy.show();
+          break;
 
-//         case 3:
-//           // 科学＋経済
-//           AreaPhilosophy.hide();
-//           AreaScience.show();
-//           AreaEconomy.show();
-//           break;
-//         default:
-//           // デフォルトの処理（必要に応じて）
-//           AreaPhilosophy.hide();
-//           AreaScience.hide();
-//           AreaEconomy.hide();
-//       }
-//     }
-//     //ページロード時に実行
-//     updateAreaOnSelection();
-//     //プルダウンを変更した時も実行
-//     getSelectElement(AreaTwoCourse).on("change", updateAreaOnSelection);
-//     getSelectElement(AreaTwoCourse).after(
-//       "<div class='subject-select-levelnotset'>受講レベルを設定してください</div>"
-//     );
-//     //初回受講レベル登録時、submitあたりで注意文言を出す
-//     if (
-//       !isBuySubjectChildArray("economy", [
-//         "ec_L1",
-//         "ec_L2",
-//         "ec_L3",
-//         "ec_L4",
-//       ]) &&
-//       !isBuySubjectChildArray("philosophy", [
-//         "ph_L1",
-//         "ph_L2",
-//         "ph_L3",
-//         "ph_L4",
-//       ]) &&
-//       !isBuySubjectChildArray("science", ["sc_L1", "sc_L2", "sc_L3", "sc_L4"])
-//     ) {
-//       AlertSubjectSettingFirst();
-//     }
-//   }
+        case 3:
+          // 科学＋経済
+          AreaPhilosophy.hide();
+          AreaScience.show();
+          AreaEconomy.show();
+          break;
+        default:
+          // デフォルトの処理（必要に応じて）
+          AreaPhilosophy.hide();
+          AreaScience.hide();
+          AreaEconomy.hide();
+      }
+    }
+    //ページロード時に実行
+    updateAreaOnSelection();
+    //プルダウンを変更した時も実行
+    getSelectElement(AreaTwoCourse).on("change", updateAreaOnSelection);
+    getSelectElement(AreaTwoCourse).after(
+      "<div class='subject-select-levelnotset'>受講レベルを設定してください</div>"
+    );
+    //初回受講レベル登録時、submitあたりで注意文言を出す
+    if (
+      !isBuySubjectChildArray("economy", [
+        "ec_L1",
+        "ec_L2",
+        "ec_L3",
+        "ec_L4",
+      ]) &&
+      !isBuySubjectChildArray("philosophy", [
+        "ph_L1",
+        "ph_L2",
+        "ph_L3",
+        "ph_L4",
+      ]) &&
+      !isBuySubjectChildArray("science", ["sc_L1", "sc_L2", "sc_L3", "sc_L4"])
+    ) {
+      AlertSubjectSettingFirst();
+    }
+  }
 
-//   //【３科目】３科目セット買った時
-//   if (isBuySubjectMainArray(["threesubjectpack"], true)) {
-//     AreaPhilosophy.show(); //科学を表示
-//     AreaScience.show(); //哲学を表示
-//     AreaEconomy.show(); //経済を表示
-//     //初回受講レベル登録時、submitあたりで注意文言を出す
-//     if (
-//       !isBuySubjectChildArray("economy", [
-//         "ec_L1",
-//         "ec_L2",
-//         "ec_L3",
-//         "ec_L4",
-//       ]) &&
-//       !isBuySubjectChildArray("philosophy", [
-//         "ph_L1",
-//         "ph_L2",
-//         "ph_L3",
-//         "ph_L4",
-//       ]) &&
-//       !isBuySubjectChildArray("science", ["sc_L1", "sc_L2", "sc_L3", "sc_L4"])
-//     ) {
-//       AlertSubjectSettingFirst();
-//     }
-//   }
-//   //メイン科目で哲学設定｜哲学L1~L4は未設定
-//   if (
-//     isBuySubjectMainArray(["philosophy"]) &&
-//     !isBuySubjectChildArray("philosophy", ["ph_L1", "ph_L2", "ph_L3", "ph_L4"])
-//   ) {
-//     AreaPhilosophy.show();
-//   }
+  //【３科目】３科目セット買った時
+  if (isBuySubjectMainArray(["threesubjectpack"], true)) {
+    AreaPhilosophy.show(); //科学を表示
+    AreaScience.show(); //哲学を表示
+    AreaEconomy.show(); //経済を表示
+    //初回受講レベル登録時、submitあたりで注意文言を出す
+    if (
+      !isBuySubjectChildArray("economy", [
+        "ec_L1",
+        "ec_L2",
+        "ec_L3",
+        "ec_L4",
+      ]) &&
+      !isBuySubjectChildArray("philosophy", [
+        "ph_L1",
+        "ph_L2",
+        "ph_L3",
+        "ph_L4",
+      ]) &&
+      !isBuySubjectChildArray("science", ["sc_L1", "sc_L2", "sc_L3", "sc_L4"])
+    ) {
+      AlertSubjectSettingFirst();
+    }
+  }
+  //メイン科目で哲学設定｜哲学L1~L4は未設定
+  if (
+    isBuySubjectMainArray(["philosophy"]) &&
+    !isBuySubjectChildArray("philosophy", ["ph_L1", "ph_L2", "ph_L3", "ph_L4"])
+  ) {
+    AreaPhilosophy.show();
+  }
 
-//   // 科目の設定を配列で定義
-//   const subjectConfigs = [
-//     {
-//       subject: "philosophy",
-//       area: AreaPhilosophy,
-//       levels: ["ph_L1", "ph_L2", "ph_L3", "ph_L4"],
-//     },
-//     {
-//       subject: "science",
-//       area: AreaScience,
-//       levels: ["sc_L1", "sc_L2", "sc_L3", "sc_L4"],
-//     },
-//     {
-//       subject: "economy",
-//       area: AreaEconomy,
-//       levels: ["ec_L1", "ec_L2", "ec_L3", "ec_L4"],
-//     },
-//     {
-//       subject: "GlobalEnglish",
-//       area: AreaEnglish,
-//       levels: ["en_L1", "en_L2"],
-//     },
-//   ];
+  // 科目の設定を配列で定義
+  const subjectConfigs = [
+    {
+      subject: "philosophy",
+      area: AreaPhilosophy,
+      levels: ["ph_L1", "ph_L2", "ph_L3", "ph_L4"],
+    },
+    {
+      subject: "science",
+      area: AreaScience,
+      levels: ["sc_L1", "sc_L2", "sc_L3", "sc_L4"],
+    },
+    {
+      subject: "economy",
+      area: AreaEconomy,
+      levels: ["ec_L1", "ec_L2", "ec_L3", "ec_L4"],
+    },
+    {
+      subject: "GlobalEnglish",
+      area: AreaEnglish,
+      levels: ["en_L1", "en_L2"],
+    },
+  ];
 
-//   // メッセージの定義
-//   const messages = {
-//     levelSet:
-//       '<div class="subject-select-levelset">受講レベルは月末に反映されます。変更しても即時で反映されませんのでご注意くださいませ。</div>',
-//     levelNotSet:
-//       '<div class="subject-select-levelnotset">受講レベルを設定してください</div>',
-//   };
+  // メッセージの定義
+  const messages = {
+    levelSet:
+      '<div class="subject-select-levelset">受講レベルは月末に反映されます。変更しても即時で反映されませんのでご注意くださいませ。</div>',
+    levelNotSet:
+      '<div class="subject-select-levelnotset">受講レベルを設定してください</div>',
+  };
 
-//   // 全科目の処理を一括で行う
-//   subjectConfigs.forEach(({ subject, area, levels }) => {
-//     const message = isBuySubjectChildArray(subject, levels)
-//       ? messages.levelSet
-//       : messages.levelNotSet;
+  // 全科目の処理を一括で行う
+  subjectConfigs.forEach(({ subject, area, levels }) => {
+    const message = isBuySubjectChildArray(subject, levels)
+      ? messages.levelSet
+      : messages.levelNotSet;
 
-//     getSelectElement(area).after(message);
-//   });
+    getSelectElement(area).after(message);
+  });
 
-//   $("#id_category_10 > .d-flex").after(`
-//         <p class="subject-level-note">
-//           受講科目のレベルを選択してください。<br />
-//           選択した科目のレベルを設定しないと授業を受けることができません。<br />
-//          一度受講レベルを設定すると、2回目以降のレベル変更時の反映は当月末になりますのでご注意ください。
-//         </p>
-//     `);
-// }
+  $("#id_category_10 > .d-flex").after(`
+        <p class="subject-level-note">
+          受講科目のレベルを選択してください。<br />
+          選択した科目のレベルを設定しないと授業を受けることができません。<br />
+         一度受講レベルを設定すると、2回目以降のレベル変更時の反映は当月末になりますのでご注意ください。
+        </p>
+    `);
+}
 
 // // ==============================
 // // 汎用的な関数
