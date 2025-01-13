@@ -1,115 +1,123 @@
-// 検証テナントの変数定義
-const SubjectIds = {
-  SubjectMain: {
-      philosophy: { id: 212, name: '哲学', key:'philosophy' },
-      science: { id: 211, name: '科学', key:'science' },
-      economy: { id: 213, name: '経済', key:'economy' },
-      ThreeSubjectPack: { id: 229, name: '3科目セット', key:'threesubjectpack' },
-      TwoSubjectPack: { id: 228, name: '2科目セット',  key:'twosubjectpack' },
-      GlobalEnglish: { id: 236, name: 'グローバル英語', key:'globalenglish' },
+const subjects = [
+  { id: 212, name: "哲学", key: "philosophy", type: "main" },
+  { id: 211, name: "科学", key: "science", type: "main" },
+  { id: 213, name: "経済", key: "economy", type: "main" },
+  { id: 229, name: "3科目セット", key: "threesubjectpack", type: "main" },
+  { id: 228, name: "2科目セット", key: "twosubjectpack", type: "main" },
+  { id: 236, name: "グローバル英語", key: "globalenglish", type: "main" },
+  { id: 235, name: "プログラミング", key: "programming", type: "main" },
+
+  // 子科目
+  {
+    id: 221,
+    name: "哲学 L1",
+    key: "philosophy",
+    parentKey: "philosophy",
+    type: "child",
   },
-  SubjectChild: {
-      philosophy: {
-          ph_L1: { id: 221, name: '哲学 L1', key:'philosophy' },
-          ph_L2: { id: 225, name: '哲学 L2', key:'philosophy'},
-          ph_L3: { id: 242, name: '哲学 L3', key:'philosophy' },
-          ph_L4: { id: 243, name: '哲学 L4', key:'philosophy'}
-      },
-      science: {
-          sc_L1: { id: 223, name: '科学 L1', key:'science'  },
-          sc_L2: { id: 222, name: '科学 L2', key:'science'  },
-          sc_L3: { id: 244, name: '科学 L3', key:'science'  },
-          sc_L4: { id: 245, name: '科学 L4', key:'science'  }
-      },
-      economy: {
-          ec_L1: { id: 226, name: '経済 L1', key:'economy' },
-          ec_L2: { id: 227, name: '経済 L2', key:'economy' },
-          ec_L3: { id: 246, name: '経済 L3', key:'economy' },
-          ec_L4: { id: 247, name: '経済 L4', key:'economy' }
-      },
-      GlobalEnglish: {
-          en_L1: { id: 253, name: 'グローバル英語 L1', key:'globalenglish'  },
-          en_L2: { id: 254, name: 'グローバル英語 L2', key:'globalenglish'  },
-      },
+  {
+    id: 225,
+    name: "哲学 L2",
+    key: "philosophy",
+    parentKey: "philosophy",
+    type: "child",
   },
- 
-  Programming: { id: 235, name: 'プログラミング', key:'programming' }
-};
+  {
+    id: 242,
+    name: "哲学 L3",
+    key: "philosophy",
+    parentKey: "philosophy",
+    type: "child",
+  },
+  {
+    id: 243,
+    name: "哲学 L4",
+    key: "philosophy",
+    parentKey: "philosophy",
+    type: "child",
+  },
+
+  {
+    id: 223,
+    name: "科学 L1",
+    key: "science",
+    parentKey: "science",
+    type: "child",
+  },
+  {
+    id: 222,
+    name: "科学 L2",
+    key: "science",
+    parentKey: "science",
+    type: "child",
+  },
+  {
+    id: 244,
+    name: "科学 L3",
+    key: "science",
+    parentKey: "science",
+    type: "child",
+  },
+  {
+    id: 245,
+    name: "科学 L4",
+    key: "science",
+    parentKey: "science",
+    type: "child",
+  },
+
+  {
+    id: 226,
+    name: "経済 L1",
+    key: "economy",
+    parentKey: "economy",
+    type: "child",
+  },
+  {
+    id: 227,
+    name: "経済 L2",
+    key: "economy",
+    parentKey: "economy",
+    type: "child",
+  },
+  {
+    id: 246,
+    name: "経済 L3",
+    key: "economy",
+    parentKey: "economy",
+    type: "child",
+  },
+  {
+    id: 247,
+    name: "経済 L4",
+    key: "economy",
+    parentKey: "economy",
+    type: "child",
+  },
+
+  {
+    id: 253,
+    name: "グローバル英語 L1",
+    key: "globalenglish",
+    parentKey: "globalenglish",
+    type: "child",
+  },
+  {
+    id: 254,
+    name: "グローバル英語 L2",
+    key: "globalenglish",
+    parentKey: "globalenglish",
+    type: "child",
+  },
+];
 
 $(document).ready(function() {
     const tenantIdNumber = $("html").data("tenantidnumber");
     if (tenantIdNumber === "stg") {
-////////////////////////////
-// すでに購入しているコースの判定
-////////////////////////////
-const bodyId = $("body").attr("id");
-const bodyClasses = $("body")
-  .attr("class")
-  .split(" ")
-  .map((cls) => parseInt(cls.replace("course-id-", "").trim()));
-
-////////////////////////////////////////////////
-// 汎用的な科目チェック関数
-////////////////////////////////////////////////
-
-// 汎用的なグループチェック関数
-function checkGroup(subjectIds) {
-  return Object.values(subjectIds).some((id) => bodyClasses.includes(id.id)); //someは1個でも要素があればtrueを返す
-}
-
-/// メイン科目いずれかに属しているかの関数
-const isBuySubjectMain = checkGroup(SubjectIds.SubjectMain); //メイン科目、いずれか購入しているか
-
-/// サブ科目（L1~L4)いずれかに属しているかの関数
-const isBuySubjectChild = [
-  "philosophy",
-  "science",
-  "economy",
-  "GlobalEnglish",
-].some((subject) => checkGroup(SubjectIds.SubjectChild[subject])); //サブ科目、いずれか設定しているか
-
-/// プログラミングを受講しているかどうかの関数
-const isBuyProgramming = bodyClasses.includes(SubjectIds.Programming.id); //プログラミングの科目を買っているかどうか
-
-// 複数のレベルをまとめてチェックする関数(メイン科目)
-//trueの時はeveryで全てを条件に
-function isBuySubjectMainArray(subjectKeys, isAllRequired = false) {
-  const checkMethod = isAllRequired ? "every" : "some"; // isAllRequiredがtrueならeveryを、falseならsomeを使う
-  return subjectKeys[checkMethod]((subjectKey) => {
-    const subject = SubjectIds.SubjectMain[subjectKey];
-    if (!subject) return false; // 指定された科目が存在しない場合はfalseを返す
-    console.log("Checking subject:", subject);
-    return bodyClasses.includes(subject.id); // mainLevelがbodyClassesに含まれているか確認
-  });
-}
-
-// 複数のレベルをまとめてチェックする関数(サブ科目)
-function isBuySubjectChildArray(subject, levels) {
-  const subjectGroup = SubjectIds.SubjectChild[subject];
-  if (!subjectGroup) return false; // グループが存在しない場合はfalse
-  return levels.some(
-    (level) =>
-      subjectGroup[level] && bodyClasses.includes(subjectGroup[level].id)
-  );
-}
-
-function getSubjectChildId(subject, levels, bodyClasses) {
-  const subjectGroup = SubjectIds.SubjectChild[subject];
-  if (!subjectGroup) return null; // グループが存在しない場合はnullを返す
-
-  // levelsのいずれかのIDがbodyClassesに含まれている場合、そのIDを返す
-  for (const level of levels) {
-    if (subjectGroup[level] && bodyClasses.includes(subjectGroup[level].id)) {
-      return subjectGroup[level].id; // 該当するIDを返す
-    }
-  }
-
-  return null; // 該当するIDがない場合はnullを返す
-}
-
-////////////////////////////
-// 今見ているページコースの判定
-////////////////////////////
+// ==============================
+// ページ判定とコースIDの取得
+// ==============================
+const bodyId = $("body").attr("id"); // ページ判定のbody ID取得
 
 // 現在のページのコースIDを取得
 function getCurrentCourseId() {
@@ -119,39 +127,63 @@ function getCurrentCourseId() {
 }
 
 // コースIDから該当の科目データを取得
-function findCourseById(courseId, data) {
-  for (const key in data) {
-    // データがオブジェクトであり、idが一致する場合
-    if (typeof data[key] === "object" && data[key].id === courseId) {
-      return { category: key, course: data[key] };
-    }
-    // データがオブジェクトでネストされている場合、再帰的に検索
-    if (typeof data[key] === "object") {
-      const nestedResult = findCourseById(courseId, data[key]);
-      if (nestedResult) return nestedResult;
-    }
-  }
-  return null;
+const CurrentViewCourseData = SubjectIds.subjects.find(
+  (subject) => subject.id === getCurrentCourseId()
+);
+
+if (!CurrentViewCourseData) {
+  console.error("コースIDが見つかりませんでした。");
 }
 
-// ユーティリティ関数: 値からキーを取得
-function getKeyByValue(object, value) {
-  return Object.keys(object).find((key) => object[key] === value);
+const bodyClasses = $("body")
+  .attr("class")
+  .split(" ")
+  .map((cls) => parseInt(cls.replace("course-id-", "").trim()));
+
+// ==============================
+// グループチェック関数
+// ==============================
+function checkGroup(filterFn) {
+  return SubjectIds.subjects
+    .filter(filterFn)
+    .some((subject) => bodyClasses.includes(subject.id));
 }
 
-const CurrentViewCourseId = getCurrentCourseId();
-if (!CurrentViewCourseId) {
-  return console.error("コースIDが見つかりませんでした。");
+// メイン科目のチェック関数
+const isBuySubjectMain = checkGroup((subject) => subject.type === "main");
+
+// 子科目のチェック関数
+const isBuySubjectChild = checkGroup((subject) => subject.type === "child");
+
+// ==============================
+// 科目の特定レベルチェック関数
+// ==============================
+function isBuySubjectMainArray(subjectKeys, isAllRequired = false) {
+  const checkMethod = isAllRequired ? "every" : "some"; // "every"か"some"を動的に選択
+  return subjectKeys[checkMethod]((subjectKey) => {
+    const subject = SubjectIds.subjects.find(
+      (item) => item.key === subjectKey && item.type === "main"
+    );
+    if (!subject) return false; // 指定された科目が存在しない場合はfalseを返す
+    return bodyClasses.includes(subject.id); // bodyClassesに含まれているか確認
+  });
 }
 
-const CurrentViewCourseData = findCourseById(CurrentViewCourseId, SubjectIds);
-
-if (CurrentViewCourseData) {
-  console.log(
-    `現在のコース: ${CurrentViewCourseData.course.name} (カテゴリ: ${CurrentViewCourseData.category})`
-  );
+// 子科目の特定レベルチェック
+function isBuySubjectChildArray(subjectKey, levels) {
+  return SubjectIds.subjects
+    .filter(
+      (subject) =>
+        subject.type === "child" &&
+        subject.key === subjectKey &&
+        levels.includes(subject.level)
+    )
+    .some((subject) => bodyClasses.includes(subject.id));
 }
 
+// ==============================
+// モーダルのコンポーネント
+// ==============================
 function createModal(options = {}) {
   const modal = `
     <div class="c-modal">
@@ -195,7 +227,7 @@ if (bodyId === "page-my-index") {
   ////////////////////////////////////
 
   //何も受講していない時は、科目勝手欲しい要素出す
-  if (!isBuySubjectMain && !isBuySubjectChild && !isBuyProgramming) {
+  if (!isBuySubjectMain && !isBuySubjectChild) {
     $("#todays-event-subject-none,#dashboard-main-upcoming-class-none").show();
     $("#todays-subject-pc").hide();
   } else {
@@ -207,58 +239,66 @@ if (bodyId === "page-my-index") {
   // 受講中科目の処理
   ////////////////////////////
 
+  // 詳細科目を処理
+  // 科目リンクを生成する関数
   function renderSubject(subject, icon, isBuySubjectMain) {
-    // SubjectMain の場合のリンクを変更
     const courseLink = isBuySubjectMain
       ? `https://lms.waomirai.com/admin/tool/catalogue/courseinfo.php?id=${subject.id}`
       : `https://lms.waomirai.com/course/view.php?id=${subject.id}`;
     return `
-            <a href="${courseLink}" class="dashboard-left-block-subject-child ${subject.key}">
-                <div class="dashboard-left-block-subject-child-icon">${icon}</div>
-                <div class="dashboard-left-block-subject-child-text">
-                    <div>${subject.name}</div>
-                </div>
-            </a>
-        `;
+        <a href="${courseLink}" class="dashboard-left-block-subject-child ${subject.key}">
+            <div class="dashboard-left-block-subject-child-icon">${icon}</div>
+            <div class="dashboard-left-block-subject-child-text">
+                <div>${subject.name}</div>
+            </div>
+        </a>
+    `;
   }
 
-  // アイコンの取得（SubjectMain & SubjectChild 用）
+  // 科目のアイコンを取得する関数
   const getIcon = (subject) => {
     if (subject.name.includes("哲学")) return "&#x1f4D6;"; // 📖
     if (subject.name.includes("科学")) return "&#x1f52C;"; // 🔬
     if (subject.name.includes("経済")) return "&#x1f4B0;"; // 💰
-    if (subject.name.includes("英語")) return "&#x1f4ac;"; // 📖
-    if (subject.name.includes("プログラミング")) return "&#x1f52C;"; // 🔬
+    if (subject.name.includes("英語")) return "&#x1f4AC;"; // 💬
+    if (subject.name.includes("プログラミング"))
+      return "&#x1f468;&#x200D;&#x1f4BB;"; // 👨‍💻
     return "&#x1f9ea;"; // デフォルト
   };
 
-  // メイン科目（SubjectMain）の処理
-  // メモ：この関数うまくいかないようだったら切り離したい。サブ科目だけ
-  if (isBuySubjectMain) {
+  // サブ科目が存在するか確認する関数
+  function hasRelatedChildSubject(parentKey) {
+    return SubjectIds.some(
+      (subject) => subject.type === "child" && subject.parentKey === parentKey
+    );
+  }
+  function processSubjectMain() {
     console.log("メイン科目（SubjectMain）に該当しています");
-    // サブ科目が存在するか確認する関数
-    function hasRelatedChildSubject(subjectKey) {
-      const childSubjects = SubjectIds.SubjectChild[subjectKey];
-      if (!childSubjects) return false;
 
-      return Object.values(childSubjects).some((child) =>
-        bodyClasses.includes(child.id)
-      );
-    }
+    const subjectMainNames = SubjectIds.subjects
+      .filter((subject) => subject.type === "main")
+      .filter((subject) => {
+        const hasChild = SubjectIds.subjects.some(
+          (childSubject) =>
+            childSubject.type === "child" &&
+            childSubject.parentKey === subject.key &&
+            bodyClasses.includes(childSubject.id)
+        );
 
-    const subjectMainNames = Object.entries(SubjectIds.SubjectMain)
-      .filter(([key, subSubject]) => {
-        // サブ科目が存在する場合、メイン科目をスキップ
-        const hasChild = hasRelatedChildSubject(key);
+        console.log(`Checking subject: ${subject.name}, hasChild: ${hasChild}`);
+
         if (hasChild) {
-          console.log(`スキップ: サブ科目が存在するため ${subSubject.name}`);
+          console.log(`スキップ: サブ科目が存在するため ${subject.name}`);
           return false;
         }
-        return bodyClasses.includes(subSubject.id);
+
+        const isIncluded = bodyClasses.includes(subject.id);
+        console.log(
+          `Checking bodyClasses for subject: ${subject.name}, isIncluded: ${isIncluded}`
+        );
+        return isIncluded;
       })
-      .map(([key, subSubject]) =>
-        renderSubject(subSubject, getIcon(subSubject), true)
-      ) // true を渡してSubjectMain用のリンクにする
+      .map((subject) => renderSubject(subject, getIcon(subject), true))
       .join("");
 
     if (subjectMainNames) {
@@ -268,42 +308,34 @@ if (bodyId === "page-my-index") {
     }
   }
 
-  // 詳細科目（SubjectChild）の処理
-  if (isBuySubjectChild) {
+  // 詳細科目（SubjectChild）を処理する関数
+  function processSubjectChild() {
     console.log("詳細科目（SubjectChild）に該当しています");
-    const subjectChildNames = [];
-    ["philosophy", "science", "economy", "GlobalEnglish"].forEach(
-      (subjectKey) => {
-        Object.values(SubjectIds.SubjectChild[subjectKey])
-          .filter((subSubject) => bodyClasses.includes(subSubject.id))
-          .forEach((subSubject) => {
-            subjectChildNames.push(
-              renderSubject(subSubject, getIcon(subSubject), false)
-            ); // false を渡して通常のリンクにする
-          });
-      }
-    );
-    if (subjectChildNames.length > 0) {
+
+    const subjectChildNames = SubjectIds.subjects
+      .filter((subject) => subject.type === "child")
+      .filter((subject) => bodyClasses.includes(subject.id))
+      .map((subject) => renderSubject(subject, getIcon(subject), false))
+      .join("");
+
+    if (subjectChildNames) {
       $(".dashboard-left-block-wrap.dashboard-left-block-wrap-subject").append(
-        subjectChildNames.join("")
+        subjectChildNames
       );
     }
   }
 
-  // プログラミング（Programming）の処理
-  if (isBuyProgramming) {
-    console.log("プログラミングに該当しています");
-    $(".dashboard-left-block-wrap.dashboard-left-block-wrap-subject").append(
-      renderSubject(
-        SubjectIds.Programming,
-        getIcon(SubjectIds.Programming),
-        false
-      )
-    );
+  if (isBuySubjectMain) {
+    processSubjectMain();
   }
 
-  // どの科目にも該当しない場合のエラーハンドリング
-  if (!isBuySubjectMain && !isBuySubjectChild && !isBuyProgramming) {
+  // 詳細科目を処理
+  if (isBuySubjectChild) {
+    processSubjectChild();
+  }
+
+  // // どの科目にも該当しない場合のエラーハンドリング
+  if (!isBuySubjectMain && !isBuySubjectChild) {
     console.error("指定された科目に該当しません");
     // 特定のHTMLを指定要素に挿入する
 
@@ -521,11 +553,7 @@ if (bodyId === "page-my-index") {
         if (isBuySubjectMain || isBuySubjectChild || isBuyProgramming) {
           $("#todays-event-class-none").show();
           //何も授業買っていない時に授業なければ、今月は授業がありませんを表示
-        } else if (
-          !isBuySubjectMain &&
-          !isBuySubjectChild &&
-          !isBuyProgramming
-        ) {
+        } else if (!isBuySubjectMain && !isBuySubjectChild) {
           $("#dashboard-main-upcoming-class-none").show();
         }
       }
@@ -557,20 +585,6 @@ if (bodyId === "page-my-index") {
       executeCalendarLogic();
     }, 300); // 300ミリ秒（0.3秒）
   });
-}
-// ==============================
-// トップページの処理
-// ==============================
-if (bodyId === "page-my-index" || bodyId === "page-site-index") {
-  if (!isBuySubjectChild && isBuySubjectMain) {
-    //複雑になりそうなので後回し
-    //メイン教科にあって、かつサブ教科持っていない場合
-    // $('.header-banner.alert-setting-level').css("display", "flex");
-    // // ナビゲーションバーの位置を調整
-    // $('.navbar.fixed-top').css({ "top": "70px", "position": "fixed" });
-    // // bodyのpaddingを調整
-    // $('body').css("padding", "70px 0 0");
-  }
 }
 
 // ==============================
@@ -671,7 +685,7 @@ if (bodyId === "page-enrol-index") {
 
   // カテゴリーごとの購入処理
   $(".enrol_fee_payment_region button").on("click", function (event) {
-    const category = CurrentViewCourseData.category;
+    const category = CurrentViewCourseData.key;
 
     // 科目別の処理（哲学、科学、経済）
     if (["philosophy", "science", "economy"].includes(category)) {
@@ -695,7 +709,7 @@ if (bodyId === "page-enrol-index") {
         );
       } else if (
         //2科買っていてもうセットパック買おうとしたとき
-        isBuySubjectMainArray(["TwoSubjectPack", "ThreeSubjectPack"])
+        isBuySubjectMainArray(["twosubjectpack", "threesubjectpack"])
       ) {
         $("body").append(
           createModal({
@@ -709,7 +723,7 @@ if (bodyId === "page-enrol-index") {
     }
 
     // セットパック購入時の処理
-    if (["TwoSubjectPack", "ThreeSubjectPack"].includes(category)) {
+    if (["twosubjectpack", "threesubjectpack"].includes(category)) {
       if (isBuySubjectMainArray(["philosophy", "science", "economy"])) {
         $("body").append(
           createModal({
@@ -720,8 +734,8 @@ if (bodyId === "page-enrol-index") {
           })
         );
       } else if (
-        category === "TwoSubjectPack" &&
-        isBuySubjectMainArray(["ThreeSubjectPack"])
+        category === "twosubjectpack" &&
+        isBuySubjectMainArray(["threesubjectpack"])
       ) {
         $("body").append(
           createModal({
@@ -732,8 +746,8 @@ if (bodyId === "page-enrol-index") {
           })
         );
       } else if (
-        category === "ThreeSubjectPack" &&
-        isBuySubjectMainArray(["TwoSubjectPack"])
+        category === "threesubjectpack" &&
+        isBuySubjectMainArray(["twosubjectpack"])
       ) {
         $("body").append(
           createModal({
@@ -767,9 +781,9 @@ if (bodyId === "page-mod-questionnaire-view") {
   );
 }
 
-// ==============================
-// カテゴリページの処理
-// ==============================
+// // ==============================
+// // カテゴリページの処理
+// // ==============================
 if (bodyId === "page-course-index-category") {
   window.location.href = "https://lms.waomirai.com/";
 }
@@ -778,43 +792,16 @@ if (bodyId === "page-course-index-category") {
 //メイン3科目or2,3科目パック購入後はリダイレクトさせる
 // ==============================
 if (bodyId === "page-course-view-flexsections") {
-  function handleSubjectRedirect(subject, levels, bodyClasses) {
-    const currentId = getSubjectChildId(subject, levels, bodyClasses);
-    if (currentId) {
-      window.location.href = `https://lms.waomirai.com/course/view.php?id=${currentId}`;
-    }
-  }
+  //哲学のみ購入
 
-  if (bodyId === "page-course-view-flexsections") {
-    // 哲学の条件
-    if (
-      !isBuySubjectMainArray(["philosophy"]) ||
-      isBuySubjectChildArray("philosophy", ["ph_L1", "ph_L2", "ph_L3", "ph_L4"])
-    ) {
-      handleSubjectRedirect(
-        "philosophy",
-        ["ph_L1", "ph_L2", "ph_L3", "ph_L4"],
-        bodyClasses
-      );
-    }
-
-    // 科学の条件
-    if (
-      !isBuySubjectMainArray(["science"]) ||
-      isBuySubjectChildArray("science", ["sc_L1", "sc_L2", "sc_L3", "sc_L4"])
-    ) {
-      handleSubjectRedirect(
-        "science",
-        ["sc_L1", "sc_L2", "sc_L3", "sc_L4"],
-        bodyClasses
-      );
-    }
+  if (isBuySubjectChildArray("philosophy", ["L1"])) {
+    alert("哲学L1");
   }
 }
 
-// ==============================
-//受講レベルの設定
-// ==============================
+// // ==============================
+// //受講レベルの設定
+// // ==============================
 if (bodyId === "page-user-edit") {
   var AreaPhilosophy = $("#fitem_id_profile_field_Philosophy_Level"); //哲学の入力エリア
   var AreaScience = $("#fitem_id_profile_field_Science_Level"); //科学の入力エリア
@@ -896,14 +883,7 @@ if (bodyId === "page-user-edit") {
     AreaPhilosophy.show(); //哲学を表示
     selectOptionByIndex(AreaSingleCourse, 1); //1科目受講を哲学に
     //初回受講レベル登録時、submitあたりで注意文言を出す
-    if (
-      !isBuySubjectChildArray("philosophy", [
-        "ph_L1",
-        "ph_L2",
-        "ph_L3",
-        "ph_L4",
-      ])
-    ) {
+    if (!isBuySubjectChildArray("philosophy", ["L1", "L2", "L3", "L4"])) {
       AlertSubjectSettingFirst();
     }
   }
@@ -915,9 +895,7 @@ if (bodyId === "page-user-edit") {
     AreaScience.show(); //科学を表示
     selectOptionByIndex(AreaSingleCourse, 2); //1科目受講を科学に
     //初回受講レベル登録時、submitあたりで注意文言を出す
-    if (
-      !isBuySubjectChildArray("science", ["sc_L1", "sc_L2", "sc_L3", "sc_L4"])
-    ) {
+    if (!isBuySubjectChildArray("science", ["L1", "L2", "L3", "L4"])) {
       AlertSubjectSettingFirst();
     }
   }
@@ -929,9 +907,7 @@ if (bodyId === "page-user-edit") {
     AreaEconomy.show(); //経済エリアを表示
     selectOptionByIndex(AreaSingleCourse, 3); //1科目受講を経済に
     //初回受講レベル登録時、submitあたりで注意文言を出す
-    if (
-      !isBuySubjectChildArray("economy", ["ec_L1", "ec_L2", "ec_L3", "ec_L4"])
-    ) {
+    if (!isBuySubjectChildArray("economy", ["L1", "L2", "L3", "L4"])) {
       AlertSubjectSettingFirst();
     }
   }
@@ -940,13 +916,13 @@ if (bodyId === "page-user-edit") {
   if (isBuySubjectMainArray(["GlobalEnglish"])) {
     AreaEnglish.show(); //英語エリアを表示
     //初回受講レベル登録時、submitあたりで注意文言を出す
-    if (!isBuySubjectChildArray("GlobalEnglishence", ["en_L1", "en_L2"])) {
+    if (!isBuySubjectChildArray("GlobalEnglishence", ["L1", "L2"])) {
       AlertSubjectSettingFirst();
     }
   }
 
   //【２科目】２科目セット買った時
-  if (isBuySubjectMainArray(["TwoSubjectPack"], true)) {
+  if (isBuySubjectMainArray(["twosubjectpack"], true)) {
     //2科目セットの場合は選べるので2科目のプルダウンは抑制しない
     AreaTwoCourse.show(); //2科のプルダウンを表示
     selectOptionByIndex(AreaSingleCourse, 0); //1科目受講
@@ -992,44 +968,24 @@ if (bodyId === "page-user-edit") {
     );
     //初回受講レベル登録時、submitあたりで注意文言を出す
     if (
-      !isBuySubjectChildArray("economy", [
-        "ec_L1",
-        "ec_L2",
-        "ec_L3",
-        "ec_L4",
-      ]) &&
-      !isBuySubjectChildArray("philosophy", [
-        "ph_L1",
-        "ph_L2",
-        "ph_L3",
-        "ph_L4",
-      ]) &&
-      !isBuySubjectChildArray("science", ["sc_L1", "sc_L2", "sc_L3", "sc_L4"])
+      !isBuySubjectChildArray("economy", ["L1", "L2", "L3", "L4"]) &&
+      !isBuySubjectChildArray("philosophy", ["L1", "L2", "L3", "L4"]) &&
+      !isBuySubjectChildArray("science", ["L1", "L2", "L3", "L4"])
     ) {
       AlertSubjectSettingFirst();
     }
   }
 
   //【３科目】３科目セット買った時
-  if (isBuySubjectMainArray(["ThreeSubjectPack"], true)) {
+  if (isBuySubjectMainArray(["threesubjectpack"], true)) {
     AreaPhilosophy.show(); //科学を表示
     AreaScience.show(); //哲学を表示
     AreaEconomy.show(); //経済を表示
     //初回受講レベル登録時、submitあたりで注意文言を出す
     if (
-      !isBuySubjectChildArray("economy", [
-        "ec_L1",
-        "ec_L2",
-        "ec_L3",
-        "ec_L4",
-      ]) &&
-      !isBuySubjectChildArray("philosophy", [
-        "ph_L1",
-        "ph_L2",
-        "ph_L3",
-        "ph_L4",
-      ]) &&
-      !isBuySubjectChildArray("science", ["sc_L1", "sc_L2", "sc_L3", "sc_L4"])
+      !isBuySubjectChildArray("economy", ["L1", "L2", "L3", "L4"]) &&
+      !isBuySubjectChildArray("philosophy", ["L1", "L2", "L3", "L4"]) &&
+      !isBuySubjectChildArray("science", ["L1", "L2", "L3", "L4"])
     ) {
       AlertSubjectSettingFirst();
     }
@@ -1037,7 +993,7 @@ if (bodyId === "page-user-edit") {
   //メイン科目で哲学設定｜哲学L1~L4は未設定
   if (
     isBuySubjectMainArray(["philosophy"]) &&
-    !isBuySubjectChildArray("philosophy", ["ph_L1", "ph_L2", "ph_L3", "ph_L4"])
+    !isBuySubjectChildArray("philosophy", ["L1", "L2", "L3", "L4"])
   ) {
     AreaPhilosophy.show();
   }
@@ -1047,17 +1003,17 @@ if (bodyId === "page-user-edit") {
     {
       subject: "philosophy",
       area: AreaPhilosophy,
-      levels: ["ph_L1", "ph_L2", "ph_L3", "ph_L4"],
+      levels: ["L1", "L2", "L3", "L4"],
     },
     {
       subject: "science",
       area: AreaScience,
-      levels: ["sc_L1", "sc_L2", "sc_L3", "sc_L4"],
+      levels: ["L1", "L2", "L3", "L4"],
     },
     {
       subject: "economy",
       area: AreaEconomy,
-      levels: ["ec_L1", "ec_L2", "ec_L3", "ec_L4"],
+      levels: ["L1", "L2", "L3", "L4"],
     },
     {
       subject: "GlobalEnglish",
@@ -1087,7 +1043,7 @@ if (bodyId === "page-user-edit") {
         <p class="subject-level-note">
           受講科目のレベルを選択してください。<br />
           選択した科目のレベルを設定しないと授業を受けることができません。<br />
-         一度受講レベルを設定すると、2回目以降のレベル変更時の反映は当月末になりますのでご注意ください。  
+         一度受講レベルを設定すると、2回目以降のレベル変更時の反映は当月末になりますのでご注意ください。
         </p>
     `);
 }
