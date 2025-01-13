@@ -152,7 +152,7 @@ if (bodyId === "page-my-index") {
 
   // サブ科目が存在するか確認する関数
   function hasRelatedChildSubject(parentKey) {
-    return SubjectIds.subjects.some(
+    return SubjectIds.some(
       (subject) => subject.type === "child" && subject.parentKey === parentKey
     );
   }
