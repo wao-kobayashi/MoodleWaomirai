@@ -1,37 +1,128 @@
-// alert('きいている');
+const SubjectIds = {
+  subjects: [
+    { id: 212, name: "哲学", key: "philosophy", type: "main" },
+    { id: 211, name: "科学", key: "science", type: "main" },
+    { id: 213, name: "経済", key: "economy", type: "main" },
+    { id: 229, name: "3科目セット", key: "threesubjectpack", type: "main" },
+    { id: 228, name: "2科目セット", key: "twosubjectpack", type: "main" },
+    { id: 236, name: "グローバル英語", key: "globalenglish", type: "main" },
+    { id: 235, name: "プログラミング", key: "programming", type: "main" },
 
-// const SubjectIds = {
-//     SubjectMain: {
-//         philosophy: { id: 255, name: '哲学', key: 'philosophy' },
-//         science: { id: 265, name: '科学', key: 'science' },
-//         economy: { id: 260, name: '経済', key: 'economy' },
-//         ThreeSubjectPack: { id: 271, name: '3科目セット', key: 'threesubjectpack' },
-//         TwoSubjectPack: { id: 270, name: '2科目セット', key: 'twosubjectpack' },
-//         GlobalEnglish: { id: 135, name: 'グローバル英語', key: 'globalenglish' },
-//     },
-//     SubjectChild: {
-//         philosophy: {
-//             ph_L1: { id: 256, name: '哲学 L1', key: 'philosophy' },
-//             ph_L2: { id: 257, name: '哲学 L2', key: 'philosophy' },
-//             ph_L3: { id: 258, name: '哲学 L3', key: 'philosophy' },
-//             ph_L4: { id: 259, name: '哲学 L4', key: 'philosophy' }
-//         },
-//         science: {
-//             sc_L1: { id: 266, name: '科学 L1', key: 'science' },
-//             sc_L2: { id: 267, name: '科学 L2', key: 'science' },
-//             sc_L3: { id: 268, name: '科学 L3', key: 'science' },
-//             sc_L4: { id: 269, name: '科学 L4', key: 'science' }
-//         },
-//         economy: {
-//             ec_L1: { id: 261, name: '経済 L1', key: 'economy' },
-//             ec_L2: { id: 262, name: '経済 L2', key: 'economy' },
-//             ec_L3: { id: 263, name: '経済 L3', key: 'economy' },
-//             ec_L4: { id: 264, name: '経済 L4', key: 'economy' }
-//         },
-//         GlobalEnglish: {
-//             en_L1: { id: 130, name: 'グローバル英語 L1', key: 'globalenglish' },
-//             en_L2: { id: 138, name: 'グローバル英語 L2', key: 'globalenglish' },
-//         },
-//     },
-//     Programming: { id: 235, name: 'プログラミング', key: 'programming' }
-// };
+    // 子科目
+    {
+      id: 221,
+      name: "哲学 L1",
+      key: "philosophy",
+      parentKey: "philosophy",
+      type: "child",
+      level: "L1",
+    },
+    {
+      id: 225,
+      name: "哲学 L2",
+      key: "philosophy",
+      parentKey: "philosophy",
+      type: "child",
+      level: "L2",
+    },
+    {
+      id: 242,
+      name: "哲学 L3",
+      key: "philosophy",
+      parentKey: "philosophy",
+      type: "child",
+      level: "L3",
+    },
+    {
+      id: 243,
+      name: "哲学 L4",
+      key: "philosophy",
+      parentKey: "philosophy",
+      type: "child",
+      level: "L4",
+    },
+
+    {
+      id: 223,
+      name: "科学 L1",
+      key: "science",
+      parentKey: "science",
+      type: "child",
+      level: "L1",
+    },
+    {
+      id: 222,
+      name: "科学 L2",
+      key: "science",
+      parentKey: "science",
+      type: "child",
+      level: "L2",
+    },
+    {
+      id: 244,
+      name: "科学 L3",
+      key: "science",
+      parentKey: "science",
+      type: "child",
+      level: "L3",
+    },
+    {
+      id: 245,
+      name: "科学 L4",
+      key: "science",
+      parentKey: "science",
+      type: "child",
+      level: "L4",
+    },
+
+    {
+      id: 226,
+      name: "経済 L1",
+      key: "economy",
+      parentKey: "economy",
+      type: "child",
+      level: "L1",
+    },
+    {
+      id: 227,
+      name: "経済 L2",
+      key: "economy",
+      parentKey: "economy",
+      type: "child",
+      level: "L2",
+    },
+    {
+      id: 246,
+      name: "経済 L3",
+      key: "economy",
+      parentKey: "economy",
+      type: "child",
+      level: "L3",
+    },
+    {
+      id: 247,
+      name: "経済 L4",
+      key: "economy",
+      parentKey: "economy",
+      type: "child",
+      level: "L4",
+    },
+
+    {
+      id: 253,
+      name: "グローバル英語 L1",
+      key: "globalenglish",
+      parentKey: "globalenglish",
+      type: "child",
+      level: "L1",
+    },
+    {
+      id: 254,
+      name: "グローバル英語 L2",
+      key: "globalenglish",
+      parentKey: "globalenglish",
+      type: "child",
+      level: "L2",
+    },
+  ],
+};

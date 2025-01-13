@@ -11,16 +11,13 @@ function getCurrentCourseId() {
 }
 
 // コースIDから該当の科目データを取得
-function findCourseById(courseId) {
-  return SubjectIds.subjects.find((subject) => subject.id === courseId);
-}
-const CurrentViewCourseId = getCurrentCourseId();
+const CurrentViewCourseData = SubjectIds.subjects.find(
+  (subject) => subject.id === getCurrentCourseId()
+);
 
-if (!CurrentViewCourseId) {
-  return console.error("コースIDが見つかりませんでした。");
+if (!CurrentViewCourseData) {
+  console.error("コースIDが見つかりませんでした。");
 }
-
-const CurrentViewCourseData = findCourseById(CurrentViewCourseId, SubjectIds);
 
 const bodyClasses = $("body")
   .attr("class")
@@ -106,55 +103,12 @@ function createModal(options = {}) {
 }
 
 // ==============================
-// モーダルのコンポーネント
-// ==============================
-function createModal(options = {}) {
-  const modal = `
-    <div class="c-modal">
-      <div class="c-modal-wrap">
-        ${options.close ? '<div class="c-modal-wrap-close"></div>' : ""}
-        ${
-          options.title
-            ? `<div class="c-modal-wrap-title">${options.title}</div>`
-            : ""
-        }
-        ${
-          options.text
-            ? `<div class="c-modal-wrap-text">${options.text}</div>`
-            : ""
-        }
-        ${
-          options.buttonText
-            ? `<a href="${options.url || "#"}" class="c-modal-wrap-button">${
-                options.buttonText
-              }</a>`
-            : ""
-        }
-      </div>
-    </div>
-    <div class="c-modal-bg"></div>
-  `;
-
-  const $modal = $(modal).appendTo("body");
-
-  $(".c-modal-wrap-close, .c-modal-bg", $modal).on("click", function () {
-    $modal.remove();
-  });
-}
-// ==============================
 // ダッシュボードページでの処理
 // ==============================
 if (bodyId === "page-my-index") {
   /////////////////////////////////////
   ///初期表示状態
   ////////////////////////////////////
-
-  // if (isBuySubjectMainArray("philosophy")) {
-  //   alert("哲学");
-  // }
-  // if (isBuySubjectMainArray(["economy"])) {
-  //   alert("哲学勝ってるよん");
-  // }
 
   //何も受講していない時は、科目勝手欲しい要素出す
   if (!isBuySubjectMain && !isBuySubjectChild) {
@@ -168,13 +122,6 @@ if (bodyId === "page-my-index") {
   ////////////////////////////
   // 受講中科目の処理
   ////////////////////////////
-
-  // 科目リンクを生成する関
-
-  // メイン科目を処理
-  // if (isBuySubjectMain) {
-  //   processSubjectMain();
-  // }
 
   // 詳細科目を処理
   // 科目リンクを生成する関数
@@ -721,9 +668,9 @@ if (bodyId === "page-mod-questionnaire-view") {
 // // ==============================
 // // カテゴリページの処理
 // // ==============================
-// if (bodyId === "page-course-index-category") {
-//   window.location.href = "https://lms.waomirai.com/";
-// }
+if (bodyId === "page-course-index-category") {
+  window.location.href = "https://lms.waomirai.com/";
+}
 
 // ==============================
 //メイン3科目or2,3科目パック購入後はリダイレクトさせる
