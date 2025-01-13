@@ -39,7 +39,10 @@
 $(document).ready(function() {
     const tenantIdNumber = $("html").data("tenantidnumber");
     if (tenantIdNumber === "lmswaomirai") {
-const bodyId = $("body").attr("id"); //ページ判定のbody ID取得
+// ==============================
+// ページ判定とコースIDの取得
+// ==============================
+const bodyId = $("body").attr("id"); // ページ判定のbody ID取得
 
 // 現在のページのコースIDを取得
 function getCurrentCourseId() {
@@ -65,7 +68,9 @@ const bodyClasses = $("body")
   .split(" ")
   .map((cls) => parseInt(cls.replace("course-id-", "").trim()));
 
+// ==============================
 // グループチェック関数
+// ==============================
 function checkGroup(filterFn) {
   return SubjectIds.subjects
     .filter(filterFn)
@@ -78,6 +83,9 @@ const isBuySubjectMain = checkGroup((subject) => subject.type === "main");
 // 子科目のチェック関数
 const isBuySubjectChild = checkGroup((subject) => subject.type === "child");
 
+// ==============================
+// 科目の特定レベルチェック関数
+// ==============================
 function isBuySubjectMainArray(subjectKeys, isAllRequired = false) {
   const checkMethod = isAllRequired ? "every" : "some"; // "every"か"some"を動的に選択
   return subjectKeys[checkMethod]((subjectKey) => {
@@ -101,7 +109,9 @@ function isBuySubjectChildArray(subjectKey, levels) {
     .some((subject) => bodyClasses.includes(subject.id));
 }
 
-//モーダルのコンポーネント
+// ==============================
+// モーダルのコンポーネント
+// ==============================
 function createModal(options = {}) {
   const modal = `
     <div class="c-modal">
@@ -136,6 +146,42 @@ function createModal(options = {}) {
   });
 }
 
+// ==============================
+// モーダルのコンポーネント
+// ==============================
+function createModal(options = {}) {
+  const modal = `
+    <div class="c-modal">
+      <div class="c-modal-wrap">
+        ${options.close ? '<div class="c-modal-wrap-close"></div>' : ""}
+        ${
+          options.title
+            ? `<div class="c-modal-wrap-title">${options.title}</div>`
+            : ""
+        }
+        ${
+          options.text
+            ? `<div class="c-modal-wrap-text">${options.text}</div>`
+            : ""
+        }
+        ${
+          options.buttonText
+            ? `<a href="${options.url || "#"}" class="c-modal-wrap-button">${
+                options.buttonText
+              }</a>`
+            : ""
+        }
+      </div>
+    </div>
+    <div class="c-modal-bg"></div>
+  `;
+
+  const $modal = $(modal).appendTo("body");
+
+  $(".c-modal-wrap-close, .c-modal-bg", $modal).on("click", function () {
+    $modal.remove();
+  });
+}
 // ==============================
 // ダッシュボードページでの処理
 // ==============================
