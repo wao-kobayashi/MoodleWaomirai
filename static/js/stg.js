@@ -15,6 +15,7 @@ const SubjectIds = {
       key: "philosophy",
       parentKey: "philosophy",
       type: "child",
+      level: "L1",
     },
     {
       id: 225,
@@ -22,6 +23,7 @@ const SubjectIds = {
       key: "philosophy",
       parentKey: "philosophy",
       type: "child",
+      level: "L2",
     },
     {
       id: 242,
@@ -29,6 +31,7 @@ const SubjectIds = {
       key: "philosophy",
       parentKey: "philosophy",
       type: "child",
+      level: "L3",
     },
     {
       id: 243,
@@ -36,6 +39,7 @@ const SubjectIds = {
       key: "philosophy",
       parentKey: "philosophy",
       type: "child",
+      level: "L4",
     },
 
     {
@@ -44,6 +48,7 @@ const SubjectIds = {
       key: "science",
       parentKey: "science",
       type: "child",
+      level: "L1",
     },
     {
       id: 222,
@@ -51,6 +56,7 @@ const SubjectIds = {
       key: "science",
       parentKey: "science",
       type: "child",
+      level: "L2",
     },
     {
       id: 244,
@@ -58,6 +64,7 @@ const SubjectIds = {
       key: "science",
       parentKey: "science",
       type: "child",
+      level: "L3",
     },
     {
       id: 245,
@@ -65,6 +72,7 @@ const SubjectIds = {
       key: "science",
       parentKey: "science",
       type: "child",
+      level: "L4",
     },
 
     {
@@ -73,6 +81,7 @@ const SubjectIds = {
       key: "economy",
       parentKey: "economy",
       type: "child",
+      level: "L1",
     },
     {
       id: 227,
@@ -80,6 +89,7 @@ const SubjectIds = {
       key: "economy",
       parentKey: "economy",
       type: "child",
+      level: "L2",
     },
     {
       id: 246,
@@ -87,6 +97,7 @@ const SubjectIds = {
       key: "economy",
       parentKey: "economy",
       type: "child",
+      level: "L3",
     },
     {
       id: 247,
@@ -94,6 +105,7 @@ const SubjectIds = {
       key: "economy",
       parentKey: "economy",
       type: "child",
+      level: "L4",
     },
 
     {
@@ -102,6 +114,7 @@ const SubjectIds = {
       key: "globalenglish",
       parentKey: "globalenglish",
       type: "child",
+      level: "L1",
     },
     {
       id: 254,
@@ -109,6 +122,7 @@ const SubjectIds = {
       key: "globalenglish",
       parentKey: "globalenglish",
       type: "child",
+      level: "L2",
     },
   ],
 };
@@ -172,8 +186,8 @@ function isBuySubjectChildArray(subjectKey, levels) {
     .filter(
       (subject) =>
         subject.type === "child" &&
-        subject.parentKey === subjectKey &&
-        levels.includes(subject.key)
+        subject.key === subjectKey &&
+        levels.includes(subject.level)
     )
     .some((subject) => bodyClasses.includes(subject.id));
 }
@@ -787,8 +801,11 @@ if (bodyId === "page-mod-questionnaire-view") {
 // ==============================
 if (bodyId === "page-course-view-flexsections") {
   //哲学のみ購入
-  if (isBuySubjectMainArray(["philosophy"])) {
-    alert("哲学勝ってるよん");
+  // if (isBuySubjectMainArray(["philosophy"])) {
+  //   alert("哲学勝ってるよん");
+  // }
+  if (isBuySubjectChildArray("philosophy", ["L1"])) {
+    alert("哲学L1");
   }
 }
 

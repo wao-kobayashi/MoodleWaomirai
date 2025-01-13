@@ -95,8 +95,8 @@ function isBuySubjectChildArray(subjectKey, levels) {
     .filter(
       (subject) =>
         subject.type === "child" &&
-        subject.parentKey === subjectKey &&
-        levels.includes(subject.key)
+        subject.key === subjectKey &&
+        levels.includes(subject.level)
     )
     .some((subject) => bodyClasses.includes(subject.id));
 }
@@ -710,8 +710,11 @@ if (bodyId === "page-mod-questionnaire-view") {
 // ==============================
 if (bodyId === "page-course-view-flexsections") {
   //哲学のみ購入
-  if (isBuySubjectMainArray(["philosophy"])) {
-    alert("哲学勝ってるよん");
+  // if (isBuySubjectMainArray(["philosophy"])) {
+  //   alert("哲学勝ってるよん");
+  // }
+  if (isBuySubjectChildArray("philosophy", ["L1"])) {
+    alert("哲学L1");
   }
 }
 
