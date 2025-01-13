@@ -103,6 +103,13 @@ if (bodyId === "page-my-index") {
   ///初期表示状態
   ////////////////////////////////////
 
+  // if (isBuySubjectMainArray("philosophy")) {
+  //   alert("哲学");
+  // }
+  // if (isBuySubjectMainArray(["economy"])) {
+  //   alert("哲学勝ってるよん");
+  // }
+
   //何も受講していない時は、科目勝手欲しい要素出す
   if (!isBuySubjectMain && !isBuySubjectChild) {
     $("#todays-event-subject-none,#dashboard-main-upcoming-class-none").show();
@@ -156,29 +163,41 @@ if (bodyId === "page-my-index") {
       (subject) => subject.type === "child" && subject.parentKey === parentKey
     );
   }
+  function processSubjectMain() {
+    console.log("メイン科目（SubjectMain）に該当しています");
 
-  // メイン科目（SubjectMain）を処理する関数
-  // function processSubjectMain() {
-  //   console.log("メイン科目（SubjectMain）に該当しています");
+    const subjectMainNames = SubjectIds.subjects
+      .filter((subject) => subject.type === "main")
+      .filter((subject) => {
+        const hasChild = SubjectIds.subjects.some(
+          (childSubject) =>
+            childSubject.type === "child" &&
+            childSubject.parentKey === subject.key &&
+            bodyClasses.includes(childSubject.id)
+        );
 
-  //   const subjectMainNames = SubjectIds.subjects
-  //     .filter((subject) => subject.type === "main")
-  //     .filter((subject) => {
-  //       if (hasRelatedChildSubject(subject.key)) {
-  //         console.log(`スキップ: サブ科目が存在するため ${subject.name}`);
-  //         return false;
-  //       }
-  //       return bodyClasses.includes(subject.id);
-  //     })
-  //     .map((subject) => renderSubject(subject, getIcon(subject), true))
-  //     .join("");
+        console.log(`Checking subject: ${subject.name}, hasChild: ${hasChild}`);
 
-  //   if (subjectMainNames) {
-  //     $(".dashboard-left-block-wrap.dashboard-left-block-wrap-subject").append(
-  //       subjectMainNames
-  //     );
-  //   }
-  // }
+        if (hasChild) {
+          console.log(`スキップ: サブ科目が存在するため ${subject.name}`);
+          return false;
+        }
+
+        const isIncluded = bodyClasses.includes(subject.id);
+        console.log(
+          `Checking bodyClasses for subject: ${subject.name}, isIncluded: ${isIncluded}`
+        );
+        return isIncluded;
+      })
+      .map((subject) => renderSubject(subject, getIcon(subject), true))
+      .join("");
+
+    if (subjectMainNames) {
+      $(".dashboard-left-block-wrap.dashboard-left-block-wrap-subject").append(
+        subjectMainNames
+      );
+    }
+  }
 
   // 詳細科目（SubjectChild）を処理する関数
   function processSubjectChild() {
@@ -197,9 +216,9 @@ if (bodyId === "page-my-index") {
     }
   }
 
-  // if (isBuySubjectMain) {
-  //   processSubjectMain();
-  // }
+  if (isBuySubjectMain) {
+    processSubjectMain();
+  }
 
   // 詳細科目を処理
   if (isBuySubjectChild) {
@@ -425,11 +444,7 @@ if (bodyId === "page-my-index") {
         if (isBuySubjectMain || isBuySubjectChild || isBuyProgramming) {
           $("#todays-event-class-none").show();
           //何も授業買っていない時に授業なければ、今月は授業がありませんを表示
-        } else if (
-          !isBuySubjectMain &&
-          !isBuySubjectChild &&
-          !isBuyProgramming
-        ) {
+        } else if (!isBuySubjectMain && !isBuySubjectChild) {
           $("#dashboard-main-upcoming-class-none").show();
         }
       }
@@ -669,9 +684,7 @@ if (bodyId === "page-mod-questionnaire-view") {
 // ==============================
 if (bodyId === "page-course-view-flexsections") {
   //哲学のみ購入
-  // if (isBuySubjectMainArray(["philosophy"])) {
-  //   alert("哲学勝ってるよん");
-  // }
+
   if (isBuySubjectChildArray("philosophy", ["L1"])) {
     alert("哲学L1");
   }
