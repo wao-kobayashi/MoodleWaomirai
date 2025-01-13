@@ -1,1 +1,4 @@
-*.html
+index.html
+moodle-lms/
+moodle-stg/
+node_modules/
