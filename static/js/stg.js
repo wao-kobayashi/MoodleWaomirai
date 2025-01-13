@@ -893,14 +893,7 @@ if (bodyId === "page-user-edit") {
     AreaPhilosophy.show(); //哲学を表示
     selectOptionByIndex(AreaSingleCourse, 1); //1科目受講を哲学に
     //初回受講レベル登録時、submitあたりで注意文言を出す
-    if (
-      !isBuySubjectChildArray("philosophy", [
-        "ph_L1",
-        "ph_L2",
-        "ph_L3",
-        "ph_L4",
-      ])
-    ) {
+    if (!isBuySubjectChildArray("philosophy", ["L1", "L2", "L3", "L4"])) {
       AlertSubjectSettingFirst();
     }
   }
@@ -912,9 +905,7 @@ if (bodyId === "page-user-edit") {
     AreaScience.show(); //科学を表示
     selectOptionByIndex(AreaSingleCourse, 2); //1科目受講を科学に
     //初回受講レベル登録時、submitあたりで注意文言を出す
-    if (
-      !isBuySubjectChildArray("science", ["sc_L1", "sc_L2", "sc_L3", "sc_L4"])
-    ) {
+    if (!isBuySubjectChildArray("science", ["L1", "L2", "L3", "L4"])) {
       AlertSubjectSettingFirst();
     }
   }
@@ -926,9 +917,7 @@ if (bodyId === "page-user-edit") {
     AreaEconomy.show(); //経済エリアを表示
     selectOptionByIndex(AreaSingleCourse, 3); //1科目受講を経済に
     //初回受講レベル登録時、submitあたりで注意文言を出す
-    if (
-      !isBuySubjectChildArray("economy", ["ec_L1", "ec_L2", "ec_L3", "ec_L4"])
-    ) {
+    if (!isBuySubjectChildArray("economy", ["L1", "L2", "L3", "L4"])) {
       AlertSubjectSettingFirst();
     }
   }
@@ -937,7 +926,7 @@ if (bodyId === "page-user-edit") {
   if (isBuySubjectMainArray(["GlobalEnglish"])) {
     AreaEnglish.show(); //英語エリアを表示
     //初回受講レベル登録時、submitあたりで注意文言を出す
-    if (!isBuySubjectChildArray("GlobalEnglishence", ["en_L1", "en_L2"])) {
+    if (!isBuySubjectChildArray("GlobalEnglishence", ["L1", "L2"])) {
       AlertSubjectSettingFirst();
     }
   }
@@ -989,19 +978,9 @@ if (bodyId === "page-user-edit") {
     );
     //初回受講レベル登録時、submitあたりで注意文言を出す
     if (
-      !isBuySubjectChildArray("economy", [
-        "ec_L1",
-        "ec_L2",
-        "ec_L3",
-        "ec_L4",
-      ]) &&
-      !isBuySubjectChildArray("philosophy", [
-        "ph_L1",
-        "ph_L2",
-        "ph_L3",
-        "ph_L4",
-      ]) &&
-      !isBuySubjectChildArray("science", ["sc_L1", "sc_L2", "sc_L3", "sc_L4"])
+      !isBuySubjectChildArray("economy", ["L1", "L2", "L3", "L4"]) &&
+      !isBuySubjectChildArray("philosophy", ["L1", "L2", "L3", "L4"]) &&
+      !isBuySubjectChildArray("science", ["L1", "L2", "L3", "L4"])
     ) {
       AlertSubjectSettingFirst();
     }
@@ -1014,19 +993,9 @@ if (bodyId === "page-user-edit") {
     AreaEconomy.show(); //経済を表示
     //初回受講レベル登録時、submitあたりで注意文言を出す
     if (
-      !isBuySubjectChildArray("economy", [
-        "ec_L1",
-        "ec_L2",
-        "ec_L3",
-        "ec_L4",
-      ]) &&
-      !isBuySubjectChildArray("philosophy", [
-        "ph_L1",
-        "ph_L2",
-        "ph_L3",
-        "ph_L4",
-      ]) &&
-      !isBuySubjectChildArray("science", ["sc_L1", "sc_L2", "sc_L3", "sc_L4"])
+      !isBuySubjectChildArray("economy", ["L1", "L2", "L3", "L4"]) &&
+      !isBuySubjectChildArray("philosophy", ["L1", "L2", "L3", "L4"]) &&
+      !isBuySubjectChildArray("science", ["L1", "L2", "L3", "L4"])
     ) {
       AlertSubjectSettingFirst();
     }
@@ -1034,7 +1003,7 @@ if (bodyId === "page-user-edit") {
   //メイン科目で哲学設定｜哲学L1~L4は未設定
   if (
     isBuySubjectMainArray(["philosophy"]) &&
-    !isBuySubjectChildArray("philosophy", ["ph_L1", "ph_L2", "ph_L3", "ph_L4"])
+    !isBuySubjectChildArray("philosophy", ["L1", "L2", "L3", "L4"])
   ) {
     AreaPhilosophy.show();
   }
@@ -1044,17 +1013,17 @@ if (bodyId === "page-user-edit") {
     {
       subject: "philosophy",
       area: AreaPhilosophy,
-      levels: ["ph_L1", "ph_L2", "ph_L3", "ph_L4"],
+      levels: ["L1", "L2", "L3", "L4"],
     },
     {
       subject: "science",
       area: AreaScience,
-      levels: ["sc_L1", "sc_L2", "sc_L3", "sc_L4"],
+      levels: ["L1", "L2", "L3", "L4"],
     },
     {
       subject: "economy",
       area: AreaEconomy,
-      levels: ["ec_L1", "ec_L2", "ec_L3", "ec_L4"],
+      levels: ["L1", "L2", "L3", "L4"],
     },
     {
       subject: "GlobalEnglish",
