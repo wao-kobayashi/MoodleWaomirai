@@ -4041,7 +4041,7 @@ html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo .global-engl
         -ms-flex-direction: column;
             flex-direction: column;
     gap: 20px;
-    background-color: red;
+    background-color: rgb(67, 30, 189);
   }
 }
 html[data-tenantidnumber=stg] #page-enrol-index .global-english .global-english-inner .global-english-live-lesson,

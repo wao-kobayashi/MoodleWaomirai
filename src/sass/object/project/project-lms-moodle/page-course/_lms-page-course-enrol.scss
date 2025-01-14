@@ -207,7 +207,6 @@ $subject-default-max-width: 1120px; // 最大幅
   }
 
   /* ここから英語 */
-
   .global-english {
     //   @import "../../../foundation/_wpstyle.scss";
     img {
@@ -226,7 +225,7 @@ $subject-default-max-width: 1120px; // 最大幅
         @include responsive-style(768px) {
           flex-direction: column;
           gap: 20px;
-          background-color: red; // セミコロンを追加
+          background-color: rgb(67, 30, 189); // セミコロンを追加
         }
       }
       .global-english-live-lesson {
