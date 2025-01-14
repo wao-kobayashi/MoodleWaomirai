@@ -1,6 +1,23 @@
+///////////////////////////////////
+// 2科目、3科目セット
+///////////////////////////////////
+
 #{$course-multi-select-two},
 #{$course-multi-select-three} {
   .page-context-header {
     display: none; //２科と３科目ヘッダー見えなくする
+  }
+}
+
+#page-enrol-index {
+  //価格のブロック
+  .multiselct-price {
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+    .multiselct-price-child {
+      @include lms-boxshadow;
+      flex: 1;
+    }
   }
 }
