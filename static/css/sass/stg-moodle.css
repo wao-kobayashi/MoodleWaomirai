@@ -3801,7 +3801,8 @@ html[data-tenantidnumber=stg] #page-enrol-index #page.drawers .main-inner {
 }
 html[data-tenantidnumber=stg] #page-enrol-index,
 html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo {
-  /* ここから英語 */
+  /* ここから英語 ------------------------------------------------ */
+  /* ↑↑↑ 重複優先コードここまで ↑↑↑ */
 }
 html[data-tenantidnumber=stg] #page-enrol-index #page-navbar,
 html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo #page-navbar {
@@ -4020,18 +4021,6 @@ html[data-tenantidnumber=stg] #page-enrol-index .global-english img,
 html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo .global-english img {
   width: 100%;
 }
-@media screen and (max-width: 768px) {
-  html[data-tenantidnumber=stg] #page-enrol-index .global-english .global-english-inner,
-  html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo .global-english .global-english-inner {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-  }
-}
 html[data-tenantidnumber=stg] #page-enrol-index .global-english .global-english-inner .global-english-live-lesson-second,
 html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo .global-english .global-english-inner .global-english-live-lesson-second {
   display: -webkit-box;
@@ -4043,17 +4032,6 @@ html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo .global-engl
           flex-direction: row-reverse;
   gap: 40px;
 }
-@media screen and (max-width: 768px) {
-  html[data-tenantidnumber=stg] #page-enrol-index .global-english .global-english-inner .global-english-live-lesson-second,
-  html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo .global-english .global-english-inner .global-english-live-lesson-second {
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-    gap: 20px;
-    background-color: red;
-  }
-}
 html[data-tenantidnumber=stg] #page-enrol-index .global-english .global-english-inner .global-english-live-lesson,
 html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo .global-english .global-english-inner .global-english-live-lesson {
   display: -webkit-box;
@@ -4063,19 +4041,31 @@ html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo .global-engl
   padding: 15px;
   border-radius: 8px;
 }
+@media screen and (max-width: 768px) {
+  html[data-tenantidnumber=stg] #page-enrol-index .global-english .global-english-inner .global-english-live-lesson,
+  html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo .global-english .global-english-inner .global-english-live-lesson {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    gap: 32px;
+  }
+}
+html[data-tenantidnumber=stg] #page-enrol-index .global-english .global-english-inner .global-english-lesson-img,
+html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo .global-english .global-english-inner .global-english-lesson-img {
+  width: 100%;
+  border-radius: 8px;
+}
+html[data-tenantidnumber=stg] #page-enrol-index .global-english .global-english-inner .global-english-lesson-img2,
+html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo .global-english .global-english-inner .global-english-lesson-img2 {
+  width: 100%;
+  border-radius: 8px;
+}
 html[data-tenantidnumber=stg] #page-enrol-index .global-english .global-english-inner .global-english-live-lesson-text,
 html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo .global-english .global-english-inner .global-english-live-lesson-text {
   -webkit-box-flex: 4;
       -ms-flex: 4;
           flex: 4;
-}
-@media screen and (max-width: 768px) {
-  html[data-tenantidnumber=stg] #page-enrol-index .global-english .global-english-inner .global-english-live-lesson-text,
-  html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo .global-english .global-english-inner .global-english-live-lesson-text {
-    -webkit-box-ordinal-group: 2;
-        -ms-flex-order: 1;
-            order: 1;
-  }
 }
 html[data-tenantidnumber=stg] #page-enrol-index .global-english .global-english-inner .global-english-lesson-images,
 html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo .global-english .global-english-inner .global-english-lesson-images {
@@ -4083,11 +4073,17 @@ html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo .global-engl
       -ms-flex: 6;
           flex: 6;
 }
-@media screen and (max-width: 1170px) {
-  html[data-tenantidnumber=stg] #page-enrol-index .global-english .global-english-inner,
-  html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo .global-english .global-english-inner {
-    max-width: 250px !important;
-  }
+html[data-tenantidnumber=stg] #page-enrol-index .global-english .global-english-inner .global-english-lesson-figure,
+html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo .global-english .global-english-inner .global-english-lesson-figure {
+  position: relative;
+}
+html[data-tenantidnumber=stg] #page-enrol-index .global-english .global-english-inner .global-english-lesson-figure img.global-english-lesson-img2,
+html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo .global-english .global-english-inner .global-english-lesson-figure img.global-english-lesson-img2 {
+  position: absolute;
+  right: -20px;
+  bottom: -20px;
+  width: 60%;
+  z-index: 9;
 }
 html[data-tenantidnumber=stg] #page-enrol-index .global-english .global-english-inner .lesson-content .lesson-title,
 html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo .global-english .global-english-inner .lesson-content .lesson-title {
@@ -4101,14 +4097,14 @@ html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo .global-engl
 }
 html[data-tenantidnumber=stg] #page-enrol-index .global-english .global-english-inner .global-english-sample-phrase-figure iframe,
 html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo .global-english .global-english-inner .global-english-sample-phrase-figure iframe {
-  width: 398px;
-  height: 222px;
+  width: 100%;
+  border-radius: 8px;
 }
 html[data-tenantidnumber=stg] #page-enrol-index .global-english .global-english-inner .global-english-lesson-images,
 html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo .global-english .global-english-inner .global-english-lesson-images {
-  -webkit-box-flex: 1;
-      -ms-flex: 1;
-          flex: 1;
+  -webkit-box-flex: 5.5;
+      -ms-flex: 5.5;
+          flex: 5.5;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -4121,29 +4117,14 @@ html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo .global-engl
 }
 html[data-tenantidnumber=stg] #page-enrol-index .global-english .global-english-inner .global-english-lesson-images figure,
 html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo .global-english .global-english-inner .global-english-lesson-images figure {
-  width: 413px;
-  height: 307px;
-  overflow: hidden;
+  max-width: 413px;
+  width: 100%;
 }
 html[data-tenantidnumber=stg] #page-enrol-index .global-english .global-english-inner .global-english-lesson-images figure img,
 html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo .global-english .global-english-inner .global-english-lesson-images figure img {
   width: 100%;
-  height: 100%;
   -o-object-fit: cover;
      object-fit: cover;
-}
-html[data-tenantidnumber=stg] #page-enrol-index .global-english .global-english-grid,
-html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo .global-english .global-english-grid {
-  padding: 20px;
-}
-html[data-tenantidnumber=stg] #page-enrol-index .global-english .global-english-item,
-html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo .global-english .global-english-item {
-  background-color: #f0f2f3;
-  padding: 20px;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
 }
 html[data-tenantidnumber=stg] #page-enrol-index .global-english .coursedetail-info-fee,
 html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo .global-english .coursedetail-info-fee {
@@ -4161,15 +4142,25 @@ html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo .global-engl
 }
 html[data-tenantidnumber=stg] #page-enrol-index .lesson-title,
 html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo .lesson-title {
-  font-size: 20px;
+  font-size: 24px;
+  color: #262626;
+  line-height: 1.5;
   font-weight: bold;
   margin-bottom: 10px;
 }
 html[data-tenantidnumber=stg] #page-enrol-index .global-english-desc,
 html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo .global-english-desc {
-  font-size: 14px;
+  font-size: 16px;
+  color: #262626;
+  line-height: 1.5;
   line-height: 1.5;
   color: #262626;
+}
+@media screen and (max-width: 768px) {
+  html[data-tenantidnumber=stg] #page-enrol-index .global-english-desc,
+  html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo .global-english-desc {
+    margin-top: 30px;
+  }
 }
 html[data-tenantidnumber=stg] #page-enrol-index .global-english-grid,
 html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo .global-english-grid {
@@ -4187,22 +4178,6 @@ html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo .global-engl
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
 }
-html[data-tenantidnumber=stg] #page-enrol-index .lesson-title,
-html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo .lesson-title {
-  font-size: 24px;
-  color: #262626;
-  line-height: 1.5;
-  font-weight: bold;
-  margin-bottom: 10px;
-}
-html[data-tenantidnumber=stg] #page-enrol-index .global-english-desc,
-html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo .global-english-desc {
-  font-size: 16px;
-  color: #262626;
-  line-height: 1.5;
-  line-height: 1.5;
-  color: #262626;
-}
 html[data-tenantidnumber=stg] #page-enrol-index .coursedetail-info-inner h3.coursedetail-course-info,
 html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo .coursedetail-info-inner h3.coursedetail-course-info {
   margin-top: 64px;
@@ -4219,8 +4194,14 @@ html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo .box-contain
       -ms-flex-direction: column;
           flex-direction: column;
   gap: 60px;
-  padding: 40px 32px;
+  padding: 40px 40px;
   border-radius: 12px;
+}
+@media screen and (max-width: 768px) {
+  html[data-tenantidnumber=stg] #page-enrol-index .box-container,
+  html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo .box-container {
+    padding: 30px 20px;
+  }
 }
 html[data-tenantidnumber=stg] #page-enrol-index .box-container .coursedetail-info-fee-benefits,
 html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo .box-container .coursedetail-info-fee-benefits {
@@ -4235,6 +4216,12 @@ html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo .box-contain
   border-radius: 12px;
   padding: 20px;
   position: relative;
+}
+@media screen and (max-width: 768px) {
+  html[data-tenantidnumber=stg] #page-enrol-index .box-container .coursedetail-info-fee-benefits,
+  html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo .box-container .coursedetail-info-fee-benefits {
+    margin: 15px 0 0;
+  }
 }
 html[data-tenantidnumber=stg] #page-enrol-index .box-container .coursedetail-info-fee-benefits::after,
 html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo .box-container .coursedetail-info-fee-benefits::after {
@@ -4263,6 +4250,12 @@ html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo .box-contain
   width: 48%;
   text-align: left;
 }
+@media screen and (max-width: 768px) {
+  html[data-tenantidnumber=stg] #page-enrol-index .box-container .coursedetail-info-fee-benefits .grid-child,
+  html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo .box-container .coursedetail-info-fee-benefits .grid-child {
+    width: 100%;
+  }
+}
 html[data-tenantidnumber=stg] #page-enrol-index .coursedetail-info-fee-title,
 html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo .coursedetail-info-fee-title {
   font-size: 24px;
@@ -4271,7 +4264,7 @@ html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo .coursedetai
 }
 html[data-tenantidnumber=stg] #page-enrol-index .coursedetail-info-fee-price,
 html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo .coursedetail-info-fee-price {
-  margin-bottom: 15px;
+  margin-bottom: 30px;
 }
 html[data-tenantidnumber=stg] #page-enrol-index .price,
 html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo .price {
@@ -4309,6 +4302,7 @@ html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo .image-conta
           align-items: center;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
+  padding-top: 20px;
   margin-top: 0;
 }
 html[data-tenantidnumber=stg] #page-enrol-index .image-container img.stage,
@@ -4348,9 +4342,21 @@ html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo table td.has
   line-height: 1.5 !important;
   padding: 0.8em 0.5em !important;
 }
+@media screen and (max-width: 768px) {
+  html[data-tenantidnumber=stg] #page-enrol-index table,
+  html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo table {
+    margin-bottom: 0px;
+  }
+}
 html[data-tenantidnumber=stg] #page-enrol-index .wp-block-spacer,
 html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo .wp-block-spacer {
   height: 16px;
+}
+@media screen and (max-width: 768px) {
+  html[data-tenantidnumber=stg] #page-enrol-index,
+  html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo {
+    height: 0;
+  }
 }
 html[data-tenantidnumber=stg] .course-228 .page-context-header, html[data-tenantidnumber=stg] .course-270 .page-context-header,
 html[data-tenantidnumber=stg] .course-229 .page-context-header, html[data-tenantidnumber=stg] .category-271 .page-context-header {
