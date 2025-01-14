@@ -214,40 +214,49 @@ $subject-default-max-width: 1120px; // 最大幅
     }
     .global-english-inner {
       // display: flex;
-      @include responsive-style(768px) {
-        display: flex;
-        flex-direction: column;
-      }
+      // background: red($color: #000000);
+      // @include responsive-style(768px) {
+      //   display: flex;
+      //   flex-direction: column;
+      // }
+      // img,
+      // iframe {
+      //   display: none;
+      // }
       .global-english-live-lesson-second {
         display: flex;
         flex-direction: row-reverse;
         gap: 40px;
-        @include responsive-style(768px) {
-          flex-direction: column;
-          gap: 20px;
-          background-color: rgb(67, 30, 189); // セミコロンを追加
-        }
+        // @include responsive-style(768px) {
+        //   flex-direction: column;
+        //   gap: 20px;
+        //   background-color: rgb(67, 30, 189); // セミコロンを追加
+        // }
       }
       .global-english-live-lesson {
         display: flex;
         gap: 40px;
         padding: 15px;
         border-radius: $border-radius-middle;
+
+        @include responsive-style(768px) {
+          flex-direction: column;
+        }
       }
 
       .global-english-live-lesson-text {
         flex: 4;
-        @include responsive-style(768px) {
-          order: 1;
-        }
+        // @include responsive-style(768px) {
+        //   order: 1;
+        // }
       }
 
       .global-english-lesson-images {
         flex: 6;
       }
-      @include responsive-style($default-max-width) {
-        max-width: 250px !important;
-      }
+      // @include responsive-style($default-max-width) {
+      //   max-width: 250px !important;
+      // }
 
       .lesson-content {
         .lesson-title {
@@ -271,9 +280,11 @@ $subject-default-max-width: 1120px; // 最大幅
         align-items: center;
         justify-content: center;
         figure {
-          width: 413px;
-          height: 307px;
+          max-width: 413px;
+          width: 100%;
+          // height: 307px;
           overflow: hidden;
+
           img {
             width: 100%;
             height: 100%;

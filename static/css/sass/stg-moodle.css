@@ -4010,18 +4010,6 @@ html[data-tenantidnumber=stg] #page-enrol-index .global-english img,
 html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo .global-english img {
   width: 100%;
 }
-@media screen and (max-width: 768px) {
-  html[data-tenantidnumber=stg] #page-enrol-index .global-english .global-english-inner,
-  html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo .global-english .global-english-inner {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-  }
-}
 html[data-tenantidnumber=stg] #page-enrol-index .global-english .global-english-inner .global-english-live-lesson-second,
 html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo .global-english .global-english-inner .global-english-live-lesson-second {
   display: -webkit-box;
@@ -4033,17 +4021,6 @@ html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo .global-engl
           flex-direction: row-reverse;
   gap: 40px;
 }
-@media screen and (max-width: 768px) {
-  html[data-tenantidnumber=stg] #page-enrol-index .global-english .global-english-inner .global-english-live-lesson-second,
-  html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo .global-english .global-english-inner .global-english-live-lesson-second {
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-    gap: 20px;
-    background-color: rgb(67, 30, 189);
-  }
-}
 html[data-tenantidnumber=stg] #page-enrol-index .global-english .global-english-inner .global-english-live-lesson,
 html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo .global-english .global-english-inner .global-english-live-lesson {
   display: -webkit-box;
@@ -4053,31 +4030,26 @@ html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo .global-engl
   padding: 15px;
   border-radius: 8px;
 }
+@media screen and (max-width: 768px) {
+  html[data-tenantidnumber=stg] #page-enrol-index .global-english .global-english-inner .global-english-live-lesson,
+  html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo .global-english .global-english-inner .global-english-live-lesson {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+}
 html[data-tenantidnumber=stg] #page-enrol-index .global-english .global-english-inner .global-english-live-lesson-text,
 html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo .global-english .global-english-inner .global-english-live-lesson-text {
   -webkit-box-flex: 4;
       -ms-flex: 4;
           flex: 4;
 }
-@media screen and (max-width: 768px) {
-  html[data-tenantidnumber=stg] #page-enrol-index .global-english .global-english-inner .global-english-live-lesson-text,
-  html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo .global-english .global-english-inner .global-english-live-lesson-text {
-    -webkit-box-ordinal-group: 2;
-        -ms-flex-order: 1;
-            order: 1;
-  }
-}
 html[data-tenantidnumber=stg] #page-enrol-index .global-english .global-english-inner .global-english-lesson-images,
 html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo .global-english .global-english-inner .global-english-lesson-images {
   -webkit-box-flex: 6;
       -ms-flex: 6;
           flex: 6;
-}
-@media screen and (max-width: 1170px) {
-  html[data-tenantidnumber=stg] #page-enrol-index .global-english .global-english-inner,
-  html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo .global-english .global-english-inner {
-    max-width: 250px !important;
-  }
 }
 html[data-tenantidnumber=stg] #page-enrol-index .global-english .global-english-inner .lesson-content .lesson-title,
 html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo .global-english .global-english-inner .lesson-content .lesson-title {
@@ -4111,8 +4083,8 @@ html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo .global-engl
 }
 html[data-tenantidnumber=stg] #page-enrol-index .global-english .global-english-inner .global-english-lesson-images figure,
 html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo .global-english .global-english-inner .global-english-lesson-images figure {
-  width: 413px;
-  height: 307px;
+  max-width: 413px;
+  width: 100%;
   overflow: hidden;
 }
 html[data-tenantidnumber=stg] #page-enrol-index .global-english .global-english-inner .global-english-lesson-images figure img,
