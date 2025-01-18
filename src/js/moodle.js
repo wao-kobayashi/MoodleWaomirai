@@ -811,10 +811,11 @@ if (bodyId === "page-user-edit") {
   }
   //英語購入
   //英語は他３科目と違い、英語単体で判定する
-  if (isBuySubjectMainArray(["GlobalEnglish"])) {
+  if (isBuySubjectMainArray(["globalenglish"])) {
+    alert("英語購入");
     AreaEnglish.show(); //英語エリアを表示
     //初回受講レベル登録時、submitあたりで注意文言を出す
-    if (!isBuySubjectChildArray("GlobalEnglishence", ["L1", "L2"])) {
+    if (!isBuySubjectChildArray("globalenglish", ["L1", "L2"])) {
       AlertSubjectSettingFirst();
     }
   }
@@ -861,15 +862,16 @@ if (bodyId === "page-user-edit") {
     updateAreaOnSelection();
     //プルダウンを変更した時も実行
     getSelectElement(AreaTwoCourse).on("change", updateAreaOnSelection);
-    getSelectElement(AreaTwoCourse).after(
-      "<div class='subject-select-levelnotset'>受講レベルを設定してください</div>"
-    );
+
     //初回受講レベル登録時、submitあたりで注意文言を出す
     if (
       !isBuySubjectChildArray("economy", ["L1", "L2", "L3", "L4"]) &&
       !isBuySubjectChildArray("philosophy", ["L1", "L2", "L3", "L4"]) &&
       !isBuySubjectChildArray("science", ["L1", "L2", "L3", "L4"])
     ) {
+      getSelectElement(AreaTwoCourse).after(
+        "<div class='subject-select-levelnotset'>科目を選択してください</div>"
+      );
       AlertSubjectSettingFirst();
     }
   }
@@ -888,14 +890,6 @@ if (bodyId === "page-user-edit") {
       AlertSubjectSettingFirst();
     }
   }
-  //メイン科目で哲学設定｜哲学L1~L4は未設定
-  if (
-    isBuySubjectMainArray(["philosophy"]) &&
-    !isBuySubjectChildArray("philosophy", ["L1", "L2", "L3", "L4"])
-  ) {
-    AreaPhilosophy.show();
-  }
-
   // 科目の設定を配列で定義
   const subjectConfigs = [
     {
@@ -914,7 +908,7 @@ if (bodyId === "page-user-edit") {
       levels: ["L1", "L2", "L3", "L4"],
     },
     {
-      subject: "GlobalEnglish",
+      subject: "globalenglish",
       area: AreaEnglish,
       levels: ["L1", "L2"],
     },
@@ -924,7 +918,7 @@ if (bodyId === "page-user-edit") {
   const messages = {
     levelSet: (ownedLevels) =>
       `<div class="subject-select-levelset">
-         設定されたレベル: ${ownedLevels.join(", ")}<br>
+         現在受講中のレベルは ${ownedLevels.join(", ")}です<br>
          レベルの変更は月末反映となります。即時反映されませんのでご注意ください。
        </div>`,
     levelNotSet:
