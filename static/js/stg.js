@@ -807,10 +807,64 @@ if (bodyId === "page-course-index-category") {
 // ==============================
 if (bodyId === "page-course-view-flexsections") {
   //哲学のみ購入
+  const targetSubjects = [
+    "philosophy",
+    "science",
+    "economy",
+    "globalenglish",
+    "twosubjectpack",
+    "threesubjectpack",
+  ];
+  targetSubjects.forEach((key) => {
+    if (
+      CurrentViewCourseData.key === key &&
+      CurrentViewCourseData.type === "main"
+    ) {
+      // "main"タイプの科目の場合の処理
+      console.log(`CurrentViewCourseDataはmainタイプの${key}です`);
 
-  if (isBuySubjectChildArray("philosophy", ["L1"])) {
-    alert("哲学L1");
-  }
+      // twosubjectpack と threesubjectpack の場合は child の判定を行わない
+      if (key === "twosubjectpack" || key === "threesubjectpack") {
+        console.log(`${key}はchild判定をスキップします。`);
+        return; // child判定をスキップして次に進む
+      }
+
+      // bodyClassesに含まれるidを基に、対応する"child"タイプの科目が存在するか確認
+      const hasChild = bodyClasses.some((courseId) => {
+        // bodyClassesに含まれる各idについて、対応する"child"タイプの科目を検索
+        return subjects.some(
+          (subject) =>
+            subject.id === courseId &&
+            subject.key === key &&
+            subject.type === "child"
+        );
+      });
+
+      if (hasChild) {
+        console.log(`${key}のchildタイプが存在します`);
+
+        // "child"タイプが存在する場合、リダイレクト
+        const childCourse = subjects.find(
+          (subject) =>
+            subject.key === key &&
+            subject.type === "child" &&
+            bodyClasses.includes(subject.id)
+        );
+
+        if (childCourse) {
+          const redirectUrl = `https://lms.waomirai.com/course/view.php?id=${childCourse.id}`;
+          console.log(`リダイレクト: ${redirectUrl}`);
+          window.location.href = redirectUrl; // リダイレクト
+        }
+      } else {
+        console.log(`${key}のchildタイプは存在しません`);
+        // "child"タイプがない場合の処理
+      }
+    } else {
+      // "main"タイプではない場合の処理
+      console.log(`CurrentViewCourseDataはmainタイプの${key}ではありません`);
+    }
+  });
 }
 
 // // ==============================
