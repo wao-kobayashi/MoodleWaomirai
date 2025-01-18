@@ -14,6 +14,7 @@ const subjects = [
     key: "philosophy",
     parentKey: "philosophy",
     type: "child",
+    level: "L1",
   },
   {
     id: 225,
@@ -21,6 +22,7 @@ const subjects = [
     key: "philosophy",
     parentKey: "philosophy",
     type: "child",
+    level: "L2",
   },
   {
     id: 242,
@@ -28,6 +30,7 @@ const subjects = [
     key: "philosophy",
     parentKey: "philosophy",
     type: "child",
+    level: "L3",
   },
   {
     id: 243,
@@ -35,6 +38,7 @@ const subjects = [
     key: "philosophy",
     parentKey: "philosophy",
     type: "child",
+    level: "L4",
   },
 
   {
@@ -43,6 +47,7 @@ const subjects = [
     key: "science",
     parentKey: "science",
     type: "child",
+    level: "L1",
   },
   {
     id: 222,
@@ -50,6 +55,7 @@ const subjects = [
     key: "science",
     parentKey: "science",
     type: "child",
+    level: "L2",
   },
   {
     id: 244,
@@ -57,6 +63,7 @@ const subjects = [
     key: "science",
     parentKey: "science",
     type: "child",
+    level: "L3",
   },
   {
     id: 245,
@@ -64,6 +71,7 @@ const subjects = [
     key: "science",
     parentKey: "science",
     type: "child",
+    level: "L4",
   },
 
   {
@@ -72,6 +80,7 @@ const subjects = [
     key: "economy",
     parentKey: "economy",
     type: "child",
+    level: "L1",
   },
   {
     id: 227,
@@ -79,6 +88,7 @@ const subjects = [
     key: "economy",
     parentKey: "economy",
     type: "child",
+    level: "L2",
   },
   {
     id: 246,
@@ -86,6 +96,7 @@ const subjects = [
     key: "economy",
     parentKey: "economy",
     type: "child",
+    level: "L3",
   },
   {
     id: 247,
@@ -93,6 +104,7 @@ const subjects = [
     key: "economy",
     parentKey: "economy",
     type: "child",
+    level: "L4",
   },
 
   {
@@ -101,6 +113,7 @@ const subjects = [
     key: "globalenglish",
     parentKey: "globalenglish",
     type: "child",
+    level: "L1",
   },
   {
     id: 254,
@@ -108,6 +121,7 @@ const subjects = [
     key: "globalenglish",
     parentKey: "globalenglish",
     type: "child",
+    level: "L2",
   },
 ];
 
@@ -127,7 +141,7 @@ function getCurrentCourseId() {
 }
 
 // コースIDから該当の科目データを取得
-const CurrentViewCourseData = SubjectIds.subjects.find(
+const CurrentViewCourseData = subjects.find(
   (subject) => subject.id === getCurrentCourseId()
 );
 
@@ -144,7 +158,7 @@ const bodyClasses = $("body")
 // グループチェック関数
 // ==============================
 function checkGroup(filterFn) {
-  return SubjectIds.subjects
+  return subjects
     .filter(filterFn)
     .some((subject) => bodyClasses.includes(subject.id));
 }
@@ -161,7 +175,7 @@ const isBuySubjectChild = checkGroup((subject) => subject.type === "child");
 function isBuySubjectMainArray(subjectKeys, isAllRequired = false) {
   const checkMethod = isAllRequired ? "every" : "some"; // "every"か"some"を動的に選択
   return subjectKeys[checkMethod]((subjectKey) => {
-    const subject = SubjectIds.subjects.find(
+    const subject = subjects.find(
       (item) => item.key === subjectKey && item.type === "main"
     );
     if (!subject) return false; // 指定された科目が存在しない場合はfalseを返す
@@ -171,7 +185,7 @@ function isBuySubjectMainArray(subjectKeys, isAllRequired = false) {
 
 // 子科目の特定レベルチェック
 function isBuySubjectChildArray(subjectKey, levels) {
-  return SubjectIds.subjects
+  return subjects
     .filter(
       (subject) =>
         subject.type === "child" &&
@@ -268,17 +282,17 @@ if (bodyId === "page-my-index") {
 
   // サブ科目が存在するか確認する関数
   function hasRelatedChildSubject(parentKey) {
-    return SubjectIds.some(
+    return some(
       (subject) => subject.type === "child" && subject.parentKey === parentKey
     );
   }
   function processSubjectMain() {
     console.log("メイン科目（SubjectMain）に該当しています");
 
-    const subjectMainNames = SubjectIds.subjects
+    const subjectMainNames = subjects
       .filter((subject) => subject.type === "main")
       .filter((subject) => {
-        const hasChild = SubjectIds.subjects.some(
+        const hasChild = subjects.some(
           (childSubject) =>
             childSubject.type === "child" &&
             childSubject.parentKey === subject.key &&
@@ -312,7 +326,7 @@ if (bodyId === "page-my-index") {
   function processSubjectChild() {
     console.log("詳細科目（SubjectChild）に該当しています");
 
-    const subjectChildNames = SubjectIds.subjects
+    const subjectChildNames = subjects
       .filter((subject) => subject.type === "child")
       .filter((subject) => bodyClasses.includes(subject.id))
       .map((subject) => renderSubject(subject, getIcon(subject), false))
@@ -714,7 +728,7 @@ if (bodyId === "page-enrol-index") {
         $("body").append(
           createModal({
             close: true,
-            text: "すでに複数受講できる科目セットを購入されています。受講科目の選択はXXXXXXX（ここは未定）",
+            text: "すでに複数受講できる科目セットを購入されています。受講科目の選択は「登録情報の変更ページ」で編集可能です。",
             buttonText: "ここは未定",
             url: "https://example.com",
           })
@@ -815,6 +829,20 @@ if (bodyId === "page-user-edit") {
     $("#fgroup_id_buttonar").before(
       `<div id="id_submitbutton-subject">一度受講レベルを設定すると、2回目以降のレベル変更時の反映は当月末になりますのでご注意くださいませ。</div>`
     );
+  }
+
+  // サブレベルを自動取得する関数
+  function getOwnedSubLevels(subjectKey, levels) {
+    // 指定された科目キーとレベルに該当する子科目を取得
+    return subjects
+      .filter(
+        (subject) =>
+          subject.type === "child" &&
+          subject.key === subjectKey &&
+          levels.includes(subject.level) &&
+          bodyClasses.includes(subject.id) // 現在のページに関連付けられた科目IDか確認
+      )
+      .map((subject) => subject.level); // 該当するレベルを抽出
   }
 
   //memo AreaSingleCourse
@@ -1018,23 +1046,29 @@ if (bodyId === "page-user-edit") {
     {
       subject: "GlobalEnglish",
       area: AreaEnglish,
-      levels: ["en_L1", "en_L2"],
+      levels: ["L1", "L2"],
     },
   ];
 
   // メッセージの定義
   const messages = {
-    levelSet:
-      '<div class="subject-select-levelset">受講レベルは月末に反映されます。変更しても即時で反映されませんのでご注意くださいませ。</div>',
+    levelSet: (ownedLevels) =>
+      `<div class="subject-select-levelset">
+         設定されたレベル: ${ownedLevels.join(", ")}<br>
+         レベルの変更は月末反映となります。即時反映されませんのでご注意ください。
+       </div>`,
     levelNotSet:
-      '<div class="subject-select-levelnotset">受講レベルを設定してください</div>',
+      '<div class="subject-select-levelnotset">受講レベルを設定してください。</div>',
   };
 
   // 全科目の処理を一括で行う
   subjectConfigs.forEach(({ subject, area, levels }) => {
-    const message = isBuySubjectChildArray(subject, levels)
-      ? messages.levelSet
-      : messages.levelNotSet;
+    const ownedLevels = getOwnedSubLevels(subject, levels);
+
+    const message =
+      ownedLevels.length > 0
+        ? messages.levelSet(ownedLevels)
+        : messages.levelNotSet;
 
     getSelectElement(area).after(message);
   });

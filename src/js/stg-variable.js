@@ -14,6 +14,7 @@ const subjects = [
     key: "philosophy",
     parentKey: "philosophy",
     type: "child",
+    level: "L1",
   },
   {
     id: 225,
@@ -21,6 +22,7 @@ const subjects = [
     key: "philosophy",
     parentKey: "philosophy",
     type: "child",
+    level: "L2",
   },
   {
     id: 242,
@@ -28,6 +30,7 @@ const subjects = [
     key: "philosophy",
     parentKey: "philosophy",
     type: "child",
+    level: "L3",
   },
   {
     id: 243,
@@ -35,6 +38,7 @@ const subjects = [
     key: "philosophy",
     parentKey: "philosophy",
     type: "child",
+    level: "L4",
   },
 
   {
@@ -43,6 +47,7 @@ const subjects = [
     key: "science",
     parentKey: "science",
     type: "child",
+    level: "L1",
   },
   {
     id: 222,
@@ -50,6 +55,7 @@ const subjects = [
     key: "science",
     parentKey: "science",
     type: "child",
+    level: "L2",
   },
   {
     id: 244,
@@ -57,6 +63,7 @@ const subjects = [
     key: "science",
     parentKey: "science",
     type: "child",
+    level: "L3",
   },
   {
     id: 245,
@@ -64,6 +71,7 @@ const subjects = [
     key: "science",
     parentKey: "science",
     type: "child",
+    level: "L4",
   },
 
   {
@@ -72,6 +80,7 @@ const subjects = [
     key: "economy",
     parentKey: "economy",
     type: "child",
+    level: "L1",
   },
   {
     id: 227,
@@ -79,6 +88,7 @@ const subjects = [
     key: "economy",
     parentKey: "economy",
     type: "child",
+    level: "L2",
   },
   {
     id: 246,
@@ -86,6 +96,7 @@ const subjects = [
     key: "economy",
     parentKey: "economy",
     type: "child",
+    level: "L3",
   },
   {
     id: 247,
@@ -93,6 +104,7 @@ const subjects = [
     key: "economy",
     parentKey: "economy",
     type: "child",
+    level: "L4",
   },
 
   {
@@ -101,6 +113,7 @@ const subjects = [
     key: "globalenglish",
     parentKey: "globalenglish",
     type: "child",
+    level: "L1",
   },
   {
     id: 254,
@@ -108,5 +121,6 @@ const subjects = [
     key: "globalenglish",
     parentKey: "globalenglish",
     type: "child",
+    level: "L2",
   },
 ];
