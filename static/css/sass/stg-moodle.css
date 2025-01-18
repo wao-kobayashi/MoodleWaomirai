@@ -24,7 +24,6 @@ html[data-tenantidnumber=stg] {
   /* 授業詳細 */
   /* 授業購入画面(まだ買っていない) */
   /* ここから英語 ------------------------------------------------ */
-  /* ↑↑↑ 重複優先コードここまで ↑↑↑ */
 }
 @-webkit-keyframes fuwafuwa {
   0% {
@@ -4039,10 +4038,13 @@ html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo .enrol-secti
   grid-column-gap: 20px;
   grid-row-gap: 20px;
 }
-html[data-tenantidnumber=stg] .global-english img {
+html[data-tenantidnumber=stg] #page-enrol-index {
+  /* ↑↑↑ 重複優先コードここまで ↑↑↑ */
+}
+html[data-tenantidnumber=stg] #page-enrol-index .global-english img {
   width: 100%;
 }
-html[data-tenantidnumber=stg] .global-english .global-english-inner .global-english-live-lesson-second {
+html[data-tenantidnumber=stg] #page-enrol-index .global-english .global-english-inner .global-english-live-lesson-second {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -4052,7 +4054,7 @@ html[data-tenantidnumber=stg] .global-english .global-english-inner .global-engl
           flex-direction: row-reverse;
   gap: 40px;
 }
-html[data-tenantidnumber=stg] .global-english .global-english-inner .global-english-live-lesson {
+html[data-tenantidnumber=stg] #page-enrol-index .global-english .global-english-inner .global-english-live-lesson {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -4061,7 +4063,7 @@ html[data-tenantidnumber=stg] .global-english .global-english-inner .global-engl
   border-radius: 8px;
 }
 @media screen and (max-width: 768px) {
-  html[data-tenantidnumber=stg] .global-english .global-english-inner .global-english-live-lesson {
+  html[data-tenantidnumber=stg] #page-enrol-index .global-english .global-english-inner .global-english-live-lesson {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
@@ -4069,46 +4071,46 @@ html[data-tenantidnumber=stg] .global-english .global-english-inner .global-engl
     gap: 32px;
   }
 }
-html[data-tenantidnumber=stg] .global-english .global-english-inner .global-english-lesson-img {
+html[data-tenantidnumber=stg] #page-enrol-index .global-english .global-english-inner .global-english-lesson-img {
   width: 100%;
   border-radius: 8px;
 }
-html[data-tenantidnumber=stg] .global-english .global-english-inner .global-english-lesson-img2 {
+html[data-tenantidnumber=stg] #page-enrol-index .global-english .global-english-inner .global-english-lesson-img2 {
   width: 100%;
   border-radius: 8px;
 }
-html[data-tenantidnumber=stg] .global-english .global-english-inner .global-english-live-lesson-text {
+html[data-tenantidnumber=stg] #page-enrol-index .global-english .global-english-inner .global-english-live-lesson-text {
   -webkit-box-flex: 4;
       -ms-flex: 4;
           flex: 4;
 }
-html[data-tenantidnumber=stg] .global-english .global-english-inner .global-english-lesson-images {
+html[data-tenantidnumber=stg] #page-enrol-index .global-english .global-english-inner .global-english-lesson-images {
   -webkit-box-flex: 6;
       -ms-flex: 6;
           flex: 6;
 }
-html[data-tenantidnumber=stg] .global-english .global-english-inner .global-english-lesson-figure {
+html[data-tenantidnumber=stg] #page-enrol-index .global-english .global-english-inner .global-english-lesson-figure {
   position: relative;
 }
-html[data-tenantidnumber=stg] .global-english .global-english-inner .global-english-lesson-figure img.global-english-lesson-img2 {
+html[data-tenantidnumber=stg] #page-enrol-index .global-english .global-english-inner .global-english-lesson-figure img.global-english-lesson-img2 {
   position: absolute;
   right: -20px;
   bottom: -20px;
   width: 60%;
   z-index: 9;
 }
-html[data-tenantidnumber=stg] .global-english .global-english-inner .lesson-content .lesson-title {
+html[data-tenantidnumber=stg] #page-enrol-index .global-english .global-english-inner .lesson-content .lesson-title {
   margin-bottom: 10px;
 }
-html[data-tenantidnumber=stg] .global-english .global-english-inner .lesson-content .global-english-desc {
+html[data-tenantidnumber=stg] #page-enrol-index .global-english .global-english-inner .lesson-content .global-english-desc {
   font-size: 14px;
   line-height: 1.5;
 }
-html[data-tenantidnumber=stg] .global-english .global-english-inner .global-english-sample-phrase-figure iframe {
+html[data-tenantidnumber=stg] #page-enrol-index .global-english .global-english-inner .global-english-sample-phrase-figure iframe {
   width: 100%;
   border-radius: 8px;
 }
-html[data-tenantidnumber=stg] .global-english .global-english-inner .global-english-lesson-images {
+html[data-tenantidnumber=stg] #page-enrol-index .global-english .global-english-inner .global-english-lesson-images {
   -webkit-box-flex: 5.5;
       -ms-flex: 5.5;
           flex: 5.5;
@@ -4122,19 +4124,19 @@ html[data-tenantidnumber=stg] .global-english .global-english-inner .global-engl
       -ms-flex-pack: center;
           justify-content: center;
 }
-html[data-tenantidnumber=stg] .global-english .global-english-inner .global-english-lesson-images figure {
+html[data-tenantidnumber=stg] #page-enrol-index .global-english .global-english-inner .global-english-lesson-images figure {
   max-width: 413px;
   width: 100%;
 }
-html[data-tenantidnumber=stg] .global-english .global-english-inner .global-english-lesson-images figure img {
+html[data-tenantidnumber=stg] #page-enrol-index .global-english .global-english-inner .global-english-lesson-images figure img {
   width: 100%;
   -o-object-fit: cover;
      object-fit: cover;
 }
-html[data-tenantidnumber=stg] .global-english .coursedetail-info-fee {
+html[data-tenantidnumber=stg] #page-enrol-index .global-english .coursedetail-info-fee {
   margin-bottom: 10px;
 }
-html[data-tenantidnumber=stg] .global-english .coursedetail-info-fee-benefits {
+html[data-tenantidnumber=stg] #page-enrol-index .global-english .coursedetail-info-fee-benefits {
   display: grid;
   max-width: 600px;
   width: 100%;
@@ -4143,7 +4145,7 @@ html[data-tenantidnumber=stg] .global-english .coursedetail-info-fee-benefits {
   grid-row-gap: 10px;
   background: red;
 }
-html[data-tenantidnumber=stg] .global-english-desc {
+html[data-tenantidnumber=stg] #page-enrol-index .global-english-desc {
   font-size: 16px;
   color: #262626;
   line-height: 1.5;
@@ -4151,17 +4153,17 @@ html[data-tenantidnumber=stg] .global-english-desc {
   color: #262626;
 }
 @media screen and (max-width: 768px) {
-  html[data-tenantidnumber=stg] .global-english-desc {
+  html[data-tenantidnumber=stg] #page-enrol-index .global-english-desc {
     margin-top: 30px;
   }
 }
-html[data-tenantidnumber=stg] .global-english-grid {
+html[data-tenantidnumber=stg] #page-enrol-index .global-english-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 20px;
   padding: 20px;
 }
-html[data-tenantidnumber=stg] .global-english-item {
+html[data-tenantidnumber=stg] #page-enrol-index .global-english-item {
   background-color: #f0f2f3;
   padding: 20px;
   border: 1px solid #ffffff;
@@ -4169,11 +4171,11 @@ html[data-tenantidnumber=stg] .global-english-item {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
 }
-html[data-tenantidnumber=stg] .coursedetail-info-inner h3.coursedetail-course-info {
+html[data-tenantidnumber=stg] #page-enrol-index .coursedetail-info-inner h3.coursedetail-course-info {
   margin-top: 64px;
   margin-bottom: 24px;
 }
-html[data-tenantidnumber=stg] .box-container {
+html[data-tenantidnumber=stg] #page-enrol-index .box-container {
   background-color: #f0f2f3;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -4187,11 +4189,11 @@ html[data-tenantidnumber=stg] .box-container {
   border-radius: 12px;
 }
 @media screen and (max-width: 768px) {
-  html[data-tenantidnumber=stg] .box-container {
+  html[data-tenantidnumber=stg] #page-enrol-index .box-container {
     padding: 30px 20px;
   }
 }
-html[data-tenantidnumber=stg] .box-container .coursedetail-info-fee-benefits {
+html[data-tenantidnumber=stg] #page-enrol-index .box-container .coursedetail-info-fee-benefits {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -4205,11 +4207,11 @@ html[data-tenantidnumber=stg] .box-container .coursedetail-info-fee-benefits {
   position: relative;
 }
 @media screen and (max-width: 768px) {
-  html[data-tenantidnumber=stg] .box-container .coursedetail-info-fee-benefits {
+  html[data-tenantidnumber=stg] #page-enrol-index .box-container .coursedetail-info-fee-benefits {
     margin: 15px 0 0;
   }
 }
-html[data-tenantidnumber=stg] .box-container .coursedetail-info-fee-benefits::after {
+html[data-tenantidnumber=stg] #page-enrol-index .box-container .coursedetail-info-fee-benefits::after {
   content: "";
   position: absolute;
   top: -16px;
@@ -4220,7 +4222,7 @@ html[data-tenantidnumber=stg] .box-container .coursedetail-info-fee-benefits::af
   width: 0;
   height: 0;
 }
-html[data-tenantidnumber=stg] .box-container .coursedetail-info-fee-benefits .grid-child {
+html[data-tenantidnumber=stg] #page-enrol-index .box-container .coursedetail-info-fee-benefits .grid-child {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -4235,36 +4237,36 @@ html[data-tenantidnumber=stg] .box-container .coursedetail-info-fee-benefits .gr
   text-align: left;
 }
 @media screen and (max-width: 768px) {
-  html[data-tenantidnumber=stg] .box-container .coursedetail-info-fee-benefits .grid-child {
+  html[data-tenantidnumber=stg] #page-enrol-index .box-container .coursedetail-info-fee-benefits .grid-child {
     width: 100%;
   }
 }
-html[data-tenantidnumber=stg] .coursedetail-info-fee-title {
+html[data-tenantidnumber=stg] #page-enrol-index .coursedetail-info-fee-title {
   font-size: 24px;
   font-weight: bold;
   margin-bottom: 15px;
 }
-html[data-tenantidnumber=stg] .coursedetail-info-fee-price {
+html[data-tenantidnumber=stg] #page-enrol-index .coursedetail-info-fee-price {
   margin-bottom: 30px;
 }
-html[data-tenantidnumber=stg] .price {
+html[data-tenantidnumber=stg] #page-enrol-index .price {
   font-size: 30px;
   color: #262626;
   font-weight: bold;
 }
-html[data-tenantidnumber=stg] .small-text {
+html[data-tenantidnumber=stg] #page-enrol-index .small-text {
   font-size: 14px;
   color: #262626;
   margin-left: 0.2em;
 }
-html[data-tenantidnumber=stg] .price,
-html[data-tenantidnumber=stg] .small-text {
+html[data-tenantidnumber=stg] #page-enrol-index .price,
+html[data-tenantidnumber=stg] #page-enrol-index .small-text {
   display: inline;
 }
-html[data-tenantidnumber=stg] .coursedetail-info-course-desc {
+html[data-tenantidnumber=stg] #page-enrol-index .coursedetail-info-course-desc {
   margin-bottom: 0;
 }
-html[data-tenantidnumber=stg] .image-container {
+html[data-tenantidnumber=stg] #page-enrol-index .image-container {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -4280,14 +4282,14 @@ html[data-tenantidnumber=stg] .image-container {
   padding-top: 20px;
   margin-top: 0;
 }
-html[data-tenantidnumber=stg] .image-container img.stage {
+html[data-tenantidnumber=stg] #page-enrol-index .image-container img.stage {
   width: 100%;
   max-width: 300px;
   height: auto;
   border-radius: 8px;
   display: block;
 }
-html[data-tenantidnumber=stg] table {
+html[data-tenantidnumber=stg] #page-enrol-index table {
   width: 100%;
   background-color: #ffffff;
   border-collapse: collapse;
@@ -4295,31 +4297,31 @@ html[data-tenantidnumber=stg] table {
   font-family: Arial, sans-serif;
   margin-bottom: 53px;
 }
-html[data-tenantidnumber=stg] table th,
-html[data-tenantidnumber=stg] table td {
+html[data-tenantidnumber=stg] #page-enrol-index table th,
+html[data-tenantidnumber=stg] #page-enrol-index table td {
   border: 1px solid #262626;
   padding: 10px;
 }
-html[data-tenantidnumber=stg] table td {
+html[data-tenantidnumber=stg] #page-enrol-index table td {
   vertical-align: middle;
 }
-html[data-tenantidnumber=stg] table td:first-child {
+html[data-tenantidnumber=stg] #page-enrol-index table td:first-child {
   font-weight: bold;
 }
-html[data-tenantidnumber=stg] table td.has-text-align-center {
+html[data-tenantidnumber=stg] #page-enrol-index table td.has-text-align-center {
   line-height: 1.5 !important;
   padding: 0.8em 0.5em !important;
 }
 @media screen and (max-width: 768px) {
-  html[data-tenantidnumber=stg] table {
+  html[data-tenantidnumber=stg] #page-enrol-index table {
     margin-bottom: 0px;
   }
 }
-html[data-tenantidnumber=stg] .wp-block-spacer {
+html[data-tenantidnumber=stg] #page-enrol-index .wp-block-spacer {
   height: 16px;
 }
 @media screen and (max-width: 768px) {
-  html[data-tenantidnumber=stg] {
+  html[data-tenantidnumber=stg] #page-enrol-index {
     height: 0;
   }
 }
