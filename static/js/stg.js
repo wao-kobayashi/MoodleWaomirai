@@ -724,19 +724,18 @@ if (bodyId === "page-enrol-index") {
     $buttonElement.after(customDivHtml);
   }
 
-  // twosubjectpackのIDを取得
-  const twosubjectpackId = subjects.find(subject => subject.key === 'twosubjectpack').id;
-  // twosubjectpackのIDを取得
-  const threesubjectpackId = subjects.find(subject => subject.key === 'threesubjectpack').id;
+ 
 
   $(document).on('click', '.view-details-link', function (event) {
     event.preventDefault(); // デフォルトのリンク動作を無効化
+    const twosubjectpackId = subjects.find(subject => subject.key === 'twosubjectpack').id;  // twosubjectpackのIDを取得
+    const threesubjectpackId = subjects.find(subject => subject.key === 'threesubjectpack').id;  // threesubjectpackのIDを取得
     createModal({
       close: true,
       title: "哲学 / 科学 / 経済の3教科は<br />まとめて受講するとお得です",
       buttons: [
-        { text: "2教科を受講：11,000円(税)/月)", url: `https://lms.waomirai.com/enrol/index.php?id=${twosubjectpackId}`, class: "btn-primary" },
-        { text: "3教科を受講：15,400円(税)/月)", url: `https://lms.waomirai.com/enrol/index.php?id=${threesubjectpackId}`, class: "btn-primary" }, // ここは例としてそのまま
+        { text: "2教科を受講：11,000円(税)/月", url: `https://lms.waomirai.com/enrol/index.php?id=${twosubjectpackId}`, class: "btn-primary" },
+        { text: "3教科を受講：15,400円(税)/月", url: `https://lms.waomirai.com/enrol/index.php?id=${threesubjectpackId}`, class: "btn-primary" }, // ここは例としてそのまま
       ]
     });
   });

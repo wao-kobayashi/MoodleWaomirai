@@ -681,6 +681,7 @@ html[data-tenantidnumber=stg] .c-modal-wrap-button-wrap {
 }
 html[data-tenantidnumber=stg] .c-modal-wrap-button-wrap a {
   width: 100%;
+  cursor: pointer;
 }
 html[data-tenantidnumber=stg] .c-modal-wrap-button {
   background: #005C3F !important;
