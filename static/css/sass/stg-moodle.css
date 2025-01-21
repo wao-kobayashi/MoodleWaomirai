@@ -3350,6 +3350,11 @@ html[data-tenantidnumber=stg] #page-user-edit .fixed-scroll {
       -ms-flex-align: center;
           align-items: center;
 }
+html[data-tenantidnumber=stg] #page-user-profile .alert-success a {
+  color: #1c3f1a !important;
+  color: normal;
+  text-decoration: underline !important;
+}
 html[data-tenantidnumber=stg] #page-mod-questionnaire-view #page.drawers,
 html[data-tenantidnumber=stg] #page-mod-questionnaire-complete #page.drawers,
 html[data-tenantidnumber=stg] #page-mod-questionnaire-myreport #page.drawers,

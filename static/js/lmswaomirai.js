@@ -927,9 +927,9 @@ if (bodyId === "page-course-view-flexsections") {
   });
 }
 
-// // ==============================
-// //受講レベルの設定
-// // ==============================
+// ==============================
+//マイページ
+// ==============================
 if (bodyId === "page-user-edit") {
   var AreaPhilosophy = $("#fitem_id_profile_field_Philosophy_Level"); //哲学の入力エリア
   var AreaScience = $("#fitem_id_profile_field_Science_Level"); //科学の入力エリア
@@ -1189,6 +1189,15 @@ if (bodyId === "page-user-edit") {
         </p>
     `);
 }
+
+// ==============================
+// カテゴリページの処理
+// ==============================
+if (bodyId === "page-user-profile") {
+  $('.alert-success').html('変更が保存されました。科目レベルを設定した場合、<a href="https://lms.waomirai.com/my/">受講カレンダー</a>で確認ができます');
+   
+}
+
 
 // ==============================
 // 汎用的な関数
