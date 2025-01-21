@@ -812,23 +812,6 @@ if (bodyId === "page-enrol-index") {
       }
     }
   });
-  const observer = new MutationObserver(() => {
-    const $targetElement = $('.core_payment_gateways_modal');
-    if ($targetElement.length) {
-        // 1秒後に処理を実行
-        setTimeout(() => {
-            // alert('dom');
-            $('.core_payment_gateways_modal').prepend('<p>aaaa</p>'); // タイトル変更
-            $('.core_payment_gateways_modal .h3').text('受講費用のお支払い（クレジットカード決済）'); // タイトル変更
-            $('.core_payment_gateways_modal .icon').hide(); // stripeアイコン削除
-            observer.disconnect(); // 観察を停止
-        }, 50); // 1000ms（1秒）後
-    }
-});
-
-// 監視開始
-observer.observe(document.body, { childList: true, subtree: true });
-
 
 }
 
