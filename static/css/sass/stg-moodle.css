@@ -605,6 +605,12 @@ html[data-tenantidnumber=stg] .c-alert-banner.alert-buy-course .c-alert-banner-l
 html[data-tenantidnumber=stg] .c-alert-banner .c-alert-banner-right a {
   background: #005C3F;
 }
+html[data-tenantidnumber=stg] body.fixed {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  left: 0;
+}
 html[data-tenantidnumber=stg] .c-modal {
   position: fixed;
   -webkit-box-align: center;
@@ -613,7 +619,6 @@ html[data-tenantidnumber=stg] .c-modal {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  z-index: 99999;
   left: 0;
   right: 0;
   top: 0;
@@ -622,17 +627,29 @@ html[data-tenantidnumber=stg] .c-modal {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  justify-content: center;
-  align-items: center;
-  background: rgba(0, 0, 0, .7);
-}
-html[data-tenantidnumber=stg] .c-modal-wrap {
+  z-index: 99999;
   width: 90%;
   max-width: 450px;
-  background: white;
-  padding: 56px 20px 40px;
+  display: inline-table;
   border-radius: 8px;
+  height: auto;
+  background: white;
+}
+html[data-tenantidnumber=stg] .c-modal-wrap-subject {
+  padding: 0px 0px 40px !important;
+}
+html[data-tenantidnumber=stg] .c-modal-wrap-subject img {
+  border-radius: 8px 8px 0 0 !important;
+  margin: 0px 0px 15px !important;
+}
+html[data-tenantidnumber=stg] .c-modal-wrap-subject .c-modal-wrap-button {
+  margin: 0px 30px 5px !important;
+  height: 55px;
+  font-size: 20px !important;
+}
+html[data-tenantidnumber=stg] .c-modal-wrap {
   position: relative;
+  padding: 56px 20px 40px;
 }
 html[data-tenantidnumber=stg] .c-modal-wrap-title {
   font-size: 20px;
@@ -641,6 +658,9 @@ html[data-tenantidnumber=stg] .c-modal-wrap-title {
   margin: 0 auto 16px;
   font-weight: bold;
   text-align: center;
+}
+html[data-tenantidnumber=stg] .c-modal-wrap-image {
+  margin: 0 auto 32px;
 }
 html[data-tenantidnumber=stg] .c-modal-wrap-text {
   font-size: 16px;
@@ -696,6 +716,15 @@ html[data-tenantidnumber=stg] .c-modal-wrap-close::before {
 html[data-tenantidnumber=stg] .c-modal-wrap-close::after {
   -webkit-transform: rotate(-45deg);
           transform: rotate(-45deg);
+}
+html[data-tenantidnumber=stg] .c-modal-bg {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
+  top: 0;
+  left: 0;
+  background: rgba(0, 0, 0, .7);
 }
 html[data-tenantidnumber=stg] body {
   font-family: "Noto Sans JP", sans-serif;

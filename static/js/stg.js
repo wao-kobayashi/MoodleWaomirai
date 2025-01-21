@@ -199,9 +199,23 @@ function isBuySubjectChildArray(subjectKey, levels) {
 // モーダルのコンポーネント
 // ==============================
 function createModal(options = {}) {
+  // ボタンのHTMLを生成するヘルパー関数
+  var scrollPosition;
+  const generateButtons = (buttons) => {
+    if (!buttons || buttons.length === 0) return "";
+    return buttons
+      .map(
+        (button) =>
+          `<a href="${button.url || "#"}" class="c-modal-wrap-button ${
+            button.class || ""
+          }">${button.text}</a>`
+      )
+      .join(""); // ボタンを並べる
+  };
+
   const modal = `
     <div class="c-modal">
-      <div class="c-modal-wrap">
+      <div class="c-modal-wrap ${options.wrapClass || ""}">
         ${options.close ? '<div class="c-modal-wrap-close"></div>' : ""}
         ${
           options.title
@@ -214,23 +228,40 @@ function createModal(options = {}) {
             : ""
         }
         ${
-          options.buttonText
-            ? `<a href="${options.url || "#"}" class="c-modal-wrap-button">${
-                options.buttonText
-              }</a>`
+          options.image
+            ? `<div class="c-modal-wrap-image">
+                 <img src="${options.image}" alt="Modal Image" class="${options.imageClass || ""}" />
+               </div>`
             : ""
         }
+        ${generateButtons(options.buttons)} <!-- ボタンを動的に追加 -->
       </div>
     </div>
     <div class="c-modal-bg"></div>
   `;
 
   const $modal = $(modal).appendTo("body");
-
-  $(".c-modal-wrap-close, .c-modal-bg", $modal).on("click", function () {
+  scrollPosition = $(window).scrollTop();
+  $('body').addClass('fixed').css({'top': -scrollPosition});
+  // モーダルを閉じる処理
+  $(".c-modal-wrap-close").on("click", function () {
     $modal.remove();
+    $('body').removeClass('fixed').css({'top': 0});
+		window.scrollTo( 0 , scrollPosition );
+  });
+
+  $(".c-modal-bg").on("click", function () {
+    if (options.close) {
+      $modal.remove();
+      $('body').removeClass('fixed').css({'top': 0});
+		window.scrollTo( 0 , scrollPosition );
+    }
   });
 }
+
+
+
+
 
 // ==============================
 // ダッシュボードページでの処理
@@ -717,8 +748,9 @@ if (bodyId === "page-enrol-index") {
           createModal({
             close: true,
             text: "「哲学・経済・化学」の教科で２科目以上受講する際はセット購入がお得です。セット購入の際はフォームより申し込みをお願いいたします。",
-            buttonText: "変更フォームへ",
-            url: "https://example.com",
+            buttons: [
+              { text: "変更フォームへ", url: "#", class: "btn-primary" }, // 1つ目のボタンにクラスを指定
+            ]
           })
         );
       } else if (
@@ -729,8 +761,9 @@ if (bodyId === "page-enrol-index") {
           createModal({
             close: true,
             text: "すでに複数受講できる科目セットを購入されています。受講科目の選択は「登録情報の変更ページ」で編集可能です。",
-            buttonText: "ここは未定",
-            url: "https://example.com",
+            buttons: [
+              { text: "ここは未定", url: "#", class: "btn-primary" }, // 1つ目のボタンにクラスを指定
+            ]
           })
         );
       }
@@ -743,8 +776,9 @@ if (bodyId === "page-enrol-index") {
           createModal({
             close: true,
             text: "「哲学・化学・経済」の科目のいずれかを受講している場合、こちらのボタンからセット受講を購入することはできません。下記フォームより購入を申し込む必要がございます。",
-            buttonText: "複数科目セットの購入フォームへ",
-            url: "https://example.com",
+            buttons: [
+              { text: "複数科目セットの購入フォームへ", url: "#", class: "btn-primary" }, // 1つ目のボタンにクラスを指定
+            ]
           })
         );
       } else if (
@@ -755,8 +789,9 @@ if (bodyId === "page-enrol-index") {
           createModal({
             close: true,
             text: "「３科目セット」を購入済みです。２科目セットへ受講変更したい場合はフォームよりお問い合わせをお願いいたします。",
-            buttonText: "受講変更フォームへ",
-            url: "https://example.com",
+            buttons: [
+              { text: "受講変更フォームへ", url: "#", class: "btn-primary" }, // 1つ目のボタンにクラスを指定
+            ]
           })
         );
       } else if (
@@ -767,8 +802,9 @@ if (bodyId === "page-enrol-index") {
           createModal({
             close: true,
             text: "「２科目セット」を購入済みです。３科目セットへ受講変更したい場合はフォームよりお問い合わせをお願いいたします。",
-            buttonText: "受講変更フォームへ",
-            url: "https://example.com",
+            buttons: [
+              { text: "受講変更フォームへ", url: "#", class: "btn-primary" }, // 1つ目のボタンにクラスを指定
+            ]
           })
         );
       }
@@ -826,7 +862,18 @@ if (bodyId === "page-course-view-flexsections") {
       // twosubjectpack と threesubjectpack の場合は child の判定を行わない
       if (key === "twosubjectpack" || key === "threesubjectpack") {
         console.log(`${key}はchild判定をスキップします。`);
+        createModal({
+          // close: false,
+          // text: "「２科目セット」を購入済みです。３科目セットへ受講変更したい場合はフォームよりお問い合わせをお願いいたします。",
+          image: "https://go.waomirai.com/l/1026513/2025-01-21/hc69y/1026513/1737438663b4Ybg0s8/fv.png",
+          imageClass: "c-modal-wrap-subject-img", // 画像に付与するクラス
+          wrapClass: "c-modal-wrap-subject", // モーダル全体に付与するクラス
+          buttons: [
+            { text: "科目のレベルを設定する", url: "https://lms.waomirai.com/user/edit.php", class: "btn-primary" }, // 1つ目のボタンにクラスを指定
+          ]
+        })
         return; // child判定をスキップして次に進む
+        
       }
 
       // bodyClassesに含まれるidを基に、対応する"child"タイプの科目が存在するか確認
@@ -857,6 +904,16 @@ if (bodyId === "page-course-view-flexsections") {
           window.location.href = redirectUrl; // リダイレクト
         }
       } else {
+        createModal({
+          // close: false,
+          // text: "「２科目セット」を購入済みです。３科目セットへ受講変更したい場合はフォームよりお問い合わせをお願いいたします。",
+          image: "https://go.waomirai.com/l/1026513/2025-01-21/hc69y/1026513/1737438663b4Ybg0s8/fv.png",
+          imageClass: "c-modal-wrap-subject-img", // 画像に付与するクラス
+          wrapClass: "c-modal-wrap-subject", // モーダル全体に付与するクラス
+          buttons: [
+            { text: "科目のレベルを設定する", url: "https://lms.waomirai.com/user/edit.php", class: "btn-primary" }, // 1つ目のボタンにクラスを指定
+          ]
+        })
         console.log(`${key}のchildタイプは存在しません`);
         // "child"タイプがない場合の処理
       }
