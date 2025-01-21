@@ -104,7 +104,9 @@ function createModal(options = {}) {
                </div>`
             : ""
         }
+          <div class="c-modal-wrap-button-wrap">
         ${generateButtons(options.buttons)} <!-- ボタンを動的に追加 -->
+          </div>
       </div>
     </div>
     <div class="c-modal-bg"></div>
@@ -587,11 +589,27 @@ if (bodyId === "page-enrol-index") {
     const customDivHtml = `
                 <div class="page-enrol-set-discount">
                     <p>セット受講割引でお得！</p>
-                    <p><a href='#'>詳細を見る</a></p>
+                    <p><a href='#' class="view-details-link">詳細を見る</a></p>
                 </div>`;
     $buttonElement.after(customDivHtml);
   }
 
+  // twosubjectpackのIDを取得
+  const twosubjectpackId = subjects.find(subject => subject.key === 'twosubjectpack').id;
+  // twosubjectpackのIDを取得
+  const threesubjectpackId = subjects.find(subject => subject.key === 'threesubjectpack').id;
+
+  $(document).on('click', '.view-details-link', function (event) {
+    event.preventDefault(); // デフォルトのリンク動作を無効化
+    createModal({
+      close: true,
+      title: "哲学 / 科学 / 経済の3教科は<br />まとめて受講するとお得です",
+      buttons: [
+        { text: "2教科を受講：11,000円(税)/月)", url: `https://lms.waomirai.com/enrol/index.php?id=${twosubjectpackId}`, class: "btn-primary" },
+        { text: "3教科を受講：15,400円(税)/月)", url: `https://lms.waomirai.com/enrol/index.php?id=${threesubjectpackId}`, class: "btn-primary" }, // ここは例としてそのまま
+      ]
+    });
+  });
   // 画面下に追従に"円"の要素を入れる
   const SubjectpPrice = $('.enrol_fee_payment_region b:contains("¥")');
   var SubjectPriceContent = `<div class="c-pc-hidden fixed-subject-price">${SubjectpPrice.text()} /月</div>`;

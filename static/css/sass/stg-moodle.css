@@ -668,6 +668,20 @@ html[data-tenantidnumber=stg] .c-modal-wrap-text {
   line-height: 1.5;
   margin: 0 auto 32px;
 }
+html[data-tenantidnumber=stg] .c-modal-wrap-button-wrap {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 30px;
+  width: 100%;
+}
+html[data-tenantidnumber=stg] .c-modal-wrap-button-wrap a {
+  width: 100%;
+}
 html[data-tenantidnumber=stg] .c-modal-wrap-button {
   background: #005C3F !important;
   color: #ffffff !important;
@@ -689,6 +703,7 @@ html[data-tenantidnumber=stg] .c-modal-wrap-button {
   line-height: 1;
   padding: 0 20px;
   margin: 0 auto;
+  display: flex;
 }
 html[data-tenantidnumber=stg] .c-modal-wrap-button:hover {
   text-decoration: none !important;
