@@ -605,25 +605,26 @@ if (bodyId === "page-my-index") {
 // ログイン・サインアップページの処理
 // ==============================
 if (bodyId === "page-login-signup" || bodyId === "page-login-forgot_password") {
-  // ログインページのタイトルを変更
+  // ログインページのタイトルを「新規会員登録」に変更
   $(".login-heading").text("新規会員登録");
 
-  // フォームのプレースホルダーを設定
+  // フォームの各入力フィールドにプレースホルダーを設定
   const placeholders = {
-    id_username: "例）waomirai",
-    id_email: "例）sample@gmail.com",
-    id_email2: "例）sample@gmail.com",
-    id_lastname: "例）鈴木",
-    id_firstname: "例）太郎",
-    id_profile_field_furigana: "例）スズキタロウ",
-    id_profile_field_postnumber: "例）0000000",
+    id_username: "例）waomirai", // ユーザー名のプレースホルダー
+    id_email: "例）sample@gmail.com", // メールアドレスのプレースホルダー
+    id_email2: "例）sample@gmail.com", // メールアドレス確認のプレースホルダー
+    id_lastname: "例）鈴木", // 姓のプレースホルダー
+    id_firstname: "例）太郎", // 名のプレースホルダー
+    id_profile_field_furigana: "例）スズキタロウ", // フリガナのプレースホルダー
+    id_profile_field_postnumber: "例）0000000", // 郵便番号のプレースホルダー
   };
 
+  // 各入力フィールドにプレースホルダーを設定
   $.each(placeholders, function (id, placeholder) {
     $("#" + id).attr("placeholder", placeholder);
   });
 
-  // パスワードポリシーの説明を移動
+  // パスワードポリシーの説明をパスワードラベルの下に移動
   const $sourceElement = $("#fitem_id_passwordpolicyinfo .form-control-static");
   const $targetParent = $("label#id_password_label");
   if ($sourceElement.length && $targetParent.length) {
@@ -635,7 +636,7 @@ if (bodyId === "page-login-signup" || bodyId === "page-login-forgot_password") {
     $(this).replaceWith("*");
   });
 
-  // ロゴを挿入
+  // ログインラッパーの前にロゴを挿入
   const $loginWrapper = $("#page-login-signup .login-wrapper");
   if ($loginWrapper.length) {
     const signupLogoHtml = `
@@ -645,7 +646,10 @@ if (bodyId === "page-login-signup" || bodyId === "page-login-forgot_password") {
     $loginWrapper.before(signupLogoHtml);
   }
 }
+
+// ログインインデックスページの処理
 if (bodyId === "page-login-index") {
+  // 「ブラウザのクッキーを」含むテキストを持つ要素を非表示にする
   const cookiekeywords = ["ブラウザのクッキーを"];
 
   cookiekeywords.forEach((keyword) => {
@@ -656,6 +660,8 @@ if (bodyId === "page-login-index") {
       .closest("div")
       .css("display", "none");
   });
+
+  // 「Moodle」または「Powered by」を含むテキストを持つ要素を非表示にする
   const moodlekeywords = ["Moodle", "Powered by"];
 
   moodlekeywords.forEach((keyword) => {
@@ -677,144 +683,165 @@ if (bodyId === "page-login-confirm") {
 }
 
 // ==============================
-// 購入処理
+// 購入処理：ページ内の購入ボタンやセット割引の表示、購入関連のモーダル処理
 // ==============================
 if (bodyId === "page-enrol-index") {
-  //セット割引要素を購入右に追加
+  
+  // 購入ボタンの右側にセット割引情報を追加
   const $buttonElement = $(".enrol_fee_payment_region button");
+  
+  // 購入ボタンが存在する場合のみ実行
   if ($buttonElement.length) {
+    // セット割引情報のHTMLを定義
     const customDivHtml = `
                 <div class="page-enrol-set-discount">
                     <p>セット受講割引でお得！</p>
                     <p><a href='#' class="view-details-link">詳細を見る</a></p>
                 </div>`;
+    // ボタンの直後にセット割引情報を挿入
     $buttonElement.after(customDivHtml);
   }
 
- 
-
+  // 「詳細を見る」リンクがクリックされたときの処理
   $(document).on('click', '.view-details-link', function (event) {
-    event.preventDefault(); // デフォルトのリンク動作を無効化
-    const twosubjectpackId = subjects.find(subject => subject.key === 'twosubjectpack').id;  // twosubjectpackのIDを取得
-    const threesubjectpackId = subjects.find(subject => subject.key === 'threesubjectpack').id;  // threesubjectpackのIDを取得
+    event.preventDefault(); // デフォルトのリンク動作（ページ遷移）を防止
+
+    // twosubjectpack（2科目セット）とthreesubjectpack（3科目セット）のIDを取得
+    const twosubjectpackId = subjects.find(subject => subject.key === 'twosubjectpack').id;  
+    const threesubjectpackId = subjects.find(subject => subject.key === 'threesubjectpack').id;  
+
+    // モーダルを表示：セット購入の詳細情報
     createModal({
-      close: true,
-      title: "哲学 / 科学 / 経済の3教科は<br />まとめて受講するとお得です",
+      close: true,  // モーダルを閉じるボタンを表示
+      title: "哲学 / 科学 / 経済の3教科は<br />まとめて受講するとお得です", // モーダルのタイトル
       buttons: [
-        { text: "2教科を受講：11,000円(税)/月", url: `https://lms.waomirai.com/enrol/index.php?id=${twosubjectpackId}`, class: "btn-primary" },
-        { text: "3教科を受講：15,400円(税)/月", url: `https://lms.waomirai.com/enrol/index.php?id=${threesubjectpackId}`, class: "btn-primary" }, // ここは例としてそのまま
+        { text: "2教科を受講：11,000円(税)/月", url: `https://lms.waomirai.com/enrol/index.php?id=${twosubjectpackId}`, class: "btn-primary" }, // 2教科セットのリンク
+        { text: "3教科を受講：15,400円(税)/月", url: `https://lms.waomirai.com/enrol/index.php?id=${threesubjectpackId}`, class: "btn-primary" }, // 3教科セットのリンク
       ]
     });
   });
-  // 画面下に追従に"円"の要素を入れる
-  const SubjectpPrice = $('.enrol_fee_payment_region b:contains("¥")');
-  var SubjectPriceContent = `<div class="c-pc-hidden fixed-subject-price">${SubjectpPrice.text()} /月</div>`;
-  console.log(SubjectPriceContent);
-  $("#page.drawers").after(SubjectPriceContent);
 
-  // カテゴリーごとの購入処理
+  // 画面下部に料金を固定表示
+  const SubjectpPrice = $('.enrol_fee_payment_region b:contains("¥")'); // 価格情報を含む要素を取得
+  var SubjectPriceContent = `<div class="c-pc-hidden fixed-subject-price">${SubjectpPrice.text()} /月</div>`; // 固定表示用のHTMLを作成
+  console.log(SubjectPriceContent); // デバッグ用：価格情報をコンソールに表示
+  $("#page.drawers").after(SubjectPriceContent); // 画面下部に価格情報を追加
+
+  // 各カテゴリー（哲学、科学、経済）の購入ボタンがクリックされたときの処理
   $(".enrol_fee_payment_region button").on("click", function (event) {
-    const category = CurrentViewCourseData.key;
+    const category = CurrentViewCourseData.key;  // 現在選択されている科目カテゴリーを取得
 
-    // 科目別の処理（哲学、科学、経済）
+    // 科目が哲学、科学、経済のいずれかの場合
     if (["philosophy", "science", "economy"].includes(category)) {
-      event.preventDefault();
+      event.preventDefault(); // デフォルトの購入動作（フォーム送信）を防止
 
+      // 各科目に対応する他の科目を定義
       const otherSubjects = {
-        philosophy: ["science", "economy"],
-        science: ["philosophy", "economy"],
-        economy: ["philosophy", "science"],
+        philosophy: ["science", "economy"], // 哲学を選んだ場合、科学または経済のセットを提案
+        science: ["philosophy", "economy"], // 科学を選んだ場合、哲学または経済のセットを提案
+        economy: ["philosophy", "science"], // 経済を選んだ場合、哲学または科学のセットを提案
       };
 
+      // 1科目を購入した状態で、別の1科目を購入しようとした場合
       if (isBuySubjectMainArray(otherSubjects[category])) {
-        //1科買っていてもう1科買おうとしたとき
+        // セット購入を提案するモーダルを表示
         $("body").append(
           createModal({
             close: true,
             text: "「哲学・経済・化学」の教科で２科目以上受講する際はセット購入がお得です。セット購入の際はフォームより申し込みをお願いいたします。",
             buttons: [
-              { text: "変更フォームへ", url: "#", class: "btn-primary" }, // 1つ目のボタンにクラスを指定
+              { text: "変更フォームへ", url: "#", class: "btn-primary" }, // セット購入フォームへのリンク
             ]
           })
         );
       } else if (
-        //2科買っていてもうセットパック買おうとしたとき
+        // 2科目または3科目セットを購入済みの場合、セット購入を防ぐ
         isBuySubjectMainArray(["twosubjectpack", "threesubjectpack"])
       ) {
+        // すでにセットを購入済みであることを通知するモーダルを表示
         $("body").append(
           createModal({
             close: true,
             text: "すでに複数受講できる科目セットを購入されています。受講科目の選択は「登録情報の変更ページ」で編集可能です。",
             buttons: [
-              { text: "ここは未定", url: "#", class: "btn-primary" }, // 1つ目のボタンにクラスを指定
+              { text: "ここは未定", url: "#", class: "btn-primary" }, // 未定のリンク
             ]
           })
         );
       }
     }
 
-    // セットパック購入時の処理
+    // 2科目セットまたは3科目セットを選択した場合
     if (["twosubjectpack", "threesubjectpack"].includes(category)) {
+      // 他の科目（哲学、科学、経済）を購入している場合、セット購入はできない
       if (isBuySubjectMainArray(["philosophy", "science", "economy"])) {
+        // セット購入不可の案内モーダルを表示
         $("body").append(
           createModal({
             close: true,
             text: "「哲学・化学・経済」の科目のいずれかを受講している場合、こちらのボタンからセット受講を購入することはできません。下記フォームより購入を申し込む必要がございます。",
             buttons: [
-              { text: "複数科目セットの購入フォームへ", url: "#", class: "btn-primary" }, // 1つ目のボタンにクラスを指定
+              { text: "複数科目セットの購入フォームへ", url: "#", class: "btn-primary" }, // セット購入フォームへのリンク
             ]
           })
         );
       } else if (
-        category === "twosubjectpack" &&
-        isBuySubjectMainArray(["threesubjectpack"])
+        // すでに3科目セットを購入している場合、2科目セットへの変更を促す
+        category === "twosubjectpack" && isBuySubjectMainArray(["threesubjectpack"])
       ) {
         $("body").append(
           createModal({
             close: true,
             text: "「３科目セット」を購入済みです。２科目セットへ受講変更したい場合はフォームよりお問い合わせをお願いいたします。",
             buttons: [
-              { text: "受講変更フォームへ", url: "#", class: "btn-primary" }, // 1つ目のボタンにクラスを指定
+              { text: "受講変更フォームへ", url: "#", class: "btn-primary" }, // 受講変更フォームへのリンク
             ]
           })
         );
       } else if (
-        category === "threesubjectpack" &&
-        isBuySubjectMainArray(["twosubjectpack"])
+        // すでに2科目セットを購入している場合、3科目セットへの変更を促す
+        category === "threesubjectpack" && isBuySubjectMainArray(["twosubjectpack"])
       ) {
         $("body").append(
           createModal({
             close: true,
             text: "「２科目セット」を購入済みです。３科目セットへ受講変更したい場合はフォームよりお問い合わせをお願いいたします。",
             buttons: [
-              { text: "受講変更フォームへ", url: "#", class: "btn-primary" }, // 1つ目のボタンにクラスを指定
+              { text: "受講変更フォームへ", url: "#", class: "btn-primary" }, // 受講変更フォームへのリンク
             ]
           })
         );
       }
     }
   });
-
 }
 
 // ==============================
-// 受講ページ
+// 受講ページの表示ロジック
 // ==============================
 if (bodyId === "page-mod-questionnaire-view") {
-  //スマホ版でタイトルを動画の下にうつすロジック
+
+  // スマートフォン版で、ページタイトルを動画の下に表示するためのロジック
+
+  // ページヘッダー（#page-header）を複製して、スマホ用のコンテンツを作成
   var contentToClone = $("#page-header").clone();
+
+  // 複製したコンテンツをラップするためのdiv要素を作成
   var wrappedContent = $("<div>", {
-    id: "sp-page-header",
-    class: "c-pc-hidden",
-  }).append(contentToClone);
-  // #page-content直下に配置
+    id: "sp-page-header",   // 新しいdivにIDを設定（スマホ版のページヘッダー）
+    class: "c-pc-hidden",   // デスクトップ版では非表示にするためのクラス（PC版では隠す）
+  }).append(contentToClone);  // 複製したヘッダーを新しいdivに追加
+
+  // スマホ版のヘッダーを#page-contentの直下に配置（コンテンツの一部として追加）
   $(".activity-description").append(wrappedContent);
 
-  //課題提出の下にリード文を入れる
+  // 課題提出セクションの下にリード文を挿入
+  // 「授業の視聴が終わったら課題を提出しましょう」という文を、h2タグの後に追加
   $(".mod_questionnaire_viewpage h2").after(
     "<p>授業の視聴が終わったら課題を提出しましょう</p>"
   );
 }
+
 
 // // ==============================
 // // カテゴリページの処理
@@ -824,124 +851,129 @@ if (bodyId === "page-course-index-category") {
 }
 
 // ==============================
-//メイン3科目or2,3科目パック購入後はリダイレクトさせる
+// メイン3科目または2科目、3科目パック購入後のリダイレクト処理
 // ==============================
-if (bodyId === "page-course-view-flexsections") {
-  //哲学のみ購入
-  const targetSubjects = [
-    "philosophy",
-    "science",
-    "economy",
-    "globalenglish",
-    "twosubjectpack",
-    "threesubjectpack",
-  ];
-  targetSubjects.forEach((key) => {
-    if (
-      CurrentViewCourseData.key === key &&
-      CurrentViewCourseData.type === "main"
-    ) {
-      // "main"タイプの科目の場合の処理
-      console.log(`CurrentViewCourseDataはmainタイプの${key}です`);
+if (bodyId === "page-course-view-flexsections") { // ページIDが「page-course-view-flexsections」の場合に処理を開始
 
-      // twosubjectpack と threesubjectpack の場合は child の判定を行わない
+  // 対象となる科目のリスト
+  const targetSubjects = [
+    "philosophy",    // 哲学
+    "science",       // 科学
+    "economy",       // 経済
+    "globalenglish", // グローバル英語
+    "twosubjectpack", // 2科目パック
+    "threesubjectpack", // 3科目パック
+  ];
+
+  // 各対象科目に対して繰り返し処理を実施
+  targetSubjects.forEach((key) => {
+
+    // 現在表示されている科目がtargetSubjectsリストにあるかつ、タイプが「main」の場合
+    if (
+      CurrentViewCourseData.key === key && // 現在の科目のkeyが対象のkeyと一致するか
+      CurrentViewCourseData.type === "main" // 現在の科目のタイプが「main」であるか
+    ) {
+      console.log(`CurrentViewCourseDataはmainタイプの${key}です`); // 現在の科目が「main」タイプであることを確認
+
+      // 2科目パックまたは3科目パックの場合は、「child」判定をスキップ
       if (key === "twosubjectpack" || key === "threesubjectpack") {
-        console.log(`${key}はchild判定をスキップします。`);
+        console.log(`${key}はchild判定をスキップします。`); // パックの場合、子科目判定をスキップ
         createModal({
-          // close: false,
-          // text: "「２科目セット」を購入済みです。３科目セットへ受講変更したい場合はフォームよりお問い合わせをお願いいたします。",
-          image: "https://go.waomirai.com/l/1026513/2025-01-21/hc69y/1026513/1737438663b4Ybg0s8/fv.png",
-          imageClass: "c-modal-wrap-subject-img", // 画像に付与するクラス
-          wrapClass: "c-modal-wrap-subject", // モーダル全体に付与するクラス
+          // モーダルを表示して、ユーザーに「レベル設定」を促す
+          image: "https://go.waomirai.com/l/1026513/2025-01-21/hc69y/1026513/1737438663b4Ybg0s8/fv.png", // モーダルに表示する画像
+          imageClass: "c-modal-wrap-subject-img", // 画像にクラスを付与
+          wrapClass: "c-modal-wrap-subject", // モーダルのラップにクラスを付与
           buttons: [
-            { text: "科目のレベルを設定する", url: "https://lms.waomirai.com/user/edit.php", class: "btn-primary" }, // 1つ目のボタンにクラスを指定
+            { text: "科目のレベルを設定する", url: "https://lms.waomirai.com/user/edit.php", class: "btn-primary" }, // ボタンにテキストとリンクを設定
           ]
         })
-        return; // child判定をスキップして次に進む
-        
+        return; // child判定をスキップして次の科目の処理に進む
+
       }
 
-      // bodyClassesに含まれるidを基に、対応する"child"タイプの科目が存在するか確認
+      // bodyClasses（ページのクラス名）に対応する「child」タイプの科目があるか確認
       const hasChild = bodyClasses.some((courseId) => {
-        // bodyClassesに含まれる各idについて、対応する"child"タイプの科目を検索
+        // bodyClassesに含まれる各courseIdに対して、対応する「child」タイプの科目をsubjectsから検索
         return subjects.some(
           (subject) =>
-            subject.id === courseId &&
-            subject.key === key &&
-            subject.type === "child"
+            subject.id === courseId && // courseIdとsubject.idが一致
+            subject.key === key && // keyが一致
+            subject.type === "child" // typeが「child」であることを確認
         );
       });
 
       if (hasChild) {
-        console.log(`${key}のchildタイプが存在します`);
+        console.log(`${key}のchildタイプが存在します`); // childタイプが存在する場合
 
-        // "child"タイプが存在する場合、リダイレクト
+        // 「child」タイプが見つかった場合、リダイレクト処理
         const childCourse = subjects.find(
           (subject) =>
-            subject.key === key &&
-            subject.type === "child" &&
-            bodyClasses.includes(subject.id)
+            subject.key === key && // keyが一致
+            subject.type === "child" && // typeが「child」であることを確認
+            bodyClasses.includes(subject.id) // bodyClassesに対応するIDが含まれていることを確認
         );
 
         if (childCourse) {
+          // リダイレクト先のURLを作成
           const redirectUrl = `https://lms.waomirai.com/course/view.php?id=${childCourse.id}`;
-          console.log(`リダイレクト: ${redirectUrl}`);
-          window.location.href = redirectUrl; // リダイレクト
+          console.log(`リダイレクト: ${redirectUrl}`); // リダイレクト先URLをログに出力
+          window.location.href = redirectUrl; // ユーザーを指定したURLにリダイレクト
         }
       } else {
+        // 「child」タイプが存在しない場合の処理
         createModal({
-          // close: false,
-          // text: "「２科目セット」を購入済みです。３科目セットへ受講変更したい場合はフォームよりお問い合わせをお願いいたします。",
-          image: "https://go.waomirai.com/l/1026513/2025-01-21/hc69y/1026513/1737438663b4Ybg0s8/fv.png",
-          imageClass: "c-modal-wrap-subject-img", // 画像に付与するクラス
-          wrapClass: "c-modal-wrap-subject", // モーダル全体に付与するクラス
+          // モーダルを表示して、ユーザーに「レベル設定」を促す
+          image: "https://go.waomirai.com/l/1026513/2025-01-21/hc69y/1026513/1737438663b4Ybg0s8/fv.png", // モーダルに表示する画像
+          imageClass: "c-modal-wrap-subject-img", // 画像にクラスを付与
+          wrapClass: "c-modal-wrap-subject", // モーダルのラップにクラスを付与
           buttons: [
-            { text: "科目のレベルを設定する", url: "https://lms.waomirai.com/user/edit.php", class: "btn-primary" }, // 1つ目のボタンにクラスを指定
+            { text: "科目のレベルを設定する", url: "https://lms.waomirai.com/user/edit.php", class: "btn-primary" }, // ボタンにテキストとリンクを設定
           ]
         })
-        console.log(`${key}のchildタイプは存在しません`);
-        // "child"タイプがない場合の処理
+        console.log(`${key}のchildタイプは存在しません`); // childタイプが見つからなかったことをログに出力
+        // 「child」タイプが見つからない場合、モーダルを表示して処理を終了
       }
     } else {
-      // "main"タイプではない場合の処理
-      console.log(`CurrentViewCourseDataはmainタイプの${key}ではありません`);
+      // 「main」タイプでない場合の処理
+      console.log(`CurrentViewCourseDataはmainタイプの${key}ではありません`); // 現在の科目が「main」タイプではないことをログに出力
     }
   });
 }
 
 // ==============================
-//マイページ
+// マイページの処理
 // ==============================
-if (bodyId === "page-user-edit") {
-  var AreaPhilosophy = $("#fitem_id_profile_field_Philosophy_Level"); //哲学の入力エリア
-  var AreaScience = $("#fitem_id_profile_field_Science_Level"); //科学の入力エリア
-  var AreaEconomy = $("#fitem_id_profile_field_Economy_Level"); //経済の入力エリア
-  var AreaEnglish = $("#fitem_id_profile_field_English_Level"); //英語の入力エリア
-  var AreaSingleCourse = $("#fitem_id_profile_field_1cource_Subject"); //１科目受講の入力エリア
-  var AreaTwoCourse = $("#fitem_id_profile_field_2cources_subject"); //２科目受講の入力エリア
+if (bodyId === "page-user-edit") { // ページIDが「page-user-edit」の場合に処理を実行
+  // 各科目の入力エリアを取得
+  var AreaPhilosophy = $("#fitem_id_profile_field_Philosophy_Level"); // 哲学の入力エリア
+  var AreaScience = $("#fitem_id_profile_field_Science_Level"); // 科学の入力エリア
+  var AreaEconomy = $("#fitem_id_profile_field_Economy_Level"); // 経済の入力エリア
+  var AreaEnglish = $("#fitem_id_profile_field_English_Level"); // 英語の入力エリア
+  var AreaSingleCourse = $("#fitem_id_profile_field_1cource_Subject"); // １科目受講の入力エリア
+  var AreaTwoCourse = $("#fitem_id_profile_field_2cources_subject"); // ２科目受講の入力エリア
 
-  //初回受講レベル登録時、submitあたりで注意文言を出す
+  // 初回受講レベル登録時、submit直前に注意文言を表示する関数
   function AlertSubjectSettingFirst() {
     $("#fgroup_id_buttonar").before(
       `<div id="id_submitbutton-subject">一度受講レベルを設定すると、2回目以降のレベル変更時の反映は当月末になりますのでご注意くださいませ。</div>`
     );
   }
 
-  // サブレベルを自動取得する関数
+  // サブレベル（子科目）の自動取得を行う関数
   function getOwnedSubLevels(subjectKey, levels) {
-    // 指定された科目キーとレベルに該当する子科目を取得
+    // subjects 配列から、指定された科目キーとレベルに一致する子科目を抽出
     return subjects
       .filter(
         (subject) =>
-          subject.type === "child" &&
-          subject.key === subjectKey &&
-          levels.includes(subject.level) &&
+          subject.type === "child" && // 子科目を対象
+          subject.key === subjectKey && // 指定された科目キーに一致
+          levels.includes(subject.level) && // 指定されたレベルの中に該当する
           bodyClasses.includes(subject.id) // 現在のページに関連付けられた科目IDか確認
       )
-      .map((subject) => subject.level); // 該当するレベルを抽出
+      .map((subject) => subject.level); // 該当するレベルを配列で返す
   }
 
-  //memo AreaSingleCourse
+  // memo: 各科目のエリアを配列にまとめて、後で一括で非表示にする
   var AreaElements = [
     AreaPhilosophy,
     AreaScience,
@@ -950,43 +982,39 @@ if (bodyId === "page-user-edit") {
     AreaSingleCourse,
     AreaTwoCourse,
   ];
+  // 配列内の各エリアを非表示にする
   AreaElements.forEach(function (AreaElement) {
     AreaElement.hide();
   });
-  //選択した科目フィールドのセレクト(select)を取得する関数
+
+  // 1科目選択のセレクトボックスを取得する関数
   function getSelectElement(Area) {
-    var selectElement = Area.find("select"); // 返すのもの
-    return selectElement;
+    return Area.find("select"); // 引数で渡されたエリア内のselect要素を取得
   }
-  //選択した科目フィールドのセレクト(select)のオプションを操作する関数
+
+  // 選択肢のインデックスで選択を変更する関数
   function selectOptionByIndex(Area, optionIndex = 0) {
-    var selectElement = getSelectElement(Area); // 既存の関数を利用
-    // console.log(selectElement);
-    selectElement.find(`option:eq(${optionIndex})`).prop("selected", true); // 指定された番号の<option>を選択
-    return selectElement; // <select>要素を返す
+    var selectElement = getSelectElement(Area); // 上記関数を利用してselect要素を取得
+    selectElement.find(`option:eq(${optionIndex})`).prop("selected", true); // 指定されたインデックスの<option>を選択
+    return selectElement; // 変更後のselect要素を返す
   }
 
-  //選択した科目フィールドのセレクト(select)を監視する関数
-  //この関数は、２科目、３科目の場合考慮することが多そうなので一旦使わない。
+  // 2科目以上選択する場合の処理（必要な場合、変更を監視）
   function handleMultipleSelectChange(selectors, callback) {
-    // インデックスを格納する配列
-    var selectedIndexes = [];
+    var selectedIndexes = []; // インデックスを格納する配列
 
-    // セレクタで指定された複数の select 要素の各 option のインデックスを取得
+    // 各select要素から選択されたインデックスを取得して配列に格納
     $(selectors).each(function () {
-      // 各 <select> の選ばれた <option> のインデックスを取得
       var selectedIndex = $(this).prop("selectedIndex");
-      // インデックスを配列に格納
       selectedIndexes.push(selectedIndex);
     });
 
-    // コールバック関数を実行し、格納されたインデックス配列を渡す
+    // コールバック関数に選ばれたインデックスを渡して実行
     callback(selectedIndexes);
 
-    // 各 select 要素に対して change イベントを再度設定
+    // 各select要素にchangeイベントを再設定（選択肢が変更された時にインデックスを更新）
     $(selectors).on("change", function () {
-      // インデックス配列を再初期化
-      selectedIndexes = [];
+      selectedIndexes = []; // インデックス配列を初期化
 
       // 再度インデックスを取得し、配列に格納
       $(selectors).each(function () {
@@ -994,102 +1022,104 @@ if (bodyId === "page-user-edit") {
         selectedIndexes.push(selectedIndex);
       });
 
-      // コールバック関数を実行し、更新されたインデックス配列を渡す
+      // コールバック関数に更新されたインデックスを渡して実行
       callback(selectedIndexes);
     });
   }
 
-  //哲学のみ購入
+  // 【1科目受講】のケース
+
+  // 1科目「哲学」のみ購入した場合
   if (
-    isBuySubjectMainArray(["philosophy"]) &&
-    !isBuySubjectMainArray(["science", "economy"])
+    isBuySubjectMainArray(["philosophy"]) && // 購入した主科目が「哲学」か確認
+    !isBuySubjectMainArray(["science", "economy"]) // 購入した主科目が「科学」や「経済」でないことを確認
   ) {
-    AreaPhilosophy.show(); //哲学を表示
-    selectOptionByIndex(AreaSingleCourse, 1); //1科目受講を哲学に
-    //初回受講レベル登録時、submitあたりで注意文言を出す
+    AreaPhilosophy.show(); // 哲学の入力エリアを表示
+    selectOptionByIndex(AreaSingleCourse, 1); // 「1科目受講」を哲学に設定
+    // 初回受講レベル登録時、注意文言を表示
     if (!isBuySubjectChildArray("philosophy", ["L1", "L2", "L3", "L4"])) {
-      AlertSubjectSettingFirst();
+      AlertSubjectSettingFirst(); // 初回レベル設定の警告
     }
   }
-  //科学のみ購入
+
+  // 1科目「科学」のみ購入した場合
   if (
-    isBuySubjectMainArray(["science"]) &&
-    !isBuySubjectMainArray(["philosophy", "economy"])
+    isBuySubjectMainArray(["science"]) && // 購入した主科目が「科学」か確認
+    !isBuySubjectMainArray(["philosophy", "economy"]) // 購入した主科目が「哲学」や「経済」でないことを確認
   ) {
-    AreaScience.show(); //科学を表示
-    selectOptionByIndex(AreaSingleCourse, 2); //1科目受講を科学に
-    //初回受講レベル登録時、submitあたりで注意文言を出す
+    AreaScience.show(); // 科学の入力エリアを表示
+    selectOptionByIndex(AreaSingleCourse, 2); // 「1科目受講」を科学に設定
+    // 初回受講レベル登録時、注意文言を表示
     if (!isBuySubjectChildArray("science", ["L1", "L2", "L3", "L4"])) {
-      AlertSubjectSettingFirst();
+      AlertSubjectSettingFirst(); // 初回レベル設定の警告
     }
   }
-  //経済のみ購入
+
+  // 1科目「経済」のみ購入した場合
   if (
-    isBuySubjectMainArray(["economy"]) &&
-    !isBuySubjectMainArray(["philosophy", "science"])
+    isBuySubjectMainArray(["economy"]) && // 購入した主科目が「経済」か確認
+    !isBuySubjectMainArray(["philosophy", "science"]) // 購入した主科目が「哲学」や「科学」でないことを確認
   ) {
-    AreaEconomy.show(); //経済エリアを表示
-    selectOptionByIndex(AreaSingleCourse, 3); //1科目受講を経済に
-    //初回受講レベル登録時、submitあたりで注意文言を出す
+    AreaEconomy.show(); // 経済の入力エリアを表示
+    selectOptionByIndex(AreaSingleCourse, 3); // 「1科目受講」を経済に設定
+    // 初回受講レベル登録時、注意文言を表示
     if (!isBuySubjectChildArray("economy", ["L1", "L2", "L3", "L4"])) {
-      AlertSubjectSettingFirst();
+      AlertSubjectSettingFirst(); // 初回レベル設定の警告
     }
   }
-  //英語購入
-  //英語は他３科目と違い、英語単体で判定する
-  if (isBuySubjectMainArray(["globalenglish"])) {
-    alert("英語購入");
-    AreaEnglish.show(); //英語エリアを表示
-    //初回受講レベル登録時、submitあたりで注意文言を出す
+
+  // 英語購入の場合
+  if (isBuySubjectMainArray(["globalenglish"])) { // 購入した主科目が「英語」か確認
+    alert("英語購入"); // デバッグ用にアラートを表示
+    AreaEnglish.show(); // 英語の入力エリアを表示
+    // 初回受講レベル登録時、注意文言を表示
     if (!isBuySubjectChildArray("globalenglish", ["L1", "L2"])) {
-      AlertSubjectSettingFirst();
+      AlertSubjectSettingFirst(); // 初回レベル設定の警告
     }
   }
 
-  //【２科目】２科目セット買った時
-  if (isBuySubjectMainArray(["twosubjectpack"], true)) {
-    //2科目セットの場合は選べるので2科目のプルダウンは抑制しない
-    AreaTwoCourse.show(); //2科のプルダウンを表示
-    selectOptionByIndex(AreaSingleCourse, 0); //1科目受講
-    // // 2科目のプルダウンを変更した時に実行する関数
-    function updateAreaOnSelection() {
-      var selectedIndex = getSelectElement(AreaTwoCourse).prop("selectedIndex"); // 選択された<option>のインデックスを取得
+  // 【2科目セット購入】の場合
+  if (isBuySubjectMainArray(["twosubjectpack"], true)) { // 2科目セットを購入している場合
+    AreaTwoCourse.show(); // 2科目選択のプルダウンを表示
+    selectOptionByIndex(AreaSingleCourse, 0); // 初期状態では「1科目受講」を選択
 
-      // インデックスに基づいて処理を変更
+    // プルダウン変更時に呼ばれる関数
+    function updateAreaOnSelection() {
+      var selectedIndex = getSelectElement(AreaTwoCourse).prop("selectedIndex"); // 選択されたインデックスを取得
+
+      // 2科目の選択に応じて表示する科目エリアを更新
       switch (selectedIndex) {
-        case 1:
-          // 哲学＋科学
+        case 1: // 哲学 + 科学
           AreaPhilosophy.show();
           AreaScience.show();
           AreaEconomy.hide();
           break;
 
-        case 2:
-          // 科学＋経済
+        case 2: // 科学 + 経済
           AreaPhilosophy.show();
           AreaScience.hide();
           AreaEconomy.show();
           break;
 
-        case 3:
-          // 科学＋経済
+        case 3: // 科学 + 経済（逆の場合）
           AreaPhilosophy.hide();
           AreaScience.show();
           AreaEconomy.show();
           break;
-        default:
-          // デフォルトの処理（必要に応じて）
+        default: // それ以外の選択肢
           AreaPhilosophy.hide();
           AreaScience.hide();
           AreaEconomy.hide();
       }
     }
-    //ページロード時に実行
+
+    // ページロード時に実行
     updateAreaOnSelection();
-    //プルダウンを変更した時も実行
+
+    // プルダウン変更時に再度実行
     getSelectElement(AreaTwoCourse).on("change", updateAreaOnSelection);
 
-    //初回受講レベル登録時、submitあたりで注意文言を出す
+    // 初回受講レベル登録時、注意文言を表示
     if (
       !isBuySubjectChildArray("economy", ["L1", "L2", "L3", "L4"]) &&
       !isBuySubjectChildArray("philosophy", ["L1", "L2", "L3", "L4"]) &&
@@ -1098,25 +1128,26 @@ if (bodyId === "page-user-edit") {
       getSelectElement(AreaTwoCourse).after(
         "<div class='subject-select-levelnotset'>科目を選択してください</div>"
       );
-      AlertSubjectSettingFirst();
+      AlertSubjectSettingFirst(); // 初回レベル設定の警告
     }
   }
 
-  //【３科目】３科目セット買った時
-  if (isBuySubjectMainArray(["threesubjectpack"], true)) {
-    AreaPhilosophy.show(); //科学を表示
-    AreaScience.show(); //哲学を表示
-    AreaEconomy.show(); //経済を表示
-    //初回受講レベル登録時、submitあたりで注意文言を出す
+  // 【3科目セット購入】の場合
+  if (isBuySubjectMainArray(["threesubjectpack"], true)) { // 3科目セットを購入している場合
+    AreaPhilosophy.show(); // 哲学を表示
+    AreaScience.show(); // 科学を表示
+    AreaEconomy.show(); // 経済を表示
+    // 初回受講レベル登録時、注意文言を表示
     if (
       !isBuySubjectChildArray("economy", ["L1", "L2", "L3", "L4"]) &&
       !isBuySubjectChildArray("philosophy", ["L1", "L2", "L3", "L4"]) &&
       !isBuySubjectChildArray("science", ["L1", "L2", "L3", "L4"])
     ) {
-      AlertSubjectSettingFirst();
+      AlertSubjectSettingFirst(); // 初回レベル設定の警告
     }
   }
-  // 科目の設定を配列で定義
+
+  // 各科目の設定を配列で定義
   const subjectConfigs = [
     {
       subject: "philosophy",
@@ -1140,7 +1171,7 @@ if (bodyId === "page-user-edit") {
     },
   ];
 
-  // メッセージの定義
+  // メッセージを表示するための定義
   const messages = {
     levelSet: (ownedLevels) =>
       `<div class="subject-select-levelset">
@@ -1151,18 +1182,19 @@ if (bodyId === "page-user-edit") {
       '<div class="subject-select-levelnotset">受講レベルを設定してください。</div>',
   };
 
-  // 全科目の処理を一括で行う
+  // 各科目の設定を一括で処理
   subjectConfigs.forEach(({ subject, area, levels }) => {
-    const ownedLevels = getOwnedSubLevels(subject, levels);
+    const ownedLevels = getOwnedSubLevels(subject, levels); // 所有しているレベルを取得
 
     const message =
       ownedLevels.length > 0
-        ? messages.levelSet(ownedLevels)
-        : messages.levelNotSet;
+        ? messages.levelSet(ownedLevels) // 所有しているレベルがあればレベル設定メッセージを表示
+        : messages.levelNotSet; // レベルが設定されていなければレベル設定を促すメッセージ
 
-    getSelectElement(area).after(message);
+    getSelectElement(area).after(message); // エリアの後にメッセージを追加
   });
 
+  // 最後に、全ての科目に関して注意メッセージを表示
   $("#id_category_10 > .d-flex").after(`
         <p class="subject-level-note">
           受講科目のレベルを選択してください。<br />
@@ -1171,6 +1203,7 @@ if (bodyId === "page-user-edit") {
         </p>
     `);
 }
+
 
 // ==============================
 // カテゴリページの処理
