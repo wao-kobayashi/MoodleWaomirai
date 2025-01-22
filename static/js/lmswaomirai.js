@@ -311,62 +311,79 @@ function createModal(options = {}) {
 // ダッシュボードページでの処理
 // ==============================
 if (bodyId === "page-my-index") {
+
   /////////////////////////////////////
   ///初期表示状態
   ////////////////////////////////////
 
-  //何も受講していない時は、科目勝手欲しい要素出す
+  // 購入していない科目がない場合の処理
   if (!isBuySubjectMain && !isBuySubjectChild) {
+    // 今日のイベント科目とダッシュボードの未定義科目を表示
     $("#todays-event-subject-none,#dashboard-main-upcoming-class-none").show();
+    // 今日の科目PCビューを非表示
     $("#todays-subject-pc").hide();
   } else {
+    // ウィンドウの幅が768px以上の場合、メインの授業部分を非表示
     if ($(window).width() >= 768) {
       $(".dashboard-main-class").hide();
     }
   }
-  ////////////////////////////
-  // 受講中科目の処理
-  ////////////////////////////
 
-  // 詳細科目を処理
+  // 受講中の科目処理を行うセクション
+  //////////////////////////
+  // 詳細科目の処理
+  //////////////////////////
+
   // 科目リンクを生成する関数
+  // 引数subject: 科目情報, icon: アイコン, isBuySubjectMain: メイン科目かどうか
   function renderSubject(subject, icon, isBuySubjectMain) {
+    // メイン科目かサブ科目かでリンク先を分ける
     const courseLink = isBuySubjectMain
       ? `https://lms.waomirai.com/admin/tool/catalogue/courseinfo.php?id=${subject.id}`
       : `https://lms.waomirai.com/course/view.php?id=${subject.id}`;
+
+    // 科目のリンク構造をHTMLで返す
     return `
-        <a href="${courseLink}" class="dashboard-left-block-subject-child ${subject.key}">
-            <div class="dashboard-left-block-subject-child-icon">${icon}</div>
-            <div class="dashboard-left-block-subject-child-text">
-                <div>${subject.name}</div>
-            </div>
-        </a>
+      <a href="${courseLink}" class="dashboard-left-block-subject-child ${subject.key}">
+          <div class="dashboard-left-block-subject-child-icon">${icon}</div>
+          <div class="dashboard-left-block-subject-child-text">
+              <div>${subject.name}</div>
+          </div>
+      </a>
     `;
   }
 
-  // 科目のアイコンを取得する関数
+  // 科目名に基づいてアイコンを取得する関数
+  // 引数subject: 科目情報
   const getIcon = (subject) => {
+    // 各科目名に対応するアイコンを設定
     if (subject.name.includes("哲学")) return "&#x1f4D6;"; // 📖
     if (subject.name.includes("科学")) return "&#x1f52C;"; // 🔬
     if (subject.name.includes("経済")) return "&#x1f4B0;"; // 💰
     if (subject.name.includes("英語")) return "&#x1f4AC;"; // 💬
     if (subject.name.includes("プログラミング"))
       return "&#x1f468;&#x200D;&#x1f4BB;"; // 👨‍💻
-    return "&#x1f9ea;"; // デフォルト
+    return "&#x1f9ea;"; // デフォルトアイコン
   };
 
-  // サブ科目が存在するか確認する関数
+  // サブ科目が存在するかを確認する関数
+  // 引数parentKey: 親科目のキー
   function hasRelatedChildSubject(parentKey) {
+    // 「child」タイプの科目が存在するか確認
     return some(
       (subject) => subject.type === "child" && subject.parentKey === parentKey
     );
   }
+
+  // メイン科目の処理を行う関数
   function processSubjectMain() {
     console.log("メイン科目（SubjectMain）に該当しています");
 
+    // メイン科目をフィルタリングして処理
     const subjectMainNames = subjects
-      .filter((subject) => subject.type === "main")
+      .filter((subject) => subject.type === "main") // メイン科目だけを取得
       .filter((subject) => {
+        // サブ科目が存在するかチェック
         const hasChild = subjects.some(
           (childSubject) =>
             childSubject.type === "child" &&
@@ -376,20 +393,23 @@ if (bodyId === "page-my-index") {
 
         console.log(`Checking subject: ${subject.name}, hasChild: ${hasChild}`);
 
+        // サブ科目があればスキップ
         if (hasChild) {
           console.log(`スキップ: サブ科目が存在するため ${subject.name}`);
           return false;
         }
 
+        // bodyClassesにその科目が含まれているか確認
         const isIncluded = bodyClasses.includes(subject.id);
         console.log(
           `Checking bodyClasses for subject: ${subject.name}, isIncluded: ${isIncluded}`
         );
         return isIncluded;
       })
-      .map((subject) => renderSubject(subject, getIcon(subject), true))
-      .join("");
+      .map((subject) => renderSubject(subject, getIcon(subject), true)) // 科目リンクを生成
+      .join(""); // 文字列として結合
 
+    // メイン科目があれば表示
     if (subjectMainNames) {
       $(".dashboard-left-block-wrap.dashboard-left-block-wrap-subject").append(
         subjectMainNames
@@ -397,16 +417,18 @@ if (bodyId === "page-my-index") {
     }
   }
 
-  // 詳細科目（SubjectChild）を処理する関数
+  // 詳細科目（サブ科目）の処理を行う関数
   function processSubjectChild() {
     console.log("詳細科目（SubjectChild）に該当しています");
 
+    // サブ科目をフィルタリングして処理
     const subjectChildNames = subjects
-      .filter((subject) => subject.type === "child")
-      .filter((subject) => bodyClasses.includes(subject.id))
-      .map((subject) => renderSubject(subject, getIcon(subject), false))
-      .join("");
+      .filter((subject) => subject.type === "child") // サブ科目だけを取得
+      .filter((subject) => bodyClasses.includes(subject.id)) // bodyClassesに含まれる科目を処理
+      .map((subject) => renderSubject(subject, getIcon(subject), false)) // 科目リンクを生成
+      .join(""); // 文字列として結合
 
+    // サブ科目があれば表示
     if (subjectChildNames) {
       $(".dashboard-left-block-wrap.dashboard-left-block-wrap-subject").append(
         subjectChildNames
@@ -414,11 +436,12 @@ if (bodyId === "page-my-index") {
     }
   }
 
+  // メイン科目を購入している場合、処理を実行
   if (isBuySubjectMain) {
     processSubjectMain();
   }
 
-  // 詳細科目を処理
+  // サブ科目を購入している場合、処理を実行
   if (isBuySubjectChild) {
     processSubjectChild();
   }
@@ -448,65 +471,54 @@ if (bodyId === "page-my-index") {
 
   // #page-content直下に配置
   $("#page-content").append(wrappedContent);
-
   /////////////////////////////////////
-  ///カレンダー
-  ////////////////////////////////////
-  let executed = false; // 初回実行を管理するフラグ
+  /// カレンダー処理
+  /////////////////////////////////////
 
-  // ロジックを関数として定義（共通化）
+  // 初回実行を管理するフラグ（既に処理が実行されたかどうかを判定）
+  let executed = false; 
+
+  // カレンダーに関するロジックを関数として定義（繰り返し利用できるようにする）
   function executeCalendarLogic() {
     console.log("カレンダーロジックを実行します。");
 
-    const today = new Date();
-    const todayDay = today.getDate();
-    const todayMonth = today.getMonth() + 1; // 月は0から始まるので1を加える
-    const todayYear = today.getFullYear();
-    let eventFound = false;
-    let eventDetails = [];
-    let flagTodaysCalendar = false;
+    const today = new Date(); // 現在の日付を取得
+    const todayDay = today.getDate(); // 今日の日
+    const todayMonth = today.getMonth() + 1; // 今日の月（0から始まるので1を加算）
+    const todayYear = today.getFullYear(); // 今日の年
+    let eventFound = false; // 今日のイベントが見つかったかどうか
+    let eventDetails = []; // 今日のイベント詳細を格納
+    let flagTodaysCalendar = false; // 今日の日付が処理されているかを追跡するフラグ
 
-    // .calendarwrapper内のロジックを実行（全イベントに色変更を適用）
+    // .calendarwrapper内のロジックを実行（カレンダー上の日付に対して色変更を適用）
     $(".day").each(function () {
-      const $cell = $(this);
-      const cellDay = parseInt($cell.attr("data-day"), 10); // カレンダーの日付
-      const cellMonth = parseInt($cell.attr("data-month"), 10); // カレンダーの月
-      const cellYear = parseInt($cell.attr("data-year"), 10); // カレンダーの年
+      const $cell = $(this); // 各セル（カレンダーの日付）
+      const cellDay = parseInt($cell.attr("data-day"), 10); // セルの日付
+      const cellMonth = parseInt($cell.attr("data-month"), 10); // セルの月
+      const cellYear = parseInt($cell.attr("data-year"), 10); // セルの年
 
-      // 色変更ロジック（すべてのイベントに適用）
+      // カレンダー内のイベントに対して色変更ロジックを適用
       const $dayContent = $cell.find('[data-region="day-content"]');
-      if ($dayContent.length > 0) {
-        const $events = $dayContent.find('li a[data-action="view-event"]');
+      if ($dayContent.length > 0) { // イベントが存在する場合
+        const $events = $dayContent.find('li a[data-action="view-event"]'); // イベントリンクを取得
         $events.each(function () {
-          const $eventLink = $(this);
-          const courseName = $eventLink.text().trim();
+          const $eventLink = $(this); // 各イベントリンク
+          const courseName = $eventLink.text().trim(); // イベント名を取得
           console.log(`Course Name: ${courseName}`);
 
-          // 色変更ロジック
+          // イベント名に応じて背景色を変更
           if (courseName.includes("経済")) {
             console.log("経済が見つかりました。背景色を青に変更します。");
-            $eventLink.attr(
-              "style",
-              "background: #AA68AA !important; border-left: #008EC9 2px solid !important;"
-            );
+            $eventLink.attr("style", "background: #AA68AA !important; border-left: #008EC9 2px solid !important;");
           } else if (courseName.includes("科学")) {
-            console.log("哲学が見つかりました。背景色を緑に変更します。");
-            $eventLink.attr(
-              "style",
-              "background: #B6D43E !important; border-left: #96B128 2px solid !important;"
-            );
+            console.log("科学が見つかりました。背景色を緑に変更します。");
+            $eventLink.attr("style", "background: #B6D43E !important; border-left: #96B128 2px solid !important;");
           } else if (courseName.includes("哲学")) {
             console.log("哲学が見つかりました。背景色をオレンジに変更します。");
-            $eventLink.attr(
-              "style",
-              "background: #FCB72E !important; border-left: #E98800 2px solid !important;"
-            );
+            $eventLink.attr("style", "background: #FCB72E !important; border-left: #E98800 2px solid !important;");
           } else if (courseName.includes("英語")) {
             console.log("英語が見つかりました。背景色を紫に変更します。");
-            $eventLink.attr(
-              "style",
-              "background: #AA68AA !important; border-left: #8D3A8D 2px solid !important;"
-            );
+            $eventLink.attr("style", "background: #AA68AA !important; border-left: #8D3A8D 2px solid !important;");
           } else {
             console.log("条件に一致しない科目: ", courseName);
           }
@@ -515,11 +527,7 @@ if (bodyId === "page-my-index") {
 
       // 今日の日付に一致するイベントがあれば、そのイベント詳細を収集
       if (cellDay === todayDay && !executed) {
-        console.log("今日の日付に一致しました:", {
-          cellDay,
-          cellMonth,
-          cellYear,
-        });
+        console.log("今日の日付に一致しました:", { cellDay, cellMonth, cellYear });
 
         const $dayContent = $cell.find('[data-region="day-content"]');
         if ($dayContent.length > 0) {
@@ -529,27 +537,18 @@ if (bodyId === "page-my-index") {
             eventDetails.push(courseName);
             console.log("今日のイベント: " + courseName);
 
-            // 新しい要素を作成
-            var $lessonContainer = $("<div>", {
-              class: "dashboard-main-class-content-lesson",
-            });
-            var $lessonTitle = $("<div>", {
-              class: "dashboard-main-class-content-lesson-title",
-              text: courseName,
-            });
-            var $lessonLink = $("<a>", {
-              class: "dashboard-main-class-content-lesson-button",
-              href: $(this).attr("href"), // 元のリンクのhref属性をコピー
-              text: "授業に参加する",
-            });
-            // コンテナに要素を追加
+            // 新しい要素を作成し、ダッシュボードに追加
+            var $lessonContainer = $("<div>", { class: "dashboard-main-class-content-lesson" });
+            var $lessonTitle = $("<div>", { class: "dashboard-main-class-content-lesson-title", text: courseName });
+            var $lessonLink = $("<a>", { class: "dashboard-main-class-content-lesson-button", href: $(this).attr("href"), text: "授業に参加する" });
             $lessonContainer.append($lessonTitle).append($lessonLink);
             $("#todays-event-class-scheduled").prepend($lessonContainer);
           });
           eventFound = true; // 今日授業あり
         }
       }
-      // 今日以降のイベント（明日以降も含む）をアップカミングに追加
+
+      // 今日より先のイベント（明日以降のイベント）をアップカミングに追加
       if (cellDay > todayDay && !executed) {
         const $dayContent = $cell.find('[data-region="day-content"]');
         console.log("$dayContent:", $dayContent); // 取得したdayContentを確認
@@ -560,6 +559,8 @@ if (bodyId === "page-my-index") {
 
           $events.each(function () {
             var courseName = $(this).text().trim();
+
+            // 科目カテゴリを判別する関数
             const getSubjectCategory = (courseName) => {
               if (courseName.includes("哲学")) return "philosophy";
               if (courseName.includes("科学")) return "science";
@@ -569,64 +570,40 @@ if (bodyId === "page-my-index") {
               return "defalut-subject"; // デフォルト: 試験管
             };
 
-            // 使用例
+            // 使用例：科目カテゴリを取得
             const getSubjectCategoryValue = getSubjectCategory(courseName);
 
-            //今日の日付を取得
+            // 今日の日付を取得
             const today = new Date();
-            const currentMonth = today.getMonth() + 1; // 現在の月（0から始まるので1を足す）
-            const todayDay = today.getDate(); // 今日の日付
-            const todayYear = today.getFullYear(); // 今日の年
-            // cellMonthは現在の月
-            const cellDay = parseInt($cell.attr("data-day"), 10); // カレンダーの日付
-            const cellMonth = currentMonth; // 現在の月を設定
-            const cellYear = todayYear; // カレンダーの年
+            const currentMonth = today.getMonth() + 1;
+            const todayDay = today.getDate();
+            const todayYear = today.getFullYear();
 
             // イベントの日付を作成
-            const eventDate = new Date(cellYear, cellMonth - 1, cellDay); // 月は0から始まるので、cellMonth - 1にする
+            const eventDate = new Date(todayYear, currentMonth - 1, cellDay); // 月は0から始まるので、cellMonth - 1にする
 
             // 日付を「12/27(金)」の形式でフォーマット
-            const dateString = `${cellMonth}/${cellDay}`;
-            const Week = [
-              "(日)",
-              "(月)",
-              "(火)",
-              "(水)",
-              "(木)",
-              "(金)",
-              "(土)",
-            ];
-            const dayOfWeek = Week[eventDate.getDay()]; // (土)
-            console.log(dayOfWeek); // (土)
+            const dateString = `${currentMonth}/${cellDay}`;
+            const Week = ["(日)", "(月)", "(火)", "(水)", "(木)", "(金)", "(土)"];
+            const dayOfWeek = Week[eventDate.getDay()]; // 曜日を取得
+            console.log(dayOfWeek); // 曜日を表示
 
-            // 新しいdivを作成
+            // 新しいdivを作成してアップカミングに追加
             var $lessonContainer = $("<div>", {
-              class:
-                "dashboard-main-class-content-lesson " +
-                getSubjectCategoryValue,
+              class: "dashboard-main-class-content-lesson " + getSubjectCategoryValue,
             });
-
-            // courseName と dateString を同じ div 内に追加
             var $lessonTitleAndDate = $("<span>", {
               class: "dashboard-main-class-content-lesson-details",
             })
-              .append(
-                $("<span>", { class: "date", text: dateString + dayOfWeek })
-              )
+              .append($("<span>", { class: "date", text: dateString + dayOfWeek }))
               .append($("<span>", { class: "title", text: courseName }));
-
-            // $lessonContainer に $lessonTitleAndDate を追加
             $lessonContainer.append($lessonTitleAndDate);
 
             // 画面に追加
-            $("#dashboard-main-upcoming-class-scheduled").append(
-              $lessonContainer
-            );
-            upcomingEventFound = true; // 明日以降のイベントが見つかった
+            $("#dashboard-main-upcoming-class-scheduled").append($lessonContainer);
           });
         }
       }
-      // 初回実行後にフラグをtrueに設定
     });
 
     // 今日のイベントがあればダッシュボードメッセージを更新
@@ -638,42 +615,42 @@ if (bodyId === "page-my-index") {
         console.log("ダッシュボードメッセージを更新しました。");
       } else {
         console.log("本日は授業がありません。");
-        //何かしらの科目を買っているときは本日の授業のところに「本日は授業がありません」を表示
+        // 何かしらの科目を購入している場合
         if (isBuySubjectMain || isBuySubjectChild || isBuyProgramming) {
-          $("#todays-event-class-none").show();
-          //何も授業買っていない時に授業なければ、今月は授業がありませんを表示
+          $("#todays-event-class-none").show(); // 本日の授業なしを表示
         } else if (!isBuySubjectMain && !isBuySubjectChild) {
-          $("#dashboard-main-upcoming-class-none").show();
+          $("#dashboard-main-upcoming-class-none").show(); // 今月の授業なしを表示
         }
       }
 
       // メッセージをダッシュボードに設定
       $("#todays-subject-pc .c-alert-banner-text-title").text(message);
-      // 今日のカレンダーが見つかったことを示すフラグを設定
-      flagTodaysCalendar = true;
+      flagTodaysCalendar = true; // 今日のカレンダーが見つかったことを示すフラグ
     }
+
     // 明日以降のスケジュールがない場合は、スマホにNoneメッセージを表示
     if (!upcomingEventFound) {
       $("#dashboard-main-upcoming-class-none").show();
     }
+
+    // 初回実行後にフラグをtrueに設定
     executed = true;
   }
 
-  // ページ読み込み時に発火
+  // ページ読み込み時にカレンダーロジックを発火
   $(document).ready(function () {
     console.log("ページ読み込み時のロジックを実行します。");
     executeCalendarLogic();
   });
 
-  // .arrow_link のクリック時に0.3秒後に発火
+  // .arrow_link がクリックされた場合、0.3秒後にカレンダーロジックを発火
   $(document).on("click", ".arrow_link", function () {
-    console.log(
-      ".arrow_link がクリックされました。0.3秒後にロジックを実行します。"
-    );
+    console.log(".arrow_link がクリックされました。0.3秒後にロジックを実行します。");
     setTimeout(() => {
-      executeCalendarLogic();
+      executeCalendarLogic(); // 0.3秒後にカレンダーロジックを実行
     }, 300); // 300ミリ秒（0.3秒）
   });
+
 }
 
 // ==============================
