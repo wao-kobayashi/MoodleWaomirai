@@ -3,26 +3,36 @@
 ////////////////////////
 $common-course-styles: (
   "economiy": (
+    main-color: $cl-economiy,
+    pale-color: $cl-economiy,
     background-color: $cl-economiy,
     background-image:
       url("https://go.waomirai.com/l/1026513/2024-08-08/gzqbt/1026513/1723092445zMMVlFVz/subject_03.jpg"),
   ),
   "science": (
+    main-color: $cl-science,
+    pale-color: $cl-science,
     background-color: $cl-science,
     background-image:
       url("https://go.waomirai.com/l/1026513/2024-08-08/gzqbx/1026513/1723092445qaV639ZU/subject_02.jpg"),
   ),
   "philosophy": (
+    main-color: $cl-philosophy,
+    pale-color: $cl-philosophy-pale,
     background-color: $cl-philosophy,
     background-image:
       url("https://waomirai.com/wp-content/uploads/2024/07/phi_main.jpg"),
   ),
   "english": (
+    main-color: $cl-english,
+    pale-color: $cl-english,
     background-color: $cl-english,
     background-image:
       url("https://go.waomirai.com/l/1026513/2024-08-08/gzqbq/1026513/1723092445NpS1HkfH/subject_04.jpg"),
   ),
   "programming": (
+    main-color: $cl-programming,
+    pale-color: $cl-programming,
     background-color: $cl-programming,
     background-image:
       url("https://go.waomirai.com/l/1026513/2024-08-08/gzqbm/1026513/1723092444UDZaTUyz/subject_05.jpg"),
@@ -46,6 +56,15 @@ $course-styles-lms: (
   "category-47": "philosophy",
   "category-50": "english",
   "course-999999": "programming",
+);
+
+$course-styles: (
+  ".category-53": "economiy",
+  ".category-48": "economiy",
+  ".category-52": "science",
+  ".category-49": "science",
+  ".category-51": "philosophy",
+  ".category-47": "philosophy",
 );
 
 $twocategories: ".category-21, .category-22";

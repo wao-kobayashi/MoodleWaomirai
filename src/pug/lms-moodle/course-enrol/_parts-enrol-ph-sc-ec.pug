@@ -1,0 +1,200 @@
+-
+    var subjects = [{
+      level: "レベル1",
+      grade: "小3-4",
+      lessons: [
+        { week: "1周目", banner: "https://waomirai.com/wp-content/uploads/2024/07/phi_main.jpg", text: "人が明かりを手に入れるまで人が明かりを手に入れるまで" },
+        { week: "2周目", banner: "https://waomirai.com/wp-content/uploads/2024/07/phi_main.jpg", text: "さらに進んだ内容" },
+        { week: "3周目", banner: "https://waomirai.com/wp-content/uploads/2024/07/phi_main.jpg", text: "次のステップ" }
+      ]
+    },{
+      level: "レベル2",
+      grade: "小5-6",
+      lessons: [
+        { week: "1周目", banner: "https://waomirai.com/wp-content/uploads/2024/07/phi_main.jpg", text: "人が明かりを手に入れるまで人が明かりを手に入れるまで" },
+        { week: "2周目", banner: "https://waomirai.com/wp-content/uploads/2024/07/phi_main.jpg", text: "さらに進んだ内容" },
+        { week: "3周目", banner: "https://waomirai.com/wp-content/uploads/2024/07/phi_main.jpg", text: "次のステップ" }
+      ]
+    },{
+      level: "レベル3",
+      grade: "中学生",
+      lessons: [
+        { week: "1周目", banner: "https://waomirai.com/wp-content/uploads/2024/07/phi_main.jpg", text: "人が明かりを手に入れるまで人が明かりを手に入れるまで" },
+        { week: "2周目", banner: "https://waomirai.com/wp-content/uploads/2024/07/phi_main.jpg", text: "さらに進んだ内容" },
+        { week: "3周目", banner: "https://waomirai.com/wp-content/uploads/2024/07/phi_main.jpg", text: "次のステップ" }
+      ]
+    },{
+      level: "レベル4",
+      grade: "高校生",
+      lessons: [
+        { week: "1周目", banner: "https://waomirai.com/wp-content/uploads/2024/07/phi_main.jpg", text: "人が明かりを手に入れるまで人が明かりを手に入れるまで" },
+        { week: "2周目", banner: "https://waomirai.com/wp-content/uploads/2024/07/phi_main.jpg", text: "さらに進んだ内容" },
+        { week: "3周目", banner: "https://waomirai.com/wp-content/uploads/2024/07/phi_main.jpg", text: "次のステップ" }
+      ]
+    }
+   ]
+-
+    var curriculum = [{
+      month: 4,
+      title: "タイトルタイトルタイトルタイトル",
+      subcontents: ["1.サブコンセプト", "2.サブコンセプト", "3.サブコンセプト"]
+    },{
+      month: 5,
+      title: "タイトルタイトルタイトルタイトル",
+      subcontents: ["1.サブコンセプト", "2.サブコンセプト", "3.サブコンセプト"]
+    },{
+      month: 6,
+      title: "タイトルタイトルタイトルタイトル",
+      subcontents: ["1.サブコンセプト", "2.サブコンセプト", "3.サブコンセプト"]
+    },{
+      month: 7,
+      title: "タイトルタイトルタイトルタイトル",
+      subcontents: ["1.サブコンセプト", "2.サブコンセプト", "3.サブコンセプト"]
+    }]
+- 
+  var weekdays = ['時間', '日', '月', '火', '水', '木', '金', '土']
+  var timeslots = [
+    {
+      time: '17:30 - 18:30',
+      schedule: [
+        { day: '日', subject: null },
+        { day: '月', subject: null },
+        { day: '火', subject: '哲学', level: 'レベル2' },
+        { day: '水', subject: null },
+        { day: '木', subject: '哲学', level: 'レベル2' },
+        { day: '金', subject: null },
+        { day: '土', subject: null }
+      ]
+    },{
+      time: '17:30 - 18:30',
+      schedule: [
+        { day: '日', subject: null },
+        { day: '月', subject: null },
+        { day: '火', subject: '哲学', level: 'レベル2' },
+        { day: '水', subject: null },
+        { day: '木', subject: '哲学', level: 'レベル2' },
+        { day: '金', subject: null },
+        { day: '土', subject: null }
+      ]
+    },{
+      time: '17:30 - 18:30',
+      schedule: [
+        { day: '日', subject: null },
+        { day: '月', subject: null },
+        { day: '火', subject: '哲学', level: 'レベル2' },
+        { day: '水', subject: null },
+        { day: '木', subject: '哲学', level: 'レベル2' },
+        { day: '金', subject: null },
+        { day: '土', subject: null }
+      ]
+    },
+    // 追加のタイムスロットがある場合はここに追加
+  ]
+section.enrol-section
+  h2.enrol-title
+      |今月の授業
+  each subject in subjects
+    .enrol-section-basesubject-thismonth-lesson-grid
+        .enrol-section-basesubject-thismonth-lesson-grid-level
+          .enrol-section-basesubject-thismonth-lesson-grid-level-main
+            | #{subject.level}
+          .enrol-section-basesubject-thismonth-lesson-grid-level-sub
+            | #{subject.grade}
+        each lesson in subject.lessons
+          .enrol-section-basesubject-thismonth-lesson-grid-lesson
+            .enrol-section-basesubject-thismonth-lesson-grid-lesson-week
+              | #{lesson.week}
+            .enrol-section-basesubject-thismonth-lesson-grid-lesson-banner
+              img(src=lesson.banner)
+            .enrol-section-basesubject-thismonth-lesson-grid-lesson-text
+              | #{lesson.text}
+//- each subject in BasesubjectLessons
+
+
+section.enrol-section
+  h2.enrol-title
+      |年間の授業カリキュラム
+  .enrol-section-basesubject-year-lesson 
+    .enrol-section-basesubject-year-lesson-tab 
+       .enrol-section-basesubject-year-lesson-tab-child#tab-level-1 
+          |レベル1(小1~小4)
+       .enrol-section-basesubject-year-lesson-tab-child#tab-level-2
+          |レベル2(小5~小6)
+       .enrol-section-basesubject-year-lesson-tab-child#tab-level-3 
+          |レベル3(中学生)
+       .enrol-section-basesubject-year-lesson-tab-child#tab-level-4 
+          |レベル4(高校生)
+  .enrol-section-basesubject-year-lesson-content 
+    .enrol-section-basesubject-year-lesson-content-child#content-level-1
+      each item in curriculum
+        .enrol-section-basesubject-year-lesson-content-child-curriculum
+          .enrol-section-basesubject-year-lesson-content-child-curriculum-month
+            span= item.month
+            | 月
+          .enrol-section-basesubject-year-lesson-content-child-curriculum-detail
+            .enrol-section-basesubject-year-lesson-content-child-curriculum-detail-title
+              | #{item.title}
+            each subcontent in item.subcontents
+              .enrol-section-basesubject-year-lesson-content-child-curriculum-detail-subcontent
+                | #{subcontent}            
+    .enrol-section-basesubject-year-lesson-content-child#content-level-2
+      p|レベル2の内容
+    .enrol-section-basesubject-year-lesson-content-child#content-level-3  
+      p|レベル3の内容
+    .enrol-section-basesubject-year-lesson-content-child#content-level-4  
+      p|レベル4の内容 
+
+section.enrol-section
+  h2.enrol-title
+      |時間割
+  .enrol-section-basesubject-timetable
+       .enrol-section-basesubject-timetable-head
+          each day in weekdays
+            .enrol-section-basesubject-timetable-head-child= day
+       each slot in timeslots
+          .enrol-section-basesubject-timetable-content
+            .enrol-section-basesubject-timetable-content-child
+              .enrol-section-basesubject-timetable-content-child-start= slot.time.split(' - ')[0]
+              .enrol-section-basesubject-timetable-content-child-end= slot.time.split(' - ')[1]
+            
+            each daySchedule in slot.schedule
+              .enrol-section-basesubject-timetable-content-child(class= daySchedule.subject ? 'active' : '')
+                if daySchedule.subject
+                  .enrol-section-basesubject-timetable-content-child-subject= daySchedule.subject
+                  .enrol-section-basesubject-timetable-content-child-level= daySchedule.level
+                else
+                  | -
+section.enrol-section
+  h2.enrol-title
+      |年間の開催スケジュール
+  .enrol-section-basesubject-timetable
+section.enrol-section
+  h2.enrol-title
+      |受講費・科目詳細
+  //英語と同じやつ持ってくる
+            
+h3
+ |h3です
+h4
+ |h4です
+h5
+ |h5です
+p
+ |aaa
+script.
+  $(document).ready(function() {
+      // タブのクリックイベントを設定
+      $('.enrol-section-basesubject-year-lesson-tab-child').click(function() {
+          // すべてのタブとコンテンツを非アクティブにする
+          $('.enrol-section-basesubject-year-lesson-tab-child').removeClass('active');
+          $('.enrol-section-basesubject-year-lesson-content-child').hide(); // コンテンツを非表示にする
+          
+          // クリックされたタブをアクティブにし、対応するコンテンツを表示する
+          $(this).addClass('active');
+          var targetContentId = '#content-level-' + $(this).attr('id').split('-')[2]; // タブのID末尾（level番号）でコンテンツIDを取得
+          $(targetContentId).show(); // 対応するコンテンツを表示する
+      });
+      
+      // 最初に表示するタブを選択（初期状態）
+      $('.enrol-section-basesubject-year-lesson-tab-child:first').click();
+  });

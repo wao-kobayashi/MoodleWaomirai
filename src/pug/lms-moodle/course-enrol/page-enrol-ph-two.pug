@@ -6,8 +6,7 @@ block variables
   - var pageid = 'page-enrol-ph-two'
   include _enrol_meta
 block contents
-  p=allID
-  p=courseID
-  p=paymentID
-  p 
-    |こんにちわ
+  //共通パーツ
+  include _parts-enrol-common
+  //共通パーツ
+  include _parts-enrol-ph-sc-ec 

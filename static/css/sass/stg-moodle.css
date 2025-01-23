@@ -67,8 +67,8 @@ html[data-tenantidnumber=stg] .drawerheader img {
   display: none;
 }
 html[data-tenantidnumber=stg] .drawer .list-group-item.active {
-  background-color: #005C3F;
-  border-color: #005C3F;
+  background-color: #005c3f;
+  border-color: #005c3f;
 }
 html[data-tenantidnumber=stg] .navbar-toggler {
   border: none !important;
@@ -243,10 +243,10 @@ html[data-tenantidnumber=stg] .lms-index-contents-block-cards .common-contents-b
   }
 }
 html[data-tenantidnumber=stg] .lms-index-contents-block-cards .block-philosophy:before {
-  background: #FCAF17;
+  background: #fcaf17;
 }
 html[data-tenantidnumber=stg] .lms-index-contents-block-cards .block-philosophy .common-contents-block-cards-course-detail-title:before {
-  background: #FCAF17;
+  background: #fcaf17;
 }
 @media screen and (min-width: 769px) {
   html[data-tenantidnumber=stg] .lms-index-contents-block-cards .block-philosophy .common-contents-block-cards-course-detail-title:before {
@@ -254,10 +254,10 @@ html[data-tenantidnumber=stg] .lms-index-contents-block-cards .block-philosophy 
   }
 }
 html[data-tenantidnumber=stg] .lms-index-contents-block-cards .block-science:before {
-  background: #B6D43E;
+  background: #b6d43e;
 }
 html[data-tenantidnumber=stg] .lms-index-contents-block-cards .block-science .common-contents-block-cards-course-detail-title:before {
-  background: #B6D43E;
+  background: #b6d43e;
 }
 @media screen and (min-width: 769px) {
   html[data-tenantidnumber=stg] .lms-index-contents-block-cards .block-science .common-contents-block-cards-course-detail-title:before {
@@ -265,10 +265,10 @@ html[data-tenantidnumber=stg] .lms-index-contents-block-cards .block-science .co
   }
 }
 html[data-tenantidnumber=stg] .lms-index-contents-block-cards .block-economiy:before {
-  background: #28AFE7;
+  background: #28afe7;
 }
 html[data-tenantidnumber=stg] .lms-index-contents-block-cards .block-economiy .common-contents-block-cards-course-detail-title:before {
-  background: #28AFE7;
+  background: #28afe7;
 }
 @media screen and (min-width: 769px) {
   html[data-tenantidnumber=stg] .lms-index-contents-block-cards .block-economiy .common-contents-block-cards-course-detail-title:before {
@@ -276,10 +276,10 @@ html[data-tenantidnumber=stg] .lms-index-contents-block-cards .block-economiy .c
   }
 }
 html[data-tenantidnumber=stg] .lms-index-contents-block-cards .block-english:before {
-  background: #AA68AA;
+  background: #aa68aa;
 }
 html[data-tenantidnumber=stg] .lms-index-contents-block-cards .block-english .common-contents-block-cards-course-detail-title:before {
-  background: #AA68AA;
+  background: #aa68aa;
 }
 @media screen and (min-width: 769px) {
   html[data-tenantidnumber=stg] .lms-index-contents-block-cards .block-english .common-contents-block-cards-course-detail-title:before {
@@ -287,10 +287,10 @@ html[data-tenantidnumber=stg] .lms-index-contents-block-cards .block-english .co
   }
 }
 html[data-tenantidnumber=stg] .lms-index-contents-block-cards .block-programming:before {
-  background: #EE242C;
+  background: #ee242c;
 }
 html[data-tenantidnumber=stg] .lms-index-contents-block-cards .block-programming .common-contents-block-cards-course-detail-title:before {
-  background: #EE242C;
+  background: #ee242c;
 }
 @media screen and (min-width: 769px) {
   html[data-tenantidnumber=stg] .lms-index-contents-block-cards .block-programming .common-contents-block-cards-course-detail-title:before {
@@ -433,10 +433,10 @@ html[data-tenantidnumber=stg] .dashboard-main-contents-block-cards .common-conte
   }
 }
 html[data-tenantidnumber=stg] .dashboard-main-contents-block-cards .block-philosophy:before {
-  background: #FCAF17;
+  background: #fcaf17;
 }
 html[data-tenantidnumber=stg] .dashboard-main-contents-block-cards .block-philosophy .common-contents-block-cards-course-detail-title:before {
-  background: #FCAF17;
+  background: #fcaf17;
 }
 @media screen and (min-width: 769px) {
   html[data-tenantidnumber=stg] .dashboard-main-contents-block-cards .block-philosophy .common-contents-block-cards-course-detail-title:before {
@@ -444,10 +444,10 @@ html[data-tenantidnumber=stg] .dashboard-main-contents-block-cards .block-philos
   }
 }
 html[data-tenantidnumber=stg] .dashboard-main-contents-block-cards .block-science:before {
-  background: #B6D43E;
+  background: #b6d43e;
 }
 html[data-tenantidnumber=stg] .dashboard-main-contents-block-cards .block-science .common-contents-block-cards-course-detail-title:before {
-  background: #B6D43E;
+  background: #b6d43e;
 }
 @media screen and (min-width: 769px) {
   html[data-tenantidnumber=stg] .dashboard-main-contents-block-cards .block-science .common-contents-block-cards-course-detail-title:before {
@@ -455,10 +455,10 @@ html[data-tenantidnumber=stg] .dashboard-main-contents-block-cards .block-scienc
   }
 }
 html[data-tenantidnumber=stg] .dashboard-main-contents-block-cards .block-economiy:before {
-  background: #28AFE7;
+  background: #28afe7;
 }
 html[data-tenantidnumber=stg] .dashboard-main-contents-block-cards .block-economiy .common-contents-block-cards-course-detail-title:before {
-  background: #28AFE7;
+  background: #28afe7;
 }
 @media screen and (min-width: 769px) {
   html[data-tenantidnumber=stg] .dashboard-main-contents-block-cards .block-economiy .common-contents-block-cards-course-detail-title:before {
@@ -466,10 +466,10 @@ html[data-tenantidnumber=stg] .dashboard-main-contents-block-cards .block-econom
   }
 }
 html[data-tenantidnumber=stg] .dashboard-main-contents-block-cards .block-english:before {
-  background: #AA68AA;
+  background: #aa68aa;
 }
 html[data-tenantidnumber=stg] .dashboard-main-contents-block-cards .block-english .common-contents-block-cards-course-detail-title:before {
-  background: #AA68AA;
+  background: #aa68aa;
 }
 @media screen and (min-width: 769px) {
   html[data-tenantidnumber=stg] .dashboard-main-contents-block-cards .block-english .common-contents-block-cards-course-detail-title:before {
@@ -477,10 +477,10 @@ html[data-tenantidnumber=stg] .dashboard-main-contents-block-cards .block-englis
   }
 }
 html[data-tenantidnumber=stg] .dashboard-main-contents-block-cards .block-programming:before {
-  background: #EE242C;
+  background: #ee242c;
 }
 html[data-tenantidnumber=stg] .dashboard-main-contents-block-cards .block-programming .common-contents-block-cards-course-detail-title:before {
-  background: #EE242C;
+  background: #ee242c;
 }
 @media screen and (min-width: 769px) {
   html[data-tenantidnumber=stg] .dashboard-main-contents-block-cards .block-programming .common-contents-block-cards-course-detail-title:before {
@@ -581,29 +581,29 @@ html[data-tenantidnumber=stg] .c-alert-banner .c-alert-banner-right a:hover {
   }
 }
 html[data-tenantidnumber=stg] .c-alert-banner.alert {
-  border: 2px solid #F35053;
+  border: 2px solid #f35053;
   background: white;
 }
 html[data-tenantidnumber=stg] .c-alert-banner.alert .c-alert-banner-left-icon i {
-  color: #F35053;
+  color: #f35053;
 }
 html[data-tenantidnumber=stg] .c-alert-banner.alert .c-alert-banner-text-read {
-  color: #F35053 !important;
+  color: #f35053 !important;
   font-weight: bold;
 }
 html[data-tenantidnumber=stg] .c-alert-banner.alert .c-alert-banner-right a {
-  background: #F35053;
+  background: #f35053;
   color: white;
 }
 html[data-tenantidnumber=stg] .c-alert-banner.alert-buy-course {
-  border: 2px solid #005C3F;
+  border: 2px solid #005c3f;
   background: #edfbf5;
 }
 html[data-tenantidnumber=stg] .c-alert-banner.alert-buy-course .c-alert-banner-left-icon i {
-  color: #005C3F;
+  color: #005c3f;
 }
 html[data-tenantidnumber=stg] .c-alert-banner .c-alert-banner-right a {
-  background: #005C3F;
+  background: #005c3f;
 }
 html[data-tenantidnumber=stg] body.fixed {
   position: fixed;
@@ -684,7 +684,7 @@ html[data-tenantidnumber=stg] .c-modal-wrap-button-wrap a {
   cursor: pointer;
 }
 html[data-tenantidnumber=stg] .c-modal-wrap-button {
-  background: #005C3F !important;
+  background: #005c3f !important;
   color: #ffffff !important;
   border: none !important;
   /* 横幅はまちまちなので指定しない */
@@ -849,16 +849,16 @@ html[data-tenantidnumber=stg] .header-banner.alert-setting-level i {
   font-size: 36px;
   display: block;
   line-height: 1;
-  color: #F35053;
+  color: #f35053;
 }
 html[data-tenantidnumber=stg] .header-banner.alert-setting-level .header-banner-text-title {
-  color: #F35053;
+  color: #f35053;
 }
 html[data-tenantidnumber=stg] .header-banner.alert-setting-level .header-banner-text-read {
   color: #4d4d4d;
 }
 html[data-tenantidnumber=stg] .header-banner.alert-setting-level .header-banner-right a {
-  background: #F35053;
+  background: #f35053;
   font-weight: 400;
 }
 html[data-tenantidnumber=stg] .header-banner .header-banner-left {
@@ -881,14 +881,14 @@ html[data-tenantidnumber=stg] .header-banner .header-banner-right a:hover {
   opacity: 0.7;
 }
 html[data-tenantidnumber=stg] .btn-primary {
-  background: #005C3F !important;
+  background: #005c3f !important;
   border: none;
   color: white !important;
 }
 html[data-tenantidnumber=stg] .btn-secondary {
   background: white !important;
-  border: 1px solid #005C3F;
-  color: #005C3F;
+  border: 1px solid #005c3f;
+  color: #005c3f;
 }
 html[data-tenantidnumber=stg] footer.footer-popover {
   width: 100% !important;
@@ -1154,7 +1154,7 @@ html[data-tenantidnumber=stg] #page-login-forgot_password .login-container {
 }
 html[data-tenantidnumber=stg] #page-login-index .login-form-forgotpassword a,
 html[data-tenantidnumber=stg] #page-login-forgot_password .login-form-forgotpassword a {
-  color: #005C3F;
+  color: #005c3f;
 }
 html[data-tenantidnumber=stg] #page-login-signup {
   background: white;
@@ -1290,12 +1290,12 @@ html[data-tenantidnumber=stg] #page-login-signup .fdate_selector > a {
 }
 html[data-tenantidnumber=stg] #page-login-signup .btn-primary:focus,
 html[data-tenantidnumber=stg] #page-login-signup .btn-primary.focus {
-  background: #005C3F !important;
-  outline: 3.2px solid #005C3F !important;
-  outline: 0.2rem solid #005C3F !important;
+  background: #005c3f !important;
+  outline: 3.2px solid #005c3f !important;
+  outline: 0.2rem solid #005c3f !important;
 }
 html[data-tenantidnumber=stg] #page-login-signup .btn-primary {
-  background: #005C3F !important;
+  background: #005c3f !important;
   border: none !important;
 }
 html[data-tenantidnumber=stg] #page-login-signup .fdescription.required {
@@ -1424,7 +1424,7 @@ html[data-tenantidnumber=stg] #page-login-confirm .boxaligncenter h3 {
 }
 html[data-tenantidnumber=stg] #page-login-confirm .singlebutton button {
   width: 300px;
-  background: #005C3F;
+  background: #005c3f;
   padding: 15px 20px;
   color: white;
   font-size: 16px;
@@ -1451,7 +1451,7 @@ html[data-tenantidnumber=stg] #page-course-view-topics.category-53 #page.drawers
   }
 }
 html[data-tenantidnumber=stg] #page-course-view-topics.category-53 #page-header .page-header-headings, html[data-tenantidnumber=stg] #page-course-view-flexsections.category-53 #page-header .page-header-headings, html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo.category-53 #page-header .page-header-headings, html[data-tenantidnumber=stg] #page-enrol-index.category-53 #page-header .page-header-headings {
-  background: #28AFE7 !important;
+  background: #28afe7 !important;
 }
 html[data-tenantidnumber=stg] #page-course-view-topics.category-53 #page-header .page-header-headings:before, html[data-tenantidnumber=stg] #page-course-view-flexsections.category-53 #page-header .page-header-headings:before, html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo.category-53 #page-header .page-header-headings:before, html[data-tenantidnumber=stg] #page-enrol-index.category-53 #page-header .page-header-headings:before {
   background-image: url("https://go.waomirai.com/l/1026513/2024-08-08/gzqbt/1026513/1723092445zMMVlFVz/subject_03.jpg");
@@ -1542,7 +1542,7 @@ html[data-tenantidnumber=stg] #page-course-view-topics.category-52 #page.drawers
   }
 }
 html[data-tenantidnumber=stg] #page-course-view-topics.category-52 #page-header .page-header-headings, html[data-tenantidnumber=stg] #page-course-view-flexsections.category-52 #page-header .page-header-headings, html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo.category-52 #page-header .page-header-headings, html[data-tenantidnumber=stg] #page-enrol-index.category-52 #page-header .page-header-headings {
-  background: #B6D43E !important;
+  background: #b6d43e !important;
 }
 html[data-tenantidnumber=stg] #page-course-view-topics.category-52 #page-header .page-header-headings:before, html[data-tenantidnumber=stg] #page-course-view-flexsections.category-52 #page-header .page-header-headings:before, html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo.category-52 #page-header .page-header-headings:before, html[data-tenantidnumber=stg] #page-enrol-index.category-52 #page-header .page-header-headings:before {
   background-image: url("https://go.waomirai.com/l/1026513/2024-08-08/gzqbx/1026513/1723092445qaV639ZU/subject_02.jpg");
@@ -1633,7 +1633,7 @@ html[data-tenantidnumber=stg] #page-course-view-topics.category-51 #page.drawers
   }
 }
 html[data-tenantidnumber=stg] #page-course-view-topics.category-51 #page-header .page-header-headings, html[data-tenantidnumber=stg] #page-course-view-flexsections.category-51 #page-header .page-header-headings, html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo.category-51 #page-header .page-header-headings, html[data-tenantidnumber=stg] #page-enrol-index.category-51 #page-header .page-header-headings {
-  background: #FCAF17 !important;
+  background: #fcaf17 !important;
 }
 html[data-tenantidnumber=stg] #page-course-view-topics.category-51 #page-header .page-header-headings:before, html[data-tenantidnumber=stg] #page-course-view-flexsections.category-51 #page-header .page-header-headings:before, html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo.category-51 #page-header .page-header-headings:before, html[data-tenantidnumber=stg] #page-enrol-index.category-51 #page-header .page-header-headings:before {
   background-image: url("https://waomirai.com/wp-content/uploads/2024/07/phi_main.jpg");
@@ -1724,7 +1724,7 @@ html[data-tenantidnumber=stg] #page-course-view-topics.category-54 #page.drawers
   }
 }
 html[data-tenantidnumber=stg] #page-course-view-topics.category-54 #page-header .page-header-headings, html[data-tenantidnumber=stg] #page-course-view-flexsections.category-54 #page-header .page-header-headings, html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo.category-54 #page-header .page-header-headings, html[data-tenantidnumber=stg] #page-enrol-index.category-54 #page-header .page-header-headings {
-  background: #AA68AA !important;
+  background: #aa68aa !important;
 }
 html[data-tenantidnumber=stg] #page-course-view-topics.category-54 #page-header .page-header-headings:before, html[data-tenantidnumber=stg] #page-course-view-flexsections.category-54 #page-header .page-header-headings:before, html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo.category-54 #page-header .page-header-headings:before, html[data-tenantidnumber=stg] #page-enrol-index.category-54 #page-header .page-header-headings:before {
   background-image: url("https://go.waomirai.com/l/1026513/2024-08-08/gzqbq/1026513/1723092445NpS1HkfH/subject_04.jpg");
@@ -1815,7 +1815,7 @@ html[data-tenantidnumber=stg] #page-course-view-topics.course-999999 #page.drawe
   }
 }
 html[data-tenantidnumber=stg] #page-course-view-topics.course-999999 #page-header .page-header-headings, html[data-tenantidnumber=stg] #page-course-view-flexsections.course-999999 #page-header .page-header-headings, html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo.course-999999 #page-header .page-header-headings, html[data-tenantidnumber=stg] #page-enrol-index.course-999999 #page-header .page-header-headings {
-  background: #EE242C !important;
+  background: #ee242c !important;
 }
 html[data-tenantidnumber=stg] #page-course-view-topics.course-999999 #page-header .page-header-headings:before, html[data-tenantidnumber=stg] #page-course-view-flexsections.course-999999 #page-header .page-header-headings:before, html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo.course-999999 #page-header .page-header-headings:before, html[data-tenantidnumber=stg] #page-enrol-index.course-999999 #page-header .page-header-headings:before {
   background-image: url("https://go.waomirai.com/l/1026513/2024-08-08/gzqbm/1026513/1723092444UDZaTUyz/subject_05.jpg");
@@ -2336,7 +2336,7 @@ html[data-tenantidnumber=stg] .pagelayout-mydashboard .card-title:before, html[d
   width: 6px;
   height: 25px;
   content: "";
-  background: #005C3F;
+  background: #005c3f;
   display: block;
   position: absolute;
   left: 17px;
@@ -2454,10 +2454,10 @@ html[data-tenantidnumber=stg] .pagelayout-mydashboard .dashboard-left .dashboard
 html[data-tenantidnumber=stg] .pagelayout-mydashboard .dashboard-left .dashboard-left-block-wrap-english .dashboard-left-block-wrap-english-course .dashboard-left-block-wrap-english-course-button a {
   padding: 6px 8px;
   border-radius: 4px;
-  color: #005C3F;
+  color: #005c3f;
   font-size: 14px;
   font-weight: normal;
-  border: 1.5px solid #005C3F;
+  border: 1.5px solid #005c3f;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
@@ -2695,7 +2695,7 @@ html[data-tenantidnumber=stg] .pagelayout-mydashboard .dashboard-left ul li {
   margin: 0 0 15px;
 }
 html[data-tenantidnumber=stg] .pagelayout-mydashboard .dashboard-left ul li a {
-  color: #005C3F;
+  color: #005c3f;
   text-decoration: underline;
 }
 html[data-tenantidnumber=stg] .pagelayout-mydashboard #page.drawers {
@@ -2901,7 +2901,7 @@ html[data-tenantidnumber=stg] .pagelayout-mydashboard .maincalendar .calendarmon
   color: white !important;
   font-size: 11.5px !important;
   padding: 5px 2px 5px 5px;
-  border-left: #005C3F 2px solid !important;
+  border-left: #005c3f 2px solid !important;
   display: block;
   font-weight: bold;
   border-radius: 2px;
@@ -3008,7 +3008,7 @@ html[data-tenantidnumber=stg] .pagelayout-mydashboard .summary-modal-container .
 }
 html[data-tenantidnumber=stg] .pagelayout-mydashboard .summary-modal-container .location-content:before {
   content: "授業を受講する";
-  background: #005C3F;
+  background: #005c3f;
   border-radius: 4px;
   width: 230px;
   height: 55px;
@@ -3176,23 +3176,23 @@ html[data-tenantidnumber=stg] .pagelayout-mydashboard .dashboard-main .dashboard
           box-shadow: 0px 3.5px 7px rgba(0, 0, 0, .18) !important;
 }
 html[data-tenantidnumber=stg] .pagelayout-mydashboard .dashboard-main .dashboard-main-class-content-lesson.philosophy {
-  border-left: 4px #FCAF17 solid;
+  border-left: 4px #fcaf17 solid;
   border-radius: 2px;
 }
 html[data-tenantidnumber=stg] .pagelayout-mydashboard .dashboard-main .dashboard-main-class-content-lesson.science {
-  border-left: 4px #B6D43E solid;
+  border-left: 4px #b6d43e solid;
   border-radius: 2px;
 }
 html[data-tenantidnumber=stg] .pagelayout-mydashboard .dashboard-main .dashboard-main-class-content-lesson.economy {
-  border-left: 4px #28AFE7 solid;
+  border-left: 4px #28afe7 solid;
   border-radius: 2px;
 }
 html[data-tenantidnumber=stg] .pagelayout-mydashboard .dashboard-main .dashboard-main-class-content-lesson.english {
-  border-left: 4px #AA68AA solid;
+  border-left: 4px #aa68aa solid;
   border-radius: 2px;
 }
 html[data-tenantidnumber=stg] .pagelayout-mydashboard .dashboard-main .dashboard-main-class-content-lesson.programming {
-  border-left: 4px #EE242C solid;
+  border-left: 4px #ee242c solid;
   border-radius: 2px;
 }
 html[data-tenantidnumber=stg] .pagelayout-mydashboard .dashboard-main #todays-event-class-scheduled a {
@@ -3211,7 +3211,7 @@ html[data-tenantidnumber=stg] .pagelayout-mydashboard .dashboard-main #todays-ev
   font-size: 16px !important;
   border-radius: 8px;
   line-height: 1;
-  background: #005C3F !important;
+  background: #005c3f !important;
   color: #ffffff !important;
   border: none !important;
   outline: none;
@@ -3306,7 +3306,7 @@ html[data-tenantidnumber=stg] #page-user-edit #id_submitbutton-subject {
   font-size: 12px;
   margin: 15px auto 15px;
   text-align: center;
-  color: #F35053;
+  color: #f35053;
 }
 @media screen and (max-width: 768px) {
   html[data-tenantidnumber=stg] #page-user-edit #id_submitbutton-subject {
@@ -3647,7 +3647,7 @@ html[data-tenantidnumber=stg] #page-mod-questionnaire-report div[role=main] .mod
   width: 6px;
   height: 25px;
   content: "";
-  background: #005C3F;
+  background: #005c3f;
   display: block;
   position: absolute;
   left: 17px;
@@ -3816,7 +3816,7 @@ html[data-tenantidnumber=stg] #page-mod-questionnaire-report .control-button-sub
 html[data-tenantidnumber=stg] #page-mod-questionnaire-report .btn-secondary {
   float: none !important;
   margin: 0 0 30px 55px;
-  background: #005C3F;
+  background: #005c3f;
   border: none !important;
   padding: 8px 20px;
   color: white !important;
@@ -3955,7 +3955,7 @@ html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo .enrol_buy_a
 }
 html[data-tenantidnumber=stg] #page-enrol-index .enrol_buy_as_a_set .enrol_buy_as_a_set_detail a,
 html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo .enrol_buy_as_a_set .enrol_buy_as_a_set_detail a {
-  color: #005C3F !important;
+  color: #005c3f !important;
 }
 html[data-tenantidnumber=stg] #page-enrol-index .enrol_fee_payment_region,
 html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo .enrol_fee_payment_region {
@@ -4038,7 +4038,7 @@ html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo .enrol_fee_p
       -ms-flex-align: center;
           align-items: center;
   font-size: 14px !important;
-  background: #005C3F !important;
+  background: #005c3f !important;
   border-radius: 4px;
   color: white;
   line-height: 1;
@@ -4063,7 +4063,7 @@ html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo .enrol_fee_p
 html[data-tenantidnumber=stg] #page-enrol-index .enrol_fee_payment_region .page-enrol-set-discount a,
 html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo .enrol_fee_payment_region .page-enrol-set-discount a {
   margin: 7px 0 0 !important;
-  color: #005C3F;
+  color: #005c3f;
   text-decoration: underline !important;
   display: block;
 }
@@ -4087,6 +4087,498 @@ html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo .enrol-secti
   grid-template-columns: 140px 1fr;
   grid-column-gap: 20px;
   grid-row-gap: 20px;
+}
+html[data-tenantidnumber=stg] .category-53 .enrol-section-basesubject-thismonth-lesson-grid {
+  display: grid;
+  grid-template-columns: 0.6fr repeat(3, 1fr);
+  grid-column-gap: 20px;
+  margin: 0 0 20px;
+}
+html[data-tenantidnumber=stg] .category-53 .enrol-section-basesubject-thismonth-lesson-grid-level {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  background: #28afe7 !important;
+}
+html[data-tenantidnumber=stg] .category-53 .enrol-section-basesubject-thismonth-lesson-grid-level-main::after {
+  content: "";
+  display: block;
+  margin: 20px auto;
+  width: 30px;
+  height: 1px;
+  background: #262626;
+}
+html[data-tenantidnumber=stg] .category-53 .enrol-section-basesubject-thismonth-lesson-grid .enrol-section-basesubject-thismonth-lesson-grid-lesson {
+  -webkit-box-shadow: 0px 3.5px 7px rgba(0, 0, 0, .18) !important;
+          box-shadow: 0px 3.5px 7px rgba(0, 0, 0, .18) !important;
+}
+html[data-tenantidnumber=stg] .category-53 .enrol-section-basesubject-year-lesson .enrol-section-basesubject-year-lesson-tab {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 20px;
+  border-bottom: 2px solid #28afe7 !important;
+}
+html[data-tenantidnumber=stg] .category-53 .enrol-section-basesubject-year-lesson .enrol-section-basesubject-year-lesson-tab .active {
+  background: #28afe7 !important;
+  color: #ffffff;
+}
+html[data-tenantidnumber=stg] .category-53 .enrol-section-basesubject-year-lesson-content-child {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 20px;
+  margin: 0 0 20px;
+  padding: 15px;
+}
+html[data-tenantidnumber=stg] .category-53 .enrol-section-basesubject-year-lesson-content-child-curriculum {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+html[data-tenantidnumber=stg] .category-53 .enrol-section-basesubject-year-lesson-content-child-curriculum-month {
+  width: 50px;
+  background: #28afe7 !important;
+}
+html[data-tenantidnumber=stg] .category-53 .enrol-section-basesubject-year-lesson-content-child-curriculum-detail {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+html[data-tenantidnumber=stg] .category-53 .enrol-section-basesubject-timetable-head {
+  display: grid;
+  grid-template-columns: 0.6fr repeat(7, 1fr);
+  grid-gap: 5px;
+  margin: 0 0 20px;
+}
+html[data-tenantidnumber=stg] .category-53 .enrol-section-basesubject-timetable-content {
+  display: grid;
+  grid-template-columns: 0.6fr repeat(7, 1fr);
+  grid-gap: 5px;
+  margin: 0 0 20px;
+}
+html[data-tenantidnumber=stg] .category-53 .enrol-section-basesubject-timetable-content .active {
+  background: #28afe7 !important;
+  border-left: 2px solid #28afe7 !important;
+}
+html[data-tenantidnumber=stg] .category-48 .enrol-section-basesubject-thismonth-lesson-grid {
+  display: grid;
+  grid-template-columns: 0.6fr repeat(3, 1fr);
+  grid-column-gap: 20px;
+  margin: 0 0 20px;
+}
+html[data-tenantidnumber=stg] .category-48 .enrol-section-basesubject-thismonth-lesson-grid-level {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  background: #28afe7 !important;
+}
+html[data-tenantidnumber=stg] .category-48 .enrol-section-basesubject-thismonth-lesson-grid-level-main::after {
+  content: "";
+  display: block;
+  margin: 20px auto;
+  width: 30px;
+  height: 1px;
+  background: #262626;
+}
+html[data-tenantidnumber=stg] .category-48 .enrol-section-basesubject-thismonth-lesson-grid .enrol-section-basesubject-thismonth-lesson-grid-lesson {
+  -webkit-box-shadow: 0px 3.5px 7px rgba(0, 0, 0, .18) !important;
+          box-shadow: 0px 3.5px 7px rgba(0, 0, 0, .18) !important;
+}
+html[data-tenantidnumber=stg] .category-48 .enrol-section-basesubject-year-lesson .enrol-section-basesubject-year-lesson-tab {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 20px;
+  border-bottom: 2px solid #28afe7 !important;
+}
+html[data-tenantidnumber=stg] .category-48 .enrol-section-basesubject-year-lesson .enrol-section-basesubject-year-lesson-tab .active {
+  background: #28afe7 !important;
+  color: #ffffff;
+}
+html[data-tenantidnumber=stg] .category-48 .enrol-section-basesubject-year-lesson-content-child {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 20px;
+  margin: 0 0 20px;
+  padding: 15px;
+}
+html[data-tenantidnumber=stg] .category-48 .enrol-section-basesubject-year-lesson-content-child-curriculum {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+html[data-tenantidnumber=stg] .category-48 .enrol-section-basesubject-year-lesson-content-child-curriculum-month {
+  width: 50px;
+  background: #28afe7 !important;
+}
+html[data-tenantidnumber=stg] .category-48 .enrol-section-basesubject-year-lesson-content-child-curriculum-detail {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+html[data-tenantidnumber=stg] .category-48 .enrol-section-basesubject-timetable-head {
+  display: grid;
+  grid-template-columns: 0.6fr repeat(7, 1fr);
+  grid-gap: 5px;
+  margin: 0 0 20px;
+}
+html[data-tenantidnumber=stg] .category-48 .enrol-section-basesubject-timetable-content {
+  display: grid;
+  grid-template-columns: 0.6fr repeat(7, 1fr);
+  grid-gap: 5px;
+  margin: 0 0 20px;
+}
+html[data-tenantidnumber=stg] .category-48 .enrol-section-basesubject-timetable-content .active {
+  background: #28afe7 !important;
+  border-left: 2px solid #28afe7 !important;
+}
+html[data-tenantidnumber=stg] .category-52 .enrol-section-basesubject-thismonth-lesson-grid {
+  display: grid;
+  grid-template-columns: 0.6fr repeat(3, 1fr);
+  grid-column-gap: 20px;
+  margin: 0 0 20px;
+}
+html[data-tenantidnumber=stg] .category-52 .enrol-section-basesubject-thismonth-lesson-grid-level {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  background: #b6d43e !important;
+}
+html[data-tenantidnumber=stg] .category-52 .enrol-section-basesubject-thismonth-lesson-grid-level-main::after {
+  content: "";
+  display: block;
+  margin: 20px auto;
+  width: 30px;
+  height: 1px;
+  background: #262626;
+}
+html[data-tenantidnumber=stg] .category-52 .enrol-section-basesubject-thismonth-lesson-grid .enrol-section-basesubject-thismonth-lesson-grid-lesson {
+  -webkit-box-shadow: 0px 3.5px 7px rgba(0, 0, 0, .18) !important;
+          box-shadow: 0px 3.5px 7px rgba(0, 0, 0, .18) !important;
+}
+html[data-tenantidnumber=stg] .category-52 .enrol-section-basesubject-year-lesson .enrol-section-basesubject-year-lesson-tab {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 20px;
+  border-bottom: 2px solid #b6d43e !important;
+}
+html[data-tenantidnumber=stg] .category-52 .enrol-section-basesubject-year-lesson .enrol-section-basesubject-year-lesson-tab .active {
+  background: #b6d43e !important;
+  color: #ffffff;
+}
+html[data-tenantidnumber=stg] .category-52 .enrol-section-basesubject-year-lesson-content-child {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 20px;
+  margin: 0 0 20px;
+  padding: 15px;
+}
+html[data-tenantidnumber=stg] .category-52 .enrol-section-basesubject-year-lesson-content-child-curriculum {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+html[data-tenantidnumber=stg] .category-52 .enrol-section-basesubject-year-lesson-content-child-curriculum-month {
+  width: 50px;
+  background: #b6d43e !important;
+}
+html[data-tenantidnumber=stg] .category-52 .enrol-section-basesubject-year-lesson-content-child-curriculum-detail {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+html[data-tenantidnumber=stg] .category-52 .enrol-section-basesubject-timetable-head {
+  display: grid;
+  grid-template-columns: 0.6fr repeat(7, 1fr);
+  grid-gap: 5px;
+  margin: 0 0 20px;
+}
+html[data-tenantidnumber=stg] .category-52 .enrol-section-basesubject-timetable-content {
+  display: grid;
+  grid-template-columns: 0.6fr repeat(7, 1fr);
+  grid-gap: 5px;
+  margin: 0 0 20px;
+}
+html[data-tenantidnumber=stg] .category-52 .enrol-section-basesubject-timetable-content .active {
+  background: #b6d43e !important;
+  border-left: 2px solid #b6d43e !important;
+}
+html[data-tenantidnumber=stg] .category-49 .enrol-section-basesubject-thismonth-lesson-grid {
+  display: grid;
+  grid-template-columns: 0.6fr repeat(3, 1fr);
+  grid-column-gap: 20px;
+  margin: 0 0 20px;
+}
+html[data-tenantidnumber=stg] .category-49 .enrol-section-basesubject-thismonth-lesson-grid-level {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  background: #b6d43e !important;
+}
+html[data-tenantidnumber=stg] .category-49 .enrol-section-basesubject-thismonth-lesson-grid-level-main::after {
+  content: "";
+  display: block;
+  margin: 20px auto;
+  width: 30px;
+  height: 1px;
+  background: #262626;
+}
+html[data-tenantidnumber=stg] .category-49 .enrol-section-basesubject-thismonth-lesson-grid .enrol-section-basesubject-thismonth-lesson-grid-lesson {
+  -webkit-box-shadow: 0px 3.5px 7px rgba(0, 0, 0, .18) !important;
+          box-shadow: 0px 3.5px 7px rgba(0, 0, 0, .18) !important;
+}
+html[data-tenantidnumber=stg] .category-49 .enrol-section-basesubject-year-lesson .enrol-section-basesubject-year-lesson-tab {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 20px;
+  border-bottom: 2px solid #b6d43e !important;
+}
+html[data-tenantidnumber=stg] .category-49 .enrol-section-basesubject-year-lesson .enrol-section-basesubject-year-lesson-tab .active {
+  background: #b6d43e !important;
+  color: #ffffff;
+}
+html[data-tenantidnumber=stg] .category-49 .enrol-section-basesubject-year-lesson-content-child {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 20px;
+  margin: 0 0 20px;
+  padding: 15px;
+}
+html[data-tenantidnumber=stg] .category-49 .enrol-section-basesubject-year-lesson-content-child-curriculum {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+html[data-tenantidnumber=stg] .category-49 .enrol-section-basesubject-year-lesson-content-child-curriculum-month {
+  width: 50px;
+  background: #b6d43e !important;
+}
+html[data-tenantidnumber=stg] .category-49 .enrol-section-basesubject-year-lesson-content-child-curriculum-detail {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+html[data-tenantidnumber=stg] .category-49 .enrol-section-basesubject-timetable-head {
+  display: grid;
+  grid-template-columns: 0.6fr repeat(7, 1fr);
+  grid-gap: 5px;
+  margin: 0 0 20px;
+}
+html[data-tenantidnumber=stg] .category-49 .enrol-section-basesubject-timetable-content {
+  display: grid;
+  grid-template-columns: 0.6fr repeat(7, 1fr);
+  grid-gap: 5px;
+  margin: 0 0 20px;
+}
+html[data-tenantidnumber=stg] .category-49 .enrol-section-basesubject-timetable-content .active {
+  background: #b6d43e !important;
+  border-left: 2px solid #b6d43e !important;
+}
+html[data-tenantidnumber=stg] .category-51 .enrol-section-basesubject-thismonth-lesson-grid {
+  display: grid;
+  grid-template-columns: 0.6fr repeat(3, 1fr);
+  grid-column-gap: 20px;
+  margin: 0 0 20px;
+}
+html[data-tenantidnumber=stg] .category-51 .enrol-section-basesubject-thismonth-lesson-grid-level {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  background: #ffe3ac !important;
+}
+html[data-tenantidnumber=stg] .category-51 .enrol-section-basesubject-thismonth-lesson-grid-level-main::after {
+  content: "";
+  display: block;
+  margin: 20px auto;
+  width: 30px;
+  height: 1px;
+  background: #262626;
+}
+html[data-tenantidnumber=stg] .category-51 .enrol-section-basesubject-thismonth-lesson-grid .enrol-section-basesubject-thismonth-lesson-grid-lesson {
+  -webkit-box-shadow: 0px 3.5px 7px rgba(0, 0, 0, .18) !important;
+          box-shadow: 0px 3.5px 7px rgba(0, 0, 0, .18) !important;
+}
+html[data-tenantidnumber=stg] .category-51 .enrol-section-basesubject-year-lesson .enrol-section-basesubject-year-lesson-tab {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 20px;
+  border-bottom: 2px solid #fcaf17 !important;
+}
+html[data-tenantidnumber=stg] .category-51 .enrol-section-basesubject-year-lesson .enrol-section-basesubject-year-lesson-tab .active {
+  background: #fcaf17 !important;
+  color: #ffffff;
+}
+html[data-tenantidnumber=stg] .category-51 .enrol-section-basesubject-year-lesson-content-child {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 20px;
+  margin: 0 0 20px;
+  padding: 15px;
+}
+html[data-tenantidnumber=stg] .category-51 .enrol-section-basesubject-year-lesson-content-child-curriculum {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+html[data-tenantidnumber=stg] .category-51 .enrol-section-basesubject-year-lesson-content-child-curriculum-month {
+  width: 50px;
+  background: #ffe3ac !important;
+}
+html[data-tenantidnumber=stg] .category-51 .enrol-section-basesubject-year-lesson-content-child-curriculum-detail {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+html[data-tenantidnumber=stg] .category-51 .enrol-section-basesubject-timetable-head {
+  display: grid;
+  grid-template-columns: 0.6fr repeat(7, 1fr);
+  grid-gap: 5px;
+  margin: 0 0 20px;
+}
+html[data-tenantidnumber=stg] .category-51 .enrol-section-basesubject-timetable-content {
+  display: grid;
+  grid-template-columns: 0.6fr repeat(7, 1fr);
+  grid-gap: 5px;
+  margin: 0 0 20px;
+}
+html[data-tenantidnumber=stg] .category-51 .enrol-section-basesubject-timetable-content .active {
+  background: #ffe3ac !important;
+  border-left: 2px solid #fcaf17 !important;
+}
+html[data-tenantidnumber=stg] .category-47 .enrol-section-basesubject-thismonth-lesson-grid {
+  display: grid;
+  grid-template-columns: 0.6fr repeat(3, 1fr);
+  grid-column-gap: 20px;
+  margin: 0 0 20px;
+}
+html[data-tenantidnumber=stg] .category-47 .enrol-section-basesubject-thismonth-lesson-grid-level {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  background: #ffe3ac !important;
+}
+html[data-tenantidnumber=stg] .category-47 .enrol-section-basesubject-thismonth-lesson-grid-level-main::after {
+  content: "";
+  display: block;
+  margin: 20px auto;
+  width: 30px;
+  height: 1px;
+  background: #262626;
+}
+html[data-tenantidnumber=stg] .category-47 .enrol-section-basesubject-thismonth-lesson-grid .enrol-section-basesubject-thismonth-lesson-grid-lesson {
+  -webkit-box-shadow: 0px 3.5px 7px rgba(0, 0, 0, .18) !important;
+          box-shadow: 0px 3.5px 7px rgba(0, 0, 0, .18) !important;
+}
+html[data-tenantidnumber=stg] .category-47 .enrol-section-basesubject-year-lesson .enrol-section-basesubject-year-lesson-tab {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 20px;
+  border-bottom: 2px solid #fcaf17 !important;
+}
+html[data-tenantidnumber=stg] .category-47 .enrol-section-basesubject-year-lesson .enrol-section-basesubject-year-lesson-tab .active {
+  background: #fcaf17 !important;
+  color: #ffffff;
+}
+html[data-tenantidnumber=stg] .category-47 .enrol-section-basesubject-year-lesson-content-child {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 20px;
+  margin: 0 0 20px;
+  padding: 15px;
+}
+html[data-tenantidnumber=stg] .category-47 .enrol-section-basesubject-year-lesson-content-child-curriculum {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+html[data-tenantidnumber=stg] .category-47 .enrol-section-basesubject-year-lesson-content-child-curriculum-month {
+  width: 50px;
+  background: #ffe3ac !important;
+}
+html[data-tenantidnumber=stg] .category-47 .enrol-section-basesubject-year-lesson-content-child-curriculum-detail {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+html[data-tenantidnumber=stg] .category-47 .enrol-section-basesubject-timetable-head {
+  display: grid;
+  grid-template-columns: 0.6fr repeat(7, 1fr);
+  grid-gap: 5px;
+  margin: 0 0 20px;
+}
+html[data-tenantidnumber=stg] .category-47 .enrol-section-basesubject-timetable-content {
+  display: grid;
+  grid-template-columns: 0.6fr repeat(7, 1fr);
+  grid-gap: 5px;
+  margin: 0 0 20px;
+}
+html[data-tenantidnumber=stg] .category-47 .enrol-section-basesubject-timetable-content .active {
+  background: #ffe3ac !important;
+  border-left: 2px solid #fcaf17 !important;
 }
 html[data-tenantidnumber=stg] #page-enrol-index {
   /* ↑↑↑ 重複優先コードここまで ↑↑↑ */
@@ -4462,17 +4954,17 @@ html[data-tenantidnumber=stg] #page-course-view-flexsections .course-detail-bann
 }
 html[data-tenantidnumber=stg] #page-course-view-flexsections .course-detail-banner.infomation {
   background: #F2F7F5;
-  color: #005C3F;
-  border: 2px solid #005C3F;
+  color: #005c3f;
+  border: 2px solid #005c3f;
 }
 html[data-tenantidnumber=stg] #page-course-view-flexsections .course-detail-banner.infomation .course-detail-banner-text-title {
-  color: #005C3F;
+  color: #005c3f;
 }
 html[data-tenantidnumber=stg] #page-course-view-flexsections .course-detail-banner.infomation .course-detail-banner-text-read {
   color: #4d4d4d;
 }
 html[data-tenantidnumber=stg] #page-course-view-flexsections .course-detail-banner.infomation .course-detail-banner-text-button a {
-  background: #005C3F;
+  background: #005c3f;
   color: white;
 }
 html[data-tenantidnumber=stg] #page-course-view-flexsections .flexsections-level-0 > .course-section.main {
@@ -4641,7 +5133,7 @@ html[data-tenantidnumber=stg] .category-45 .howto-table-contents {
   font-weight: bold;
 }
 html[data-tenantidnumber=stg] .category-45 .howto-table-contents a {
-  color: #005C3F;
+  color: #005c3f;
   text-decoration: underline;
 }
 html[data-tenantidnumber=stg] .category-45 .howto-table-contents a:hover, html[data-tenantidnumber=stg] .category-45 .howto-table-contents a:focus {
@@ -4662,6 +5154,6 @@ html[data-tenantidnumber=stg] .category-45 .howto-image img {
   margin: 10px 0 0;
 }
 html[data-tenantidnumber=stg] .category-45 .p-alert {
-  color: #F35053 !important;
+  color: #f35053 !important;
   font-weight: bold;
 }
