@@ -4158,13 +4158,20 @@ html[data-tenantidnumber=stg] .category-53 .enrol-section-basesubject-timetable-
   display: grid;
   grid-template-columns: 0.6fr repeat(7, 1fr);
   grid-gap: 5px;
-  margin: 0 0 20px;
+  margin: 0 0 5px;
+  background: yellow;
 }
 html[data-tenantidnumber=stg] .category-53 .enrol-section-basesubject-timetable-content {
   display: grid;
   grid-template-columns: 0.6fr repeat(7, 1fr);
   grid-gap: 5px;
-  margin: 0 0 20px;
+  margin: 0 0 5px;
+}
+html[data-tenantidnumber=stg] .category-53 .enrol-section-basesubject-timetable-content-child:first-child {
+  background: red;
+}
+html[data-tenantidnumber=stg] .category-53 .enrol-section-basesubject-timetable-content-child {
+  background: yellow;
 }
 html[data-tenantidnumber=stg] .category-53 .enrol-section-basesubject-timetable-content .active {
   background: #28afe7 !important;
@@ -4240,13 +4247,20 @@ html[data-tenantidnumber=stg] .category-48 .enrol-section-basesubject-timetable-
   display: grid;
   grid-template-columns: 0.6fr repeat(7, 1fr);
   grid-gap: 5px;
-  margin: 0 0 20px;
+  margin: 0 0 5px;
+  background: yellow;
 }
 html[data-tenantidnumber=stg] .category-48 .enrol-section-basesubject-timetable-content {
   display: grid;
   grid-template-columns: 0.6fr repeat(7, 1fr);
   grid-gap: 5px;
-  margin: 0 0 20px;
+  margin: 0 0 5px;
+}
+html[data-tenantidnumber=stg] .category-48 .enrol-section-basesubject-timetable-content-child:first-child {
+  background: red;
+}
+html[data-tenantidnumber=stg] .category-48 .enrol-section-basesubject-timetable-content-child {
+  background: yellow;
 }
 html[data-tenantidnumber=stg] .category-48 .enrol-section-basesubject-timetable-content .active {
   background: #28afe7 !important;
@@ -4322,13 +4336,20 @@ html[data-tenantidnumber=stg] .category-52 .enrol-section-basesubject-timetable-
   display: grid;
   grid-template-columns: 0.6fr repeat(7, 1fr);
   grid-gap: 5px;
-  margin: 0 0 20px;
+  margin: 0 0 5px;
+  background: yellow;
 }
 html[data-tenantidnumber=stg] .category-52 .enrol-section-basesubject-timetable-content {
   display: grid;
   grid-template-columns: 0.6fr repeat(7, 1fr);
   grid-gap: 5px;
-  margin: 0 0 20px;
+  margin: 0 0 5px;
+}
+html[data-tenantidnumber=stg] .category-52 .enrol-section-basesubject-timetable-content-child:first-child {
+  background: red;
+}
+html[data-tenantidnumber=stg] .category-52 .enrol-section-basesubject-timetable-content-child {
+  background: yellow;
 }
 html[data-tenantidnumber=stg] .category-52 .enrol-section-basesubject-timetable-content .active {
   background: #b6d43e !important;
@@ -4404,13 +4425,20 @@ html[data-tenantidnumber=stg] .category-49 .enrol-section-basesubject-timetable-
   display: grid;
   grid-template-columns: 0.6fr repeat(7, 1fr);
   grid-gap: 5px;
-  margin: 0 0 20px;
+  margin: 0 0 5px;
+  background: yellow;
 }
 html[data-tenantidnumber=stg] .category-49 .enrol-section-basesubject-timetable-content {
   display: grid;
   grid-template-columns: 0.6fr repeat(7, 1fr);
   grid-gap: 5px;
-  margin: 0 0 20px;
+  margin: 0 0 5px;
+}
+html[data-tenantidnumber=stg] .category-49 .enrol-section-basesubject-timetable-content-child:first-child {
+  background: red;
+}
+html[data-tenantidnumber=stg] .category-49 .enrol-section-basesubject-timetable-content-child {
+  background: yellow;
 }
 html[data-tenantidnumber=stg] .category-49 .enrol-section-basesubject-timetable-content .active {
   background: #b6d43e !important;
@@ -4486,13 +4514,20 @@ html[data-tenantidnumber=stg] .category-51 .enrol-section-basesubject-timetable-
   display: grid;
   grid-template-columns: 0.6fr repeat(7, 1fr);
   grid-gap: 5px;
-  margin: 0 0 20px;
+  margin: 0 0 5px;
+  background: yellow;
 }
 html[data-tenantidnumber=stg] .category-51 .enrol-section-basesubject-timetable-content {
   display: grid;
   grid-template-columns: 0.6fr repeat(7, 1fr);
   grid-gap: 5px;
-  margin: 0 0 20px;
+  margin: 0 0 5px;
+}
+html[data-tenantidnumber=stg] .category-51 .enrol-section-basesubject-timetable-content-child:first-child {
+  background: red;
+}
+html[data-tenantidnumber=stg] .category-51 .enrol-section-basesubject-timetable-content-child {
+  background: yellow;
 }
 html[data-tenantidnumber=stg] .category-51 .enrol-section-basesubject-timetable-content .active {
   background: #ffe3ac !important;
@@ -4568,13 +4603,20 @@ html[data-tenantidnumber=stg] .category-47 .enrol-section-basesubject-timetable-
   display: grid;
   grid-template-columns: 0.6fr repeat(7, 1fr);
   grid-gap: 5px;
-  margin: 0 0 20px;
+  margin: 0 0 5px;
+  background: yellow;
 }
 html[data-tenantidnumber=stg] .category-47 .enrol-section-basesubject-timetable-content {
   display: grid;
   grid-template-columns: 0.6fr repeat(7, 1fr);
   grid-gap: 5px;
-  margin: 0 0 20px;
+  margin: 0 0 5px;
+}
+html[data-tenantidnumber=stg] .category-47 .enrol-section-basesubject-timetable-content-child:first-child {
+  background: red;
+}
+html[data-tenantidnumber=stg] .category-47 .enrol-section-basesubject-timetable-content-child {
+  background: yellow;
 }
 html[data-tenantidnumber=stg] .category-47 .enrol-section-basesubject-timetable-content .active {
   background: #ffe3ac !important;
