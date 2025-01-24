@@ -1,6 +1,7 @@
 $subject-sidebar-width: 250px; // サイドバーの幅
 $subject-body-padding: 40px; // サイドバーとの距離
 $subject-default-max-width: 1120px; // 最大幅
+
 #page-enrol-index {
   .enrol_fee_payment_region {
     right: calc((100vw - 1120px) / 2);
@@ -60,25 +61,30 @@ $subject-default-max-width: 1120px; // 最大幅
     background: white !important;
     border: none !important;
   }
+
   #page.drawers div[role="main"] {
     padding: 0 !important;
   }
+
   .header-maxwidth {
     padding-left: 0 !important;
     padding-right: 0 !important;
   }
+
   a[aria-controls="covercollapsec-dates"] {
     display: none;
     + h3 {
       display: none !important;
     }
   }
+
   .lesson-detail-img {
     width: 100%;
     img {
       width: 100%;
     }
   }
+
   .enrol_buy_as_a_set {
     position: fixed;
     top: calc(5rem + 330px);
@@ -99,6 +105,7 @@ $subject-default-max-width: 1120px; // 最大幅
       justify-content: space-between;
       align-items: center;
       margin: 15px auto 15px;
+
       .enrol_buy_as_a_set_img_child {
         width: 80px;
         height: 30px;
@@ -110,6 +117,7 @@ $subject-default-max-width: 1120px; // 最大幅
         font-size: $lms-font-size-s;
       }
     }
+
     .enrol_buy_as_a_set_detail {
       border-top: 1px solid $cl-graylight;
       padding: 15px 0 0;
@@ -119,6 +127,7 @@ $subject-default-max-width: 1120px; // 最大幅
       }
     }
   }
+
   .enrol_fee_payment_region {
     max-width: 250px !important;
     background: #fff !important;
@@ -206,270 +215,23 @@ $subject-default-max-width: 1120px; // 最大幅
     }
   }
 
-  /* ここから英語 */
+  /* 共通パーツ */
 
-  .global-english {
-    //   @import "../../../foundation/_wpstyle.scss";
-    img {
-      width: 100%;
-    }
-    .global-english-inner {
-      // display: flex;
-      @include responsive-style(768px) {
-        display: flex;
-        flex-direction: column;
-      }
-      .global-english-live-lesson-second {
-        display: flex;
-        flex-direction: row-reverse;
-        gap: 40px;
-        @include responsive-style(768px) {
-          flex-direction: column;
-          gap: 20px;
-          background-color: red; // セミコロンを追加
-        }
-      }
-      .global-english-live-lesson {
-        display: flex;
-        gap: 40px;
-        padding: 15px;
-        border-radius: $border-radius-middle;
-      }
-
-      .global-english-live-lesson-text {
-        flex: 4;
-        @include responsive-style(768px) {
-          order: 1;
-        }
-      }
-
-      .global-english-lesson-images {
-        flex: 6;
-      }
-      @include responsive-style($default-max-width) {
-        max-width: 250px !important;
-      }
-
-      .lesson-content {
-        .lesson-title {
-          font-size: $lms-font-size-l;
-          margin-bottom: 10px;
-        }
-        .global-english-desc {
-          font-size: $lms-font-size-m;
-          line-height: $lineheight-normal;
-        }
-      }
-      .global-english-sample-phrase-figure {
-        iframe {
-          width: 398px; // 幅を398pxに指定
-          height: 222px; // 高さを222pxに指定に応じて固定値も可）
-        }
-      }
-      .global-english-lesson-images {
-        flex: 1;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        figure {
-          width: 413px;
-          height: 307px;
-          overflow: hidden;
-          img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-          }
-        }
-      }
-    }
-
-    .global-english-grid {
-      padding: 20px;
-    }
-    .global-english-item {
-      background-color: $cl-graylightest;
-      padding: 20px;
-      border: 1px solid #ddd;
-      border-radius: $border-radius-small;
-      box-sizing: border-box;
-    }
-    .coursedetail-info-fee {
-      margin-bottom: 10px;
-    }
-    .coursedetail-info-fee-benefits {
-      display: grid;
-      max-width: 600px;
-      width: 100%;
-      grid-template-columns: repeat(2, 1fr);
-      grid-column-gap: 10px;
-      grid-row-gap: 10px;
-      background: red;
-    }
+  .enrol-section {
+    width: 100%;
+    margin: 0 0 75px;
   }
 
-  .lesson-title {
-    font-size: $lms-font-size-l;
-    font-weight: bold;
-    margin-bottom: 10px;
-  }
-
-  .global-english-desc {
-    font-size: 14px;
-    line-height: $lineheight-normal;
-    color: $cl-black;
-  }
-
-  .global-english-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 20px;
-    padding: 20px;
-  }
-
-  .global-english-item {
-    background-color: $cl-graylightest;
-    padding: 20px;
-    border: 1px solid $cl-white;
-    border-radius: $border-radius-small;
-    box-sizing: border-box;
-  }
-
-  .lesson-title {
+  h2.enrol-title {
     @include text-xl-black;
     font-weight: bold;
     margin-bottom: 10px;
+    display: block !important;
   }
-
-  .global-english-desc {
-    @include text-m-black;
-    line-height: $lineheight-normal;
-    color: $cl-black;
-  }
-
-  .coursedetail-info-inner {
-    h3.coursedetail-course-info {
-      margin-top: 64px;
-      margin-bottom: 24px;
-    }
-  }
-
-  .box-container {
-    background-color: $cl-graylightest;
-    display: flex;
-    flex-direction: column;
-    gap: 60px;
-    padding: 40px 32px;
-    border-radius: $border-radius-big;
-    .coursedetail-info-fee-benefits {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 16px;
-      max-width: 600px;
-      // 全部白の場合、定義された変数では表現できない
-      background: $cl-white;
-      border-radius: $border-radius-big;
-      padding: 20px;
-      position: relative;
-      &::after {
-        content: "";
-        position: absolute;
-        top: -16px;
-        left: 20px;
-        border-left: 16px solid transparent;
-        border-right: 16px solid transparent;
-        // 全部白の場合、定義された変数では表現できない
-        border-bottom: 16px solid $cl-white;
-        width: 0;
-        height: 0;
-      }
-      .grid-child {
-        display: flex;
-        align-items: center;
-        font-size: $lms-font-size-m;
-        font-weight: bold;
-        color: $cl-black;
-        background: transparent;
-        width: 48%;
-        text-align: left;
-      }
-    }
-  }
-
-  .coursedetail-info-fee-title {
-    font-size: $lms-font-size-xl;
-    font-weight: bold;
-    margin-bottom: 15px;
-  }
-
-  .coursedetail-info-fee-price {
-    margin-bottom: 15px; // 余白を追加
-  }
-
-  .price {
-    font-size: $lms-font-size-xxl;
-    color: $cl-black;
-    font-weight: bold;
-  }
-
-  .small-text {
-    font-size: $lms-font-size-m;
-    color: $cl-black;
-    margin-left: 0.2em;
-  }
-
-  .price,
-  .small-text {
-    display: inline;
-  }
-
-  .coursedetail-info-course-desc {
-    margin-bottom: 0;
-  }
-
-  .image-container {
-    display: flex;
-    gap: 20px;
-    justify-content: flex-start;
-    align-items: center;
-    flex-wrap: wrap;
-    margin-top: 0;
-    img.stage {
-      width: 100%;
-      max-width: 300px;
-      height: auto;
-      border-radius: $border-radius-middle;
-      display: block;
-    }
-  }
-
-  table {
-    width: 100%;
-    // 全部白の場合、定義された変数では表現できない
-    background-color: $cl-white;
-    border-collapse: collapse;
-    text-align: center;
-    font-family: Arial, sans-serif;
-    // figmaより、53pxが指定されていたので
-    margin-bottom: 53px;
-    th,
-    td {
-      border: 1px solid $cl-black;
-      padding: 10px;
-    }
-    td {
-      vertical-align: middle;
-    }
-    td:first-child {
-      font-weight: bold;
-    }
-    td.has-text-align-center {
-      line-height: $lineheight-normal !important;
-      padding: 0.8em 0.5em !important;
-    }
-  }
-
-  .wp-block-spacer {
-    height: 16px;
+  .enrol-section-howto {
+    display: grid;
+    grid-template-columns: 140px 1fr;
+    grid-column-gap: 20px;
+    grid-row-gap: 20px;
   }
 }

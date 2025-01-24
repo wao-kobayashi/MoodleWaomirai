@@ -1,0 +1,134 @@
+// 各カテゴリごとにスタイルを適用
+@each $category, $style-name in $course-styles {
+  #{$category} {
+    // 今月の授業のレイアウト設定
+    .enrol-section-basesubject-thismonth-lesson-grid {
+      display: grid; // グリッドレイアウトで配置
+      grid-template-columns: 0.6fr repeat(3, 1fr); // 左に0.6fr、右に3列均等配置
+      grid-column-gap: 20px; // 各列の間隔
+      margin: 0 0 20px; // 下に余白
+
+      // レベル情報のデザイン
+      &-level {
+        display: flex; // フレックスボックスで配置
+        justify-content: center; // 中央寄せ
+        align-items: center; // 縦方向で中央寄せ
+        flex-direction: column; // 縦方向の配置
+        background: map-get(
+          $common-course-styles,
+          $style-name,
+          pale-color
+        ) !important; // カテゴリごとの淡い背景色を設定
+
+        // レベルメイン部分のデザイン
+        &-main {
+          &::after {
+            content: ""; // 視覚的な区切り線
+            display: block;
+            margin: 20px auto;
+            width: 30px; // 区切り線の幅
+            height: 1px; // 区切り線の高さ
+            background: $cl-black; // 区切り線の色
+          }
+        }
+      }
+
+      // 今月の授業ごとのカードスタイル
+      .enrol-section-basesubject-thismonth-lesson-grid-lesson {
+        @include lms-boxshadow; // シャドウを適用
+      }
+    }
+
+    // 年間の授業カリキュラム
+    .enrol-section-basesubject-year-lesson {
+      .enrol-section-basesubject-year-lesson-tab {
+        display: flex; // タブを横並びに配置
+        gap: 20px; // タブ間の間隔
+        border-bottom: 2px
+          solid
+          map-get(
+            $common-course-styles,
+            $style-name,
+            main-color
+          ) !important; // タブ下の線
+
+        // アクティブなタブのスタイル
+        .active {
+          background: map-get(
+            $common-course-styles,
+            $style-name,
+            main-color
+          ) !important; // アクティブなタブの背景色
+          color: $cl-white; // アクティブなタブの文字色
+        }
+      }
+    }
+
+    // 年間カリキュラムの詳細コンテンツ
+    .enrol-section-basesubject-year-lesson-content-child {
+      display: grid; // グリッドレイアウトで配置
+      grid-template-columns: repeat(2, 1fr); // 2列配置
+      grid-gap: 20px; // カード間の間隔
+      margin: 0 0 20px; // 下に余白
+      padding: 15px; // コンテンツ全体の余白
+
+      // カリキュラム項目
+      &-curriculum {
+        display: flex; // フレックスボックスで配置
+        &-month {
+          width: 50px; // 月表示部分の幅
+          background: map-get(
+            $common-course-styles,
+            $style-name,
+            pale-color
+          ) !important; // 月部分の背景色
+        }
+        &-detail {
+          flex: 1; // 残りのスペースを占有
+        }
+      }
+    }
+
+    // 時間割ヘッダーのレイアウト
+    .enrol-section-basesubject-timetable-head {
+      display: grid; // グリッドレイアウトで配置
+      grid-template-columns: 0.6fr repeat(7, 1fr); // 左に0.6fr、右に7列均等配置
+      grid-gap: 5px; // 各列の間隔
+      margin: 0 0 5px; // 下に余白
+      background: yellow; // ダミーカラーで確認用
+    }
+
+    // 時間割のコンテンツ部分
+    .enrol-section-basesubject-timetable-content {
+      display: grid; // グリッドレイアウトで配置
+      grid-template-columns: 0.6fr repeat(7, 1fr); // 同上
+      grid-gap: 5px; // 各列の間隔
+      margin: 0 0 5px; // 下に余白
+
+      // 最初の週に背景色を設定
+      &-child:first-child {
+        background: red; // 確認用のダミーカラー
+      }
+
+      &-child {
+        background: yellow; // 確認用のダミーカラー
+      }
+
+      // アクティブな時間割のスタイル
+      .active {
+        background: map-get(
+          $common-course-styles,
+          $style-name,
+          pale-color
+        ) !important; // アクティブな背景色
+        border-left: 2px
+          solid
+          map-get(
+            $common-course-styles,
+            $style-name,
+            main-color
+          ) !important; // 左線で強調
+      }
+    }
+  }
+}

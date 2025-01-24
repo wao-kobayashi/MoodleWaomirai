@@ -1,7 +1,3 @@
-p|parts-course-detail.pug
-p|これは、テストのページです
-p|これも、テストのページです
-
 section.global-english
   .global-english-inner
 
@@ -9,37 +5,46 @@ section.global-english
     //- https://storage.pardot.com/1026513/1727340661pAjGn14E/about01.png
     .global-english-live-lesson
       .global-english-live-lesson-text
-        h3.lesson-title
+        h3.enrol-title 
           | 脱授業！
           br
           | ライブ形式のレッスンで
           br
           |楽しく学べる
+        //pcは画像非表示
+        .c-pc-hidden 
+          img.global-english-lesson-img(src="https://storage.pardot.com/1026513/1727340661pAjGn14E/about01.png" alt="レッスン風景1")
         p.global-english-desc
           | 日本語の通じるネイティブ講師＆日本人講師が、ユーモアたっぷりに英語を教えてくれるから、
           | レッスンの時間が待ち遠しくなる！ゲームやアクティビティを交えながら、
           | まるで遊んでいるかのように学べるライブレッスン。
 
-      .global-english-lesson-images
+      .global-english-lesson-images.c-sp-hidden 
+        //spは画像非表示
         figure.global-english-lesson-figure
           img.global-english-lesson-img(src="https://storage.pardot.com/1026513/1727340661pAjGn14E/about01.png" alt="レッスン風景1")
 
     //- // 英語はスポーツと同じ！練習が重要
     .global-english-live-lesson.global-english-live-lesson-second
       .global-english-live-lesson-text
-        h3.lesson-title
+        h3.enrol-title 
           |英語はスポーツと同じ！
           br
           |練習が重要。
           br
           |目からウロコの英会話トレーニングで英語力アップ！
+        .c-pc-hidden 
+          figure.global-english-sample-phrase-figure.
+                  <iframe src="https://player.vimeo.com/video/1013057465?autoplay=1&muted=1&background=1"
+            frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+
         p.global-english-desc
           | テニスが上手くなりたい人が、練習もせず試合に出たらどうなりますか？
           | 英会話も同じです。いきなり外国人と話す機会があっても、練習をしていなければ
           | スムーズに言葉が出ないのは当然です。リズムを使って単語単位からカタマリ単位で英語をインプットしたり、
           | ひらがなで発音力をあげるなど、斬新な英会話トレーニングをご用意しています。
 
-      .global-english-sample-phrase
+      .global-english-sample-phrase.c-sp-hidden 
         figure.global-english-sample-phrase-figure.
                 <iframe src="https://player.vimeo.com/video/1013057465?autoplay=1&muted=1&background=1"
           frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
@@ -47,16 +52,20 @@ section.global-english
     //- // レッスンを楽しみながら自然に慣れる、https://go.waomirai.com/l/1026513/2024-09-26/h4gcq/1026513/1727333515lZs4Z30Z/enjoy_detail03.png
     .global-english-live-lesson
       .global-english-live-lesson-text
-        h3.lesson-title 
+        h3.enrol-title  
           |レッスン後も
           br
           |楽しく英語に触れることができる
+        .c-pc-hidden
+          figure.global-english-lesson-figure
+            img.global-english-lesson-img(src="https://go.waomirai.com/l/1026513/2024-09-26/h4gcq/1026513/1727333515lZs4Z30Z/enjoy_detail03.png" alt="レッスン風景")
+            img.global-english-lesson-img2(src="https://go.waomirai.com/l/1026513/2024-09-26/h4gkb/1026513/1727340226wwoQZaVS/lessomovie_2.png" alt="friendsの画像")
         p.global-english-desc
           | 学校の英語やテキスト型英会話スクールでは、どんどん次のページに進み、
           | 繰り返しがありません。英語を定着させるには、何度も同じフレーズに触れる事が重要です。
           | 私たちのプログラムでは、ライブレッスンの前や後に何度も練習できる動画レッスンをご用意しています。
           | “覚える”暗記型の英語から、何度も触れて“残る”英語に。
-      .global-english-lesson-images
+      .global-english-lesson-images.c-sp-hidden
         figure.global-english-lesson-figure
           img.global-english-lesson-img(src="https://go.waomirai.com/l/1026513/2024-09-26/h4gcq/1026513/1727333515lZs4Z30Z/enjoy_detail03.png" alt="レッスン風景")
           img.global-english-lesson-img2(src="https://go.waomirai.com/l/1026513/2024-09-26/h4gkb/1026513/1727340226wwoQZaVS/lessomovie_2.png" alt="friendsの画像")
@@ -75,9 +84,9 @@ section.coursedetail-info
             | 英語が少し話せるなら、「LEVEL2:NATION STAGE」で日本について説明できるフレーズを身につけていきます。
             | 体験授業では両方のステージを受講することができ、体験授業終了後にどちらかのステージを選択することができます。
             | まずは両方受講し自分に合ったステージを決めましょう。
-      .image-container
-            img.stage(src="https://go.waomirai.com/l/1026513/2024-10-09/h5bvc/1026513/172845360082pcJi9y/level1.jpg", alt="レベル1の画像")
-            img.stage(src="https://go.waomirai.com/l/1026513/2024-10-09/h5bv8/1026513/17284532362uShdGJ2/level2.jpg", alt="レベル2の画像")
+          .image-container
+                img.stage(src="https://go.waomirai.com/l/1026513/2024-10-09/h5bvc/1026513/172845360082pcJi9y/level1.jpg", alt="レベル1の画像")
+                img.stage(src="https://go.waomirai.com/l/1026513/2024-10-09/h5bv8/1026513/17284532362uShdGJ2/level2.jpg", alt="レベル2の画像")
 
       //----- 受講費用 -----
       .coursedetail-info-fee

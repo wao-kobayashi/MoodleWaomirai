@@ -1,29 +1,50 @@
+body.fixed {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  left: 0;
+}
+
 .c-modal {
   position: fixed;
   align-items: center;
   justify-content: center;
-  z-index: 99999;
   left: 0;
   right: 0;
   top: 0;
   bottom: 0;
   margin: auto;
   display: flex;
-  justify-content: center;
-  align-items: center;
-  background: $overlay;
+  z-index: 99999;
+  width: 90%;
+  max-width: 450px;
+  display: inline-table;
+  border-radius: $border-radius-middle;
+  height: auto;
+  background: white;
+  &-wrap-subject {
+    padding: 0px 0px 40px !important;
+    img {
+      border-radius: 8px 8px 0 0 !important;
+      margin: 0px 0px 15px !important;
+    }
+    .c-modal-wrap-button {
+      margin: 0px 30px 5px !important;
+      height: 55px;
+      font-size: $lms-font-size-l !important;
+    }
+  }
   &-wrap {
-    width: 90%;
-    max-width: 450px;
-    background: white;
-    padding: 56px 20px 40px;
-    border-radius: $border-radius-middle;
     position: relative;
+    padding: 56px 20px 40px;
     &-title {
       @include text-l-black;
       margin: 0 auto 16px;
       font-weight: bold;
       text-align: center;
+    }
+    &-image {
+      margin: 0 auto 32px;
     }
 
     &-text {
@@ -31,11 +52,23 @@
       margin: 0 auto 32px;
     }
 
+    &-button-wrap {
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+      width: 100%;
+      a {
+        width: 100%;
+        cursor: pointer;
+      }
+    }
+
     &-button {
       @include button-style-primary;
       @include button-size-middle;
       padding: 0 20px;
       margin: 0 auto;
+      display: flex;
       &:hover {
         text-decoration: none !important;
       }
@@ -67,11 +100,12 @@
   }
 }
 
-// .c-modal-bg {
-//   position: fixed;
-//   width: 100%;
-//   height: 100%;
-//   z-index: 9999;
-//   top: 0;
-//   left: 0;
-// }
+.c-modal-bg {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
+  top: 0;
+  left: 0;
+  background: $overlay;
+}
