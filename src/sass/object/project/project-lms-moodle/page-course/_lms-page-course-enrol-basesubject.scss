@@ -1,7 +1,9 @@
 // 各カテゴリごとにスタイルを適用
 @each $category, $style-name in $course-styles {
   #{$category} {
+    // ============================
     // 今月の授業のレイアウト設定
+    // ============================
     .enrol-section-basesubject-thismonth-lesson-grid {
       display: grid; // グリッドレイアウトで配置
       grid-template-columns: 0.6fr repeat(3, 1fr); // 左に0.6fr、右に3列均等配置
@@ -12,8 +14,11 @@
       &-level {
         display: flex; // フレックスボックスで配置
         justify-content: center; // 中央寄せ
+
         align-items: center; // 縦方向で中央寄せ
         flex-direction: column; // 縦方向の配置
+        border-radius: 10px;
+        width: 80%;
         background: map-get(
           $common-course-styles,
           $style-name,
@@ -33,13 +38,24 @@
         }
       }
 
+      .enrol-section-basesubject-thismonth-lesson-grid-lesson-banner {
+        img {
+          border-radius: 10px;
+          width: calc(100% - 30px);
+          margin: 0 15px;
+        }
+      }
+
       // 今月の授業ごとのカードスタイル
       .enrol-section-basesubject-thismonth-lesson-grid-lesson {
+        border-radius: 10px;
         @include lms-boxshadow; // シャドウを適用
       }
     }
 
+    // ============================
     // 年間の授業カリキュラム
+    // ============================
     .enrol-section-basesubject-year-lesson {
       .enrol-section-basesubject-year-lesson-tab {
         display: flex; // タブを横並びに配置
@@ -75,6 +91,7 @@
       // カリキュラム項目
       &-curriculum {
         display: flex; // フレックスボックスで配置
+
         &-month {
           width: 50px; // 月表示部分の幅
           background: map-get(
@@ -83,13 +100,16 @@
             pale-color
           ) !important; // 月部分の背景色
         }
+
         &-detail {
           flex: 1; // 残りのスペースを占有
         }
       }
     }
 
+    // ============================
     // 時間割ヘッダーのレイアウト
+    // ============================
     .enrol-section-basesubject-timetable-head {
       display: grid; // グリッドレイアウトで配置
       grid-template-columns: 0.6fr repeat(7, 1fr); // 左に0.6fr、右に7列均等配置
@@ -98,23 +118,33 @@
       background: yellow; // ダミーカラーで確認用
     }
 
+    // ============================
     // 時間割のコンテンツ部分
+    // ============================
     .enrol-section-basesubject-timetable-content {
       display: grid; // グリッドレイアウトで配置
       grid-template-columns: 0.6fr repeat(7, 1fr); // 同上
       grid-gap: 5px; // 各列の間隔
       margin: 0 0 5px; // 下に余白
 
-      // 最初の週に背景色を設定
+      // 1列目(時間帯セル)の見た目を改善
+      &-child:nth-child(1) {
+        display: flex; // 横並び
+        align-items: center; // 縦中央
+        justify-content: center; // 横中央
+        font-weight: bold; // 見た目のアクセントをつけたい場合
+      }
+
+      // 最初の週だけ背景色を変える（元のコードを維持）
       &-child:first-child {
         background: red; // 確認用のダミーカラー
       }
 
       &-child {
-        background: yellow; // 確認用のダミーカラー
+        background: yellow;
       }
 
-      // アクティブな時間割のスタイル
+      // アクティブな時間割のスタイル（既存）
       .active {
         background: map-get(
           $common-course-styles,
@@ -128,6 +158,26 @@
             $style-name,
             main-color
           ) !important; // 左線で強調
+
+        // 科目名・レベルを縦方向にまとめる例
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+
+      // --- 開始/終了時刻の間にハイフンを挿入する例 ---
+      // Pugでは「.enrol-section-basesubject-timetable-content-child-start」と
+      // 「.enrol-section-basesubject-timetable-content-child-end」に分かれている想定
+      &-child-start {
+        display: inline-block;
+        &::after {
+          content: " - ";
+          margin: 0 4px; // ハイフンと終了時刻の間隔
+        }
+      }
+      &-child-end {
+        display: inline-block;
       }
     }
   }
