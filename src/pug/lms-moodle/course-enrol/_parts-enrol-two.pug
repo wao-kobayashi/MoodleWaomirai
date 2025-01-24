@@ -1,26 +1,58 @@
 //ここにヘッダー
 .enrol-header 
+  img(src="https://storage.pardot.com/1026513/1736840427o2SGoRvR/fv_subject_two.png", alt="ヘッダーの画像")
 
 //セットでお得に学べる
+// セットでお得に学べる
 section.enrol-section
-  h2.enrol-title
-      |セットでお得に学べる!
-  .enrol-text 
-    |テキストテキストテキストテキストテキスト
-  .multiselct-price 
-         .multiselct-price-child    
-            |１科目 
-         .multiselct-price-child
-            |２科目 
-         .multiselct-price-child 
-            |３科目 
+  h2.enrol-title.top
+    | セットでお得に学べる!
+  .enrol-text
+    | 「哲学(思考力)」「科学リテラシー」「経済(お金)」の中から2教科選んで受講できます
+    br
+  .enrol-discount 
+    | ※英語・プログラミングはセット割対象外となります
+
+  #page-enrol-index
+    .multiselct-price
+      // ---- 1科目 ----
+      .multiselct-price-child
+        .price-subject
+          span.subject-number 1
+          span.subject-text 科目を受講
+        .price-fee
+          .price-fee-yen.black ¥6,600
+          .price-fee-month /月
+        a.price-detail(href="") 詳細を見る
+
+      // ---- 2科目（active）----
+      .multiselct-price-child.active
+        .price-discount 2,200円お得！
+        .price-subject
+          span.subject-number 2
+          span.subject-text 科目を受講
+        .price-fee
+          .price-fee-yen.green ¥12,000
+          .price-fee-month.green /月
+        .price-note このページです
+
+      // ---- 3科目 ----
+      .multiselct-price-child
+        .price-subject
+          span.subject-number 3
+          span.subject-text 科目を受講
+        .price-fee
+          .price-fee-yen.black ¥15,400
+          .price-fee-month /月
+        a.price-detail(href="") 詳細を見る
 
 section.enrol-section
-  h2.enrol-title
+  h2.enrol-title-2
       |受講パターン例
-  .enrol-text 
-    |テキストテキストテキストテキストテキスト
-  .enrol-section-img
+  .enrol-text-2 
+    |ワオ未来塾は飛び級制を採用。授業には推奨学年を設定していますが、子どもの理解度に応じて高いレベルの授業を選択することができます。そのため、学年に縛られず、自由なペースで学びを深めることができます。
+  .enrol-section-img-2
+    img(src="https://go.waomirai.com/l/1026513/2025-01-14/hbt8k/1026513/1736840428WBGzyzqh/img_case_two.png", alt="")
 
 //受講開始までの流れ
 +enrol-howto-register

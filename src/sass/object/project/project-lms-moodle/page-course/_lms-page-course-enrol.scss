@@ -220,18 +220,61 @@ $subject-default-max-width: 1120px; // 最大幅
   .enrol-section {
     width: 100%;
     margin: 0 0 75px;
-  }
 
-  h2.enrol-title {
-    @include text-xl-black;
-    font-weight: bold;
-    margin-bottom: 10px;
-    display: block !important;
-  }
-  .enrol-section-howto {
-    display: grid;
-    grid-template-columns: 140px 1fr;
-    grid-column-gap: 20px;
-    grid-row-gap: 20px;
+    h2.enrol-title {
+      @include text-xl-black;
+      font-weight: bold;
+      margin-top: 20px;
+      margin-bottom: 20px;
+      display: block !important;
+    }
+
+    .enrol-discount {
+      font-size: $lms-font-size-m;
+      margin-top: 4px;
+    }
+
+    .enrol-section-img {
+      @include responsive-style(768px) {
+        display: none;
+      }
+    }
+
+    .enrol-section-howto {
+      display: grid;
+      grid-template-columns: 140px 1fr;
+      grid-column-gap: 20px;
+      // Stepの枠開け
+      grid-row-gap: 30px;
+      @include responsive-style(768px) {
+        grid-template-columns: 110px 1fr;
+      }
+    }
+
+    .enrol-step-lbl {
+      color: $cl-waogreen;
+      font-size: $lms-font-size-l;
+      @include responsive-style(768px) {
+        font-size: $lms-font-size-ml;
+      }
+    }
+
+    .enrol-step-heading {
+      color: $cl-black;
+      font-size: $lms-font-size-xl;
+      font-weight: bold;
+
+      @include responsive-style(768px) {
+        font-size: $lms-font-size-l;
+      }
+    }
+
+    .enrol-step-desc {
+      color: $cl-black;
+      font-size: $lms-font-size-ml;
+      @include responsive-style(768px) {
+        font-size: $lms-font-size-m;
+      }
+    }
   }
 }

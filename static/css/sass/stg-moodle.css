@@ -4072,21 +4072,73 @@ html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo .enrol-secti
   width: 100%;
   margin: 0 0 75px;
 }
-html[data-tenantidnumber=stg] #page-enrol-index h2.enrol-title,
-html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo h2.enrol-title {
+html[data-tenantidnumber=stg] #page-enrol-index .enrol-section h2.enrol-title,
+html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo .enrol-section h2.enrol-title {
   font-size: 24px;
   color: #262626;
   line-height: 1.5;
   font-weight: bold;
-  margin-bottom: 10px;
+  margin-top: 20px;
+  margin-bottom: 20px;
   display: block !important;
 }
-html[data-tenantidnumber=stg] #page-enrol-index .enrol-section-howto,
-html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo .enrol-section-howto {
+html[data-tenantidnumber=stg] #page-enrol-index .enrol-section .enrol-discount,
+html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo .enrol-section .enrol-discount {
+  font-size: 14px;
+  margin-top: 4px;
+}
+@media screen and (max-width: 768px) {
+  html[data-tenantidnumber=stg] #page-enrol-index .enrol-section .enrol-section-img,
+  html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo .enrol-section .enrol-section-img {
+    display: none;
+  }
+}
+html[data-tenantidnumber=stg] #page-enrol-index .enrol-section .enrol-section-howto,
+html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo .enrol-section .enrol-section-howto {
   display: grid;
   grid-template-columns: 140px 1fr;
   grid-column-gap: 20px;
-  grid-row-gap: 20px;
+  grid-row-gap: 30px;
+}
+@media screen and (max-width: 768px) {
+  html[data-tenantidnumber=stg] #page-enrol-index .enrol-section .enrol-section-howto,
+  html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo .enrol-section .enrol-section-howto {
+    grid-template-columns: 110px 1fr;
+  }
+}
+html[data-tenantidnumber=stg] #page-enrol-index .enrol-section .enrol-step-lbl,
+html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo .enrol-section .enrol-step-lbl {
+  color: #005C3F;
+  font-size: 20px;
+}
+@media screen and (max-width: 768px) {
+  html[data-tenantidnumber=stg] #page-enrol-index .enrol-section .enrol-step-lbl,
+  html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo .enrol-section .enrol-step-lbl {
+    font-size: 16px;
+  }
+}
+html[data-tenantidnumber=stg] #page-enrol-index .enrol-section .enrol-step-heading,
+html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo .enrol-section .enrol-step-heading {
+  color: #262626;
+  font-size: 24px;
+  font-weight: bold;
+}
+@media screen and (max-width: 768px) {
+  html[data-tenantidnumber=stg] #page-enrol-index .enrol-section .enrol-step-heading,
+  html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo .enrol-section .enrol-step-heading {
+    font-size: 20px;
+  }
+}
+html[data-tenantidnumber=stg] #page-enrol-index .enrol-section .enrol-step-desc,
+html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo .enrol-section .enrol-step-desc {
+  color: #262626;
+  font-size: 16px;
+}
+@media screen and (max-width: 768px) {
+  html[data-tenantidnumber=stg] #page-enrol-index .enrol-section .enrol-step-desc,
+  html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo .enrol-section .enrol-step-desc {
+    font-size: 14px;
+  }
 }
 html[data-tenantidnumber=stg] .category-53 .enrol-section-basesubject-thismonth-lesson-grid {
   display: grid;
@@ -4913,6 +4965,9 @@ html[data-tenantidnumber=stg] .course-228 .page-context-header, html[data-tenant
 html[data-tenantidnumber=stg] .course-229 .page-context-header, html[data-tenantidnumber=stg] .category-271 .page-context-header {
   display: none;
 }
+html[data-tenantidnumber=stg] #page-enrol-index {
+  margin-top: 36px;
+}
 html[data-tenantidnumber=stg] #page-enrol-index .multiselct-price {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -4928,6 +4983,133 @@ html[data-tenantidnumber=stg] #page-enrol-index .multiselct-price .multiselct-pr
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
+  background-color: #ffffff;
+  border-radius: 8px;
+  padding: 20px;
+  text-align: center;
+}
+html[data-tenantidnumber=stg] #page-enrol-index .multiselct-price .multiselct-price-child .price-subject {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 2px;
+  color: #262626;
+}
+html[data-tenantidnumber=stg] #page-enrol-index .multiselct-price .multiselct-price-child .price-subject .subject-number {
+  font-size: 30px;
+  font-weight: bold;
+  color: #262626;
+  margin-right: 4px;
+}
+html[data-tenantidnumber=stg] #page-enrol-index .multiselct-price .multiselct-price-child .price-subject .subject-text {
+  font-size: 24px;
+  font-weight: normal;
+  color: #262626;
+}
+html[data-tenantidnumber=stg] #page-enrol-index .multiselct-price .multiselct-price-child .price-fee {
+  margin-bottom: 12px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: baseline;
+      -ms-flex-align: baseline;
+          align-items: baseline;
+}
+html[data-tenantidnumber=stg] #page-enrol-index .multiselct-price .multiselct-price-child .price-fee .price-fee-yen {
+  font-size: 30px;
+}
+html[data-tenantidnumber=stg] #page-enrol-index .multiselct-price .multiselct-price-child .price-fee .price-fee-yen.green {
+  color: #005C3F;
+  font-weight: bold;
+}
+html[data-tenantidnumber=stg] #page-enrol-index .multiselct-price .multiselct-price-child .price-fee .price-fee-yen.black {
+  color: #262626;
+}
+html[data-tenantidnumber=stg] #page-enrol-index .multiselct-price .multiselct-price-child .price-fee .price-fee-month {
+  font-size: 16px;
+  margin-left: 4px;
+  font-weight: bold;
+}
+html[data-tenantidnumber=stg] #page-enrol-index .multiselct-price .multiselct-price-child .price-fee .price-fee-month.green {
+  color: #005C3F;
+  font-weight: bold;
+}
+html[data-tenantidnumber=stg] #page-enrol-index .multiselct-price .multiselct-price-child .price-detail {
+  display: inline-block;
+  color: #005C3F;
+  font-size: 14px;
+  text-decoration: underline;
+  margin-top: 10px;
+}
+html[data-tenantidnumber=stg] #page-enrol-index .multiselct-price .multiselct-price-child .price-note {
+  margin-top: 8px;
+  font-size: 14px;
+  color: #4d4d4d;
+}
+html[data-tenantidnumber=stg] #page-enrol-index .multiselct-price .multiselct-price-child.active {
+  position: relative;
+  border: 3px solid #005C3F;
+}
+html[data-tenantidnumber=stg] #page-enrol-index .multiselct-price .multiselct-price-child.active .price-discount {
+  position: absolute;
+  top: -20px;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  display: inline-block;
+  background-color: #005C3F;
+  color: #ffffff;
+  border-radius: 9999px;
+  padding: 5px 50px;
+  font-size: 16px;
+  -webkit-box-shadow: 0 2px 6px rgba(0, 0, 0, .15);
+          box-shadow: 0 2px 6px rgba(0, 0, 0, .15);
+  white-space: nowrap;
+}
+@media screen and (max-width: 768px) {
+  html[data-tenantidnumber=stg] .enrol-title-2,
+  html[data-tenantidnumber=stg] .enrol-text-2,
+  html[data-tenantidnumber=stg] .enrol-section-img-2 {
+    display: none;
+  }
+  html[data-tenantidnumber=stg] .enrol-header {
+    margin: 0;
+    padding: 0;
+  }
+  html[data-tenantidnumber=stg] .multiselct-price {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    gap: 20px;
+    width: 100%;
+  }
+  html[data-tenantidnumber=stg] .multiselct-price-child {
+    -webkit-box-flex: 0;
+        -ms-flex: none;
+            flex: none;
+    width: calc(100% - 40px);
+    margin: 0 auto;
+    padding: 20px;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    border-radius: 8px;
+    background-color: #ffffff;
+  }
+  html[data-tenantidnumber=stg] .price-discount {
+    position: absolute;
+    top: -20px;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+            transform: translateX(-50%);
+    white-space: nowrap;
+    text-align: center;
+  }
 }
 html[data-tenantidnumber=stg] #page-course-view-flexsections .course-detail-banner {
   padding: 25px 20px 30px;
