@@ -244,7 +244,8 @@ $subject-default-max-width: 1120px; // 最大幅
       display: grid;
       grid-template-columns: 140px 1fr;
       grid-column-gap: 20px;
-      grid-row-gap: 20px;
+      // Stepの枠開け
+      grid-row-gap: 30px;
       @include responsive-style(768px) {
         grid-template-columns: 110px 1fr;
       }

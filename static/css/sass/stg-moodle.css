@@ -4049,7 +4049,7 @@ html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo .enrol-secti
   display: grid;
   grid-template-columns: 140px 1fr;
   grid-column-gap: 20px;
-  grid-row-gap: 20px;
+  grid-row-gap: 30px;
 }
 @media screen and (max-width: 768px) {
   html[data-tenantidnumber=stg] #page-enrol-index .enrol-section .enrol-section-howto,
