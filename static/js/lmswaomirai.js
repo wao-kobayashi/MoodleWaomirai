@@ -1,135 +1,72 @@
-const SubjectIds = {
-  subjects: [
-    { id: 212, name: "哲学", key: "philosophy", type: "main" },
-    { id: 211, name: "科学", key: "science", type: "main" },
-    { id: 213, name: "経済", key: "economy", type: "main" },
-    { id: 229, name: "3科目セット", key: "threesubjectpack", type: "main" },
-    { id: 228, name: "2科目セット", key: "twosubjectpack", type: "main" },
-    { id: 236, name: "グローバル英語", key: "globalenglish", type: "main" },
-    { id: 235, name: "プログラミング", key: "programming", type: "main" },
+$(document).ready(function () {
+  const tenantIdNumber = $("html").data("tenantidnumber");
 
-    // 子科目
-    {
-      id: 221,
-      name: "哲学 L1",
-      key: "philosophy",
-      parentKey: "philosophy",
-      type: "child",
-      level: "L1",
-    },
-    {
-      id: 225,
-      name: "哲学 L2",
-      key: "philosophy",
-      parentKey: "philosophy",
-      type: "child",
-      level: "L2",
-    },
-    {
-      id: 242,
-      name: "哲学 L3",
-      key: "philosophy",
-      parentKey: "philosophy",
-      type: "child",
-      level: "L3",
-    },
-    {
-      id: 243,
-      name: "哲学 L4",
-      key: "philosophy",
-      parentKey: "philosophy",
-      type: "child",
-      level: "L4",
-    },
+  // tenantIdNumberごとにsubjectsを定義
+  let subjects = [];
+  if (tenantIdNumber === "lmswaomirai") {
+  // ==============================
+  // 科目データの定義
+  // ==============================
 
-    {
-      id: 223,
-      name: "科学 L1",
-      key: "science",
-      parentKey: "science",
-      type: "child",
-      level: "L1",
-    },
-    {
-      id: 222,
-      name: "科学 L2",
-      key: "science",
-      parentKey: "science",
-      type: "child",
-      level: "L2",
-    },
-    {
-      id: 244,
-      name: "科学 L3",
-      key: "science",
-      parentKey: "science",
-      type: "child",
-      level: "L3",
-    },
-    {
-      id: 245,
-      name: "科学 L4",
-      key: "science",
-      parentKey: "science",
-      type: "child",
-      level: "L4",
-    },
+  // `subjects` 配列は、各科目の情報を保持するデータセット。
+  // 各要素は1つの科目を表し、メイン科目と子科目が含まれる。
+  // 主なプロパティの説明:
+  // - `id`: 科目の一意の識別子（数値）
+  // - `name`: 科目の名前（文字列）
+  // - `key`: 科目を一意に識別するキー（文字列）
+  // - `type`: 科目の種類（"main"はメイン科目、"child"は子科目）
+  // - `parentKey`: 子科目が属するメイン科目を示すキー（子科目のみ）
+  // - `level`: 子科目のレベルを示す（"L1" ～ "L4"、子科目のみ）
+  const subjects = [
+  // ==============================
+  // メイン科目
+  // ==============================
 
-    {
-      id: 226,
-      name: "経済 L1",
-      key: "economy",
-      parentKey: "economy",
-      type: "child",
-      level: "L1",
-    },
-    {
-      id: 227,
-      name: "経済 L2",
-      key: "economy",
-      parentKey: "economy",
-      type: "child",
-      level: "L2",
-    },
-    {
-      id: 246,
-      name: "経済 L3",
-      key: "economy",
-      parentKey: "economy",
-      type: "child",
-      level: "L3",
-    },
-    {
-      id: 247,
-      name: "経済 L4",
-      key: "economy",
-      parentKey: "economy",
-      type: "child",
-      level: "L4",
-    },
+  // ID: 255, 名前: "哲学", キー: "philosophy"
+  { id: 255, name: "哲学", key: "philosophy", type: "main" },
 
-    {
-      id: 253,
-      name: "グローバル英語 L1",
-      key: "globalenglish",
-      parentKey: "globalenglish",
-      type: "child",
-      level: "L1",
-    },
-    {
-      id: 254,
-      name: "グローバル英語 L2",
-      key: "globalenglish",
-      parentKey: "globalenglish",
-      type: "child",
-      level: "L2",
-    },
-  ],
-};
+  // ID: 265, 名前: "科学", キー: "science"
+  { id: 265, name: "科学", key: "science", type: "main" },
 
-$(document).ready(function() {
-    const tenantIdNumber = $("html").data("tenantidnumber");
-    if (tenantIdNumber === "lmswaomirai") {
+  // ID: 260, 名前: "経済", キー: "economy"
+  { id: 260, name: "経済", key: "economy", type: "main" },
+
+  // ID: 271, 名前: "3科目セット", キー: "threesubjectpack"
+  { id: 271, name: "3科目セット", key: "threesubjectpack", type: "main" },
+
+  // ID: 270, 名前: "2科目セット", キー: "twosubjectpack"
+  { id: 270, name: "2科目セット", key: "twosubjectpack", type: "main" },
+
+  // ID: 135, 名前: "グローバル英語", キー: "globalenglish"
+  { id: 135, name: "グローバル英語", key: "globalenglish", type: "main" },
+
+  // ==============================
+  // 子科目
+  // ==============================
+
+  // 哲学に関連する子科目
+  { id: 256, name: "哲学 L1", key: "philosophy", parentKey: "philosophy", type: "child", level: "L1" },
+  { id: 257, name: "哲学 L2", key: "philosophy", parentKey: "philosophy", type: "child", level: "L2" },
+  { id: 258, name: "哲学 L3", key: "philosophy", parentKey: "philosophy", type: "child", level: "L3" },
+  { id: 259, name: "哲学 L4", key: "philosophy", parentKey: "philosophy", type: "child", level: "L4" },
+
+  // 科学に関連する子科目
+  { id: 266, name: "科学 L1", key: "science", parentKey: "science", type: "child", level: "L1" },
+  { id: 267, name: "科学 L2", key: "science", parentKey: "science", type: "child", level: "L2" },
+  { id: 268, name: "科学 L3", key: "science", parentKey: "science", type: "child", level: "L3" },
+  { id: 269, name: "科学 L4", key: "science", parentKey: "science", type: "child", level: "L4" },
+
+  // 経済に関連する子科目
+  { id: 261, name: "経済 L1", key: "economy", parentKey: "economy", type: "child", level: "L1" },
+  { id: 262, name: "経済 L2", key: "economy", parentKey: "economy", type: "child", level: "L2" },
+  { id: 263, name: "経済 L3", key: "economy", parentKey: "economy", type: "child", level: "L3" },
+  { id: 264, name: "経済 L4", key: "economy", parentKey: "economy", type: "child", level: "L4" },
+
+  // グローバル英語に関連する子科目
+  { id: 130, name: "グローバル英語 L1", key: "globalenglish", parentKey: "globalenglish", type: "child", level: "L1" },
+  { id: 138, name: "グローバル英語 L2", key: "globalenglish", parentKey: "globalenglish", type: "child", level: "L2" },
+];
+
 // ==============================
 // ページ判定とコースIDの取得
 // ==============================
@@ -1249,8 +1186,7 @@ if (bodyId === "page-user-edit") { // ページIDが「page-user-edit」の場�
 // カテゴリページの処理
 // ==============================
 if (bodyId === "page-user-profile") {
-  $('.alert-success').html('変更が保存されました。科目レベルを設定した場合、<a href="https://lms.waomirai.com/my/">受講カレンダー</a>で確認ができます');
-   
+  $('.alert-success').html('変更が保存されました。科目レベルを設定した場合、<a href="https://lms.waomirai.com/my/">受講カレンダー</a>で確認ができます');  
 }
 
 

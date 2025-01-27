@@ -1117,8 +1117,7 @@ if (bodyId === "page-user-edit") { // ページIDが「page-user-edit」の場�
 // カテゴリページの処理
 // ==============================
 if (bodyId === "page-user-profile") {
-  $('.alert-success').html('変更が保存されました。科目レベルを設定した場合、<a href="https://lms.waomirai.com/my/">受講カレンダー</a>で確認ができます');
-   
+  $('.alert-success').html('変更が保存されました。科目レベルを設定した場合、<a href="https://lms.waomirai.com/my/">受講カレンダー</a>で確認ができます');  
 }
 
 
