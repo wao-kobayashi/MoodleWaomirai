@@ -56,7 +56,7 @@ $target-pages: (
             border-radius: $border-radius-middle;
             display: flex;
             align-items: center;
-            margin: 23px 0 48px !important;
+            margin: 0px 0 48px !important;
             @include responsive-style(768px) {
               margin: 0px 0 48px !important;
               height: auto;
