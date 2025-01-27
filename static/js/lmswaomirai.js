@@ -151,12 +151,12 @@ function getCurrentCourseId() {
 
 // 現在のページに関連するコースデータを取得
 // 全ての科目データ(subjects)から、現在のコースIDと一致するデータを検索する。
-const CurrentViewCourseData = subjects.find(
+const currentViewCourseData = subjects.find(
   (subject) => subject.id === getCurrentCourseId()
 );
 
 // コースデータが見つからない場合のエラーハンドリング
-if (!CurrentViewCourseData) {
+if (!currentViewCourseData) {
   // エラーが発生した場合、適切にログを出力する
   console.error("コースIDが見つかりませんでした。");
 }
@@ -780,7 +780,7 @@ if (bodyId === "page-enrol-index") {
 
   // 各カテゴリー（哲学、科学、経済）の購入ボタンがクリックされたときの処理
   $(".enrol_fee_payment_region button").on("click", function (event) {
-    const category = CurrentViewCourseData.key;  // 現在選択されている科目カテゴリーを取得
+    const category = currentViewCourseData.key;  // 現在選択されている科目カテゴリーを取得
 
     // 科目が哲学、科学、経済のいずれかの場合
     if (["philosophy", "science", "economy"].includes(category)) {
@@ -921,10 +921,10 @@ if (bodyId === "page-course-view-flexsections") { // ページIDが「page-cours
 
     // 現在表示されている科目がtargetSubjectsリストにあるかつ、タイプが「main」の場合
     if (
-      CurrentViewCourseData.key === key && // 現在の科目のkeyが対象のkeyと一致するか
-      CurrentViewCourseData.type === "main" // 現在の科目のタイプが「main」であるか
+      currentViewCourseData.key === key && // 現在の科目のkeyが対象のkeyと一致するか
+      currentViewCourseData.type === "main" // 現在の科目のタイプが「main」であるか
     ) {
-      console.log(`CurrentViewCourseDataはmainタイプの${key}です`); // 現在の科目が「main」タイプであることを確認
+      console.log(`currentViewCourseDataはmainタイプの${key}です`); // 現在の科目が「main」タイプであることを確認
 
       // 2科目パックまたは3科目パックの場合は、「child」判定をスキップ
       if (key === "twosubjectpack" || key === "threesubjectpack") {
@@ -986,7 +986,7 @@ if (bodyId === "page-course-view-flexsections") { // ページIDが「page-cours
       }
     } else {
       // 「main」タイプでない場合の処理
-      console.log(`CurrentViewCourseDataはmainタイプの${key}ではありません`); // 現在の科目が「main」タイプではないことをログに出力
+      console.log(`currentViewCourseDataはmainタイプの${key}ではありません`); // 現在の科目が「main」タイプではないことをログに出力
     }
   });
 }
@@ -1002,6 +1002,20 @@ if (bodyId === "page-user-edit") { // ページIDが「page-user-edit」の場�
   var AreaEnglish = $("#fitem_id_profile_field_English_Level"); // 英語の入力エリア
   var AreaSingleCourse = $("#fitem_id_profile_field_1cource_Subject"); // １科目受講の入力エリア
   var AreaTwoCourse = $("#fitem_id_profile_field_2cources_subject"); // ２科目受講の入力エリア
+
+  // 各科目のエリアを配列にまとめて、後で一括で非表示にする
+  var AreaElements = [
+    AreaPhilosophy,
+    AreaScience,
+    AreaEconomy,
+    AreaEnglish,
+    AreaSingleCourse,
+    AreaTwoCourse,
+  ];
+  // 配列内の各エリアを非表示にする
+  AreaElements.forEach(function (AreaElement) {
+    AreaElement.hide();
+  });
 
   // 初回受講レベル登録時、submit直前に注意文言を表示する関数
   function AlertSubjectSettingFirst() {
@@ -1023,20 +1037,6 @@ if (bodyId === "page-user-edit") { // ページIDが「page-user-edit」の場�
       )
       .map((subject) => subject.level); // 該当するレベルを配列で返す
   }
-
-  // memo: 各科目のエリアを配列にまとめて、後で一括で非表示にする
-  var AreaElements = [
-    AreaPhilosophy,
-    AreaScience,
-    AreaEconomy,
-    AreaEnglish,
-    AreaSingleCourse,
-    AreaTwoCourse,
-  ];
-  // 配列内の各エリアを非表示にする
-  AreaElements.forEach(function (AreaElement) {
-    AreaElement.hide();
-  });
 
   // 1科目選択のセレクトボックスを取得する関数
   function getSelectElement(Area) {
