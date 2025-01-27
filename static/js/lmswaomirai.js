@@ -215,7 +215,7 @@ function checkBoughtMainSubject(subjectKeys, isAllRequired = false) {
 // 特定の子科目キーとレベルが、現在のページに関連付けられているか判定する関数
 // subjectKey: 判定対象の科目キー
 // levels: 判定対象となるレベルの配列
-function isBuySubjectChildArray(subjectKey, levels) {
+function checkBoughtChildSubject(subjectKey, levels) {
   return subjects
     .filter(
       (subject) =>
@@ -1043,13 +1043,6 @@ if (bodyId === "page-user-edit") { // ページIDが「page-user-edit」の場�
     return Area.find("select"); // 引数で渡されたエリア内のselect要素を取得
   }
 
-  // 選択肢のインデックスで選択を変更する関数
-  function selectOptionByIndex(Area, optionIndex = 0) {
-    var selectElement = getSelectElement(Area); // 上記関数を利用してselect要素を取得
-    selectElement.find(`option:eq(${optionIndex})`).prop("selected", true); // 指定されたインデックスの<option>を選択
-    return selectElement; // 変更後のselect要素を返す
-  }
-
   // 2科目以上選択する場合の処理（必要な場合、変更を監視）
   function handleMultipleSelectChange(selectors, callback) {
     var selectedIndexes = []; // インデックスを格納する配列
@@ -1086,9 +1079,8 @@ if (bodyId === "page-user-edit") { // ページIDが「page-user-edit」の場�
     !checkBoughtMainSubject(["science", "economy"]) // 購入した主科目が「科学」や「経済」でないことを確認
   ) {
     AreaPhilosophy.show(); // 哲学の入力エリアを表示
-    selectOptionByIndex(AreaSingleCourse, 1); // 「1科目受講」を哲学に設定
     // 初回受講レベル登録時、注意文言を表示
-    if (!isBuySubjectChildArray("philosophy", ["L1", "L2", "L3", "L4"])) {
+    if (!checkBoughtChildSubject("philosophy", ["L1", "L2", "L3", "L4"])) {
       AlertSubjectSettingFirst(); // 初回レベル設定の警告
     }
   }
@@ -1099,9 +1091,8 @@ if (bodyId === "page-user-edit") { // ページIDが「page-user-edit」の場�
     !checkBoughtMainSubject(["philosophy", "economy"]) // 購入した主科目が「哲学」や「経済」でないことを確認
   ) {
     AreaScience.show(); // 科学の入力エリアを表示
-    selectOptionByIndex(AreaSingleCourse, 2); // 「1科目受講」を科学に設定
     // 初回受講レベル登録時、注意文言を表示
-    if (!isBuySubjectChildArray("science", ["L1", "L2", "L3", "L4"])) {
+    if (!checkBoughtChildSubject("science", ["L1", "L2", "L3", "L4"])) {
       AlertSubjectSettingFirst(); // 初回レベル設定の警告
     }
   }
@@ -1112,19 +1103,17 @@ if (bodyId === "page-user-edit") { // ページIDが「page-user-edit」の場�
     !checkBoughtMainSubject(["philosophy", "science"]) // 購入した主科目が「哲学」や「科学」でないことを確認
   ) {
     AreaEconomy.show(); // 経済の入力エリアを表示
-    selectOptionByIndex(AreaSingleCourse, 3); // 「1科目受講」を経済に設定
     // 初回受講レベル登録時、注意文言を表示
-    if (!isBuySubjectChildArray("economy", ["L1", "L2", "L3", "L4"])) {
+    if (!checkBoughtChildSubject("economy", ["L1", "L2", "L3", "L4"])) {
       AlertSubjectSettingFirst(); // 初回レベル設定の警告
     }
   }
 
   // 英語購入の場合
   if (checkBoughtMainSubject(["globalenglish"])) { // 購入した主科目が「英語」か確認
-    alert("英語購入"); // デバッグ用にアラートを表示
     AreaEnglish.show(); // 英語の入力エリアを表示
     // 初回受講レベル登録時、注意文言を表示
-    if (!isBuySubjectChildArray("globalenglish", ["L1", "L2"])) {
+    if (!checkBoughtChildSubject("globalenglish", ["L1", "L2"])) {
       AlertSubjectSettingFirst(); // 初回レベル設定の警告
     }
   }
@@ -1172,9 +1161,9 @@ if (bodyId === "page-user-edit") { // ページIDが「page-user-edit」の場�
 
     // 初回受講レベル登録時、注意文言を表示
     if (
-      !isBuySubjectChildArray("economy", ["L1", "L2", "L3", "L4"]) &&
-      !isBuySubjectChildArray("philosophy", ["L1", "L2", "L3", "L4"]) &&
-      !isBuySubjectChildArray("science", ["L1", "L2", "L3", "L4"])
+      !checkBoughtChildSubject("economy", ["L1", "L2", "L3", "L4"]) &&
+      !checkBoughtChildSubject("philosophy", ["L1", "L2", "L3", "L4"]) &&
+      !checkBoughtChildSubject("science", ["L1", "L2", "L3", "L4"])
     ) {
       getSelectElement(AreaTwoCourse).after(
         "<div class='subject-select-levelnotset'>科目を選択してください</div>"
@@ -1190,9 +1179,9 @@ if (bodyId === "page-user-edit") { // ページIDが「page-user-edit」の場�
     AreaEconomy.show(); // 経済を表示
     // 初回受講レベル登録時、注意文言を表示
     if (
-      !isBuySubjectChildArray("economy", ["L1", "L2", "L3", "L4"]) &&
-      !isBuySubjectChildArray("philosophy", ["L1", "L2", "L3", "L4"]) &&
-      !isBuySubjectChildArray("science", ["L1", "L2", "L3", "L4"])
+      !checkBoughtChildSubject("economy", ["L1", "L2", "L3", "L4"]) &&
+      !checkBoughtChildSubject("philosophy", ["L1", "L2", "L3", "L4"]) &&
+      !checkBoughtChildSubject("science", ["L1", "L2", "L3", "L4"])
     ) {
       AlertSubjectSettingFirst(); // 初回レベル設定の警告
     }
