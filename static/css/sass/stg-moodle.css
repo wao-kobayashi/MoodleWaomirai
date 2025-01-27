@@ -4108,7 +4108,7 @@ html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo .enrol-secti
 }
 html[data-tenantidnumber=stg] #page-enrol-index .enrol-section .enrol-step-lbl,
 html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo .enrol-section .enrol-step-lbl {
-  color: #005C3F;
+  color: #005c3f;
   font-size: 20px;
 }
 @media screen and (max-width: 768px) {
@@ -5021,7 +5021,7 @@ html[data-tenantidnumber=stg] #page-enrol-index .multiselct-price .multiselct-pr
   font-size: 30px;
 }
 html[data-tenantidnumber=stg] #page-enrol-index .multiselct-price .multiselct-price-child .price-fee .price-fee-yen.green {
-  color: #005C3F;
+  color: #005c3f;
   font-weight: bold;
 }
 html[data-tenantidnumber=stg] #page-enrol-index .multiselct-price .multiselct-price-child .price-fee .price-fee-yen.black {
@@ -5033,12 +5033,12 @@ html[data-tenantidnumber=stg] #page-enrol-index .multiselct-price .multiselct-pr
   font-weight: bold;
 }
 html[data-tenantidnumber=stg] #page-enrol-index .multiselct-price .multiselct-price-child .price-fee .price-fee-month.green {
-  color: #005C3F;
+  color: #005c3f;
   font-weight: bold;
 }
 html[data-tenantidnumber=stg] #page-enrol-index .multiselct-price .multiselct-price-child .price-detail {
   display: inline-block;
-  color: #005C3F;
+  color: #005c3f;
   font-size: 14px;
   text-decoration: underline;
   margin-top: 10px;
@@ -5050,7 +5050,7 @@ html[data-tenantidnumber=stg] #page-enrol-index .multiselct-price .multiselct-pr
 }
 html[data-tenantidnumber=stg] #page-enrol-index .multiselct-price .multiselct-price-child.active {
   position: relative;
-  border: 3px solid #005C3F;
+  border: 3px solid #005c3f;
 }
 html[data-tenantidnumber=stg] #page-enrol-index .multiselct-price .multiselct-price-child.active .price-discount {
   position: absolute;
@@ -5059,7 +5059,7 @@ html[data-tenantidnumber=stg] #page-enrol-index .multiselct-price .multiselct-pr
   -webkit-transform: translateX(-50%);
           transform: translateX(-50%);
   display: inline-block;
-  background-color: #005C3F;
+  background-color: #005c3f;
   color: #ffffff;
   border-radius: 9999px;
   padding: 5px 50px;

@@ -198,21 +198,20 @@ const isBuySubjectChild = checkGroup((subject) => subject.type === "child");
 // subjectKeys: 判定対象となる科目のキー配列
 // isAllRequired: trueの場合、全てのキーが一致する必要あり（AND条件）
 // falseの場合、一つでも一致すればよい（OR条件）
-function isBuySubjectMainArray(subjectKeys, isAllRequired = false) {
-  // 全てのキーを確認するか（一致要件が厳しい）、一部のみ確認するかを動的に選択
+function checkBoughtMainSubject(subjectKeys, isAllRequired = false) {
   const checkMethod = isAllRequired ? "every" : "some";
+  
+  // result に直接メソッドの結果を代入する
   return subjectKeys[checkMethod]((subjectKey) => {
-    // 指定されたキーに対応するメイン科目を検索
-    const subject = subjects.find(
-      (item) => item.key === subjectKey && item.type === "main"
-    );
-    // 科目が存在しない場合はfalseを返す
-    if (!subject) return false;
-    // bodyClassesに科目のIDが含まれている場合のみtrueを返す
+    const subject = subjects.find((item) => item.key === subjectKey && item.type === "main");
+    
+    if (!subject) {
+      return false;
+    }
+    
     return bodyClasses.includes(subject.id);
   });
 }
-
 // 特定の子科目キーとレベルが、現在のページに関連付けられているか判定する関数
 // subjectKey: 判定対象の科目キー
 // levels: 判定対象となるレベルの配列
@@ -795,7 +794,7 @@ if (bodyId === "page-enrol-index") {
       };
 
       // 1科目を購入した状態で、別の1科目を購入しようとした場合
-      if (isBuySubjectMainArray(otherSubjects[category])) {
+      if (checkBoughtMainSubject(otherSubjects[category])) {
         // セット購入を提案するモーダルを表示
         $("body").append(
           createModal({
@@ -808,7 +807,7 @@ if (bodyId === "page-enrol-index") {
         );
       } else if (
         // 2科目または3科目セットを購入済みの場合、セット購入を防ぐ
-        isBuySubjectMainArray(["twosubjectpack", "threesubjectpack"])
+        checkBoughtMainSubject(["twosubjectpack", "threesubjectpack"])
       ) {
         // すでにセットを購入済みであることを通知するモーダルを表示
         $("body").append(
@@ -826,7 +825,7 @@ if (bodyId === "page-enrol-index") {
     // 2科目セットまたは3科目セットを選択した場合
     if (["twosubjectpack", "threesubjectpack"].includes(category)) {
       // 他の科目（哲学、科学、経済）を購入している場合、セット購入はできない
-      if (isBuySubjectMainArray(["philosophy", "science", "economy"])) {
+      if (checkBoughtMainSubject(["philosophy", "science", "economy"])) {
         // セット購入不可の案内モーダルを表示
         $("body").append(
           createModal({
@@ -839,7 +838,7 @@ if (bodyId === "page-enrol-index") {
         );
       } else if (
         // すでに3科目セットを購入している場合、2科目セットへの変更を促す
-        category === "twosubjectpack" && isBuySubjectMainArray(["threesubjectpack"])
+        category === "twosubjectpack" && checkBoughtMainSubject(["threesubjectpack"])
       ) {
         $("body").append(
           createModal({
@@ -852,7 +851,7 @@ if (bodyId === "page-enrol-index") {
         );
       } else if (
         // すでに2科目セットを購入している場合、3科目セットへの変更を促す
-        category === "threesubjectpack" && isBuySubjectMainArray(["twosubjectpack"])
+        category === "threesubjectpack" && checkBoughtMainSubject(["twosubjectpack"])
       ) {
         $("body").append(
           createModal({
@@ -1083,8 +1082,8 @@ if (bodyId === "page-user-edit") { // ページIDが「page-user-edit」の場�
 
   // 1科目「哲学」のみ購入した場合
   if (
-    isBuySubjectMainArray(["philosophy"]) && // 購入した主科目が「哲学」か確認
-    !isBuySubjectMainArray(["science", "economy"]) // 購入した主科目が「科学」や「経済」でないことを確認
+    checkBoughtMainSubject(["philosophy"]) && // 購入した主科目が「哲学」か確認
+    !checkBoughtMainSubject(["science", "economy"]) // 購入した主科目が「科学」や「経済」でないことを確認
   ) {
     AreaPhilosophy.show(); // 哲学の入力エリアを表示
     selectOptionByIndex(AreaSingleCourse, 1); // 「1科目受講」を哲学に設定
@@ -1096,8 +1095,8 @@ if (bodyId === "page-user-edit") { // ページIDが「page-user-edit」の場�
 
   // 1科目「科学」のみ購入した場合
   if (
-    isBuySubjectMainArray(["science"]) && // 購入した主科目が「科学」か確認
-    !isBuySubjectMainArray(["philosophy", "economy"]) // 購入した主科目が「哲学」や「経済」でないことを確認
+    checkBoughtMainSubject(["science"]) && // 購入した主科目が「科学」か確認
+    !checkBoughtMainSubject(["philosophy", "economy"]) // 購入した主科目が「哲学」や「経済」でないことを確認
   ) {
     AreaScience.show(); // 科学の入力エリアを表示
     selectOptionByIndex(AreaSingleCourse, 2); // 「1科目受講」を科学に設定
@@ -1109,8 +1108,8 @@ if (bodyId === "page-user-edit") { // ページIDが「page-user-edit」の場�
 
   // 1科目「経済」のみ購入した場合
   if (
-    isBuySubjectMainArray(["economy"]) && // 購入した主科目が「経済」か確認
-    !isBuySubjectMainArray(["philosophy", "science"]) // 購入した主科目が「哲学」や「科学」でないことを確認
+    checkBoughtMainSubject(["economy"]) && // 購入した主科目が「経済」か確認
+    !checkBoughtMainSubject(["philosophy", "science"]) // 購入した主科目が「哲学」や「科学」でないことを確認
   ) {
     AreaEconomy.show(); // 経済の入力エリアを表示
     selectOptionByIndex(AreaSingleCourse, 3); // 「1科目受講」を経済に設定
@@ -1121,7 +1120,7 @@ if (bodyId === "page-user-edit") { // ページIDが「page-user-edit」の場�
   }
 
   // 英語購入の場合
-  if (isBuySubjectMainArray(["globalenglish"])) { // 購入した主科目が「英語」か確認
+  if (checkBoughtMainSubject(["globalenglish"])) { // 購入した主科目が「英語」か確認
     alert("英語購入"); // デバッグ用にアラートを表示
     AreaEnglish.show(); // 英語の入力エリアを表示
     // 初回受講レベル登録時、注意文言を表示
@@ -1131,7 +1130,7 @@ if (bodyId === "page-user-edit") { // ページIDが「page-user-edit」の場�
   }
 
   // 【2科目セット購入】の場合
-  if (isBuySubjectMainArray(["twosubjectpack"], true)) { // 2科目セットを購入している場合
+  if (checkBoughtMainSubject(["twosubjectpack"], true)) { // 2科目セットを購入している場合
     AreaTwoCourse.show(); // 2科目選択のプルダウンを表示
     selectOptionByIndex(AreaSingleCourse, 0); // 初期状態では「1科目受講」を選択
 
@@ -1185,7 +1184,7 @@ if (bodyId === "page-user-edit") { // ページIDが「page-user-edit」の場�
   }
 
   // 【3科目セット購入】の場合
-  if (isBuySubjectMainArray(["threesubjectpack"], true)) { // 3科目セットを購入している場合
+  if (checkBoughtMainSubject(["threesubjectpack"], true)) { // 3科目セットを購入している場合
     AreaPhilosophy.show(); // 哲学を表示
     AreaScience.show(); // 科学を表示
     AreaEconomy.show(); // 経済を表示
