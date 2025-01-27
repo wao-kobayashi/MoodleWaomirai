@@ -184,11 +184,11 @@ function checkGroup(filterFn) {
 
 // メイン科目（typeが"main"）に関連付けられているかを判定
 // 条件は「typeが'main'」であること。
-const isBuySubjectMain = checkGroup((subject) => subject.type === "main");
+const hasBoughtMainSubject = checkGroup((subject) => subject.type === "main");
 
 // 子科目（typeが"child"）に関連付けられているかを判定
 // 条件は「typeが'child'」であること。
-const isBuySubjectChild = checkGroup((subject) => subject.type === "child");
+const hasBoughtChildSubject = checkGroup((subject) => subject.type === "child");
 
 // ==============================
 // 科目の特定レベルチェック関数
@@ -316,7 +316,7 @@ if (bodyId === "page-my-index") {
   ////////////////////////////////////
 
   // 購入していない科目がない場合の処理
-  if (!isBuySubjectMain && !isBuySubjectChild) {
+  if (!hasBoughtMainSubject && !hasBoughtChildSubject) {
     // 今日のイベント科目とダッシュボードの未定義科目を表示
     $("#todays-event-subject-none,#dashboard-main-upcoming-class-none").show();
     // 今日の科目PCビューを非表示
@@ -334,10 +334,10 @@ if (bodyId === "page-my-index") {
   //////////////////////////
 
   // 科目リンクを生成する関数
-  // 引数subject: 科目情報, icon: アイコン, isBuySubjectMain: メイン科目かどうか
-  function renderSubject(subject, icon, isBuySubjectMain) {
+  // 引数subject: 科目情報, icon: アイコン, hasBoughtMainSubject: メイン科目かどうか
+  function renderSubject(subject, icon, hasBoughtMainSubject) {
     // メイン科目かサブ科目かでリンク先を分ける
-    const courseLink = isBuySubjectMain
+    const courseLink = hasBoughtMainSubject
       ? `https://lms.waomirai.com/admin/tool/catalogue/courseinfo.php?id=${subject.id}`
       : `https://lms.waomirai.com/course/view.php?id=${subject.id}`;
 
@@ -436,17 +436,17 @@ if (bodyId === "page-my-index") {
   }
 
   // メイン科目を購入している場合、処理を実行
-  if (isBuySubjectMain) {
+  if (hasBoughtMainSubject) {
     processSubjectMain();
   }
 
   // サブ科目を購入している場合、処理を実行
-  if (isBuySubjectChild) {
+  if (hasBoughtChildSubject) {
     processSubjectChild();
   }
 
   // // どの科目にも該当しない場合のエラーハンドリング
-  if (!isBuySubjectMain && !isBuySubjectChild) {
+  if (!hasBoughtMainSubject && !hasBoughtChildSubject) {
     console.error("指定された科目に該当しません");
     // 特定のHTMLを指定要素に挿入する
 
@@ -615,9 +615,9 @@ if (bodyId === "page-my-index") {
       } else {
         console.log("本日は授業がありません。");
         // 何かしらの科目を購入している場合
-        if (isBuySubjectMain || isBuySubjectChild || isBuyProgramming) {
+        if (hasBoughtMainSubject || hasBoughtChildSubject || isBuyProgramming) {
           $("#todays-event-class-none").show(); // 本日の授業なしを表示
-        } else if (!isBuySubjectMain && !isBuySubjectChild) {
+        } else if (!hasBoughtMainSubject && !hasBoughtChildSubject) {
           $("#dashboard-main-upcoming-class-none").show(); // 今月の授業なしを表示
         }
       }
