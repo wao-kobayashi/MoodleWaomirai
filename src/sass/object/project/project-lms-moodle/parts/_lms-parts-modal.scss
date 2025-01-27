@@ -55,6 +55,13 @@ body.fixed {
       @include text-m-black;
       margin: 0 auto 32px;
     }
+    &-closetxt {
+      color: $cl-graylight;
+      text-decoration: underline;
+      text-align: center;
+      margin: 10px auto 0px;
+      cursor: pointer;
+    }
 
     &-button-wrap {
       display: flex;

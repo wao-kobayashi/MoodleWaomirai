@@ -337,7 +337,7 @@ html[data-tenantidnumber=lmswaomirai] .dashboard-main-contents-block-cards .comm
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  font-size: 14px;
+  font-size: 12px;
   letter-spacing: 2px;
   font-weight: normal;
   background: rgba(0, 0, 0, .5);
@@ -667,6 +667,13 @@ html[data-tenantidnumber=lmswaomirai] .c-modal-wrap-text {
   color: #262626;
   line-height: 1.5;
   margin: 0 auto 32px;
+}
+html[data-tenantidnumber=lmswaomirai] .c-modal-wrap-closetxt {
+  color: #999;
+  text-decoration: underline;
+  text-align: center;
+  margin: 10px auto 0px;
+  cursor: pointer;
 }
 html[data-tenantidnumber=lmswaomirai] .c-modal-wrap-button-wrap {
   display: -webkit-box;

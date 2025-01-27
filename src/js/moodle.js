@@ -141,6 +141,11 @@ function createModal(options = {}) {
           <div class="c-modal-wrap-button-wrap">
         ${generateButtons(options.buttons)} <!-- ボタンリストを動的に挿入 -->
           </div>
+        ${
+          options.closetxt
+            ? `<div class="c-modal-wrap-closetxt">${options.closetxt}</div>` // モーダルに表示する画像
+            : ""
+        }
       </div>
     </div>
     <div class="c-modal-bg"></div>
@@ -154,7 +159,7 @@ function createModal(options = {}) {
   $("body").addClass("fixed").css({ top: -scrollPosition });
 
   // 閉じるボタンをクリックした場合の処理
-  $(".c-modal-wrap-close").on("click", function () {
+  $(".c-modal-wrap-close,.c-modal-wrap-closetxt").on("click", function () {
     $modal.remove(); // モーダルを削除
     $("body").removeClass("fixed").css({ top: 0 }); // ページをスクロール可能に戻す
     window.scrollTo(0, scrollPosition); // スクロール位置を復元
@@ -1124,6 +1129,19 @@ if (bodyId === "page-user-profile") {
 // ==============================
 // 汎用的な関数
 // ==============================
+
+
+// classを指定してスクロールできるように
+$(".click-event-subject-comingsoon").on("click", function (e) {
+  e.preventDefault(); // デフォルトの動作を防ぐ
+  // モーダルを表示：セット購入の詳細情報
+  createModal({
+    close: true,  // モーダルを閉じるボタンを表示
+    title: "この科目は2025年4月に開講予定です", // モーダルのタイトル
+    closetxt: "閉じる", // 閉じるボタンのテキスト
+  });
+});
+
 
 // classを指定してスクロールできるように
 $(".scroll-to").on("click", function (e) {
