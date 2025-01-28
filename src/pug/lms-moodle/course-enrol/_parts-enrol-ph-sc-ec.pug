@@ -93,39 +93,39 @@
 // セクション1: 今月の授業
 section.enrol-section
   h2.enrol-title 今月の授業
-  .enrol-section-basesubject-thismonth-lesson-grid
-      // レベル情報を表示
-      .enrol-section-basesubject-thismonth-lesson-grid-level
-        // レベル名
-        .enrol-section-basesubject-thismonth-lesson-grid-level-main
-         |subject.level 
-        // 対象学年
-        .enrol-section-basesubject-thismonth-lesson-grid-level-sub
-          |subject.grade 
-      .enrol-section-basesubject-thismonth-lesson-grid-lesson
-          // レッスンの週
-          .enrol-section-basesubject-thismonth-lesson-grid-lesson-week|aa
-          .enrol-section-basesubject-thismonth-lesson-grid-lesson-banner
-            img(src=lesson.banner)
-          // レッスン説明
-          .enrol-section-basesubject-thismonth-lesson-grid-lesson-text
-            |lesson.text 
-      .enrol-section-basesubject-thismonth-lesson-grid-lesson
-          // レッスンの週
-          .enrol-section-basesubject-thismonth-lesson-grid-lesson-week|aa
-          .enrol-section-basesubject-thismonth-lesson-grid-lesson-banner
-            img(src=lesson.banner)
-          // レッスン説明
-          .enrol-section-basesubject-thismonth-lesson-grid-lesson-text
-            |lesson.text 
-      .enrol-section-basesubject-thismonth-lesson-grid-lesson
-          // レッスンの週
-          .enrol-section-basesubject-thismonth-lesson-grid-lesson-week|aa
-          .enrol-section-basesubject-thismonth-lesson-grid-lesson-banner
-            img(src=lesson.banner)
-          // レッスン説明
-          .enrol-section-basesubject-thismonth-lesson-grid-lesson-text
-            |lesson.text 
+  //- .enrol-section-basesubject-thismonth-lesson-grid
+  //-     // レベル情報を表示
+  //-     .enrol-section-basesubject-thismonth-lesson-grid-level
+  //-       // レベル名
+  //-       .enrol-section-basesubject-thismonth-lesson-grid-level-main
+  //-        |subject.level 
+  //-       // 対象学年
+  //-       .enrol-section-basesubject-thismonth-lesson-grid-level-sub
+  //-         |subject.grade 
+  //-     .enrol-section-basesubject-thismonth-lesson-grid-lesson
+  //-         // レッスンの週
+  //-         .enrol-section-basesubject-thismonth-lesson-grid-lesson-week|aa
+  //-         .enrol-section-basesubject-thismonth-lesson-grid-lesson-banner
+  //-           img(src=lesson.banner)
+  //-         // レッスン説明
+  //-         .enrol-section-basesubject-thismonth-lesson-grid-lesson-text
+  //-           |lesson.text 
+  //-     .enrol-section-basesubject-thismonth-lesson-grid-lesson
+  //-         // レッスンの週
+  //-         .enrol-section-basesubject-thismonth-lesson-grid-lesson-week|aa
+  //-         .enrol-section-basesubject-thismonth-lesson-grid-lesson-banner
+  //-           img(src=lesson.banner)
+  //-         // レッスン説明
+  //-         .enrol-section-basesubject-thismonth-lesson-grid-lesson-text
+  //-           |lesson.text 
+  //-     .enrol-section-basesubject-thismonth-lesson-grid-lesson
+  //-         // レッスンの週
+  //-         .enrol-section-basesubject-thismonth-lesson-grid-lesson-week|aa
+  //-         .enrol-section-basesubject-thismonth-lesson-grid-lesson-banner
+  //-           img(src=lesson.banner)
+  //-         // レッスン説明
+  //-         .enrol-section-basesubject-thismonth-lesson-grid-lesson-text
+  //-           |lesson.text 
 
   each subject in subjects
     .enrol-section-basesubject-thismonth-lesson-grid
@@ -167,7 +167,7 @@ section.enrol-section
           .enrol-section-basesubject-year-lesson-content-child-curriculum
             .enrol-section-basesubject-year-lesson-content-child-curriculum-month
               // 月
-              span= item.month 
+              span.month= item.month 
               | 月
             .enrol-section-basesubject-year-lesson-content-child-curriculum-detail
               // カリキュラムのタイトル

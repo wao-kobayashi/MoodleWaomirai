@@ -19,6 +19,7 @@
         flex-direction: column; // 縦方向の配置
         border-radius: 10px;
         width: 80%;
+        // margin: ;
         background: map-get(
           $common-course-styles,
           $style-name,
@@ -36,14 +37,23 @@
             background: $cl-black; // 区切り線の色
           }
         }
+
+        &.level--1 {
+          background-color: aquamarine;
+        }
       }
 
       .enrol-section-basesubject-thismonth-lesson-grid-lesson-banner {
+        position: relative;
         img {
           border-radius: 10px;
           width: calc(100% - 30px);
           margin: 0 15px;
         }
+      }
+
+      .enrol-section-basesubject-thismonth-lesson-grid-lesson-week {
+        position: absolute;
       }
 
       // 今月の授業ごとのカードスタイル
@@ -68,18 +78,29 @@
             main-color
           ) !important; // タブ下の線
 
-        // アクティブなタブのスタイル
-        .active {
-          background: map-get(
-            $common-course-styles,
-            $style-name,
-            main-color
-          ) !important; // アクティブなタブの背景色
-          color: $cl-white; // アクティブなタブの文字色
+        // max-width: 180px;
+        // max-height: 50px;
+
+        .enrol-section-basesubject-year-lesson-tab-child {
+          border-radius: 20px 20px 0px 0;
+          background: $cl-graylightest;
+          padding: 15px 30px;
+          &.active {
+            text-align: center;
+            background: map-get(
+              $common-course-styles,
+              $style-name,
+              main-color
+            ) !important; // アクティブなタブの背景色
+            color: $cl-white; // アクティブなタブの文字色
+          }
         }
+        // アクティブなタブのスタイル
       }
     }
-
+    .enrol-section-basesubject-year-lesson-content {
+      background: $cl-graylightest;
+    }
     // 年間カリキュラムの詳細コンテンツ
     .enrol-section-basesubject-year-lesson-content-child {
       display: grid; // グリッドレイアウトで配置
@@ -105,6 +126,10 @@
           flex: 1; // 残りのスペースを占有
         }
       }
+    }
+
+    .month {
+      font-size: $lms-font-size-xl;
     }
 
     // ============================
