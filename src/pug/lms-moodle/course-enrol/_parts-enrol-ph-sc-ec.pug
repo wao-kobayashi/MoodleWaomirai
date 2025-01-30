@@ -163,24 +163,100 @@ section.enrol-section
     // カリキュラム内容を表示
     .enrol-section-basesubject-year-lesson-content
       .enrol-section-basesubject-year-lesson-content-child#content-level-1
-        each item in curriculum
           .enrol-section-basesubject-year-lesson-content-child-curriculum
             .enrol-section-basesubject-year-lesson-content-child-curriculum-month
               // 月
-              span.month= item.month 
+              span.month|1
               | 月
             .enrol-section-basesubject-year-lesson-content-child-curriculum-detail
               // カリキュラムのタイトル
-              .enrol-section-basesubject-year-lesson-content-child-curriculum-detail-title= item.title 
-              each subcontent in item.subcontents
-                // サブコンテンツ
-                .enrol-section-basesubject-year-lesson-content-child-curriculum-detail-subcontent= subcontent 
+              .enrol-section-basesubject-year-lesson-content-child-curriculum-detail-title|メインタイトル 
+                .enrol-section-basesubject-year-lesson-content-child-curriculum-detail-subcontent
+                    |サブコンテンツ
+                .enrol-section-basesubject-year-lesson-content-child-curriculum-detail-subcontent
+                    |サブコンテンツ
+                .enrol-section-basesubject-year-lesson-content-child-curriculum-detail-subcontent
+                    |サブコンテンツ
+          .enrol-section-basesubject-year-lesson-content-child-curriculum
+            .enrol-section-basesubject-year-lesson-content-child-curriculum-month
+              // 月
+              span.month|1
+              | 月
+            .enrol-section-basesubject-year-lesson-content-child-curriculum-detail
+              // カリキュラムのタイトル
+              .enrol-section-basesubject-year-lesson-content-child-curriculum-detail-title|メインタイトル 
+                .enrol-section-basesubject-year-lesson-content-child-curriculum-detail-subcontent
+                    |サブコンテンツ
+                .enrol-section-basesubject-year-lesson-content-child-curriculum-detail-subcontent
+                    |サブコンテンツ
+                .enrol-section-basesubject-year-lesson-content-child-curriculum-detail-subcontent
+                    |サブコンテンツ
+          .enrol-section-basesubject-year-lesson-content-child-curriculum
+            .enrol-section-basesubject-year-lesson-content-child-curriculum-month
+              // 月
+              span.month|1
+              | 月
+            .enrol-section-basesubject-year-lesson-content-child-curriculum-detail
+              // カリキュラムのタイトル
+              .enrol-section-basesubject-year-lesson-content-child-curriculum-detail-title|メインタイトル 
+                .enrol-section-basesubject-year-lesson-content-child-curriculum-detail-subcontent
+                    |サブコンテンツ
+                .enrol-section-basesubject-year-lesson-content-child-curriculum-detail-subcontent
+                    |サブコンテンツ
+                .enrol-section-basesubject-year-lesson-content-child-curriculum-detail-subcontent
+                    |サブコンテンツ
+          .enrol-section-basesubject-year-lesson-content-child-curriculum
+            .enrol-section-basesubject-year-lesson-content-child-curriculum-month
+              // 月
+              span.month|1
+              | 月
+            .enrol-section-basesubject-year-lesson-content-child-curriculum-detail
+              // カリキュラムのタイトル
+              .enrol-section-basesubject-year-lesson-content-child-curriculum-detail-title|メインタイトル 
+                .enrol-section-basesubject-year-lesson-content-child-curriculum-detail-subcontent
+                    |サブコンテンツ
+                .enrol-section-basesubject-year-lesson-content-child-curriculum-detail-subcontent
+                    |サブコンテンツ
+                .enrol-section-basesubject-year-lesson-content-child-curriculum-detail-subcontent
+                    |サブコンテンツ
+          .enrol-section-basesubject-year-lesson-content-child-curriculum
+            .enrol-section-basesubject-year-lesson-content-child-curriculum-month
+              // 月
+              span.month|1
+              | 月
+            .enrol-section-basesubject-year-lesson-content-child-curriculum-detail
+              // カリキュラムのタイトル
+              .enrol-section-basesubject-year-lesson-content-child-curriculum-detail-title|メインタイトル 
+                .enrol-section-basesubject-year-lesson-content-child-curriculum-detail-subcontent
+                    |サブコンテンツ
+                .enrol-section-basesubject-year-lesson-content-child-curriculum-detail-subcontent
+                    |サブコンテンツ
+                .enrol-section-basesubject-year-lesson-content-child-curriculum-detail-subcontent
+                    |サブコンテンツ
       .enrol-section-basesubject-year-lesson-content-child#content-level-2
         p|レベル2の内容
       .enrol-section-basesubject-year-lesson-content-child#content-level-3  
         p|レベル3の内容
       .enrol-section-basesubject-year-lesson-content-child#content-level-4  
         p|レベル4の内容 
+      //-   each item in curriculum
+      //-     .enrol-section-basesubject-year-lesson-content-child-curriculum
+      //-       .enrol-section-basesubject-year-lesson-content-child-curriculum-month
+      //-         // 月
+      //-         span.month= item.month 
+      //-         | 月
+      //-       .enrol-section-basesubject-year-lesson-content-child-curriculum-detail
+      //-         // カリキュラムのタイトル
+      //-         .enrol-section-basesubject-year-lesson-content-child-curriculum-detail-title= item.title 
+      //-         each subcontent in item.subcontents
+      //-           // サブコンテンツ
+      //-           .enrol-section-basesubject-year-lesson-content-child-curriculum-detail-subcontent= subcontent 
+      //- .enrol-section-basesubject-year-lesson-content-child#content-level-2
+      //-   p|レベル2の内容
+      //- .enrol-section-basesubject-year-lesson-content-child#content-level-3  
+      //-   p|レベル3の内容
+      //- .enrol-section-basesubject-year-lesson-content-child#content-level-4  
+      //-   p|レベル4の内容 
 // セクション3: 時間割
 section.enrol-section
   h2.enrol-title 時間割
