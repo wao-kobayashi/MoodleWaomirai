@@ -4222,16 +4222,16 @@ html[data-tenantidnumber=stg] .category-53 .enrol-section-basesubject-year-lesso
   margin: 0 0 20px;
   padding: 15px;
 }
-html[data-tenantidnumber=stg] .category-53 .enrol-section-basesubject-year-lesson-content-child-curriculum {
+html[data-tenantidnumber=stg] .category-53 .enrol-section-basesubject-year-lesson-content-child .enrol-section-basesubject-year-lesson-content-child-curriculum {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
 }
-html[data-tenantidnumber=stg] .category-53 .enrol-section-basesubject-year-lesson-content-child-curriculum-month {
+html[data-tenantidnumber=stg] .category-53 .enrol-section-basesubject-year-lesson-content-child .enrol-section-basesubject-year-lesson-content-child-curriculum .enrol-section-basesubject-year-lesson-content-child-curriculum-month {
   width: 50px;
   background: #28afe7 !important;
 }
-html[data-tenantidnumber=stg] .category-53 .enrol-section-basesubject-year-lesson-content-child-curriculum-detail {
+html[data-tenantidnumber=stg] .category-53 .enrol-section-basesubject-year-lesson-content-child .enrol-section-basesubject-year-lesson-content-child-curriculum .enrol-section-basesubject-year-lesson-content-child-curriculum-detail {
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
@@ -4244,6 +4244,11 @@ html[data-tenantidnumber=stg] .category-53 .enrol-section-basesubject-timetable-
   grid-template-columns: 0.6fr repeat(7, 1fr);
   grid-gap: 5px;
   margin: 0 0 5px;
+}
+html[data-tenantidnumber=stg] .category-53 .enrol-section-basesubject-timetable-head .enrol-section-basesubject-timetable-head-child:nth-child(1) {
+  background: red;
+}
+html[data-tenantidnumber=stg] .category-53 .enrol-section-basesubject-timetable-head .enrol-section-basesubject-timetable-head-child {
   background: yellow;
 }
 html[data-tenantidnumber=stg] .category-53 .enrol-section-basesubject-timetable-content {
@@ -4252,22 +4257,13 @@ html[data-tenantidnumber=stg] .category-53 .enrol-section-basesubject-timetable-
   grid-gap: 5px;
   margin: 0 0 5px;
 }
-html[data-tenantidnumber=stg] .category-53 .enrol-section-basesubject-timetable-content-child:nth-child(1) {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+html[data-tenantidnumber=stg] .category-53 .enrol-section-basesubject-timetable-content .enrol-section-basesubject-timetable-content:nth-child(1) {
   font-weight: bold;
 }
-html[data-tenantidnumber=stg] .category-53 .enrol-section-basesubject-timetable-content-child:first-child {
+html[data-tenantidnumber=stg] .category-53 .enrol-section-basesubject-timetable-content .enrol-section-basesubject-timetable-content:first-child {
   background: red;
 }
-html[data-tenantidnumber=stg] .category-53 .enrol-section-basesubject-timetable-content-child {
+html[data-tenantidnumber=stg] .category-53 .enrol-section-basesubject-timetable-content .enrol-section-basesubject-timetable-content-child {
   background: yellow;
 }
 html[data-tenantidnumber=stg] .category-53 .enrol-section-basesubject-timetable-content .active {
@@ -4375,16 +4371,16 @@ html[data-tenantidnumber=stg] .category-48 .enrol-section-basesubject-year-lesso
   margin: 0 0 20px;
   padding: 15px;
 }
-html[data-tenantidnumber=stg] .category-48 .enrol-section-basesubject-year-lesson-content-child-curriculum {
+html[data-tenantidnumber=stg] .category-48 .enrol-section-basesubject-year-lesson-content-child .enrol-section-basesubject-year-lesson-content-child-curriculum {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
 }
-html[data-tenantidnumber=stg] .category-48 .enrol-section-basesubject-year-lesson-content-child-curriculum-month {
+html[data-tenantidnumber=stg] .category-48 .enrol-section-basesubject-year-lesson-content-child .enrol-section-basesubject-year-lesson-content-child-curriculum .enrol-section-basesubject-year-lesson-content-child-curriculum-month {
   width: 50px;
   background: #28afe7 !important;
 }
-html[data-tenantidnumber=stg] .category-48 .enrol-section-basesubject-year-lesson-content-child-curriculum-detail {
+html[data-tenantidnumber=stg] .category-48 .enrol-section-basesubject-year-lesson-content-child .enrol-section-basesubject-year-lesson-content-child-curriculum .enrol-section-basesubject-year-lesson-content-child-curriculum-detail {
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
@@ -4397,6 +4393,11 @@ html[data-tenantidnumber=stg] .category-48 .enrol-section-basesubject-timetable-
   grid-template-columns: 0.6fr repeat(7, 1fr);
   grid-gap: 5px;
   margin: 0 0 5px;
+}
+html[data-tenantidnumber=stg] .category-48 .enrol-section-basesubject-timetable-head .enrol-section-basesubject-timetable-head-child:nth-child(1) {
+  background: red;
+}
+html[data-tenantidnumber=stg] .category-48 .enrol-section-basesubject-timetable-head .enrol-section-basesubject-timetable-head-child {
   background: yellow;
 }
 html[data-tenantidnumber=stg] .category-48 .enrol-section-basesubject-timetable-content {
@@ -4405,22 +4406,13 @@ html[data-tenantidnumber=stg] .category-48 .enrol-section-basesubject-timetable-
   grid-gap: 5px;
   margin: 0 0 5px;
 }
-html[data-tenantidnumber=stg] .category-48 .enrol-section-basesubject-timetable-content-child:nth-child(1) {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+html[data-tenantidnumber=stg] .category-48 .enrol-section-basesubject-timetable-content .enrol-section-basesubject-timetable-content:nth-child(1) {
   font-weight: bold;
 }
-html[data-tenantidnumber=stg] .category-48 .enrol-section-basesubject-timetable-content-child:first-child {
+html[data-tenantidnumber=stg] .category-48 .enrol-section-basesubject-timetable-content .enrol-section-basesubject-timetable-content:first-child {
   background: red;
 }
-html[data-tenantidnumber=stg] .category-48 .enrol-section-basesubject-timetable-content-child {
+html[data-tenantidnumber=stg] .category-48 .enrol-section-basesubject-timetable-content .enrol-section-basesubject-timetable-content-child {
   background: yellow;
 }
 html[data-tenantidnumber=stg] .category-48 .enrol-section-basesubject-timetable-content .active {
@@ -4528,16 +4520,16 @@ html[data-tenantidnumber=stg] .category-52 .enrol-section-basesubject-year-lesso
   margin: 0 0 20px;
   padding: 15px;
 }
-html[data-tenantidnumber=stg] .category-52 .enrol-section-basesubject-year-lesson-content-child-curriculum {
+html[data-tenantidnumber=stg] .category-52 .enrol-section-basesubject-year-lesson-content-child .enrol-section-basesubject-year-lesson-content-child-curriculum {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
 }
-html[data-tenantidnumber=stg] .category-52 .enrol-section-basesubject-year-lesson-content-child-curriculum-month {
+html[data-tenantidnumber=stg] .category-52 .enrol-section-basesubject-year-lesson-content-child .enrol-section-basesubject-year-lesson-content-child-curriculum .enrol-section-basesubject-year-lesson-content-child-curriculum-month {
   width: 50px;
   background: #b6d43e !important;
 }
-html[data-tenantidnumber=stg] .category-52 .enrol-section-basesubject-year-lesson-content-child-curriculum-detail {
+html[data-tenantidnumber=stg] .category-52 .enrol-section-basesubject-year-lesson-content-child .enrol-section-basesubject-year-lesson-content-child-curriculum .enrol-section-basesubject-year-lesson-content-child-curriculum-detail {
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
@@ -4550,6 +4542,11 @@ html[data-tenantidnumber=stg] .category-52 .enrol-section-basesubject-timetable-
   grid-template-columns: 0.6fr repeat(7, 1fr);
   grid-gap: 5px;
   margin: 0 0 5px;
+}
+html[data-tenantidnumber=stg] .category-52 .enrol-section-basesubject-timetable-head .enrol-section-basesubject-timetable-head-child:nth-child(1) {
+  background: red;
+}
+html[data-tenantidnumber=stg] .category-52 .enrol-section-basesubject-timetable-head .enrol-section-basesubject-timetable-head-child {
   background: yellow;
 }
 html[data-tenantidnumber=stg] .category-52 .enrol-section-basesubject-timetable-content {
@@ -4558,22 +4555,13 @@ html[data-tenantidnumber=stg] .category-52 .enrol-section-basesubject-timetable-
   grid-gap: 5px;
   margin: 0 0 5px;
 }
-html[data-tenantidnumber=stg] .category-52 .enrol-section-basesubject-timetable-content-child:nth-child(1) {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+html[data-tenantidnumber=stg] .category-52 .enrol-section-basesubject-timetable-content .enrol-section-basesubject-timetable-content:nth-child(1) {
   font-weight: bold;
 }
-html[data-tenantidnumber=stg] .category-52 .enrol-section-basesubject-timetable-content-child:first-child {
+html[data-tenantidnumber=stg] .category-52 .enrol-section-basesubject-timetable-content .enrol-section-basesubject-timetable-content:first-child {
   background: red;
 }
-html[data-tenantidnumber=stg] .category-52 .enrol-section-basesubject-timetable-content-child {
+html[data-tenantidnumber=stg] .category-52 .enrol-section-basesubject-timetable-content .enrol-section-basesubject-timetable-content-child {
   background: yellow;
 }
 html[data-tenantidnumber=stg] .category-52 .enrol-section-basesubject-timetable-content .active {
@@ -4681,16 +4669,16 @@ html[data-tenantidnumber=stg] .category-49 .enrol-section-basesubject-year-lesso
   margin: 0 0 20px;
   padding: 15px;
 }
-html[data-tenantidnumber=stg] .category-49 .enrol-section-basesubject-year-lesson-content-child-curriculum {
+html[data-tenantidnumber=stg] .category-49 .enrol-section-basesubject-year-lesson-content-child .enrol-section-basesubject-year-lesson-content-child-curriculum {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
 }
-html[data-tenantidnumber=stg] .category-49 .enrol-section-basesubject-year-lesson-content-child-curriculum-month {
+html[data-tenantidnumber=stg] .category-49 .enrol-section-basesubject-year-lesson-content-child .enrol-section-basesubject-year-lesson-content-child-curriculum .enrol-section-basesubject-year-lesson-content-child-curriculum-month {
   width: 50px;
   background: #b6d43e !important;
 }
-html[data-tenantidnumber=stg] .category-49 .enrol-section-basesubject-year-lesson-content-child-curriculum-detail {
+html[data-tenantidnumber=stg] .category-49 .enrol-section-basesubject-year-lesson-content-child .enrol-section-basesubject-year-lesson-content-child-curriculum .enrol-section-basesubject-year-lesson-content-child-curriculum-detail {
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
@@ -4703,6 +4691,11 @@ html[data-tenantidnumber=stg] .category-49 .enrol-section-basesubject-timetable-
   grid-template-columns: 0.6fr repeat(7, 1fr);
   grid-gap: 5px;
   margin: 0 0 5px;
+}
+html[data-tenantidnumber=stg] .category-49 .enrol-section-basesubject-timetable-head .enrol-section-basesubject-timetable-head-child:nth-child(1) {
+  background: red;
+}
+html[data-tenantidnumber=stg] .category-49 .enrol-section-basesubject-timetable-head .enrol-section-basesubject-timetable-head-child {
   background: yellow;
 }
 html[data-tenantidnumber=stg] .category-49 .enrol-section-basesubject-timetable-content {
@@ -4711,22 +4704,13 @@ html[data-tenantidnumber=stg] .category-49 .enrol-section-basesubject-timetable-
   grid-gap: 5px;
   margin: 0 0 5px;
 }
-html[data-tenantidnumber=stg] .category-49 .enrol-section-basesubject-timetable-content-child:nth-child(1) {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+html[data-tenantidnumber=stg] .category-49 .enrol-section-basesubject-timetable-content .enrol-section-basesubject-timetable-content:nth-child(1) {
   font-weight: bold;
 }
-html[data-tenantidnumber=stg] .category-49 .enrol-section-basesubject-timetable-content-child:first-child {
+html[data-tenantidnumber=stg] .category-49 .enrol-section-basesubject-timetable-content .enrol-section-basesubject-timetable-content:first-child {
   background: red;
 }
-html[data-tenantidnumber=stg] .category-49 .enrol-section-basesubject-timetable-content-child {
+html[data-tenantidnumber=stg] .category-49 .enrol-section-basesubject-timetable-content .enrol-section-basesubject-timetable-content-child {
   background: yellow;
 }
 html[data-tenantidnumber=stg] .category-49 .enrol-section-basesubject-timetable-content .active {
@@ -4834,16 +4818,16 @@ html[data-tenantidnumber=stg] .category-51 .enrol-section-basesubject-year-lesso
   margin: 0 0 20px;
   padding: 15px;
 }
-html[data-tenantidnumber=stg] .category-51 .enrol-section-basesubject-year-lesson-content-child-curriculum {
+html[data-tenantidnumber=stg] .category-51 .enrol-section-basesubject-year-lesson-content-child .enrol-section-basesubject-year-lesson-content-child-curriculum {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
 }
-html[data-tenantidnumber=stg] .category-51 .enrol-section-basesubject-year-lesson-content-child-curriculum-month {
+html[data-tenantidnumber=stg] .category-51 .enrol-section-basesubject-year-lesson-content-child .enrol-section-basesubject-year-lesson-content-child-curriculum .enrol-section-basesubject-year-lesson-content-child-curriculum-month {
   width: 50px;
   background: #ffe3ac !important;
 }
-html[data-tenantidnumber=stg] .category-51 .enrol-section-basesubject-year-lesson-content-child-curriculum-detail {
+html[data-tenantidnumber=stg] .category-51 .enrol-section-basesubject-year-lesson-content-child .enrol-section-basesubject-year-lesson-content-child-curriculum .enrol-section-basesubject-year-lesson-content-child-curriculum-detail {
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
@@ -4856,6 +4840,11 @@ html[data-tenantidnumber=stg] .category-51 .enrol-section-basesubject-timetable-
   grid-template-columns: 0.6fr repeat(7, 1fr);
   grid-gap: 5px;
   margin: 0 0 5px;
+}
+html[data-tenantidnumber=stg] .category-51 .enrol-section-basesubject-timetable-head .enrol-section-basesubject-timetable-head-child:nth-child(1) {
+  background: red;
+}
+html[data-tenantidnumber=stg] .category-51 .enrol-section-basesubject-timetable-head .enrol-section-basesubject-timetable-head-child {
   background: yellow;
 }
 html[data-tenantidnumber=stg] .category-51 .enrol-section-basesubject-timetable-content {
@@ -4864,22 +4853,13 @@ html[data-tenantidnumber=stg] .category-51 .enrol-section-basesubject-timetable-
   grid-gap: 5px;
   margin: 0 0 5px;
 }
-html[data-tenantidnumber=stg] .category-51 .enrol-section-basesubject-timetable-content-child:nth-child(1) {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+html[data-tenantidnumber=stg] .category-51 .enrol-section-basesubject-timetable-content .enrol-section-basesubject-timetable-content:nth-child(1) {
   font-weight: bold;
 }
-html[data-tenantidnumber=stg] .category-51 .enrol-section-basesubject-timetable-content-child:first-child {
+html[data-tenantidnumber=stg] .category-51 .enrol-section-basesubject-timetable-content .enrol-section-basesubject-timetable-content:first-child {
   background: red;
 }
-html[data-tenantidnumber=stg] .category-51 .enrol-section-basesubject-timetable-content-child {
+html[data-tenantidnumber=stg] .category-51 .enrol-section-basesubject-timetable-content .enrol-section-basesubject-timetable-content-child {
   background: yellow;
 }
 html[data-tenantidnumber=stg] .category-51 .enrol-section-basesubject-timetable-content .active {
@@ -4987,16 +4967,16 @@ html[data-tenantidnumber=stg] .category-47 .enrol-section-basesubject-year-lesso
   margin: 0 0 20px;
   padding: 15px;
 }
-html[data-tenantidnumber=stg] .category-47 .enrol-section-basesubject-year-lesson-content-child-curriculum {
+html[data-tenantidnumber=stg] .category-47 .enrol-section-basesubject-year-lesson-content-child .enrol-section-basesubject-year-lesson-content-child-curriculum {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
 }
-html[data-tenantidnumber=stg] .category-47 .enrol-section-basesubject-year-lesson-content-child-curriculum-month {
+html[data-tenantidnumber=stg] .category-47 .enrol-section-basesubject-year-lesson-content-child .enrol-section-basesubject-year-lesson-content-child-curriculum .enrol-section-basesubject-year-lesson-content-child-curriculum-month {
   width: 50px;
   background: #ffe3ac !important;
 }
-html[data-tenantidnumber=stg] .category-47 .enrol-section-basesubject-year-lesson-content-child-curriculum-detail {
+html[data-tenantidnumber=stg] .category-47 .enrol-section-basesubject-year-lesson-content-child .enrol-section-basesubject-year-lesson-content-child-curriculum .enrol-section-basesubject-year-lesson-content-child-curriculum-detail {
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
@@ -5009,6 +4989,11 @@ html[data-tenantidnumber=stg] .category-47 .enrol-section-basesubject-timetable-
   grid-template-columns: 0.6fr repeat(7, 1fr);
   grid-gap: 5px;
   margin: 0 0 5px;
+}
+html[data-tenantidnumber=stg] .category-47 .enrol-section-basesubject-timetable-head .enrol-section-basesubject-timetable-head-child:nth-child(1) {
+  background: red;
+}
+html[data-tenantidnumber=stg] .category-47 .enrol-section-basesubject-timetable-head .enrol-section-basesubject-timetable-head-child {
   background: yellow;
 }
 html[data-tenantidnumber=stg] .category-47 .enrol-section-basesubject-timetable-content {
@@ -5017,22 +5002,13 @@ html[data-tenantidnumber=stg] .category-47 .enrol-section-basesubject-timetable-
   grid-gap: 5px;
   margin: 0 0 5px;
 }
-html[data-tenantidnumber=stg] .category-47 .enrol-section-basesubject-timetable-content-child:nth-child(1) {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+html[data-tenantidnumber=stg] .category-47 .enrol-section-basesubject-timetable-content .enrol-section-basesubject-timetable-content:nth-child(1) {
   font-weight: bold;
 }
-html[data-tenantidnumber=stg] .category-47 .enrol-section-basesubject-timetable-content-child:first-child {
+html[data-tenantidnumber=stg] .category-47 .enrol-section-basesubject-timetable-content .enrol-section-basesubject-timetable-content:first-child {
   background: red;
 }
-html[data-tenantidnumber=stg] .category-47 .enrol-section-basesubject-timetable-content-child {
+html[data-tenantidnumber=stg] .category-47 .enrol-section-basesubject-timetable-content .enrol-section-basesubject-timetable-content-child {
   background: yellow;
 }
 html[data-tenantidnumber=stg] .category-47 .enrol-section-basesubject-timetable-content .active {

@@ -110,10 +110,10 @@
       padding: 15px; // コンテンツ全体の余白
 
       // カリキュラム項目
-      &-curriculum {
+      .enrol-section-basesubject-year-lesson-content-child-curriculum {
         display: flex; // フレックスボックスで配置
 
-        &-month {
+        .enrol-section-basesubject-year-lesson-content-child-curriculum-month {
           width: 50px; // 月表示部分の幅
           background: map-get(
             $common-course-styles,
@@ -122,7 +122,7 @@
           ) !important; // 月部分の背景色
         }
 
-        &-detail {
+        .enrol-section-basesubject-year-lesson-content-child-curriculum-detail {
           flex: 1; // 残りのスペースを占有
         }
       }
@@ -140,7 +140,13 @@
       grid-template-columns: 0.6fr repeat(7, 1fr); // 左に0.6fr、右に7列均等配置
       grid-gap: 5px; // 各列の間隔
       margin: 0 0 5px; // 下に余白
-      background: yellow; // ダミーカラーで確認用
+
+      .enrol-section-basesubject-timetable-head-child:nth-child(1) {
+        background: red;
+      }
+      .enrol-section-basesubject-timetable-head-child {
+        background: yellow; // ダミーカラーで確認用
+      }
     }
 
     // ============================
@@ -148,24 +154,24 @@
     // ============================
     .enrol-section-basesubject-timetable-content {
       display: grid; // グリッドレイアウトで配置
-      grid-template-columns: 0.6fr repeat(7, 1fr); // 同上
+      grid-template-columns: 0.6fr repeat(7, 1fr); // 左に0.6fr、右に7列均等配置
       grid-gap: 5px; // 各列の間隔
       margin: 0 0 5px; // 下に余白
 
       // 1列目(時間帯セル)の見た目を改善
-      &-child:nth-child(1) {
-        display: flex; // 横並び
-        align-items: center; // 縦中央
-        justify-content: center; // 横中央
+      .enrol-section-basesubject-timetable-content:nth-child(1) {
+        // display: flex; // 横並び
+        // align-items: center; // 縦中央
+        // justify-content: center; // 横中央
         font-weight: bold; // 見た目のアクセントをつけたい場合
       }
 
       // 最初の週だけ背景色を変える（元のコードを維持）
-      &-child:first-child {
+      .enrol-section-basesubject-timetable-content:first-child {
         background: red; // 確認用のダミーカラー
       }
 
-      &-child {
+      .enrol-section-basesubject-timetable-content-child {
         background: yellow;
       }
 
