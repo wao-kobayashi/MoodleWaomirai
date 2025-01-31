@@ -48,18 +48,33 @@
         img {
           border-radius: 10px;
           width: calc(100% - 30px);
-          margin: 0 15px;
+          margin: 16px 16px 0px;
         }
       }
 
       .enrol-section-basesubject-thismonth-lesson-grid-lesson-week {
         position: absolute;
+        z-index: 1;
+        top: 5px;
+        left: 10px;
+        background: #ffcc00; // ゴール画像に合わせた黄色の背景
+        color: #fff;
+        font-weight: bold;
+        padding: 5px 20px;
+        border-radius: 20px;
+        font-size: 14px;
       }
 
+      .enrol-section-basesubject-thismonth-lesson-grid-lesson-text {
+        // margin-top: 10px; // テキスト部分の上部に余白を追加
+        padding: 8px 16px; // テキストを中央揃え
+        font-size: 16px; // 読みやすいフォントサイズに調整
+      }
       // 今月の授業ごとのカードスタイル
       .enrol-section-basesubject-thismonth-lesson-grid-lesson {
+        position: relative;
         border-radius: 10px;
-        @include lms-boxshadow; // シャドウを適用
+        @include lms-boxshadow;
       }
     }
 
@@ -95,11 +110,14 @@
             color: $cl-white; // アクティブなタブの文字色
           }
         }
+
         // アクティブなタブのスタイル
       }
     }
     .enrol-section-basesubject-year-lesson-content {
       background: $cl-graylightest;
+      border-radius: 14px;
+      box-shadow: 3px;
     }
     // 年間カリキュラムの詳細コンテンツ
     .enrol-section-basesubject-year-lesson-content-child {
@@ -112,8 +130,12 @@
       // カリキュラム項目
       .enrol-section-basesubject-year-lesson-content-child-curriculum {
         display: flex; // フレックスボックスで配置
+        background: #fff;
+        border: 1px solid orange;
+        border-radius: 10px;
 
         .enrol-section-basesubject-year-lesson-content-child-curriculum-month {
+          border-radius: 10px 0 0 10px;
           width: 50px; // 月表示部分の幅
           background: map-get(
             $common-course-styles,
@@ -124,7 +146,20 @@
 
         .enrol-section-basesubject-year-lesson-content-child-curriculum-detail {
           flex: 1; // 残りのスペースを占有
+          margin: 16px;
         }
+      }
+    }
+    // // コメントアウトすると、一番下の波線が消える
+    .enrol-section-basesubject-year-lesson-content-child-curriculum-detail-title {
+      border-bottom: dotted 1px;
+    }
+
+    .enrol-section-basesubject-year-lesson-content-child-curriculum-detail-subcontent {
+      border-bottom: dotted 1px;
+
+      &:last-child {
+        border-bottom: none;
       }
     }
 
@@ -152,64 +187,121 @@
     // ============================
     // 時間割のコンテンツ部分
     // ============================
-    .enrol-section-basesubject-timetable-content {
-      display: grid; // グリッドレイアウトで配置
-      grid-template-columns: 0.6fr repeat(7, 1fr); // 左に0.6fr、右に7列均等配置
-      grid-gap: 5px; // 各列の間隔
-      margin: 0 0 5px; // 下に余白
+    // .enrol-section-basesubject-timetable-content {
+    //   display: grid; // グリッドレイアウトで配置
+    //   grid-template-columns: 0.6fr repeat(7, 1fr); // 左に0.6fr、右に7列均等配置
+    //   grid-gap: 5px; // 各列の間隔
+    //   margin: 0 0 5px; // 下に余白
 
-      // 1列目(時間帯セル)の見た目を改善
-      .enrol-section-basesubject-timetable-content:nth-child(1) {
-        // display: flex; // 横並び
-        // align-items: center; // 縦中央
-        // justify-content: center; // 横中央
-        font-weight: bold; // 見た目のアクセントをつけたい場合
-      }
+    //   // 1列目(時間帯セル)の見た目を改善
+    //   .enrol-section-basesubject-timetable-content:nth-child(1) {
+    //     // display: flex; // 横並び
+    //     // align-items: center; // 縦中央
+    //     // justify-content: center; // 横中央
+    //     font-weight: bold; // 見た目のアクセントをつけたい場合
+    //   }
 
-      // 最初の週だけ背景色を変える（元のコードを維持）
-      .enrol-section-basesubject-timetable-content:first-child {
-        background: red; // 確認用のダミーカラー
-      }
+    //   // 最初の週だけ背景色を変える（元のコードを維持）
+    //   .enrol-section-basesubject-timetable-content:first-child {
+    //     background: red; // 確認用のダミーカラー
+    //   }
 
-      .enrol-section-basesubject-timetable-content-child {
-        background: yellow;
-      }
+    //   .enrol-section-basesubject-timetable-content-child {
+    //     background: yellow;
+    //   }
+    // ここまでコメントアウト
+    .enrol-section-basesubject-timetable {
+      // 見出し行
+      &-head {
+        display: grid;
+        grid-template-columns: 0.6fr repeat(7, 1fr);
+        grid-gap: 5px;
+        margin: 0 0 5px;
 
-      // アクティブな時間割のスタイル（既存）
-      .active {
-        background: map-get(
-          $common-course-styles,
-          $style-name,
-          pale-color
-        ) !important; // アクティブな背景色
-        border-left: 2px
-          solid
-          map-get(
-            $common-course-styles,
-            $style-name,
-            main-color
-          ) !important; // 左線で強調
-
-        // 科目名・レベルを縦方向にまとめる例
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-      }
-
-      // --- 開始/終了時刻の間にハイフンを挿入する例 ---
-      // Pugでは「.enrol-section-basesubject-timetable-content-child-start」と
-      // 「.enrol-section-basesubject-timetable-content-child-end」に分かれている想定
-      &-child-start {
-        display: inline-block;
-        &::after {
-          content: " - ";
-          margin: 0 4px; // ハイフンと終了時刻の間隔
+        &-child {
+          background: yellow; // 確認用ダミーカラー
+          // 1列目だけ色変更
+          &:nth-child(1) {
+            background: red;
+          }
         }
       }
-      &-child-end {
-        display: inline-block;
+
+      // コンテンツ行
+      &-content {
+        display: grid;
+        grid-template-columns: 0.6fr repeat(7, 1fr);
+        grid-gap: 5px;
+        margin: 0 0 5px;
+
+        // 最初の行を強調したい場合の例
+        &:first-child {
+          background: #fdd; // ダミーで赤系を薄く
+        }
+
+        &-child {
+          background: yellow; // 確認用ダミーカラー
+
+          // 科目がある場合のセルに付くクラス
+          &.active {
+            background: #ffe5a5; // 例: 薄いオレンジ系
+          }
+
+          // 時刻表示（開始/終了）用
+          &-start {
+            display: block;
+            font-weight: bold;
+          }
+          &-end {
+            display: block;
+          }
+
+          // 科目名
+          &-subject {
+            font-weight: bold;
+          }
+          // レベル
+          &-level {
+            font-size: 0.9rem;
+          }
+        }
       }
+    }
+
+    // アクティブな時間割のスタイル（既存）
+    .active {
+      background: map-get(
+        $common-course-styles,
+        $style-name,
+        pale-color
+      ) !important; // アクティブな背景色
+      border-left: 2px
+        solid
+        map-get(
+          $common-course-styles,
+          $style-name,
+          main-color
+        ) !important; // 左線で強調
+
+      // 科目名・レベルを縦方向にまとめる例
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    // --- 開始/終了時刻の間にハイフンを挿入する例 ---
+    // Pugでは「.enrol-section-basesubject-timetable-content-child-start」と
+    // 「.enrol-section-basesubject-timetable-content-child-end」に分かれている想定
+    &-child-start {
+      display: inline-block;
+      &::after {
+        content: " - ";
+        margin: 0 4px; // ハイフンと終了時刻の間隔
+      }
+    }
+    &-child-end {
+      display: inline-block;
     }
   }
 }
