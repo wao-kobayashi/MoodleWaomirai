@@ -2,10 +2,10 @@
 // 共通のスタイルデータ
 ////////////////////////
 $common-course-styles: (
-  "economiy": (
-    main-color: $cl-economiy,
-    pale-color: $cl-economiy,
-    background-color: $cl-economiy,
+  "economy": (
+    main-color: $cl-economy,
+    pale-color: $cl-economy,
+    background-color: $cl-economy,
     background-image:
       url("https://go.waomirai.com/l/1026513/2024-08-08/gzqbt/1026513/1723092445zMMVlFVz/subject_03.jpg"),
   ),
@@ -43,7 +43,7 @@ $common-course-styles: (
 ////////////////////////
 // stg環境でのコースID
 $course-styles-stg: (
-  "category-53": "economiy",
+  "category-53": "economy",
   "category-52": "science",
   "category-51": "philosophy",
   "category-54": "english",
@@ -51,7 +51,7 @@ $course-styles-stg: (
 );
 // lms環境でのコースID
 $course-styles-lms: (
-  "category-48": "economiy",
+  "category-48": "economy",
   "category-49": "science",
   "category-47": "philosophy",
   "category-50": "english",
@@ -59,8 +59,8 @@ $course-styles-lms: (
 );
 
 $course-styles: (
-  ".category-53": "economiy",
-  ".category-48": "economiy",
+  ".category-53": "economy",
+  ".category-48": "economy",
   ".category-52": "science",
   ".category-49": "science",
   ".category-51": "philosophy",

@@ -260,14 +260,14 @@ html[data-tenantidnumber=lmswaomirai] .lms-index-contents-block-cards .block-sci
     display: none;
   }
 }
-html[data-tenantidnumber=lmswaomirai] .lms-index-contents-block-cards .block-economiy:before {
+html[data-tenantidnumber=lmswaomirai] .lms-index-contents-block-cards .block-economy:before {
   background: #28afe7;
 }
-html[data-tenantidnumber=lmswaomirai] .lms-index-contents-block-cards .block-economiy .common-contents-block-cards-course-detail-title:before {
+html[data-tenantidnumber=lmswaomirai] .lms-index-contents-block-cards .block-economy .common-contents-block-cards-course-detail-title:before {
   background: #28afe7;
 }
 @media screen and (min-width: 769px) {
-  html[data-tenantidnumber=lmswaomirai] .lms-index-contents-block-cards .block-economiy .common-contents-block-cards-course-detail-title:before {
+  html[data-tenantidnumber=lmswaomirai] .lms-index-contents-block-cards .block-economy .common-contents-block-cards-course-detail-title:before {
     display: none;
   }
 }
@@ -450,14 +450,14 @@ html[data-tenantidnumber=lmswaomirai] .dashboard-main-contents-block-cards .bloc
     display: none;
   }
 }
-html[data-tenantidnumber=lmswaomirai] .dashboard-main-contents-block-cards .block-economiy:before {
+html[data-tenantidnumber=lmswaomirai] .dashboard-main-contents-block-cards .block-economy:before {
   background: #28afe7;
 }
-html[data-tenantidnumber=lmswaomirai] .dashboard-main-contents-block-cards .block-economiy .common-contents-block-cards-course-detail-title:before {
+html[data-tenantidnumber=lmswaomirai] .dashboard-main-contents-block-cards .block-economy .common-contents-block-cards-course-detail-title:before {
   background: #28afe7;
 }
 @media screen and (min-width: 769px) {
-  html[data-tenantidnumber=lmswaomirai] .dashboard-main-contents-block-cards .block-economiy .common-contents-block-cards-course-detail-title:before {
+  html[data-tenantidnumber=lmswaomirai] .dashboard-main-contents-block-cards .block-economy .common-contents-block-cards-course-detail-title:before {
     display: none;
   }
 }
