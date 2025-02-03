@@ -80,4 +80,4 @@ $(document).ready(function () {
     // グローバル英語に関連する子科目
     { id: 253, name: "グローバル英語 L1", key: "globalenglish", parentKey: "globalenglish", type: "child", level: "L1" },
     { id: 254, name: "グローバル英語 L2", key: "globalenglish", parentKey: "globalenglish", type: "child", level: "L2" },
-  ];
+  ]

@@ -839,9 +839,9 @@ if (bodyId === "page-course-view-flexsections") { // ページIDが「page-cours
 
         if (childCourse) {
           // リダイレクト先のURLを作成
-          const redirectUrl = `https://lms.waomirai.com/course/view.php?id=${childCourse.id}`;
-          console.log(`リダイレクト: ${redirectUrl}`); // リダイレクト先URLをログに出力
-          window.location.href = redirectUrl; // ユーザーを指定したURLにリダイレクト
+          // const redirectUrl = `https://lms.waomirai.com/course/view.php?id=${childCourse.id}`;
+          // console.log(`リダイレクト: ${redirectUrl}`); // リダイレクト先URLをログに出力
+          // window.location.href = redirectUrl; // ユーザーを指定したURLにリダイレクト
         }
       } else {
         // 「child」タイプが存在しない場合の処理

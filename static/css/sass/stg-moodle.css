@@ -1435,9 +1435,9 @@ html[data-tenantidnumber=stg] #page-login-confirm .boxaligncenter h3 {
 }
 html[data-tenantidnumber=stg] #page-login-confirm .singlebutton button {
   width: 300px;
-  background: #005c3f;
+  background: #005c3f !important;
   padding: 15px 20px;
-  color: white;
+  color: #ffffff;
   font-size: 16px;
 }
 html[data-tenantidnumber=stg] #page-login-forgot_password .col-form-label {
@@ -1508,10 +1508,12 @@ html[data-tenantidnumber=stg] #page-course-view-topics.category-53 #page-header 
   color: white !important;
   padding: 0 0 0 40px;
   font-size: 30px !important;
+  max-width: 330px;
 }
 @media screen and (max-width: 768px) {
   html[data-tenantidnumber=stg] #page-course-view-topics.category-53 #page-header .page-context-header .page-header-headings h1, html[data-tenantidnumber=stg] #page-course-view-flexsections.category-53 #page-header .page-context-header .page-header-headings h1, html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo.category-53 #page-header .page-context-header .page-header-headings h1, html[data-tenantidnumber=stg] #page-enrol-index.category-53 #page-header .page-context-header .page-header-headings h1 {
     padding: 200px 20px 40px 20px;
+    max-width: 100%;
   }
 }
 html[data-tenantidnumber=stg] #page-course-view-topics.category-53 #page-header .page-context-header .page-header-headings:before, html[data-tenantidnumber=stg] #page-course-view-flexsections.category-53 #page-header .page-context-header .page-header-headings:before, html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo.category-53 #page-header .page-context-header .page-header-headings:before, html[data-tenantidnumber=stg] #page-enrol-index.category-53 #page-header .page-context-header .page-header-headings:before {
@@ -1599,10 +1601,12 @@ html[data-tenantidnumber=stg] #page-course-view-topics.category-52 #page-header 
   color: white !important;
   padding: 0 0 0 40px;
   font-size: 30px !important;
+  max-width: 330px;
 }
 @media screen and (max-width: 768px) {
   html[data-tenantidnumber=stg] #page-course-view-topics.category-52 #page-header .page-context-header .page-header-headings h1, html[data-tenantidnumber=stg] #page-course-view-flexsections.category-52 #page-header .page-context-header .page-header-headings h1, html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo.category-52 #page-header .page-context-header .page-header-headings h1, html[data-tenantidnumber=stg] #page-enrol-index.category-52 #page-header .page-context-header .page-header-headings h1 {
     padding: 200px 20px 40px 20px;
+    max-width: 100%;
   }
 }
 html[data-tenantidnumber=stg] #page-course-view-topics.category-52 #page-header .page-context-header .page-header-headings:before, html[data-tenantidnumber=stg] #page-course-view-flexsections.category-52 #page-header .page-context-header .page-header-headings:before, html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo.category-52 #page-header .page-context-header .page-header-headings:before, html[data-tenantidnumber=stg] #page-enrol-index.category-52 #page-header .page-context-header .page-header-headings:before {
@@ -1690,10 +1694,12 @@ html[data-tenantidnumber=stg] #page-course-view-topics.category-51 #page-header 
   color: white !important;
   padding: 0 0 0 40px;
   font-size: 30px !important;
+  max-width: 330px;
 }
 @media screen and (max-width: 768px) {
   html[data-tenantidnumber=stg] #page-course-view-topics.category-51 #page-header .page-context-header .page-header-headings h1, html[data-tenantidnumber=stg] #page-course-view-flexsections.category-51 #page-header .page-context-header .page-header-headings h1, html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo.category-51 #page-header .page-context-header .page-header-headings h1, html[data-tenantidnumber=stg] #page-enrol-index.category-51 #page-header .page-context-header .page-header-headings h1 {
     padding: 200px 20px 40px 20px;
+    max-width: 100%;
   }
 }
 html[data-tenantidnumber=stg] #page-course-view-topics.category-51 #page-header .page-context-header .page-header-headings:before, html[data-tenantidnumber=stg] #page-course-view-flexsections.category-51 #page-header .page-context-header .page-header-headings:before, html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo.category-51 #page-header .page-context-header .page-header-headings:before, html[data-tenantidnumber=stg] #page-enrol-index.category-51 #page-header .page-context-header .page-header-headings:before {
@@ -1781,10 +1787,12 @@ html[data-tenantidnumber=stg] #page-course-view-topics.category-54 #page-header 
   color: white !important;
   padding: 0 0 0 40px;
   font-size: 30px !important;
+  max-width: 330px;
 }
 @media screen and (max-width: 768px) {
   html[data-tenantidnumber=stg] #page-course-view-topics.category-54 #page-header .page-context-header .page-header-headings h1, html[data-tenantidnumber=stg] #page-course-view-flexsections.category-54 #page-header .page-context-header .page-header-headings h1, html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo.category-54 #page-header .page-context-header .page-header-headings h1, html[data-tenantidnumber=stg] #page-enrol-index.category-54 #page-header .page-context-header .page-header-headings h1 {
     padding: 200px 20px 40px 20px;
+    max-width: 100%;
   }
 }
 html[data-tenantidnumber=stg] #page-course-view-topics.category-54 #page-header .page-context-header .page-header-headings:before, html[data-tenantidnumber=stg] #page-course-view-flexsections.category-54 #page-header .page-context-header .page-header-headings:before, html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo.category-54 #page-header .page-context-header .page-header-headings:before, html[data-tenantidnumber=stg] #page-enrol-index.category-54 #page-header .page-context-header .page-header-headings:before {
@@ -1872,10 +1880,12 @@ html[data-tenantidnumber=stg] #page-course-view-topics.course-999999 #page-heade
   color: white !important;
   padding: 0 0 0 40px;
   font-size: 30px !important;
+  max-width: 330px;
 }
 @media screen and (max-width: 768px) {
   html[data-tenantidnumber=stg] #page-course-view-topics.course-999999 #page-header .page-context-header .page-header-headings h1, html[data-tenantidnumber=stg] #page-course-view-flexsections.course-999999 #page-header .page-context-header .page-header-headings h1, html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo.course-999999 #page-header .page-context-header .page-header-headings h1, html[data-tenantidnumber=stg] #page-enrol-index.course-999999 #page-header .page-context-header .page-header-headings h1 {
     padding: 200px 20px 40px 20px;
+    max-width: 100%;
   }
 }
 html[data-tenantidnumber=stg] #page-course-view-topics.course-999999 #page-header .page-context-header .page-header-headings:before, html[data-tenantidnumber=stg] #page-course-view-flexsections.course-999999 #page-header .page-context-header .page-header-headings:before, html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo.course-999999 #page-header .page-context-header .page-header-headings:before, html[data-tenantidnumber=stg] #page-enrol-index.course-999999 #page-header .page-context-header .page-header-headings:before {
@@ -5005,14 +5015,40 @@ html[data-tenantidnumber=stg] #page-enrol-index table td.has-text-align-center {
 html[data-tenantidnumber=stg] #page-enrol-index .wp-block-spacer {
   height: 16px;
 }
+html[data-tenantidnumber=stg] .course-228 .page-context-header, html[data-tenantidnumber=stg] .course-270 .page-context-header,
+html[data-tenantidnumber=stg] .course-229 .page-context-header, html[data-tenantidnumber=stg] .course-271 .page-context-header {
+  display: none;
+}
 @media screen and (max-width: 768px) {
-  html[data-tenantidnumber=stg] #page-enrol-index {
-    height: 0;
+  html[data-tenantidnumber=stg] .course-228 #page.drawers, html[data-tenantidnumber=stg] .course-270 #page.drawers,
+  html[data-tenantidnumber=stg] .course-229 #page.drawers, html[data-tenantidnumber=stg] .course-271 #page.drawers {
+    margin: 0 !important;
   }
 }
-html[data-tenantidnumber=stg] .course-228 .page-context-header, html[data-tenantidnumber=stg] .course-270 .page-context-header,
-html[data-tenantidnumber=stg] .course-229 .page-context-header, html[data-tenantidnumber=stg] .category-271 .page-context-header {
-  display: none;
+@media screen and (max-width: 768px) {
+  html[data-tenantidnumber=stg] .course-228 .enrol-header, html[data-tenantidnumber=stg] .course-270 .enrol-header,
+  html[data-tenantidnumber=stg] .course-229 .enrol-header, html[data-tenantidnumber=stg] .course-271 .enrol-header {
+    margin: 0 -20px !important;
+  }
+}
+html[data-tenantidnumber=stg] .course-228 .mt-3,
+html[data-tenantidnumber=stg] .course-228 .my-3, html[data-tenantidnumber=stg] .course-270 .mt-3,
+html[data-tenantidnumber=stg] .course-270 .my-3,
+html[data-tenantidnumber=stg] .course-229 .mt-3,
+html[data-tenantidnumber=stg] .course-229 .my-3, html[data-tenantidnumber=stg] .course-271 .mt-3,
+html[data-tenantidnumber=stg] .course-271 .my-3 {
+  margin-top: 0px !important;
+  margin-top: 0rem !important;
+}
+@media screen and (max-width: 768px) {
+  html[data-tenantidnumber=stg] .course-228 .mt-2,
+  html[data-tenantidnumber=stg] .course-228 .my-2, html[data-tenantidnumber=stg] .course-270 .mt-2,
+  html[data-tenantidnumber=stg] .course-270 .my-2,
+  html[data-tenantidnumber=stg] .course-229 .mt-2,
+  html[data-tenantidnumber=stg] .course-229 .my-2, html[data-tenantidnumber=stg] .course-271 .mt-2,
+  html[data-tenantidnumber=stg] .course-271 .my-2 {
+    margin-top: 0rem !important;
+  }
 }
 html[data-tenantidnumber=stg] #page-enrol-index {
   margin-top: 36px;
@@ -5123,10 +5159,22 @@ html[data-tenantidnumber=stg] #page-enrol-index .multiselct-price .multiselct-pr
   html[data-tenantidnumber=stg] .enrol-section-img-2 {
     display: none;
   }
+}
+html[data-tenantidnumber=stg] .enrol-header {
+  margin: 0 auto 50px;
+}
+@media screen and (min-width: 769px) {
+  html[data-tenantidnumber=stg] .enrol-header img {
+    border-radius: 12px;
+  }
+}
+@media screen and (max-width: 768px) {
   html[data-tenantidnumber=stg] .enrol-header {
     margin: 0;
     padding: 0;
   }
+}
+@media screen and (max-width: 768px) {
   html[data-tenantidnumber=stg] .multiselct-price {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -5138,6 +5186,8 @@ html[data-tenantidnumber=stg] #page-enrol-index .multiselct-price .multiselct-pr
     gap: 20px;
     width: 100%;
   }
+}
+@media screen and (max-width: 768px) {
   html[data-tenantidnumber=stg] .multiselct-price-child {
     -webkit-box-flex: 0;
         -ms-flex: none;
@@ -5150,6 +5200,8 @@ html[data-tenantidnumber=stg] #page-enrol-index .multiselct-price .multiselct-pr
     border-radius: 8px;
     background-color: #ffffff;
   }
+}
+@media screen and (max-width: 768px) {
   html[data-tenantidnumber=stg] .price-discount {
     position: absolute;
     top: -20px;

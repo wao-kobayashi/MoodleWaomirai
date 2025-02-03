@@ -7,6 +7,26 @@
   .page-context-header {
     display: none; //２科と３科目ヘッダー見えなくする
   }
+  #page.drawers {
+    @include responsive-style(768px) {
+      margin: 0 !important;
+    }
+  }
+  .enrol-header {
+    @include responsive-style(768px) {
+      margin: 0 -20px !important;
+    }
+  }
+  .mt-3,
+  .my-3 {
+    margin-top: 0rem !important;
+  }
+  .mt-2,
+  .my-2 {
+    @include responsive-style(768px) {
+      margin-top: 0rem !important;
+    }
+  }
 }
 
 #page-enrol-index {
@@ -120,26 +140,39 @@
   }
 }
 
-@include responsive-style(768px) {
-  .enrol-title-2,
-  .enrol-text-2,
-  .enrol-section-img-2 {
+.enrol-title-2,
+.enrol-text-2,
+.enrol-section-img-2 {
+  @include responsive-style(768px) {
     display: none;
   }
+}
 
-  .enrol-header {
+.enrol-header {
+  margin: 0 auto 50px;
+  img {
+    @include min-responsive-style(769px) {
+      border-radius: $border-radius-big;
+    }
+  }
+
+  @include responsive-style(768px) {
     margin: 0;
     padding: 0;
   }
+}
 
-  .multiselct-price {
+.multiselct-price {
+  @include responsive-style(768px) {
     display: flex;
     flex-direction: column;
     gap: 20px;
     width: 100%;
   }
+}
 
-  .multiselct-price-child {
+.multiselct-price-child {
+  @include responsive-style(768px) {
     flex: none;
     width: calc(100% - 40px);
     margin: 0 auto;
@@ -148,8 +181,10 @@
     border-radius: 8px;
     background-color: $cl-white;
   }
+}
 
-  .price-discount {
+.price-discount {
+  @include responsive-style(768px) {
     position: absolute;
     top: -20px;
     left: 50%;

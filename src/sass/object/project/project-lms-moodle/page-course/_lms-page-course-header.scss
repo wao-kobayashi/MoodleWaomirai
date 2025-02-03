@@ -65,8 +65,10 @@ $target-pages: (
               color: white !important;
               padding: 0 0 0 40px;
               font-size: $lms-font-size-xxl !important;
+              max-width: 330px;
               @include responsive-style(768px) {
                 padding: 200px 20px 40px 20px;
+                max-width: 100%;
               }
             }
             &:before {
