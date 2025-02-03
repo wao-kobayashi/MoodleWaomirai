@@ -1157,7 +1157,7 @@ if (bodyId === "page-user-edit") { // ページIDが「page-user-edit」の場�
   const messages = {
     levelSet: (ownedLevels) =>
       `<div class="subject-select-levelset">
-         現在受講中のレベルは ${ownedLevels.join(", ")}です<br>
+         現在受講中のレベルは ${ownedLevels}です<br>
          レベルの変更は月末反映となります。即時反映されませんのでご注意ください。
        </div>`,
     levelNotSet:
