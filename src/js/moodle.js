@@ -994,7 +994,6 @@ if (bodyId === "page-user-edit") { // ページIDが「page-user-edit」の場�
   // 【2科目セット購入】の場合
   if (checkBoughtMainSubject(["twosubjectpack"], true)) { // 2科目セットを購入している場合
     AreaTwoCourse.show(); // 2科目選択のプルダウンを表示
-    selectOptionByIndex(AreaSingleCourse, 0); // 初期状態では「1科目受講」を選択
 
     // プルダウン変更時に呼ばれる関数
     function updateAreaOnSelection() {
