@@ -766,6 +766,9 @@ html[data-tenantidnumber=stg] img {
 html[data-tenantidnumber=stg] .border-bottom {
   border-bottom: none !important;
 }
+html[data-tenantidnumber=stg] .navbar-brand img {
+  width: auto !important;
+}
 html[data-tenantidnumber=stg] .footer-section {
   padding: 60px 0 0;
   display: -webkit-box;

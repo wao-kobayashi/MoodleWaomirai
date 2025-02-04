@@ -67,6 +67,9 @@ $(document).ready(function () {
   { id: 138, name: "グローバル英語 L2", key: "globalenglish", parentKey: "globalenglish", type: "child", level: "L2" },
 ];
 
+$(document).ready(function() {
+    const tenantIdNumber = $("html").data("tenantidnumber");
+    if (tenantIdNumber === "lmswaomirai") {
 // ==============================
 // ページ判定とコースIDの取得
 // ==============================

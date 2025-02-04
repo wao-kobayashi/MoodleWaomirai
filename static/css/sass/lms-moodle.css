@@ -762,6 +762,9 @@ html[data-tenantidnumber=lmswaomirai] img {
 html[data-tenantidnumber=lmswaomirai] .border-bottom {
   border-bottom: none !important;
 }
+html[data-tenantidnumber=lmswaomirai] .navbar-brand img {
+  width: auto !important;
+}
 html[data-tenantidnumber=lmswaomirai] .footer-section {
   padding: 60px 0 0;
   display: -webkit-box;
