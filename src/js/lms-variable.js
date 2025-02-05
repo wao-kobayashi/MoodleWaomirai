@@ -65,4 +65,13 @@ $(document).ready(function () {
   // グローバル英語に関連する子科目
   { id: 130, name: "グローバル英語 L1", key: "globalenglish", parentKey: "globalenglish", type: "child", level: "L1" },
   { id: 138, name: "グローバル英語 L2", key: "globalenglish", parentKey: "globalenglish", type: "child", level: "L2" },
+
+  // ==============================
+  // admin専用の科目（通常ユーザーは購入できない
+  // ==============================
+
+  //用途
+  //受講者と管理者ユーザーで挙動を変えたい部分があるので、この講座を持っている人はadminの扱いにする。
+  //この講座は表に出ないので一般ユーザーは絶対に受講できない講座
+  { id: 277, name: "admin", key: "admin",  type: "role"}
 ];
