@@ -244,10 +244,6 @@ function createModal(options = {}) {
   });
 }
 
-
-
-
-
 // ==============================
 // ダッシュボードページでの処理
 // ==============================
@@ -327,17 +323,17 @@ if (bodyId === "page-my-index") {
           .filter((subject) => subject.type === "main") // メイン科目のみ抽出
           .filter((subject) => {
               // サブ科目の存在チェック
-              const hasChild = subjects.some(
+              const hasSubjectChild = subjects.some(
                   (childSubject) =>
                       childSubject.type === "child" &&
                       childSubject.parentKey === subject.key &&
                       bodyClasses.includes(childSubject.id)
               );
 
-              console.log(`科目チェック: ${subject.name}, サブ科目あり: ${hasChild}`);
+              console.log(`科目チェック: ${subject.name}, サブ科目あり: ${hasSubjectChild}`);
 
               // サブ科目がある場合はスキップ
-              if (hasChild) {
+              if (hasSubjectChild) {
                   console.log(`${subject.name}はサブ科目があるためスキップ`);
                   return false;
               }
@@ -954,7 +950,7 @@ if (bodyId === "page-course-view-flexsections") { // ページIDが「page-cours
       }
 
       // bodyClasses（ページのクラス名）に対応する「child」タイプの科目があるか確認
-      const hasChild = bodyClasses.some((courseId) => {
+      const hasSubjectChild = bodyClasses.some((courseId) => {
         // bodyClassesに含まれる各courseIdに対して、対応する「child」タイプの科目をsubjectsから検索
         return subjects.some(
           (subject) =>
@@ -964,7 +960,7 @@ if (bodyId === "page-course-view-flexsections") { // ページIDが「page-cours
         );
       });
 
-      if (hasChild) {
+      if (hasSubjectChild) {
         console.log(`${key}のchildタイプが存在します`); // childタイプが存在する場合
 
         // 「child」タイプが見つかった場合、リダイレクト処理
