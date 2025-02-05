@@ -58,6 +58,11 @@ const hasBoughtMainSubject = checkGroup((subject) => subject.type === "main");
 // 条件は「typeが'child'」であること。
 const hasBoughtChildSubject = checkGroup((subject) => subject.type === "child");
 
+// adminグループに関連付けられているかを判定
+ //受講者と管理者ユーザーで挙動を変えたい部分があるので、この講座を持っている人はadminの扱いにする。
+    //この講座は表に出ないので一般ユーザーは絶対に受講できない講座
+const hasBoughtAdminSubject= checkGroup((subject) => subject.key === "admin");
+
 // ==============================
 // 科目の特定レベルチェック関数
 // ==============================
@@ -844,89 +849,93 @@ if (bodyId === "page-course-index-category") {
 // ==============================
 if (bodyId === "page-course-view-flexsections") { // ページIDが「page-course-view-flexsections」の場合に処理を開始
 
-  // 対象となる科目のリスト
-  const targetSubjects = [
-    "philosophy",    // 哲学
-    "science",       // 科学
-    "economy",       // 経済
-    "globalenglish", // グローバル英語
-    "twosubjectpack", // 2科目パック
-    "threesubjectpack", // 3科目パック
-  ];
+  //管理者ではない時に発火
+  //管理者で発火させないようのはリダイレクト防止、受講科目ダイアログが出るとページ編集ができないため
+  if (!hasBoughtAdminSubject) {
+    // 対象となる科目のリスト
+    const targetSubjects = [
+      "philosophy",    // 哲学
+      "science",       // 科学
+      "economy",       // 経済
+      "globalenglish", // グローバル英語
+      "twosubjectpack", // 2科目パック
+      "threesubjectpack", // 3科目パック
+    ];
 
-  // 各対象科目に対して繰り返し処理を実施
-  targetSubjects.forEach((key) => {
+    // 各対象科目に対して繰り返し処理を実施
+    targetSubjects.forEach((key) => {
+    
+      // 現在表示されている科目がtargetSubjectsリストにあるかつ、タイプが「main」の場合
+      if (
+        currentViewCourseData.key === key && // 現在の科目のkeyが対象のkeyと一致するか
+        currentViewCourseData.type === "main" // 現在の科目のタイプが「main」であるか
+      ) {
+        console.log(`currentViewCourseDataはmainタイプの${key}です`); // 現在の科目が「main」タイプであることを確認
 
-    // 現在表示されている科目がtargetSubjectsリストにあるかつ、タイプが「main」の場合
-    if (
-      currentViewCourseData.key === key && // 現在の科目のkeyが対象のkeyと一致するか
-      currentViewCourseData.type === "main" // 現在の科目のタイプが「main」であるか
-    ) {
-      console.log(`currentViewCourseDataはmainタイプの${key}です`); // 現在の科目が「main」タイプであることを確認
+        // 2科目パックまたは3科目パックの場合は、「child」判定をスキップ
+        if (key === "twosubjectpack" || key === "threesubjectpack") {
+          console.log(`${key}はchild判定をスキップします。`); // パックの場合、子科目判定をスキップ
+          createModal({
+            // モーダルを表示して、ユーザーに「レベル設定」を促す
+            image: "https://go.waomirai.com/l/1026513/2025-01-27/hcs2k/1026513/1737961533tHzVY8az/img_modal_subject.png", // モーダルに表示する画像
+            imageClass: "c-modal-wrap-subject-img", // 画像にクラスを付与
+            wrapClass: "c-modal-wrap-subject", // モーダルのラップにクラスを付与
+            buttons: [
+              { text: "科目のレベルを設定する", url: "https://lms.waomirai.com/user/edit.php", class: "btn-primary" }, // ボタンにテキストとリンクを設定
+            ]
+          })
+          return; // child判定をスキップして次の科目の処理に進む
 
-      // 2科目パックまたは3科目パックの場合は、「child」判定をスキップ
-      if (key === "twosubjectpack" || key === "threesubjectpack") {
-        console.log(`${key}はchild判定をスキップします。`); // パックの場合、子科目判定をスキップ
-        createModal({
-          // モーダルを表示して、ユーザーに「レベル設定」を促す
-          image: "https://go.waomirai.com/l/1026513/2025-01-27/hcs2k/1026513/1737961533tHzVY8az/img_modal_subject.png", // モーダルに表示する画像
-          imageClass: "c-modal-wrap-subject-img", // 画像にクラスを付与
-          wrapClass: "c-modal-wrap-subject", // モーダルのラップにクラスを付与
-          buttons: [
-            { text: "科目のレベルを設定する", url: "https://lms.waomirai.com/user/edit.php", class: "btn-primary" }, // ボタンにテキストとリンクを設定
-          ]
-        })
-        return; // child判定をスキップして次の科目の処理に進む
+        }
 
-      }
+        // bodyClasses（ページのクラス名）に対応する「child」タイプの科目があるか確認
+        const hasSubjectChild = bodyClasses.some((courseId) => {
+          // bodyClassesに含まれる各courseIdに対して、対応する「child」タイプの科目をsubjectsから検索
+          return subjects.some(
+            (subject) =>
+              subject.id === courseId && // courseIdとsubject.idが一致
+              subject.key === key && // keyが一致
+              subject.type === "child" // typeが「child」であることを確認
+          );
+        });
 
-      // bodyClasses（ページのクラス名）に対応する「child」タイプの科目があるか確認
-      const hasSubjectChild = bodyClasses.some((courseId) => {
-        // bodyClassesに含まれる各courseIdに対して、対応する「child」タイプの科目をsubjectsから検索
-        return subjects.some(
-          (subject) =>
-            subject.id === courseId && // courseIdとsubject.idが一致
-            subject.key === key && // keyが一致
-            subject.type === "child" // typeが「child」であることを確認
-        );
-      });
+        if (hasSubjectChild) {
+          console.log(`${key}のchildタイプが存在します`); // childタイプが存在する場合
 
-      if (hasSubjectChild) {
-        console.log(`${key}のchildタイプが存在します`); // childタイプが存在する場合
+          // 「child」タイプが見つかった場合、リダイレクト処理
+          const childCourse = subjects.find(
+            (subject) =>
+              subject.key === key && // keyが一致
+              subject.type === "child" && // typeが「child」であることを確認
+              bodyClasses.includes(subject.id) // bodyClassesに対応するIDが含まれていることを確認
+          );
 
-        // 「child」タイプが見つかった場合、リダイレクト処理
-        const childCourse = subjects.find(
-          (subject) =>
-            subject.key === key && // keyが一致
-            subject.type === "child" && // typeが「child」であることを確認
-            bodyClasses.includes(subject.id) // bodyClassesに対応するIDが含まれていることを確認
-        );
-
-        if (childCourse) {
-          // リダイレクト先のURLを作成
-          // const redirectUrl = `https://lms.waomirai.com/course/view.php?id=${childCourse.id}`;
-          // console.log(`リダイレクト: ${redirectUrl}`); // リダイレクト先URLをログに出力
-          // window.location.href = redirectUrl; // ユーザーを指定したURLにリダイレクト
+          if (childCourse) {
+            // リダイレクト先のURLを作成
+            const redirectUrl = `https://lms.waomirai.com/course/view.php?id=${childCourse.id}`;
+            console.log(`リダイレクト: ${redirectUrl}`); // リダイレクト先URLをログに出力
+            window.location.href = redirectUrl; // ユーザーを指定したURLにリダイレクト
+          }
+        } else {
+          // 「child」タイプが存在しない場合の処理
+          createModal({
+            // モーダルを表示して、ユーザーに「レベル設定」を促す
+            image: "https://go.waomirai.com/l/1026513/2025-01-27/hcs2k/1026513/1737961533tHzVY8az/img_modal_subject.png", // モーダルに表示する画像
+            imageClass: "c-modal-wrap-subject-img", // 画像にクラスを付与
+            wrapClass: "c-modal-wrap-subject", // モーダルのラップにクラスを付与
+            buttons: [
+              { text: "科目のレベルを設定する", url: "https://lms.waomirai.com/user/edit.php", class: "btn-primary" }, // ボタンにテキストとリンクを設定
+            ]
+          })
+          console.log(`${key}のchildタイプは存在しません`); // childタイプが見つからなかったことをログに出力
+          // 「child」タイプが見つからない場合、モーダルを表示して処理を終了
         }
       } else {
-        // 「child」タイプが存在しない場合の処理
-        createModal({
-          // モーダルを表示して、ユーザーに「レベル設定」を促す
-          image: "https://go.waomirai.com/l/1026513/2025-01-27/hcs2k/1026513/1737961533tHzVY8az/img_modal_subject.png", // モーダルに表示する画像
-          imageClass: "c-modal-wrap-subject-img", // 画像にクラスを付与
-          wrapClass: "c-modal-wrap-subject", // モーダルのラップにクラスを付与
-          buttons: [
-            { text: "科目のレベルを設定する", url: "https://lms.waomirai.com/user/edit.php", class: "btn-primary" }, // ボタンにテキストとリンクを設定
-          ]
-        })
-        console.log(`${key}のchildタイプは存在しません`); // childタイプが見つからなかったことをログに出力
-        // 「child」タイプが見つからない場合、モーダルを表示して処理を終了
+        // 「main」タイプでない場合の処理
+        console.log(`currentViewCourseDataはmainタイプの${key}ではありません`); // 現在の科目が「main」タイプではないことをログに出力
       }
-    } else {
-      // 「main」タイプでない場合の処理
-      console.log(`currentViewCourseDataはmainタイプの${key}ではありません`); // 現在の科目が「main」タイプではないことをログに出力
-    }
-  });
+    });
+}
 }
 
 // ==============================
