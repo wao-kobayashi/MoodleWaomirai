@@ -295,7 +295,7 @@ if (bodyId === "page-my-index") {
    * param {boolean} hasBoughtMainSubject - メイン科目を購入済みかどうか
    * returns {string} 科目のHTMLマークアップ
    */
-  function renderSubject(subject, icon, hasBoughtMainSubject) {
+  function renderDisplaySubject(subject, icon, hasBoughtMainSubject) {
       // メイン科目とサブ科目でURLを切り替え
       // メイン科目の場合は管理画面へ、サブ科目の場合はコース画面へ遷移
       const courseLink = hasBoughtMainSubject
@@ -319,7 +319,7 @@ if (bodyId === "page-my-index") {
    * param {Object} subject - 科目情報オブジェクト
    * returns {string} 科目に対応するUnicodeアイコン
    */
-  const getIcon = (subject) => {
+  const getSubjectIcon = (subject) => {
       // 科目名に特定のキーワードが含まれる場合、対応するアイコンを返す
       if (subject.name.includes("哲学")) return "&#x1f4D6;"; // 本のアイコン
       if (subject.name.includes("科学")) return "&#x1f52C;"; // 顕微鏡のアイコン
@@ -334,7 +334,7 @@ if (bodyId === "page-my-index") {
    * メイン科目の表示処理を行う関数
    * サブ科目を持たないメイン科目のみを表示する
    */
-  function processSubjectMain() {
+  function displayMainSubjectStatus() {
       console.log("メイン科目（SubjectMain）の処理を開始");
 
       // メイン科目の表示用HTML生成
@@ -364,7 +364,7 @@ if (bodyId === "page-my-index") {
               );
               return isIncluded;
           })
-          .map((subject) => renderSubject(subject, getIcon(subject), true))
+          .map((subject) => renderDisplaySubject(subject, getSubjectIcon(subject), true))
           .join("");
 
       // 生成したHTML要素を追加
@@ -379,14 +379,14 @@ if (bodyId === "page-my-index") {
    * サブ科目の表示処理を行う関数
    * bodyClassesに含まれるサブ科目のみを表示する
    */
-  function processSubjectChild() {
+  function displayChildSubjectStatus() {
       console.log("サブ科目（SubjectChild）の処理を開始");
 
       // サブ科目の表示用HTML生成
       const subjectChildNames = subjects
           .filter((subject) => subject.type === "child") // サブ科目のみ抽出
           .filter((subject) => bodyClasses.includes(subject.id)) // 表示対象のみ抽出
-          .map((subject) => renderSubject(subject, getIcon(subject), false))
+          .map((subject) => renderDisplaySubject(subject, getSubjectIcon(subject), false))
           .join("");
 
       // 生成したHTML要素を追加
@@ -399,11 +399,11 @@ if (bodyId === "page-my-index") {
 
   // 科目の購入状態に応じて表示処理を実行
   if (hasBoughtMainSubject) {
-      processSubjectMain(); // メイン科目の処理
+    displayMainSubjectStatus(); // メイン科目の処理
   }
 
   if (hasBoughtChildSubject) {
-      processSubjectChild();  // サブ科目の処理
+    displayChildSubjectStatus(); // サブ科目の処理
   }
 
   // エラーハンドリング：どの科目も購入していない場合
@@ -419,13 +419,13 @@ if (bodyId === "page-my-index") {
 
   // スマートフォン表示用の処理
   // dashboard-leftの内容をクローンしてスマートフォン用に表示
-  var contentToClone = $(".dashboard-left").clone();
+  var contentToCloneDashboardLeft = $(".dashboard-left").clone();
 
   // スマートフォン用のラッパー要素を作成
   var wrappedContent = $("<div>", {
       id: "dashboard-sp-content",
       class: "c-pc-hidden", // PCでは非表示
-  }).append(contentToClone);
+  }).append(contentToCloneDashboardLeft);
 
   // page-contentの直下に配置
   $("#page-content").append(wrappedContent);
@@ -436,10 +436,9 @@ if (bodyId === "page-my-index") {
   /////////////////////////////////////
 
   // ===============================================
-  // カレンダー機能のメインロジック
-  // 目的：カレンダー上の授業スケジュールを管理し、表示する
+  // 授業イベントの表示機能
   // ===============================================
-  function executeCalendarLogic() {
+  function updateClassSchedule() {
 
     // -----------------------------------------------
     // 基本となる日付情報の初期化
@@ -674,7 +673,7 @@ if (bodyId === "page-my-index") {
   // ===============================================
   // ページ読み込み完了時の処理
   $(document).ready(function () {
-    executeCalendarLogic();  // カレンダー処理を実行
+    updateClassSchedule();  // 授業スケジュールの更新
   });
 
   // カレンダー月切り替え時の処理
@@ -909,13 +908,13 @@ if (bodyId === "page-mod-questionnaire-view") {
   // スマートフォン版で、ページタイトルを動画の下に表示するためのロジック
 
   // ページヘッダー（#page-header）を複製して、スマホ用のコンテンツを作成
-  var contentToClone = $("#page-header").clone();
+  var contentToCloneDashboardLeft = $("#page-header").clone();
 
   // 複製したコンテンツをラップするためのdiv要素を作成
   var wrappedContent = $("<div>", {
     id: "sp-page-header",   // 新しいdivにIDを設定（スマホ版のページヘッダー）
     class: "c-pc-hidden",   // デスクトップ版では非表示にするためのクラス（PC版では隠す）
-  }).append(contentToClone);  // 複製したヘッダーを新しいdivに追加
+  }).append(contentToCloneDashboardLeft);  // 複製したヘッダーを新しいdivに追加
 
   // スマホ版のヘッダーを#page-contentの直下に配置（コンテンツの一部として追加）
   $(".activity-description").append(wrappedContent);
