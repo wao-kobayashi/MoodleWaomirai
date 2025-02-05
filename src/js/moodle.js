@@ -479,7 +479,7 @@ if (bodyId === "page-my-index") {
     });
 
     // 今日のイベントがあればダッシュボードメッセージを更新
-    if (!flagTodaysCalendar) {
+    if (!flagTodaysCalendar && !executed) {
       let message = "本日は授業はありません。"; // デフォルトメッセージ
 
       if (eventFound) {
@@ -501,7 +501,7 @@ if (bodyId === "page-my-index") {
     }
 
     // 明日以降のスケジュールがない場合は、スマホにNoneメッセージを表示
-    if (!upcomingEventFound) {
+    if (!upcomingEventFound && !executed) {
       $("#dashboard-main-upcoming-class-none").show();
     }
 
@@ -1121,7 +1121,28 @@ if (bodyId === "page-user-edit") { // ページIDが「page-user-edit」の場�
 // カテゴリページの処理
 // ==============================
 if (bodyId === "page-user-profile") {
-  $('.alert-success').html('変更が保存されました。科目レベルを設定した場合、<a href="https://lms.waomirai.com/my/">受講カレンダー</a>で確認ができます');  
+    
+    // $('.alert-success').html('変更が保存されました。科目レベルを設定した場合、<a href="https://lms.waomirai.com/my/">受講カレンダー</a>で確認ができます');  
+
+    
+    // 非表示にしたいキーワードの配列（OR条件）
+    const hideKeywords = ['ログイン活動', 'レポート', 'ジョブ'];
+
+    // すべてのsectionに対してループ処理
+    $('.card').each(function() {
+        // 現在のセクション内のh3テキストを取得
+        // alert('a');
+        const h3Text = $(this).find('h3.lead').text();
+        console.log(h3Text);
+        // キーワードのいずれかが含まれているかチェック（OR条件）
+        const shouldHide = hideKeywords.some(keyword => h3Text.includes(keyword));
+
+        // キーワードが含まれていたら、そのセクション全体を非表示にする
+        if (shouldHide) {
+          this.setAttribute("style", "display: none !important;");
+        }
+    });
+
 }
 
 
