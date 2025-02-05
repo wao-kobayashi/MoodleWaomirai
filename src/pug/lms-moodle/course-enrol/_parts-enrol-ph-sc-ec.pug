@@ -61,6 +61,23 @@ section.enrol-section
   h2.enrol-title 時間割
   //以下はstaticのデータ
   .enrol-section-basesubject-timetable
+    .enrol-section-basesubject-timetable-head
+     .enrol-section-basesubject-timetable-head-child
+       |時間
+     .enrol-section-basesubject-timetable-head-child
+       |日
+     .enrol-section-basesubject-timetable-head-child
+       |月
+     .enrol-section-basesubject-timetable-head-child
+       |火
+     .enrol-section-basesubject-timetable-head-child
+       |水
+     .enrol-section-basesubject-timetable-head-child
+       |木 
+     .enrol-section-basesubject-timetable-head-child
+       |金
+     .enrol-section-basesubject-timetable-head-child
+       |土
     each slot in timeslots[enrolpage.category]
       .enrol-section-basesubject-timetable-content
         // 時間帯の開始時刻と終了時刻を表示
