@@ -766,6 +766,9 @@ html[data-tenantidnumber=stg] img {
 html[data-tenantidnumber=stg] .border-bottom {
   border-bottom: none !important;
 }
+html[data-tenantidnumber=stg] .navbar-brand img {
+  width: auto !important;
+}
 html[data-tenantidnumber=stg] .footer-section {
   padding: 60px 0 0;
   display: -webkit-box;
@@ -4828,7 +4831,6 @@ html[data-tenantidnumber=stg] #page-enrol-index .global-english .global-english-
           justify-content: center;
 }
 html[data-tenantidnumber=stg] #page-enrol-index .global-english .global-english-inner .global-english-lesson-images figure {
-  max-width: 413px;
   width: 100%;
 }
 html[data-tenantidnumber=stg] #page-enrol-index .global-english .global-english-inner .global-english-lesson-images figure img {
@@ -4879,7 +4881,8 @@ html[data-tenantidnumber=stg] #page-enrol-index .box-container {
       -ms-flex-direction: column;
           flex-direction: column;
   gap: 60px;
-  padding: 40px 40px;
+  padding: 40px 40px 0px;
+  margin: 0 auto 60px;
   border-radius: 12px;
 }
 @media screen and (max-width: 768px) {
@@ -5050,10 +5053,10 @@ html[data-tenantidnumber=stg] .course-271 .my-3 {
     margin-top: 0rem !important;
   }
 }
-html[data-tenantidnumber=stg] #page-enrol-index {
+html[data-tenantidnumber=stg] .page-enrol-index {
   margin-top: 36px;
 }
-html[data-tenantidnumber=stg] #page-enrol-index .multiselct-price {
+html[data-tenantidnumber=stg] .page-enrol-index .multiselct-price {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -5062,7 +5065,7 @@ html[data-tenantidnumber=stg] #page-enrol-index .multiselct-price {
           justify-content: space-between;
   gap: 30px;
 }
-html[data-tenantidnumber=stg] #page-enrol-index .multiselct-price .multiselct-price-child {
+html[data-tenantidnumber=stg] .page-enrol-index .multiselct-price .multiselct-price-child {
   -webkit-box-shadow: 0px 3.5px 7px rgba(0, 0, 0, .18) !important;
           box-shadow: 0px 3.5px 7px rgba(0, 0, 0, .18) !important;
   -webkit-box-flex: 1;
@@ -5073,24 +5076,24 @@ html[data-tenantidnumber=stg] #page-enrol-index .multiselct-price .multiselct-pr
   padding: 20px;
   text-align: center;
 }
-html[data-tenantidnumber=stg] #page-enrol-index .multiselct-price .multiselct-price-child .price-subject {
+html[data-tenantidnumber=stg] .page-enrol-index .multiselct-price .multiselct-price-child .price-subject {
   font-size: 24px;
   font-weight: bold;
   margin-bottom: 2px;
   color: #262626;
 }
-html[data-tenantidnumber=stg] #page-enrol-index .multiselct-price .multiselct-price-child .price-subject .subject-number {
+html[data-tenantidnumber=stg] .page-enrol-index .multiselct-price .multiselct-price-child .price-subject .subject-number {
   font-size: 30px;
   font-weight: bold;
   color: #262626;
   margin-right: 4px;
 }
-html[data-tenantidnumber=stg] #page-enrol-index .multiselct-price .multiselct-price-child .price-subject .subject-text {
+html[data-tenantidnumber=stg] .page-enrol-index .multiselct-price .multiselct-price-child .price-subject .subject-text {
   font-size: 24px;
   font-weight: normal;
   color: #262626;
 }
-html[data-tenantidnumber=stg] #page-enrol-index .multiselct-price .multiselct-price-child .price-fee {
+html[data-tenantidnumber=stg] .page-enrol-index .multiselct-price .multiselct-price-child .price-fee {
   margin-bottom: 12px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -5102,42 +5105,42 @@ html[data-tenantidnumber=stg] #page-enrol-index .multiselct-price .multiselct-pr
       -ms-flex-align: baseline;
           align-items: baseline;
 }
-html[data-tenantidnumber=stg] #page-enrol-index .multiselct-price .multiselct-price-child .price-fee .price-fee-yen {
+html[data-tenantidnumber=stg] .page-enrol-index .multiselct-price .multiselct-price-child .price-fee .price-fee-yen {
   font-size: 30px;
 }
-html[data-tenantidnumber=stg] #page-enrol-index .multiselct-price .multiselct-price-child .price-fee .price-fee-yen.green {
+html[data-tenantidnumber=stg] .page-enrol-index .multiselct-price .multiselct-price-child .price-fee .price-fee-yen.green {
   color: #005c3f;
   font-weight: bold;
 }
-html[data-tenantidnumber=stg] #page-enrol-index .multiselct-price .multiselct-price-child .price-fee .price-fee-yen.black {
+html[data-tenantidnumber=stg] .page-enrol-index .multiselct-price .multiselct-price-child .price-fee .price-fee-yen.black {
   color: #262626;
 }
-html[data-tenantidnumber=stg] #page-enrol-index .multiselct-price .multiselct-price-child .price-fee .price-fee-month {
+html[data-tenantidnumber=stg] .page-enrol-index .multiselct-price .multiselct-price-child .price-fee .price-fee-month {
   font-size: 16px;
   margin-left: 4px;
   font-weight: bold;
 }
-html[data-tenantidnumber=stg] #page-enrol-index .multiselct-price .multiselct-price-child .price-fee .price-fee-month.green {
+html[data-tenantidnumber=stg] .page-enrol-index .multiselct-price .multiselct-price-child .price-fee .price-fee-month.green {
   color: #005c3f;
   font-weight: bold;
 }
-html[data-tenantidnumber=stg] #page-enrol-index .multiselct-price .multiselct-price-child .price-detail {
+html[data-tenantidnumber=stg] .page-enrol-index .multiselct-price .multiselct-price-child .price-detail {
   display: inline-block;
   color: #005c3f;
   font-size: 14px;
   text-decoration: underline;
   margin-top: 10px;
 }
-html[data-tenantidnumber=stg] #page-enrol-index .multiselct-price .multiselct-price-child .price-note {
+html[data-tenantidnumber=stg] .page-enrol-index .multiselct-price .multiselct-price-child .price-note {
   margin-top: 8px;
   font-size: 14px;
   color: #4d4d4d;
 }
-html[data-tenantidnumber=stg] #page-enrol-index .multiselct-price .multiselct-price-child.active {
+html[data-tenantidnumber=stg] .page-enrol-index .multiselct-price .multiselct-price-child.active {
   position: relative;
   border: 3px solid #005c3f;
 }
-html[data-tenantidnumber=stg] #page-enrol-index .multiselct-price .multiselct-price-child.active .price-discount {
+html[data-tenantidnumber=stg] .page-enrol-index .multiselct-price .multiselct-price-child.active .price-discount {
   position: absolute;
   top: -20px;
   left: 50%;
