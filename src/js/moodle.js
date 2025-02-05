@@ -516,6 +516,7 @@ if (bodyId === "page-my-index") {
         // 今日の授業がある場合
         // 全ての授業名を「」で囲んで結合
         message = `本日は、「${eventDetails.join("」「")}」の授業があります。`;
+       
         console.log("メッセージを更新：授業あり");
     } else {
         // 今日の授業がない場合
@@ -526,9 +527,10 @@ if (bodyId === "page-my-index") {
             // いずれかの科目を購入済み
             $("#todays-event-class-none").show();
         } 
-        // メッセージをダッシュボードに反映
-        $("#todays-subject-pc .c-alert-banner-text-title").text(message);
+  
     }
+    // メッセージをダッシュボードに反映
+    $("#todays-subject-pc .c-alert-banner-text-title").text(message);
   }
 
   // ===============================================
