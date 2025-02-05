@@ -135,7 +135,7 @@
       in (
         "philosophy": $cl-philosophy,
         "science": $cl-science,
-        "economiy": $cl-economiy,
+        "economy": $cl-economy,
         "english": $cl-english,
         "programming": $cl-programming
       )
@@ -198,7 +198,7 @@
       z-index: 1;
       padding: 4px 12px;
       display: flex;
-      font-size: $lms-font-size-m;
+      font-size: $lms-font-size-s;
       letter-spacing: 2px;
       font-weight: normal;
       background: rgba(0, 0, 0, 0.5);
@@ -295,7 +295,7 @@
       in (
         "philosophy": $cl-philosophy,
         "science": $cl-science,
-        "economiy": $cl-economiy,
+        "economy": $cl-economy,
         "english": $cl-english,
         "programming": $cl-programming
       )

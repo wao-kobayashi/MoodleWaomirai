@@ -23,15 +23,19 @@ body.fixed {
   height: auto;
   background: white;
   &-wrap-subject {
-    padding: 0px 0px 40px !important;
+    padding: 0px 0px 30px !important;
+    .c-modal-wrap-image {
+      margin: 0 auto 16px !important;
+    }
     img {
       border-radius: 8px 8px 0 0 !important;
-      margin: 0px 0px 15px !important;
+      margin: 0px 0px 0px !important;
     }
     .c-modal-wrap-button {
       margin: 0px 30px 5px !important;
       height: 55px;
       font-size: $lms-font-size-l !important;
+      width: auto !important;
     }
   }
   &-wrap {
@@ -50,6 +54,13 @@ body.fixed {
     &-text {
       @include text-m-black;
       margin: 0 auto 32px;
+    }
+    &-closetxt {
+      color: $cl-graylight;
+      text-decoration: underline;
+      text-align: center;
+      margin: 10px auto 0px;
+      cursor: pointer;
     }
 
     &-button-wrap {

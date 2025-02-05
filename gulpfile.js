@@ -40,9 +40,9 @@ async function splitJs(done) {
         gulp.src('src/js/moodle.js')
             .pipe(replace(/^/,
                 `${stgVariableJsContent}\n` +
-                `$(document).ready(function() {\n` +
-                `    const tenantIdNumber = $("html").data("tenantidnumber");\n` +
-                `    if (tenantIdNumber === "stg") {\n`))
+                `` +
+                `` +
+                ``))
             .pipe(replace(/$/,
                 `   }\n` +
                 `});`))
@@ -53,9 +53,9 @@ async function splitJs(done) {
         gulp.src('src/js/moodle.js')
             .pipe(replace(/^/,
                 `${lmsVariableJsContent}\n` +
-                `$(document).ready(function() {\n` +
-                `    const tenantIdNumber = $("html").data("tenantidnumber");\n` +
-                `    if (tenantIdNumber === "lmswaomirai") {\n`))
+                `` +
+                `` +
+                ``))
             .pipe(replace(/$/,
                 `   }\n` +
                 `});`))

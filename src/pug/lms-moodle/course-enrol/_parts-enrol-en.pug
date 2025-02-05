@@ -1,4 +1,4 @@
-section.global-english
+.global-english
   .global-english-inner
 
     //- // ライブ形式のレッスン
@@ -19,9 +19,8 @@ section.global-english
           | レッスンの時間が待ち遠しくなる！ゲームやアクティビティを交えながら、
           | まるで遊んでいるかのように学べるライブレッスン。
 
-      .global-english-lesson-images.c-sp-hidden 
-        //spは画像非表示
-        figure.global-english-lesson-figure
+      .global-english-lesson-images.c-sp-hidden
+        .global-english-lesson-figure
           img.global-english-lesson-img(src="https://storage.pardot.com/1026513/1727340661pAjGn14E/about01.png" alt="レッスン風景1")
 
     //- // 英語はスポーツと同じ！練習が重要
@@ -45,7 +44,7 @@ section.global-english
           | ひらがなで発音力をあげるなど、斬新な英会話トレーニングをご用意しています。
 
       .global-english-sample-phrase.c-sp-hidden 
-        figure.global-english-sample-phrase-figure.
+        .global-english-sample-phrase-figure.
                 <iframe src="https://player.vimeo.com/video/1013057465?autoplay=1&muted=1&background=1"
           frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
 
@@ -66,11 +65,11 @@ section.global-english
           | 私たちのプログラムでは、ライブレッスンの前や後に何度も練習できる動画レッスンをご用意しています。
           | “覚える”暗記型の英語から、何度も触れて“残る”英語に。
       .global-english-lesson-images.c-sp-hidden
-        figure.global-english-lesson-figure
+        .global-english-lesson-figure
           img.global-english-lesson-img(src="https://go.waomirai.com/l/1026513/2024-09-26/h4gcq/1026513/1727333515lZs4Z30Z/enjoy_detail03.png" alt="レッスン風景")
           img.global-english-lesson-img2(src="https://go.waomirai.com/l/1026513/2024-09-26/h4gkb/1026513/1727340226wwoQZaVS/lessomovie_2.png" alt="friendsの画像")
 
-section.coursedetail-info
+.coursedetail-info
   .coursedetail-info-inner
     h3.coursedetail-course-info 受講費・科目詳細
 
@@ -96,12 +95,9 @@ section.coursedetail-info
           span.small-text /月(税込)
 
         .coursedetail-info-fee-benefits
-          .grid-child ✔︎入会金無料
-          .grid-child ✔︎当月配信される哲学の授業への参加
-          .grid-child ✔小3~高校生までの全ての授業
-          .grid-child ✔︎課題の提出
-          .grid-child ✔︎前月配信のアーカイブ授業の視聴
-          .grid-child ✔︎いつでも退会可能
+          .grid-child ✔︎ 入会金無料
+          .grid-child ✔︎ いつでも退会可能
+          .grid-child ✔︎ 前月配信のアーカイブ授業の視聴
       //----- 授業スケジュール -----
       //- 脱授業、等々がh2タグにすると非表示になってしまう？？
       .coursedetail-info-schedule
@@ -159,3 +155,5 @@ section.coursedetail-info
                 td.has-text-align-center(data-align="center")
             .wp-block-spacer(style="height:16px", aria-hidden="true")
 
+//受講開始までの流れ
++enrol-howto-register

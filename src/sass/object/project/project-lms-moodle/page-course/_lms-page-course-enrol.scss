@@ -1,10 +1,10 @@
-$subject-sidebar-width: 250px; // サイドバーの幅
-$subject-body-padding: 40px; // サイドバーとの距離
-$subject-default-max-width: 1120px; // 最大幅
+$subject-sidebar-width: 235px; // サイドバーの幅
+$subject-body-padding: 55px; // サイドバーとの距離
+$subject-default-max-width: 1140px; // 最大幅
 
 #page-enrol-index {
   .enrol_fee_payment_region {
-    right: calc((100vw - 1120px) / 2);
+    right: calc((100vw - 1140px) / 2);
     @include responsive-style($default-max-width) {
       right: 15px !important;
     }
@@ -136,7 +136,7 @@ $subject-default-max-width: 1120px; // 最大幅
     max-width: 250px !important;
     background: #fff !important;
     border-radius: $border-radius-middle;
-    padding: 0px 20px 5px;
+    padding: 0px 20px 20px;
     text-align: left !important;
     line-height: 1.65 !important;
     font-weight: normal !important;
@@ -216,6 +216,9 @@ $subject-default-max-width: 1120px; // 最大幅
         text-decoration: underline !important;
         display: block;
       }
+      p:nth-child(2) {
+        margin: 0 auto 0px !important;
+      }
     }
   }
 
@@ -245,37 +248,59 @@ $subject-default-max-width: 1120px; // 最大幅
     }
 
     .enrol-section-howto {
+      position: relative;
       display: grid;
-      grid-template-columns: 140px 1fr;
+      grid-template-columns: 120px 1fr;
       grid-column-gap: 20px;
       // Stepの枠開け
       grid-row-gap: 30px;
+      max-width: 600px;
       @include responsive-style(768px) {
         grid-template-columns: 110px 1fr;
       }
+      &::before {
+        content: "";
+        background-image: linear-gradient(
+          to bottom,
+          $cl-waogreen 50%,
+          transparent 0
+        );
+        background-size: 3px 10px; /* 横幅1px、縦幅10px */
+        background-repeat: repeat-y; /* 縦方向に繰り返す */
+        width: 10px;
+        height: 100%;
+        position: absolute;
+        left: 60px;
+        top: 0;
+        z-index: 0;
+      }
     }
-
+    .enrol-section-howto-img {
+      position: relative;
+      z-index: 1;
+    }
     .enrol-step-lbl {
       color: $cl-waogreen;
-      font-size: $lms-font-size-l;
+      font-size: $lms-font-size-ml;
       @include responsive-style(768px) {
-        font-size: $lms-font-size-ml;
+        font-size: $lms-font-size-m;
       }
     }
 
     .enrol-step-heading {
       color: $cl-black;
-      font-size: $lms-font-size-xl;
+      font-size: $lms-font-size-l;
       font-weight: bold;
-
+      margin: 5px 0 0;
       @include responsive-style(768px) {
-        font-size: $lms-font-size-l;
+        font-size: $lms-font-size-ml;
       }
     }
 
     .enrol-step-desc {
+      margin: 5px 0 0;
       color: $cl-black;
-      font-size: $lms-font-size-ml;
+      font-size: $lms-font-size-m;
       @include responsive-style(768px) {
         font-size: $lms-font-size-m;
       }

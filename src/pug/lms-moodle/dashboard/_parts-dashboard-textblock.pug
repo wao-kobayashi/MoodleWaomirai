@@ -97,35 +97,11 @@
                       .c-alert-banner-text-title 
                         |受講している科目がありません。科目の受講登録をしましょう。
             .dashboard-main-contents-block-cards 
-                a(href=link_philosophy).common-contents-block-cards-course
-                  .common-contents-block-cards-course-img 
-                        img(src='https://go.waomirai.com/l/1026513/2024-08-08/gzqbj/1026513/1723092444vFKe6VRn/subject_01.jpg')
-                  .common-contents-block-cards-course-detail
-                    .common-contents-block-cards-course-detail-wrap.block-philosophy
-                      .common-contents-block-cards-course-detail-title 
-                          |哲学（思考力）
-                      .common-contents-block-cards-course-detail-text 
-                          |自分で考える力を鍛える
-                a(href=link_science).common-contents-block-cards-course
-                  .common-contents-block-cards-course-img 
-                        img(src='https://go.waomirai.com/l/1026513/2024-08-08/gzqbx/1026513/1723092445qaV639ZU/subject_02.jpg')
-                  .common-contents-block-cards-course-detail 
-                    .common-contents-block-cards-course-detail-wrap.block-science
-                      .common-contents-block-cards-course-detail-title 
-                          |科学リテラシー
-                      .common-contents-block-cards-course-detail-text 
-                          |知らない世界にも視野を広げ、知的好奇心を育む
-                a(href=link_economiy).common-contents-block-cards-course
-                  .common-contents-block-cards-course-img 
-                        img(src='https://go.waomirai.com/l/1026513/2024-08-08/gzqbt/1026513/1723092445zMMVlFVz/subject_03.jpg')
-                  .common-contents-block-cards-course-detail
-                    .common-contents-block-cards-course-detail-wrap.block-economiy
-                      .common-contents-block-cards-course-detail-title 
-                          |経済（お金）
-                      .common-contents-block-cards-course-detail-text 
-                          |お金の基礎知識と考え方・付き合い方を身につける経済
                 a(href=link_english).common-contents-block-cards-course
-                  .common-contents-block-cards-course-img 
+                  .common-contents-block-cards-course-img.common-contents-block-cards-course-img-overlay
+                    //- .common-contents-block-cards-course-img-text 
+                    //-    |4月開講予定
+                    .common-contents-block-cards-course-img-detail
                         img(src='https://go.waomirai.com/l/1026513/2024-08-08/gzqbq/1026513/1723092445NpS1HkfH/subject_04.jpg')
                   .common-contents-block-cards-course-detail
                     .common-contents-block-cards-course-detail-wrap.block-english
@@ -133,8 +109,47 @@
                           |グローバル英語
                       .common-contents-block-cards-course-detail-text 
                           |シンプルで実用的な英語を使いこなす
-                a(href=link_programming).common-contents-block-cards-course
-                  .common-contents-block-cards-course-img 
+                a(href=link_philosophy).common-contents-block-cards-course.click-event-subject-comingsoon
+                  .common-contents-block-cards-course-img.common-contents-block-cards-course-img-overlay
+                    .common-contents-block-cards-course-img-text 
+                       |4月開講予定
+                    .common-contents-block-cards-course-img-detail
+                        img(src='https://go.waomirai.com/l/1026513/2024-08-08/gzqbj/1026513/1723092444vFKe6VRn/subject_01.jpg')
+                  .common-contents-block-cards-course-detail
+                    .common-contents-block-cards-course-detail-wrap.block-philosophy
+                      .common-contents-block-cards-course-detail-title 
+                          |哲学（思考力）
+                      .common-contents-block-cards-course-detail-text 
+                          |自分で考える力を鍛える
+                a(href=link_science).common-contents-block-cards-course.click-event-subject-comingsoon
+                  .common-contents-block-cards-course-img.common-contents-block-cards-course-img-overlay
+                    .common-contents-block-cards-course-img-text 
+                       |4月開講予定
+                    .common-contents-block-cards-course-img-detail
+                        img(src='https://go.waomirai.com/l/1026513/2024-08-08/gzqbx/1026513/1723092445qaV639ZU/subject_02.jpg')
+                  .common-contents-block-cards-course-detail 
+                    .common-contents-block-cards-course-detail-wrap.block-science
+                      .common-contents-block-cards-course-detail-title 
+                          |科学リテラシー
+                      .common-contents-block-cards-course-detail-text 
+                          |知らない世界にも視野を広げ、知的好奇心を育む
+                a(href=link_economy).common-contents-block-cards-course.click-event-subject-comingsoon
+                  .common-contents-block-cards-course-img.common-contents-block-cards-course-img-overlay
+                    .common-contents-block-cards-course-img-text 
+                       |4月開講予定
+                    .common-contents-block-cards-course-img-detail
+                        img(src='https://go.waomirai.com/l/1026513/2024-08-08/gzqbt/1026513/1723092445zMMVlFVz/subject_03.jpg')
+                  .common-contents-block-cards-course-detail
+                    .common-contents-block-cards-course-detail-wrap.block-economy
+                      .common-contents-block-cards-course-detail-title 
+                          |経済（お金）
+                      .common-contents-block-cards-course-detail-text 
+                          |お金の基礎知識と考え方・付き合い方を身につける
+                a(href=link_programming).common-contents-block-cards-course.click-event-subject-comingsoon
+                  .common-contents-block-cards-course-img.common-contents-block-cards-course-img-overlay
+                    .common-contents-block-cards-course-img-text 
+                       |4月開講予定
+                    .common-contents-block-cards-course-img-detail
                         img(src='https://go.waomirai.com/l/1026513/2024-08-08/gzqbm/1026513/1723092444UDZaTUyz/subject_05.jpg')
                   .common-contents-block-cards-course-detail
                     .common-contents-block-cards-course-detail-wrap.block-programming
