@@ -727,7 +727,7 @@ if (bodyId === "page-enrol-index") {
   
       // 科目が哲学、科学、経済のいずれかの場合
       if (["philosophy", "science", "economy"].includes(subjectCategory)) {
-        event.preventDefault(); // デフォルトの購入動作（フォーム送信）を防止
+       
 
         // 各科目に対応する他の科目を定義
         const otherSubjects = {
@@ -739,6 +739,7 @@ if (bodyId === "page-enrol-index") {
         // 1科目を購入した状態で、別の1科目を購入しようとした場合
         if (checkBoughtMainSubject(otherSubjects[subjectCategory])) {
           // セット購入を提案するモーダルを表示
+          event.preventDefault(); // デフォルトの購入動作（フォーム送信）を防止
           $("body").append(
             createModal({
               close: true,
@@ -753,6 +754,7 @@ if (bodyId === "page-enrol-index") {
           checkBoughtMainSubject(["twosubjectpack", "threesubjectpack"])
         ) {
           // すでにセットを購入済みであることを通知するモーダルを表示
+          event.preventDefault(); // デフォルトの購入動作（フォーム送信）を防止
           $("body").append(
             createModal({
               close: true,
@@ -768,6 +770,7 @@ if (bodyId === "page-enrol-index") {
       // 2科目セットまたは3科目セットを選択した場合
       if (["twosubjectpack", "threesubjectpack"].includes(subjectCategory)) {
         // 他の科目（哲学、科学、経済）を購入している場合、セット購入はできない
+        event.preventDefault(); // デフォルトの購入動作（フォーム送信）を防止
         if (checkBoughtMainSubject(["philosophy", "science", "economy"])) {
           // セット購入不可の案内モーダルを表示
           $("body").append(
@@ -783,6 +786,7 @@ if (bodyId === "page-enrol-index") {
           // すでに3科目セットを購入している場合、2科目セットへの変更を促す
           subjectCategory === "twosubjectpack" && checkBoughtMainSubject(["threesubjectpack"])
         ) {
+          event.preventDefault(); // デフォルトの購入動作（フォーム送信）を防止
           $("body").append(
             createModal({
               close: true,
@@ -796,6 +800,7 @@ if (bodyId === "page-enrol-index") {
           // すでに2科目セットを購入している場合、3科目セットへの変更を促す
           subjectCategory === "threesubjectpack" && checkBoughtMainSubject(["twosubjectpack"])
         ) {
+          event.preventDefault(); // デフォルトの購入動作（フォーム送信）を防止
           $("body").append(
             createModal({
               close: true,
