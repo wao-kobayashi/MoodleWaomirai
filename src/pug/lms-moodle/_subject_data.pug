@@ -1,0 +1,144 @@
+// 各種データの定義
+-
+  // 授業データ（レベル、学年、レッスン内容）
+  var subjects = {
+    philosophy: [
+      {
+        level: "レベル1", // レベル名
+        grade: "小3-4", // 対象学年
+        lessons: [
+          { week: "1周目", banner: "https://waomirai.com/wp-content/uploads/2024/07/phi_main.jpg", text: "人が明かりを手に入れるまで" },
+          { week: "2周目", banner: "https://waomirai.com/wp-content/uploads/2024/07/phi_main.jpg", text: "さらに進んだ内容" },
+          { week: "3周目", banner: "https://waomirai.com/wp-content/uploads/2024/07/phi_main.jpg", text: "次のステップ" }
+        ]
+      },
+      {
+        level: "レベル2",
+        grade: "小5-6",
+        lessons: [
+          { week: "1周目", banner: "https://waomirai.com/wp-content/uploads/2024/07/phi_main.jpg", text: "より深いテーマ" },
+          { week: "2周目", banner: "https://waomirai.com/wp-content/uploads/2024/07/phi_main.jpg", text: "論理的思考の発展" },
+          { week: "3周目", banner: "https://waomirai.com/wp-content/uploads/2024/07/phi_main.jpg", text: "応用的な議論" }
+        ]
+      }
+    ],
+    science: [
+      {
+        level: "レベル1",
+        grade: "小3-4",
+        lessons: [
+          { week: "1周目", banner: "https://waomirai.com/wp-content/uploads/2024/07/phi_main.jpg", text: "科学の基本" },
+          { week: "2周目", banner: "https://waomirai.com/wp-content/uploads/2024/07/phi_main.jpg", text: "身近な科学現象" },
+          { week: "3周目", banner: "https://waomirai.com/wp-content/uploads/2024/07/phi_main.jpg", text: "実験と考察" }
+        ]
+      },
+      {
+        level: "レベル2",
+        grade: "小5-6",
+        lessons: [
+          { week: "1周目", banner: "https://waomirai.com/wp-content/uploads/2024/07/phi_main.jpg", text: "より高度な科学" },
+          { week: "2周目", banner: "https://waomirai.com/wp-content/uploads/2024/07/phi_main.jpg", text: "理論と実験" },
+          { week: "3周目", banner: "https://waomirai.com/wp-content/uploads/2024/07/phi_main.jpg", text: "未来の科学技術" }
+        ]
+      }
+    ],
+    economy: [
+      {
+        level: "レベル1",
+        grade: "小3-4",
+        lessons: [
+          { week: "1周目", banner: "https://waomirai.com/wp-content/uploads/2024/07/phi_main.jpg", text: "科学の基本" },
+          { week: "2周目", banner: "https://waomirai.com/wp-content/uploads/2024/07/phi_main.jpg", text: "身近な科学現象" },
+          { week: "3周目", banner: "https://waomirai.com/wp-content/uploads/2024/07/phi_main.jpg", text: "実験と考察" }
+        ]
+      },
+      {
+        level: "レベル2",
+        grade: "小5-6",
+        lessons: [
+          { week: "1周目", banner: "https://waomirai.com/wp-content/uploads/2024/07/phi_main.jpg", text: "より高度な科学" },
+          { week: "2周目", banner: "https://waomirai.com/wp-content/uploads/2024/07/phi_main.jpg", text: "理論と実験" },
+          { week: "3周目", banner: "https://waomirai.com/wp-content/uploads/2024/07/phi_main.jpg", text: "未来の科学技術" }
+        ]
+      }
+    ]
+  };
+
+
+  // 年間の授業カリキュラムデータ（月ごとの内容）
+  var curriculum = {
+    philosophy: {
+      level1: [
+        { month: 4, title: "タイトルA", subcontents: ["1.サブコンセプトA", "2.サブコンセプトA", "3.サブコンセプトA"] },
+        { month: 5, title: "タイトルB", subcontents: ["1.サブコンセプトB", "2.サブコンセプトB", "3.サブコンセプトB"] },
+        { month: 6, title: "タイトルC", subcontents: ["1.サブコンセプトC", "2.サブコンセプトC", "3.サブコンセプトC"] }
+      ],
+      level2: [
+        { month: 4, title: "タイトル22", subcontents: ["1.サブコンセプトA", "2.サブコンセプトA", "3.サブコンセプトA"] },
+        { month: 5, title: "タイトル33", subcontents: ["1.サブコンセプトB", "2.サブコンセプトB", "3.サブコンセプトB"] },
+        { month: 6, title: "タイトル444", subcontents: ["1.サブコンセプトC", "2.サブコンセプトC", "3.サブコンセプトC"] }
+      ],
+      level3: [ /* 同様にデータを格納 */ ],
+      level4: [ /* 同様にデータを格納 */ ]
+    },
+    science: {
+      level1: [
+        { month: 4, title: "タイトルX", subcontents: ["1.サブコンセプトX", "2.サブコンセプトX", "3.サブコンセプトX"] },
+        { month: 5, title: "タイトルY", subcontents: ["1.サブコンセプトY", "2.サブコンセプトY", "3.サブコンセプトY"] }
+      ],
+      level2: [ /* 同様にデータを格納 */ ],
+      level3: [ /* 同様にデータを格納 */ ],
+      level4: [ /* 同様にデータを格納 */ ]
+    },
+    economy: {
+      level1: [
+        { month: 4, title: "タイトルM", subcontents: ["1.サブコンセプトM", "2.サブコンセプトM", "3.サブコンセプトM"] }
+      ],
+      level2: [ /* 同様にデータを格納 */ ],
+      level3: [ /* 同様にデータを格納 */ ],
+      level4: [ /* 同様にデータを格納 */ ]
+    }
+  };
+
+
+  // 曜日と時間割のデータ
+  var weekdays = ['時間', '日', '月', '火', '水', '木', '金', '土'];
+  var timeslots = {
+    philosophy: [{
+      time: '17:30 - 18:30', // 時間帯
+      schedule: [
+        { day: '日', subject: null },
+        { day: '月', subject: null },
+        { day: '火', subject: '哲学', level: 'レベル2' },
+        { day: '水', subject: null },
+        { day: '木', subject: '哲学', level: 'レベル2' },
+        { day: '金', subject: null },
+        { day: '土', subject: null }
+      ]
+    }],
+    science: [{
+      time: '17:30 - 18:30', // 時間帯
+      schedule: [
+        { day: '日', subject: null },
+        { day: '月', subject: null },
+        { day: '火', subject: '科学', level: 'レベル2' }, // 修正: 科学に変更
+        { day: '水', subject: null },
+        { day: '木', subject: '科学', level: 'レベル2' }, // 修正: 科学に変更
+        { day: '金', subject: null },
+        { day: '土', subject: null }
+      ]
+    }],
+    economy: [{
+      time: '17:30 - 18:30', // 時間帯
+      schedule: [
+        { day: '日', subject: null },
+        { day: '月', subject: null },
+        { day: '火', subject: '経済', level: 'レベル2' }, // 修正: 経済に変更
+        { day: '水', subject: null },
+        { day: '木', subject: '経済', level: 'レベル2' }, // 修正: 経済に変更
+        { day: '金', subject: null },
+        { day: '土', subject: null }
+      ]
+    }]
+  };
+
