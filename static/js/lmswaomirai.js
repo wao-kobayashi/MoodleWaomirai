@@ -257,7 +257,7 @@ if (bodyId === "page-my-index") {
   ///初期表示状態
   ////////////////////////////////////
 
-  // 購入していない科目がない場合の処理
+  //科目を何も持っていない時の場合の処理
   if (!hasBoughtMainSubject && !hasBoughtChildSubject) {
     // 今日のイベント科目とダッシュボードの未定義科目を表示
     $("#todays-event-subject-none,#dashboard-main-upcoming-class-none").show();
@@ -269,408 +269,407 @@ if (bodyId === "page-my-index") {
       $(".dashboard-main-class").hide();
     }
   }
-
-  // 受講中の科目処理を行うセクション
   //////////////////////////
-  // 詳細科目の処理
+  // 現在受講中の科目処理
   //////////////////////////
 
-  // 科目リンクを生成する関数
-  // 引数subject: 科目情報, icon: アイコン, hasBoughtMainSubject: メイン科目かどうか
+  /**
+   * 科目情報をHTML要素としてレンダリングする関数
+   * param {Object} subject - 科目のオブジェクト (id, name, key などを含む)
+   * param {string} icon - 科目を表すアイコン文字列
+   * param {boolean} hasBoughtMainSubject - メイン科目を購入済みかどうか
+   * returns {string} 科目のHTMLマークアップ
+   */
   function renderSubject(subject, icon, hasBoughtMainSubject) {
-    // メイン科目かサブ科目かでリンク先を分ける
-    const courseLink = hasBoughtMainSubject
-      ? `https://lms.waomirai.com/admin/tool/catalogue/courseinfo.php?id=${subject.id}`
-      : `https://lms.waomirai.com/course/view.php?id=${subject.id}`;
+      // メイン科目とサブ科目でURLを切り替え
+      // メイン科目の場合は管理画面へ、サブ科目の場合はコース画面へ遷移
+      const courseLink = hasBoughtMainSubject
+          ? `https://lms.waomirai.com/admin/tool/catalogue/courseinfo.php?id=${subject.id}`
+          : `https://lms.waomirai.com/course/view.php?id=${subject.id}`;
 
-    // 科目のリンク構造をHTMLで返す
-    return `
-      <a href="${courseLink}" class="dashboard-left-block-subject-child ${subject.key}">
-          <div class="dashboard-left-block-subject-child-icon">${icon}</div>
-          <div class="dashboard-left-block-subject-child-text">
-              <div>${subject.name}</div>
-          </div>
-      </a>
-    `;
+      // 科目ごとのリンク要素を生成
+      // dashboard-left-block-subject-childクラスと科目固有のキーを持つ
+      return `
+          <a href="${courseLink}" class="dashboard-left-block-subject-child ${subject.key}">
+              <div class="dashboard-left-block-subject-child-icon">${icon}</div>
+              <div class="dashboard-left-block-subject-child-text">
+                  <div>${subject.name}</div>
+              </div>
+          </a>
+      `;
   }
 
-  // 科目名に基づいてアイコンを取得する関数
-  // 引数subject: 科目情報
+  /**
+   * 科目名に基づいて適切なアイコンを返す関数
+   * param {Object} subject - 科目情報オブジェクト
+   * returns {string} 科目に対応するUnicodeアイコン
+   */
   const getIcon = (subject) => {
-    // 各科目名に対応するアイコンを設定
-    if (subject.name.includes("哲学")) return "&#x1f4D6;"; // 📖
-    if (subject.name.includes("科学")) return "&#x1f52C;"; // 🔬
-    if (subject.name.includes("経済")) return "&#x1f4B0;"; // 💰
-    if (subject.name.includes("英語")) return "&#x1f4AC;"; // 💬
-    if (subject.name.includes("プログラミング"))
-      return "&#x1f468;&#x200D;&#x1f4BB;"; // 👨‍💻
-    return "&#x1f9ea;"; // デフォルトアイコン
+      // 科目名に特定のキーワードが含まれる場合、対応するアイコンを返す
+      if (subject.name.includes("哲学")) return "&#x1f4D6;"; // 本のアイコン
+      if (subject.name.includes("科学")) return "&#x1f52C;"; // 顕微鏡のアイコン
+      if (subject.name.includes("経済")) return "&#x1f4B0;"; // お金のアイコン
+      if (subject.name.includes("英語")) return "&#x1f4AC;"; // 吹き出しのアイコン
+      if (subject.name.includes("プログラミング"))
+          return "&#x1f468;&#x200D;&#x1f4BB;"; // プログラマーのアイコン
+      return "&#x1f9ea;"; // デフォルトは試験管のアイコン
   };
 
-  // サブ科目が存在するかを確認する関数
-  // 引数parentKey: 親科目のキー
-  function hasRelatedChildSubject(parentKey) {
-    // 「child」タイプの科目が存在するか確認
-    return some(
-      (subject) => subject.type === "child" && subject.parentKey === parentKey
-    );
-  }
-
-  // メイン科目の処理を行う関数
+  /**
+   * メイン科目の表示処理を行う関数
+   * サブ科目を持たないメイン科目のみを表示する
+   */
   function processSubjectMain() {
-    console.log("メイン科目（SubjectMain）に該当しています");
+      console.log("メイン科目（SubjectMain）の処理を開始");
 
-    // メイン科目をフィルタリングして処理
-    const subjectMainNames = subjects
-      .filter((subject) => subject.type === "main") // メイン科目だけを取得
-      .filter((subject) => {
-        // サブ科目が存在するかチェック
-        const hasChild = subjects.some(
-          (childSubject) =>
-            childSubject.type === "child" &&
-            childSubject.parentKey === subject.key &&
-            bodyClasses.includes(childSubject.id)
-        );
+      // メイン科目の表示用HTML生成
+      const subjectMainNames = subjects
+          .filter((subject) => subject.type === "main") // メイン科目のみ抽出
+          .filter((subject) => {
+              // サブ科目の存在チェック
+              const hasChild = subjects.some(
+                  (childSubject) =>
+                      childSubject.type === "child" &&
+                      childSubject.parentKey === subject.key &&
+                      bodyClasses.includes(childSubject.id)
+              );
 
-        console.log(`Checking subject: ${subject.name}, hasChild: ${hasChild}`);
+              console.log(`科目チェック: ${subject.name}, サブ科目あり: ${hasChild}`);
 
-        // サブ科目があればスキップ
-        if (hasChild) {
-          console.log(`スキップ: サブ科目が存在するため ${subject.name}`);
-          return false;
-        }
+              // サブ科目がある場合はスキップ
+              if (hasChild) {
+                  console.log(`${subject.name}はサブ科目があるためスキップ`);
+                  return false;
+              }
 
-        // bodyClassesにその科目が含まれているか確認
-        const isIncluded = bodyClasses.includes(subject.id);
-        console.log(
-          `Checking bodyClasses for subject: ${subject.name}, isIncluded: ${isIncluded}`
-        );
-        return isIncluded;
-      })
-      .map((subject) => renderSubject(subject, getIcon(subject), true)) // 科目リンクを生成
-      .join(""); // 文字列として結合
+              // 表示対象（bodyClasses）に含まれているか確認
+              const isIncluded = bodyClasses.includes(subject.id);
+              console.log(
+                  `${subject.name}の表示確認: ${isIncluded ? "表示" : "非表示"}`
+              );
+              return isIncluded;
+          })
+          .map((subject) => renderSubject(subject, getIcon(subject), true))
+          .join("");
 
-    // メイン科目があれば表示
-    if (subjectMainNames) {
-      $(".dashboard-left-block-wrap.dashboard-left-block-wrap-subject").append(
-        subjectMainNames
-      );
-    }
+      // 生成したHTML要素を追加
+      if (subjectMainNames) {
+          $(".dashboard-left-block-wrap.dashboard-left-block-wrap-subject").append(
+              subjectMainNames
+          );
+      }
   }
 
-  // 詳細科目（サブ科目）の処理を行う関数
+  /**
+   * サブ科目の表示処理を行う関数
+   * bodyClassesに含まれるサブ科目のみを表示する
+   */
   function processSubjectChild() {
-    console.log("詳細科目（SubjectChild）に該当しています");
+      console.log("サブ科目（SubjectChild）の処理を開始");
 
-    // サブ科目をフィルタリングして処理
-    const subjectChildNames = subjects
-      .filter((subject) => subject.type === "child") // サブ科目だけを取得
-      .filter((subject) => bodyClasses.includes(subject.id)) // bodyClassesに含まれる科目を処理
-      .map((subject) => renderSubject(subject, getIcon(subject), false)) // 科目リンクを生成
-      .join(""); // 文字列として結合
+      // サブ科目の表示用HTML生成
+      const subjectChildNames = subjects
+          .filter((subject) => subject.type === "child") // サブ科目のみ抽出
+          .filter((subject) => bodyClasses.includes(subject.id)) // 表示対象のみ抽出
+          .map((subject) => renderSubject(subject, getIcon(subject), false))
+          .join("");
 
-    // サブ科目があれば表示
-    if (subjectChildNames) {
-      $(".dashboard-left-block-wrap.dashboard-left-block-wrap-subject").append(
-        subjectChildNames
-      );
-    }
+      // 生成したHTML要素を追加
+      if (subjectChildNames) {
+          $(".dashboard-left-block-wrap.dashboard-left-block-wrap-subject").append(
+              subjectChildNames
+          );
+      }
   }
 
-  // メイン科目を購入している場合、処理を実行
+  // 科目の購入状態に応じて表示処理を実行
   if (hasBoughtMainSubject) {
-    processSubjectMain();
+      processSubjectMain(); // メイン科目の処理
   }
 
-  // サブ科目を購入している場合、処理を実行
   if (hasBoughtChildSubject) {
-    processSubjectChild();
+      processSubjectChild();  // サブ科目の処理
   }
 
-  // // どの科目にも該当しない場合のエラーハンドリング
-  if (!hasBoughtMainSubject && !hasBoughtChildSubject) {
-    console.error("指定された科目に該当しません");
-    // 特定のHTMLを指定要素に挿入する
-
-    const errorHtml = `
-        <div class="dashboard-left-block-subject-child">
-            <p>受講している科目がありません。</p>
-        </div>
-    `;
-    $(".dashboard-left-block-wrap.dashboard-left-block-wrap-subject").html(
-      errorHtml
-    ); // 挿入先要素（例: .target-container）にHTMLを挿入
+  // エラーハンドリング：どの科目も購入していない場合
+  if (!hasBoughtMainSubject && !hasBoughtChildSubject) {      
+      // エラーメッセージの表示
+      const errorHtml = `
+          <div class="dashboard-left-block-subject-child">
+              <p>受講している科目がありません。</p>
+          </div>
+      `;
+      $(".dashboard-left-block-wrap.dashboard-left-block-wrap-subject").html(errorHtml);
   }
-  // .dashboard-leftの内容を取得してclone
+
+  // スマートフォン表示用の処理
+  // dashboard-leftの内容をクローンしてスマートフォン用に表示
   var contentToClone = $(".dashboard-left").clone();
 
-  // #page-content直下に配置
+  // スマートフォン用のラッパー要素を作成
   var wrappedContent = $("<div>", {
-    id: "dashboard-sp-content",
-    class: "c-pc-hidden",
+      id: "dashboard-sp-content",
+      class: "c-pc-hidden", // PCでは非表示
   }).append(contentToClone);
 
-  // #page-content直下に配置
+  // page-contentの直下に配置
   $("#page-content").append(wrappedContent);
+
+
   /////////////////////////////////////
   /// カレンダー処理
   /////////////////////////////////////
 
+  // ===============================================
+  // カレンダー機能のメインロジック
+  // 目的：カレンダー上の授業スケジュールを管理し、表示する
+  // ===============================================
+  function executeCalendarLogic() {
 
-// ===============================================
-// カレンダー機能のメインロジック
-// 目的：カレンダー上の授業スケジュールを管理し、表示する
-// ===============================================
-function executeCalendarLogic() {
-  console.log("カレンダーロジックを実行します。");
+    // -----------------------------------------------
+    // 基本となる日付情報の初期化
+    // -----------------------------------------------
+    const today = new Date();                    // 現在の日時を取得
+    const todayDay = today.getDate();           // 日付部分のみを抽出（1-31）
+    const todayMonth = today.getMonth() + 1;    // 月を取得（JavaScriptは0-11なので+1する）
+    const todayYear = today.getFullYear();      // 年を取得（例：2024）
+    
+    // -----------------------------------------------
+    // イベント管理用の変数初期化
+    // -----------------------------------------------
+    let eventFound = false;     // フラグ: true = 今日の授業あり, false = なし
+    let eventDetails = [];      // 配列: 今日の授業名を全て格納
 
-  // -----------------------------------------------
-  // 基本となる日付情報の初期化
-  // -----------------------------------------------
-  const today = new Date();                    // 現在の日時を取得
-  const todayDay = today.getDate();           // 日付部分のみを抽出（1-31）
-  const todayMonth = today.getMonth() + 1;    // 月を取得（JavaScriptは0-11なので+1する）
-  const todayYear = today.getFullYear();      // 年を取得（例：2024）
-  
-  // -----------------------------------------------
-  // イベント管理用の変数初期化
-  // -----------------------------------------------
-  let eventFound = false;     // フラグ: true = 今日の授業あり, false = なし
-  let eventDetails = [];      // 配列: 今日の授業名を全て格納
+    // -----------------------------------------------
+    // カレンダーの各日付セルを処理
+    // -----------------------------------------------
 
-  // -----------------------------------------------
-  // カレンダーの各日付セルを処理
-  // -----------------------------------------------
-  $(".day").each(function () {
-      // セルの基本情報を取得
-      const $cell = $(this);  // 現在処理中のカレンダーセル要素
-      
-      // data-*属性から日付情報を取得（文字列から数値に変換）
-      const cellDay = parseInt($cell.attr("data-day"), 10);    // その日の日付
-      const cellMonth = parseInt($cell.attr("data-month"), 10); // その日の月
-      const cellYear = parseInt($cell.attr("data-year"), 10);   // その日の年
+    // カレンダーの各日付セルを処理
+    $(".day").each(function () {
+        // セルの基本情報を取得
+        const $cell = $(this);  // 現在処理中のカレンダーセル要素
+        
+        // data-*属性から日付情報を取得（文字列から数値に変換）
+        const cellDay = parseInt($cell.attr("data-day"), 10);    // その日の日付
+        const cellMonth = parseInt($cell.attr("data-month"), 10); // その日の月
+        const cellYear = parseInt($cell.attr("data-year"), 10);   // その日の年
 
-      // -----------------------------------------------
-      // 今日の授業を処理
-      // -----------------------------------------------
-      if (cellDay === todayDay) {
-          console.log("今日の日付に一致:", { cellDay, cellMonth, cellYear });
+        // -----------------------------------------------
+        // 【スマホ限定】本日の授業を処理
+        // -----------------------------------------------
+        // 今日の日付の場合の処理
+        if (cellDay === todayDay) {
+            console.log("今日の日付に一致:", { cellDay, cellMonth, cellYear });
 
-          // イベント情報を含む要素を検索
-          const $dayContent = $cell.find('[data-region="day-content"]');
-          
-          // イベントが存在する場合の処理
-          if ($dayContent.length > 0) {
-              // イベントリンクを全て取得
-              const $events = $dayContent.find('li a[data-action="view-event"]');
-              
-              // 各イベント（授業）の処理
-              $events.each(function () {
-                  // 授業名を取得（前後の空白を除去）
-                  var courseName = $(this).text().trim();
-                  eventDetails.push(courseName);  // 授業名を配列に追加
-                  console.log("今日の授業を検出: " + courseName);
+            // イベント情報を含む要素を検索
+            const $dayContent = $cell.find('[data-region="day-content"]');
+            
+            // イベントが存在する場合の処理
+            if ($dayContent.length > 0) {
+                // イベントリンクを全て取得
+                const $events = $dayContent.find('li a[data-action="view-event"]');
+                
+                // 各イベント（授業）の処理
+                $events.each(function () {
+                    // 授業名を取得（前後の空白を除去）
+                    var courseName = $(this).text().trim();
+                    eventDetails.push(courseName);  // 授業名を配列に追加
+                    console.log("今日の授業を検出: " + courseName);
 
-                  // ダッシュボード表示用の要素を作成
-                  // メインコンテナ
-                  var $lessonContainer = $("<div>", { 
-                      class: "dashboard-main-class-content-lesson" 
-                  });
-                  
-                  // 授業タイトル要素
-                  var $lessonTitle = $("<div>", { 
-                      class: "dashboard-main-class-content-lesson-title", 
-                      text: courseName 
-                  });
-                  
-                  // 参加ボタン要素
-                  var $lessonLink = $("<a>", {
-                      class: "dashboard-main-class-content-lesson-button",
-                      href: $(this).attr("href"),  // 元のリンクのURLを保持
-                      text: "授業に参加する"
-                  });
+                    // ダッシュボード表示用の要素を作成
+                    // メインコンテナ
+                    var $lessonContainer = $("<div>", { 
+                        class: "dashboard-main-class-content-lesson" 
+                    });
+                    
+                    // 授業タイトル要素
+                    var $lessonTitle = $("<div>", { 
+                        class: "dashboard-main-class-content-lesson-title", 
+                        text: courseName 
+                    });
+                    
+                    // 参加ボタン要素
+                    var $lessonLink = $("<a>", {
+                        class: "dashboard-main-class-content-lesson-button",
+                        href: $(this).attr("href"),  // 元のリンクのURLを保持
+                        text: "授業に参加する"
+                    });
 
-                  // 作成した要素をダッシュボードに追加（先頭に配置）
-                  $lessonContainer
-                      .append($lessonTitle)    // タイトルを追加
-                      .append($lessonLink);    // ボタンを追加
-                  $("#todays-event-class-scheduled").prepend($lessonContainer);
-              });
-              eventFound = true;  // 今日の授業が見つかったことを記録
-          }
-      }
+                    // 作成した要素をダッシュボードに追加（先頭に配置）
+                    $lessonContainer
+                        .append($lessonTitle)    // タイトルを追加
+                        .append($lessonLink);    // ボタンを追加
+                    $("#todays-event-class-scheduled").prepend($lessonContainer);
+                });
+                eventFound = true;  // 今日の授業が見つかったことを記録
+            }
+        }
 
-      // -----------------------------------------------
-      // 明日以降の授業（アップカミング）を処理
-      // -----------------------------------------------
-      if (cellDay > todayDay) {
-          // イベント情報を含む要素を検索
-          const $dayContent = $cell.find('[data-region="day-content"]');
-          console.log("将来の日付のコンテンツ:", $dayContent);
+        // -----------------------------------------------
+        //  【スマホ限定】今月中に開催される授業
+        // -----------------------------------------------
+        // 今日よりも後の日付の場合の処理
+        if (cellDay > todayDay) {
+            // イベント情報を含む要素を検索
+            const $dayContent = $cell.find('[data-region="day-content"]');
+            console.log("将来の日付のコンテンツ:", $dayContent);
 
-          // イベントが存在する場合の処理
-          if ($dayContent.length > 0) {
-              const $events = $dayContent.find('li a[data-action="view-event"]');
-              console.log("将来の授業:", $events);
+            // イベントが存在する場合の処理
+            if ($dayContent.length > 0) {
+                const $events = $dayContent.find('li a[data-action="view-event"]');
+                console.log("将来の授業:", $events);
 
-              // 各イベントの処理
-              $events.each(function () {
-                  var courseName = $(this).text().trim();
+                // 各イベントの処理
+                $events.each(function () {
+                    var courseName = $(this).text().trim();
 
-                  // 科目カテゴリ判定関数
-                  // 目的：科目名からCSSクラス名を決定
-                  const getSubjectCategory = (courseName) => {
-                      // 科目名に特定のキーワードが含まれているか確認
-                      if (courseName.includes("哲学")) return "philosophy";
-                      if (courseName.includes("科学")) return "science";
-                      if (courseName.includes("経済")) return "economy";
-                      if (courseName.includes("英語")) return "english";
-                      if (courseName.includes("プログラミング")) return "programming";
-                      return "defalut-subject";  // どのカテゴリにも該当しない場合
-                  };
+                    // 科目カテゴリ判定関数
+                    // 目的：科目名からCSSクラス名を決定（色分けで見やすくする)
+                    const getSubjectCategory = (courseName) => {
+                        // 科目名に特定のキーワードが含まれているか確認
+                        if (courseName.includes("哲学")) return "philosophy";
+                        if (courseName.includes("科学")) return "science";
+                        if (courseName.includes("経済")) return "economy";
+                        if (courseName.includes("英語")) return "english";
+                        if (courseName.includes("プログラミング")) return "programming";
+                        return "defalut-subject";  // どのカテゴリにも該当しない場合
+                    };
 
-                  // イベントの日付情報を生成
-                  const eventDate = new Date(todayYear, currentMonth - 1, cellDay);
-                  const dateString = `${currentMonth}/${cellDay}`;  // 「月/日」形式
-                  
-                  // 曜日の配列（日本語表記）
-                  const Week = ["(日)", "(月)", "(火)", "(水)", "(木)", "(金)", "(土)"];
-                  const dayOfWeek = Week[eventDate.getDay()];  // 数値から曜日文字列に変換
+                    // イベントの日付情報を生成
+                    const eventDate = new Date(todayYear, currentMonth - 1, cellDay);
+                    const dateString = `${currentMonth}/${cellDay}`;  // 「月/日」形式
+                    
+                    // 曜日の配列（日本語表記）
+                    const Week = ["(日)", "(月)", "(火)", "(水)", "(木)", "(金)", "(土)"];
+                    const dayOfWeek = Week[eventDate.getDay()];  // 数値から曜日文字列に変換
 
-                  // アップカミングイベント表示用の要素を作成
-                  // メインコンテナ（科目カテゴリに応じたクラスを付与）
-                  var $lessonContainer = $("<div>", {
-                      class: "dashboard-main-class-content-lesson " + 
-                             getSubjectCategory(courseName)
-                  });
-                  
-                  // 日付と授業名を含む要素
-                  var $lessonTitleAndDate = $("<span>", {
-                      class: "dashboard-main-class-content-lesson-details"
-                  })
-                      // 日付要素
-                      .append($("<span>", { 
-                          class: "date", 
-                          text: dateString + dayOfWeek  // 「月/日(曜日)」形式
-                      }))
-                      // 授業名要素
-                      .append($("<span>", { 
-                          class: "title", 
-                          text: courseName 
-                      }));
-                  
-                  // 作成した要素をダッシュボードに追加
-                  $lessonContainer.append($lessonTitleAndDate);
-                  $("#dashboard-main-upcoming-class-scheduled").append($lessonContainer);
-              });
-          } else {
-            $("#dashboard-main-upcoming-class-none").show();
-          }
-      }
-  });
+                    // アップカミングイベント表示用の要素を作成
+                    // メインコンテナ（科目カテゴリに応じたクラスを付与）
+                    var $lessonContainer = $("<div>", {
+                        class: "dashboard-main-class-content-lesson " + 
+                              getSubjectCategory(courseName)
+                    });
+                    
+                    // 日付と授業名を含む要素
+                    var $lessonTitleAndDate = $("<span>", {
+                        class: "dashboard-main-class-content-lesson-details"
+                    })
+                        // 日付要素
+                        .append($("<span>", { 
+                            class: "date", 
+                            text: dateString + dayOfWeek  // 「月/日(曜日)」形式
+                        }))
+                        // 授業名要素
+                        .append($("<span>", { 
+                            class: "title", 
+                            text: courseName 
+                        }));
+                    
+                    // 作成した要素「を今月中に開催される授業」に追加
+                    $lessonContainer.append($lessonTitleAndDate);
+                    $("#dashboard-main-upcoming-class-scheduled").append($lessonContainer);
+                });
+            } else {
+              //今月授業がないことを表示
+              $("#dashboard-main-upcoming-class-none").show();
+            }
+        }
+    });
 
-  // -----------------------------------------------
-  // ダッシュボードメッセージの設定
-  // -----------------------------------------------
-  // デフォルトメッセージを設定
-  let message = "本日は授業はありません。";
+    // -----------------------------------------------
+    // ダッシュボードメッセージの設定
+    // -----------------------------------------------
+    // デフォルトメッセージを設定
+    let message = "本日は授業はありません。";
 
-  if (eventFound) {
-      // 今日の授業がある場合
-      // 全ての授業名を「」で囲んで結合
-      message = `本日は、「${eventDetails.join("」「")}」の授業があります。`;
-      console.log("メッセージを更新：授業あり");
-  } else {
-      // 今日の授業がない場合
-      console.log("メッセージを更新：授業なし");
-      
-      // 科目の購入状況に応じて適切なメッセージを表示
-      if (hasBoughtMainSubject || hasBoughtChildSubject) {
-          // いずれかの科目を購入済み
-          $("#todays-event-class-none").show();
-      } 
-      // メッセージをダッシュボードに反映
-      $("#todays-subject-pc .c-alert-banner-text-title").text(message);
+    if (eventFound) {
+        // 今日の授業がある場合
+        // 全ての授業名を「」で囲んで結合
+        message = `本日は、「${eventDetails.join("」「")}」の授業があります。`;
+        console.log("メッセージを更新：授業あり");
+    } else {
+        // 今日の授業がない場合
+        console.log("メッセージを更新：授業なし");
+        
+        // 科目の購入状況に応じて適切なメッセージを表示
+        if (hasBoughtMainSubject || hasBoughtChildSubject) {
+            // いずれかの科目を購入済み
+            $("#todays-event-class-none").show();
+        } 
+        // メッセージをダッシュボードに反映
+        $("#todays-subject-pc .c-alert-banner-text-title").text(message);
+    }
   }
 
-  // アップカミング授業の有無をチェック
-  if (!upcomingEventFound && !executed) {
-      // 将来の授業が1つもない場合、メッセージを表示
-      $("#dashboard-main-upcoming-class-none").show();
+  // ===============================================
+  // カレンダー表示色設定機能
+  // 目的：科目ごとに異なる色でカレンダー上に表示する
+  // ===============================================
+  function calendarScheduleColorChange() {
+    console.log("カレンダー色設定を開始");
+
+    // カレンダーの各日付セルを処理
+    $(".day").each(function () {
+        // イベント情報を含む要素を検索
+        const $dayContent = $cell.find('[data-region="day-content"]');
+        
+        // イベントが存在する場合の処理
+        if ($dayContent.length > 0) {
+            // イベントリンクを全て取得
+            const $events = $dayContent.find('li a[data-action="view-event"]');
+            
+            // 各イベントの色設定
+            $events.each(function () {
+                const $eventLink = $(this);
+                const courseName = $eventLink.text().trim();
+                console.log(`科目名を検出: ${courseName}`);
+
+                // 科目名に応じて色とボーダーを設定
+                // !important付きのスタイルで優先度を最大に
+                if (courseName.includes("経済")) {
+                    console.log("経済科目を検出");
+                    $eventLink.attr("style", 
+                        "background: #AA68AA !important;" + 
+                        "border-left: #008EC9 2px solid !important;");
+                } else if (courseName.includes("科学")) {
+                    console.log("科学科目を検出");
+                    $eventLink.attr("style", 
+                        "background: #B6D43E !important;" + 
+                        "border-left: #96B128 2px solid !important;");
+                } else if (courseName.includes("哲学")) {
+                    console.log("哲学科目を検出");
+                    $eventLink.attr("style", 
+                        "background: #FCB72E !important;" + 
+                        "border-left: #E98800 2px solid !important;");
+                } else if (courseName.includes("英語")) {
+                    console.log("英語科目を検出");
+                    $eventLink.attr("style", 
+                        "background: #AA68AA !important;" + 
+                        "border-left: #8D3A8D 2px solid !important;");
+                } else {
+                    console.log("未定義の科目を検出: ", courseName);
+                }
+            });
+        }
+    });
   }
-}
 
-// ===============================================
-// カレンダー表示色設定機能
-// 目的：科目ごとに異なる色でカレンダー上に表示する
-// ===============================================
-function calendarScheduleColorChange() {
-  console.log("カレンダー色設定を開始");
-
-  // カレンダーの各日付セルを処理
-  $(".day").each(function () {
-      // イベント情報を含む要素を検索
-      const $dayContent = $cell.find('[data-region="day-content"]');
-      
-      // イベントが存在する場合の処理
-      if ($dayContent.length > 0) {
-          // イベントリンクを全て取得
-          const $events = $dayContent.find('li a[data-action="view-event"]');
-          
-          // 各イベントの色設定
-          $events.each(function () {
-              const $eventLink = $(this);
-              const courseName = $eventLink.text().trim();
-              console.log(`科目名を検出: ${courseName}`);
-
-              // 科目名に応じて色とボーダーを設定
-              // !important付きのスタイルで優先度を最大に
-              if (courseName.includes("経済")) {
-                  console.log("経済科目を検出");
-                  $eventLink.attr("style", 
-                      "background: #AA68AA !important;" + 
-                      "border-left: #008EC9 2px solid !important;");
-              } else if (courseName.includes("科学")) {
-                  console.log("科学科目を検出");
-                  $eventLink.attr("style", 
-                      "background: #B6D43E !important;" + 
-                      "border-left: #96B128 2px solid !important;");
-              } else if (courseName.includes("哲学")) {
-                  console.log("哲学科目を検出");
-                  $eventLink.attr("style", 
-                      "background: #FCB72E !important;" + 
-                      "border-left: #E98800 2px solid !important;");
-              } else if (courseName.includes("英語")) {
-                  console.log("英語科目を検出");
-                  $eventLink.attr("style", 
-                      "background: #AA68AA !important;" + 
-                      "border-left: #8D3A8D 2px solid !important;");
-              } else {
-                  console.log("未定義の科目を検出: ", courseName);
-              }
-          });
-      }
+  // ===============================================
+  // イベントハンドラの設定
+  // ===============================================
+  // ページ読み込み完了時の処理
+  $(document).ready(function () {
+    executeCalendarLogic();  // カレンダー処理を実行
   });
-}
 
-// ===============================================
-// イベントハンドラの設定
-// ===============================================
-// ページ読み込み完了時の処理
-$(document).ready(function () {
-  console.log("ページ読み込み完了");
-  executeCalendarLogic();  // カレンダーの初期化
-});
-
-// カレンダー月切り替え時の処理
-$(document).on("click", ".arrow_link", function () {
-  console.log("カレンダー月切り替えを検出");
-  // 0.3秒の遅延後に色設定を実行（DOMの更新を待つ）
-  setTimeout(() => {
-      calendarScheduleColorChange();
-  }, 300);
-});
-}
+  // カレンダー月切り替え時の処理
+  $(document).on("click", ".arrow_link", function () {
+    // 0.3秒の遅延後に色設定を実行（DOMの更新を待つ）
+    setTimeout(() => {
+        calendarScheduleColorChange(); // カレンダー色設定を実行
+    }, 300);
+  });
+  }
 
 // ==============================
 // ログイン・サインアップページの処理
