@@ -5,7 +5,7 @@
     // ========================================
     .enrol-section-basesubject-thismonth-lesson-grid {
       display: grid; // グリッドレイアウトで配置
-      grid-template-columns: 0.6fr repeat(3, 1fr); // 左に0.6fr、右に3列均等配置
+      grid-template-columns: 0.5fr repeat(3, 1fr); // 左に0.6fr、右に3列均等配置
       grid-column-gap: 20px; // 各列の間隔
       margin: 0 0 20px; // 下に余白
       padding: 0 0 20px;
@@ -17,8 +17,8 @@
         justify-content: center;
         align-items: center;
         flex-direction: column;
-        border-radius: 10px;
-        width: 80%;
+        border-radius: $border-radius-middle;
+        // width: 80%;
         background: map-get(
           $common-course-styles,
           $style-name,
@@ -54,24 +54,28 @@
         z-index: 1;
         top: 5px;
         left: 24px;
-        background: $cl-philosophy;
+        background: map-get(
+          $common-course-styles,
+          $style-name,
+          main-color
+        ) !important;
         color: $cl-white;
         font-weight: bold;
         padding: 3px 13px;
         border-radius: 10px;
-        font-size: 14px;
+        font-size: $lms-font-size-m;
       }
 
       // レッスンテキスト部分
       .enrol-section-basesubject-thismonth-lesson-grid-lesson-text {
         padding: 8px 16px;
-        font-size: 16px;
+        font-size: $lms-font-size-m;
       }
 
       // 各授業カード
       .enrol-section-basesubject-thismonth-lesson-grid-lesson {
         position: relative;
-        border-radius: 10px;
+        border-radius: $border-radius-middle;
         @include lms-boxshadow;
       }
     } // end .enrol-section-basesubject-thismonth-lesson-grid
@@ -92,8 +96,9 @@
           border: 1px solid $cl-graylight;
           border-bottom: none;
           background: $cl-graylightest;
-          padding: 15px 30px;
-
+          padding: 12px 30px;
+          cursor: pointer;
+          font-size: $lms-font-size-m;
           &.active {
             text-align: center;
             background: map-get(
@@ -111,42 +116,54 @@
 
     .enrol-section-basesubject-year-lesson-content {
       background: $cl-graylightest;
-      border-radius: 14px;
+      border-radius: 0px;
       box-shadow: 3px;
       @include lms-boxshadow;
+
+      // gap: 10px;
     }
 
     .enrol-section-basesubject-year-lesson-content-child {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      grid-gap: 20px;
+      // display: grid;
+      // grid-template-columns: repeat(2, 1fr);
+      // grid-gap: 20px;
       margin: 0 0 20px;
       padding: 15px;
-
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-auto-flow: column;
+      grid-template-rows: repeat(6, auto);
+      gap: 16px 20px;
       // カリキュラム項目
       .enrol-section-basesubject-year-lesson-content-child-curriculum {
         display: flex;
         background: $cl-white;
-        border: 1px solid $cl-philosophy-pale;
-        border-radius: 10px;
+        border: 2px
+          solid
+          map-get($common-course-styles, $style-name, pale-color) !important;
+        border-radius: $border-radius-middle;
 
         // 月表示部分
         .enrol-section-basesubject-year-lesson-content-child-curriculum-month {
-          border-radius: 10px 0 0 10px;
+          border-radius: $border-radius-middle 0 0 $border-radius-middle;
           text-align: center;
-          padding: 10px 0 0;
+          padding: 8px 0 0;
           width: 60px;
           background: map-get(
             $common-course-styles,
             $style-name,
             pale-color
           ) !important;
+          span.month {
+            font-size: $lms-font-size-xl;
+            margin-right: 4px;
+          }
         }
 
         // カリキュラム詳細部分
         .enrol-section-basesubject-year-lesson-content-child-curriculum-detail {
           flex: 1;
-          margin: 16px;
+          padding: 12px 16px 8px;
         }
       }
     }
@@ -154,28 +171,23 @@
     // 詳細タイトル
     .enrol-section-basesubject-year-lesson-content-child-curriculum-detail-title {
       font-weight: bold;
-      font-size: $lms-font-size-ml;
+      font-size: $lms-font-size-m;
       border-bottom: 2px dotted $cl-graylightest;
-      padding-bottom: 8px;
+      padding: 0 0 8px;
     }
 
     // 詳細サブコンテンツ
     .enrol-section-basesubject-year-lesson-content-child-curriculum-detail-subcontent {
-      font-size: $lms-font-size-m;
+      font-size: $lms-font-size-s;
       border-bottom: 2px dotted $cl-graylightest;
-      padding: 6px 6px 0;
+      padding: 6px 0 6px;
 
       &:last-child {
         border-bottom: none;
       }
     }
 
-    // 月の表示
-    .month {
-      font-size: $lms-font-size-xl;
-      margin-right: 4px;
-    }
-
+    //時間割
     .enrol-section-basesubject-timetable {
       // 見出し行（曜日ヘッダー）
       &-head {
@@ -188,9 +200,16 @@
 
         &-child {
           background: #e0e0e0;
-          border-radius: 10px;
-          &:nth-child(1) {
-            background: #e0e0e0;
+          border-radius: $border-radius-small;
+          padding: 10px 0;
+          //１個目のセル
+          &:first-child {
+            font-size: $lms-font-size-s;
+          }
+          //２個目のセル（日〜土）
+          &:nth-child(n + 2) {
+            font-size: $lms-font-size-m; /* 1番目を除く2番目以降に適用 */
+            font-weight: bold;
           }
         }
       }
@@ -201,21 +220,37 @@
         grid-template-columns: 0.6fr repeat(7, 1fr);
         grid-gap: 5px;
         margin: 0 0 5px;
-        border-radius: 10px;
-
-        &:first-child {
-          background: #fdd;
-        }
+        border-radius: $border-radius-small;
 
         &-child {
-          background: #f4f4f4;
+          &:first-child {
+            background: #e0e0e0;
+            font-size: $lms-font-size-m;
+          }
+          &:nth-child(n + 2) {
+            background: #f4f4f4;
+          }
           padding: 8px;
           text-align: center;
-          border-radius: 10px;
-
+          border-radius: $border-radius-small;
+          height: 120px;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          // display: flex;
           // 開始時刻
+
           &-start {
             display: block;
+            &::after {
+              content: "";
+              display: block;
+              width: 4px;
+              height: 1px;
+              background: $cl-black;
+              margin: 4px auto;
+            }
           }
           // 終了時刻
           &-end {
@@ -223,15 +258,16 @@
           }
           // 科目名
           &-subject {
-            font-weight: bold;
+            // font-weight: bold;
           }
           // レベル
           &-level {
-            font-size: 0.9rem;
+            // font-size: 0.9rem;
           }
           // 科目がある場合の強調
-          &.active {
-            background: #ffe5a5;
+          span.none {
+            font-size: $lms-font-size-xxl;
+            font-weight: 300;
           }
         }
       }
@@ -251,18 +287,6 @@
         align-items: center;
         justify-content: center;
         background: #e0e0e0;
-      }
-
-      // 開始／終了時刻の間にハイフンを挿入
-      &-child-start {
-        display: inline-block;
-        &::after {
-          content: " - ";
-          margin: 0 4px;
-        }
-      }
-      &-child-end {
-        display: inline-block;
       }
     }
   }

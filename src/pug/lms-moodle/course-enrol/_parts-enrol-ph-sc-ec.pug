@@ -53,9 +53,9 @@ section.enrol-section
               .enrol-section-basesubject-year-lesson-content-child-curriculum-detail
                 // カリキュラムのタイトル
                 .enrol-section-basesubject-year-lesson-content-child-curriculum-detail-title= item.title 
-                  .enrol-section-basesubject-year-lesson-content-child-curriculum-detail-subcontent= item.subcontents1
-                  .enrol-section-basesubject-year-lesson-content-child-curriculum-detail-subcontent= item.subcontents2
-                  .enrol-section-basesubject-year-lesson-content-child-curriculum-detail-subcontent= item.subcontents3
+                .enrol-section-basesubject-year-lesson-content-child-curriculum-detail-subcontent= item.subcontents1
+                .enrol-section-basesubject-year-lesson-content-child-curriculum-detail-subcontent= item.subcontents2
+                .enrol-section-basesubject-year-lesson-content-child-curriculum-detail-subcontent= item.subcontents3
 // セクション3: 時間割
 section.enrol-section
   h2.enrol-title 時間割
@@ -96,7 +96,8 @@ section.enrol-section
               // レベル
               .enrol-section-basesubject-timetable-content-child-level= daySchedule.level 
             else
-              | - 
+              span.none
+                | - 
 
 // セクション4: 年間の開催スケジュール
 section.enrol-section
