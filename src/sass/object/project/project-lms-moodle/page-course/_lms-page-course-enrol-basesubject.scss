@@ -160,12 +160,12 @@
       .enrol-section-basesubject-year-lesson-tab {
         display: flex; // タブを横並びに配置
         gap: 20px;
-        border-bottom: 4px
-          solid
-          map-get($common-course-styles, $style-name, main-color) !important;
-        @include responsive-style(768px) {
-          gap: 10px;
-        }
+        // border-bottom: 4px
+        //   solid
+        //   map-get($common-course-styles, $style-name, main-color) !important;
+        // @include responsive-style(768px) {
+        //   gap: 10px;
+        // }
         .enrol-section-basesubject-year-lesson-tab-child {
           border-radius: 10px 10px 0 0;
           border: 1px solid $cl-graylight;
@@ -180,15 +180,17 @@
           }
           &.active {
             text-align: center;
-            background: map-get(
-              $common-course-styles,
-              $style-name,
-              main-color
-            ) !important;
+            // background: map-get(
+            //   $common-course-styles,
+            //   $style-name,
+            //   main-color
+            // ) !important;
+            background: $cl-white;
             color: $cl-white;
             border: none;
             border-bottom: none;
             font-weight: bold;
+            @include lms-boxshadow;
           }
         }
       }
@@ -196,11 +198,12 @@
 
     .enrol-section-basesubject-year-lesson-content {
       // background: $cl-graylightest;
-      background: map-get(
-        $common-course-styles,
-        $style-name,
-        main-color
-      ) !important;
+
+      // background: map-get(
+      //   $common-course-styles,
+      //   $style-name,
+      //   main-color
+      // ) !important;
       border-radius: 0px;
       box-shadow: 3px;
       // @include lms-boxshadow;
@@ -218,6 +221,7 @@
         grid-auto-flow: column;
         grid-template-rows: repeat(6, auto);
         gap: 12px 12px;
+        @include lms-boxshadow;
         @include responsive-style(768px) {
           display: block;
           border-radius: $border-radius-middle;
@@ -233,6 +237,9 @@
           border-radius: $border-radius-middle;
           align-items: flex-start;
           background: $cl-white;
+          border: 2px
+            solid
+            map-get($common-course-styles, $style-name, pale-color) !important;
           @include responsive-style(768px) {
             align-items: center;
             // border: none !important;

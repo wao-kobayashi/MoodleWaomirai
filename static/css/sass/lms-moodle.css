@@ -4537,12 +4537,6 @@ html[data-tenantidnumber=lmswaomirai] .category-53 .enrol-section-basesubject-ye
   display: -ms-flexbox;
   display: flex;
   gap: 20px;
-  border-bottom: 4px solid #28afe7 !important;
-}
-@media screen and (max-width: 768px) {
-  html[data-tenantidnumber=lmswaomirai] .category-53 .enrol-section-basesubject-year-lesson .enrol-section-basesubject-year-lesson-tab {
-    gap: 10px;
-  }
 }
 html[data-tenantidnumber=lmswaomirai] .category-53 .enrol-section-basesubject-year-lesson .enrol-section-basesubject-year-lesson-tab .enrol-section-basesubject-year-lesson-tab-child {
   border-radius: 10px 10px 0 0;
@@ -4561,14 +4555,15 @@ html[data-tenantidnumber=lmswaomirai] .category-53 .enrol-section-basesubject-ye
 }
 html[data-tenantidnumber=lmswaomirai] .category-53 .enrol-section-basesubject-year-lesson .enrol-section-basesubject-year-lesson-tab .enrol-section-basesubject-year-lesson-tab-child.active {
   text-align: center;
-  background: #28afe7 !important;
+  background: #ffffff;
   color: #ffffff;
   border: none;
   border-bottom: none;
   font-weight: bold;
+  -webkit-box-shadow: 0px 3.5px 7px rgba(0, 0, 0, .18) !important;
+          box-shadow: 0px 3.5px 7px rgba(0, 0, 0, .18) !important;
 }
 html[data-tenantidnumber=lmswaomirai] .category-53 .enrol-section-basesubject-year-lesson-content {
-  background: #28afe7 !important;
   border-radius: 0px;
   -webkit-box-shadow: 3px;
           box-shadow: 3px;
@@ -4586,6 +4581,8 @@ html[data-tenantidnumber=lmswaomirai] .category-53 .enrol-section-basesubject-ye
   grid-auto-flow: column;
   grid-template-rows: repeat(6, auto);
   gap: 12px 12px;
+  -webkit-box-shadow: 0px 3.5px 7px rgba(0, 0, 0, .18) !important;
+          box-shadow: 0px 3.5px 7px rgba(0, 0, 0, .18) !important;
 }
 @media screen and (max-width: 768px) {
   html[data-tenantidnumber=lmswaomirai] .category-53 .enrol-section-basesubject-year-lesson-content .enrol-section-basesubject-year-lesson-content-child {
@@ -4604,6 +4601,7 @@ html[data-tenantidnumber=lmswaomirai] .category-53 .enrol-section-basesubject-ye
       -ms-flex-align: start;
           align-items: flex-start;
   background: #ffffff;
+  border: 2px solid #bceafd !important;
 }
 @media screen and (max-width: 768px) {
   html[data-tenantidnumber=lmswaomirai] .category-53 .enrol-section-basesubject-year-lesson-content .enrol-section-basesubject-year-lesson-content-child .enrol-section-basesubject-year-lesson-content-child-curriculum {
@@ -4959,12 +4957,6 @@ html[data-tenantidnumber=lmswaomirai] .category-48 .enrol-section-basesubject-ye
   display: -ms-flexbox;
   display: flex;
   gap: 20px;
-  border-bottom: 4px solid #28afe7 !important;
-}
-@media screen and (max-width: 768px) {
-  html[data-tenantidnumber=lmswaomirai] .category-48 .enrol-section-basesubject-year-lesson .enrol-section-basesubject-year-lesson-tab {
-    gap: 10px;
-  }
 }
 html[data-tenantidnumber=lmswaomirai] .category-48 .enrol-section-basesubject-year-lesson .enrol-section-basesubject-year-lesson-tab .enrol-section-basesubject-year-lesson-tab-child {
   border-radius: 10px 10px 0 0;
@@ -4983,14 +4975,15 @@ html[data-tenantidnumber=lmswaomirai] .category-48 .enrol-section-basesubject-ye
 }
 html[data-tenantidnumber=lmswaomirai] .category-48 .enrol-section-basesubject-year-lesson .enrol-section-basesubject-year-lesson-tab .enrol-section-basesubject-year-lesson-tab-child.active {
   text-align: center;
-  background: #28afe7 !important;
+  background: #ffffff;
   color: #ffffff;
   border: none;
   border-bottom: none;
   font-weight: bold;
+  -webkit-box-shadow: 0px 3.5px 7px rgba(0, 0, 0, .18) !important;
+          box-shadow: 0px 3.5px 7px rgba(0, 0, 0, .18) !important;
 }
 html[data-tenantidnumber=lmswaomirai] .category-48 .enrol-section-basesubject-year-lesson-content {
-  background: #28afe7 !important;
   border-radius: 0px;
   -webkit-box-shadow: 3px;
           box-shadow: 3px;
@@ -5008,6 +5001,8 @@ html[data-tenantidnumber=lmswaomirai] .category-48 .enrol-section-basesubject-ye
   grid-auto-flow: column;
   grid-template-rows: repeat(6, auto);
   gap: 12px 12px;
+  -webkit-box-shadow: 0px 3.5px 7px rgba(0, 0, 0, .18) !important;
+          box-shadow: 0px 3.5px 7px rgba(0, 0, 0, .18) !important;
 }
 @media screen and (max-width: 768px) {
   html[data-tenantidnumber=lmswaomirai] .category-48 .enrol-section-basesubject-year-lesson-content .enrol-section-basesubject-year-lesson-content-child {
@@ -5026,6 +5021,7 @@ html[data-tenantidnumber=lmswaomirai] .category-48 .enrol-section-basesubject-ye
       -ms-flex-align: start;
           align-items: flex-start;
   background: #ffffff;
+  border: 2px solid #bceafd !important;
 }
 @media screen and (max-width: 768px) {
   html[data-tenantidnumber=lmswaomirai] .category-48 .enrol-section-basesubject-year-lesson-content .enrol-section-basesubject-year-lesson-content-child .enrol-section-basesubject-year-lesson-content-child-curriculum {
@@ -5381,12 +5377,6 @@ html[data-tenantidnumber=lmswaomirai] .category-52 .enrol-section-basesubject-ye
   display: -ms-flexbox;
   display: flex;
   gap: 20px;
-  border-bottom: 4px solid #b6d43e !important;
-}
-@media screen and (max-width: 768px) {
-  html[data-tenantidnumber=lmswaomirai] .category-52 .enrol-section-basesubject-year-lesson .enrol-section-basesubject-year-lesson-tab {
-    gap: 10px;
-  }
 }
 html[data-tenantidnumber=lmswaomirai] .category-52 .enrol-section-basesubject-year-lesson .enrol-section-basesubject-year-lesson-tab .enrol-section-basesubject-year-lesson-tab-child {
   border-radius: 10px 10px 0 0;
@@ -5405,14 +5395,15 @@ html[data-tenantidnumber=lmswaomirai] .category-52 .enrol-section-basesubject-ye
 }
 html[data-tenantidnumber=lmswaomirai] .category-52 .enrol-section-basesubject-year-lesson .enrol-section-basesubject-year-lesson-tab .enrol-section-basesubject-year-lesson-tab-child.active {
   text-align: center;
-  background: #b6d43e !important;
+  background: #ffffff;
   color: #ffffff;
   border: none;
   border-bottom: none;
   font-weight: bold;
+  -webkit-box-shadow: 0px 3.5px 7px rgba(0, 0, 0, .18) !important;
+          box-shadow: 0px 3.5px 7px rgba(0, 0, 0, .18) !important;
 }
 html[data-tenantidnumber=lmswaomirai] .category-52 .enrol-section-basesubject-year-lesson-content {
-  background: #b6d43e !important;
   border-radius: 0px;
   -webkit-box-shadow: 3px;
           box-shadow: 3px;
@@ -5430,6 +5421,8 @@ html[data-tenantidnumber=lmswaomirai] .category-52 .enrol-section-basesubject-ye
   grid-auto-flow: column;
   grid-template-rows: repeat(6, auto);
   gap: 12px 12px;
+  -webkit-box-shadow: 0px 3.5px 7px rgba(0, 0, 0, .18) !important;
+          box-shadow: 0px 3.5px 7px rgba(0, 0, 0, .18) !important;
 }
 @media screen and (max-width: 768px) {
   html[data-tenantidnumber=lmswaomirai] .category-52 .enrol-section-basesubject-year-lesson-content .enrol-section-basesubject-year-lesson-content-child {
@@ -5448,6 +5441,7 @@ html[data-tenantidnumber=lmswaomirai] .category-52 .enrol-section-basesubject-ye
       -ms-flex-align: start;
           align-items: flex-start;
   background: #ffffff;
+  border: 2px solid #e3f3a3 !important;
 }
 @media screen and (max-width: 768px) {
   html[data-tenantidnumber=lmswaomirai] .category-52 .enrol-section-basesubject-year-lesson-content .enrol-section-basesubject-year-lesson-content-child .enrol-section-basesubject-year-lesson-content-child-curriculum {
@@ -5803,12 +5797,6 @@ html[data-tenantidnumber=lmswaomirai] .category-49 .enrol-section-basesubject-ye
   display: -ms-flexbox;
   display: flex;
   gap: 20px;
-  border-bottom: 4px solid #b6d43e !important;
-}
-@media screen and (max-width: 768px) {
-  html[data-tenantidnumber=lmswaomirai] .category-49 .enrol-section-basesubject-year-lesson .enrol-section-basesubject-year-lesson-tab {
-    gap: 10px;
-  }
 }
 html[data-tenantidnumber=lmswaomirai] .category-49 .enrol-section-basesubject-year-lesson .enrol-section-basesubject-year-lesson-tab .enrol-section-basesubject-year-lesson-tab-child {
   border-radius: 10px 10px 0 0;
@@ -5827,14 +5815,15 @@ html[data-tenantidnumber=lmswaomirai] .category-49 .enrol-section-basesubject-ye
 }
 html[data-tenantidnumber=lmswaomirai] .category-49 .enrol-section-basesubject-year-lesson .enrol-section-basesubject-year-lesson-tab .enrol-section-basesubject-year-lesson-tab-child.active {
   text-align: center;
-  background: #b6d43e !important;
+  background: #ffffff;
   color: #ffffff;
   border: none;
   border-bottom: none;
   font-weight: bold;
+  -webkit-box-shadow: 0px 3.5px 7px rgba(0, 0, 0, .18) !important;
+          box-shadow: 0px 3.5px 7px rgba(0, 0, 0, .18) !important;
 }
 html[data-tenantidnumber=lmswaomirai] .category-49 .enrol-section-basesubject-year-lesson-content {
-  background: #b6d43e !important;
   border-radius: 0px;
   -webkit-box-shadow: 3px;
           box-shadow: 3px;
@@ -5852,6 +5841,8 @@ html[data-tenantidnumber=lmswaomirai] .category-49 .enrol-section-basesubject-ye
   grid-auto-flow: column;
   grid-template-rows: repeat(6, auto);
   gap: 12px 12px;
+  -webkit-box-shadow: 0px 3.5px 7px rgba(0, 0, 0, .18) !important;
+          box-shadow: 0px 3.5px 7px rgba(0, 0, 0, .18) !important;
 }
 @media screen and (max-width: 768px) {
   html[data-tenantidnumber=lmswaomirai] .category-49 .enrol-section-basesubject-year-lesson-content .enrol-section-basesubject-year-lesson-content-child {
@@ -5870,6 +5861,7 @@ html[data-tenantidnumber=lmswaomirai] .category-49 .enrol-section-basesubject-ye
       -ms-flex-align: start;
           align-items: flex-start;
   background: #ffffff;
+  border: 2px solid #e3f3a3 !important;
 }
 @media screen and (max-width: 768px) {
   html[data-tenantidnumber=lmswaomirai] .category-49 .enrol-section-basesubject-year-lesson-content .enrol-section-basesubject-year-lesson-content-child .enrol-section-basesubject-year-lesson-content-child-curriculum {
@@ -6225,12 +6217,6 @@ html[data-tenantidnumber=lmswaomirai] .category-51 .enrol-section-basesubject-ye
   display: -ms-flexbox;
   display: flex;
   gap: 20px;
-  border-bottom: 4px solid #fcaf17 !important;
-}
-@media screen and (max-width: 768px) {
-  html[data-tenantidnumber=lmswaomirai] .category-51 .enrol-section-basesubject-year-lesson .enrol-section-basesubject-year-lesson-tab {
-    gap: 10px;
-  }
 }
 html[data-tenantidnumber=lmswaomirai] .category-51 .enrol-section-basesubject-year-lesson .enrol-section-basesubject-year-lesson-tab .enrol-section-basesubject-year-lesson-tab-child {
   border-radius: 10px 10px 0 0;
@@ -6249,14 +6235,15 @@ html[data-tenantidnumber=lmswaomirai] .category-51 .enrol-section-basesubject-ye
 }
 html[data-tenantidnumber=lmswaomirai] .category-51 .enrol-section-basesubject-year-lesson .enrol-section-basesubject-year-lesson-tab .enrol-section-basesubject-year-lesson-tab-child.active {
   text-align: center;
-  background: #fcaf17 !important;
+  background: #ffffff;
   color: #ffffff;
   border: none;
   border-bottom: none;
   font-weight: bold;
+  -webkit-box-shadow: 0px 3.5px 7px rgba(0, 0, 0, .18) !important;
+          box-shadow: 0px 3.5px 7px rgba(0, 0, 0, .18) !important;
 }
 html[data-tenantidnumber=lmswaomirai] .category-51 .enrol-section-basesubject-year-lesson-content {
-  background: #fcaf17 !important;
   border-radius: 0px;
   -webkit-box-shadow: 3px;
           box-shadow: 3px;
@@ -6274,6 +6261,8 @@ html[data-tenantidnumber=lmswaomirai] .category-51 .enrol-section-basesubject-ye
   grid-auto-flow: column;
   grid-template-rows: repeat(6, auto);
   gap: 12px 12px;
+  -webkit-box-shadow: 0px 3.5px 7px rgba(0, 0, 0, .18) !important;
+          box-shadow: 0px 3.5px 7px rgba(0, 0, 0, .18) !important;
 }
 @media screen and (max-width: 768px) {
   html[data-tenantidnumber=lmswaomirai] .category-51 .enrol-section-basesubject-year-lesson-content .enrol-section-basesubject-year-lesson-content-child {
@@ -6292,6 +6281,7 @@ html[data-tenantidnumber=lmswaomirai] .category-51 .enrol-section-basesubject-ye
       -ms-flex-align: start;
           align-items: flex-start;
   background: #ffffff;
+  border: 2px solid #ffe3ac !important;
 }
 @media screen and (max-width: 768px) {
   html[data-tenantidnumber=lmswaomirai] .category-51 .enrol-section-basesubject-year-lesson-content .enrol-section-basesubject-year-lesson-content-child .enrol-section-basesubject-year-lesson-content-child-curriculum {
@@ -6647,12 +6637,6 @@ html[data-tenantidnumber=lmswaomirai] .category-47 .enrol-section-basesubject-ye
   display: -ms-flexbox;
   display: flex;
   gap: 20px;
-  border-bottom: 4px solid #fcaf17 !important;
-}
-@media screen and (max-width: 768px) {
-  html[data-tenantidnumber=lmswaomirai] .category-47 .enrol-section-basesubject-year-lesson .enrol-section-basesubject-year-lesson-tab {
-    gap: 10px;
-  }
 }
 html[data-tenantidnumber=lmswaomirai] .category-47 .enrol-section-basesubject-year-lesson .enrol-section-basesubject-year-lesson-tab .enrol-section-basesubject-year-lesson-tab-child {
   border-radius: 10px 10px 0 0;
@@ -6671,14 +6655,15 @@ html[data-tenantidnumber=lmswaomirai] .category-47 .enrol-section-basesubject-ye
 }
 html[data-tenantidnumber=lmswaomirai] .category-47 .enrol-section-basesubject-year-lesson .enrol-section-basesubject-year-lesson-tab .enrol-section-basesubject-year-lesson-tab-child.active {
   text-align: center;
-  background: #fcaf17 !important;
+  background: #ffffff;
   color: #ffffff;
   border: none;
   border-bottom: none;
   font-weight: bold;
+  -webkit-box-shadow: 0px 3.5px 7px rgba(0, 0, 0, .18) !important;
+          box-shadow: 0px 3.5px 7px rgba(0, 0, 0, .18) !important;
 }
 html[data-tenantidnumber=lmswaomirai] .category-47 .enrol-section-basesubject-year-lesson-content {
-  background: #fcaf17 !important;
   border-radius: 0px;
   -webkit-box-shadow: 3px;
           box-shadow: 3px;
@@ -6696,6 +6681,8 @@ html[data-tenantidnumber=lmswaomirai] .category-47 .enrol-section-basesubject-ye
   grid-auto-flow: column;
   grid-template-rows: repeat(6, auto);
   gap: 12px 12px;
+  -webkit-box-shadow: 0px 3.5px 7px rgba(0, 0, 0, .18) !important;
+          box-shadow: 0px 3.5px 7px rgba(0, 0, 0, .18) !important;
 }
 @media screen and (max-width: 768px) {
   html[data-tenantidnumber=lmswaomirai] .category-47 .enrol-section-basesubject-year-lesson-content .enrol-section-basesubject-year-lesson-content-child {
@@ -6714,6 +6701,7 @@ html[data-tenantidnumber=lmswaomirai] .category-47 .enrol-section-basesubject-ye
       -ms-flex-align: start;
           align-items: flex-start;
   background: #ffffff;
+  border: 2px solid #ffe3ac !important;
 }
 @media screen and (max-width: 768px) {
   html[data-tenantidnumber=lmswaomirai] .category-47 .enrol-section-basesubject-year-lesson-content .enrol-section-basesubject-year-lesson-content-child .enrol-section-basesubject-year-lesson-content-child-curriculum {
