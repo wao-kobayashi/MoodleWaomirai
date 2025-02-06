@@ -15,7 +15,11 @@ $subject-default-max-width: 1140px; // 最大幅
   #page.drawers .main-inner {
     padding: 0 !important;
     margin-left: calc((100vw - 1120px) / 2);
+    margin-top: 60px;
     background: transparent;
+    @include min-responsive-style(769px) {
+      margin-top: 60px !important;
+    }
     @include responsive-style($default-max-width) {
       margin-left: 15px;
       max-width: calc(
