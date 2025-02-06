@@ -2,34 +2,36 @@
 -
   // 授業データ（レベル、学年、レッスン内容）
   var subjects = {
+    //哲学
     philosophy: [
       {
         level: "レベル1", // レベル名
         grade: "小3-4", // 対象学年
         lessons: [
-          { week: "1周目", banner: "https://waomirai.com/wp-content/uploads/2024/07/phi_main.jpg", text: "人が明かりを手に入れるまで" },
-          { week: "2周目", banner: "https://waomirai.com/wp-content/uploads/2024/07/phi_main.jpg", text: "さらに進んだ内容" },
-          { week: "3周目", banner: "https://waomirai.com/wp-content/uploads/2024/07/phi_main.jpg", text: "次のステップ" }
+          { week: "1周目", banner: "https://go.waomirai.com/l/1026513/2025-02-05/hdw9n/1026513/17388115572akwZ6Km/thumbnail_ph.jpg", text: "人が明かりを手に入れるまで" },
+          { week: "2周目", banner: "https://go.waomirai.com/l/1026513/2025-02-05/hdw9n/1026513/17388115572akwZ6Km/thumbnail_ph.jpg", text: "さらに進んだ内容" },
+          { week: "3周目", banner: "https://go.waomirai.com/l/1026513/2025-02-05/hdw9n/1026513/17388115572akwZ6Km/thumbnail_ph.jpg",text: "次のステップ" }
         ]
       },
       {
         level: "レベル2",
         grade: "小5-6",
         lessons: [
-          { week: "1周目", banner: "https://waomirai.com/wp-content/uploads/2024/07/phi_main.jpg", text: "より深いテーマ" },
-          { week: "2周目", banner: "https://waomirai.com/wp-content/uploads/2024/07/phi_main.jpg", text: "論理的思考の発展" },
-          { week: "3周目", banner: "https://waomirai.com/wp-content/uploads/2024/07/phi_main.jpg", text: "応用的な議論" }
+          { week: "1周目", banner: "https://go.waomirai.com/l/1026513/2025-02-05/hdw9n/1026513/17388115572akwZ6Km/thumbnail_ph.jpg", text: "人が明かりを手に入れるまで" },
+          { week: "2周目", banner: "https://go.waomirai.com/l/1026513/2025-02-05/hdw9n/1026513/17388115572akwZ6Km/thumbnail_ph.jpg", text: "さらに進んだ内容" },
+          { week: "3周目", banner: "https://go.waomirai.com/l/1026513/2025-02-05/hdw9n/1026513/17388115572akwZ6Km/thumbnail_ph.jpg",text: "次のステップ" }
         ]
       }
     ],
+    //科学
     science: [
       {
         level: "レベル1",
         grade: "小3-4",
         lessons: [
-          { week: "1周目", banner: "https://waomirai.com/wp-content/uploads/2024/07/phi_main.jpg", text: "科学の基本" },
-          { week: "2周目", banner: "https://waomirai.com/wp-content/uploads/2024/07/phi_main.jpg", text: "身近な科学現象" },
-          { week: "3周目", banner: "https://waomirai.com/wp-content/uploads/2024/07/phi_main.jpg", text: "実験と考察" }
+          { week: "1周目", banner: "https://go.waomirai.com/l/1026513/2025-02-05/hdw9n/1026513/17388115572akwZ6Km/thumbnail_ph.jpg", text: "人が明かりを手に入れるまで" },
+          { week: "2周目", banner: "https://go.waomirai.com/l/1026513/2025-02-05/hdw9n/1026513/17388115572akwZ6Km/thumbnail_ph.jpg", text: "さらに進んだ内容" },
+          { week: "3周目", banner: "https://go.waomirai.com/l/1026513/2025-02-05/hdw9n/1026513/17388115572akwZ6Km/thumbnail_ph.jpg",text: "次のステップ" }
         ]
       },
       {
@@ -42,6 +44,7 @@
         ]
       }
     ],
+    //経済
     economy: [
       {
         level: "レベル1",
@@ -69,41 +72,1053 @@
   var curriculum = {
     philosophy: {
       level1: [
-        { month: 4, title: "タイトルA", subcontents: ["1.サブコンセプトA", "2.サブコンセプトA", "3.サブコンセプトA"] },
-        { month: 5, title: "タイトルB", subcontents: ["1.サブコンセプトB", "2.サブコンセプトB", "3.サブコンセプトB"] },
-        { month: 6, title: "タイトルC", subcontents: ["1.サブコンセプトC", "2.サブコンセプトC", "3.サブコンセプトC"] }
+        {
+            "month": 4,
+            "title": "自己紹介が好きになる魔法の言葉",
+            "subcontents1": "自分だけの物語を語る",
+            "subcontents2": "伝えるときの極意",
+            "subcontents3": "フィードバック"
+          },
+          {
+            "month": 5,
+            "title": "「正義」はダレが決める？",
+            "subcontents1": "アナタが裁く「昔話桃太郎」",
+            "subcontents2": "桃太郎退治に行く鬼たち",
+            "subcontents3": "フィードバック"
+          },
+          {
+            "month": 6,
+            "title": "アニメヒーロー強さの秘密",
+            "subcontents1": "鬼に勝つってどういうこと？",
+            "subcontents2": "自分に勝つってどういうこと？",
+            "subcontents3": "フィードバック"
+          },
+          {
+            "month": 7,
+            "title": "ポジティブ思考は無敵の生き方",
+            "subcontents1": "ネガティブは排除すべき？",
+            "subcontents2": "「自信」はどこから？",
+            "subcontents3": "フィードバック"
+          },
+          {
+            "month": 8,
+            "title": "ネコ型ロボットと友だちになる未来が来る？",
+            "subcontents1": "AIは敵？　味方？",
+            "subcontents2": "AIは人間の解放者？",
+            "subcontents3": "フィードバック"
+          },
+          {
+            "month": 9,
+            "title": "ルールは破るためにある？",
+            "subcontents1": "世の中ルールが多すぎる？",
+            "subcontents2": "今あるルールが変わるとき",
+            "subcontents3": "フィードバック"
+          },
+          {
+            "month": 10,
+            "title": "ひとは一人で生きられる？",
+            "subcontents1": "他人の注射が痛いわけ",
+            "subcontents2": "助け合いは人間の本能？",
+            "subcontents3": "フィードバック"
+          },
+          {
+            "month": 11,
+            "title": "見える存在vs見えない存在",
+            "subcontents1": "「妖怪」は存在するのか？",
+            "subcontents2": "「妖怪」を求める気持ちとは？",
+            "subcontents3": "フィードバック"
+          },
+          {
+            "month": 12,
+            "title": "あなたが描く未来の仕事は？",
+            "subcontents1": "未来の人気仕事カタログ",
+            "subcontents2": "アナタの目指す職業は!?",
+            "subcontents3": "フィードバック"
+          },
+          {
+            "month": 1,
+            "title": "友だち関係のトラブル、どうする？",
+            "subcontents1": "トラブルにも個性がある？",
+            "subcontents2": "アナタにぴったりの克服方法",
+            "subcontents3": "フィードバック"
+          },
+          {
+            "month": 2,
+            "title": "優劣は「個性」とちがいますか？",
+            "subcontents1": "順位を決めなければ平等？",
+            "subcontents2": "優劣は個性じゃないの？",
+            "subcontents3": "フィードバック"
+          },
+          {
+            "month": 3,
+            "title": "あなたが描く未来社会の人物像は？",
+            "subcontents1": "未来の社会を予言する",
+            "subcontents2": "アナタの目指す人物像は!?",
+            "subcontents3": "フィードバック"
+          }
       ],
       level2: [
-        { month: 4, title: "タイトル22", subcontents: ["1.サブコンセプトA", "2.サブコンセプトA", "3.サブコンセプトA"] },
-        { month: 5, title: "タイトル33", subcontents: ["1.サブコンセプトB", "2.サブコンセプトB", "3.サブコンセプトB"] },
-        { month: 6, title: "タイトル444", subcontents: ["1.サブコンセプトC", "2.サブコンセプトC", "3.サブコンセプトC"] }
+          {
+            "month": 4,
+            "title": "友だちって何ですか？",
+            "subcontents1": "哲学者も考えた友だちの意味",
+            "subcontents2": "いい人間関係ってどういう関係？",
+            "subcontents3": "フィードバック"
+          },
+          {
+            "month": 5,
+            "title": "人類とウィルス・菌たちの深い関係",
+            "subcontents1": "感染症が人類の歴史を変える？",
+            "subcontents2": "ウィルスは寄生する？　共生する？",
+            "subcontents3": "フィードバック"
+          },
+          {
+            "month": 6,
+            "title": "いじめをなくすただ一つの方法",
+            "subcontents1": "いじめは人間の本能なの!?",
+            "subcontents2": "加害者にも被害者もならない！",
+            "subcontents3": "フィードバック"
+          },
+          {
+            "month": 7,
+            "title": "見た目が9割ってホント？",
+            "subcontents1": "第一印象、何で決める？",
+            "subcontents2": "中身は外見に表われる？",
+            "subcontents3": "フィードバック"
+          },
+          {
+            "month": 8,
+            "title": "SDGｓは地球を救うのか？",
+            "subcontents1": "世界の本気度をはかる",
+            "subcontents2": "2030年の世界と自分",
+            "subcontents3": "フィードバック"
+          },
+          {
+            "month": 9,
+            "title": "進化を続けるAIとどうつき合う？",
+            "subcontents1": "ChatGPT許可か禁止か",
+            "subcontents2": "AIが「人工」でなくなる日⁉",
+            "subcontents3": "フィードバック"
+          },
+          {
+            "month": 10,
+            "title": "勝ちたい心に価値がある？",
+            "subcontents1": "人はなぜゲームに勝ちたいのか",
+            "subcontents2": "勝ちたい理由、負ける意味",
+            "subcontents3": "フィードバック"
+          },
+          {
+            "month": 11,
+            "title": "ホントに「みんな違って、みんないい」？",
+            "subcontents1": "みんな違って、みんないい？",
+            "subcontents2": "仲良くならなくてもいい？",
+            "subcontents3": "フィードバック"
+          },
+          {
+            "month": 12,
+            "title": "あなたのSNSルールどう決める？",
+            "subcontents1": "ネット被害なぜなくならない？",
+            "subcontents2": "わが家のSNSルール",
+            "subcontents3": "フィードバック"
+          },
+          {
+            "month": 1,
+            "title": "アンガーマネジメントって何？",
+            "subcontents1": "「怒り」って抑えた方がいい？",
+            "subcontents2": "「怒り」と向き合ってみる",
+            "subcontents3": "フィードバック"
+          },
+          {
+            "month": 2,
+            "title": "クラスカーストは存在しますか？",
+            "subcontents1": "クラスカーストができる理由",
+            "subcontents2": "序列社会でどう生きる？",
+            "subcontents3": "フィードバック"
+          },
+          {
+            "month": 3,
+            "title": "哲学＝知を愛する心、を考える",
+            "subcontents1": "哲人ソクラテスの悩み",
+            "subcontents2": "アナタは何を貫き通す？",
+            "subcontents3": "フィードバック"
+          }
       ],
-      level3: [ /* 同様にデータを格納 */ ],
-      level4: [ /* 同様にデータを格納 */ ]
+      level3: [ 
+        {
+            "month": 4,
+            "title": "学校の勉強は社会で役立つの？",
+            "subcontents1": "あなたは何のために学ぶ？",
+            "subcontents2": "脳が喜ぶ勉強法があるとしたら？",
+            "subcontents3": "フィードバック"
+          },
+          {
+            "month": 5,
+            "title": "「常識」を疑うのって「非常識」？",
+            "subcontents1": "常識の基準、非常識の基準",
+            "subcontents2": "認知バイアスに負けるな！",
+            "subcontents3": "フィードバック"
+          },
+          {
+            "month": 6,
+            "title": "SNSとの向き合い方",
+            "subcontents1": "SNSから見る「承認」",
+            "subcontents2": "トラブルを回避するためには",
+            "subcontents3": "フィードバック"
+          },
+          {
+            "month": 7,
+            "title": "好き嫌いから眺める多様性社会の歩き方",
+            "subcontents1": "人によって異なる好き嫌い",
+            "subcontents2": "多様性社会を生きていくために",
+            "subcontents3": "フィードバック"
+          },
+          {
+            "month": 8,
+            "title": "自分で校則を決められるなら？",
+            "subcontents1": "そもそもルールとは？",
+            "subcontents2": "ルールメイキング思考",
+            "subcontents3": "フィードバック"
+          },
+          {
+            "month": 9,
+            "title": "戦争はなくせる？なくせない？",
+            "subcontents1": "トゥキュディデスの３つの戦争動機",
+            "subcontents2": "戦争を抑止するには",
+            "subcontents3": "フィードバック"
+          },
+          {
+            "month": 10,
+            "title": "人はどこまでAIに判断を委ねる？",
+            "subcontents1": "自動運転の事故の責任は？",
+            "subcontents2": "事前逮捕で犯罪ゼロに？",
+            "subcontents3": "フィードバック"
+          },
+          {
+            "month": 11,
+            "title": "外見至上主義をどう読み解く？",
+            "subcontents1": "美の基準とルッキズム",
+            "subcontents2": "見た目差別の何が問題か",
+            "subcontents3": "フィードバック"
+          },
+          {
+            "month": 12,
+            "title": "もしも命に値段がつけられたら",
+            "subcontents1": "自殺者２万人社会を考える",
+            "subcontents2": "死んではいけない理由とは",
+            "subcontents3": "フィードバック"
+          },
+          {
+            "month": 1,
+            "title": "議論がどんどん深まる思考法",
+            "subcontents1": "問いを立てる、考えを深める",
+            "subcontents2": "ヘーゲルの弁証法で考える",
+            "subcontents3": "フィードバック"
+          },
+          {
+            "month": 2,
+            "title": "プラトニック・ラブは成立する？",
+            "subcontents1": "プラトン的な愛とは",
+            "subcontents2": "人を愛して分かること",
+            "subcontents3": "フィードバック"
+          },
+          {
+            "month": 3,
+            "title": "未来を生きる「志向性」",
+            "subcontents1": "日本の若者は「内向き志向」か？",
+            "subcontents2": "自身の「志向性」を探る",
+            "subcontents3": "フィードバック"
+          }
+
+       ],
+      level4: [ 
+        {
+          "month": 4,
+          "title": "自由意志は存在しないってホント？",
+          "subcontents1": "自由意志論争とは",
+          "subcontents2": "自由意志論争をどう受け止める？",
+          "subcontents3": "フィードバック"
+        },
+        {
+          "month": 5,
+          "title": "「具体と抽象」が生み出す価値",
+          "subcontents1": "コミュニケーションギャップを解消",
+          "subcontents2": "斬新な発想の秘密",
+          "subcontents3": "フィードバック"
+        },
+        {
+          "month": 6,
+          "title": "嘘はどこまで許される？",
+          "subcontents1": "カントかベンサムか",
+          "subcontents2": "正しく生きるとは何か",
+          "subcontents3": "フィードバック"
+        },
+        {
+          "month": 7,
+          "title": "「事実」と「真実」信じるならどっち？",
+          "subcontents1": "価値とはなにか",
+          "subcontents2": "あなたは何で価値を決める？",
+          "subcontents3": "フィードバック"
+        },
+        {
+          "month": 8,
+          "title": "制約が生み出す「自由」",
+          "subcontents1": "自然状態における自由",
+          "subcontents2": "自由と権力の関係",
+          "subcontents3": "フィードバック"
+        },
+        {
+          "month": 9,
+          "title": "「殺すな」は普遍的ルールか？",
+          "subcontents1": "戦争が正当化される条件",
+          "subcontents2": "死刑は配分的正義実現の手段？",
+          "subcontents3": "フィードバック"
+        },
+        {
+          "month": 10,
+          "title": "「コミュ力がある」ってどういうこと？",
+          "subcontents1": "現代はコミュ力至上主義社会？",
+          "subcontents2": "人間関係とコミュニケーション",
+          "subcontents3": "フィードバック"
+        },
+        {
+          "month": 11,
+          "title": "少数派から多数派へ贈る言葉",
+          "subcontents1": "最大多数の最大幸福って何？",
+          "subcontents2": "不当な抑圧、正当な抑圧？",
+          "subcontents3": "フィードバック"
+        },
+        {
+          "month": 12,
+          "title": "「武士道」VS「騎士道」選ぶなら？",
+          "subcontents1": "武士道と騎士道、どう違う？",
+          "subcontents2": "命をかけて守る義、あり？",
+          "subcontents3": "フィードバック"
+        },
+        {
+          "month": 1,
+          "title": "成功体験、多い方がいいの？",
+          "subcontents1": "成功と失敗は紙一重？",
+          "subcontents2": "スピノザ思想の生かし方",
+          "subcontents3": "フィードバック"
+        },
+        {
+          "month": 2,
+          "title": "自由と平等は、普遍的価値？",
+          "subcontents1": "恣意と差別のはびこる社会で",
+          "subcontents2": "世界人権宣言の読み方",
+          "subcontents3": "フィードバック"
+        },
+        {
+          "month": 3,
+          "title": "君たちはどう生きるか",
+          "subcontents1": "昭和と令和をつなぐ意志",
+          "subcontents2": "あなたはどう生きるか",
+          "subcontents3": "フィードバック"
+        }
+      ]
     },
     science: {
       level1: [
-        { month: 4, title: "タイトルX", subcontents: ["1.サブコンセプトX", "2.サブコンセプトX", "3.サブコンセプトX"] },
-        { month: 5, title: "タイトルY", subcontents: ["1.サブコンセプトY", "2.サブコンセプトY", "3.サブコンセプトY"] }
+        {
+            "month": 4,
+            "title": "自己紹介が好きになる魔法の言葉",
+            "subcontents1": "自分だけの物語を語る",
+            "subcontents2": "伝えるときの極意",
+            "subcontents3": "フィードバック"
+          },
+          {
+            "month": 5,
+            "title": "「正義」はダレが決める？",
+            "subcontents1": "アナタが裁く「昔話桃太郎」",
+            "subcontents2": "桃太郎退治に行く鬼たち",
+            "subcontents3": "フィードバック"
+          },
+          {
+            "month": 6,
+            "title": "アニメヒーロー強さの秘密",
+            "subcontents1": "鬼に勝つってどういうこと？",
+            "subcontents2": "自分に勝つってどういうこと？",
+            "subcontents3": "フィードバック"
+          },
+          {
+            "month": 7,
+            "title": "ポジティブ思考は無敵の生き方",
+            "subcontents1": "ネガティブは排除すべき？",
+            "subcontents2": "「自信」はどこから？",
+            "subcontents3": "フィードバック"
+          },
+          {
+            "month": 8,
+            "title": "ネコ型ロボットと友だちになる未来が来る？",
+            "subcontents1": "AIは敵？　味方？",
+            "subcontents2": "AIは人間の解放者？",
+            "subcontents3": "フィードバック"
+          },
+          {
+            "month": 9,
+            "title": "ルールは破るためにある？",
+            "subcontents1": "世の中ルールが多すぎる？",
+            "subcontents2": "今あるルールが変わるとき",
+            "subcontents3": "フィードバック"
+          },
+          {
+            "month": 10,
+            "title": "ひとは一人で生きられる？",
+            "subcontents1": "他人の注射が痛いわけ",
+            "subcontents2": "助け合いは人間の本能？",
+            "subcontents3": "フィードバック"
+          },
+          {
+            "month": 11,
+            "title": "見える存在vs見えない存在",
+            "subcontents1": "「妖怪」は存在するのか？",
+            "subcontents2": "「妖怪」を求める気持ちとは？",
+            "subcontents3": "フィードバック"
+          },
+          {
+            "month": 12,
+            "title": "あなたが描く未来の仕事は？",
+            "subcontents1": "未来の人気仕事カタログ",
+            "subcontents2": "アナタの目指す職業は!?",
+            "subcontents3": "フィードバック"
+          },
+          {
+            "month": 1,
+            "title": "友だち関係のトラブル、どうする？",
+            "subcontents1": "トラブルにも個性がある？",
+            "subcontents2": "アナタにぴったりの克服方法",
+            "subcontents3": "フィードバック"
+          },
+          {
+            "month": 2,
+            "title": "優劣は「個性」とちがいますか？",
+            "subcontents1": "順位を決めなければ平等？",
+            "subcontents2": "優劣は個性じゃないの？",
+            "subcontents3": "フィードバック"
+          },
+          {
+            "month": 3,
+            "title": "あなたが描く未来社会の人物像は？",
+            "subcontents1": "未来の社会を予言する",
+            "subcontents2": "アナタの目指す人物像は!?",
+            "subcontents3": "フィードバック"
+          }
       ],
-      level2: [ /* 同様にデータを格納 */ ],
-      level3: [ /* 同様にデータを格納 */ ],
-      level4: [ /* 同様にデータを格納 */ ]
+      level2: [
+          {
+            "month": 4,
+            "title": "友だちって何ですか？",
+            "subcontents1": "哲学者も考えた友だちの意味",
+            "subcontents2": "いい人間関係ってどういう関係？",
+            "subcontents3": "フィードバック"
+          },
+          {
+            "month": 5,
+            "title": "人類とウィルス・菌たちの深い関係",
+            "subcontents1": "感染症が人類の歴史を変える？",
+            "subcontents2": "ウィルスは寄生する？　共生する？",
+            "subcontents3": "フィードバック"
+          },
+          {
+            "month": 6,
+            "title": "いじめをなくすただ一つの方法",
+            "subcontents1": "いじめは人間の本能なの!?",
+            "subcontents2": "加害者にも被害者もならない！",
+            "subcontents3": "フィードバック"
+          },
+          {
+            "month": 7,
+            "title": "見た目が9割ってホント？",
+            "subcontents1": "第一印象、何で決める？",
+            "subcontents2": "中身は外見に表われる？",
+            "subcontents3": "フィードバック"
+          },
+          {
+            "month": 8,
+            "title": "SDGｓは地球を救うのか？",
+            "subcontents1": "世界の本気度をはかる",
+            "subcontents2": "2030年の世界と自分",
+            "subcontents3": "フィードバック"
+          },
+          {
+            "month": 9,
+            "title": "進化を続けるAIとどうつき合う？",
+            "subcontents1": "ChatGPT許可か禁止か",
+            "subcontents2": "AIが「人工」でなくなる日⁉",
+            "subcontents3": "フィードバック"
+          },
+          {
+            "month": 10,
+            "title": "勝ちたい心に価値がある？",
+            "subcontents1": "人はなぜゲームに勝ちたいのか",
+            "subcontents2": "勝ちたい理由、負ける意味",
+            "subcontents3": "フィードバック"
+          },
+          {
+            "month": 11,
+            "title": "ホントに「みんな違って、みんないい」？",
+            "subcontents1": "みんな違って、みんないい？",
+            "subcontents2": "仲良くならなくてもいい？",
+            "subcontents3": "フィードバック"
+          },
+          {
+            "month": 12,
+            "title": "あなたのSNSルールどう決める？",
+            "subcontents1": "ネット被害なぜなくならない？",
+            "subcontents2": "わが家のSNSルール",
+            "subcontents3": "フィードバック"
+          },
+          {
+            "month": 1,
+            "title": "アンガーマネジメントって何？",
+            "subcontents1": "「怒り」って抑えた方がいい？",
+            "subcontents2": "「怒り」と向き合ってみる",
+            "subcontents3": "フィードバック"
+          },
+          {
+            "month": 2,
+            "title": "クラスカーストは存在しますか？",
+            "subcontents1": "クラスカーストができる理由",
+            "subcontents2": "序列社会でどう生きる？",
+            "subcontents3": "フィードバック"
+          },
+          {
+            "month": 3,
+            "title": "哲学＝知を愛する心、を考える",
+            "subcontents1": "哲人ソクラテスの悩み",
+            "subcontents2": "アナタは何を貫き通す？",
+            "subcontents3": "フィードバック"
+          }
+      ],
+      level3: [ 
+        {
+            "month": 4,
+            "title": "学校の勉強は社会で役立つの？",
+            "subcontents1": "あなたは何のために学ぶ？",
+            "subcontents2": "脳が喜ぶ勉強法があるとしたら？",
+            "subcontents3": "フィードバック"
+          },
+          {
+            "month": 5,
+            "title": "「常識」を疑うのって「非常識」？",
+            "subcontents1": "常識の基準、非常識の基準",
+            "subcontents2": "認知バイアスに負けるな！",
+            "subcontents3": "フィードバック"
+          },
+          {
+            "month": 6,
+            "title": "SNSとの向き合い方",
+            "subcontents1": "SNSから見る「承認」",
+            "subcontents2": "トラブルを回避するためには",
+            "subcontents3": "フィードバック"
+          },
+          {
+            "month": 7,
+            "title": "好き嫌いから眺める多様性社会の歩き方",
+            "subcontents1": "人によって異なる好き嫌い",
+            "subcontents2": "多様性社会を生きていくために",
+            "subcontents3": "フィードバック"
+          },
+          {
+            "month": 8,
+            "title": "自分で校則を決められるなら？",
+            "subcontents1": "そもそもルールとは？",
+            "subcontents2": "ルールメイキング思考",
+            "subcontents3": "フィードバック"
+          },
+          {
+            "month": 9,
+            "title": "戦争はなくせる？なくせない？",
+            "subcontents1": "トゥキュディデスの３つの戦争動機",
+            "subcontents2": "戦争を抑止するには",
+            "subcontents3": "フィードバック"
+          },
+          {
+            "month": 10,
+            "title": "人はどこまでAIに判断を委ねる？",
+            "subcontents1": "自動運転の事故の責任は？",
+            "subcontents2": "事前逮捕で犯罪ゼロに？",
+            "subcontents3": "フィードバック"
+          },
+          {
+            "month": 11,
+            "title": "外見至上主義をどう読み解く？",
+            "subcontents1": "美の基準とルッキズム",
+            "subcontents2": "見た目差別の何が問題か",
+            "subcontents3": "フィードバック"
+          },
+          {
+            "month": 12,
+            "title": "もしも命に値段がつけられたら",
+            "subcontents1": "自殺者２万人社会を考える",
+            "subcontents2": "死んではいけない理由とは",
+            "subcontents3": "フィードバック"
+          },
+          {
+            "month": 1,
+            "title": "議論がどんどん深まる思考法",
+            "subcontents1": "問いを立てる、考えを深める",
+            "subcontents2": "ヘーゲルの弁証法で考える",
+            "subcontents3": "フィードバック"
+          },
+          {
+            "month": 2,
+            "title": "プラトニック・ラブは成立する？",
+            "subcontents1": "プラトン的な愛とは",
+            "subcontents2": "人を愛して分かること",
+            "subcontents3": "フィードバック"
+          },
+          {
+            "month": 3,
+            "title": "未来を生きる「志向性」",
+            "subcontents1": "日本の若者は「内向き志向」か？",
+            "subcontents2": "自身の「志向性」を探る",
+            "subcontents3": "フィードバック"
+          }
+
+       ],
+      level4: [ 
+        {
+          "month": 4,
+          "title": "自由意志は存在しないってホント？",
+          "subcontents1": "自由意志論争とは",
+          "subcontents2": "自由意志論争をどう受け止める？",
+          "subcontents3": "フィードバック"
+        },
+        {
+          "month": 5,
+          "title": "「具体と抽象」が生み出す価値",
+          "subcontents1": "コミュニケーションギャップを解消",
+          "subcontents2": "斬新な発想の秘密",
+          "subcontents3": "フィードバック"
+        },
+        {
+          "month": 6,
+          "title": "嘘はどこまで許される？",
+          "subcontents1": "カントかベンサムか",
+          "subcontents2": "正しく生きるとは何か",
+          "subcontents3": "フィードバック"
+        },
+        {
+          "month": 7,
+          "title": "「事実」と「真実」信じるならどっち？",
+          "subcontents1": "価値とはなにか",
+          "subcontents2": "あなたは何で価値を決める？",
+          "subcontents3": "フィードバック"
+        },
+        {
+          "month": 8,
+          "title": "制約が生み出す「自由」",
+          "subcontents1": "自然状態における自由",
+          "subcontents2": "自由と権力の関係",
+          "subcontents3": "フィードバック"
+        },
+        {
+          "month": 9,
+          "title": "「殺すな」は普遍的ルールか？",
+          "subcontents1": "戦争が正当化される条件",
+          "subcontents2": "死刑は配分的正義実現の手段？",
+          "subcontents3": "フィードバック"
+        },
+        {
+          "month": 10,
+          "title": "「コミュ力がある」ってどういうこと？",
+          "subcontents1": "現代はコミュ力至上主義社会？",
+          "subcontents2": "人間関係とコミュニケーション",
+          "subcontents3": "フィードバック"
+        },
+        {
+          "month": 11,
+          "title": "少数派から多数派へ贈る言葉",
+          "subcontents1": "最大多数の最大幸福って何？",
+          "subcontents2": "不当な抑圧、正当な抑圧？",
+          "subcontents3": "フィードバック"
+        },
+        {
+          "month": 12,
+          "title": "「武士道」VS「騎士道」選ぶなら？",
+          "subcontents1": "武士道と騎士道、どう違う？",
+          "subcontents2": "命をかけて守る義、あり？",
+          "subcontents3": "フィードバック"
+        },
+        {
+          "month": 1,
+          "title": "成功体験、多い方がいいの？",
+          "subcontents1": "成功と失敗は紙一重？",
+          "subcontents2": "スピノザ思想の生かし方",
+          "subcontents3": "フィードバック"
+        },
+        {
+          "month": 2,
+          "title": "自由と平等は、普遍的価値？",
+          "subcontents1": "恣意と差別のはびこる社会で",
+          "subcontents2": "世界人権宣言の読み方",
+          "subcontents3": "フィードバック"
+        },
+        {
+          "month": 3,
+          "title": "君たちはどう生きるか",
+          "subcontents1": "昭和と令和をつなぐ意志",
+          "subcontents2": "あなたはどう生きるか",
+          "subcontents3": "フィードバック"
+        }
+      ]
     },
     economy: {
       level1: [
-        { month: 4, title: "タイトルM", subcontents: ["1.サブコンセプトM", "2.サブコンセプトM", "3.サブコンセプトM"] }
+        {
+            "month": 4,
+            "title": "自己紹介が好きになる魔法の言葉",
+            "subcontents1": "自分だけの物語を語る",
+            "subcontents2": "伝えるときの極意",
+            "subcontents3": "フィードバック"
+          },
+          {
+            "month": 5,
+            "title": "「正義」はダレが決める？",
+            "subcontents1": "アナタが裁く「昔話桃太郎」",
+            "subcontents2": "桃太郎退治に行く鬼たち",
+            "subcontents3": "フィードバック"
+          },
+          {
+            "month": 6,
+            "title": "アニメヒーロー強さの秘密",
+            "subcontents1": "鬼に勝つってどういうこと？",
+            "subcontents2": "自分に勝つってどういうこと？",
+            "subcontents3": "フィードバック"
+          },
+          {
+            "month": 7,
+            "title": "ポジティブ思考は無敵の生き方",
+            "subcontents1": "ネガティブは排除すべき？",
+            "subcontents2": "「自信」はどこから？",
+            "subcontents3": "フィードバック"
+          },
+          {
+            "month": 8,
+            "title": "ネコ型ロボットと友だちになる未来が来る？",
+            "subcontents1": "AIは敵？　味方？",
+            "subcontents2": "AIは人間の解放者？",
+            "subcontents3": "フィードバック"
+          },
+          {
+            "month": 9,
+            "title": "ルールは破るためにある？",
+            "subcontents1": "世の中ルールが多すぎる？",
+            "subcontents2": "今あるルールが変わるとき",
+            "subcontents3": "フィードバック"
+          },
+          {
+            "month": 10,
+            "title": "ひとは一人で生きられる？",
+            "subcontents1": "他人の注射が痛いわけ",
+            "subcontents2": "助け合いは人間の本能？",
+            "subcontents3": "フィードバック"
+          },
+          {
+            "month": 11,
+            "title": "見える存在vs見えない存在",
+            "subcontents1": "「妖怪」は存在するのか？",
+            "subcontents2": "「妖怪」を求める気持ちとは？",
+            "subcontents3": "フィードバック"
+          },
+          {
+            "month": 12,
+            "title": "あなたが描く未来の仕事は？",
+            "subcontents1": "未来の人気仕事カタログ",
+            "subcontents2": "アナタの目指す職業は!?",
+            "subcontents3": "フィードバック"
+          },
+          {
+            "month": 1,
+            "title": "友だち関係のトラブル、どうする？",
+            "subcontents1": "トラブルにも個性がある？",
+            "subcontents2": "アナタにぴったりの克服方法",
+            "subcontents3": "フィードバック"
+          },
+          {
+            "month": 2,
+            "title": "優劣は「個性」とちがいますか？",
+            "subcontents1": "順位を決めなければ平等？",
+            "subcontents2": "優劣は個性じゃないの？",
+            "subcontents3": "フィードバック"
+          },
+          {
+            "month": 3,
+            "title": "あなたが描く未来社会の人物像は？",
+            "subcontents1": "未来の社会を予言する",
+            "subcontents2": "アナタの目指す人物像は!?",
+            "subcontents3": "フィードバック"
+          }
       ],
-      level2: [ /* 同様にデータを格納 */ ],
-      level3: [ /* 同様にデータを格納 */ ],
-      level4: [ /* 同様にデータを格納 */ ]
-    }
+      level2: [
+          {
+            "month": 4,
+            "title": "友だちって何ですか？",
+            "subcontents1": "哲学者も考えた友だちの意味",
+            "subcontents2": "いい人間関係ってどういう関係？",
+            "subcontents3": "フィードバック"
+          },
+          {
+            "month": 5,
+            "title": "人類とウィルス・菌たちの深い関係",
+            "subcontents1": "感染症が人類の歴史を変える？",
+            "subcontents2": "ウィルスは寄生する？　共生する？",
+            "subcontents3": "フィードバック"
+          },
+          {
+            "month": 6,
+            "title": "いじめをなくすただ一つの方法",
+            "subcontents1": "いじめは人間の本能なの!?",
+            "subcontents2": "加害者にも被害者もならない！",
+            "subcontents3": "フィードバック"
+          },
+          {
+            "month": 7,
+            "title": "見た目が9割ってホント？",
+            "subcontents1": "第一印象、何で決める？",
+            "subcontents2": "中身は外見に表われる？",
+            "subcontents3": "フィードバック"
+          },
+          {
+            "month": 8,
+            "title": "SDGｓは地球を救うのか？",
+            "subcontents1": "世界の本気度をはかる",
+            "subcontents2": "2030年の世界と自分",
+            "subcontents3": "フィードバック"
+          },
+          {
+            "month": 9,
+            "title": "進化を続けるAIとどうつき合う？",
+            "subcontents1": "ChatGPT許可か禁止か",
+            "subcontents2": "AIが「人工」でなくなる日⁉",
+            "subcontents3": "フィードバック"
+          },
+          {
+            "month": 10,
+            "title": "勝ちたい心に価値がある？",
+            "subcontents1": "人はなぜゲームに勝ちたいのか",
+            "subcontents2": "勝ちたい理由、負ける意味",
+            "subcontents3": "フィードバック"
+          },
+          {
+            "month": 11,
+            "title": "ホントに「みんな違って、みんないい」？",
+            "subcontents1": "みんな違って、みんないい？",
+            "subcontents2": "仲良くならなくてもいい？",
+            "subcontents3": "フィードバック"
+          },
+          {
+            "month": 12,
+            "title": "あなたのSNSルールどう決める？",
+            "subcontents1": "ネット被害なぜなくならない？",
+            "subcontents2": "わが家のSNSルール",
+            "subcontents3": "フィードバック"
+          },
+          {
+            "month": 1,
+            "title": "アンガーマネジメントって何？",
+            "subcontents1": "「怒り」って抑えた方がいい？",
+            "subcontents2": "「怒り」と向き合ってみる",
+            "subcontents3": "フィードバック"
+          },
+          {
+            "month": 2,
+            "title": "クラスカーストは存在しますか？",
+            "subcontents1": "クラスカーストができる理由",
+            "subcontents2": "序列社会でどう生きる？",
+            "subcontents3": "フィードバック"
+          },
+          {
+            "month": 3,
+            "title": "哲学＝知を愛する心、を考える",
+            "subcontents1": "哲人ソクラテスの悩み",
+            "subcontents2": "アナタは何を貫き通す？",
+            "subcontents3": "フィードバック"
+          }
+      ],
+      level3: [ 
+        {
+            "month": 4,
+            "title": "学校の勉強は社会で役立つの？",
+            "subcontents1": "あなたは何のために学ぶ？",
+            "subcontents2": "脳が喜ぶ勉強法があるとしたら？",
+            "subcontents3": "フィードバック"
+          },
+          {
+            "month": 5,
+            "title": "「常識」を疑うのって「非常識」？",
+            "subcontents1": "常識の基準、非常識の基準",
+            "subcontents2": "認知バイアスに負けるな！",
+            "subcontents3": "フィードバック"
+          },
+          {
+            "month": 6,
+            "title": "SNSとの向き合い方",
+            "subcontents1": "SNSから見る「承認」",
+            "subcontents2": "トラブルを回避するためには",
+            "subcontents3": "フィードバック"
+          },
+          {
+            "month": 7,
+            "title": "好き嫌いから眺める多様性社会の歩き方",
+            "subcontents1": "人によって異なる好き嫌い",
+            "subcontents2": "多様性社会を生きていくために",
+            "subcontents3": "フィードバック"
+          },
+          {
+            "month": 8,
+            "title": "自分で校則を決められるなら？",
+            "subcontents1": "そもそもルールとは？",
+            "subcontents2": "ルールメイキング思考",
+            "subcontents3": "フィードバック"
+          },
+          {
+            "month": 9,
+            "title": "戦争はなくせる？なくせない？",
+            "subcontents1": "トゥキュディデスの３つの戦争動機",
+            "subcontents2": "戦争を抑止するには",
+            "subcontents3": "フィードバック"
+          },
+          {
+            "month": 10,
+            "title": "人はどこまでAIに判断を委ねる？",
+            "subcontents1": "自動運転の事故の責任は？",
+            "subcontents2": "事前逮捕で犯罪ゼロに？",
+            "subcontents3": "フィードバック"
+          },
+          {
+            "month": 11,
+            "title": "外見至上主義をどう読み解く？",
+            "subcontents1": "美の基準とルッキズム",
+            "subcontents2": "見た目差別の何が問題か",
+            "subcontents3": "フィードバック"
+          },
+          {
+            "month": 12,
+            "title": "もしも命に値段がつけられたら",
+            "subcontents1": "自殺者２万人社会を考える",
+            "subcontents2": "死んではいけない理由とは",
+            "subcontents3": "フィードバック"
+          },
+          {
+            "month": 1,
+            "title": "議論がどんどん深まる思考法",
+            "subcontents1": "問いを立てる、考えを深める",
+            "subcontents2": "ヘーゲルの弁証法で考える",
+            "subcontents3": "フィードバック"
+          },
+          {
+            "month": 2,
+            "title": "プラトニック・ラブは成立する？",
+            "subcontents1": "プラトン的な愛とは",
+            "subcontents2": "人を愛して分かること",
+            "subcontents3": "フィードバック"
+          },
+          {
+            "month": 3,
+            "title": "未来を生きる「志向性」",
+            "subcontents1": "日本の若者は「内向き志向」か？",
+            "subcontents2": "自身の「志向性」を探る",
+            "subcontents3": "フィードバック"
+          }
+
+       ],
+      level4: [ 
+        {
+          "month": 4,
+          "title": "自由意志は存在しないってホント？",
+          "subcontents1": "自由意志論争とは",
+          "subcontents2": "自由意志論争をどう受け止める？",
+          "subcontents3": "フィードバック"
+        },
+        {
+          "month": 5,
+          "title": "「具体と抽象」が生み出す価値",
+          "subcontents1": "コミュニケーションギャップを解消",
+          "subcontents2": "斬新な発想の秘密",
+          "subcontents3": "フィードバック"
+        },
+        {
+          "month": 6,
+          "title": "嘘はどこまで許される？",
+          "subcontents1": "カントかベンサムか",
+          "subcontents2": "正しく生きるとは何か",
+          "subcontents3": "フィードバック"
+        },
+        {
+          "month": 7,
+          "title": "「事実」と「真実」信じるならどっち？",
+          "subcontents1": "価値とはなにか",
+          "subcontents2": "あなたは何で価値を決める？",
+          "subcontents3": "フィードバック"
+        },
+        {
+          "month": 8,
+          "title": "制約が生み出す「自由」",
+          "subcontents1": "自然状態における自由",
+          "subcontents2": "自由と権力の関係",
+          "subcontents3": "フィードバック"
+        },
+        {
+          "month": 9,
+          "title": "「殺すな」は普遍的ルールか？",
+          "subcontents1": "戦争が正当化される条件",
+          "subcontents2": "死刑は配分的正義実現の手段？",
+          "subcontents3": "フィードバック"
+        },
+        {
+          "month": 10,
+          "title": "「コミュ力がある」ってどういうこと？",
+          "subcontents1": "現代はコミュ力至上主義社会？",
+          "subcontents2": "人間関係とコミュニケーション",
+          "subcontents3": "フィードバック"
+        },
+        {
+          "month": 11,
+          "title": "少数派から多数派へ贈る言葉",
+          "subcontents1": "最大多数の最大幸福って何？",
+          "subcontents2": "不当な抑圧、正当な抑圧？",
+          "subcontents3": "フィードバック"
+        },
+        {
+          "month": 12,
+          "title": "「武士道」VS「騎士道」選ぶなら？",
+          "subcontents1": "武士道と騎士道、どう違う？",
+          "subcontents2": "命をかけて守る義、あり？",
+          "subcontents3": "フィードバック"
+        },
+        {
+          "month": 1,
+          "title": "成功体験、多い方がいいの？",
+          "subcontents1": "成功と失敗は紙一重？",
+          "subcontents2": "スピノザ思想の生かし方",
+          "subcontents3": "フィードバック"
+        },
+        {
+          "month": 2,
+          "title": "自由と平等は、普遍的価値？",
+          "subcontents1": "恣意と差別のはびこる社会で",
+          "subcontents2": "世界人権宣言の読み方",
+          "subcontents3": "フィードバック"
+        },
+        {
+          "month": 3,
+          "title": "君たちはどう生きるか",
+          "subcontents1": "昭和と令和をつなぐ意志",
+          "subcontents2": "あなたはどう生きるか",
+          "subcontents3": "フィードバック"
+        }
+      ]
+    },
+
   };
 
 
   // 曜日と時間割のデータ
   var weekdays = ['時間', '日', '月', '火', '水', '木', '金', '土'];
   var timeslots = {
+    //哲学
     philosophy: [{
       time: '17:30 - 18:30', // 時間帯
       schedule: [
@@ -111,34 +1126,138 @@
         { day: '月', subject: null },
         { day: '火', subject: '哲学', level: 'レベル2' },
         { day: '水', subject: null },
-        { day: '木', subject: '哲学', level: 'レベル2' },
-        { day: '金', subject: null },
+        { day: '木', subject: null },
+        { day: '金', subject: '哲学', level: 'レベル1' },
         { day: '土', subject: null }
       ]
-    }],
+      },{
+      time: '18:30 - 19:30', // 時間帯
+      schedule: [
+        { day: '日', subject: null },
+        { day: '月', subject: null },
+        { day: '火', subject: '哲学', level: 'レベル1' },
+        { day: '水', subject: null },
+        { day: '木', subject: null },
+        { day: '金', subject: '哲学', level: 'レベル2' },
+        { day: '土', subject: null }
+      ]
+    },{
+      time: '19:30 - 20:30', // 時間帯
+      schedule: [
+        { day: '日', subject: null },
+        { day: '月', subject: null },
+        { day: '火', subject: '哲学', level: 'レベル4' },
+        { day: '水', subject: null },
+        { day: '木', subject: null },
+        { day: '金', subject: '哲学', level: 'レベル3' },
+        { day: '土', subject: null }
+      ]
+    },{
+      time: '20:30 - 21:30', // 時間帯
+      schedule: [
+        { day: '日', subject: null },
+        { day: '月', subject: null },
+        { day: '火', subject: '哲学', level: 'レベル3' },
+        { day: '水', subject: null },
+        { day: '木', subject: null },
+        { day: '金', subject: '哲学', level: 'レベル4' },
+        { day: '土', subject: null }
+      ]
+    },
+    ],
+    //科学
     science: [{
       time: '17:30 - 18:30', // 時間帯
       schedule: [
         { day: '日', subject: null },
         { day: '月', subject: null },
-        { day: '火', subject: '科学', level: 'レベル2' }, // 修正: 科学に変更
+        { day: '火', subject: '哲学', level: 'レベル2' },
         { day: '水', subject: null },
-        { day: '木', subject: '科学', level: 'レベル2' }, // 修正: 科学に変更
-        { day: '金', subject: null },
+        { day: '木', subject: null },
+        { day: '金', subject: '哲学', level: 'レベル1' },
         { day: '土', subject: null }
       ]
-    }],
+      },{
+      time: '18:30 - 19:30', // 時間帯
+      schedule: [
+        { day: '日', subject: null },
+        { day: '月', subject: null },
+        { day: '火', subject: '哲学', level: 'レベル1' },
+        { day: '水', subject: null },
+        { day: '木', subject: null },
+        { day: '金', subject: '哲学', level: 'レベル2' },
+        { day: '土', subject: null }
+      ]
+    },{
+      time: '19:30 - 20:30', // 時間帯
+      schedule: [
+        { day: '日', subject: null },
+        { day: '月', subject: null },
+        { day: '火', subject: '哲学', level: 'レベル4' },
+        { day: '水', subject: null },
+        { day: '木', subject: null },
+        { day: '金', subject: '哲学', level: 'レベル3' },
+        { day: '土', subject: null }
+      ]
+    },{
+      time: '20:30 - 21:30', // 時間帯
+      schedule: [
+        { day: '日', subject: null },
+        { day: '月', subject: null },
+        { day: '火', subject: '哲学', level: 'レベル3' },
+        { day: '水', subject: null },
+        { day: '木', subject: null },
+        { day: '金', subject: '哲学', level: 'レベル4' },
+        { day: '土', subject: null }
+      ]
+    },
+    ],
+    //経済
     economy: [{
       time: '17:30 - 18:30', // 時間帯
       schedule: [
         { day: '日', subject: null },
         { day: '月', subject: null },
-        { day: '火', subject: '経済', level: 'レベル2' }, // 修正: 経済に変更
+        { day: '火', subject: '哲学', level: 'レベル2' },
         { day: '水', subject: null },
-        { day: '木', subject: '経済', level: 'レベル2' }, // 修正: 経済に変更
-        { day: '金', subject: null },
+        { day: '木', subject: null },
+        { day: '金', subject: '哲学', level: 'レベル1' },
         { day: '土', subject: null }
       ]
-    }]
+      },{
+      time: '18:30 - 19:30', // 時間帯
+      schedule: [
+        { day: '日', subject: null },
+        { day: '月', subject: null },
+        { day: '火', subject: '哲学', level: 'レベル1' },
+        { day: '水', subject: null },
+        { day: '木', subject: null },
+        { day: '金', subject: '哲学', level: 'レベル2' },
+        { day: '土', subject: null }
+      ]
+    },{
+      time: '19:30 - 20:30', // 時間帯
+      schedule: [
+        { day: '日', subject: null },
+        { day: '月', subject: null },
+        { day: '火', subject: '哲学', level: 'レベル4' },
+        { day: '水', subject: null },
+        { day: '木', subject: null },
+        { day: '金', subject: '哲学', level: 'レベル3' },
+        { day: '土', subject: null }
+      ]
+    },{
+      time: '20:30 - 21:30', // 時間帯
+      schedule: [
+        { day: '日', subject: null },
+        { day: '月', subject: null },
+        { day: '火', subject: '哲学', level: 'レベル3' },
+        { day: '水', subject: null },
+        { day: '木', subject: null },
+        { day: '金', subject: '哲学', level: 'レベル4' },
+        { day: '土', subject: null }
+      ]
+    },
+    ]
   };
 

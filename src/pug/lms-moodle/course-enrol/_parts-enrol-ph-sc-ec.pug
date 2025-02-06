@@ -3,7 +3,7 @@ include ../_subject_data.pug
 
 // セクション1: 今月の授業
 section.enrol-section
-  h2.enrol-title 今月の授業
+  h2.enrol-title 4月の授業
   // 各教科の授業情報を表示
   each subject in subjects[enrolpage.category]
     .enrol-section-basesubject-thismonth-lesson-grid
@@ -48,14 +48,14 @@ section.enrol-section
             .enrol-section-basesubject-year-lesson-content-child-curriculum
               .enrol-section-basesubject-year-lesson-content-child-curriculum-month
                 // 月
-                span.month= item.month 
+                span.month=  item.month
                 | 月
               .enrol-section-basesubject-year-lesson-content-child-curriculum-detail
                 // カリキュラムのタイトル
                 .enrol-section-basesubject-year-lesson-content-child-curriculum-detail-title= item.title 
-                each subcontent in item.subcontents
-                  // サブコンテンツ
-                  .enrol-section-basesubject-year-lesson-content-child-curriculum-detail-subcontent= subcontent
+                  .enrol-section-basesubject-year-lesson-content-child-curriculum-detail-subcontent= item.subcontents1
+                  .enrol-section-basesubject-year-lesson-content-child-curriculum-detail-subcontent= item.subcontents2
+                  .enrol-section-basesubject-year-lesson-content-child-curriculum-detail-subcontent= item.subcontents3
 // セクション3: 時間割
 section.enrol-section
   h2.enrol-title 時間割
