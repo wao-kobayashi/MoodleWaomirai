@@ -2,33 +2,33 @@
 include ../_subject_data.pug
 
 // セクション1: 今月の授業
-.enrol-section
-  h2.enrol-title 4月の授業
-  // 各教科の授業情報を表示
-  .enrol-section-basesubject-thismonth-lesson
-    each subject in subjects[enrolpage.category]
-      .enrol-section-basesubject-thismonth-lesson-grid
-        // レベル情報を表示
-        .enrol-section-basesubject-thismonth-lesson-grid-level
-          // レベル名
-          .enrol-section-basesubject-thismonth-lesson-grid-level-main
-            |レベル
-            span.large= subject.level 
-          // 対象学年
-          .enrol-section-basesubject-thismonth-lesson-grid-level-sub
-           span.c-pc-hidden|(
-           span= subject.grade 
-           span.c-pc-hidden|)
+//- .enrol-section
+//-   h2.enrol-title 4月の授業
+//-   // 各教科の授業情報を表示
+//-   .enrol-section-basesubject-thismonth-lesson
+//-     each subject in subjects[enrolpage.category]
+//-       .enrol-section-basesubject-thismonth-lesson-grid
+//-         // レベル情報を表示
+//-         .enrol-section-basesubject-thismonth-lesson-grid-level
+//-           // レベル名
+//-           .enrol-section-basesubject-thismonth-lesson-grid-level-main
+//-             |レベル
+//-             span.large= subject.level 
+//-           // 対象学年
+//-           .enrol-section-basesubject-thismonth-lesson-grid-level-sub
+//-            span.c-pc-hidden|(
+//-            span= subject.grade 
+//-            span.c-pc-hidden|)
 
-        // 各レッスン情報を表示
-        each lesson in subject.lessons
-          .enrol-section-basesubject-thismonth-lesson-grid-lesson
-            // レッスンの週
-            .enrol-section-basesubject-thismonth-lesson-grid-lesson-week= lesson.week 
-            .enrol-section-basesubject-thismonth-lesson-grid-lesson-banner
-              img(src=lesson.banner)
-            // レッスン説明
-            .enrol-section-basesubject-thismonth-lesson-grid-lesson-text= lesson.text 
+//-         // 各レッスン情報を表示
+//-         each lesson in subject.lessons
+//-           .enrol-section-basesubject-thismonth-lesson-grid-lesson
+//-             // レッスンの週
+//-             .enrol-section-basesubject-thismonth-lesson-grid-lesson-week= lesson.week 
+//-             .enrol-section-basesubject-thismonth-lesson-grid-lesson-banner
+//-               img(src=lesson.banner)
+//-             // レッスン説明
+//-             .enrol-section-basesubject-thismonth-lesson-grid-lesson-text= lesson.text 
 
 
 // セクション2: 年間の授業カリキュラム
