@@ -13,14 +13,10 @@
       }
       .enrol-section-basesubject-thismonth-lesson-grid {
         display: grid; // グリッドレイアウトで配置
-        grid-template-columns: 0.4fr repeat(
-            3,
-            1fr
-          ); // 左に0.6fr、右に3列均等配置
-        grid-column-gap: 20px; // 各列の間隔
+        grid-template-columns: repeat(3, 1fr); // 左に0.6fr、右に3列均等配置
+        grid-column-gap: 30px; // 各列の間隔
         margin: 0 0 25px; // 下に余白
-        padding: 0 0 25px;
-        border-bottom: 2px dotted $cl-graylightest;
+
         border-radius: $border-radius-middle;
         @include responsive-style(768px) {
           display: inline-block;
@@ -41,13 +37,9 @@
         }
         // レベル情報のデザイン
         &-level {
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          flex-direction: column;
           border-radius: $border-radius-middle;
           font-size: $lms-font-size-ml;
-          background: $cl-graylightest;
+
           @include responsive-style(768px) {
             background: map-get(
               $common-course-styles,
@@ -70,17 +62,6 @@
           }
           // レベルメイン部分のデザイン
           &-main {
-            &::after {
-              content: "";
-              display: block;
-              margin: 20px auto;
-              width: 30px; // 区切り線の幅
-              height: 1px; // 区切り線の高さ
-              background: $cl-black; // 区切り線の色
-              @include responsive-style(768px) {
-                display: none;
-              }
-            }
             .large {
               font-size: $lms-font-size-l;
               @include responsive-style(768px) {
@@ -100,9 +81,6 @@
         &-lesson {
           position: relative;
           border-radius: $border-radius-middle;
-          @include lms-boxshadow;
-          padding: 8px 12px 12px;
-
           background: $cl-white;
 
           @include responsive-style(768px) {
@@ -160,12 +138,10 @@
       .enrol-section-basesubject-year-lesson-tab {
         display: flex; // タブを横並びに配置
         gap: 20px;
-        // border-bottom: 4px
-        //   solid
-        //   map-get($common-course-styles, $style-name, main-color) !important;
-        // @include responsive-style(768px) {
-        //   gap: 10px;
-        // }
+        border-bottom: 4px
+          solid
+          map-get($common-course-styles, $style-name, main-color) !important;
+
         .enrol-section-basesubject-year-lesson-tab-child {
           border-radius: 10px 10px 0 0;
           border: 1px solid $cl-graylight;
@@ -180,17 +156,16 @@
           }
           &.active {
             text-align: center;
-            // background: map-get(
-            //   $common-course-styles,
-            //   $style-name,
-            //   main-color
-            // ) !important;
+            background: map-get(
+              $common-course-styles,
+              $style-name,
+              main-color
+            ) !important;
             background: $cl-white;
             color: $cl-white;
             border: none;
             border-bottom: none;
             font-weight: bold;
-            @include lms-boxshadow;
           }
         }
       }
@@ -205,8 +180,7 @@
       //   main-color
       // ) !important;
       border-radius: 0px;
-      box-shadow: 3px;
-      // @include lms-boxshadow;
+
       @include responsive-style(768px) {
         padding: 12px 12px 3px;
       }
@@ -221,7 +195,8 @@
         grid-auto-flow: column;
         grid-template-rows: repeat(6, auto);
         gap: 12px 12px;
-        @include lms-boxshadow;
+        background: $cl-graylightest;
+        border-radius: 0 0 $border-radius-middle $border-radius-middle;
         @include responsive-style(768px) {
           display: block;
           border-radius: $border-radius-middle;
@@ -323,6 +298,9 @@
     //時間割
     .enrol-section-basesubject-timetable {
       // 見出し行（曜日ヘッダー）
+      background: $cl-graylightest;
+      padding: 20px 20px 16px 8px;
+      border-radius: $border-radius-middle;
       &-head {
         border-radius: 10px;
         display: grid;
@@ -335,9 +313,8 @@
           grid-template-columns: 0.6fr repeat(5, 1fr);
         }
         &-child {
-          background: #e0e0e0;
           border-radius: $border-radius-small;
-          padding: 10px 0;
+          padding: 0px 0 8px;
           //１個目のセル
           &:first-child {
             font-size: $lms-font-size-s;
@@ -368,14 +345,13 @@
         }
         &-child {
           &:first-child {
-            background: #e0e0e0;
             font-size: $lms-font-size-m;
             @include responsive-style(768px) {
               font-size: 10px;
             }
           }
           &:nth-child(n + 2) {
-            background: #f4f4f4;
+            background: $cl-white;
           }
           padding: 8px;
           text-align: center;
