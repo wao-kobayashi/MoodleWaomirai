@@ -102,7 +102,9 @@
     // 年間の授業カリキュラム
     // ========================================
     .enrol-section-basesubject-year-lesson {
-      margin: 0 -20px;
+      @include responsive-style(768px) {
+        margin: 0 -20px;
+      }
       .enrol-section-basesubject-year-lesson-tab {
         display: flex; // タブを横並びに配置
 
