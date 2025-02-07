@@ -1,6 +1,59 @@
 //教科データを取得
 include ../_subject_data.pug
 
+
+//- script(src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js")
+//- script(src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.20.1/moment.js")
+//- script(src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.8.2/fullcalendar.js")
+//- script(src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.8.2/gcal.js")
+//- link(rel="stylesheet", type="text/css", href="https://unpkg.com/@fullcalendar/daygrid@4.4.0/main.min.csss")
+//- script.
+//-   $(document).ready(function() {
+//-     //console.log("hello");
+//-     $('.calendar').fullCalendar({
+//-       // height: 'parent',
+//-       googleCalendarApiKey: 'AIzaSyDcnW6WejpTOCffshGDDb4neIrXVUA1EAE',
+      
+//-       events: {
+//-         googleCalendarId: 'en.usa#holiday@group.v.calendar.google.com',
+//-         //className: 'gcal-event' // an option!
+//-         backgroundColor: '#2E609B',
+//-         //color: '#1E508B',   // an option!
+//-         textColor: '#f1f1f1', // an option!
+//-         borderColor: '#fff'
+//-       },
+//-       timeFormat: 'h(:mm)t',
+      
+//-       customButtons: {
+//-           print: {
+//-               text: 'print',
+//-               click: function() {
+//-                   DOMPrinter = PrintElem('#app-container');
+//-                   DOMPrinter.print();
+//-               },
+//-             // icon: 'right-double-arrow'
+//-           }
+//-       },
+      
+//-       header: {
+//-         left:   'title, print',
+//-         center: '',
+//-         right:  'today prev,next month,agendaWeek,agendaDay, listWeek' //basicWeek,basicDay,
+//-       },
+//-       views: {
+//-           listWeek: {
+//-               buttonText: 'weekly agenda'
+//-           }
+//-       }
+      
+//-     });
+    
+//-   });
+
+//- .calendar
+//- p|a
+
+
 // セクション1: 今月の授業
 .enrol-section
   h2.enrol-title 2025年4月の授業
@@ -33,19 +86,19 @@ include ../_subject_data.pug
   .enrol-section-basesubject-year-lesson
     // レベルごとのタブ部分
     .enrol-section-basesubject-year-lesson-tab 
-       .enrol-section-basesubject-year-lesson-tab-child#tab-level-1 
+       .enrol-section-basesubject-year-lesson-tab-child.tab-level-1 
           |レベル1
           br.c-pc-hidden
           |(小1~小4)
-       .enrol-section-basesubject-year-lesson-tab-child#tab-level-2
+       .enrol-section-basesubject-year-lesson-tab-child.tab-level-2
           |レベル2
           br.c-pc-hidden
           |(小5~小6)
-       .enrol-section-basesubject-year-lesson-tab-child#tab-level-3 
+       .enrol-section-basesubject-year-lesson-tab-child.tab-level-3 
           |レベル3
           br.c-pc-hidden
           |(中学生)
-       .enrol-section-basesubject-year-lesson-tab-child#tab-level-4 
+       .enrol-section-basesubject-year-lesson-tab-child.tab-level-4 
           |レベル4
           br.c-pc-hidden
           |(高校生)
@@ -53,7 +106,7 @@ include ../_subject_data.pug
     .enrol-section-basesubject-year-lesson-content
       //以下はstaticのデータ
       each level, levelName in curriculum[enrolpage.category]
-        .enrol-section-basesubject-year-lesson-content-child(id="content-" + levelName)
+        .enrol-section-basesubject-year-lesson-content-child(class="content-" + levelName)
           each item in level
             .enrol-section-basesubject-year-lesson-content-child-curriculum
               .enrol-section-basesubject-year-lesson-content-child-curriculum-month
@@ -154,18 +207,3 @@ include ../_subject_data.pug
 
 
 // 必要なスクリプト
-script.
-  $(document).ready(function() {
-    // タブのクリックイベント設定
-    $('.enrol-section-basesubject-year-lesson-tab-child').click(function() {
-      $('.enrol-section-basesubject-year-lesson-tab-child').removeClass('active'); // 他のタブを非アクティブ化
-      $('.enrol-section-basesubject-year-lesson-content-child').hide(); // 他のコンテンツを非表示化
-      $(this).addClass('active'); // クリックされたタブをアクティブ化
-      var targetContentId = '#content-level' + $(this).attr('id').split('-')[2]; // 対応するコンテンツIDを取得
-      $(targetContentId).show(); // 対応するコンテンツを表示
-    });
-    
-
-    // 初期状態で最初のタブを選択
-    $('.enrol-section-basesubject-year-lesson-tab-child:first').click();
-  });
