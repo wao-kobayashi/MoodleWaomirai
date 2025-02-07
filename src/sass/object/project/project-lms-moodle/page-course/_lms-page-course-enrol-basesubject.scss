@@ -4,75 +4,40 @@
     // 今月の授業のレイアウト設定
     // ========================================
     .enrol-section-basesubject-thismonth-lesson {
-      @include responsive-style(768px) {
-        display: block;
-        width: calc(100% + 40px);
-        overflow-x: scroll;
-        white-space: nowrap;
-        margin: 0 -20px;
-      }
       .enrol-section-basesubject-thismonth-lesson-grid {
         display: grid; // グリッドレイアウトで配置
         grid-template-columns: repeat(3, 1fr); // 左に0.6fr、右に3列均等配置
         grid-column-gap: 30px; // 各列の間隔
         margin: 0 0 25px; // 下に余白
-
         border-radius: $border-radius-middle;
         @include responsive-style(768px) {
-          display: inline-block;
-          width: 70%;
-          margin: 0 20px 20px 0;
-          padding: 0 0px;
-          background: map-get(
-            $common-course-styles,
-            $style-name,
-            pale-color
-          ) !important;
-          &:first-child {
-            margin: 0 20px 25px 20px;
-          }
-          &:last-child {
-            margin: 0 100px 25px 20px;
-          }
+          display: block;
+          width: calc(100% + 40px);
+          overflow-x: scroll;
+          white-space: nowrap;
         }
         // レベル情報のデザイン
         &-level {
           border-radius: $border-radius-middle;
-          font-size: $lms-font-size-ml;
 
-          @include responsive-style(768px) {
-            background: map-get(
-              $common-course-styles,
-              $style-name,
-              main-color
-            ) !important;
-            color: $cl-white;
-            border-radius: $border-radius-middle $border-radius-middle 0 0;
-            margin: 0 0 10px;
-            flex-direction: row;
-            align-items: flex-end;
-            padding: 10px;
-          }
-
-          .grade {
-            @include responsive-style(768px) {
-              font-size: $lms-font-size-xl;
-              margin: 0 0 3px 0;
-            }
+          .title {
+            font-size: $lms-font-size-l;
+            margin: 0 4px 0 0;
           }
           // レベルメイン部分のデザイン
-          &-main {
-            .large {
-              font-size: $lms-font-size-l;
-              @include responsive-style(768px) {
-                font-size: $lms-font-size-xl;
-              }
+
+          .large {
+            font-size: $lms-font-size-xxl;
+            margin: 0 4px 0 0;
+            @include responsive-style(768px) {
+              font-size: $lms-font-size-xxl;
             }
           }
-          &-sub {
-            font-size: $lms-font-size-m;
+
+          span {
+            font-size: $lms-font-size-l;
             @include responsive-style(768px) {
-              font-size: $lms-font-size-l;
+              font-size: $lms-font-size-xl;
             }
           }
         }
@@ -82,17 +47,19 @@
           position: relative;
           border-radius: $border-radius-middle;
           background: $cl-white;
-
           @include responsive-style(768px) {
-            margin: 0 15px 16px;
+            width: 70%;
+            display: inline-block;
+            margin: 0 30px 0 0;
           }
           // レッスンバナーデザイン
           .enrol-section-basesubject-thismonth-lesson-grid-lesson-banner {
             position: relative;
+
             img {
               // border-radius: 10px;
               // width: calc(100% - 30px);
-              margin: 16px 0px 8px;
+              margin: 0px 0px 8px;
               border-radius: $border-radius-middle;
             }
           }
@@ -135,13 +102,18 @@
     // 年間の授業カリキュラム
     // ========================================
     .enrol-section-basesubject-year-lesson {
+      margin: 0 -20px;
       .enrol-section-basesubject-year-lesson-tab {
         display: flex; // タブを横並びに配置
-        gap: 20px;
+
+        padding: 0 20px;
         border-bottom: 4px
           solid
           map-get($common-course-styles, $style-name, main-color) !important;
-
+        gap: 20px;
+        @include responsive-style(768px) {
+          gap: 12px;
+        }
         .enrol-section-basesubject-year-lesson-tab-child {
           border-radius: 10px 10px 0 0;
           border: 1px solid $cl-graylight;
@@ -152,7 +124,8 @@
           font-size: $lms-font-size-m;
           text-align: center;
           @include responsive-style(768px) {
-            padding: 5px 8px;
+            padding: 5px 12px;
+            font-size: $lms-font-size-s;
           }
           &.active {
             text-align: center;
@@ -172,17 +145,11 @@
     }
 
     .enrol-section-basesubject-year-lesson-content {
-      // background: $cl-graylightest;
-
-      // background: map-get(
-      //   $common-course-styles,
-      //   $style-name,
-      //   main-color
-      // ) !important;
       border-radius: 0px;
 
       @include responsive-style(768px) {
-        padding: 12px 12px 3px;
+        padding: 12px 16px 3px;
+        background: $cl-graylightest;
       }
       .enrol-section-basesubject-year-lesson-content-child {
         // display: grid;
@@ -301,6 +268,9 @@
       background: $cl-graylightest;
       padding: 20px 20px 16px 8px;
       border-radius: $border-radius-middle;
+      @include responsive-style(768px) {
+        padding: 10px 10px 8px 4px;
+      }
       &-head {
         border-radius: 10px;
         display: grid;
@@ -315,6 +285,9 @@
         &-child {
           border-radius: $border-radius-small;
           padding: 0px 0 8px;
+          @include responsive-style(768px) {
+            padding: 0px 0 4px;
+          }
           //１個目のセル
           &:first-child {
             font-size: $lms-font-size-s;

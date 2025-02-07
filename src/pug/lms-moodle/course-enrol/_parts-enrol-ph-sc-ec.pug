@@ -3,12 +3,12 @@ include ../_subject_data.pug
 
 // セクション1: 今月の授業
 .enrol-section
-  h2.enrol-title 4月の授業
+  h2.enrol-title 2025年4月の授業
   // 各教科の授業情報を表示
   .enrol-section-basesubject-thismonth-lesson
     each subject in subjects[enrolpage.category]
       .enrol-section-basesubject-thismonth-lesson-grid-level
-          |レベル
+          span.title|レベル
           span.large= subject.level 
           // 対象学年
           span|(
@@ -111,9 +111,9 @@ include ../_subject_data.pug
                     span=daySchedule.level 
               .enrol-section-basesubject-timetable-content-child-grade
                   if daySchedule.level === 1
-                    |(小学3,4年生)
+                    |(小3,4)
                   else if daySchedule.level === 2
-                    |(小学5,6年生)
+                    |(小5,6)
                   else if daySchedule.level === 3
                     |(中学生)
                   else if daySchedule.level === 4

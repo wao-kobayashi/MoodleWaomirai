@@ -60,6 +60,7 @@ $target-pages: (
             @include responsive-style(768px) {
               margin: 0px 0 48px !important;
               height: auto;
+              border-radius: 0;
             }
             h1 {
               color: white !important;
