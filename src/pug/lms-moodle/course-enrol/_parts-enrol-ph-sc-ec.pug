@@ -2,34 +2,30 @@
 include ../_subject_data.pug
 
 // セクション1: 今月の授業
-//- .enrol-section
-//-   h2.enrol-title 4月の授業
-//-   // 各教科の授業情報を表示
-//-   .enrol-section-basesubject-thismonth-lesson
-//-     each subject in subjects[enrolpage.category]
-//-       .enrol-section-basesubject-thismonth-lesson-grid
-//-         // レベル情報を表示
-//-         .enrol-section-basesubject-thismonth-lesson-grid-level
-//-           // レベル名
-//-           .enrol-section-basesubject-thismonth-lesson-grid-level-main
-//-             |レベル
-//-             span.large= subject.level 
-//-           // 対象学年
-//-           .enrol-section-basesubject-thismonth-lesson-grid-level-sub
-//-            span.c-pc-hidden|(
-//-            span= subject.grade 
-//-            span.c-pc-hidden|)
+.enrol-section
+  h2.enrol-title 2025年4月の授業
+  // 各教科の授業情報を表示
+  .enrol-section-basesubject-thismonth-lesson
+    each subject in subjects[enrolpage.category]
+      .enrol-section-basesubject-thismonth-lesson-grid-level
+          span.title|レベル
+          span.large= subject.level 
+          // 対象学年
+          span|(
+          span= subject.grade 
+          span|)
+      .enrol-section-basesubject-thismonth-lesson-grid
+        // レベル情報を表示
 
-//-         // 各レッスン情報を表示
-//-         each lesson in subject.lessons
-//-           .enrol-section-basesubject-thismonth-lesson-grid-lesson
-//-             // レッスンの週
-//-             .enrol-section-basesubject-thismonth-lesson-grid-lesson-week= lesson.week 
-//-             .enrol-section-basesubject-thismonth-lesson-grid-lesson-banner
-//-               img(src=lesson.banner)
-//-             // レッスン説明
-//-             .enrol-section-basesubject-thismonth-lesson-grid-lesson-text= lesson.text 
 
+        // 各レッスン情報を表示
+        each lesson in subject.lessons
+          .enrol-section-basesubject-thismonth-lesson-grid-lesson
+            // レッスンの週
+            .enrol-section-basesubject-thismonth-lesson-grid-lesson-banner
+              img(src=lesson.banner)
+            // レッスン説明
+            .enrol-section-basesubject-thismonth-lesson-grid-lesson-text= lesson.text 
 
 // セクション2: 年間の授業カリキュラム
 .enrol-section
@@ -83,7 +79,7 @@ include ../_subject_data.pug
   .enrol-section-basesubject-timetable
     .enrol-section-basesubject-timetable-head
      .enrol-section-basesubject-timetable-head-child
-       |時間
+       |
      .enrol-section-basesubject-timetable-head-child.c-sp-hidden
        |日
      .enrol-section-basesubject-timetable-head-child
@@ -98,33 +94,33 @@ include ../_subject_data.pug
        |金
      .enrol-section-basesubject-timetable-head-child.c-sp-hidden
        |土
-  each slot in timeslots[enrolpage.category]
-    .enrol-section-basesubject-timetable-content
-      .enrol-section-basesubject-timetable-content-child
-        .enrol-section-basesubject-timetable-content-child-start= slot.time.split(' - ')[0] 
-        .enrol-section-basesubject-timetable-content-child-end= slot.time.split(' - ')[1] 
-      
-      each daySchedule, index in slot.schedule
-        //スマホで土曜と日曜日は非表示
-        .enrol-section-basesubject-timetable-content-child(
-            class=`${daySchedule.subject ? 'active' : ''} ${index === 0 || index === 6 ? 'c-sp-hidden' : ''}`
-        )
-          if daySchedule.subject
-            .enrol-section-basesubject-timetable-content-child-level
-                   |レベル
-                   span=daySchedule.level 
-            .enrol-section-basesubject-timetable-content-child-grade
-                if daySchedule.level === 1
-                  |(小学3,4年生)
-                else if daySchedule.level === 2
-                  |(小学5,6年生)
-                else if daySchedule.level === 3
-                  |(中学生)
-                else if daySchedule.level === 4
-                  |(高校生)  
-          else
-            span.none
-              | -
+    each slot in timeslots[enrolpage.category]
+      .enrol-section-basesubject-timetable-content
+        .enrol-section-basesubject-timetable-content-child
+          .enrol-section-basesubject-timetable-content-child-start= slot.time.split(' - ')[0] 
+          .enrol-section-basesubject-timetable-content-child-end= slot.time.split(' - ')[1] 
+        
+        each daySchedule, index in slot.schedule
+          //スマホで土曜と日曜日は非表示
+          .enrol-section-basesubject-timetable-content-child(
+              class=`${daySchedule.subject ? 'active' : ''} ${index === 0 || index === 6 ? 'c-sp-hidden' : ''}`
+          )
+            if daySchedule.subject
+              .enrol-section-basesubject-timetable-content-child-level
+                    |レベル
+                    span=daySchedule.level 
+              .enrol-section-basesubject-timetable-content-child-grade
+                  if daySchedule.level === 1
+                    |(小3,4)
+                  else if daySchedule.level === 2
+                    |(小5,6)
+                  else if daySchedule.level === 3
+                    |(中学生)
+                  else if daySchedule.level === 4
+                    |(高校生)  
+            else
+              span.none
+                | -
 
 // セクション4: 年間の開催スケジュール
 .enrol-section
