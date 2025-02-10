@@ -959,92 +959,75 @@ if (bodyId === "page-course-index-category") {
 // ==============================
 // メイン3科目または2科目、3科目パック購入後のリダイレクト処理
 // ==============================
-if (bodyId === "page-course-view-flexsections") {
-  if (!hasBoughtAdminSubject) {
-    const targetSubjects = [
-      "philosophy",
-      "science",
-      "economy",
-      "globalenglish",
-      "twosubjectpack",
-      "threesubjectpack",
-    ];
+// ページIDが'page-course-view-flexsections'かつ管理者でない場合に実行
+if (bodyId === "page-course-view-flexsections" && !hasBoughtAdminSubject) {
+  // 現在表示しているページがメイン科目（哲学、科学などのトップページ）かチェック
+  if (currentViewCourseData?.type === "main") {
+    // 現在表示中のメイン科目のキー（例：science, philosophy）を取得
+    const currentMainSubjectKey = currentViewCourseData.key;
+    
+    // 2科目パックや3科目パックの場合の特別処理
+    // これらはレベル設定が必要ないため、即座にモーダルを表示して終了
+    if (currentMainSubjectKey === "twosubjectpack" || currentMainSubjectKey === "threesubjectpack") {
+      showLevelSettingModal();
+      return;
+    }
 
-    targetSubjects.forEach((key) => {
-      if (
-        currentViewCourseData.key === key &&
-        currentViewCourseData.type === "main"
-      ) {
-        console.log(`currentViewCourseDataはmainタイプの${key}です`);
+    // 現在表示中のメイン科目の情報（ID含む）を取得
+    const currentMainSubject = subjects.find(
+      (subject) => 
+        subject.key === currentMainSubjectKey && 
+        subject.type === "main"
+    );
 
-        // パックの場合の処理
-        if (key === "twosubjectpack" || key === "threesubjectpack") {
-          console.log(`${key}はchild判定をスキップします。`);
-          createModal({
-            image: "https://go.waomirai.com/l/1026513/2025-01-27/hcs2k/1026513/1737961533tHzVY8az/img_modal_subject.png",
-            imageClass: "c-modal-wrap-subject-img",
-            wrapClass: "c-modal-wrap-subject",
-            buttons: [
-              { text: "科目のレベルを設定する", url: UrlChangeSubject, class: "btn-primary" },
-            ]
-          });
-          return;
-        }
+    // ユーザーが現在のメイン科目の受講権限を持っているかチェック
+    // bodyClassesには、ユーザーが受講権限を持つ全コースのIDが含まれている
+    const hasMainSubjectAccess = bodyClasses.includes(currentMainSubject.id);
 
-        // メイン科目の受講権限チェックを追加
-        const mainSubject = subjects.find(
-          (subject) => subject.key === key && subject.type === "main"
-        );
-        const hasMainSubjectAccess = bodyClasses.includes(mainSubject.id);
+    // メイン科目の受講権限がない場合は処理を終了
+    // 例：科学のページを見ているが、科学の受講権限を持っていない
+    if (!hasMainSubjectAccess) {
+      console.log(`${currentMainSubjectKey}のメイン科目の受講権限がありません`);
+      return;
+    }
 
-        // 子科目の存在チェック
-        const hasSubjectChild = bodyClasses.some((courseId) => {
-          return subjects.some(
-            (subject) =>
-              subject.id === courseId &&
-              subject.key === key &&
-              subject.type === "child"
-          );
-        });
+    // ユーザーが受講中の子科目（L1～L4）を検索
+    // 例：科学L1、科学L2など
+    const enrolledChildCourse = subjects.find(
+      (subject) => 
+        // 同じ科目系統（科学なら科学）
+        subject.key === currentMainSubjectKey && 
+        // タイプが子科目
+        subject.type === "child" && 
+        // その子科目の受講権限を持っている
+        bodyClasses.includes(subject.id)
+    );
 
-        // メイン科目の受講権限がない場合
-        if (!hasMainSubjectAccess) {
-          console.log(`${key}のメイン科目の受講権限がありません`);
-          // ここに受講権限がない場合の処理を追加
-          // 例: エラーページへのリダイレクトや警告メッセージの表示
-          return;
-        }
-
-        if (hasSubjectChild) {
-          console.log(`${key}のchildタイプが存在します`);
-          const childCourse = subjects.find(
-            (subject) =>
-              subject.key === key &&
-              subject.type === "child" &&
-              bodyClasses.includes(subject.id)
-          );
-
-          if (childCourse) {
-            const redirectUrl = `https://lms.waomirai.com/course/view.php?id=${childCourse.id}`;
-            console.log(`リダイレクト: ${redirectUrl}`);
-            window.location.href = redirectUrl;
-          }
-        } else {
-          console.log(`${key}のchildタイプは存在しません`);
-          createModal({
-            image: "https://go.waomirai.com/l/1026513/2025-01-27/hcs2k/1026513/1737961533tHzVY8az/img_modal_subject.png",
-            imageClass: "c-modal-wrap-subject-img",
-            wrapClass: "c-modal-wrap-subject",
-            buttons: [
-              { text: "科目のレベルを設定する", url: UrlChangeSubject, class: "btn-primary" },
-            ]
-          });
-        }
-      } else {
-        console.log(`currentViewCourseDataはmainタイプの${key}ではありません`);
-      }
-    });
+    // 子科目を受講している場合（例：科学L1を受講中）
+    if (enrolledChildCourse) {
+      // 該当の子科目ページ（例：科学L1のページ）にリダイレクト
+      window.location.href = `https://lms.waomirai.com/course/view.php?id=${enrolledChildCourse.id}`;
+    } else {
+      // 子科目を受講していない場合（例：科学は受講可能だが、L1～L4のレベルを設定していない）
+      // レベル設定を促すモーダルを表示
+      showLevelSettingModal();
+    }
   }
+}
+
+/**
+ * レベル設定を促すモーダルを表示する関数
+ * 科目のレベル（L1～L4）を設定するページへのリンクを含むモーダルを表示
+ */
+function showLevelSettingModal() {
+  createModal({
+    image: "https://go.waomirai.com/l/1026513/2025-01-27/hcs2k/1026513/1737961533tHzVY8az/img_modal_subject.png",
+    imageClass: "c-modal-wrap-subject-img",
+    wrapClass: "c-modal-wrap-subject",
+    buttons: [
+      { text: "科目のレベルを設定する", url: UrlChangeSubject, class: "btn-primary" },
+    ]
+  });
 }
 
 // ==============================
