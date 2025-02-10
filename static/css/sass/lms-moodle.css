@@ -7138,6 +7138,14 @@ html[data-tenantidnumber=lmswaomirai] .course-271 .my-3 {
     margin-top: 0rem !important;
   }
 }
+html[data-tenantidnumber=lmswaomirai] .course-228 .enrol-text-2, html[data-tenantidnumber=lmswaomirai] .course-270 .enrol-text-2,
+html[data-tenantidnumber=lmswaomirai] .course-229 .enrol-text-2, html[data-tenantidnumber=lmswaomirai] .course-271 .enrol-text-2 {
+  margin: 20px 0 30px;
+}
+html[data-tenantidnumber=lmswaomirai] .course-228 .enrol-section-img-2 img, html[data-tenantidnumber=lmswaomirai] .course-270 .enrol-section-img-2 img,
+html[data-tenantidnumber=lmswaomirai] .course-229 .enrol-section-img-2 img, html[data-tenantidnumber=lmswaomirai] .course-271 .enrol-section-img-2 img {
+  border-radius: 8px;
+}
 html[data-tenantidnumber=lmswaomirai] .page-enrol-index {
   margin-top: 36px;
 }
