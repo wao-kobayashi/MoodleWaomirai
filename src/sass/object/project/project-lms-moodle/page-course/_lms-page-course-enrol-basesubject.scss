@@ -159,7 +159,7 @@
         // grid-gap: 20px;
         margin: 0 0 20px;
         padding: 12px;
-        display: grid;
+        display: none;
         grid-template-columns: 1fr 1fr;
         grid-auto-flow: column;
         grid-template-rows: repeat(6, auto);
@@ -167,10 +167,13 @@
         background: $cl-graylightest;
         border-radius: 0 0 $border-radius-middle $border-radius-middle;
         @include responsive-style(768px) {
-          display: block;
           border-radius: $border-radius-middle;
           background: $cl-white;
           padding: 0 10px 0;
+          grid-template-columns: 1fr;
+          grid-auto-flow: column;
+          grid-template-rows: repeat(12, auto);
+          gap: 0px 12px;
         }
         // カリキュラム項目
         .enrol-section-basesubject-year-lesson-content-child-curriculum {

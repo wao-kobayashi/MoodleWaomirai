@@ -1368,7 +1368,8 @@ $(".scroll-to").on("click", function (e) {
 
 // 年間スケジュールのタブ切り替え
 $('.tab-level-1').addClass('active');
-$('.content-level1').show();
+//  1番目のタブを表示
+$('.content-level1').css('display', 'grid');
 
 $('.enrol-section-basesubject-year-lesson-tab-child').click(function() {
   var level = $(this).index() + 1;
@@ -1379,6 +1380,6 @@ $('.enrol-section-basesubject-year-lesson-tab-child').click(function() {
   
   // コンテンツの表示切り替え
   $('.enrol-section-basesubject-year-lesson-content-child').hide();
-  $('.content-level' + level).show();
+  $('.content-level' + level).css('display', 'grid');
 });   }
 });
