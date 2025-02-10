@@ -265,6 +265,21 @@
           }
         }
       }
+      .enrol-section-basesubject-year-lesson-content-button {
+        display: flex;
+        justify-content: center;
+        a {
+          padding: 10px 20px;
+          border-radius: 5px;
+          background: $cl-white;
+          color: $cl-waogreen;
+          font-size: $lms-font-size-m;
+          border: 1px solid $cl-waogreen;
+          // font-weight: bold;
+          cursor: pointer;
+          margin: 10px auto 20px;
+        }
+      }
     }
 
     //時間割

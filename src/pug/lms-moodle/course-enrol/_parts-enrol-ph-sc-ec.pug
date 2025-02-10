@@ -125,6 +125,15 @@ include ../_subject_data.pug
                 .enrol-section-basesubject-year-lesson-content-child-curriculum-detail-subcontent.c-sp-hidden 
                   |3.
                   span= item.subcontents3
+      .c-pc-hidden
+        .enrol-section-basesubject-year-lesson-content-button
+          if enrolpage.category === 'philosophy'
+            a(href="https://go.waomirai.com/l/1026513/2025-02-09/hf47g/1026513/1739157549JByWW5kq/year_curriculum_philosophy.pdf", target='_blank')|全ての授業カリキュラム(PDF)
+          else if enrolpage.category === 'science'
+            a(href="https://go.waomirai.com/l/1026513/2025-02-09/hf47n/1026513/1739157549Js3IDL8y/year_curriculum_science.pdf", target='_blank')|全ての授業カリキュラム(PDF)
+          else if enrolpage.category === 'economy'
+            a(href="https://go.waomirai.com/l/1026513/2025-02-09/hf47k/1026513/1739157549czniuNng/year_curriculum_economy.pdf", target='_blank')|全ての授業カリキュラム(PDF)
+
 // セクション3: 時間割
 .enrol-section
   h2.enrol-title 時間割
