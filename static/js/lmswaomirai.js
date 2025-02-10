@@ -428,8 +428,11 @@ if (bodyId === "page-my-index") {
   // スマートフォン用のラッパー要素を作成
   var wrappedContent = $("<div>", {
       id: "dashboard-sp-content",
-      class: "c-pc-hidden", // PCでは非表示
+      class: "c-pc-hidden dashboard-sp-content", // PCでは非表示
   }).append(contentToCloneDashboardLeft);
+
+  // クローンした要素内の.dashboard-left-block-guideに新しいクラスを追加
+  wrappedContent.find('.dashboard-left-block-guide').addClass('dashboard-left-block-guide-scroll');
 
   // page-contentの直下に配置
   $("#page-content").append(wrappedContent);
@@ -1335,23 +1338,27 @@ $(".click-event-subject-comingsoon").on("click", function (e) {
 // classを指定してスクロールできるように
 $("[class*='scroll-to-']").on("click", function (e) {
   e.preventDefault();
+  console.log('1. Click event triggered');
   
-  var className = $(this)
-    .attr("class")
-    .split(" ")
-    .find(cls => cls.startsWith("scroll-to-"));
-    
+  var allClasses = $(this).attr("class");
+  console.log('2. All classes on clicked element:', allClasses);
+  
+  var classArray = allClasses.split(" ");
+  var className = classArray.find(cls => cls.startsWith("scroll-to-"));
+  
   if (className) {
     var targetClass = className.replace("scroll-to-", "");
     var $target = $("." + targetClass);
     
     if ($target.length) {
-      $("html, body").animate(
-        {
-          scrollTop: $target.offset().top,
-        },
-        200
-      );
+      // DOM要素を直接取得してスクロール
+      var targetElement = $target[0];
+      targetElement.scrollIntoView({
+        behavior: 'auto', // 'smooth' でスムーズスクロール、'auto' で即時スクロール
+        block: 'start'    // 'start', 'center', 'end', 'nearest' から選択可能
+      });
+      
+      console.log('8. Scroll executed using scrollIntoView');
     }
   }
 });
