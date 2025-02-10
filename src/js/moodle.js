@@ -1255,22 +1255,28 @@ $(".click-event-subject-comingsoon").on("click", function (e) {
 
 
 // classを指定してスクロールできるように
-$(".scroll-to").on("click", function (e) {
-  e.preventDefault(); // デフォルトの動作を防ぐ
-  var targetClass = $(this).data("target"); // data-target属性からターゲットのクラスを取得
-  var $target = $(targetClass); // ターゲット要素を取得
-
-  if ($target.length) {
-    // ターゲットが存在する場合のみ実行
-    $("html, body").animate(
-      {
-        scrollTop: $target.offset().top, // ターゲット要素の位置にスクロール
-      },
-      0 // スクロール速度 (ミリ秒)
-    );
+$("[class*='scroll-to-']").on("click", function (e) {
+  e.preventDefault();
+  
+  var className = $(this)
+    .attr("class")
+    .split(" ")
+    .find(cls => cls.startsWith("scroll-to-"));
+    
+  if (className) {
+    var targetClass = className.replace("scroll-to-", "");
+    var $target = $("." + targetClass);
+    
+    if ($target.length) {
+      $("html, body").animate(
+        {
+          scrollTop: $target.offset().top,
+        },
+        200
+      );
+    }
   }
 });
-
 
 // 年間スケジュールのタブ切り替え
 $('.tab-level-1').addClass('active');

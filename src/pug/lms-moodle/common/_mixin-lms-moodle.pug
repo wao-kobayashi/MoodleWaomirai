@@ -6,7 +6,9 @@
    science: { stg: 211, lmswaomirai: 265 },       // 理科
    economy: { stg: 233, lmswaomirai: 260 },       // 経済
    english: { stg: 236, lmswaomirai: 135 },       // 英語 
-   programming: { stg: 235, lmswaomirai: 999 }    // プログラミング
+   programming: { stg: 235, lmswaomirai: 999 },    // プログラミング
+   twosubjectpack: { stg: 228, lmswaomirai: 270 },    // ２科目セット
+   threesubjectpack: { stg: 229, lmswaomirai: 271 }    // ３科目セット
  }
 
 // 各科目の登録ページへのリンクを生成
@@ -17,3 +19,5 @@
 - var link_economy = (env === 'stg' || env === 'lmswaomirai') ? `https://lms.waomirai.com/enrol/index.php?id=${subjectPugIds.economy[env]}` : undefined
 - var link_english = (env === 'stg' || env === 'lmswaomirai') ? `https://lms.waomirai.com/enrol/index.php?id=${subjectPugIds.english[env]}` : undefined
 - var link_programming = (env === 'stg' || env === 'lmswaomirai') ? `https://lms.waomirai.com/enrol/index.php?id=${subjectPugIds.programming[env]}` : undefined
+- var link_twosubjectpack = (env === 'stg' || env === 'lmswaomirai') ? `https://lms.waomirai.com/enrol/index.php?id=${subjectPugIds.twosubjectpack[env]}` : undefined
+- var link_threesubjectpack = (env === 'stg' || env === 'lmswaomirai') ? `https://lms.waomirai.com/enrol/index.php?id=${subjectPugIds.threesubjectpack[env]}` : undefined

@@ -3471,6 +3471,9 @@ html[data-tenantidnumber=stg] .maincalendar .d-none {
 html[data-tenantidnumber=stg] .maincalendar .hidden-desktop {
   display: none !important;
 }
+html[data-tenantidnumber=stg] #page-user-edit .collapse:not(.show) {
+  display: block !important;
+}
 html[data-tenantidnumber=stg] #page-user-edit #fitem_id_profile_field_2cources_subject {
   margin-bottom: 30px;
 }

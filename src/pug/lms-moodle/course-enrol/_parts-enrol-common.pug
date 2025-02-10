@@ -39,7 +39,7 @@ mixin enrol-howto-register
             .enrol-step-heading 当日、授業を受ける
 
 mixin enrol-recommend-subject
- .enrol-section
+ .enrol-section.enrol-recommend-subject
     h2.enrol-title
         |他の授業科目も見る
     .enrol-index-contents-block-cards
@@ -93,8 +93,8 @@ mixin enrol-recommend-subject
                 .common-contents-block-cards-course-link
                             a(href=link_economy)
                               
-        //- 英語のカード（englishカテゴリー以外で表示）
-        if enrolpage.category !== 'english'
+        //- 英語のカード（englishカテゴリー、２科目、３科目以外で表示）
+        if category === 'english' || category === 'twosubjectpack' || category === 'threesubjectpack'
             .common-contents-block-cards-course
                 .common-contents-block-cards-course-img
                     img(src='https://go.waomirai.com/l/1026513/2024-08-08/gzqbq/1026513/1723092445NpS1HkfH/subject_04.jpg')
