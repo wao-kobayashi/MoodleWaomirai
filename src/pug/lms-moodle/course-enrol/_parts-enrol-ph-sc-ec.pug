@@ -106,7 +106,7 @@ include ../_subject_data.pug
     .enrol-section-basesubject-year-lesson-content
       //以下はstaticのデータ
       each level, levelName in curriculum[enrolpage.category]
-        .enrol-section-basesubject-year-lesson-content-child(class="content-" + levelName)
+        .enrol-section-basesubject-year-lesson-content-child(class="content-" + levelName, style='display:none;')
           each item in level
             .enrol-section-basesubject-year-lesson-content-child-curriculum
               .enrol-section-basesubject-year-lesson-content-child-curriculum-month

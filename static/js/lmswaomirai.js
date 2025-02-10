@@ -77,6 +77,13 @@ $(document).ready(function () {
 ];
 
 // ==============================
+// 各種変数
+// ==============================
+
+const UrlForm = "https://go.waomirai.com/changeform"; // フォームURL 
+const UrlChangeSubject = "https://lms.waomirai.com/user/edit.php"; // 受講変更ページ  
+
+// ==============================
 // ページ判定とコースIDの取得
 // ==============================
 
@@ -113,6 +120,8 @@ const bodyClasses = $("body")
   .attr("class") // bodyのクラス属性を文字列として取得
   .split(" ") // 文字列をスペースで分割して配列化
   .map((cls) => parseInt(cls.replace("course-id-", "").trim())); // 各クラスから「course-id-」を除去して数値に変換
+
+
 
 // ==============================
 // グループチェック関数
@@ -823,7 +832,7 @@ if (bodyId === "page-enrol-index") {
               close: true,
               text: "「哲学・経済・化学」の教科で２科目以上受講する際はセット購入がお得です。セット購入の際はフォームより申し込みをお願いいたします。",
               buttons: [
-                { text: "変更フォームへ", url: "#", class: "btn-primary" }, // セット購入フォームへのリンク
+                { text: "変更フォームへ", url: UrlForm, class: "btn-primary" }, // セット購入フォームへのリンク
               ]
             })
           );
@@ -838,7 +847,7 @@ if (bodyId === "page-enrol-index") {
               close: true,
               text: "すでに複数受講できる科目セットを購入されています。受講科目の選択は「登録情報の変更ページ」で編集可能です。",
               buttons: [
-                { text: "ここは未定", url: "#", class: "btn-primary" }, // 未定のリンク
+                { text: "科目のレベルを設定する", url: UrlChangeSubject, class: "btn-primary" }, // 未定のリンク
               ]
             })
           );
@@ -848,15 +857,16 @@ if (bodyId === "page-enrol-index") {
       // 2科目セットまたは3科目セットを選択した場合
       if (["twosubjectpack", "threesubjectpack"].includes(subjectCategory)) {
         // 他の科目（哲学、科学、経済）を購入している場合、セット購入はできない
-        event.stopImmediatePropagation();
+        
         if (checkBoughtMainSubject(["philosophy", "science", "economy"])) {
           // セット購入不可の案内モーダルを表示
+          event.stopImmediatePropagation();
           $("body").append(
             createModal({
               close: true,
               text: "「哲学・化学・経済」の科目のいずれかを受講している場合、こちらのボタンからセット受講を購入することはできません。下記フォームより購入を申し込む必要がございます。",
               buttons: [
-                { text: "複数科目セットの購入フォームへ", url: "#", class: "btn-primary" }, // セット購入フォームへのリンク
+                { text: "複数科目セットの購入フォームへ", url: UrlForm, class: "btn-primary" }, // セット購入フォームへのリンク
               ]
             })
           );
@@ -870,7 +880,7 @@ if (bodyId === "page-enrol-index") {
               close: true,
               text: "「３科目セット」を購入済みです。２科目セットへ受講変更したい場合はフォームよりお問い合わせをお願いいたします。",
               buttons: [
-                { text: "受講変更フォームへ", url: "#", class: "btn-primary" }, // 受講変更フォームへのリンク
+                { text: "受講変更フォームへ", url: UrlForm, class: "btn-primary" }, // 受講変更フォームへのリンク
               ]
             })
           );
@@ -884,7 +894,7 @@ if (bodyId === "page-enrol-index") {
               close: true,
               text: "「２科目セット」を購入済みです。３科目セットへ受講変更したい場合はフォームよりお問い合わせをお願いいたします。",
               buttons: [
-                { text: "受講変更フォームへ", url: "#", class: "btn-primary" }, // 受講変更フォームへのリンク
+                { text: "受講変更フォームへ", url: UrlForm, class: "btn-primary" }, // 受講変更フォームへのリンク
               ]
             })
           );
@@ -964,7 +974,7 @@ if (bodyId === "page-course-view-flexsections") { // ページIDが「page-cours
             imageClass: "c-modal-wrap-subject-img", // 画像にクラスを付与
             wrapClass: "c-modal-wrap-subject", // モーダルのラップにクラスを付与
             buttons: [
-              { text: "科目のレベルを設定する", url: "https://lms.waomirai.com/user/edit.php", class: "btn-primary" }, // ボタンにテキストとリンクを設定
+              { text: "科目のレベルを設定する", url:UrlChangeSubject, class: "btn-primary" }, // ボタンにテキストとリンクを設定
             ]
           })
           return; // child判定をスキップして次の科目の処理に進む
@@ -1007,7 +1017,7 @@ if (bodyId === "page-course-view-flexsections") { // ページIDが「page-cours
             imageClass: "c-modal-wrap-subject-img", // 画像にクラスを付与
             wrapClass: "c-modal-wrap-subject", // モーダルのラップにクラスを付与
             buttons: [
-              { text: "科目のレベルを設定する", url: "https://lms.waomirai.com/user/edit.php", class: "btn-primary" }, // ボタンにテキストとリンクを設定
+              { text: "科目のレベルを設定する", url: UrlChangeSubject, class: "btn-primary" }, // ボタンにテキストとリンクを設定
             ]
           })
           console.log(`${key}のchildタイプは存在しません`); // childタイプが見つからなかったことをログに出力
