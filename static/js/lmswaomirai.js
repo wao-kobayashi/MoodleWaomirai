@@ -943,19 +943,17 @@ if (bodyId === "page-course-index-category") {
 // ==============================
 // メイン3科目または2科目、3科目パック購入後のリダイレクト処理
 // ==============================
-// ページIDが'page-course-view-flexsections'かつ管理者でない場合に実行
-if (bodyId === "page-course-view-flexsections" && !hasBoughtAdminSubject) {
+// ページIDが'page-course-view-flexsections',page-course-view-topicsかつ管理者でない場合に実行
+if (
+  (bodyId === "page-course-view-flexsections" || bodyId === "page-course-view-topics") 
+  && !hasBoughtAdminSubject
+) {
   // 現在表示しているページがメイン科目（哲学、科学などのトップページ）かチェック
   if (currentViewCourseData?.type === "main") {
     // 現在表示中のメイン科目のキー（例：science, philosophy）を取得
     const currentMainSubjectKey = currentViewCourseData.key;
     
-    // 2科目パックや3科目パックの場合の特別処理
-    // これらはレベル設定が必要ないため、即座にモーダルを表示して終了
-    if (currentMainSubjectKey === "twosubjectpack" || currentMainSubjectKey === "threesubjectpack") {
-      showLevelSettingModal();
-      return;
-    }
+
 
     // 現在表示中のメイン科目の情報（ID含む）を取得
     const currentMainSubject = subjects.find(
@@ -972,6 +970,13 @@ if (bodyId === "page-course-view-flexsections" && !hasBoughtAdminSubject) {
     // 例：科学のページを見ているが、科学の受講権限を持っていない
     if (!hasMainSubjectAccess) {
       console.log(`${currentMainSubjectKey}のメイン科目の受講権限がありません`);
+      return;
+    }
+    
+    // 2科目パックや3科目パックの場合の特別処理
+    // これらはレベル設定が必要ないため、即座にモーダルを表示して終了
+    if (currentMainSubjectKey === "twosubjectpack" || currentMainSubjectKey === "threesubjectpack") {
+      showLevelSettingModal();
       return;
     }
 
