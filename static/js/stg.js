@@ -600,6 +600,9 @@ if (bodyId === "page-my-index") {
               // 【スマホ】今月中に開催される授業に追加
               $("#dashboard-main-upcoming-class-scheduled").append($lessonContainer);
             });
+          } else {
+            //授業ない時の処理
+            $("#dashboard-main-upcoming-class-none").show();
           }
         }
     });
@@ -988,7 +991,7 @@ if (
       console.log(`${currentMainSubjectKey}のメイン科目の受講権限がありません`);
       return;
     }
-    
+
     // 2科目パックや3科目パックの場合の特別処理
     // これらはレベル設定が必要ないため、即座にモーダルを表示して終了
     if (currentMainSubjectKey === "twosubjectpack" || currentMainSubjectKey === "threesubjectpack") {
@@ -1062,10 +1065,16 @@ if (bodyId === "page-user-edit") { // ページIDが「page-user-edit」の場�
   });
 
   // 初回受講レベル登録時、submit直前に注意文言を表示する関数
+  let isAlertSubjectSettingFirstShown = false; // フラグを追加
+
   function AlertSubjectSettingFirst() {
-    $("#fgroup_id_buttonar").before(
-      `<div id="id_submitbutton-subject">一度受講レベルを設定すると、2回目以降のレベル変更時の反映は当月末になりますのでご注意くださいませ。</div>`
-    );
+    if (!isAlertSubjectSettingFirstShown) { // フラグがfalseの場合のみ実行
+      $("#fgroup_id_buttonar").before(
+        `<div id="id_submitbutton-subject">一度受講レベルを設定すると、2回目以降のレベル変更時の反映は当月末になりますのでご注意くださいませ。</div>`
+      );
+      //英語と他科目を受講する場合、複数回発火することを防ぐためにフラグをtrueに設定
+      isAlertSubjectSettingFirstShown = true; // フラグをtrueに設定
+    }
   }
 
   // サブレベル（子科目）の自動取得を行う関数
