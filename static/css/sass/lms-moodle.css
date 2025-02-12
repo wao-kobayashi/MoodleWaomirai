@@ -1408,8 +1408,16 @@ html[data-tenantidnumber=lmswaomirai] #page-login-signup label[for=id_profile_fi
 html[data-tenantidnumber=lmswaomirai] #page-login-signup label[for=id_profile_field_kojin_check] {
   padding: 0 !important;
 }
+html[data-tenantidnumber=lmswaomirai] #page-login-signup #id_profile_field_kojin_check,
+html[data-tenantidnumber=lmswaomirai] #page-login-signup #id_profile_field_termsofservice {
+  margin: 4px 0 0 -4px;
+}
+html[data-tenantidnumber=lmswaomirai] #page-login-signup label[for=id_profile_field_kojin_check],
+html[data-tenantidnumber=lmswaomirai] #page-login-signup label[for=id_profile_field_termsofservice] {
+  margin: 0 0 0 13px;
+}
 html[data-tenantidnumber=lmswaomirai] #page-login-signup .ml-2.d-flex.align-items-center.align-self-start > .text-danger[title=必須] {
-  display: none;
+  top: -10px;
 }
 html[data-tenantidnumber=lmswaomirai] #page-login-signup #fitem_id_profile_field_postnumber {
   margin-bottom: 32px !important;

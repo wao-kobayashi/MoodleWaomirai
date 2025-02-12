@@ -704,6 +704,8 @@ if (bodyId === "page-login-signup" || bodyId === "page-login-forgot_password") {
     id_firstname: "例）太郎", // 名のプレースホルダー
     id_profile_field_furigana: "例）スズキタロウ", // フリガナのプレースホルダー
     id_profile_field_postnumber: "例）0000000", // 郵便番号のプレースホルダー
+    id_profile_field_wao_membersid: "こちらに会員番号を入れてください", // ワオ未来塾会員番号のプレースホルダー
+    id_profile_field_wao_schoolname:  "例）能開⚪︎⚪︎校、Axis⚪︎⚪︎校、オンライン家庭教師", // ワオ未来塾校名のプレースホルダー
   };
 
   // 各入力フィールドにプレースホルダーを設定
@@ -1288,11 +1290,16 @@ if (bodyId === "page-user-edit") { // ページIDが「page-user-edit」の場�
 // ==============================
 if (bodyId === "page-user-profile") {
     
-    // $('.alert-success').html('変更が保存されました。科目レベルを設定した場合、<a href="https://lms.waomirai.com/my/">受講カレンダー</a>で確認ができます');  
-
-    
+    $('.alert-success').html('変更が保存されました。科目レベルを設定した場合、<a href="https://lms.waomirai.com/my/">受講カレンダー</a>で確認ができます');  
+   
     // 非表示にしたいキーワードの配列（OR条件）
-    const hideKeywords = ['ログイン活動', 'レポート', 'ジョブ'];
+    // ここで非表示にしている項目
+    // ログイン活動：ログイン履歴（これはユーザーにとっては不要な情報）
+    // レポート：意味のないレポート（これはユーザーにとっては不要な情報）
+    // ジョブ：ジョブ情報（これはユーザーにとっては不要な情報）
+    // Stripe退会するための情報（これはユーザーにとっては不要な情報）
+    // 補足：stripeは金額は確認できるようにして、退会するための情報は非表示にしたほうがいいかも
+    const hideKeywords = ['ログイン活動', 'レポート', 'ジョブ', 'Stripe'];
 
     // すべてのsectionに対してループ処理
     $('.card').each(function() {
