@@ -324,7 +324,11 @@
   grid-column-gap: 32px;
   grid-row-gap: 32px;
   padding: 0px 0px 0px;
-
+  &:focus,
+  &:active {
+    background-color: inherit !important;
+    outline: none;
+  }
   @include responsive-style(768px) {
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: auto;
@@ -351,6 +355,11 @@
       left: 0;
       width: 100%;
       height: 100%;
+      &:focus,
+      &:active {
+        background-color: inherit !important;
+        outline: none;
+      }
     }
     .common-contents-block-cards-course-img-overlay {
       position: relative;

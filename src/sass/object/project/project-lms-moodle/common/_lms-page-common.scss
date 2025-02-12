@@ -6,11 +6,18 @@ html {
 body {
   font-family: "Noto Sans JP", sans-serif;
   @include text-m-black;
+  touch-action: auto !important; //モバイルでmoodleでtouch-action:noneが付くことがあるので抑制対策
 }
 
 img {
   width: 100%;
   height: auto;
+}
+
+a:focus,
+a:active {
+  // background-color: inherit !important;
+  outline: none;
 }
 
 .border-bottom {

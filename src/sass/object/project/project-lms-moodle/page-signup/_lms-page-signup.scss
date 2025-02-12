@@ -254,9 +254,6 @@ footer {
 
 #page-login-signup {
   &.pagelayout-base {
-    header {
-      display: none !important;
-    }
     #notice {
       max-width: 550px;
       margin: 90px auto 0px;
@@ -267,9 +264,6 @@ footer {
       p {
         margin: 0 0 5px !important;
       }
-    }
-    .logininfo {
-      display: none !important;
     }
   }
   #page.drawers .main-inner {

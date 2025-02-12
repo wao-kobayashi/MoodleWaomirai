@@ -1,3 +1,15 @@
+////////////////////////////
+/// 共通要素
+///////////////////////////
+
+// スマホでのヘッダー編集モード
+#usernavigation {
+  .editmode-switch-form,
+  .divider {
+    display: none !important;
+  }
+}
+
 // ドロワー撲滅
 .drawer-toggles .drawer-toggler {
   display: none !important;
@@ -17,8 +29,60 @@ a[href="https://lms.waomirai.com/my/courses.php"]
   /* 要素を非表示 */
 }
 
-/* マイページ */
+/* 共通追従フッター削除 */
 
+#forced-footer {
+  display: none !important;
+}
+
+.logininfo {
+  display: none;
+}
+//テーマスイッチを削除
+#theme_switch_link {
+  display: none !important;
+}
+
+////////////////////////////
+/// 固有ページ
+///////////////////////////
+
+//ログイン画面
+#page-login-index {
+  footer.footer-popover {
+    .container div.footer-popover,
+    div.footer-popover,
+    .container {
+      div:nth-child(2) {
+        display: none;
+      }
+      div:nth-child(3) {
+        display: block !important;
+        @include responsive-style(768px) {
+          display: none !important;
+        }
+      }
+    }
+  }
+}
+
+//会員登録
+#page-login-signup {
+  &.pagelayout-base {
+    header {
+      display: none !important;
+    }
+
+    .logininfo {
+      display: none !important;
+    }
+  }
+  .collapsible-actions {
+    display: none;
+  }
+}
+
+/* マイページ */
 #page-user-preferences {
   #page-content {
     a[href*="user/language.php"],
@@ -29,35 +93,6 @@ a[href="https://lms.waomirai.com/my/courses.php"]
       display: none;
     }
   }
-}
-
-/* 共通追従フッター削除 */
-
-#forced-footer {
-  display: none !important;
-}
-
-.logininfo {
-  display: none;
-}
-
-footer.footer-popover {
-  .container div.footer-popover,
-  div.footer-popover,
-  .container {
-    div:nth-child(3) {
-      // display: none;
-    }
-  }
-}
-
-/* ダッシュボード */
-
-.pagelayout-mydashboard {
-  /* こんにちは⚪︎⚪︎さん */
-  // #page-header {
-  //     display: none;
-  // }
 }
 
 /* 授業詳細 */
@@ -110,6 +145,7 @@ footer.footer-popover {
   }
 }
 
+// 授業画面
 #page-course-view-flexsections {
   @each $course-id, $common-style-key in $course-styles-for-tenant {
     // スタイルを取得
@@ -132,27 +168,4 @@ footer.footer-popover {
       }
     }
   }
-}
-
-#page-login-index {
-  footer.footer-popover {
-    .container div.footer-popover,
-    div.footer-popover,
-    .container {
-      div:nth-child(2) {
-        display: none;
-      }
-      div:nth-child(3) {
-        display: block !important;
-        @include responsive-style(768px) {
-          display: none !important;
-        }
-      }
-    }
-  }
-}
-
-//テーマスイッチを削除
-#theme_switch_link {
-  display: none !important;
 }

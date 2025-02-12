@@ -14,9 +14,8 @@ html[data-tenantidnumber=lmswaomirai] {
   /* 基本的にはsizeとstyleセットで使う
   ******************/
   /* footer */
-  /* マイページ */
   /* 共通追従フッター削除 */
-  /* ダッシュボード */
+  /* マイページ */
   /* 授業詳細 */
   /* 授業購入画面(まだ買っていない) */
   /* ここから英語 ------------------------------------------------ */
@@ -490,6 +489,10 @@ html[data-tenantidnumber=lmswaomirai] .enrol-index-contents-block-cards {
   grid-row-gap: 32px;
   padding: 0px 0px 0px;
 }
+html[data-tenantidnumber=lmswaomirai] .enrol-index-contents-block-cards:focus, html[data-tenantidnumber=lmswaomirai] .enrol-index-contents-block-cards:active {
+  background-color: inherit !important;
+  outline: none;
+}
 @media screen and (max-width: 768px) {
   html[data-tenantidnumber=lmswaomirai] .enrol-index-contents-block-cards {
     grid-template-columns: repeat(2, 1fr);
@@ -521,6 +524,10 @@ html[data-tenantidnumber=lmswaomirai] .enrol-index-contents-block-cards .common-
   left: 0;
   width: 100%;
   height: 100%;
+}
+html[data-tenantidnumber=lmswaomirai] .enrol-index-contents-block-cards .common-contents-block-cards-course .common-contents-block-cards-course-link a:focus, html[data-tenantidnumber=lmswaomirai] .enrol-index-contents-block-cards .common-contents-block-cards-course .common-contents-block-cards-course-link a:active {
+  background-color: inherit !important;
+  outline: none;
 }
 html[data-tenantidnumber=lmswaomirai] .enrol-index-contents-block-cards .common-contents-block-cards-course .common-contents-block-cards-course-img-overlay {
   position: relative;
@@ -953,10 +960,16 @@ html[data-tenantidnumber=lmswaomirai] body {
   font-size: 16px;
   color: #262626;
   line-height: 1.5;
+  -ms-touch-action: auto !important;
+      touch-action: auto !important;
 }
 html[data-tenantidnumber=lmswaomirai] img {
   width: 100%;
   height: auto;
+}
+html[data-tenantidnumber=lmswaomirai] a:focus,
+html[data-tenantidnumber=lmswaomirai] a:active {
+  outline: none;
 }
 html[data-tenantidnumber=lmswaomirai] .border-bottom {
   border-bottom: none !important;
@@ -1175,6 +1188,10 @@ html[data-tenantidnumber=lmswaomirai] footer.footer-popover .container > div:las
     display: none !important;
   }
 }
+html[data-tenantidnumber=lmswaomirai] #usernavigation .editmode-switch-form,
+html[data-tenantidnumber=lmswaomirai] #usernavigation .divider {
+  display: none !important;
+}
 html[data-tenantidnumber=lmswaomirai] .drawer-toggles .drawer-toggler {
   display: none !important;
 }
@@ -1185,21 +1202,47 @@ html[data-tenantidnumber=lmswaomirai] a[href="https://lms.waomirai.com/my/course
   display: none;
   /* 要素を非表示 */
 }
-html[data-tenantidnumber=lmswaomirai] #page-user-preferences #page-content a[href*="user/language.php"],
-html[data-tenantidnumber=lmswaomirai] #page-user-preferences #page-content a[href*="user/forum.php"],
-html[data-tenantidnumber=lmswaomirai] #page-user-preferences #page-content a[href*="user/calendar.php"],
-html[data-tenantidnumber=lmswaomirai] #page-user-preferences #page-content a[href*="/user/contentbank.php"],
-html[data-tenantidnumber=lmswaomirai] #page-user-preferences #page-content a[href*="/user/editor.php"] {
-  display: none;
-}
 html[data-tenantidnumber=lmswaomirai] #forced-footer {
   display: none !important;
 }
 html[data-tenantidnumber=lmswaomirai] .logininfo {
   display: none;
 }
-html[data-tenantidnumber=lmswaomirai] .pagelayout-mydashboard {
-  /* こんにちは⚪︎⚪︎さん */
+html[data-tenantidnumber=lmswaomirai] #theme_switch_link {
+  display: none !important;
+}
+html[data-tenantidnumber=lmswaomirai] #page-login-index footer.footer-popover .container div.footer-popover div:nth-child(2),
+html[data-tenantidnumber=lmswaomirai] #page-login-index footer.footer-popover div.footer-popover div:nth-child(2),
+html[data-tenantidnumber=lmswaomirai] #page-login-index footer.footer-popover .container div:nth-child(2) {
+  display: none;
+}
+html[data-tenantidnumber=lmswaomirai] #page-login-index footer.footer-popover .container div.footer-popover div:nth-child(3),
+html[data-tenantidnumber=lmswaomirai] #page-login-index footer.footer-popover div.footer-popover div:nth-child(3),
+html[data-tenantidnumber=lmswaomirai] #page-login-index footer.footer-popover .container div:nth-child(3) {
+  display: block !important;
+}
+@media screen and (max-width: 768px) {
+  html[data-tenantidnumber=lmswaomirai] #page-login-index footer.footer-popover .container div.footer-popover div:nth-child(3),
+  html[data-tenantidnumber=lmswaomirai] #page-login-index footer.footer-popover div.footer-popover div:nth-child(3),
+  html[data-tenantidnumber=lmswaomirai] #page-login-index footer.footer-popover .container div:nth-child(3) {
+    display: none !important;
+  }
+}
+html[data-tenantidnumber=lmswaomirai] #page-login-signup.pagelayout-base header {
+  display: none !important;
+}
+html[data-tenantidnumber=lmswaomirai] #page-login-signup.pagelayout-base .logininfo {
+  display: none !important;
+}
+html[data-tenantidnumber=lmswaomirai] #page-login-signup .collapsible-actions {
+  display: none;
+}
+html[data-tenantidnumber=lmswaomirai] #page-user-preferences #page-content a[href*="user/language.php"],
+html[data-tenantidnumber=lmswaomirai] #page-user-preferences #page-content a[href*="user/forum.php"],
+html[data-tenantidnumber=lmswaomirai] #page-user-preferences #page-content a[href*="user/calendar.php"],
+html[data-tenantidnumber=lmswaomirai] #page-user-preferences #page-content a[href*="/user/contentbank.php"],
+html[data-tenantidnumber=lmswaomirai] #page-user-preferences #page-content a[href*="/user/editor.php"] {
+  display: none;
 }
 html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-view .page-header-image,
 html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-complete .page-header-image,
@@ -1311,26 +1354,6 @@ html[data-tenantidnumber=lmswaomirai] #page-course-view-flexsections.course-9999
   display: none;
 }
 html[data-tenantidnumber=lmswaomirai] #page-course-view-flexsections.course-999999 #section-0 .flexsections-level-0 > .course-section.main .activity.activity-wrapper.forum {
-  display: none !important;
-}
-html[data-tenantidnumber=lmswaomirai] #page-login-index footer.footer-popover .container div.footer-popover div:nth-child(2),
-html[data-tenantidnumber=lmswaomirai] #page-login-index footer.footer-popover div.footer-popover div:nth-child(2),
-html[data-tenantidnumber=lmswaomirai] #page-login-index footer.footer-popover .container div:nth-child(2) {
-  display: none;
-}
-html[data-tenantidnumber=lmswaomirai] #page-login-index footer.footer-popover .container div.footer-popover div:nth-child(3),
-html[data-tenantidnumber=lmswaomirai] #page-login-index footer.footer-popover div.footer-popover div:nth-child(3),
-html[data-tenantidnumber=lmswaomirai] #page-login-index footer.footer-popover .container div:nth-child(3) {
-  display: block !important;
-}
-@media screen and (max-width: 768px) {
-  html[data-tenantidnumber=lmswaomirai] #page-login-index footer.footer-popover .container div.footer-popover div:nth-child(3),
-  html[data-tenantidnumber=lmswaomirai] #page-login-index footer.footer-popover div.footer-popover div:nth-child(3),
-  html[data-tenantidnumber=lmswaomirai] #page-login-index footer.footer-popover .container div:nth-child(3) {
-    display: none !important;
-  }
-}
-html[data-tenantidnumber=lmswaomirai] #theme_switch_link {
   display: none !important;
 }
 html[data-tenantidnumber=lmswaomirai] .pagelayout-login #page div[role=main],
@@ -1594,9 +1617,6 @@ html[data-tenantidnumber=lmswaomirai] #page-login-signup .continuebutton {
 html[data-tenantidnumber=lmswaomirai] #page-login-signup .btn-secondary {
   padding: 0 !important;
 }
-html[data-tenantidnumber=lmswaomirai] #page-login-signup.pagelayout-base header {
-  display: none !important;
-}
 html[data-tenantidnumber=lmswaomirai] #page-login-signup.pagelayout-base #notice {
   max-width: 550px;
   margin: 90px auto 0px;
@@ -1609,9 +1629,6 @@ html[data-tenantidnumber=lmswaomirai] #page-login-signup.pagelayout-base #notice
 }
 html[data-tenantidnumber=lmswaomirai] #page-login-signup.pagelayout-base #notice p {
   margin: 0 0 5px !important;
-}
-html[data-tenantidnumber=lmswaomirai] #page-login-signup.pagelayout-base .logininfo {
-  display: none !important;
 }
 html[data-tenantidnumber=lmswaomirai] #page-login-signup #page.drawers .main-inner {
   padding: 20px 24px;
