@@ -2,8 +2,10 @@
 // 各種変数
 // ==============================
 
+const UrlHome = "https://lms.waomirai.com/?redirect=0" //トップページ（科目選択）
 const UrlForm = "https://go.waomirai.com/changeform"; // フォームURL 
 const UrlChangeSubject = "https://lms.waomirai.com/user/edit.php"; // 受講変更ページ  
+
 
 // ==============================
 // ページ判定とコースIDの取得
@@ -1196,16 +1198,26 @@ if (bodyId === "page-user-edit") { // ページIDが「page-user-edit」の場�
     getSelectElement(area).after(message); // エリアの後にメッセージを追加
   });
 
-  // 最後に、全ての科目に関して注意メッセージを表示
-  $("#id_category_10 > .d-flex").after(`
-        <p class="subject-level-note">
-          受講科目のレベルを選択してください。<br />
-          選択した科目のレベルを設定しないと授業を受けることができません。<br />
-         一度受講レベルを設定すると、2回目以降のレベル変更時の反映は当月末になりますのでご注意ください。
-        </p>
+  //見出し直下にテキストを表示。
+  if (hasBoughtMainSubject) {
+    //メイン科目持っている時
+    $("#id_category_10 > .d-flex").after(`
+      <p class="subject-level-note">
+        受講科目のレベルを選択してください。<br />
+        選択した科目のレベルを設定しないと授業を受けることができません。<br />
+        一度受講レベルを設定すると、2回目以降のレベル変更時の反映は当月末になりますのでご注意ください。
+      </p>
     `);
-
     
+  } else {
+    //メイン科目がない時
+    $("#id_category_10 > .d-flex").after(`
+      <p class="subject-level-note">
+        科目を購入した後に受講科目レベルを設定することができます。<br />
+        科目の一覧は<a href="${UrlHome}" style="text-decoration:underline !important;">コチラ</a>からご確認いただけます。
+      </p>
+    `);
+  }
 }
 
 

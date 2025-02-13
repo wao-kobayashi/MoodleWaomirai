@@ -3,6 +3,10 @@
   var useredit = [
     // 登録ページテンプレートの基本設定
     {
+      id: 'none',
+      paymentID: env === 'stg' ? [] : env === 'lms' ? [] : [0]
+    },
+    {
       id: 'ph-none',
       paymentID: env === 'stg' ? [212,236] : env === 'lms' ? [255] : [0]
     },
