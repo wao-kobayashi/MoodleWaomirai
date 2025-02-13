@@ -2548,6 +2548,28 @@ html[data-tenantidnumber=lmswaomirai] #page-my-index #page-wrapper {
   overflow-x: hidden;
   width: 100%;
 }
+html[data-tenantidnumber=lmswaomirai] .pagelayout-mydashboard {
+  background: #efefef !important;
+}
+html[data-tenantidnumber=lmswaomirai] .pagelayout-mydashboard .block_myinprogress .tool_catalogue-carousel {
+  overflow: hidden !important;
+}
+html[data-tenantidnumber=lmswaomirai] .pagelayout-mydashboard .pagination {
+  position: absolute;
+  right: 30px;
+  top: 47px;
+}
+@media screen and (min-width: 769px) {
+  html[data-tenantidnumber=lmswaomirai] .pagelayout-mydashboard #todays-event-subject-none .c-alert-banner {
+    margin: 20px 10px 0 !important;
+    width: calc(100% - 20px);
+  }
+}
+@media screen and (max-width: 769px) {
+  html[data-tenantidnumber=lmswaomirai] .pagelayout-mydashboard #page-header {
+    padding: 0 15px;
+  }
+}
 html[data-tenantidnumber=lmswaomirai] .pagelayout-mydashboard #block-region-content section:first-child .card-title.d-inline, html[data-tenantidnumber=lmswaomirai] .pagelayout-mydashboard #block-region-content section:first-child #dashboard-sp-content .dashboard-left-block .d-inline.dashboard-left-block-title, html[data-tenantidnumber=lmswaomirai] .pagelayout-mydashboard #dashboard-sp-content .dashboard-left-block #block-region-content section:first-child .d-inline.dashboard-left-block-title {
   display: none !important;
 }
@@ -2570,8 +2592,8 @@ html[data-tenantidnumber=lmswaomirai] .pagelayout-mydashboard .block_html > div 
 html[data-tenantidnumber=lmswaomirai] .pagelayout-mydashboard .calendarwrapper td > div {
   height: 10em !important;
 }
-html[data-tenantidnumber=lmswaomirai] .pagelayout-mydashboard {
-  background: #efefef !important;
+html[data-tenantidnumber=lmswaomirai] .pagelayout-mydashboard .dashboard-textblock {
+  overflow: hidden;
 }
 html[data-tenantidnumber=lmswaomirai] .pagelayout-mydashboard .card-title, html[data-tenantidnumber=lmswaomirai] .pagelayout-mydashboard #dashboard-sp-content .dashboard-left-block .dashboard-left-block-title {
   margin: 0 -15px 16px !important;
@@ -3205,6 +3227,12 @@ html[data-tenantidnumber=lmswaomirai] .pagelayout-mydashboard .maincalendar .cal
 html[data-tenantidnumber=lmswaomirai] .pagelayout-mydashboard .footer-link {
   display: none;
 }
+html[data-tenantidnumber=lmswaomirai] .pagelayout-mydashboard .maincalendar .d-none {
+  display: block !important;
+}
+html[data-tenantidnumber=lmswaomirai] .pagelayout-mydashboard .maincalendar .hidden-desktop {
+  display: none !important;
+}
 html[data-tenantidnumber=lmswaomirai] .pagelayout-mydashboard .modal .calendar_event_course {
   background: #efefef;
 }
@@ -3282,25 +3310,6 @@ html[data-tenantidnumber=lmswaomirai] .pagelayout-mydashboard .summary-modal-con
 }
 html[data-tenantidnumber=lmswaomirai] .pagelayout-mydashboard .summary-modal-container .location-content:before:hover {
   opacity: 0.8;
-}
-html[data-tenantidnumber=lmswaomirai] .pagelayout-mydashboard .block_myinprogress .tool_catalogue-carousel {
-  overflow: hidden !important;
-}
-html[data-tenantidnumber=lmswaomirai] .pagelayout-mydashboard .pagination {
-  position: absolute;
-  right: 30px;
-  top: 47px;
-}
-@media screen and (min-width: 769px) {
-  html[data-tenantidnumber=lmswaomirai] .pagelayout-mydashboard #todays-event-subject-none .c-alert-banner {
-    margin: 20px 10px 0 !important;
-    width: calc(100% - 20px);
-  }
-}
-@media screen and (max-width: 769px) {
-  html[data-tenantidnumber=lmswaomirai] .pagelayout-mydashboard #page-header {
-    padding: 0 15px;
-  }
 }
 html[data-tenantidnumber=lmswaomirai] .pagelayout-mydashboard .dashboard-main .dashboard-main-navi {
   display: grid;
@@ -3485,12 +3494,6 @@ html[data-tenantidnumber=lmswaomirai] .pagelayout-mydashboard #dashboard-sp-cont
   font-weight: bold;
   margin: 0 0px 0px !important;
   padding: 0px 35px 0px !important;
-}
-html[data-tenantidnumber=lmswaomirai] .maincalendar .d-none {
-  display: block !important;
-}
-html[data-tenantidnumber=lmswaomirai] .maincalendar .hidden-desktop {
-  display: none !important;
 }
 html[data-tenantidnumber=lmswaomirai] #page-user-edit .collapse:not(.show) {
   display: block !important;

@@ -1,5 +1,7 @@
-$calender-width: 960px;
-//alert-banner
+// カレンダーのサイドバーとメイン幅の調整変数
+$dashboard-sidebar-width: 225px; // サイドバーの幅
+$body-padding: 25px; // サイドバーとの距離
+$default-max-width: 1170px; // 最大幅
 
 #page-my-index #page-wrapper {
   overflow-x: hidden;
@@ -7,6 +9,27 @@ $calender-width: 960px;
 }
 
 .pagelayout-mydashboard {
+  // 背景設定
+  background: $cl-graylightest !important;
+  .block_myinprogress .tool_catalogue-carousel {
+    overflow: hidden !important;
+  }
+  .pagination {
+    position: absolute;
+    right: 30px;
+    top: 47px;
+  }
+  #todays-event-subject-none .c-alert-banner {
+    @include min-responsive-style(769px) {
+      margin: 20px 10px 0 !important;
+      width: calc(100% - 20px);
+    }
+  }
+  #page-header {
+    @include responsive-style(769px) {
+      padding: 0 15px;
+    }
+  }
   #block-region-content {
     section:first-child {
       .card-title.d-inline {
@@ -15,11 +38,6 @@ $calender-width: 960px;
     }
   }
 
-  .drawers {
-    // max-width: $body-width;
-    // margin-right: calc((100% - $body-width) /2);
-    // position: relative;
-  }
   @media (min-width: 768px) {
     #page.drawers .main-inner,
     body.limitedwidth #page.drawers .main-inner {
@@ -32,9 +50,6 @@ $calender-width: 960px;
     .card-body {
       padding: 0 !important;
     }
-    // .card-title {
-    //   display: none !important;
-    // }
   }
   .block_html > div > h5 {
     /* テキストブロックの文言を非表示に */
@@ -43,27 +58,13 @@ $calender-width: 960px;
   .calendarwrapper td > div {
     height: 10em !important;
   }
-}
-
-//calender
-// .main-inner {
-//     width: $body-width !important;
-//     position: relative;
-// }
-// Variables
-$dashboard-sidebar-width: 225px; // サイドバーの幅
-$body-padding: 25px; // サイドバーとの距離
-$default-max-width: 1170px; // 最大幅
-// Layout for Dashboard
-.pagelayout-mydashboard {
+  .dashboard-textblock {
+    overflow: hidden;
+  }
   .card-title {
-    // display: none !important;
-    // padding: 15px 0 15px 10px !important;
     margin: 0 -15px 16px !important;
     padding: 0px 35px 0px;
-    // border-bottom: 4px $cl-graylightest solid;
     width: calc(100% + 30px);
-    // background: red;
     display: block !important;
     font-size: $lms-font-size-l !important;
     position: relative;
@@ -111,9 +112,7 @@ $default-max-width: 1170px; // 最大幅
   .block_html.block.card.mb-3 {
     display: inline;
   }
-  // section[role=complementary] {
-  //     display: inline;
-  // }
+
   .mt-3,
   .my-3 {
     margin-top: 0 !important;
@@ -127,7 +126,6 @@ $default-max-width: 1170px; // 最大幅
     margin-top: 30px !important;
     @include responsive-style(768px) {
       margin-top: 16px !important;
-      // margin-bottom: 8px !important;
     }
   }
 
@@ -290,8 +288,7 @@ $default-max-width: 1170px; // 最大幅
     padding-left: 0px !important;
     padding-right: 0px !important;
   }
-  // 背景設定
-  background: $cl-graylightest !important;
+
   // ページの内側部分（drawers）の背景を透明化
   .maincalendar .calendartable li {
     padding: 4px 2px !important;
@@ -539,9 +536,17 @@ $default-max-width: 1170px; // 最大幅
   .footer-link {
     display: none;
   }
+  .maincalendar {
+    .d-none {
+      display: block !important;
+    }
+    .hidden-desktop {
+      display: none !important;
+    }
+  }
 }
 
-//modal
+//カレンダーの予定をクリックしたときのモーダル
 .pagelayout-mydashboard {
   .modal {
     .calendar_event_course {
@@ -621,33 +626,8 @@ $default-max-width: 1170px; // 最大幅
   }
 }
 
-//carousel-card
+//スマホ特有のレイアウト調整
 .pagelayout-mydashboard {
-  .block_myinprogress .tool_catalogue-carousel {
-    overflow: hidden !important;
-  }
-  .pagination {
-    position: absolute;
-    right: 30px;
-    top: 47px;
-  }
-}
-.pagelayout-mydashboard {
-  #todays-event-subject-none .c-alert-banner {
-    @include min-responsive-style(769px) {
-      margin: 20px 10px 0 !important;
-      width: calc(100% - 20px);
-    }
-  }
-}
-
-//スマホ用
-.pagelayout-mydashboard {
-  #page-header {
-    @include responsive-style(769px) {
-      padding: 0 15px;
-    }
-  }
   .dashboard-main {
     .dashboard-main-navi {
       display: grid;
@@ -787,11 +767,6 @@ $default-max-width: 1170px; // 最大幅
         margin: 0 10px 0 0;
       }
     }
-    // .calendarwrapper {
-    //   .hidden-phone {
-    //     display: block !important;
-    //   }
-    // }
   }
   #dashboard-sp-content {
     width: 100%;
@@ -811,18 +786,3 @@ $default-max-width: 1170px; // 最大幅
     }
   }
 }
-.maincalendar {
-  .d-none {
-    display: block !important;
-  }
-  .hidden-desktop {
-    display: none !important;
-  }
-}
-
-// .maincalendar
-//   .calendartable.calendarmonth
-//   td.hasevent
-//   [data-region="day-content"] {
-//   display: block !important;
-// }

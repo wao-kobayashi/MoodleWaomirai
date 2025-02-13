@@ -2552,6 +2552,28 @@ html[data-tenantidnumber=stg] #page-my-index #page-wrapper {
   overflow-x: hidden;
   width: 100%;
 }
+html[data-tenantidnumber=stg] .pagelayout-mydashboard {
+  background: #efefef !important;
+}
+html[data-tenantidnumber=stg] .pagelayout-mydashboard .block_myinprogress .tool_catalogue-carousel {
+  overflow: hidden !important;
+}
+html[data-tenantidnumber=stg] .pagelayout-mydashboard .pagination {
+  position: absolute;
+  right: 30px;
+  top: 47px;
+}
+@media screen and (min-width: 769px) {
+  html[data-tenantidnumber=stg] .pagelayout-mydashboard #todays-event-subject-none .c-alert-banner {
+    margin: 20px 10px 0 !important;
+    width: calc(100% - 20px);
+  }
+}
+@media screen and (max-width: 769px) {
+  html[data-tenantidnumber=stg] .pagelayout-mydashboard #page-header {
+    padding: 0 15px;
+  }
+}
 html[data-tenantidnumber=stg] .pagelayout-mydashboard #block-region-content section:first-child .card-title.d-inline, html[data-tenantidnumber=stg] .pagelayout-mydashboard #block-region-content section:first-child #dashboard-sp-content .dashboard-left-block .d-inline.dashboard-left-block-title, html[data-tenantidnumber=stg] .pagelayout-mydashboard #dashboard-sp-content .dashboard-left-block #block-region-content section:first-child .d-inline.dashboard-left-block-title {
   display: none !important;
 }
@@ -2574,8 +2596,8 @@ html[data-tenantidnumber=stg] .pagelayout-mydashboard .block_html > div > h5 {
 html[data-tenantidnumber=stg] .pagelayout-mydashboard .calendarwrapper td > div {
   height: 10em !important;
 }
-html[data-tenantidnumber=stg] .pagelayout-mydashboard {
-  background: #efefef !important;
+html[data-tenantidnumber=stg] .pagelayout-mydashboard .dashboard-textblock {
+  overflow: hidden;
 }
 html[data-tenantidnumber=stg] .pagelayout-mydashboard .card-title, html[data-tenantidnumber=stg] .pagelayout-mydashboard #dashboard-sp-content .dashboard-left-block .dashboard-left-block-title {
   margin: 0 -15px 16px !important;
@@ -3209,6 +3231,12 @@ html[data-tenantidnumber=stg] .pagelayout-mydashboard .maincalendar .calendarmon
 html[data-tenantidnumber=stg] .pagelayout-mydashboard .footer-link {
   display: none;
 }
+html[data-tenantidnumber=stg] .pagelayout-mydashboard .maincalendar .d-none {
+  display: block !important;
+}
+html[data-tenantidnumber=stg] .pagelayout-mydashboard .maincalendar .hidden-desktop {
+  display: none !important;
+}
 html[data-tenantidnumber=stg] .pagelayout-mydashboard .modal .calendar_event_course {
   background: #efefef;
 }
@@ -3286,25 +3314,6 @@ html[data-tenantidnumber=stg] .pagelayout-mydashboard .summary-modal-container .
 }
 html[data-tenantidnumber=stg] .pagelayout-mydashboard .summary-modal-container .location-content:before:hover {
   opacity: 0.8;
-}
-html[data-tenantidnumber=stg] .pagelayout-mydashboard .block_myinprogress .tool_catalogue-carousel {
-  overflow: hidden !important;
-}
-html[data-tenantidnumber=stg] .pagelayout-mydashboard .pagination {
-  position: absolute;
-  right: 30px;
-  top: 47px;
-}
-@media screen and (min-width: 769px) {
-  html[data-tenantidnumber=stg] .pagelayout-mydashboard #todays-event-subject-none .c-alert-banner {
-    margin: 20px 10px 0 !important;
-    width: calc(100% - 20px);
-  }
-}
-@media screen and (max-width: 769px) {
-  html[data-tenantidnumber=stg] .pagelayout-mydashboard #page-header {
-    padding: 0 15px;
-  }
 }
 html[data-tenantidnumber=stg] .pagelayout-mydashboard .dashboard-main .dashboard-main-navi {
   display: grid;
@@ -3489,12 +3498,6 @@ html[data-tenantidnumber=stg] .pagelayout-mydashboard #dashboard-sp-content .das
   font-weight: bold;
   margin: 0 0px 0px !important;
   padding: 0px 35px 0px !important;
-}
-html[data-tenantidnumber=stg] .maincalendar .d-none {
-  display: block !important;
-}
-html[data-tenantidnumber=stg] .maincalendar .hidden-desktop {
-  display: none !important;
 }
 html[data-tenantidnumber=stg] #page-user-edit .collapse:not(.show) {
   display: block !important;

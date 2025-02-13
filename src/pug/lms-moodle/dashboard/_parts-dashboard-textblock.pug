@@ -1,3 +1,12 @@
+//2025年4月開校のお知らせの表示フラグ
+//trueの場合は表示、falseの場合は非表示
+- var infoOpeningVisible = true
+
+//2025年4月開校のお知らせの表示フラグ
+//trueの場合は表示、falseの場合は非表示
+- var infoHowtoVisible = false
+
+
 //ダッシュボードにコピペするブロック
 .dashboard-textblock
   .dashboard-left
@@ -26,26 +35,41 @@
             .dashboard-left-block-wrap-english-course-button
                 a(href='#', onclick="alert('開発中です(トレーニング動画に行く予定)')") 
                   |学習動画はこちら                 
-    .dashboard-left-block.dashboard-left-block-guide 
-      .dashboard-left-block-title
-        |使い方ガイド
-      ul.dashboard-left-block-links
-        li 
-          //stg238
-          a(href='https://lms.waomirai.com/admin/tool/catalogue/courseinfo.php?id=238')
-            |新しい科目を受講したい  
-        li 
-          //stg240               
-          a(href='https://lms.waomirai.com/admin/tool/catalogue/courseinfo.php?id=240')
-            |授業への参加方法は？
-        li 
-          //stg239
-          a(href='https://lms.waomirai.com/admin/tool/catalogue/courseinfo.php?id=239')
-            |過去の授業動画の視聴方法は？
-        li 
-          //stg241
-          a(href='https://lms.waomirai.com/admin/tool/catalogue/courseinfo.php?id=241')
-            |授業のレベルを変更したい        
+    //infoHowtoVisibleがtrueの時に「開校のお知らせ」を表示
+    if infoHowtoVisible
+      .dashboard-left-block.dashboard-left-block-guide 
+        .dashboard-left-block-title
+          |使い方ガイド
+        ul.dashboard-left-block-links
+          li 
+            //stg238
+            a(href='https://lms.waomirai.com/admin/tool/catalogue/courseinfo.php?id=238')
+              |新しい科目を受講したい  
+          li 
+            //stg240               
+            a(href='https://lms.waomirai.com/admin/tool/catalogue/courseinfo.php?id=240')
+              |授業への参加方法は？
+          li 
+            //stg239
+            a(href='https://lms.waomirai.com/admin/tool/catalogue/courseinfo.php?id=239')
+              |過去の授業動画の視聴方法は？
+          li 
+            //stg241
+            a(href='https://lms.waomirai.com/admin/tool/catalogue/courseinfo.php?id=241')
+              |授業のレベルを変更したい        
+  //infoOpeningVisibleがtrueの時に「開校のお知らせ」を表示
+  if infoOpeningVisible 
+    .dashboard-main-info
+          h5.card-title|開校のお知らせ
+          .dashboard-main-info-text 
+            b|ワオ未来塾は2025年4月6日に開校します。
+            br
+            |イベントとして2025/2/25〜4/4の間で未来塾の講座がたっぷり体験できる 無料体験MONTHを開催しています
+          .dashboard-main-info-button 
+            a(href='https://go.waomirai.com/l/1026513/2025-01-05/hbd3d/1026513/1736131604z7ZKQe9J') 
+              |詳細を見る
+          .dashboard-main-info-right 
+             img(src='https://go.waomirai.com/l/1026513/2025-02-13/hfgk8/1026513/1739425024ssYWoCzA/img_2025march_events_pc.png')
   .dashboard-main#todays-subject-pc
     //ダッシュボードのバナー
     .c-alert-banner.alert-buy-course.c-sp-hidden
@@ -56,10 +80,7 @@
           .c-alert-banner-text 
             .c-alert-banner-text-title 
               |
-  .dashboard-main 
-    
-    //ダッシュボードのバナー
-    //メモ、hiddenにする、.c-pc-hidden
+  .dashboard-main
     .dashboard-main-navi.c-pc-hidden
         a.dashboard-main-navi-child.scroll-to-block_calendar_month(href='#') 
             .dashboard-main-navi-child-img 
@@ -91,7 +112,6 @@
             .c-alert-banner.alert-buy-course
                 .c-alert-banner-left 
                     .c-alert-banner-left-icon
-                      //- i.fa-solid.fa-ice-cream.fa-5x
                       i.icon.fa.fa-solid.fa-circle-exclamation
                     .c-alert-banner-text 
                       .c-alert-banner-text-title 
@@ -99,8 +119,6 @@
             .dashboard-main-contents-block-cards 
                 a(href=link_english).common-contents-block-cards-course
                   .common-contents-block-cards-course-img.common-contents-block-cards-course-img-overlay
-                    //- .common-contents-block-cards-course-img-text 
-                    //-    |4月開講予定
                     .common-contents-block-cards-course-img-detail
                         img(src='https://go.waomirai.com/l/1026513/2024-08-08/gzqbq/1026513/1723092445NpS1HkfH/subject_04.jpg')
                   .common-contents-block-cards-course-detail
@@ -162,17 +180,9 @@
             .dashboard-main-class-content-text
              |本日は授業がありません 
           //授業ある時
+          //以下div内にjsで出力
           div#todays-event-class-scheduled
-          //-   .dashboard-main-class-content-lesson 
-          //-     .dashboard-main-class-content-lesson-title
-          //-       |12/7(火) 17:30- 哲学WEEK 1
-          //-     button.dashboard-main-class-content-lesson-button   
-          //-       |詳細を見る / 参加する
-          //-   .dashboard-main-class-content-lesson 
-          //-     .dashboard-main-class-content-lesson-title
-          //-       |12/7(火) 18:30- 科学WEEK 1
-          //-     button.dashboard-main-class-content-lesson-button   
-          //-       |詳細を見る / 参加する
+
     //何かしらの受講科目がある時に表示
     .dashboard-main-class.c-pc-hidden
         h5.card-title|今月中に開催される授業
