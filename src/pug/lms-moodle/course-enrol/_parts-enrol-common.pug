@@ -1,3 +1,96 @@
+
+
+//今月の授業カリキュラム
+mixin enrol-lesson-month
+  .enrol-section
+    h2.enrol-title 2025年4月の授業
+    // 各教科の授業情報を表示
+    .enrol-section-basesubject-thismonth-lesson
+      each subject in subjects[enrolpage.category]
+        .enrol-section-basesubject-thismonth-lesson-grid-level
+            span.title|レベル
+            span.large= subject.level 
+            // 対象学年
+            span|(
+            span= subject.grade 
+            span|)
+        .enrol-section-basesubject-thismonth-lesson-grid
+            // レベル情報を表示
+            // 各レッスン情報を表示
+            each lesson in subject.lessons
+                .enrol-section-basesubject-thismonth-lesson-grid-lesson
+                    // レッスンの週
+                    .enrol-section-basesubject-thismonth-lesson-grid-lesson-banner
+                    img(src=lesson.banner)
+                    // レッスン説明
+                    .enrol-section-basesubject-thismonth-lesson-grid-lesson-text= lesson.text 
+
+//年間の授業カリキュラム
+mixin enrol-lesson-year
+ .enrol-section
+  h2.enrol-title 年間の授業カリキュラム
+  .enrol-section-basesubject-year-lesson
+    // レベルごとのタブ部分
+    .enrol-section-basesubject-year-lesson-tab 
+      if enrolpage.category === 'globalenglish'
+        .enrol-section-basesubject-year-lesson-tab-child.tab-level-1 
+            |レベル1
+            br.c-pc-hidden
+            |(英語初挑戦の方)
+        .enrol-section-basesubject-year-lesson-tab-child.tab-level-2
+            |レベル2
+            br.c-pc-hidden
+            |(英語が少し話せる方)
+      else
+        .enrol-section-basesubject-year-lesson-tab-child.tab-level-1 
+            |レベル1
+            br.c-pc-hidden
+            |(小1~小4)
+        .enrol-section-basesubject-year-lesson-tab-child.tab-level-2
+            |レベル2
+            br.c-pc-hidden
+            |(小5~小6)
+        .enrol-section-basesubject-year-lesson-tab-child.tab-level-3 
+            |レベル3
+            br.c-pc-hidden
+            |(中学生)
+        .enrol-section-basesubject-year-lesson-tab-child.tab-level-4 
+            |レベル4
+            br.c-pc-hidden
+            |(高校生)
+    // カリキュラム内容を表示
+    .enrol-section-basesubject-year-lesson-content
+      //以下はstaticのデータ
+      each level, levelName in curriculum[enrolpage.category]
+        .enrol-section-basesubject-year-lesson-content-child(class="content-" + levelName, style='display:none;')
+          each item in level
+            .enrol-section-basesubject-year-lesson-content-child-curriculum
+              .enrol-section-basesubject-year-lesson-content-child-curriculum-month
+                // 月
+                span.month=  item.month
+                | 月
+              .enrol-section-basesubject-year-lesson-content-child-curriculum-detail
+                // カリキュラムのタイトル
+                .enrol-section-basesubject-year-lesson-content-child-curriculum-detail-title= item.title 
+                .enrol-section-basesubject-year-lesson-content-child-curriculum-detail-subcontent.c-sp-hidden
+                  |1.
+                  span= item.subcontents1
+                .enrol-section-basesubject-year-lesson-content-child-curriculum-detail-subcontent.c-sp-hidden 
+                  |2.
+                  span= item.subcontents2
+                .enrol-section-basesubject-year-lesson-content-child-curriculum-detail-subcontent.c-sp-hidden 
+                  |3.
+                  span= item.subcontents3
+      .c-pc-hidden
+        .enrol-section-basesubject-year-lesson-content-button
+          if enrolpage.category === 'philosophy'
+            a(href="https://go.waomirai.com/l/1026513/2025-02-09/hf47g/1026513/1739157549JByWW5kq/year_curriculum_philosophy.pdf", target='_blank')|全ての授業カリキュラム(PDF)
+          else if enrolpage.category === 'science'
+            a(href="https://go.waomirai.com/l/1026513/2025-02-09/hf47n/1026513/1739157549Js3IDL8y/year_curriculum_science.pdf", target='_blank')|全ての授業カリキュラム(PDF)
+          else if enrolpage.category === 'economy'
+            a(href="https://go.waomirai.com/l/1026513/2025-02-09/hf47k/1026513/1739157549czniuNng/year_curriculum_economy.pdf", target='_blank')|全ての授業カリキュラム(PDF)
+
+//受講開始までの流れ
 mixin enrol-howto-register
   .enrol-section
     h2.enrol-title
@@ -38,6 +131,7 @@ mixin enrol-howto-register
             .enrol-step-lbl Step 06
             .enrol-step-heading 当日、授業を受ける
 
+//他の授業科目も見る
 mixin enrol-recommend-subject
  .enrol-section.enrol-recommend-subject
     h2.enrol-title
@@ -94,7 +188,7 @@ mixin enrol-recommend-subject
                             a(href=link_economy)
                               
         //- 英語のカード（englishカテゴリー、２科目、３科目以外で表示）
-        if category === 'english' || category === 'twosubjectpack' || category === 'threesubjectpack'
+        if category === 'globalenglish' || category === 'twosubjectpack' || category === 'threesubjectpack'
             .common-contents-block-cards-course
                 .common-contents-block-cards-course-img
                     img(src='https://go.waomirai.com/l/1026513/2024-08-08/gzqbq/1026513/1723092445NpS1HkfH/subject_04.jpg')

@@ -25,7 +25,7 @@ $common-course-styles: (
   ),
   "english": (
     main-color: $cl-english,
-    pale-color: $cl-english,
+    pale-color: $cl-english-pale,
     background-color: $cl-english,
     background-image:
       url("https://go.waomirai.com/l/1026513/2024-08-08/gzqbq/1026513/1723092445NpS1HkfH/subject_04.jpg"),
@@ -65,6 +65,8 @@ $course-styles: (
   ".category-49": "science",
   ".category-51": "philosophy",
   ".category-47": "philosophy",
+  ".category-50": "english",
+  ".category-54": "english",
 );
 
 $twocategories: ".category-21, .category-22";
