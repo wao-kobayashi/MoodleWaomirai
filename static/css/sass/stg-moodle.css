@@ -1192,9 +1192,11 @@ html[data-tenantidnumber=stg] footer.footer-popover .container > div:last-child 
     display: none !important;
   }
 }
-html[data-tenantidnumber=stg] #usernavigation .editmode-switch-form,
-html[data-tenantidnumber=stg] #usernavigation .divider {
-  display: none !important;
+@media screen and (max-width: 768px) {
+  html[data-tenantidnumber=stg] #usernavigation .editmode-switch-form,
+  html[data-tenantidnumber=stg] #usernavigation .divider {
+    display: none !important;
+  }
 }
 html[data-tenantidnumber=stg] .drawer-toggles .drawer-toggler {
   display: none !important;
@@ -2573,6 +2575,10 @@ html[data-tenantidnumber=stg] .pagelayout-mydashboard .pagination {
   html[data-tenantidnumber=stg] .pagelayout-mydashboard #page-header {
     padding: 0 15px;
   }
+}
+html[data-tenantidnumber=stg] .pagelayout-mydashboard #page-header .h2 {
+  padding: 4px 0 8px !important;
+  padding: 0.25rem 0 0.5rem !important;
 }
 html[data-tenantidnumber=stg] .pagelayout-mydashboard #block-region-content section:first-child .card-title.d-inline, html[data-tenantidnumber=stg] .pagelayout-mydashboard #block-region-content section:first-child #dashboard-sp-content .dashboard-left-block .d-inline.dashboard-left-block-title, html[data-tenantidnumber=stg] .pagelayout-mydashboard #dashboard-sp-content .dashboard-left-block #block-region-content section:first-child .d-inline.dashboard-left-block-title {
   display: none !important;

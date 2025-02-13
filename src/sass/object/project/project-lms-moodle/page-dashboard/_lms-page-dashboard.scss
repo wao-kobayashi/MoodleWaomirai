@@ -33,6 +33,9 @@ $default-max-width: 1170px; // 最大幅
     @include responsive-style(769px) {
       padding: 0 15px;
     }
+    .h2 {
+      padding: 0.25rem 0 0.5rem !important;
+    }
   }
   #block-region-content {
     section:first-child {

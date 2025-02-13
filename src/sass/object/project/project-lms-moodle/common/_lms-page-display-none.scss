@@ -12,7 +12,9 @@
 #usernavigation {
   .editmode-switch-form,
   .divider {
-    display: none !important;
+    @include responsive-style(768px) {
+      display: none !important;
+    }
   }
 }
 
