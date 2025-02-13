@@ -4530,6 +4530,7 @@ html[data-tenantidnumber=stg] .category-53 .enrol-section-basesubject-thismonth-
     width: calc(100% + 40px);
     overflow-x: scroll;
     white-space: nowrap;
+    margin: 10px -20px 25px;
   }
 }
 html[data-tenantidnumber=stg] .category-53 .enrol-section-basesubject-thismonth-lesson .enrol-section-basesubject-thismonth-lesson-grid-level {
@@ -4565,7 +4566,10 @@ html[data-tenantidnumber=stg] .category-53 .enrol-section-basesubject-thismonth-
   html[data-tenantidnumber=stg] .category-53 .enrol-section-basesubject-thismonth-lesson .enrol-section-basesubject-thismonth-lesson-grid-lesson {
     width: 70%;
     display: inline-block;
-    margin: 0 30px 0 0;
+    margin: 0 10px 0 20px;
+  }
+  html[data-tenantidnumber=stg] .category-53 .enrol-section-basesubject-thismonth-lesson .enrol-section-basesubject-thismonth-lesson-grid-lesson:last-child {
+    margin: 0 120px 0 20px;
   }
 }
 html[data-tenantidnumber=stg] .category-53 .enrol-section-basesubject-thismonth-lesson .enrol-section-basesubject-thismonth-lesson-grid-lesson .enrol-section-basesubject-thismonth-lesson-grid-lesson-banner {
@@ -4931,6 +4935,7 @@ html[data-tenantidnumber=stg] .category-48 .enrol-section-basesubject-thismonth-
     width: calc(100% + 40px);
     overflow-x: scroll;
     white-space: nowrap;
+    margin: 10px -20px 25px;
   }
 }
 html[data-tenantidnumber=stg] .category-48 .enrol-section-basesubject-thismonth-lesson .enrol-section-basesubject-thismonth-lesson-grid-level {
@@ -4966,7 +4971,10 @@ html[data-tenantidnumber=stg] .category-48 .enrol-section-basesubject-thismonth-
   html[data-tenantidnumber=stg] .category-48 .enrol-section-basesubject-thismonth-lesson .enrol-section-basesubject-thismonth-lesson-grid-lesson {
     width: 70%;
     display: inline-block;
-    margin: 0 30px 0 0;
+    margin: 0 10px 0 20px;
+  }
+  html[data-tenantidnumber=stg] .category-48 .enrol-section-basesubject-thismonth-lesson .enrol-section-basesubject-thismonth-lesson-grid-lesson:last-child {
+    margin: 0 120px 0 20px;
   }
 }
 html[data-tenantidnumber=stg] .category-48 .enrol-section-basesubject-thismonth-lesson .enrol-section-basesubject-thismonth-lesson-grid-lesson .enrol-section-basesubject-thismonth-lesson-grid-lesson-banner {
@@ -5332,6 +5340,7 @@ html[data-tenantidnumber=stg] .category-52 .enrol-section-basesubject-thismonth-
     width: calc(100% + 40px);
     overflow-x: scroll;
     white-space: nowrap;
+    margin: 10px -20px 25px;
   }
 }
 html[data-tenantidnumber=stg] .category-52 .enrol-section-basesubject-thismonth-lesson .enrol-section-basesubject-thismonth-lesson-grid-level {
@@ -5367,7 +5376,10 @@ html[data-tenantidnumber=stg] .category-52 .enrol-section-basesubject-thismonth-
   html[data-tenantidnumber=stg] .category-52 .enrol-section-basesubject-thismonth-lesson .enrol-section-basesubject-thismonth-lesson-grid-lesson {
     width: 70%;
     display: inline-block;
-    margin: 0 30px 0 0;
+    margin: 0 10px 0 20px;
+  }
+  html[data-tenantidnumber=stg] .category-52 .enrol-section-basesubject-thismonth-lesson .enrol-section-basesubject-thismonth-lesson-grid-lesson:last-child {
+    margin: 0 120px 0 20px;
   }
 }
 html[data-tenantidnumber=stg] .category-52 .enrol-section-basesubject-thismonth-lesson .enrol-section-basesubject-thismonth-lesson-grid-lesson .enrol-section-basesubject-thismonth-lesson-grid-lesson-banner {
@@ -5733,6 +5745,7 @@ html[data-tenantidnumber=stg] .category-49 .enrol-section-basesubject-thismonth-
     width: calc(100% + 40px);
     overflow-x: scroll;
     white-space: nowrap;
+    margin: 10px -20px 25px;
   }
 }
 html[data-tenantidnumber=stg] .category-49 .enrol-section-basesubject-thismonth-lesson .enrol-section-basesubject-thismonth-lesson-grid-level {
@@ -5768,7 +5781,10 @@ html[data-tenantidnumber=stg] .category-49 .enrol-section-basesubject-thismonth-
   html[data-tenantidnumber=stg] .category-49 .enrol-section-basesubject-thismonth-lesson .enrol-section-basesubject-thismonth-lesson-grid-lesson {
     width: 70%;
     display: inline-block;
-    margin: 0 30px 0 0;
+    margin: 0 10px 0 20px;
+  }
+  html[data-tenantidnumber=stg] .category-49 .enrol-section-basesubject-thismonth-lesson .enrol-section-basesubject-thismonth-lesson-grid-lesson:last-child {
+    margin: 0 120px 0 20px;
   }
 }
 html[data-tenantidnumber=stg] .category-49 .enrol-section-basesubject-thismonth-lesson .enrol-section-basesubject-thismonth-lesson-grid-lesson .enrol-section-basesubject-thismonth-lesson-grid-lesson-banner {
@@ -6134,6 +6150,7 @@ html[data-tenantidnumber=stg] .category-51 .enrol-section-basesubject-thismonth-
     width: calc(100% + 40px);
     overflow-x: scroll;
     white-space: nowrap;
+    margin: 10px -20px 25px;
   }
 }
 html[data-tenantidnumber=stg] .category-51 .enrol-section-basesubject-thismonth-lesson .enrol-section-basesubject-thismonth-lesson-grid-level {
@@ -6169,7 +6186,10 @@ html[data-tenantidnumber=stg] .category-51 .enrol-section-basesubject-thismonth-
   html[data-tenantidnumber=stg] .category-51 .enrol-section-basesubject-thismonth-lesson .enrol-section-basesubject-thismonth-lesson-grid-lesson {
     width: 70%;
     display: inline-block;
-    margin: 0 30px 0 0;
+    margin: 0 10px 0 20px;
+  }
+  html[data-tenantidnumber=stg] .category-51 .enrol-section-basesubject-thismonth-lesson .enrol-section-basesubject-thismonth-lesson-grid-lesson:last-child {
+    margin: 0 120px 0 20px;
   }
 }
 html[data-tenantidnumber=stg] .category-51 .enrol-section-basesubject-thismonth-lesson .enrol-section-basesubject-thismonth-lesson-grid-lesson .enrol-section-basesubject-thismonth-lesson-grid-lesson-banner {
@@ -6535,6 +6555,7 @@ html[data-tenantidnumber=stg] .category-47 .enrol-section-basesubject-thismonth-
     width: calc(100% + 40px);
     overflow-x: scroll;
     white-space: nowrap;
+    margin: 10px -20px 25px;
   }
 }
 html[data-tenantidnumber=stg] .category-47 .enrol-section-basesubject-thismonth-lesson .enrol-section-basesubject-thismonth-lesson-grid-level {
@@ -6570,7 +6591,10 @@ html[data-tenantidnumber=stg] .category-47 .enrol-section-basesubject-thismonth-
   html[data-tenantidnumber=stg] .category-47 .enrol-section-basesubject-thismonth-lesson .enrol-section-basesubject-thismonth-lesson-grid-lesson {
     width: 70%;
     display: inline-block;
-    margin: 0 30px 0 0;
+    margin: 0 10px 0 20px;
+  }
+  html[data-tenantidnumber=stg] .category-47 .enrol-section-basesubject-thismonth-lesson .enrol-section-basesubject-thismonth-lesson-grid-lesson:last-child {
+    margin: 0 120px 0 20px;
   }
 }
 html[data-tenantidnumber=stg] .category-47 .enrol-section-basesubject-thismonth-lesson .enrol-section-basesubject-thismonth-lesson-grid-lesson .enrol-section-basesubject-thismonth-lesson-grid-lesson-banner {
@@ -6936,6 +6960,7 @@ html[data-tenantidnumber=stg] .category-50 .enrol-section-basesubject-thismonth-
     width: calc(100% + 40px);
     overflow-x: scroll;
     white-space: nowrap;
+    margin: 10px -20px 25px;
   }
 }
 html[data-tenantidnumber=stg] .category-50 .enrol-section-basesubject-thismonth-lesson .enrol-section-basesubject-thismonth-lesson-grid-level {
@@ -6971,7 +6996,10 @@ html[data-tenantidnumber=stg] .category-50 .enrol-section-basesubject-thismonth-
   html[data-tenantidnumber=stg] .category-50 .enrol-section-basesubject-thismonth-lesson .enrol-section-basesubject-thismonth-lesson-grid-lesson {
     width: 70%;
     display: inline-block;
-    margin: 0 30px 0 0;
+    margin: 0 10px 0 20px;
+  }
+  html[data-tenantidnumber=stg] .category-50 .enrol-section-basesubject-thismonth-lesson .enrol-section-basesubject-thismonth-lesson-grid-lesson:last-child {
+    margin: 0 120px 0 20px;
   }
 }
 html[data-tenantidnumber=stg] .category-50 .enrol-section-basesubject-thismonth-lesson .enrol-section-basesubject-thismonth-lesson-grid-lesson .enrol-section-basesubject-thismonth-lesson-grid-lesson-banner {
@@ -7337,6 +7365,7 @@ html[data-tenantidnumber=stg] .category-54 .enrol-section-basesubject-thismonth-
     width: calc(100% + 40px);
     overflow-x: scroll;
     white-space: nowrap;
+    margin: 10px -20px 25px;
   }
 }
 html[data-tenantidnumber=stg] .category-54 .enrol-section-basesubject-thismonth-lesson .enrol-section-basesubject-thismonth-lesson-grid-level {
@@ -7372,7 +7401,10 @@ html[data-tenantidnumber=stg] .category-54 .enrol-section-basesubject-thismonth-
   html[data-tenantidnumber=stg] .category-54 .enrol-section-basesubject-thismonth-lesson .enrol-section-basesubject-thismonth-lesson-grid-lesson {
     width: 70%;
     display: inline-block;
-    margin: 0 30px 0 0;
+    margin: 0 10px 0 20px;
+  }
+  html[data-tenantidnumber=stg] .category-54 .enrol-section-basesubject-thismonth-lesson .enrol-section-basesubject-thismonth-lesson-grid-lesson:last-child {
+    margin: 0 120px 0 20px;
   }
 }
 html[data-tenantidnumber=stg] .category-54 .enrol-section-basesubject-thismonth-lesson .enrol-section-basesubject-thismonth-lesson-grid-lesson .enrol-section-basesubject-thismonth-lesson-grid-lesson-banner {
