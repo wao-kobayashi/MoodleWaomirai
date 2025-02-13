@@ -2593,9 +2593,6 @@ html[data-tenantidnumber=stg] .pagelayout-mydashboard .block_html > div > h5 {
   /* テキストブロックの文言を非表示に */
   display: none !important;
 }
-html[data-tenantidnumber=stg] .pagelayout-mydashboard .calendarwrapper td > div {
-  height: 10em !important;
-}
 html[data-tenantidnumber=stg] .pagelayout-mydashboard .dashboard-textblock {
   overflow: hidden;
 }
@@ -2977,6 +2974,9 @@ html[data-tenantidnumber=stg] .pagelayout-mydashboard #page.drawers {
   padding-left: 0px !important;
   padding-right: 0px !important;
 }
+html[data-tenantidnumber=stg] .pagelayout-mydashboard .calendarwrapper td > div {
+  height: 10em !important;
+}
 html[data-tenantidnumber=stg] .pagelayout-mydashboard .maincalendar .calendartable li {
   padding: 4px 2px !important;
 }
@@ -3140,28 +3140,6 @@ html[data-tenantidnumber=stg] .pagelayout-mydashboard .day:hover {
 }
 html[data-tenantidnumber=stg] .pagelayout-mydashboard td > div {
   overflow: visible !important;
-}
-html[data-tenantidnumber=stg] .pagelayout-mydashboard .calender-today-speech {
-  position: absolute;
-  height: auto !important;
-  left: 0;
-  right: 0;
-  top: -60px;
-  margin: auto -10px !important;
-  text-align: center;
-  width: calc(100% + 20px);
-  z-index: 99;
-}
-html[data-tenantidnumber=stg] .pagelayout-mydashboard .calender-today-speech img {
-  width: 100%;
-  -webkit-animation-name: fuwafuwa;
-          animation-name: fuwafuwa;
-  -webkit-animation-duration: 2.2s;
-          animation-duration: 2.2s;
-  -webkit-animation-iteration-count: infinite;
-          animation-iteration-count: infinite;
-  -webkit-animation-timing-function: ease;
-          animation-timing-function: ease;
 }
 html[data-tenantidnumber=stg] .pagelayout-mydashboard .maincalendar .calendarmonth ul li:focus, html[data-tenantidnumber=stg] .pagelayout-mydashboard .maincalendar .calendarmonth ul li:active {
   -webkit-box-shadow: none;
@@ -3498,6 +3476,103 @@ html[data-tenantidnumber=stg] .pagelayout-mydashboard #dashboard-sp-content .das
   font-weight: bold;
   margin: 0 0px 0px !important;
   padding: 0px 35px 0px !important;
+}
+html[data-tenantidnumber=stg] .pagelayout-mydashboard .dashboard-main-info {
+  background: white;
+  border-radius: 12px;
+  padding: 20px 15px 25px !important;
+  margin-bottom: 16px !important;
+  margin-bottom: 1rem !important;
+  position: relative;
+}
+@media screen and (max-width: 769px) {
+  html[data-tenantidnumber=stg] .pagelayout-mydashboard .dashboard-main-info {
+    border-radius: 0px;
+    padding: 20px 15px 0px !important;
+    margin-bottom: 2rem !important;
+  }
+}
+html[data-tenantidnumber=stg] .pagelayout-mydashboard .dashboard-main-info .card-title, html[data-tenantidnumber=stg] .pagelayout-mydashboard .dashboard-main-info #dashboard-sp-content .dashboard-left-block .dashboard-left-block-title, html[data-tenantidnumber=stg] .pagelayout-mydashboard #dashboard-sp-content .dashboard-left-block .dashboard-main-info .dashboard-left-block-title {
+  position: relative;
+  z-index: 2;
+}
+html[data-tenantidnumber=stg] .pagelayout-mydashboard .dashboard-main-info .dashboard-main-info-text {
+  position: relative;
+  z-index: 2;
+  margin: 0 6px;
+  line-height: 1.5;
+  width: 60%;
+}
+@media screen and (max-width: 769px) {
+  html[data-tenantidnumber=stg] .pagelayout-mydashboard .dashboard-main-info .dashboard-main-info-text {
+    width: 100%;
+    margin: 0 6px;
+  }
+}
+html[data-tenantidnumber=stg] .pagelayout-mydashboard .dashboard-main-info .dashboard-main-info-button a {
+  /* 横幅はまちまちなので指定しない */
+  height: 48px;
+  border-radius: 4px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 16px !important;
+  border-radius: 8px;
+  line-height: 1;
+  background: #005c3f !important;
+  color: #ffffff !important;
+  border: none !important;
+  position: relative;
+  z-index: 2;
+  width: 220px;
+  margin: 16px 4px 0;
+}
+html[data-tenantidnumber=stg] .pagelayout-mydashboard .dashboard-main-info .dashboard-main-info-button a:hover {
+  text-decoration: none;
+}
+html[data-tenantidnumber=stg] .pagelayout-mydashboard .dashboard-main-info .dashboard-main-info-right::before {
+  content: ""; /* 疑似要素に必須 */
+  width: 75%; /* 幅いっぱい */
+  height: 100%; /* 高さいっぱい */
+  display: block; /* 高さを指定するためにブロック要素にする */
+  background: -webkit-gradient(linear, right top, left top, color-stop(0, rgba(255, 255, 255, 0)), color-stop(75%, #fff));
+  background: linear-gradient(270deg, rgba(255, 255, 255, 0) 0, #fff 75%); /* 徐々に透明にする */
+  position: absolute; /*  */
+  top: 0;
+  right: 0;
+  z-index: 1;
+}
+html[data-tenantidnumber=stg] .pagelayout-mydashboard .dashboard-main-info .dashboard-main-info-right img {
+  position: absolute;
+  right: 0;
+  top: 10px;
+  bottom: 0;
+  width: 75%;
+  margin: auto;
+  z-index: 0;
+}
+html[data-tenantidnumber=stg] .pagelayout-mydashboard .dashboard-main-info-bottom {
+  margin: 30px -20px 0;
+  position: relative;
+}
+html[data-tenantidnumber=stg] .pagelayout-mydashboard .dashboard-main-info-bottom::before {
+  content: ""; /* 疑似要素に必須 */
+  width: 100%; /* 幅いっぱい */
+  height: 80%; /* 高さいっぱい */
+  display: block; /* 高さを指定するためにブロック要素にする */
+  background: -webkit-gradient(linear, left bottom, left top, color-stop(0, rgba(255, 255, 255, 0)), to(#fff));
+  background: linear-gradient(0deg, rgba(255, 255, 255, 0) 0, #fff 100%); /* 徐々に透明にする */
+  position: absolute; /*  */
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
 }
 html[data-tenantidnumber=stg] #page-user-edit .collapse:not(.show) {
   display: block !important;

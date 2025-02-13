@@ -59,17 +59,21 @@
               |授業のレベルを変更したい        
   //infoOpeningVisibleがtrueの時に「開校のお知らせ」を表示
   if infoOpeningVisible 
-    .dashboard-main-info
+    .dashboard-main-info(style='display:none;')
           h5.card-title|開校のお知らせ
           .dashboard-main-info-text 
-            b|ワオ未来塾は2025年4月6日に開校します。
+            b|ワオ未来塾は2025年4月に開校します。
             br
-            |イベントとして2025/2/25〜4/4の間で未来塾の講座がたっぷり体験できる 無料体験MONTHを開催しています
-          .dashboard-main-info-button 
-            a(href='https://go.waomirai.com/l/1026513/2025-01-05/hbd3d/1026513/1736131604z7ZKQe9J') 
+            |開校前のイベントとして2月25日〜4月4日の間で未来塾の講座が
+            br.c-sp-hidden
+            |たっぷり体験できる 無料体験MONTHを開催しています
+          .dashboard-main-info-button
+            a(href='https://go.waomirai.com/event-2025march', target='_blank') 
               |詳細を見る
-          .dashboard-main-info-right 
+          .dashboard-main-info-right.c-sp-hidden
              img(src='https://go.waomirai.com/l/1026513/2025-02-13/hfgk8/1026513/1739425024ssYWoCzA/img_2025march_events_pc.png')
+          .dashboard-main-info-bottom.c-pc-hidden
+             img(src='https://go.waomirai.com/l/1026513/2025-02-13/hfgkc/1026513/1739425024IalrS0n9/img_2025march_events_sp.png')
   .dashboard-main#todays-subject-pc
     //ダッシュボードのバナー
     .c-alert-banner.alert-buy-course.c-sp-hidden

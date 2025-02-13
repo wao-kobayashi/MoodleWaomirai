@@ -205,8 +205,10 @@ if (bodyId === "page-my-index") {
     // 今日の科目PCビューを非表示
     $("#todays-subject-pc").hide();
   } else {
-    // ウィンドウの幅が768px以上の場合、メインの授業部分を非表示
+    //何かしら授業を買っていた場合の処理
+    $(".dashboard-main-info").show(); //開講前のお知らせを表示（2025年4月以降は存在しない可能性大）
     if ($(window).width() >= 768) {
+       // ウィンドウの幅が768px以上の場合、メインの授業部分を非表示
       $(".dashboard-main-class").hide();
     }
   }

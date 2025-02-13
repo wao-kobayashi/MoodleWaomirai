@@ -1,16 +1,20 @@
-// カレンダーのサイドバーとメイン幅の調整変数
-$dashboard-sidebar-width: 225px; // サイドバーの幅
-$body-padding: 25px; // サイドバーとの距離
-$default-max-width: 1170px; // 最大幅
-
 #page-my-index #page-wrapper {
   overflow-x: hidden;
   width: 100%;
 }
 
+////////////////////////
+//基本デザイン
+////////////////////////
+
+// カレンダーのサイドバーとメイン幅の調整変数
+$dashboard-sidebar-width: 225px; // サイドバーの幅
+$body-padding: 25px; // サイドバーとの距離
+$default-max-width: 1170px; // 最大幅
+
 .pagelayout-mydashboard {
-  // 背景設定
-  background: $cl-graylightest !important;
+  background: $cl-graylightest !important; // 背景設定
+
   .block_myinprogress .tool_catalogue-carousel {
     overflow: hidden !important;
   }
@@ -55,9 +59,7 @@ $default-max-width: 1170px; // 最大幅
     /* テキストブロックの文言を非表示に */
     display: none !important;
   }
-  .calendarwrapper td > div {
-    height: 10em !important;
-  }
+
   .dashboard-textblock {
     overflow: hidden;
   }
@@ -288,7 +290,15 @@ $default-max-width: 1170px; // 最大幅
     padding-left: 0px !important;
     padding-right: 0px !important;
   }
+}
 
+////////////////////////
+//カレンダー周りのデザイン
+////////////////////////
+.pagelayout-mydashboard {
+  .calendarwrapper td > div {
+    height: 10em !important;
+  }
   // ページの内側部分（drawers）の背景を透明化
   .maincalendar .calendartable li {
     padding: 4px 2px !important;
@@ -447,24 +457,7 @@ $default-max-width: 1170px; // 最大幅
   td > div {
     overflow: visible !important;
   }
-  .calender-today-speech {
-    position: absolute;
-    height: auto !important;
-    left: 0;
-    right: 0;
-    top: -60px;
-    margin: auto -10px !important;
-    text-align: center;
-    width: calc(100% + 20px);
-    z-index: 99;
-    img {
-      width: 100%;
-      animation-name: fuwafuwa;
-      animation-duration: 2.2s;
-      animation-iteration-count: infinite;
-      animation-timing-function: ease;
-    }
-  }
+
   .maincalendar .calendarmonth ul li {
     &:focus,
     &:active {
@@ -546,7 +539,9 @@ $default-max-width: 1170px; // 最大幅
   }
 }
 
+////////////////////////
 //カレンダーの予定をクリックしたときのモーダル
+////////////////////////
 .pagelayout-mydashboard {
   .modal {
     .calendar_event_course {
@@ -626,7 +621,9 @@ $default-max-width: 1170px; // 最大幅
   }
 }
 
-//スマホ特有のレイアウト調整
+////////////////////////
+//スマホ特有の画面定義
+////////////////////////
 .pagelayout-mydashboard {
   .dashboard-main {
     .dashboard-main-navi {
@@ -783,6 +780,98 @@ $default-max-width: 1170px; // 最大幅
         padding: 0px 35px 0px !important;
         @extend .card-title;
       }
+    }
+  }
+}
+
+////////////////////////
+//期間限定の表示
+////////////////////////
+
+.pagelayout-mydashboard {
+  //未来塾、4月6日に開校
+  .dashboard-main-info {
+    background: white;
+    border-radius: 12px;
+    padding: 20px 15px 25px !important;
+    margin-bottom: 1rem !important;
+    position: relative;
+    @include responsive-style(769px) {
+      border-radius: 0px;
+      padding: 20px 15px 0px !important;
+      margin-bottom: 2rem !important;
+    }
+    .card-title {
+      position: relative;
+      z-index: 2;
+    }
+    .dashboard-main-info-text {
+      position: relative;
+      z-index: 2;
+      margin: 0 6px;
+      line-height: $lineheight-normal;
+      width: 60%;
+      @include responsive-style(769px) {
+        width: 100%;
+        margin: 0 6px;
+      }
+    }
+    .dashboard-main-info-button a {
+      @include button-size-middle;
+      @include button-style-primary;
+      position: relative;
+      z-index: 2;
+      width: 220px;
+      margin: 16px 4px 0;
+      &:hover {
+        text-decoration: none;
+      }
+    }
+    .dashboard-main-info-right {
+      &::before {
+        content: ""; /* 疑似要素に必須 */
+        width: 75%; /* 幅いっぱい */
+        height: 100%; /* 高さいっぱい */
+        display: block; /* 高さを指定するためにブロック要素にする */
+        background: linear-gradient(
+          270deg,
+          rgba(255, 255, 255, 0) 0,
+          #fff 75%
+        ); /* 徐々に透明にする */
+        position: absolute; /*  */
+        top: 0;
+        right: 0;
+        z-index: 1;
+      }
+      img {
+        position: absolute;
+        right: 0;
+        top: 10px;
+        bottom: 0;
+        width: 75%;
+        margin: auto;
+        z-index: 0;
+      }
+    }
+  }
+  .dashboard-main-info-bottom {
+    margin: 30px -20px 0;
+    position: relative;
+    &::before {
+      content: ""; /* 疑似要素に必須 */
+      width: 100%; /* 幅いっぱい */
+      height: 80%; /* 高さいっぱい */
+      display: block; /* 高さを指定するためにブロック要素にする */
+      background: linear-gradient(
+        0deg,
+        rgba(255, 255, 255, 0) 0,
+        #fff 100%
+      ); /* 徐々に透明にする */
+      position: absolute; /*  */
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1;
     }
   }
 }
