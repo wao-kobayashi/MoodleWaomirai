@@ -8,6 +8,11 @@
 
 // //間違って本番に出してしまいそうなのでコメントアウトしておく
 $tenant: "lms";
+@import url("https://fonts.googleapis.com/css?family=Noto+Sans+JP:400,500,700,900");
+body {
+  font-family: "Noto Sans JP", sans-serif;
+}
+
 html[data-tenantidnumber="lmswaomirai"] {
   @import "object/project/project-lms-moodle/_lms-scss-global";
 }

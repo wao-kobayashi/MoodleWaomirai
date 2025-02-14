@@ -1,22 +1,17 @@
-@import url('https://fonts.googleapis.com/css?family=Noto+Sans+JP:400,500,700,900');
-body {
-    font-family: 'Noto Sans JP', sans-serif;
-}
-
-@media screen and (max-width: 3000px)and (min-width: 768px) {
-    .spimage {
-        display: none !important;
-    }
-    .pcimage {
-        display: inherit;
-    }
+@media screen and (max-width: 3000px) and (min-width: 768px) {
+  .spimage {
+    display: none !important;
+  }
+  .pcimage {
+    display: inherit;
+  }
 }
 
 @media screen and (max-width: 767px) {
-    .spimage {
-        display: inherit;
-    }
-    .pcimage {
-        display: none !important;
-    }
+  .spimage {
+    display: inherit;
+  }
+  .pcimage {
+    display: none !important;
+  }
 }
