@@ -4,6 +4,7 @@
 mixin enrol-lesson-month
   .enrol-section
     h2.enrol-title 2025年4月の授業
+    .enrol-subtitle|※授業は各レベルのいずれかを受講可能です。
     // 各教科の授業情報を表示
     .enrol-section-basesubject-thismonth-lesson
       each subject in subjects[enrolpage.category]
@@ -29,6 +30,7 @@ mixin enrol-lesson-month
 mixin enrol-lesson-year
  .enrol-section
   h2.enrol-title 年間の授業カリキュラム
+  .enrol-subtitle|※基本的には月ごとのテーマ設定となっていますので、何月に入会しても授業を楽しむことができます。
   .enrol-section-basesubject-year-lesson
     // レベルごとのタブ部分
     .enrol-section-basesubject-year-lesson-tab 
@@ -113,7 +115,13 @@ mixin enrol-howto-register
         .enrol-section-howto-text 
             .enrol-step-lbl Step 03
             .enrol-step-heading 科目のレベルを設定する
-            .enrol-step-desc 受講する教科と科目をご登録ください。※科目をご登録いただかないと、授業を受けることができません
+            .enrol-step-desc 
+               if enrolpage.category === 'twosubjectpack'
+                //２科パックの場合
+                |受講する科目と受講レベルをご登録ください。※ご登録いただかないと、授業を受けることができません
+               else 
+                //３科パック・哲学・科学・経済・英語の場合
+                |受講レベルをご登録ください。※ご登録いただかないと、授業を受けることができません
         .enrol-section-howto-img
            img(src='https://go.waomirai.com/l/1026513/2025-01-14/hbt8v/1026513/1736840429DClvzQYZ/icn_howto_take_04_.svg') 
         .enrol-section-howto-text   

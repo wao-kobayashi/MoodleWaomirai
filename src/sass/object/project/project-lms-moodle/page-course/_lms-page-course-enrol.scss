@@ -240,6 +240,13 @@ $subject-default-max-width: 1140px; // 最大幅
       display: block !important;
     }
 
+    .enrol-subtitle {
+      font-size: 13px !important;
+      color: $cl-graylight;
+      margin: -14px 0 30px;
+      display: block !important;
+    }
+
     .enrol-discount {
       font-size: $lms-font-size-m;
       margin-top: 4px;

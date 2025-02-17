@@ -4,11 +4,14 @@
     // 今月の授業のレイアウト設定
     // ========================================
     .enrol-section-basesubject-thismonth-lesson {
+      @include min-responsive-style(768px) {
+        margin: -10px auto 0px; // 下に余白
+      }
       .enrol-section-basesubject-thismonth-lesson-grid {
         display: grid; // グリッドレイアウトで配置
         grid-template-columns: repeat(3, 1fr); // 左に0.6fr、右に3列均等配置
         grid-column-gap: 30px; // 各列の間隔
-        margin: 0 0 25px; // 下に余白
+        margin: 0px 0 25px; // 下に余白
         border-radius: $border-radius-middle;
         @include responsive-style(768px) {
           display: block;

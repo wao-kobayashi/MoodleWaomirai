@@ -4441,6 +4441,13 @@ html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo .enrol-secti
   margin-bottom: 20px;
   display: block !important;
 }
+html[data-tenantidnumber=stg] #page-enrol-index .enrol-section .enrol-subtitle,
+html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo .enrol-section .enrol-subtitle {
+  font-size: 13px !important;
+  color: #999;
+  margin: -14px 0 30px;
+  display: block !important;
+}
 html[data-tenantidnumber=stg] #page-enrol-index .enrol-section .enrol-discount,
 html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo .enrol-section .enrol-discount {
   font-size: 14px;
@@ -4522,11 +4529,16 @@ html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo .enrol-secti
     font-size: 14px;
   }
 }
+@media screen and (min-width: 768px) {
+  html[data-tenantidnumber=stg] .category-53 .enrol-section-basesubject-thismonth-lesson {
+    margin: -10px auto 0px;
+  }
+}
 html[data-tenantidnumber=stg] .category-53 .enrol-section-basesubject-thismonth-lesson .enrol-section-basesubject-thismonth-lesson-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-column-gap: 30px;
-  margin: 0 0 25px;
+  margin: 0px 0 25px;
   border-radius: 8px;
 }
 @media screen and (max-width: 768px) {
@@ -4927,11 +4939,16 @@ html[data-tenantidnumber=stg] .category-53 .enrol-section-basesubject-timetable-
   font-size: 30px;
   font-weight: 300;
 }
+@media screen and (min-width: 768px) {
+  html[data-tenantidnumber=stg] .category-48 .enrol-section-basesubject-thismonth-lesson {
+    margin: -10px auto 0px;
+  }
+}
 html[data-tenantidnumber=stg] .category-48 .enrol-section-basesubject-thismonth-lesson .enrol-section-basesubject-thismonth-lesson-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-column-gap: 30px;
-  margin: 0 0 25px;
+  margin: 0px 0 25px;
   border-radius: 8px;
 }
 @media screen and (max-width: 768px) {
@@ -5332,11 +5349,16 @@ html[data-tenantidnumber=stg] .category-48 .enrol-section-basesubject-timetable-
   font-size: 30px;
   font-weight: 300;
 }
+@media screen and (min-width: 768px) {
+  html[data-tenantidnumber=stg] .category-52 .enrol-section-basesubject-thismonth-lesson {
+    margin: -10px auto 0px;
+  }
+}
 html[data-tenantidnumber=stg] .category-52 .enrol-section-basesubject-thismonth-lesson .enrol-section-basesubject-thismonth-lesson-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-column-gap: 30px;
-  margin: 0 0 25px;
+  margin: 0px 0 25px;
   border-radius: 8px;
 }
 @media screen and (max-width: 768px) {
@@ -5737,11 +5759,16 @@ html[data-tenantidnumber=stg] .category-52 .enrol-section-basesubject-timetable-
   font-size: 30px;
   font-weight: 300;
 }
+@media screen and (min-width: 768px) {
+  html[data-tenantidnumber=stg] .category-49 .enrol-section-basesubject-thismonth-lesson {
+    margin: -10px auto 0px;
+  }
+}
 html[data-tenantidnumber=stg] .category-49 .enrol-section-basesubject-thismonth-lesson .enrol-section-basesubject-thismonth-lesson-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-column-gap: 30px;
-  margin: 0 0 25px;
+  margin: 0px 0 25px;
   border-radius: 8px;
 }
 @media screen and (max-width: 768px) {
@@ -6142,11 +6169,16 @@ html[data-tenantidnumber=stg] .category-49 .enrol-section-basesubject-timetable-
   font-size: 30px;
   font-weight: 300;
 }
+@media screen and (min-width: 768px) {
+  html[data-tenantidnumber=stg] .category-51 .enrol-section-basesubject-thismonth-lesson {
+    margin: -10px auto 0px;
+  }
+}
 html[data-tenantidnumber=stg] .category-51 .enrol-section-basesubject-thismonth-lesson .enrol-section-basesubject-thismonth-lesson-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-column-gap: 30px;
-  margin: 0 0 25px;
+  margin: 0px 0 25px;
   border-radius: 8px;
 }
 @media screen and (max-width: 768px) {
@@ -6547,11 +6579,16 @@ html[data-tenantidnumber=stg] .category-51 .enrol-section-basesubject-timetable-
   font-size: 30px;
   font-weight: 300;
 }
+@media screen and (min-width: 768px) {
+  html[data-tenantidnumber=stg] .category-47 .enrol-section-basesubject-thismonth-lesson {
+    margin: -10px auto 0px;
+  }
+}
 html[data-tenantidnumber=stg] .category-47 .enrol-section-basesubject-thismonth-lesson .enrol-section-basesubject-thismonth-lesson-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-column-gap: 30px;
-  margin: 0 0 25px;
+  margin: 0px 0 25px;
   border-radius: 8px;
 }
 @media screen and (max-width: 768px) {
@@ -6952,11 +6989,16 @@ html[data-tenantidnumber=stg] .category-47 .enrol-section-basesubject-timetable-
   font-size: 30px;
   font-weight: 300;
 }
+@media screen and (min-width: 768px) {
+  html[data-tenantidnumber=stg] .category-50 .enrol-section-basesubject-thismonth-lesson {
+    margin: -10px auto 0px;
+  }
+}
 html[data-tenantidnumber=stg] .category-50 .enrol-section-basesubject-thismonth-lesson .enrol-section-basesubject-thismonth-lesson-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-column-gap: 30px;
-  margin: 0 0 25px;
+  margin: 0px 0 25px;
   border-radius: 8px;
 }
 @media screen and (max-width: 768px) {
@@ -7357,11 +7399,16 @@ html[data-tenantidnumber=stg] .category-50 .enrol-section-basesubject-timetable-
   font-size: 30px;
   font-weight: 300;
 }
+@media screen and (min-width: 768px) {
+  html[data-tenantidnumber=stg] .category-54 .enrol-section-basesubject-thismonth-lesson {
+    margin: -10px auto 0px;
+  }
+}
 html[data-tenantidnumber=stg] .category-54 .enrol-section-basesubject-thismonth-lesson .enrol-section-basesubject-thismonth-lesson-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-column-gap: 30px;
-  margin: 0 0 25px;
+  margin: 0px 0 25px;
   border-radius: 8px;
 }
 @media screen and (max-width: 768px) {
