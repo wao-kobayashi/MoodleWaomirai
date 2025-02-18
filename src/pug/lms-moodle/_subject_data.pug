@@ -1,43 +1,86 @@
-// 各種データの定義
+
+-
+  // 当月授業の画像URL
+  //哲学
+  var imgPhLv1Week1 = "https://go.waomirai.com/l/1026513/2025-02-18/hfw9v/1026513/173985610006MRJljw/phi_lv1_month1_week1.jpg";
+  var imgPhLv1Week2 = "https://go.waomirai.com/l/1026513/2025-02-18/hfw9r/1026513/1739856100rAMefKHw/phi_lv1_month1_week2.jpg";
+  var imgPhLv1Week3 = "https://go.waomirai.com/l/1026513/2025-02-18/hfw9y/1026513/1739856100GAZYYn6W/phi_lv1_month1_week3.jpg";
+  var imgPhLv2Week1 = "https://go.waomirai.com/l/1026513/2025-02-18/hfwb2/1026513/17398561016OqpE2sY/phi_lv1_month2_week1.jpg";
+  var imgPhLv2Week2 = "https://go.waomirai.com/l/1026513/2025-02-18/hfwb5/1026513/1739856101UZOyTAQj/phi_lv1_month2_week2.jpg";
+  var imgPhLv2Week3 = "https://go.waomirai.com/l/1026513/2025-02-18/hfwb8/1026513/1739856101w0DeYWZr/phi_lv1_month2_week3.jpg";
+  var imgPhLv3Week1 = "https://go.waomirai.com/l/1026513/2025-02-18/hfwby/1026513/1739856103htk33ZJo/phi_lv3_month1_week1.jpg";
+  var imgPhLv3Week2 = "https://go.waomirai.com/l/1026513/2025-02-18/hfwc2/1026513/1739856103TouPnHZG/phi_lv3_month1_week2.jpg";
+  var imgPhLv3Week3 = "https://go.waomirai.com/l/1026513/2025-02-18/hfwc5/1026513/1739856103vhwAD4aB/phi_lv3_month1_week3.jpg";
+  var imgPhLv4Week1 = "https://go.waomirai.com/l/1026513/2025-02-18/hfwck/1026513/1739856104Adzz9hpY/phi_lv4_month1_week1.jpg";
+  var imgPhLv4Week2 = "https://go.waomirai.com/l/1026513/2025-02-18/hfwcn/1026513/17398561047HYLg8Bn/phi_lv4_month1_week2.jpg";
+  var imgPhLv4Week3 = "https://go.waomirai.com/l/1026513/2025-02-18/hfwcv/1026513/1739856104tEydw8os/phi_lv4_month1_week3.jpg";
+  //科学
+  var imgScLv1Week1 = "https://go.waomirai.com/l/1026513/2025-02-18/hfwgk/1026513/1739857436sUJgP8AU/sci_lv1_month1_week1.jpg";
+  var imgScLv1Week2 = "https://go.waomirai.com/l/1026513/2025-02-18/hfwgg/1026513/17398574362tlwwaUM/sci_lv1_month1_week2.jpg";
+  var imgScLv1Week3 = "https://go.waomirai.com/l/1026513/2025-02-18/hfwgc/1026513/1739857436D4kZmz7Z/sci_lv1_month1_week3.jpg";
+  var imgScLv2Week1 = "https://go.waomirai.com/l/1026513/2025-02-18/hfwgn/1026513/1739857437FApk1TBJ/sci_lv2_month1_week1.jpg";
+  var imgScLv2Week2 = "https://go.waomirai.com/l/1026513/2025-02-18/hfwgv/1026513/17398574379antBbaK/sci_lv2_month1_week2.jpg";
+  var imgScLv2Week3 = "https://go.waomirai.com/l/1026513/2025-02-18/hfwgr/1026513/1739857437AjQEn3DK/sci_lv2_month1_week3.jpg";
+  var imgScLv3Week1 = "https://go.waomirai.com/l/1026513/2025-02-18/hfwgy/1026513/1739857437Wi40oOze/sci_lv3_month1_week1.jpg";
+  var imgScLv3Week2 = "https://go.waomirai.com/l/1026513/2025-02-18/hfwh5/1026513/1739857437zm8yWKOW/sci_lv3_month1_week2.jpg";
+  var imgScLv3Week3 = "https://go.waomirai.com/l/1026513/2025-02-18/hfwh2/1026513/17398574371igCbnJP/sci_lv3_month1_week3.jpg";
+  var imgScLv4Week1 = "https://go.waomirai.com/l/1026513/2025-02-18/hfwh8/1026513/1739857438jOpHv725/sci_lv4_month1_week1.jpg";
+  var imgScLv4Week2 = "https://go.waomirai.com/l/1026513/2025-02-18/hfwhc/1026513/1739857438pdJNEtPv/sci_lv4_month1_week2.jpg";
+  var imgScLv4Week3 = "https://go.waomirai.com/l/1026513/2025-02-18/hfwhg/1026513/1739857438cqI8dhfm/sci_lv4_month1_week3.jpg";
+  //経済
+  var imgEcLv1Week1 = "https://go.waomirai.com/l/1026513/2025-02-18/hfwjk/1026513/1739858426YY9aa0Ng/eco_lv1_month1_week1.jpg";
+  var imgEcLv1Week2 = "https://go.waomirai.com/l/1026513/2025-02-18/hfwjg/1026513/1739858426uDWuHbZl/eco_lv1_month1_week2.jpg";
+  var imgEcLv1Week3 = "https://go.waomirai.com/l/1026513/2025-02-18/hfwjc/1026513/1739858426fmH1uZzy/eco_lv1_month1_week3.jpg";
+  var imgEcLv2Week1 = "https://go.waomirai.com/l/1026513/2025-02-18/hfwjr/1026513/1739858427ivBWrQg2/eco_lv2_month1_week1.jpg";
+  var imgEcLv2Week2 = "https://go.waomirai.com/l/1026513/2025-02-18/hfwjn/1026513/1739858427b2AMGKOi/eco_lv2_month1_week2.jpg";
+  var imgEcLv2Week3 = "https://go.waomirai.com/l/1026513/2025-02-18/hfwjv/1026513/17398584274p7ejfez/eco_lv2_month1_week3.jpg";
+  var imgEcLv3Week1 = "https://go.waomirai.com/l/1026513/2025-02-18/hfwjy/1026513/1739858428AG5KZ6ag/eco_lv3_month1_week1.jpg";
+  var imgEcLv3Week2 = "https://go.waomirai.com/l/1026513/2025-02-18/hfwk2/1026513/1739858428JBgfHw9P/eco_lv3_month1_week2.jpg";
+  var imgEcLv3Week3 = "https://go.waomirai.com/l/1026513/2025-02-18/hfwk5/1026513/1739858428zbA2U5vi/eco_lv3_month1_week3.jpg";
+  var imgEcLv4Week1 = "https://go.waomirai.com/l/1026513/2025-02-18/hfwkc/1026513/1739858429aTZn9UmY/eco_lv4_month1_week1.jpg";
+  var imgEcLv4Week2 = "https://go.waomirai.com/l/1026513/2025-02-18/hfwk8/1026513/1739858429fG5QcNKg/eco_lv4_month1_week2.jpg";
+  var imgEcLv4Week3 = "https://go.waomirai.com/l/1026513/2025-02-18/hfwkg/1026513/1739858429Gr8z1gcb/eco_lv4_month1_week3.jpg";
+
+
 -
   // 授業データ（レベル、学年、レッスン内容）
-  var subjects = {
+  var thisMonthLessons = {
     //哲学
     philosophy: [
       {
         level: "1", // レベル名
         grade: "小3-4", // 対象学年
         lessons: [
-          { week: "1周目", banner: "https://go.waomirai.com/l/1026513/2025-02-05/hdw9n/1026513/17388115572akwZ6Km/thumbnail_ph.jpg", text: "自分だけの物語を語る" },
-          { week: "2周目", banner: "https://go.waomirai.com/l/1026513/2025-02-05/hdw9n/1026513/17388115572akwZ6Km/thumbnail_ph.jpg", text: "伝えるときの極意" },
-          { week: "3周目", banner: "https://go.waomirai.com/l/1026513/2025-02-05/hdw9n/1026513/17388115572akwZ6Km/thumbnail_ph.jpg",text: "フィードバック" }
+          { week: "1周目", banner: imgPhLv1Week1, text: "自分だけの物語を語る" },
+          { week: "2周目", banner: imgPhLv1Week2, text: "伝えるときの極意" },
+          { week: "3周目", banner: imgPhLv1Week3, text: "フィードバック" }
         ]
       },
       {
         level: "2",
         grade: "小5-6",
         lessons: [
-          { week: "1周目", banner: "https://go.waomirai.com/l/1026513/2025-02-05/hdw9n/1026513/17388115572akwZ6Km/thumbnail_ph.jpg", text: "哲学者も考えた友だちの意味" },
-          { week: "2周目", banner: "https://go.waomirai.com/l/1026513/2025-02-05/hdw9n/1026513/17388115572akwZ6Km/thumbnail_ph.jpg", text: "いい人間関係ってどういう関係？" },
-          { week: "3周目", banner: "https://go.waomirai.com/l/1026513/2025-02-05/hdw9n/1026513/17388115572akwZ6Km/thumbnail_ph.jpg",text: "フィードバック" }
+          { week: "1周目", banner: imgPhLv2Week1, text: "哲学者も考えた友だちの意味" },
+          { week: "2周目", banner: imgPhLv2Week2, text: "いい人間関係ってどういう関係？" },
+          { week: "3周目", banner: imgPhLv2Week3, text: "フィードバック" }
         ]
       },
        {
         level: "3", // レベル名
         grade: "中学生", // 対象学年
         lessons: [
-          { week: "1周目", banner: "https://go.waomirai.com/l/1026513/2025-02-05/hdw9n/1026513/17388115572akwZ6Km/thumbnail_ph.jpg", text: "あなたは何のために学ぶ？" },
-          { week: "2周目", banner: "https://go.waomirai.com/l/1026513/2025-02-05/hdw9n/1026513/17388115572akwZ6Km/thumbnail_ph.jpg", text: "脳が喜ぶ勉強法があるとしたら？" },
-          { week: "3周目", banner: "https://go.waomirai.com/l/1026513/2025-02-05/hdw9n/1026513/17388115572akwZ6Km/thumbnail_ph.jpg",text: "フィードバック" }
+          { week: "1周目", banner: imgPhLv3Week1, text: "あなたは何のために学ぶ？" },
+          { week: "2周目", banner: imgPhLv3Week2, text: "脳が喜ぶ勉強法があるとしたら？" },
+          { week: "3周目", banner: imgPhLv3Week3, text: "フィードバック" }
         ]
       },
       {
         level: "4",
         grade: "高校生",
         lessons: [
-          { week: "1周目", banner: "https://go.waomirai.com/l/1026513/2025-02-05/hdw9n/1026513/17388115572akwZ6Km/thumbnail_ph.jpg", text: "自由意志論争とは" },
-          { week: "2周目", banner: "https://go.waomirai.com/l/1026513/2025-02-05/hdw9n/1026513/17388115572akwZ6Km/thumbnail_ph.jpg", text: "自由意志論争をどう受け止める？" },
-          { week: "3周目", banner: "https://go.waomirai.com/l/1026513/2025-02-05/hdw9n/1026513/17388115572akwZ6Km/thumbnail_ph.jpg",text: "フィードバック" }
+          { week: "1周目", banner: imgPhLv4Week1, text: "自由意志論争とは" },
+          { week: "2周目", banner: imgPhLv4Week2, text: "自由意志論争をどう受け止める？" },
+          { week: "3周目", banner: imgPhLv4Week3, text: "フィードバック" }
         ]
       }
     ],
@@ -47,36 +90,36 @@
         level: "1",
         grade: "小3-4",
         lessons: [
-          { week: "1周目", banner: "https://go.waomirai.com/l/1026513/2025-02-05/hdw9n/1026513/17388115572akwZ6Km/thumbnail_ph.jpg", text: "現代科学でわかった恐竜の生態" },
-          { week: "2周目", banner: "https://go.waomirai.com/l/1026513/2025-02-05/hdw9n/1026513/17388115572akwZ6Km/thumbnail_ph.jpg", text: "実際にペットにするならどの恐竜" },
-          { week: "3周目", banner: "https://go.waomirai.com/l/1026513/2025-02-05/hdw9n/1026513/17388115572akwZ6Km/thumbnail_ph.jpg",text: "フィードバック" }
+          { week: "1周目", banner: imgScLv1Week1, text: "現代科学でわかった恐竜の生態" },
+          { week: "2周目", banner: imgScLv1Week2, text: "実際にペットにするならどの恐竜" },
+          { week: "3周目", banner: imgScLv1Week3, text: "フィードバック" }
         ]
       },
       {
         level: "2",
         grade: "小5-6",
         lessons: [
-          { week: "1周目", banner: "https://go.waomirai.com/l/1026513/2025-02-05/hdw9n/1026513/17388115572akwZ6Km/thumbnail_ph.jpg", text: "クローン技術ってなに ?" },
-          { week: "2周目", banner: "https://go.waomirai.com/l/1026513/2025-02-05/hdw9n/1026513/17388115572akwZ6Km/thumbnail_ph.jpg", text: "恐竜は本当によみがえらせれる ?" },
-          { week: "3周目", banner: "https://go.waomirai.com/l/1026513/2025-02-05/hdw9n/1026513/17388115572akwZ6Km/thumbnail_ph.jpg", text: "フィードバック" }
+          { week: "1周目", banner: imgScLv2Week1, text: "クローン技術ってなに ?" },
+          { week: "2周目", banner: imgScLv2Week2, text: "恐竜は本当によみがえらせれる ?" },
+          { week: "3周目", banner: imgScLv2Week3, text: "フィードバック" }
         ]
       },
       {
         level: "3",
         grade: "中学生",
         lessons: [
-          { week: "1周目", banner: "https://go.waomirai.com/l/1026513/2025-02-05/hdw9n/1026513/17388115572akwZ6Km/thumbnail_ph.jpg", text: "未知なるものへの探求" },
-          { week: "2周目", banner: "https://go.waomirai.com/l/1026513/2025-02-05/hdw9n/1026513/17388115572akwZ6Km/thumbnail_ph.jpg", text: "ダークマターっていったい何 ?" },
-          { week: "3周目", banner: "https://go.waomirai.com/l/1026513/2025-02-05/hdw9n/1026513/17388115572akwZ6Km/thumbnail_ph.jpg", text: "フィードバック" }
+          { week: "1周目", banner: imgScLv3Week1, text: "未知なるものへの探求" },
+          { week: "2周目", banner: imgScLv3Week2, text: "ダークマターっていったい何 ?" },
+          { week: "3周目", banner: imgScLv3Week3, text: "フィードバック" }
         ]
       },
       {
         level: "4",
         grade: "高校生",
         lessons: [
-          { week: "1周目", banner: "https://go.waomirai.com/l/1026513/2025-02-05/hdw9n/1026513/17388115572akwZ6Km/thumbnail_ph.jpg", text: "動きの科学を学ぶ" },
-          { week: "2周目", banner: "https://go.waomirai.com/l/1026513/2025-02-05/hdw9n/1026513/17388115572akwZ6Km/thumbnail_ph.jpg", text: "アイザック・ニュートンの生涯と発見" },
-          { week: "3周目", banner: "https://go.waomirai.com/l/1026513/2025-02-05/hdw9n/1026513/17388115572akwZ6Km/thumbnail_ph.jpg", text: "フィードバック" }
+          { week: "1周目", banner: imgScLv4Week1, text: "動きの科学を学ぶ" },
+          { week: "2周目", banner: imgScLv4Week2, text: "アイザック・ニュートンの生涯と発見" },
+          { week: "3周目", banner: imgScLv4Week3, text: "フィードバック" }
         ]
       },
     ],
@@ -86,36 +129,36 @@
         level: "1",
         grade: "小3-4",
         lessons: [
-            { week: "1周目", banner: "https://go.waomirai.com/l/1026513/2025-02-05/hdw9n/1026513/17388115572akwZ6Km/thumbnail_ph.jpg", text: "お金になれるものとは?" },
-            { week: "2周目", banner: "https://go.waomirai.com/l/1026513/2025-02-05/hdw9n/1026513/17388115572akwZ6Km/thumbnail_ph.jpg", text: "君の「お金」を広めてみよう!" },
-            { week: "3周目", banner: "https://go.waomirai.com/l/1026513/2025-02-05/hdw9n/1026513/17388115572akwZ6Km/thumbnail_ph.jpg",text: "フィードバック" }
+            { week: "1周目", banner: imgEcLv1Week1, text: "お金になれるものとは?" },
+            { week: "2周目", banner: imgEcLv1Week2, text: "君の「お金」を広めてみよう!" },
+            { week: "3周目", banner: imgEcLv1Week3, text: "フィードバック" }
           ]
       },
       {
         level: "2",
         grade: "小5-6",
         lessons: [
-            { week: "1周目", banner: "https://go.waomirai.com/l/1026513/2025-02-05/hdw9n/1026513/17388115572akwZ6Km/thumbnail_ph.jpg", text: "「消費税0%」の国、クウェートのナゾにせまる！" },
-            { week: "2周目", banner: "https://go.waomirai.com/l/1026513/2025-02-05/hdw9n/1026513/17388115572akwZ6Km/thumbnail_ph.jpg", text: "理想の消費税は何% ?" },
-            { week: "3周目", banner: "https://go.waomirai.com/l/1026513/2025-02-05/hdw9n/1026513/17388115572akwZ6Km/thumbnail_ph.jpg",text: "フィードバック" }
+            { week: "1周目", banner: imgEcLv2Week1, text: "「消費税0%」の国、クウェートのナゾにせまる！" },
+            { week: "2周目", banner: imgEcLv2Week2, text: "理想の消費税は何% ?" },
+            { week: "3周目", banner: imgEcLv2Week3, text: "フィードバック" }
           ]
       },
       {
         level: "3",
         grade: "中学生",
         lessons: [
-            { week: "1周目", banner: "https://go.waomirai.com/l/1026513/2025-02-05/hdw9n/1026513/17388115572akwZ6Km/thumbnail_ph.jpg", text: "お金の機能" },
-            { week: "2周目", banner: "https://go.waomirai.com/l/1026513/2025-02-05/hdw9n/1026513/17388115572akwZ6Km/thumbnail_ph.jpg", text: "ブロックチェーンと仮想通貨" },
-            { week: "3周目", banner: "https://go.waomirai.com/l/1026513/2025-02-05/hdw9n/1026513/17388115572akwZ6Km/thumbnail_ph.jpg",text: "フィードバック" }
+            { week: "1周目", banner: imgEcLv3Week1, text: "お金の機能" },
+            { week: "2周目", banner: imgEcLv3Week2, text: "ブロックチェーンと仮想通貨" },
+            { week: "3周目", banner: imgEcLv3Week3, text: "フィードバック" }
           ]
       },
       {
         level: "4",
         grade: "高校生",
         lessons: [
-            { week: "1周目", banner: "https://go.waomirai.com/l/1026513/2025-02-05/hdw9n/1026513/17388115572akwZ6Km/thumbnail_ph.jpg", text: "貸借対照表：資本主義の縮図を読み解く" },
-            { week: "2周目", banner: "https://go.waomirai.com/l/1026513/2025-02-05/hdw9n/1026513/17388115572akwZ6Km/thumbnail_ph.jpg", text: "損益計算書：“成績” よりも “戦略” を見よ" },
-            { week: "3周目", banner: "https://go.waomirai.com/l/1026513/2025-02-05/hdw9n/1026513/17388115572akwZ6Km/thumbnail_ph.jpg",text: "フィードバック" }
+            { week: "1周目", banner: imgEcLv4Week1, text: "貸借対照表：資本主義の縮図を読み解く" },
+            { week: "2周目", banner: imgEcLv4Week2, text: "損益計算書：“成績” よりも “戦略” を見よ" },
+            { week: "3周目", banner: imgEcLv4Week3, text: "フィードバック" }
           ]
       },
     ],
@@ -144,9 +187,7 @@
 
 
   // 年間の授業カリキュラムデータ（月ごとの内容）
-
-
-  var curriculum = {
+  var yearCurriculum = {
     //哲学
     philosophy: {
       level1: [
