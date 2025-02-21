@@ -86,6 +86,14 @@ const UrlChangeSubject = "https://lms.waomirai.com/user/edit.php"; // 受講変�
 
 
 // ==============================
+// Liff系
+// ==============================
+
+//Moodle会員登録ページ後の会員登録
+const UrlLiffMoodleRegister = "https://liff.line.me/2006716288-lL7QzGA3?loycus_urlc=NN3v" 
+const ImgLiffMoodleRegister = "https://go.waomirai.com/l/1026513/2025-02-21/hg5gg/1026513/17401152270P10NmPp/qr_liff_moodle_register.png" 
+
+// ==============================
 // ページ判定とコースIDの取得
 // ==============================
 
@@ -212,8 +220,9 @@ function createModal(options = {}) {
 
   // モーダル全体のHTML構造を動的に生成
   const modal = `
-    <div class="c-modal">
+    <div class="c-modal"> 
       <div class="c-modal-wrap ${options.wrapClass || ""}">
+        ${options.customModalHtml || ""} 
         ${options.close ? '<div class="c-modal-wrap-close"></div>' : ""} <!-- 閉じるボタン -->
         ${
           options.title
@@ -253,7 +262,7 @@ function createModal(options = {}) {
   $("body").addClass("fixed").css({ top: -scrollPosition });
 
   // 閉じるボタンをクリックした場合の処理
-  $(".c-modal-wrap-close,.c-modal-wrap-closetxt").on("click", function () {
+  $(".c-modal-wrap-close,.c-modal-wrap-closetxt,.c-modal-wrap-close-tag").on("click", function () {
     $modal.remove(); // モーダルを削除
     $("body").removeClass("fixed").css({ top: 0 }); // ページをスクロール可能に戻す
     window.scrollTo(0, scrollPosition); // スクロール位置を復元
@@ -268,6 +277,8 @@ function createModal(options = {}) {
     }
   });
 }
+
+
 
 // ==============================
 // ダッシュボードページでの処理
@@ -771,6 +782,30 @@ if (bodyId === "page-login-index") {
 // ログイン確認ページの処理
 // ==============================
 if (bodyId === "page-login-confirm") {
+  createModal({
+    wrapClass: "c-modal-wrap-wrapline",
+    customModalHtml: `
+    <div class="c-modal-wrap-close"></div>
+    <div class="c-modal-wrap-title">会員登録ありがとうございます！</div>
+    <div class="c-modal-wrap-text">
+      <span>ワオ未来塾の公式ラインを</span>登録しましょう!<br>
+      授業のお知らせなどをこちらの<br>公式ラインから配信します。
+    </div>
+    <div class="c-modal-wrap-qr c-sp-hidden">
+      <img src="${ImgLiffMoodleRegister}">
+    </div>
+    <div class="c-modal-wrap-text c-modal-wrap-text-notice">
+      ※すでに友だち追加済の方も、<br>
+      会員連携のために必ず下記を読み取ってください。
+    </div>
+    <div class="c-modal-button-line c-pc-hidden">
+      <a href="${UrlLiffMoodleRegister}">
+        <img src="https://go.waomirai.com/l/1026513/2025-02-20/hg5bg/1026513/17401067674FE8qn1T/btn_lineadd.svg">
+      </a>
+    </div>
+    <button class="c-modal-wrap-button c-modal-wrap-button-close c-modal-wrap-close-tag">閉じる</button>
+  `
+  });
   $(".boxaligncenter h3").text("ご登録ありがとうございます。");
   $(".singlebutton button").text("ワオ未来塾TOPへ");
 }
