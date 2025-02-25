@@ -15,7 +15,11 @@ $subject-default-max-width: 1140px; // 最大幅
   #page.drawers .main-inner {
     padding: 0 !important;
     margin-left: calc((100vw - 1120px) / 2);
+    margin-top: 60px;
     background: transparent;
+    @include min-responsive-style(769px) {
+      margin-top: 60px !important;
+    }
     @include responsive-style($default-max-width) {
       margin-left: 15px;
       max-width: calc(
@@ -116,6 +120,10 @@ $subject-default-max-width: 1140px; // 最大幅
         background: $cl-graylightest;
         font-size: $lms-font-size-s;
       }
+    }
+
+    .enrol-section-basesubject-year-lesson-content-child-curriculum-month {
+      font-size: $lms-font-size-xl;
     }
 
     .enrol_buy_as_a_set_detail {
@@ -229,6 +237,13 @@ $subject-default-max-width: 1140px; // 最大幅
       font-weight: bold;
       margin-top: 20px;
       margin-bottom: 20px;
+      display: block !important;
+    }
+
+    .enrol-subtitle {
+      font-size: 13px !important;
+      color: $cl-graylight;
+      margin: -14px 0 30px;
       display: block !important;
     }
 

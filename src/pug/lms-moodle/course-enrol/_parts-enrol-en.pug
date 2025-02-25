@@ -1,73 +1,79 @@
-.global-english
-  .global-english-inner
+//教科データを取得
+include ../_subject_data.pug
 
-    //- // ライブ形式のレッスン
-    //- https://storage.pardot.com/1026513/1727340661pAjGn14E/about01.png
-    .global-english-live-lesson
-      .global-english-live-lesson-text
-        h3.enrol-title 
-          | 脱授業！
-          br
-          | ライブ形式のレッスンで
-          br
-          |楽しく学べる
-        //pcは画像非表示
-        .c-pc-hidden 
-          img.global-english-lesson-img(src="https://storage.pardot.com/1026513/1727340661pAjGn14E/about01.png" alt="レッスン風景1")
-        p.global-english-desc
-          | 日本語の通じるネイティブ講師＆日本人講師が、ユーモアたっぷりに英語を教えてくれるから、
-          | レッスンの時間が待ち遠しくなる！ゲームやアクティビティを交えながら、
-          | まるで遊んでいるかのように学べるライブレッスン。
+// セクション1: 今月の授業
++enrol-lesson-month
 
-      .global-english-lesson-images.c-sp-hidden
-        .global-english-lesson-figure
-          img.global-english-lesson-img(src="https://storage.pardot.com/1026513/1727340661pAjGn14E/about01.png" alt="レッスン風景1")
+// セクション2: 年間の授業カリキュラム
++enrol-lesson-year
 
-    //- // 英語はスポーツと同じ！練習が重要
-    .global-english-live-lesson.global-english-live-lesson-second
-      .global-english-live-lesson-text
-        h3.enrol-title 
-          |英語はスポーツと同じ！
-          br
-          |練習が重要。
-          br
-          |目からウロコの英会話トレーニングで英語力アップ！
-        .c-pc-hidden 
-          figure.global-english-sample-phrase-figure.
-                  <iframe src="https://player.vimeo.com/video/1013057465?autoplay=1&muted=1&background=1"
-            frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+//- .global-english
+//-   .global-english-inner
+//-     .global-english-live-lesson
+//-       .global-english-live-lesson-text
+//-         h3.enrol-title 
+//-           | 脱授業！
+//-           br
+//-           | ライブ形式のレッスンで
+//-           br
+//-           |楽しく学べる
+//-         //pcは画像非表示
+//-         .c-pc-hidden 
+//-           img.global-english-lesson-img(src="https://storage.pardot.com/1026513/1727340661pAjGn14E/about01.png" alt="レッスン風景1")
+//-         p.global-english-desc
+//-           | 日本語の通じるネイティブ講師＆日本人講師が、ユーモアたっぷりに英語を教えてくれるから、
+//-           | レッスンの時間が待ち遠しくなる！ゲームやアクティビティを交えながら、
+//-           | まるで遊んでいるかのように学べるライブレッスン。
 
-        p.global-english-desc
-          | テニスが上手くなりたい人が、練習もせず試合に出たらどうなりますか？
-          | 英会話も同じです。いきなり外国人と話す機会があっても、練習をしていなければ
-          | スムーズに言葉が出ないのは当然です。リズムを使って単語単位からカタマリ単位で英語をインプットしたり、
-          | ひらがなで発音力をあげるなど、斬新な英会話トレーニングをご用意しています。
+//-       .global-english-lesson-images.c-sp-hidden
+//-         .global-english-lesson-figure
+//-           img.global-english-lesson-img(src="https://storage.pardot.com/1026513/1727340661pAjGn14E/about01.png" alt="レッスン風景1")
 
-      .global-english-sample-phrase.c-sp-hidden 
-        .global-english-sample-phrase-figure.
-                <iframe src="https://player.vimeo.com/video/1013057465?autoplay=1&muted=1&background=1"
-          frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+//-     //- // 英語はスポーツと同じ！練習が重要
+//-     .global-english-live-lesson.global-english-live-lesson-second
+//-       .global-english-live-lesson-text
+//-         h3.enrol-title 
+//-           |英語はスポーツと同じ！
+//-           br
+//-           |練習が重要。
+//-           br
+//-           |目からウロコの英会話トレーニングで英語力アップ！
+//-         .c-pc-hidden 
+//-           figure.global-english-sample-phrase-figure.
+//-                   <iframe src="https://player.vimeo.com/video/1013057465?autoplay=1&muted=1&background=1"
+//-             frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
 
-    //- // レッスンを楽しみながら自然に慣れる、https://go.waomirai.com/l/1026513/2024-09-26/h4gcq/1026513/1727333515lZs4Z30Z/enjoy_detail03.png
-    .global-english-live-lesson
-      .global-english-live-lesson-text
-        h3.enrol-title  
-          |レッスン後も
-          br
-          |楽しく英語に触れることができる
-        .c-pc-hidden
-          figure.global-english-lesson-figure
-            img.global-english-lesson-img(src="https://go.waomirai.com/l/1026513/2024-09-26/h4gcq/1026513/1727333515lZs4Z30Z/enjoy_detail03.png" alt="レッスン風景")
-            img.global-english-lesson-img2(src="https://go.waomirai.com/l/1026513/2024-09-26/h4gkb/1026513/1727340226wwoQZaVS/lessomovie_2.png" alt="friendsの画像")
-        p.global-english-desc
-          | 学校の英語やテキスト型英会話スクールでは、どんどん次のページに進み、
-          | 繰り返しがありません。英語を定着させるには、何度も同じフレーズに触れる事が重要です。
-          | 私たちのプログラムでは、ライブレッスンの前や後に何度も練習できる動画レッスンをご用意しています。
-          | “覚える”暗記型の英語から、何度も触れて“残る”英語に。
-      .global-english-lesson-images.c-sp-hidden
-        .global-english-lesson-figure
-          img.global-english-lesson-img(src="https://go.waomirai.com/l/1026513/2024-09-26/h4gcq/1026513/1727333515lZs4Z30Z/enjoy_detail03.png" alt="レッスン風景")
-          img.global-english-lesson-img2(src="https://go.waomirai.com/l/1026513/2024-09-26/h4gkb/1026513/1727340226wwoQZaVS/lessomovie_2.png" alt="friendsの画像")
+//-         p.global-english-desc
+//-           | テニスが上手くなりたい人が、練習もせず試合に出たらどうなりますか？
+//-           | 英会話も同じです。いきなり外国人と話す機会があっても、練習をしていなければ
+//-           | スムーズに言葉が出ないのは当然です。リズムを使って単語単位からカタマリ単位で英語をインプットしたり、
+//-           | ひらがなで発音力をあげるなど、斬新な英会話トレーニングをご用意しています。
+
+//-       .global-english-sample-phrase.c-sp-hidden 
+//-         .global-english-sample-phrase-figure.
+//-                 <iframe src="https://player.vimeo.com/video/1013057465?autoplay=1&muted=1&background=1"
+//-           frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+
+//-     //- // レッスンを楽しみながら自然に慣れる、https://go.waomirai.com/l/1026513/2024-09-26/h4gcq/1026513/1727333515lZs4Z30Z/enjoy_detail03.png
+//-     .global-english-live-lesson
+//-       .global-english-live-lesson-text
+//-         h3.enrol-title  
+//-           |レッスン後も
+//-           br
+//-           |楽しく英語に触れることができる
+//-         .c-pc-hidden
+//-           figure.global-english-lesson-figure
+//-             img.global-english-lesson-img(src="https://go.waomirai.com/l/1026513/2024-09-26/h4gcq/1026513/1727333515lZs4Z30Z/enjoy_detail03.png" alt="レッスン風景")
+//-             img.global-english-lesson-img2(src="https://go.waomirai.com/l/1026513/2024-09-26/h4gkb/1026513/1727340226wwoQZaVS/lessomovie_2.png" alt="friendsの画像")
+//-         p.global-english-desc
+//-           | 学校の英語やテキスト型英会話スクールでは、どんどん次のページに進み、
+//-           | 繰り返しがありません。英語を定着させるには、何度も同じフレーズに触れる事が重要です。
+//-           | 私たちのプログラムでは、ライブレッスンの前や後に何度も練習できる動画レッスンをご用意しています。
+//-           | “覚える”暗記型の英語から、何度も触れて“残る”英語に。
+//-       .global-english-lesson-images.c-sp-hidden
+//-         .global-english-lesson-figure
+//-           img.global-english-lesson-img(src="https://go.waomirai.com/l/1026513/2024-09-26/h4gcq/1026513/1727333515lZs4Z30Z/enjoy_detail03.png" alt="レッスン風景")
+//-           img.global-english-lesson-img2(src="https://go.waomirai.com/l/1026513/2024-09-26/h4gkb/1026513/1727340226wwoQZaVS/lessomovie_2.png" alt="friendsの画像")
 
 .coursedetail-info
   .coursedetail-info-inner

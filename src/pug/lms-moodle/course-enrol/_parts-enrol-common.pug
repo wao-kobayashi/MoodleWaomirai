@@ -1,3 +1,98 @@
+
+
+//今月の授業カリキュラム
+mixin enrol-lesson-month
+  .enrol-section
+    h2.enrol-title 2025年4月の授業
+    .enrol-subtitle|※授業は各レベルのいずれかを受講可能です。
+    // 各教科の授業情報を表示
+    .enrol-section-basesubject-thismonth-lesson
+      each subject in thisMonthLessons[enrolpage.category]
+        .enrol-section-basesubject-thismonth-lesson-grid-level
+            span.title|レベル
+            span.large= subject.level 
+            // 対象学年
+            span|(
+            span= subject.grade 
+            span|)
+        .enrol-section-basesubject-thismonth-lesson-grid
+            // レベル情報を表示
+            // 各レッスン情報を表示
+            each lesson in subject.lessons
+                .enrol-section-basesubject-thismonth-lesson-grid-lesson
+                    // レッスンの週
+                    .enrol-section-basesubject-thismonth-lesson-grid-lesson-banner
+                        img(src=lesson.banner)
+                    // レッスン説明
+                    .enrol-section-basesubject-thismonth-lesson-grid-lesson-text= lesson.text 
+
+//年間の授業カリキュラム
+mixin enrol-lesson-year
+ .enrol-section
+  h2.enrol-title 年間の授業カリキュラム
+  .enrol-subtitle|※基本的には月ごとのテーマ設定となっていますので、何月に入会しても授業を楽しむことができます。
+  .enrol-section-basesubject-year-lesson
+    // レベルごとのタブ部分
+    .enrol-section-basesubject-year-lesson-tab 
+      if enrolpage.category === 'globalenglish'
+        .enrol-section-basesubject-year-lesson-tab-child.tab-level-1 
+            |レベル1
+            br.c-pc-hidden
+            |(英語初挑戦の方)
+        .enrol-section-basesubject-year-lesson-tab-child.tab-level-2
+            |レベル2
+            br.c-pc-hidden
+            |(英語が少し話せる方)
+      else
+        .enrol-section-basesubject-year-lesson-tab-child.tab-level-1 
+            |レベル1
+            br.c-pc-hidden
+            |(小1~小4)
+        .enrol-section-basesubject-year-lesson-tab-child.tab-level-2
+            |レベル2
+            br.c-pc-hidden
+            |(小5~小6)
+        .enrol-section-basesubject-year-lesson-tab-child.tab-level-3 
+            |レベル3
+            br.c-pc-hidden
+            |(中学生)
+        .enrol-section-basesubject-year-lesson-tab-child.tab-level-4 
+            |レベル4
+            br.c-pc-hidden
+            |(高校生)
+    // カリキュラム内容を表示
+    .enrol-section-basesubject-year-lesson-content
+      //以下はstaticのデータ
+      each level, levelName in yearCurriculum[enrolpage.category]
+        .enrol-section-basesubject-year-lesson-content-child(class="content-" + levelName, style='display:none;')
+          each item in level
+            .enrol-section-basesubject-year-lesson-content-child-curriculum
+              .enrol-section-basesubject-year-lesson-content-child-curriculum-month
+                // 月
+                span.month=  item.month
+                | 月
+              .enrol-section-basesubject-year-lesson-content-child-curriculum-detail
+                // カリキュラムのタイトル
+                .enrol-section-basesubject-year-lesson-content-child-curriculum-detail-title= item.title 
+                .enrol-section-basesubject-year-lesson-content-child-curriculum-detail-subcontent.c-sp-hidden
+                  |1.
+                  span= item.subcontents1
+                .enrol-section-basesubject-year-lesson-content-child-curriculum-detail-subcontent.c-sp-hidden 
+                  |2.
+                  span= item.subcontents2
+                .enrol-section-basesubject-year-lesson-content-child-curriculum-detail-subcontent.c-sp-hidden 
+                  |3.
+                  span= item.subcontents3
+      .c-pc-hidden
+        .enrol-section-basesubject-year-lesson-content-button
+          if enrolpage.category === 'philosophy'
+            a(href="https://go.waomirai.com/l/1026513/2025-02-09/hf47g/1026513/1739157549JByWW5kq/year_curriculum_philosophy.pdf", target='_blank')|全ての授業カリキュラム(PDF)
+          else if enrolpage.category === 'science'
+            a(href="https://go.waomirai.com/l/1026513/2025-02-09/hf47n/1026513/1739157549Js3IDL8y/year_curriculum_science.pdf", target='_blank')|全ての授業カリキュラム(PDF)
+          else if enrolpage.category === 'economy'
+            a(href="https://go.waomirai.com/l/1026513/2025-02-09/hf47k/1026513/1739157549czniuNng/year_curriculum_economy.pdf", target='_blank')|全ての授業カリキュラム(PDF)
+
+//受講開始までの流れ
 mixin enrol-howto-register
   .enrol-section
     h2.enrol-title
@@ -20,7 +115,13 @@ mixin enrol-howto-register
         .enrol-section-howto-text 
             .enrol-step-lbl Step 03
             .enrol-step-heading 科目のレベルを設定する
-            .enrol-step-desc 受講する教科と科目をご登録ください。※科目をご登録いただかないと、授業を受けることができません
+            .enrol-step-desc 
+               if enrolpage.category === 'twosubjectpack'
+                //２科パックの場合
+                |受講する科目と受講レベルをご登録ください。※ご登録いただかないと、授業を受けることができません
+               else 
+                //３科パック・哲学・科学・経済・英語の場合
+                |受講レベルをご登録ください。※ご登録いただかないと、授業を受けることができません
         .enrol-section-howto-img
            img(src='https://go.waomirai.com/l/1026513/2025-01-14/hbt8v/1026513/1736840429DClvzQYZ/icn_howto_take_04_.svg') 
         .enrol-section-howto-text   
@@ -37,3 +138,87 @@ mixin enrol-howto-register
         .enrol-section-howto-text 
             .enrol-step-lbl Step 06
             .enrol-step-heading 当日、授業を受ける
+
+//他の授業科目も見る
+mixin enrol-recommend-subject
+ .enrol-section.enrol-recommend-subject
+    h2.enrol-title
+        |他の授業科目も見る
+    .enrol-index-contents-block-cards
+        //- 哲学のカード（philosophyカテゴリー以外で表示）
+        if enrolpage.category !== 'philosophy'
+            .common-contents-block-cards-course
+                .common-contents-block-cards-course-img.common-contents-block-cards-course-img-overlay
+                    .common-contents-block-cards-course-img-detail
+                        img(src='https://go.waomirai.com/l/1026513/2024-08-08/gzqbj/1026513/1723092444vFKe6VRn/subject_01.jpg')
+                .common-contents-block-cards-course-detail
+                    .common-contents-block-cards-course-detail-wrap.block-philosophy
+                        .common-contents-block-cards-course-detail-title
+                            |哲学（思考力）
+                        .common-contents-block-cards-course-detail-text
+                            |自分で考える力を鍛える
+                //moodleの仕様でaタグでdivタグ囲むとバグるのでabsluteでリンクを貼る
+                .common-contents-block-cards-course-link
+                            a(href=link_philosophy)
+                             
+
+        //- 科学のカード（scienceカテゴリー以外で表示）
+        if enrolpage.category !== 'science'
+            .common-contents-block-cards-course
+                .common-contents-block-cards-course-img.common-contents-block-cards-course-img-overlay
+                    .common-contents-block-cards-course-img-detail
+                    img(src='https://go.waomirai.com/l/1026513/2024-08-08/gzqbx/1026513/1723092445qaV639ZU/subject_02.jpg')
+                .common-contents-block-cards-course-detail
+                    .common-contents-block-cards-course-detail-wrap.block-science
+                        .common-contents-block-cards-course-detail-title
+                            |科学リテラシー
+                        .common-contents-block-cards-course-detail-text
+                            |知らない世界にも視野を広げ、知的好奇心を育む
+                //moodleの仕様でaタグでdivタグ囲むとバグるのでabsluteでリンクを貼る
+                .common-contents-block-cards-course-link
+                          a(href=link_science)
+                           
+
+        //- 経済のカード（economyカテゴリー以外で表示）
+        if enrolpage.category !== 'economy'
+            .common-contents-block-cards-course
+                .common-contents-block-cards-course-img.common-contents-block-cards-course-img-overlay
+                    .common-contents-block-cards-course-img-detail
+                    img(src='https://go.waomirai.com/l/1026513/2024-08-08/gzqbt/1026513/1723092445zMMVlFVz/subject_03.jpg')
+                .common-contents-block-cards-course-detail
+                    .common-contents-block-cards-course-detail-wrap.block-economy
+                        .common-contents-block-cards-course-detail-title
+                            |経済（お金）
+                        .common-contents-block-cards-course-detail-text
+                            |お金の基礎知識と考え方・付き合い方を身につける
+                //moodleの仕様でaタグでdivタグ囲むとバグるのでabsluteでリンクを貼る
+                .common-contents-block-cards-course-link
+                            a(href=link_economy)
+                              
+        //- 英語のカード（englishカテゴリー、２科目、３科目以外で表示）
+        if category === 'globalenglish' || category === 'twosubjectpack' || category === 'threesubjectpack'
+            .common-contents-block-cards-course
+                .common-contents-block-cards-course-img
+                    img(src='https://go.waomirai.com/l/1026513/2024-08-08/gzqbq/1026513/1723092445NpS1HkfH/subject_04.jpg')
+                .common-contents-block-cards-course-detail
+                    .common-contents-block-cards-course-detail-wrap.block-english
+                        .common-contents-block-cards-course-detail-title
+                            |グローバル英語
+                        .common-contents-block-cards-course-detail-text
+                            |シンプルで実用的な英語を使いこなす
+                //moodleの仕様でaタグでdivタグ囲むとバグるのでabsluteでリンクを貼る
+                .common-contents-block-cards-course-link
+                            a(href=link_english)
+        //- プログラミングのカード
+        //- a(href=link_programming).common-contents-block-cards-course.click-event-subject-comingsoon
+        //-     .common-contents-block-cards-course-img.common-contents-block-cards-course-img-overlay
+        //-         .common-contents-block-cards-course-img-text 
+        //-             |2025年4月開講予定
+        //-         .common-contents-block-cards-course-img-detail
+        //-             img(src='https://go.waomirai.com/l/1026513/2024-08-08/gzqbm/1026513/1723092444UDZaTUyz/subject_05.jpg')
+        //-     .common-contents-block-cards-course-detail
+        //-         .common-contents-block-cards-course-detail-wrap.block-programming
+        //-             .common-contents-block-cards-course-detail-title 
+        //-                 |クリエイティブ・プログラミング
+        //-             .common-contents-block-cards-course-detail-text 
+        //-                 |子どもの習いごとで終わらせない！

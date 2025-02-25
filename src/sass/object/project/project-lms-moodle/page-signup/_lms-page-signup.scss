@@ -80,9 +80,18 @@ footer {
   label[for="id_profile_field_kojin_check"] {
     padding: 0 !important;
   }
+  #id_profile_field_kojin_check,
+  #id_profile_field_termsofservice {
+    margin: 4px 0 0 -4px;
+  }
+  label[for="id_profile_field_kojin_check"],
+  label[for="id_profile_field_termsofservice"] {
+    margin: 0 0 0 13px;
+  }
   .ml-2.d-flex.align-items-center.align-self-start
     > .text-danger[title="必須"] {
-    display: none;
+    // left: -10px;
+    top: -10px;
   }
   #fitem_id_profile_field_postnumber {
     margin-bottom: 2rem !important;
@@ -245,9 +254,6 @@ footer {
 
 #page-login-signup {
   &.pagelayout-base {
-    header {
-      display: none !important;
-    }
     #notice {
       max-width: 550px;
       margin: 90px auto 0px;
@@ -258,9 +264,6 @@ footer {
       p {
         margin: 0 0 5px !important;
       }
-    }
-    .logininfo {
-      display: none !important;
     }
   }
   #page.drawers .main-inner {

@@ -93,6 +93,23 @@ $(document).ready(function () {
   ]
 
 // ==============================
+// 各種変数
+// ==============================
+
+const UrlHome = "https://lms.waomirai.com/?redirect=0" //トップページ（科目選択）
+const UrlForm = "https://go.waomirai.com/changeform"; // フォームURL 
+const UrlChangeSubject = "https://lms.waomirai.com/user/edit.php"; // 受講変更ページ  
+
+
+// ==============================
+// Liff系
+// ==============================
+
+//Moodle会員登録ページ後の会員登録
+const UrlLiffMoodleRegister = "https://liff.line.me/2006716288-lL7QzGA3?loycus_urlc=NN3v" 
+const ImgLiffMoodleRegister = "https://go.waomirai.com/l/1026513/2025-02-21/hg5gg/1026513/17401152270P10NmPp/qr_liff_moodle_register.png" 
+
+// ==============================
 // ページ判定とコースIDの取得
 // ==============================
 
@@ -129,6 +146,8 @@ const bodyClasses = $("body")
   .attr("class") // bodyのクラス属性を文字列として取得
   .split(" ") // 文字列をスペースで分割して配列化
   .map((cls) => parseInt(cls.replace("course-id-", "").trim())); // 各クラスから「course-id-」を除去して数値に変換
+
+
 
 // ==============================
 // グループチェック関数
@@ -217,8 +236,9 @@ function createModal(options = {}) {
 
   // モーダル全体のHTML構造を動的に生成
   const modal = `
-    <div class="c-modal">
+    <div class="c-modal"> 
       <div class="c-modal-wrap ${options.wrapClass || ""}">
+        ${options.customModalHtml || ""} 
         ${options.close ? '<div class="c-modal-wrap-close"></div>' : ""} <!-- 閉じるボタン -->
         ${
           options.title
@@ -258,7 +278,7 @@ function createModal(options = {}) {
   $("body").addClass("fixed").css({ top: -scrollPosition });
 
   // 閉じるボタンをクリックした場合の処理
-  $(".c-modal-wrap-close,.c-modal-wrap-closetxt").on("click", function () {
+  $(".c-modal-wrap-close,.c-modal-wrap-closetxt,.c-modal-wrap-close-tag").on("click", function () {
     $modal.remove(); // モーダルを削除
     $("body").removeClass("fixed").css({ top: 0 }); // ページをスクロール可能に戻す
     window.scrollTo(0, scrollPosition); // スクロール位置を復元
@@ -273,6 +293,8 @@ function createModal(options = {}) {
     }
   });
 }
+
+
 
 // ==============================
 // ダッシュボードページでの処理
@@ -290,8 +312,10 @@ if (bodyId === "page-my-index") {
     // 今日の科目PCビューを非表示
     $("#todays-subject-pc").hide();
   } else {
-    // ウィンドウの幅が768px以上の場合、メインの授業部分を非表示
+    //何かしら授業を買っていた場合の処理
+    $(".dashboard-main-info").show(); //開講前のお知らせを表示（2025年4月以降は存在しない可能性大）
     if ($(window).width() >= 768) {
+       // ウィンドウの幅が768px以上の場合、メインの授業部分を非表示
       $(".dashboard-main-class").hide();
     }
   }
@@ -435,8 +459,11 @@ if (bodyId === "page-my-index") {
   // スマートフォン用のラッパー要素を作成
   var wrappedContent = $("<div>", {
       id: "dashboard-sp-content",
-      class: "c-pc-hidden", // PCでは非表示
+      class: "c-pc-hidden dashboard-sp-content", // PCでは非表示
   }).append(contentToCloneDashboardLeft);
+
+  // クローンした要素内の.dashboard-left-block-guideに新しいクラスを追加
+  wrappedContent.find('.dashboard-left-block-guide').addClass('dashboard-left-block-guide-scroll');
 
   // page-contentの直下に配置
   $("#page-content").append(wrappedContent);
@@ -588,6 +615,9 @@ if (bodyId === "page-my-index") {
               // 【スマホ】今月中に開催される授業に追加
               $("#dashboard-main-upcoming-class-scheduled").append($lessonContainer);
             });
+          } else {
+            //授業ない時の処理
+            $("#dashboard-main-upcoming-class-none").show();
           }
         }
     });
@@ -705,6 +735,8 @@ if (bodyId === "page-login-signup" || bodyId === "page-login-forgot_password") {
     id_firstname: "例）太郎", // 名のプレースホルダー
     id_profile_field_furigana: "例）スズキタロウ", // フリガナのプレースホルダー
     id_profile_field_postnumber: "例）0000000", // 郵便番号のプレースホルダー
+    id_profile_field_wao_membersid: "こちらに会員番号を入れてください", // ワオ未来塾会員番号のプレースホルダー
+    id_profile_field_wao_schoolname:  "例）能開⚪︎⚪︎校、Axis⚪︎⚪︎校、オンライン家庭教師", // ワオ未来塾校名のプレースホルダー
   };
 
   // 各入力フィールドにプレースホルダーを設定
@@ -766,6 +798,30 @@ if (bodyId === "page-login-index") {
 // ログイン確認ページの処理
 // ==============================
 if (bodyId === "page-login-confirm") {
+  createModal({
+    wrapClass: "c-modal-wrap-wrapline",
+    customModalHtml: `
+    <div class="c-modal-wrap-close"></div>
+    <div class="c-modal-wrap-title">会員登録ありがとうございます！</div>
+    <div class="c-modal-wrap-text">
+      <span>ワオ未来塾の公式ラインを</span>登録しましょう!<br>
+      授業のお知らせなどをこちらの<br>公式ラインから配信します。
+    </div>
+    <div class="c-modal-wrap-qr c-sp-hidden">
+      <img src="${ImgLiffMoodleRegister}">
+    </div>
+    <div class="c-modal-wrap-text c-modal-wrap-text-notice">
+      ※すでに友だち追加済の方も、<br>
+      会員連携のために必ず下記を読み取ってください。
+    </div>
+    <div class="c-modal-button-line c-pc-hidden">
+      <a href="${UrlLiffMoodleRegister}">
+        <img src="https://go.waomirai.com/l/1026513/2025-02-20/hg5bg/1026513/17401067674FE8qn1T/btn_lineadd.svg">
+      </a>
+    </div>
+    <button class="c-modal-wrap-button c-modal-wrap-button-close c-modal-wrap-close-tag">閉じる</button>
+  `
+  });
   $(".boxaligncenter h3").text("ご登録ありがとうございます。");
   $(".singlebutton button").text("ワオ未来塾TOPへ");
 }
@@ -793,7 +849,7 @@ if (bodyId === "page-enrol-index") {
         $buttonElement.after(customDivHtml);
         // 「詳細を見る」リンクがクリックされたときの処理
         $(document).on('click', '.view-details-link', function (event) {
-          event.preventDefault(); // デフォルトのリンク動作（ページ遷移）を防止
+          event.stopImmediatePropagation();
 
           // twosubjectpack（2科目セット）とthreesubjectpack（3科目セット）のIDを取得
           const twosubjectpackId = subjects.find(subject => subject.key === 'twosubjectpack').id;  
@@ -833,13 +889,13 @@ if (bodyId === "page-enrol-index") {
         // 1科目を購入した状態で、別の1科目を購入しようとした場合
         if (checkBoughtMainSubject(otherSubjects[subjectCategory])) {
           // セット購入を提案するモーダルを表示
-          event.preventDefault(); // デフォルトの購入動作（フォーム送信）を防止
+          event.stopImmediatePropagation();
           $("body").append(
             createModal({
               close: true,
               text: "「哲学・経済・化学」の教科で２科目以上受講する際はセット購入がお得です。セット購入の際はフォームより申し込みをお願いいたします。",
               buttons: [
-                { text: "変更フォームへ", url: "#", class: "btn-primary" }, // セット購入フォームへのリンク
+                { text: "変更フォームへ", url: UrlForm, class: "btn-primary" }, // セット購入フォームへのリンク
               ]
             })
           );
@@ -848,13 +904,13 @@ if (bodyId === "page-enrol-index") {
           checkBoughtMainSubject(["twosubjectpack", "threesubjectpack"])
         ) {
           // すでにセットを購入済みであることを通知するモーダルを表示
-          event.preventDefault(); // デフォルトの購入動作（フォーム送信）を防止
+          event.stopImmediatePropagation();
           $("body").append(
             createModal({
               close: true,
               text: "すでに複数受講できる科目セットを購入されています。受講科目の選択は「登録情報の変更ページ」で編集可能です。",
               buttons: [
-                { text: "ここは未定", url: "#", class: "btn-primary" }, // 未定のリンク
+                { text: "科目のレベルを設定する", url: UrlChangeSubject, class: "btn-primary" }, // 未定のリンク
               ]
             })
           );
@@ -864,15 +920,16 @@ if (bodyId === "page-enrol-index") {
       // 2科目セットまたは3科目セットを選択した場合
       if (["twosubjectpack", "threesubjectpack"].includes(subjectCategory)) {
         // 他の科目（哲学、科学、経済）を購入している場合、セット購入はできない
-        event.preventDefault(); // デフォルトの購入動作（フォーム送信）を防止
+        
         if (checkBoughtMainSubject(["philosophy", "science", "economy"])) {
           // セット購入不可の案内モーダルを表示
+          event.stopImmediatePropagation();
           $("body").append(
             createModal({
               close: true,
               text: "「哲学・化学・経済」の科目のいずれかを受講している場合、こちらのボタンからセット受講を購入することはできません。下記フォームより購入を申し込む必要がございます。",
               buttons: [
-                { text: "複数科目セットの購入フォームへ", url: "#", class: "btn-primary" }, // セット購入フォームへのリンク
+                { text: "複数科目セットの購入フォームへ", url: UrlForm, class: "btn-primary" }, // セット購入フォームへのリンク
               ]
             })
           );
@@ -886,7 +943,7 @@ if (bodyId === "page-enrol-index") {
               close: true,
               text: "「３科目セット」を購入済みです。２科目セットへ受講変更したい場合はフォームよりお問い合わせをお願いいたします。",
               buttons: [
-                { text: "受講変更フォームへ", url: "#", class: "btn-primary" }, // 受講変更フォームへのリンク
+                { text: "受講変更フォームへ", url: UrlForm, class: "btn-primary" }, // 受講変更フォームへのリンク
               ]
             })
           );
@@ -894,13 +951,13 @@ if (bodyId === "page-enrol-index") {
           // すでに2科目セットを購入している場合、3科目セットへの変更を促す
           subjectCategory === "threesubjectpack" && checkBoughtMainSubject(["twosubjectpack"])
         ) {
-          event.preventDefault(); // デフォルトの購入動作（フォーム送信）を防止
+          event.stopImmediatePropagation();
           $("body").append(
             createModal({
               close: true,
               text: "「２科目セット」を購入済みです。３科目セットへ受講変更したい場合はフォームよりお問い合わせをお願いいたします。",
               buttons: [
-                { text: "受講変更フォームへ", url: "#", class: "btn-primary" }, // 受講変更フォームへのリンク
+                { text: "受講変更フォームへ", url: UrlForm, class: "btn-primary" }, // 受講変更フォームへのリンク
               ]
             })
           );
@@ -908,6 +965,7 @@ if (bodyId === "page-enrol-index") {
       }
   });
 }
+
 
 // ==============================
 // 受講ページの表示ロジック
@@ -946,95 +1004,80 @@ if (bodyId === "page-course-index-category") {
 // ==============================
 // メイン3科目または2科目、3科目パック購入後のリダイレクト処理
 // ==============================
-if (bodyId === "page-course-view-flexsections") { // ページIDが「page-course-view-flexsections」の場合に処理を開始
-
-  //管理者ではない時に発火
-  //管理者で発火させないようのはリダイレクト防止、受講科目ダイアログが出るとページ編集ができないため
-  if (!hasBoughtAdminSubject) {
-    // 対象となる科目のリスト
-    const targetSubjects = [
-      "philosophy",    // 哲学
-      "science",       // 科学
-      "economy",       // 経済
-      "globalenglish", // グローバル英語
-      "twosubjectpack", // 2科目パック
-      "threesubjectpack", // 3科目パック
-    ];
-
-    // 各対象科目に対して繰り返し処理を実施
-    targetSubjects.forEach((key) => {
+// ページIDが'page-course-view-flexsections',page-course-view-topicsかつ管理者でない場合に実行
+if (
+  (bodyId === "page-course-view-flexsections" || bodyId === "page-course-view-topics") 
+  && !hasBoughtAdminSubject
+) {
+  // 現在表示しているページがメイン科目（哲学、科学などのトップページ）かチェック
+  if (currentViewCourseData?.type === "main") {
+    // 現在表示中のメイン科目のキー（例：science, philosophy）を取得
+    const currentMainSubjectKey = currentViewCourseData.key;
     
-      // 現在表示されている科目がtargetSubjectsリストにあるかつ、タイプが「main」の場合
-      if (
-        currentViewCourseData.key === key && // 現在の科目のkeyが対象のkeyと一致するか
-        currentViewCourseData.type === "main" // 現在の科目のタイプが「main」であるか
-      ) {
-        console.log(`currentViewCourseDataはmainタイプの${key}です`); // 現在の科目が「main」タイプであることを確認
 
-        // 2科目パックまたは3科目パックの場合は、「child」判定をスキップ
-        if (key === "twosubjectpack" || key === "threesubjectpack") {
-          console.log(`${key}はchild判定をスキップします。`); // パックの場合、子科目判定をスキップ
-          createModal({
-            // モーダルを表示して、ユーザーに「レベル設定」を促す
-            image: "https://go.waomirai.com/l/1026513/2025-01-27/hcs2k/1026513/1737961533tHzVY8az/img_modal_subject.png", // モーダルに表示する画像
-            imageClass: "c-modal-wrap-subject-img", // 画像にクラスを付与
-            wrapClass: "c-modal-wrap-subject", // モーダルのラップにクラスを付与
-            buttons: [
-              { text: "科目のレベルを設定する", url: "https://lms.waomirai.com/user/edit.php", class: "btn-primary" }, // ボタンにテキストとリンクを設定
-            ]
-          })
-          return; // child判定をスキップして次の科目の処理に進む
 
-        }
+    // 現在表示中のメイン科目の情報（ID含む）を取得
+    const currentMainSubject = subjects.find(
+      (subject) => 
+        subject.key === currentMainSubjectKey && 
+        subject.type === "main"
+    );
 
-        // bodyClasses（ページのクラス名）に対応する「child」タイプの科目があるか確認
-        const hasSubjectChild = bodyClasses.some((courseId) => {
-          // bodyClassesに含まれる各courseIdに対して、対応する「child」タイプの科目をsubjectsから検索
-          return subjects.some(
-            (subject) =>
-              subject.id === courseId && // courseIdとsubject.idが一致
-              subject.key === key && // keyが一致
-              subject.type === "child" // typeが「child」であることを確認
-          );
-        });
+    // ユーザーが現在のメイン科目の受講権限を持っているかチェック
+    // bodyClassesには、ユーザーが受講権限を持つ全コースのIDが含まれている
+    const hasMainSubjectAccess = bodyClasses.includes(currentMainSubject.id);
 
-        if (hasSubjectChild) {
-          console.log(`${key}のchildタイプが存在します`); // childタイプが存在する場合
+    // メイン科目の受講権限がない場合は処理を終了
+    // 例：科学のページを見ているが、科学の受講権限を持っていない
+    if (!hasMainSubjectAccess) {
+      console.log(`${currentMainSubjectKey}のメイン科目の受講権限がありません`);
+      return;
+    }
 
-          // 「child」タイプが見つかった場合、リダイレクト処理
-          const childCourse = subjects.find(
-            (subject) =>
-              subject.key === key && // keyが一致
-              subject.type === "child" && // typeが「child」であることを確認
-              bodyClasses.includes(subject.id) // bodyClassesに対応するIDが含まれていることを確認
-          );
+    // 2科目パックや3科目パックの場合の特別処理
+    // これらはレベル設定が必要ないため、即座にモーダルを表示して終了
+    if (currentMainSubjectKey === "twosubjectpack" || currentMainSubjectKey === "threesubjectpack") {
+      showLevelSettingModal();
+      return;
+    }
 
-          if (childCourse) {
-            // リダイレクト先のURLを作成
-            const redirectUrl = `https://lms.waomirai.com/course/view.php?id=${childCourse.id}`;
-            console.log(`リダイレクト: ${redirectUrl}`); // リダイレクト先URLをログに出力
-            window.location.href = redirectUrl; // ユーザーを指定したURLにリダイレクト
-          }
-        } else {
-          // 「child」タイプが存在しない場合の処理
-          createModal({
-            // モーダルを表示して、ユーザーに「レベル設定」を促す
-            image: "https://go.waomirai.com/l/1026513/2025-01-27/hcs2k/1026513/1737961533tHzVY8az/img_modal_subject.png", // モーダルに表示する画像
-            imageClass: "c-modal-wrap-subject-img", // 画像にクラスを付与
-            wrapClass: "c-modal-wrap-subject", // モーダルのラップにクラスを付与
-            buttons: [
-              { text: "科目のレベルを設定する", url: "https://lms.waomirai.com/user/edit.php", class: "btn-primary" }, // ボタンにテキストとリンクを設定
-            ]
-          })
-          console.log(`${key}のchildタイプは存在しません`); // childタイプが見つからなかったことをログに出力
-          // 「child」タイプが見つからない場合、モーダルを表示して処理を終了
-        }
-      } else {
-        // 「main」タイプでない場合の処理
-        console.log(`currentViewCourseDataはmainタイプの${key}ではありません`); // 現在の科目が「main」タイプではないことをログに出力
-      }
-    });
+    // ユーザーが受講中の子科目（L1～L4）を検索
+    // 例：科学L1、科学L2など
+    const enrolledChildCourse = subjects.find(
+      (subject) => 
+        // 同じ科目系統（科学なら科学）
+        subject.key === currentMainSubjectKey && 
+        // タイプが子科目
+        subject.type === "child" && 
+        // その子科目の受講権限を持っている
+        bodyClasses.includes(subject.id)
+    );
+
+    // 子科目を受講している場合（例：科学L1を受講中）
+    if (enrolledChildCourse) {
+      // 該当の子科目ページ（例：科学L1のページ）にリダイレクト
+      window.location.href = `https://lms.waomirai.com/course/view.php?id=${enrolledChildCourse.id}`;
+    } else {
+      // 子科目を受講していない場合（例：科学は受講可能だが、L1～L4のレベルを設定していない）
+      // レベル設定を促すモーダルを表示
+      showLevelSettingModal();
+    }
+  }
 }
+
+/**
+ * レベル設定を促すモーダルを表示する関数
+ * 科目のレベル（L1～L4）を設定するページへのリンクを含むモーダルを表示
+ */
+function showLevelSettingModal() {
+  createModal({
+    image: "https://go.waomirai.com/l/1026513/2025-01-27/hcs2k/1026513/1737961533tHzVY8az/img_modal_subject.png",
+    imageClass: "c-modal-wrap-subject-img",
+    wrapClass: "c-modal-wrap-subject",
+    buttons: [
+      { text: "科目のレベルを設定する", url: UrlChangeSubject, class: "btn-primary" },
+    ]
+  });
 }
 
 // ==============================
@@ -1064,10 +1107,16 @@ if (bodyId === "page-user-edit") { // ページIDが「page-user-edit」の場�
   });
 
   // 初回受講レベル登録時、submit直前に注意文言を表示する関数
+  let isAlertSubjectSettingFirstShown = false; // フラグを追加
+
   function AlertSubjectSettingFirst() {
-    $("#fgroup_id_buttonar").before(
-      `<div id="id_submitbutton-subject">一度受講レベルを設定すると、2回目以降のレベル変更時の反映は当月末になりますのでご注意くださいませ。</div>`
-    );
+    if (!isAlertSubjectSettingFirstShown) { // フラグがfalseの場合のみ実行
+      $("#fgroup_id_buttonar").before(
+        `<div id="id_submitbutton-subject">一度受講レベルを設定すると、2回目以降のレベル変更時の反映は当月末になりますのでご注意くださいませ。</div>`
+      );
+      //英語と他科目を受講する場合、複数回発火することを防ぐためにフラグをtrueに設定
+      isAlertSubjectSettingFirstShown = true; // フラグをtrueに設定
+    }
   }
 
   // サブレベル（子科目）の自動取得を行う関数
@@ -1279,14 +1328,26 @@ if (bodyId === "page-user-edit") { // ページIDが「page-user-edit」の場�
     getSelectElement(area).after(message); // エリアの後にメッセージを追加
   });
 
-  // 最後に、全ての科目に関して注意メッセージを表示
-  $("#id_category_10 > .d-flex").after(`
-        <p class="subject-level-note">
-          受講科目のレベルを選択してください。<br />
-          選択した科目のレベルを設定しないと授業を受けることができません。<br />
-         一度受講レベルを設定すると、2回目以降のレベル変更時の反映は当月末になりますのでご注意ください。
-        </p>
+  //見出し直下にテキストを表示。
+  if (hasBoughtMainSubject) {
+    //メイン科目持っている時
+    $("#id_category_10 > .d-flex").after(`
+      <p class="subject-level-note">
+        受講科目のレベルを選択してください。<br />
+        選択した科目のレベルを設定しないと授業を受けることができません。<br />
+        一度受講レベルを設定すると、2回目以降のレベル変更時の反映は当月末になりますのでご注意ください。
+      </p>
     `);
+    
+  } else {
+    //メイン科目がない時
+    $("#id_category_10 > .d-flex").after(`
+      <p class="subject-level-note">
+        科目を購入した後に受講科目レベルを設定することができます。<br />
+        科目の一覧は<a href="${UrlHome}" style="text-decoration:underline !important;">コチラ</a>からご確認いただけます。
+      </p>
+    `);
+  }
 }
 
 
@@ -1295,11 +1356,16 @@ if (bodyId === "page-user-edit") { // ページIDが「page-user-edit」の場�
 // ==============================
 if (bodyId === "page-user-profile") {
     
-    // $('.alert-success').html('変更が保存されました。科目レベルを設定した場合、<a href="https://lms.waomirai.com/my/">受講カレンダー</a>で確認ができます');  
-
-    
+    $('.alert-success').html('変更が保存されました。科目レベルを設定した場合、<a href="https://lms.waomirai.com/my/">受講カレンダー</a>で確認ができます');  
+   
     // 非表示にしたいキーワードの配列（OR条件）
-    const hideKeywords = ['ログイン活動', 'レポート', 'ジョブ'];
+    // ここで非表示にしている項目
+    // ログイン活動：ログイン履歴（これはユーザーにとっては不要な情報）
+    // レポート：意味のないレポート（これはユーザーにとっては不要な情報）
+    // ジョブ：ジョブ情報（これはユーザーにとっては不要な情報）
+    // Stripe退会するための情報（これはユーザーにとっては不要な情報）
+    // 補足：stripeは金額は確認できるようにして、退会するための情報は非表示にしたほうがいいかも
+    const hideKeywords = ['ログイン活動', 'レポート', 'ジョブ', 'Stripe'];
 
     // すべてのsectionに対してループ処理
     $('.card').each(function() {
@@ -1337,20 +1403,49 @@ $(".click-event-subject-comingsoon").on("click", function (e) {
 
 
 // classを指定してスクロールできるように
-$(".scroll-to").on("click", function (e) {
-  e.preventDefault(); // デフォルトの動作を防ぐ
-  var targetClass = $(this).data("target"); // data-target属性からターゲットのクラスを取得
-  var $target = $(targetClass); // ターゲット要素を取得
-
-  if ($target.length) {
-    // ターゲットが存在する場合のみ実行
-    $("html, body").animate(
-      {
-        scrollTop: $target.offset().top, // ターゲット要素の位置にスクロール
-      },
-      0 // スクロール速度 (ミリ秒)
-    );
+$("[class*='scroll-to-']").on("click", function (e) {
+  e.preventDefault();
+  console.log('1. Click event triggered');
+  
+  var allClasses = $(this).attr("class");
+  console.log('2. All classes on clicked element:', allClasses);
+  
+  var classArray = allClasses.split(" ");
+  var className = classArray.find(cls => cls.startsWith("scroll-to-"));
+  
+  if (className) {
+    var targetClass = className.replace("scroll-to-", "");
+    var $target = $("." + targetClass);
+    
+    if ($target.length) {
+      // DOM要素を直接取得してスクロール
+      var targetElement = $target[0];
+      targetElement.scrollIntoView({
+        behavior: 'auto', // 'smooth' でスムーズスクロール、'auto' で即時スクロール
+        block: 'start'    // 'start', 'center', 'end', 'nearest' から選択可能
+      });
+      
+      console.log('8. Scroll executed using scrollIntoView');
+    }
   }
 });
-   }
+
+
+// 年間スケジュールのタブ切り替え
+$('.tab-level-1').addClass('active');
+//  1番目のタブを表示
+$('.content-level1').css('display', 'grid');
+
+
+$('.enrol-section-basesubject-year-lesson-tab-child').click(function() {
+  var level = $(this).index() + 1;
+  
+  // タブのアクティブ切り替え
+  $('.enrol-section-basesubject-year-lesson-tab-child').removeClass('active');
+  $(this).addClass('active');
+  
+  // コンテンツの表示切り替え
+  $('.enrol-section-basesubject-year-lesson-content-child').hide();
+  $('.content-level' + level).css('display', 'grid');
+});   }
 });

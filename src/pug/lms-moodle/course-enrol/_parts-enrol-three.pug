@@ -23,7 +23,7 @@
         .price-fee
           .price-fee-yen.black ¥6,600
           .price-fee-month /月
-        a.price-detail(href="") 詳細を見る
+        a.price-detail.scroll-to-enrol-recommend-subject(href="#") 詳細を見る
 
       // ---- 2科目（active）----
       .multiselct-price-child
@@ -31,9 +31,9 @@
           span.subject-number 2
           span.subject-text 科目を受講
         .price-fee
-          .price-fee-yen.black ¥12,000
+          .price-fee-yen.black ¥11,000
           .price-fee-month.black /月
-        a.price-detail(href="") 詳細を見る
+        a.price-detail(href=link_twosubjectpack) 詳細を見る
         
 
       // ---- 3科目 ----
@@ -48,12 +48,15 @@
         .price-note このページです
 
 .enrol-section
-  h2.enrol-title-2
+  h2.enrol-title
       |受講パターン例
   .enrol-text-2 
     |ワオ未来塾は飛び級制を採用。授業には推奨学年を設定していますが、子どもの理解度に応じて高いレベルの授業を選択することができます。そのため、学年に縛られず、自由なペースで学びを深めることができます。
   .enrol-section-img-2
-    img(src="https://storage.pardot.com/1026513/1736840427S9VAZS7T/img_case_three.png", alt="")
+    img(src="https://go.waomirai.com/l/1026513/2025-02-10/hf4bk/1026513/1739171578u9zD8owh/threesubjeckpack.svg", alt="")
 
 //受講開始までの流れ
 +enrol-howto-register
+
+// 他の授業科目も見る
++enrol-recommend-subject
