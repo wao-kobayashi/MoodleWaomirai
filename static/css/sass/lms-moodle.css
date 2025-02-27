@@ -8212,7 +8212,7 @@ html[data-tenantidnumber=lmswaomirai] .course-229 .page-context-header, html[dat
 @media screen and (max-width: 768px) {
   html[data-tenantidnumber=lmswaomirai] .course-228 .enrol-header, html[data-tenantidnumber=lmswaomirai] .course-270 .enrol-header,
   html[data-tenantidnumber=lmswaomirai] .course-229 .enrol-header, html[data-tenantidnumber=lmswaomirai] .course-271 .enrol-header {
-    margin: 0 -20px !important;
+    margin: 0 -20px 30px !important;
   }
 }
 html[data-tenantidnumber=lmswaomirai] .course-228 .mt-3,

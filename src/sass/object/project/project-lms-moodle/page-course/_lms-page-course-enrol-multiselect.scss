@@ -14,7 +14,7 @@
   }
   .enrol-header {
     @include responsive-style(768px) {
-      margin: 0 -20px !important;
+      margin: 0 -20px 30px !important;
     }
   }
   .mt-3,
