@@ -639,50 +639,49 @@ if (bodyId === "page-my-index") {
   // ===============================================
   function calendarScheduleColorChange() {
     console.log("カレンダー色設定を開始");
-
     // カレンダーの各日付セルを処理
-    $(".day").each(function () {
-        // イベント情報を含む要素を検索
-        const $dayContent = $cell.find('[data-region="day-content"]');
-        
-        // イベントが存在する場合の処理
-        if ($dayContent.length > 0) {
-            // イベントリンクを全て取得
-            const $events = $dayContent.find('li a[data-action="view-event"]');
-            
-            // 各イベントの色設定
-            $events.each(function () {
-                const $eventLink = $(this);
-                const courseName = $eventLink.text().trim();
-                console.log(`科目名を検出: ${courseName}`);
+    const today = new Date(); // 現在の日付を取得
+    const todayDay = today.getDate(); // 今日の日
+    const todayMonth = today.getMonth() + 1; // 今日の月（0から始まるので1を加算）
+    const todayYear = today.getFullYear(); // 今日の年
+    let eventFound = false; // 今日のイベントが見つかったかどうか
+    let eventDetails = []; // 今日のイベント詳細を格納
+    let flagTodaysCalendar = false; // 今日の日付が処理されているかを追跡するフラグ
 
-                // 科目名に応じて色とボーダーを設定
-                // !important付きのスタイルで優先度を最大に
-                if (courseName.includes("経済")) {
-                    console.log("経済科目を検出");
-                    $eventLink.attr("style", 
-                        "background: #AA68AA !important;" + 
-                        "border-left: #008EC9 2px solid !important;");
-                } else if (courseName.includes("科学")) {
-                    console.log("科学科目を検出");
-                    $eventLink.attr("style", 
-                        "background: #B6D43E !important;" + 
-                        "border-left: #96B128 2px solid !important;");
-                } else if (courseName.includes("哲学")) {
-                    console.log("哲学科目を検出");
-                    $eventLink.attr("style", 
-                        "background: #FCB72E !important;" + 
-                        "border-left: #E98800 2px solid !important;");
-                } else if (courseName.includes("英語")) {
-                    console.log("英語科目を検出");
-                    $eventLink.attr("style", 
-                        "background: #AA68AA !important;" + 
-                        "border-left: #8D3A8D 2px solid !important;");
-                } else {
-                    console.log("未定義の科目を検出: ", courseName);
-                }
-            });
-        }
+    // .calendarwrapper内のロジックを実行（カレンダー上の日付に対して色変更を適用）
+    $(".day").each(function () {
+      const $cell = $(this); // 各セル（カレンダーの日付）
+      const cellDay = parseInt($cell.attr("data-day"), 10); // セルの日付
+      const cellMonth = parseInt($cell.attr("data-month"), 10); // セルの月
+      const cellYear = parseInt($cell.attr("data-year"), 10); // セルの年
+
+      // カレンダー内のイベントに対して色変更ロジックを適用
+      const $dayContent = $cell.find('[data-region="day-content"]');
+      if ($dayContent.length > 0) { // イベントが存在する場合
+        const $events = $dayContent.find('li a[data-action="view-event"]'); // イベントリンクを取得
+        $events.each(function () {
+          const $eventLink = $(this); // 各イベントリンク
+          const courseName = $eventLink.text().trim(); // イベント名を取得
+          console.log(`Course Name: ${courseName}`);
+
+          // イベント名に応じて背景色を変更
+          if (courseName.includes("経済")) {
+            console.log("経済が見つかりました。背景色を青に変更します。");
+            $eventLink.attr("style", "background: #AA68AA !important; border-left: #008EC9 2px solid !important;");
+          } else if (courseName.includes("科学")) {
+            console.log("科学が見つかりました。背景色を緑に変更します。");
+            $eventLink.attr("style", "background: #B6D43E !important; border-left: #96B128 2px solid !important;");
+          } else if (courseName.includes("哲学")) {
+            console.log("哲学が見つかりました。背景色をオレンジに変更します。");
+            $eventLink.attr("style", "background: #FCB72E !important; border-left: #E98800 2px solid !important;");
+          } else if (courseName.includes("英語")) {
+            console.log("英語が見つかりました。背景色を紫に変更します。");
+            $eventLink.attr("style", "background: #AA68AA !important; border-left: #8D3A8D 2px solid !important;");
+          } else {
+            console.log("条件に一致しない科目: ", courseName);
+          }
+        });
+      }
     });
   }
 
@@ -691,6 +690,7 @@ if (bodyId === "page-my-index") {
   // ===============================================
   // ページ読み込み完了時の処理
   $(document).ready(function () {
+    calendarScheduleColorChange();
     updateClassSchedule();  // 授業スケジュールの更新
   });
 
