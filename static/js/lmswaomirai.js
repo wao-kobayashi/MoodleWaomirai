@@ -699,8 +699,14 @@ if (bodyId === "page-my-index") {
     // 0.3秒の遅延後に色設定を実行（DOMの更新を待つ）
     setTimeout(() => {
         calendarScheduleColorChange(); // カレンダー色設定を実行
-    }, 550);
+    }, 1000);
   });
+  }
+  // `hasBoughtMainSubject` が true の場合に `calendarScheduleColorChange` を6秒ごとに実行する
+  if (hasBoughtMainSubject) {
+    // setInterval を使って 6秒(3000ミリ秒)ごとに関数を呼び出す
+    // カレンダー登録、直後に色が変わらないので管理者向け設定
+    setInterval(calendarScheduleColorChange, 6000);
   }
 
 // ==============================
