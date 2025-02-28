@@ -715,7 +715,7 @@ if (bodyId === "page-my-index") {
     // 0.3秒の遅延後に色設定を実行（DOMの更新を待つ）
     setTimeout(() => {
         calendarScheduleColorChange(); // カレンダー色設定を実行
-    }, 300);
+    }, 550);
   });
   }
 
