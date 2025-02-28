@@ -309,6 +309,10 @@ $default-max-width: 1170px; // 最大幅
   #page.drawers .main-inner {
     background: transparent;
   }
+  //謎のカレンダータイトルの丸を削除
+  .calendar-circle.calendar_event_site {
+    display: none;
+  }
   h4 {
     margin-bottom: 0 !important;
     font-size: $lms-font-size-l !important;

@@ -3091,6 +3091,9 @@ html[data-tenantidnumber=lmswaomirai] .pagelayout-mydashboard .maincalendar .cal
 html[data-tenantidnumber=lmswaomirai] .pagelayout-mydashboard #page.drawers .main-inner {
   background: transparent;
 }
+html[data-tenantidnumber=lmswaomirai] .pagelayout-mydashboard .calendar-circle.calendar_event_site {
+  display: none;
+}
 html[data-tenantidnumber=lmswaomirai] .pagelayout-mydashboard h4 {
   margin-bottom: 0 !important;
   font-size: 20px !important;

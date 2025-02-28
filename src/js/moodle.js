@@ -589,7 +589,7 @@ if (bodyId === "page-my-index") {
           // イベント名に応じて背景色を変更
           if (courseName.includes("経済")) {
             console.log("経済が見つかりました。背景色を青に変更します。");
-            $eventLink.attr("style", "background: #AA68AA !important; border-left: #008EC9 2px solid !important;");
+            $eventLink.attr("style", "background: #28afe7 !important; border-left: #008EC9 2px solid !important;");
           } else if (courseName.includes("科学")) {
             console.log("科学が見つかりました。背景色を緑に変更します。");
             $eventLink.attr("style", "background: #B6D43E !important; border-left: #96B128 2px solid !important;");

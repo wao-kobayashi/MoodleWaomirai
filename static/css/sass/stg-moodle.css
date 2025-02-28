@@ -3095,6 +3095,9 @@ html[data-tenantidnumber=stg] .pagelayout-mydashboard .maincalendar .calendartab
 html[data-tenantidnumber=stg] .pagelayout-mydashboard #page.drawers .main-inner {
   background: transparent;
 }
+html[data-tenantidnumber=stg] .pagelayout-mydashboard .calendar-circle.calendar_event_site {
+  display: none;
+}
 html[data-tenantidnumber=stg] .pagelayout-mydashboard h4 {
   margin-bottom: 0 !important;
   font-size: 20px !important;
