@@ -965,10 +965,10 @@ if (bodyId === "page-mod-questionnaire-view") {
   // スマートフォン版で、ページタイトルを動画の下に表示するためのロジック
 
   // ページヘッダー（#page-header）を複製して、スマホ用のコンテンツを作成
-  var contentToCloneDashboardLeft = $("#page-header").clone();
+  const contentToCloneDashboardLeft = $("#page-header").clone();
 
   // 複製したコンテンツをラップするためのdiv要素を作成
-  var wrappedContent = $("<div>", {
+  const wrappedContent = $("<div>", {
     id: "sp-page-header",   // 新しいdivにIDを設定（スマホ版のページヘッダー）
     class: "c-pc-hidden",   // デスクトップ版では非表示にするためのクラス（PC版では隠す）
   }).append(contentToCloneDashboardLeft);  // 複製したヘッダーを新しいdivに追加
@@ -978,9 +978,18 @@ if (bodyId === "page-mod-questionnaire-view") {
 
   // 課題提出セクションの下にリード文を挿入
   // 「授業の視聴が終わったら課題を提出しましょう」という文を、h2タグの後に追加
-  $(".mod_questionnaire_viewpage h2").after(
-    "<p>授業の視聴が終わったら課題を提出しましょう</p>"
-  );
+  const textQuestionnaireNotAnswered = "<p>授業の視聴が終わったら課題を提出しましょう</p>";
+  const textQuestionnaireAnswered = "<p>課題を提出済みです。</p>";
+  const textQuestionnaireButtonAnswered = "<p>課題を再提出する</p>";
+  
+  //li[data-key="yourresponse"]のある場合は回答済みとして扱う
+  //li[data-key="yourresponse"]は回答済みの場合、授業ページにdomとして要素が存在する
+  if ($('li[data-key="yourresponse"]').length) {
+    $(".mod_questionnaire_viewpage h2").after(textQuestionnaireAnswered);
+    $(".complete .btn-primary").text(textQuestionnaireButtonAnswered);
+  } else {
+    $(".mod_questionnaire_viewpage h2").after(textQuestionnaireNotAnswered);
+  }
 }
 
 
