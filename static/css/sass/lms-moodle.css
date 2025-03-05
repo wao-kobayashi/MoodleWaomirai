@@ -167,6 +167,7 @@ html[data-tenantidnumber=lmswaomirai] .lms-index-contents-block-cards .common-co
   height: 180px;
   -o-object-fit: cover;
      object-fit: cover;
+  width: 100%;
 }
 @media screen and (max-width: 768px) {
   html[data-tenantidnumber=lmswaomirai] .lms-index-contents-block-cards .common-contents-block-cards-course .common-contents-block-cards-course-img img {
@@ -356,6 +357,7 @@ html[data-tenantidnumber=lmswaomirai] .dashboard-main-contents-block-cards .comm
   height: 120px;
   -o-object-fit: cover;
      object-fit: cover;
+  width: 100%;
 }
 @media screen and (max-width: 768px) {
   html[data-tenantidnumber=lmswaomirai] .dashboard-main-contents-block-cards .common-contents-block-cards-course .common-contents-block-cards-course-img img {
@@ -563,6 +565,7 @@ html[data-tenantidnumber=lmswaomirai] .enrol-index-contents-block-cards .common-
   height: 120px;
   -o-object-fit: cover;
      object-fit: cover;
+  width: 100%;
 }
 @media screen and (max-width: 768px) {
   html[data-tenantidnumber=lmswaomirai] .enrol-index-contents-block-cards .common-contents-block-cards-course .common-contents-block-cards-course-img img {
@@ -3083,7 +3086,10 @@ html[data-tenantidnumber=lmswaomirai] .pagelayout-mydashboard #page.drawers {
   padding-right: 0px !important;
 }
 html[data-tenantidnumber=lmswaomirai] .pagelayout-mydashboard .calendarwrapper td > div {
-  height: 10em !important;
+  height: 13em !important;
+}
+html[data-tenantidnumber=lmswaomirai] .pagelayout-mydashboard .maincalendar .calendartable li[data-event-component=mod_questionnaire] {
+  display: none !important;
 }
 html[data-tenantidnumber=lmswaomirai] .pagelayout-mydashboard .maincalendar .calendartable li {
   padding: 4px 2px !important;
@@ -3269,6 +3275,12 @@ html[data-tenantidnumber=lmswaomirai] .pagelayout-mydashboard .maincalendar .cal
   display: block;
   font-weight: bold;
   border-radius: 2px;
+  overflow: hidden !important;
+  white-space: normal !important;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  height: 42px;
 }
 html[data-tenantidnumber=lmswaomirai] .pagelayout-mydashboard .maincalendar .calendarmonth ul li > a:focus, html[data-tenantidnumber=lmswaomirai] .pagelayout-mydashboard .maincalendar .calendarmonth ul li > a:active {
   -webkit-box-shadow: none;

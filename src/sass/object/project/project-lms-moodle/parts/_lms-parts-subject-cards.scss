@@ -49,7 +49,7 @@
       border-radius: 10px 10px 0 0 !important;
       height: 180px;
       object-fit: cover;
-
+      width: 100%;
       @include responsive-style(768px) {
         height: 90px;
       }
@@ -209,6 +209,7 @@
       border-radius: 10px 10px 0 0 !important;
       height: 120px;
       object-fit: cover;
+      width: 100%;
       @include responsive-style(768px) {
         height: 90px;
       }
@@ -385,6 +386,7 @@
       border-radius: 10px 10px 0 0 !important;
       height: 120px;
       object-fit: cover;
+      width: 100%;
       @include responsive-style(768px) {
         height: 90px;
       }

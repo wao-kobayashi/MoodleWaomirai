@@ -301,12 +301,17 @@ $default-max-width: 1170px; // 最大幅
 
 .pagelayout-mydashboard {
   .calendarwrapper td > div {
-    height: 10em !important;
+    height: 13em !important;
   }
   // ページの内側部分（drawers）の背景を透明化
+  .maincalendar .calendartable li[data-event-component="mod_questionnaire"] {
+    display: none !important;
+  }
+
   .maincalendar .calendartable li {
     padding: 4px 2px !important;
   }
+
   #page.drawers .main-inner {
     background: transparent;
   }
@@ -482,6 +487,12 @@ $default-max-width: 1170px; // 最大幅
       display: block;
       font-weight: bold;
       border-radius: 2px;
+      overflow: hidden !important;
+      white-space: normal !important;
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 2;
+      height: 42px;
       &:focus,
       &:active {
         box-shadow: none;
