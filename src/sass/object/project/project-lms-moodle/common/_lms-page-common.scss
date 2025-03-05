@@ -9,10 +9,10 @@ body {
   touch-action: auto !important; //モバイルでmoodleでtouch-action:noneが付くことがあるので抑制対策
 }
 
-img {
-  width: 100%;
-  height: auto;
-}
+// img {
+//   width: 100%;
+//   height: auto;
+// }
 
 a:focus,
 a:active {

@@ -573,6 +573,9 @@ $default-max-width: 1170px; // 最大幅
       max-width: 100%;
       padding: 0 5px !important;
     }
+    .description-content img {
+      width: 100%;
+    }
     .row:nth-child(1),
     .row:nth-child(2),
     .row:nth-child(5) {

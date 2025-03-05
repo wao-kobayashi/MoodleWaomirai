@@ -1073,10 +1073,6 @@ html[data-tenantidnumber=lmswaomirai] body {
   -ms-touch-action: auto !important;
       touch-action: auto !important;
 }
-html[data-tenantidnumber=lmswaomirai] img {
-  width: 100%;
-  height: auto;
-}
 html[data-tenantidnumber=lmswaomirai] a:focus,
 html[data-tenantidnumber=lmswaomirai] a:active {
   outline: none;
@@ -3349,6 +3345,9 @@ html[data-tenantidnumber=lmswaomirai] .pagelayout-mydashboard .summary-modal-con
           flex: 1;
   max-width: 100%;
   padding: 0 5px !important;
+}
+html[data-tenantidnumber=lmswaomirai] .pagelayout-mydashboard .summary-modal-container .description-content img {
+  width: 100%;
 }
 html[data-tenantidnumber=lmswaomirai] .pagelayout-mydashboard .summary-modal-container .row:nth-child(1),
 html[data-tenantidnumber=lmswaomirai] .pagelayout-mydashboard .summary-modal-container .row:nth-child(2),
