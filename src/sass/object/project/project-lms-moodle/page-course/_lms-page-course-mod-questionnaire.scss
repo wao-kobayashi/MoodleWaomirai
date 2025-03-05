@@ -1,6 +1,12 @@
 body {
 }
 
+#page-mod-questionnaire-complete {
+  .mod_questionnaire_flex-container {
+    gap: 20px;
+  }
+}
+
 #page-mod-questionnaire-view,
 #page-mod-questionnaire-complete,
 #page-mod-questionnaire-myreport,
@@ -182,7 +188,7 @@ body {
       .mod_questionnaire_flex-container {
         padding: 30px 20px 20px;
         width: 100%;
-        justify-content: center;
+        justify-content: flex-start;
 
         .allresponses {
           margin: 0 !important;
@@ -192,7 +198,7 @@ body {
           gap: 20px;
         }
         > div {
-          width: 300px;
+          width: 240px;
           flex-grow: none !important;
           @include responsive-style(768px) {
             width: 100%;
@@ -202,7 +208,7 @@ body {
             border: 1px solid $cl-main-orange;
             background: white !important;
             @include button-size-middle;
-            width: 300px;
+            width: 240px;
             @include responsive-style(768px) {
               width: 100%;
             }

@@ -882,28 +882,28 @@ if (bodyId === "page-enrol-index") {
 // ==============================
 // 受講ページの表示ロジック
 // ==============================
-if (bodyId === "page-mod-questionnaire-view" || bodyId === "page-mod-questionnaire-complete")  {
+if (bodyId === "page-mod-questionnaire-view" || bodyId === "page-mod-questionnaire-complete" || bodyId === "page-mod-questionnaire-report"|| bodyId === "page-mod-questionnaire-myreport")  {
   
 
   // スマートフォン版で、ページタイトルを動画の下に表示するためのロジック
+  // ページヘッダー（#page-header）を複製して、スマホ用のコンテンツを作成
+  const urlQuestionnaire = $('li[data-key="modulepage"] a').attr('href');
+  const clonedPageHeader = $("#page-header").clone();
+  const clonedCourseLessonDate = $(".course-lesson-date").clone();
 
-// ページヘッダー（#page-header）を複製して、スマホ用のコンテンツを作成
-const clonedPageHeader = $("#page-header").clone();
-const clonedCourseLessonDate = $(".course-lesson-date").clone();
+  // 複製したコンテンツをラップするためのdiv要素を作成
+  const spPageHeader = $("<div>", {
+    id: "sp-page-header",   // 新しいdivにIDを設定（スマホ版のページヘッダー）
+    class: "c-pc-hidden",   // デスクトップ版では非表示にするためのクラス（PC版では隠す）
+  }).append(clonedPageHeader);  // 複製したヘッダーを新しいdivに追加
 
-// 複製したコンテンツをラップするためのdiv要素を作成
-const spPageHeader = $("<div>", {
-  id: "sp-page-header",   // 新しいdivにIDを設定（スマホ版のページヘッダー）
-  class: "c-pc-hidden",   // デスクトップ版では非表示にするためのクラス（PC版では隠す）
-}).append(clonedPageHeader);  // 複製したヘッダーを新しいdivに追加
+  const spCourseLessonDate = $("<div>", {  // 新しいdivにIDを設定（スマホ版のページヘッダー）
+    class: "c-pc-hidden",   // デスクトップ版では非表示にするためのクラス（PC版では隠す）
+  }).append(clonedCourseLessonDate);  // 複製したヘッダーを新しいdivに追加
 
-const spCourseLessonDate = $("<div>", {  // 新しいdivにIDを設定（スマホ版のページヘッダー）
-  class: "c-pc-hidden",   // デスクトップ版では非表示にするためのクラス（PC版では隠す）
-}).append(clonedCourseLessonDate);  // 複製したヘッダーを新しいdivに追加
-
-// スマホ版のヘッダーを#page-contentの直下に配置（コンテンツの一部として追加）
-$(".activity-description").append(spPageHeader);
-$(".page-context-header").after(spCourseLessonDate);
+  // スマホ版のヘッダーを#page-contentの直下に配置（コンテンツの一部として追加）
+  $(".activity-description").append(spPageHeader);
+  $(".page-context-header").after(spCourseLessonDate);
 
 
   // 課題提出セクションの下にリード文を挿入
@@ -912,12 +912,16 @@ $(".page-context-header").after(spCourseLessonDate);
   const textQuestionnaireAnswered = "<p>課題を提出済みです。</p>";
   const textQuestionnaireButtonAnswered = "課題を再提出する";
   const textQuestionnaireTextareaPlaceholder = "ここに回答を入力してください";
+  const textQuestionnaireAnswerAll = "他の人の回答を見る";
   const ButtonQuestionnaireBacktoCalender = `
    <div class="mod_questionnaire_viewpage"><div class="mod_questionnaire_flex-container">
+        <div class="complete"><a href=${urlQuestionnaire} class="btn btn-primary">授業ページに戻る</a></div>
         <div class="complete"><a href="https://lms.waomirai.com/my/" class="btn btn-primary">受講カレンダーに戻る</a></div>
     </div></div>
   `;
-  $(".qn-answer textarea").attr("placeholder", textQuestionnaireTextareaPlaceholder);
+  
+  $('.allresponses a,li[data-key="vall"] a').text(textQuestionnaireAnswerAll);
+  $(".qn-answer textarea").attr("placeholder", textQuestionnaireTextareaPlaceholder); 
   
   //li[data-key="yourresponse"]のある場合は回答済みとして扱う
   //li[data-key="yourresponse"]は回答済みの場合、授業ページにdomとして要素が存在する
