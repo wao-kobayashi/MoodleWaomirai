@@ -13,6 +13,9 @@ $body-padding: 25px; // サイドバーとの距離
 $default-max-width: 1170px; // 最大幅
 
 .pagelayout-mydashboard {
+  img {
+    width: 100%;
+  }
   background: $cl-graylightest !important; // 背景設定
 
   .block_myinprogress .tool_catalogue-carousel {

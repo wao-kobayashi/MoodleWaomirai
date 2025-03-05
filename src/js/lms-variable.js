@@ -45,26 +45,26 @@ $(document).ready(function () {
   // ==============================
 
   // 哲学に関連する子科目
-  { id: 256, name: "哲学 L1", key: "philosophy", parentKey: "philosophy", type: "child", level: "L1" },
-  { id: 257, name: "哲学 L2", key: "philosophy", parentKey: "philosophy", type: "child", level: "L2" },
-  { id: 258, name: "哲学 L3", key: "philosophy", parentKey: "philosophy", type: "child", level: "L3" },
-  { id: 259, name: "哲学 L4", key: "philosophy", parentKey: "philosophy", type: "child", level: "L4" },
+  { id: 256, name: "哲学 レベル1", key: "philosophy", parentKey: "philosophy", type: "child", level: "L1" },
+  { id: 257, name: "哲学 レベル2", key: "philosophy", parentKey: "philosophy", type: "child", level: "L2" },
+  { id: 258, name: "哲学 レベル3", key: "philosophy", parentKey: "philosophy", type: "child", level: "L3" },
+  { id: 259, name: "哲学 レベル4", key: "philosophy", parentKey: "philosophy", type: "child", level: "L4" },
 
   // 科学に関連する子科目
-  { id: 266, name: "科学 L1", key: "science", parentKey: "science", type: "child", level: "L1" },
-  { id: 267, name: "科学 L2", key: "science", parentKey: "science", type: "child", level: "L2" },
-  { id: 268, name: "科学 L3", key: "science", parentKey: "science", type: "child", level: "L3" },
-  { id: 269, name: "科学 L4", key: "science", parentKey: "science", type: "child", level: "L4" },
+  { id: 266, name: "科学 レベル1", key: "science", parentKey: "science", type: "child", level: "L1" },
+  { id: 267, name: "科学 レベル2", key: "science", parentKey: "science", type: "child", level: "L2" },
+  { id: 268, name: "科学 レベル3", key: "science", parentKey: "science", type: "child", level: "L3" },
+  { id: 269, name: "科学 レベル4", key: "science", parentKey: "science", type: "child", level: "L4" },
 
   // 経済に関連する子科目
-  { id: 261, name: "経済 L1", key: "economy", parentKey: "economy", type: "child", level: "L1" },
-  { id: 262, name: "経済 L2", key: "economy", parentKey: "economy", type: "child", level: "L2" },
-  { id: 263, name: "経済 L3", key: "economy", parentKey: "economy", type: "child", level: "L3" },
-  { id: 264, name: "経済 L4", key: "economy", parentKey: "economy", type: "child", level: "L4" },
+  { id: 261, name: "経済 レベル1", key: "economy", parentKey: "economy", type: "child", level: "L1" },
+  { id: 262, name: "経済 レベル2", key: "economy", parentKey: "economy", type: "child", level: "L2" },
+  { id: 263, name: "経済 レベル3", key: "economy", parentKey: "economy", type: "child", level: "L3" },
+  { id: 264, name: "経済 レベル4", key: "economy", parentKey: "economy", type: "child", level: "L4" },
 
   // グローバル英語に関連する子科目
-  { id: 130, name: "グローバル英語 L1", key: "globalenglish", parentKey: "globalenglish", type: "child", level: "L1" },
-  { id: 138, name: "グローバル英語 L2", key: "globalenglish", parentKey: "globalenglish", type: "child", level: "L2" },
+  { id: 130, name: "グローバル英語 レベル1", key: "globalenglish", parentKey: "globalenglish", type: "child", level: "L1" },
+  { id: 138, name: "グローバル英語 レベル2", key: "globalenglish", parentKey: "globalenglish", type: "child", level: "L2" },
 
   // ==============================
   // admin専用の科目（通常ユーザーは購入できない

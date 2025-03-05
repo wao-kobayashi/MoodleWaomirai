@@ -2251,6 +2251,9 @@ html[data-tenantidnumber=lmswaomirai] #page-course-view-topics.course-999999 #pa
 html[data-tenantidnumber=lmswaomirai] #page-course-view-topics.course-999999 #page-header .h5.mt-4, html[data-tenantidnumber=lmswaomirai] #page-course-view-flexsections.course-999999 #page-header .h5.mt-4, html[data-tenantidnumber=lmswaomirai] #page-admin-tool-catalogue-courseinfo.course-999999 #page-header .h5.mt-4, html[data-tenantidnumber=lmswaomirai] #page-enrol-index.course-999999 #page-header .h5.mt-4 {
   display: none;
 }
+html[data-tenantidnumber=lmswaomirai] .pagelayout-frontpage img {
+  width: 100%;
+}
 html[data-tenantidnumber=lmswaomirai] .pagelayout-frontpage div[role=main] {
   display: none;
 }
@@ -2661,6 +2664,9 @@ html[data-tenantidnumber=lmswaomirai] #page-my-index #page-wrapper {
 }
 html[data-tenantidnumber=lmswaomirai] .pagelayout-mydashboard {
   background: #efefef !important;
+}
+html[data-tenantidnumber=lmswaomirai] .pagelayout-mydashboard img {
+  width: 100%;
 }
 html[data-tenantidnumber=lmswaomirai] .pagelayout-mydashboard .block_myinprogress .tool_catalogue-carousel {
   overflow: hidden !important;
@@ -4305,6 +4311,10 @@ html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-report .btn-second
   border: none !important;
   padding: 8px 20px;
   color: white !important;
+}
+html[data-tenantidnumber=lmswaomirai] #page-enrol-index img {
+  width: 100%;
+  height: auto;
 }
 html[data-tenantidnumber=lmswaomirai] #page-enrol-index .enrol_fee_payment_region {
   right: calc(50vw - 570px);
