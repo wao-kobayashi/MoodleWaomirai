@@ -882,35 +882,55 @@ if (bodyId === "page-enrol-index") {
 // ==============================
 // 受講ページの表示ロジック
 // ==============================
-if (bodyId === "page-mod-questionnaire-view") {
+if (bodyId === "page-mod-questionnaire-view" || bodyId === "page-mod-questionnaire-complete")  {
+  
 
   // スマートフォン版で、ページタイトルを動画の下に表示するためのロジック
 
-  // ページヘッダー（#page-header）を複製して、スマホ用のコンテンツを作成
-  const contentToCloneDashboardLeft = $("#page-header").clone();
+// ページヘッダー（#page-header）を複製して、スマホ用のコンテンツを作成
+const clonedPageHeader = $("#page-header").clone();
+const clonedCourseLessonDate = $(".course-lesson-date").clone();
 
-  // 複製したコンテンツをラップするためのdiv要素を作成
-  const wrappedContent = $("<div>", {
-    id: "sp-page-header",   // 新しいdivにIDを設定（スマホ版のページヘッダー）
-    class: "c-pc-hidden",   // デスクトップ版では非表示にするためのクラス（PC版では隠す）
-  }).append(contentToCloneDashboardLeft);  // 複製したヘッダーを新しいdivに追加
+// 複製したコンテンツをラップするためのdiv要素を作成
+const spPageHeader = $("<div>", {
+  id: "sp-page-header",   // 新しいdivにIDを設定（スマホ版のページヘッダー）
+  class: "c-pc-hidden",   // デスクトップ版では非表示にするためのクラス（PC版では隠す）
+}).append(clonedPageHeader);  // 複製したヘッダーを新しいdivに追加
 
-  // スマホ版のヘッダーを#page-contentの直下に配置（コンテンツの一部として追加）
-  $(".activity-description").append(wrappedContent);
+const spCourseLessonDate = $("<div>", {  // 新しいdivにIDを設定（スマホ版のページヘッダー）
+  class: "c-pc-hidden",   // デスクトップ版では非表示にするためのクラス（PC版では隠す）
+}).append(clonedCourseLessonDate);  // 複製したヘッダーを新しいdivに追加
+
+// スマホ版のヘッダーを#page-contentの直下に配置（コンテンツの一部として追加）
+$(".activity-description").append(spPageHeader);
+$(".page-context-header").after(spCourseLessonDate);
+
 
   // 課題提出セクションの下にリード文を挿入
   // 「授業の視聴が終わったら課題を提出しましょう」という文を、h2タグの後に追加
   const textQuestionnaireNotAnswered = "<p>授業の視聴が終わったら課題を提出しましょう</p>";
   const textQuestionnaireAnswered = "<p>課題を提出済みです。</p>";
-  const textQuestionnaireButtonAnswered = "<p>課題を再提出する</p>";
+  const textQuestionnaireButtonAnswered = "課題を再提出する";
+  const textQuestionnaireTextareaPlaceholder = "ここに回答を入力してください";
+  const ButtonQuestionnaireBacktoCalender = `
+   <div class="mod_questionnaire_viewpage"><div class="mod_questionnaire_flex-container">
+        <div class="complete"><a href="https://lms.waomirai.com/my/" class="btn btn-primary">受講カレンダーに戻る</a></div>
+    </div></div>
+  `;
+  $(".qn-answer textarea").attr("placeholder", textQuestionnaireTextareaPlaceholder);
   
   //li[data-key="yourresponse"]のある場合は回答済みとして扱う
   //li[data-key="yourresponse"]は回答済みの場合、授業ページにdomとして要素が存在する
-  if ($('li[data-key="yourresponse"]').length) {
+  if ($('li[data-key="yourresponse"]').length > 0) {
     $(".mod_questionnaire_viewpage h2").after(textQuestionnaireAnswered);
     $(".complete .btn-primary").text(textQuestionnaireButtonAnswered);
   } else {
     $(".mod_questionnaire_viewpage h2").after(textQuestionnaireNotAnswered);
+  }
+
+  //完了ページには提出済みの文言を追加
+  if ($(".surveyTitle").text().includes("ありがとう")) {
+    $(".mod_questionnaire_completepage h3").after(ButtonQuestionnaireBacktoCalender);
   }
 }
 

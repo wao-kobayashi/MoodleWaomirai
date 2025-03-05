@@ -3915,6 +3915,28 @@ html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-report #page-conte
     margin-bottom: 0 !important;
   }
 }
+@media screen and (max-width: 768px) {
+  html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-view .no-overflow .course-lesson-date,
+  html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-complete .no-overflow .course-lesson-date,
+  html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-myreport .no-overflow .course-lesson-date,
+  html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-report .no-overflow .course-lesson-date {
+    display: none;
+  }
+}
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-view .course-lesson-date,
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-complete .course-lesson-date,
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-myreport .course-lesson-date,
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-report .course-lesson-date {
+  font-size: 14px;
+  color: #999;
+  margin: 0 0 16px;
+}
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-view .c-pc-hidden .course-lesson-date,
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-complete .c-pc-hidden .course-lesson-date,
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-myreport .c-pc-hidden .course-lesson-date,
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-report .c-pc-hidden .course-lesson-date {
+  margin: 0 0 0px;
+}
 html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-view .course-lesson,
 html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-complete .course-lesson,
 html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-myreport .course-lesson,

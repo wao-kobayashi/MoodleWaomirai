@@ -67,6 +67,22 @@ body {
     }
   }
   //動画視聴の部分
+  .no-overflow .course-lesson-date {
+    @include responsive-style(768px) {
+      display: none;
+    }
+  }
+  .course-lesson-date {
+    font-size: $lms-font-size-m;
+    color: $cl-graylight;
+    margin: 0 0 16px;
+  }
+  .c-pc-hidden {
+    .course-lesson-date {
+      margin: 0 0 0px;
+    }
+  }
+
   .course-lesson {
     position: relative;
     border-radius: $border-radius-middle;
