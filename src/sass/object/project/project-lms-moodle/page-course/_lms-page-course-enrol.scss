@@ -40,6 +40,9 @@ $subject-default-max-width: 1140px; // 最大幅
 
 #page-enrol-index,
 #page-admin-tool-catalogue-courseinfo {
+  img {
+    width: 100%;
+  }
   #page-navbar {
     display: none;
   }

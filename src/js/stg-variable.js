@@ -81,6 +81,14 @@ $(document).ready(function () {
     // グローバル英語に関連する子科目
     { id: 253, name: "グローバル英語 レベル1", key: "globalenglish", parentKey: "globalenglish", type: "child", level: "L1" },
     { id: 254, name: "グローバル英語 レベル2", key: "globalenglish", parentKey: "globalenglish", type: "child", level: "L2" },
+    
+    // ==============================
+    // テスト専用科目（通常ユーザーは購入できない
+    // ==============================
+    
+    //用途
+    //動作確認用のテスト講座。
+    { id: 282, name: "WAOテスト講座", type: "child" },
 
     // ==============================
     // admin専用の科目（通常ユーザーは購入できない

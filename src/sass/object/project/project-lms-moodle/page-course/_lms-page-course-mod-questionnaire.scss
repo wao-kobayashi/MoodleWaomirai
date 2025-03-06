@@ -20,6 +20,7 @@ body {
       }
     }
   }
+
   #page-header {
     @include responsive-style(768px) {
       display: none;
@@ -80,7 +81,7 @@ body {
   }
   .course-lesson-date {
     font-size: $lms-font-size-m;
-    color: $cl-graylight;
+    color: $cl-gray;
     margin: 0 0 16px;
   }
   .c-pc-hidden {
@@ -96,6 +97,10 @@ body {
     @include responsive-style(768px) {
       border-radius: 0;
     }
+    img {
+      width: 100%;
+      border-radius: 0;
+    }
     .course-lesson-wrap {
       position: absolute;
       display: flex;
@@ -105,28 +110,39 @@ body {
       z-index: 1;
       width: 100%;
       height: 100%;
-      color: white;
+      color: $cl-white;
 
       .course-lesson-wrap-title {
-        color: white;
-        font-weight: 500;
+        color: $cl-white;
+        font-weight: 600;
         margin: 0 auto 16px;
-        font-size: $lms-font-size-ml;
+        font-size: $lms-font-size-l;
+        text-align: center !important;
         @include responsive-style(768px) {
-          font-size: $lms-font-size-m;
+          font-size: $lms-font-size-ml;
+        }
+      }
+      .course-lesson-wrap-subtitle {
+        color: $cl-graylightest;
+        font-weight: 500;
+        margin: 0 auto 0px;
+        font-size: $lms-font-size-m;
+        @include responsive-style(768px) {
+          font-size: $lms-font-size-s;
         }
       }
       button {
         @include button-size-big;
         background: $cl-main-orange !important;
-        color: white;
+        color: $cl-white !important;
         /* button style reset */
         appearance: none;
         box-shadow: none !important;
         outline: none;
         padding: 0;
         border: none;
-        width: 340px;
+        width: 360px;
+        margin: 0 auto 16px;
         @include responsive-style(768px) {
           width: 220px;
           @include button-size-middle;
@@ -143,7 +159,7 @@ body {
       z-index: 99;
       left: 0;
       top: 0;
-      background: $overlay;
+      background: rgba(0, 0, 0, 0.58);
       z-index: 1;
       width: 100%;
       height: 100%;
