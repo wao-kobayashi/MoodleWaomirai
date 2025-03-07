@@ -7,6 +7,16 @@ body {
   }
 }
 
+#page-mod-questionnaire-view {
+  .course-lesson-date {
+    display: block !important;
+  }
+
+  .course-lesson {
+    display: block !important;
+  }
+}
+
 #page-mod-questionnaire-view,
 #page-mod-questionnaire-complete,
 #page-mod-questionnaire-myreport,
@@ -80,6 +90,7 @@ body {
     }
   }
   .course-lesson-date {
+    display: none;
     font-size: $lms-font-size-m;
     color: $cl-gray;
     margin: 0 0 16px;
@@ -91,6 +102,7 @@ body {
   }
 
   .course-lesson {
+    display: none;
     position: relative;
     border-radius: $border-radius-middle;
     overflow: hidden;

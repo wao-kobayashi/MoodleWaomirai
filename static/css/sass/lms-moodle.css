@@ -1407,66 +1407,6 @@ html[data-tenantidnumber=lmswaomirai] #page-admin-tool-catalogue-courseinfo .too
 html[data-tenantidnumber=lmswaomirai] #page-enrol-index .tool_catalogue-catalogue .position-relative {
   display: none !important;
 }
-html[data-tenantidnumber=lmswaomirai] #page-course-view-flexsections.category-48 #section-0 {
-  border: none !important;
-}
-html[data-tenantidnumber=lmswaomirai] #page-course-view-flexsections.category-48 #section-0 .course-section-header {
-  display: none !important;
-}
-html[data-tenantidnumber=lmswaomirai] #page-course-view-flexsections.category-48 #section-0 .my-3 {
-  display: none;
-}
-html[data-tenantidnumber=lmswaomirai] #page-course-view-flexsections.category-48 #section-0 .flexsections-level-0 > .course-section.main .activity.activity-wrapper.forum {
-  display: none !important;
-}
-html[data-tenantidnumber=lmswaomirai] #page-course-view-flexsections.category-49 #section-0 {
-  border: none !important;
-}
-html[data-tenantidnumber=lmswaomirai] #page-course-view-flexsections.category-49 #section-0 .course-section-header {
-  display: none !important;
-}
-html[data-tenantidnumber=lmswaomirai] #page-course-view-flexsections.category-49 #section-0 .my-3 {
-  display: none;
-}
-html[data-tenantidnumber=lmswaomirai] #page-course-view-flexsections.category-49 #section-0 .flexsections-level-0 > .course-section.main .activity.activity-wrapper.forum {
-  display: none !important;
-}
-html[data-tenantidnumber=lmswaomirai] #page-course-view-flexsections.category-47 #section-0 {
-  border: none !important;
-}
-html[data-tenantidnumber=lmswaomirai] #page-course-view-flexsections.category-47 #section-0 .course-section-header {
-  display: none !important;
-}
-html[data-tenantidnumber=lmswaomirai] #page-course-view-flexsections.category-47 #section-0 .my-3 {
-  display: none;
-}
-html[data-tenantidnumber=lmswaomirai] #page-course-view-flexsections.category-47 #section-0 .flexsections-level-0 > .course-section.main .activity.activity-wrapper.forum {
-  display: none !important;
-}
-html[data-tenantidnumber=lmswaomirai] #page-course-view-flexsections.category-50 #section-0 {
-  border: none !important;
-}
-html[data-tenantidnumber=lmswaomirai] #page-course-view-flexsections.category-50 #section-0 .course-section-header {
-  display: none !important;
-}
-html[data-tenantidnumber=lmswaomirai] #page-course-view-flexsections.category-50 #section-0 .my-3 {
-  display: none;
-}
-html[data-tenantidnumber=lmswaomirai] #page-course-view-flexsections.category-50 #section-0 .flexsections-level-0 > .course-section.main .activity.activity-wrapper.forum {
-  display: none !important;
-}
-html[data-tenantidnumber=lmswaomirai] #page-course-view-flexsections.course-999999 #section-0 {
-  border: none !important;
-}
-html[data-tenantidnumber=lmswaomirai] #page-course-view-flexsections.course-999999 #section-0 .course-section-header {
-  display: none !important;
-}
-html[data-tenantidnumber=lmswaomirai] #page-course-view-flexsections.course-999999 #section-0 .my-3 {
-  display: none;
-}
-html[data-tenantidnumber=lmswaomirai] #page-course-view-flexsections.course-999999 #section-0 .flexsections-level-0 > .course-section.main .activity.activity-wrapper.forum {
-  display: none !important;
-}
 html[data-tenantidnumber=lmswaomirai] .pagelayout-login #page div[role=main],
 html[data-tenantidnumber=lmswaomirai] .login-wrapper {
   height: auto !important;
@@ -3840,6 +3780,12 @@ html[data-tenantidnumber=lmswaomirai] #page-user-profile .alert-success a {
 html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-complete .mod_questionnaire_flex-container {
   gap: 20px;
 }
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-view .course-lesson-date {
+  display: block !important;
+}
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-view .course-lesson {
+  display: block !important;
+}
 html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-view #page.drawers,
 html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-complete #page.drawers,
 html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-myreport #page.drawers,
@@ -3947,6 +3893,7 @@ html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-view .course-lesso
 html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-complete .course-lesson-date,
 html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-myreport .course-lesson-date,
 html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-report .course-lesson-date {
+  display: none;
   font-size: 14px;
   color: #4d4d4d;
   margin: 0 0 16px;
@@ -3961,6 +3908,7 @@ html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-view .course-lesso
 html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-complete .course-lesson,
 html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-myreport .course-lesson,
 html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-report .course-lesson {
+  display: none;
   position: relative;
   border-radius: 8px;
   overflow: hidden;
@@ -8487,6 +8435,14 @@ html[data-tenantidnumber=lmswaomirai] .enrol-header {
     text-align: center;
   }
 }
+html[data-tenantidnumber=lmswaomirai] #page-course-view-flexsections .section-collapsemenu,
+html[data-tenantidnumber=lmswaomirai] #page-course-view-topics .section-collapsemenu {
+  display: none;
+}
+html[data-tenantidnumber=lmswaomirai] #page-course-view-flexsections img,
+html[data-tenantidnumber=lmswaomirai] #page-course-view-topics img {
+  width: 100%;
+}
 html[data-tenantidnumber=lmswaomirai] #page-course-view-flexsections .course-detail-banner,
 html[data-tenantidnumber=lmswaomirai] #page-course-view-topics .course-detail-banner {
   padding: 25px 20px 30px;
@@ -8580,56 +8536,56 @@ html[data-tenantidnumber=lmswaomirai] #page-course-view-topics .course-detail-ba
   background: #005c3f;
   color: white;
 }
-html[data-tenantidnumber=lmswaomirai] #page-course-view-flexsections .flexsections-level-0 > .course-section.main,
-html[data-tenantidnumber=lmswaomirai] #page-course-view-topics .flexsections-level-0 > .course-section.main {
+html[data-tenantidnumber=lmswaomirai] #page-course-view-flexsections .course-section.main,
+html[data-tenantidnumber=lmswaomirai] #page-course-view-topics .course-section.main {
   border: 2px solid #efefef;
   border-radius: 10px;
   padding: 0 0px !important;
   margin: 0 auto 32px !important;
 }
-html[data-tenantidnumber=lmswaomirai] #page-course-view-flexsections .flexsections-level-0 > .course-section.main section course-section main clearfix .btn.btn-icon,
-html[data-tenantidnumber=lmswaomirai] #page-course-view-topics .flexsections-level-0 > .course-section.main section course-section main clearfix .btn.btn-icon {
+html[data-tenantidnumber=lmswaomirai] #page-course-view-flexsections .course-section.main .btn.btn-icon,
+html[data-tenantidnumber=lmswaomirai] #page-course-view-topics .course-section.main .btn.btn-icon {
   background: white !important;
   margin-right: 12px !important;
   margin-right: 0.75rem !important;
 }
-html[data-tenantidnumber=lmswaomirai] #page-course-view-flexsections .flexsections-level-0 > .course-section.main .mb-3,
-html[data-tenantidnumber=lmswaomirai] #page-course-view-flexsections .flexsections-level-0 > .course-section.main .my-3,
-html[data-tenantidnumber=lmswaomirai] #page-course-view-topics .flexsections-level-0 > .course-section.main .mb-3,
-html[data-tenantidnumber=lmswaomirai] #page-course-view-topics .flexsections-level-0 > .course-section.main .my-3 {
+html[data-tenantidnumber=lmswaomirai] #page-course-view-flexsections .course-section.main .mb-3,
+html[data-tenantidnumber=lmswaomirai] #page-course-view-flexsections .course-section.main .my-3,
+html[data-tenantidnumber=lmswaomirai] #page-course-view-topics .course-section.main .mb-3,
+html[data-tenantidnumber=lmswaomirai] #page-course-view-topics .course-section.main .my-3 {
   margin-bottom: 0px !important;
   margin-bottom: 0rem !important;
 }
-html[data-tenantidnumber=lmswaomirai] #page-course-view-flexsections .flexsections-level-0 > .course-section.main .d-block,
-html[data-tenantidnumber=lmswaomirai] #page-course-view-topics .flexsections-level-0 > .course-section.main .d-block {
+html[data-tenantidnumber=lmswaomirai] #page-course-view-flexsections .course-section.main .d-block,
+html[data-tenantidnumber=lmswaomirai] #page-course-view-topics .course-section.main .d-block {
   padding: 0px 16px 10px !important;
   border: none !important;
 }
-html[data-tenantidnumber=lmswaomirai] #page-course-view-flexsections .flexsections-level-0 > .course-section.main .section .activity,
-html[data-tenantidnumber=lmswaomirai] #page-course-view-topics .flexsections-level-0 > .course-section.main .section .activity {
+html[data-tenantidnumber=lmswaomirai] #page-course-view-flexsections .course-section.main .section .activity,
+html[data-tenantidnumber=lmswaomirai] #page-course-view-topics .course-section.main .section .activity {
   list-style: none;
   padding: 4px 0 8px;
   padding: 0.25rem 0 0.5rem;
 }
-html[data-tenantidnumber=lmswaomirai] #page-course-view-flexsections .flexsections-level-0 > .course-section.main > .course-section-header,
-html[data-tenantidnumber=lmswaomirai] #page-course-view-topics .flexsections-level-0 > .course-section.main > .course-section-header {
+html[data-tenantidnumber=lmswaomirai] #page-course-view-flexsections .course-section.main > .course-section-header,
+html[data-tenantidnumber=lmswaomirai] #page-course-view-topics .course-section.main > .course-section-header {
   background: #efefef;
   padding: 20px 15px !important;
 }
-html[data-tenantidnumber=lmswaomirai] #page-course-view-flexsections .flexsections-level-0 > .course-section.main > .course-section-header h3,
-html[data-tenantidnumber=lmswaomirai] #page-course-view-topics .flexsections-level-0 > .course-section.main > .course-section-header h3 {
+html[data-tenantidnumber=lmswaomirai] #page-course-view-flexsections .course-section.main > .course-section-header h3,
+html[data-tenantidnumber=lmswaomirai] #page-course-view-topics .course-section.main > .course-section-header h3 {
   font-size: 24px !important;
 }
-html[data-tenantidnumber=lmswaomirai] #page-course-view-flexsections .flexsections-level-0 > .course-section.main h3,
-html[data-tenantidnumber=lmswaomirai] #page-course-view-topics .flexsections-level-0 > .course-section.main h3 {
+html[data-tenantidnumber=lmswaomirai] #page-course-view-flexsections .course-section.main h3,
+html[data-tenantidnumber=lmswaomirai] #page-course-view-topics .course-section.main h3 {
   font-size: 20px !important;
 }
-html[data-tenantidnumber=lmswaomirai] #page-course-view-flexsections .flexsections-level-0 > .course-section.main .course-section-header,
-html[data-tenantidnumber=lmswaomirai] #page-course-view-topics .flexsections-level-0 > .course-section.main .course-section-header {
+html[data-tenantidnumber=lmswaomirai] #page-course-view-flexsections .course-section.main .course-section-header,
+html[data-tenantidnumber=lmswaomirai] #page-course-view-topics .course-section.main .course-section-header {
   padding: 0px 15px;
 }
-html[data-tenantidnumber=lmswaomirai] #page-course-view-flexsections .flexsections-level-0 > .course-section.main .course-section,
-html[data-tenantidnumber=lmswaomirai] #page-course-view-topics .flexsections-level-0 > .course-section.main .course-section {
+html[data-tenantidnumber=lmswaomirai] #page-course-view-flexsections .course-section.main .course-section,
+html[data-tenantidnumber=lmswaomirai] #page-course-view-topics .course-section.main .course-section {
   border: none !important;
 }
 @media screen and (max-width: 768px) {

@@ -161,20 +161,20 @@ a[href="https://lms.waomirai.com/my/courses.php"]
     $styles: map-get($common-course-styles, $common-style-key);
     // コースIDに基づいてスタイルを適用
     &.#{$course-id} {
-      #section-0 {
-        border: none !important;
-        .course-section-header {
-          display: none !important;
-        }
-        .my-3 {
-          display: none;
-        }
-        .flexsections-level-0 > .course-section.main {
-          .activity.activity-wrapper.forum {
-            display: none !important;
-          }
-        }
-      }
+      // #section-0 {
+      //   border: none !important;
+      //   .course-section-header {
+      //     display: none !important;
+      //   }
+      //   .my-3 {
+      //     display: none;
+      //   }
+      //   .flexsections-level-0 > .course-section.main {
+      //     .activity.activity-wrapper.forum {
+      //       display: none !important;
+      //     }
+      //   }
+      // }
     }
   }
 }
