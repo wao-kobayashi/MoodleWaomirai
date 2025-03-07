@@ -2,8 +2,8 @@
 // 2科目、3科目セット
 ///////////////////////////////////
 
-#{$course-multi-select-two},
-#{$course-multi-select-three} {
+#{map-get($main-courses, "twosubjectpack")},
+#{map-get($main-courses, "threesubjectpack")} {
   .page-context-header {
     display: none; //２科と３科目ヘッダー見えなくする
   }
