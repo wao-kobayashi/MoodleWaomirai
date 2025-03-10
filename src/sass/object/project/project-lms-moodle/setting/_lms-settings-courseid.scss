@@ -52,13 +52,17 @@ $common-course-styles: (
 // これにより、各カテゴリのスタイルを適用可能にする
 $course-styles: (
   // 経済カテゴリ
-  ".category-53, .category-48": "economy",
+  ".category-53": "economy",
+  ".category-48": "economy",
   // 科学カテゴリ
-  ".category-52, .category-49": "science",
+  ".category-52": "science",
+  ".category-49": "science",
   // 哲学カテゴリ
-  ".category-51, .category-47": "philosophy",
+  ".category-51": "philosophy",
+  ".category-47": "philosophy",
   // 英語カテゴリ
-  ".category-50, .category-54": "english",
+  ".category-50": "english",
+  ".category-54": "english",
   // プログラミングカテゴリ（特定のコース用）
   ".course-999999": "programming"
 );

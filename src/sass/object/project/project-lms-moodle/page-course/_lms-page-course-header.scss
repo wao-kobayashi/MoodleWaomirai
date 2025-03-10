@@ -4,6 +4,7 @@
 // 定義は「lms-settings-courseid.scss」で定義
 //
 ///////////////////////////////
+
 // 共通セレクタを定義
 $target-pages: (
   "#page-course-view-topics",
@@ -11,106 +12,118 @@ $target-pages: (
   "#page-admin-tool-catalogue-courseinfo",
   "#page-enrol-index"
 );
-#{join($target-pages, ", ")} {
-  @each $course-id, $common-style-key in $course-styles {
-    $styles: map-get(
-      $common-course-styles,
-      $common-style-key
-    ); // 修正点① `$course-styles` から取得
 
-    & #{$course-id} {
-      // 修正点② `.#` を削除して適用
-      // ヘッダーの背景スタイル
-      #page.drawers {
-        margin-top: 50px;
-        .main-inner {
+// 各ターゲットページに対するスタイル適用
+// $target-pages配列内の各ページIDに対してループ処理を行う
+@each $target-page in $target-pages {
+  // 現在処理中のページIDをセレクタとして出力
+  // #{$target-page}は補間構文で、変数の値をセレクタとして使用する
+  #{$target-page} {
+    // $course-styles配列から各コースIDとそれに対応するスタイルキーを取得してループ処理
+    // 例: ".category-53" => "economy"のような対応関係を処理
+    @each $course-id, $common-style-key in $course-styles {
+      // 親セレクタ(&)とコースID($course-id)を空白なしで結合
+      // これにより「#page-course-view-topics.category-53」のような結合セレクタが生成される
+      // 空白があると親子関係になってしまうため、&を使って同一要素に適用されるセレクタを生成
+      &#{$course-id} {
+        // $common-course-stylesマップから、現在のカテゴリに対応するスタイル設定を取得
+        // 例: "economy"キーに対応する色やbackground-imageなどの設定を$stylesに格納
+        $styles: map-get($common-course-styles, $common-style-key);
+
+        // ここから先は$stylesの値を使って実際のCSSプロパティを設定
+
+        // ヘッダーの背景スタイル
+        #page.drawers {
+          margin-top: 50px;
+          .main-inner {
+            @include responsive-style(768px) {
+              margin-top: 0px !important;
+              padding-top: 0px !important;
+            }
+          }
+        }
+
+        #page-header {
           @include responsive-style(768px) {
-            margin-top: 0px !important;
-            padding-top: 0px !important;
-          }
-        }
-      }
-
-      #page-header {
-        @include responsive-style(768px) {
-          margin: 0 -20px;
-        }
-
-        .page-header-headings {
-          background: map-get($styles, main-color) !important;
-          &:before {
-            background-image: map-get($styles, background-image);
-          }
-
-          @include responsive-style(768px) {
-            margin: 0px -20px 0px !important;
-          }
-        }
-
-        // 共通要素のスタイル適用
-        .mr-auto,
-        .mx-auto {
-          width: 100%;
-        }
-
-        .page-context-header {
-          padding: 0 !important;
-
-          .page-header-image {
-            display: none !important;
+            margin: 0 -20px;
           }
 
           .page-header-headings {
-            width: 100%;
-            position: relative;
-            height: 320px;
-            border-radius: $border-radius-middle;
-            display: flex;
-            align-items: center;
-            margin: 0px 0 48px !important;
+            background: map-get($styles, main-color) !important;
+            &:before {
+              background-image: map-get($styles, background-image);
+            }
 
             @include responsive-style(768px) {
-              margin: 0px 0 48px !important;
-              height: auto;
-              border-radius: 0;
+              margin: 0px -20px 0px !important;
+            }
+          }
+
+          // 共通要素のスタイル適用
+          .mr-auto,
+          .mx-auto {
+            width: 100%;
+          }
+
+          .page-context-header {
+            padding: 0 !important;
+
+            .page-header-image {
+              display: none !important;
             }
 
-            h1 {
-              color: white !important;
-              padding: 0 0 0 40px;
-              font-size: $lms-font-size-xxl !important;
-              max-width: 330px;
-
-              @include responsive-style(768px) {
-                padding: 200px 20px 40px 20px;
-                max-width: 100%;
-              }
-            }
-
-            &:before {
-              right: 0;
-              top: 0;
-              width: 50%;
+            .page-header-headings {
+              width: 100%;
+              position: relative;
               height: 320px;
-              object-fit: contain;
-              border-radius: 0px 8px 8px 0;
-              background-size: cover;
-              background-repeat: no-repeat;
-              background-position: center;
-              display: block;
-              content: "";
-              position: absolute;
+              border-radius: $border-radius-middle;
+              display: flex;
+              align-items: center;
+              margin: 0px 0 48px !important;
 
               @include responsive-style(768px) {
-                width: 100%;
-                height: 160px;
+                margin: 0px 0 48px !important;
+                height: auto;
+                border-radius: 0;
+              }
+
+              h1 {
+                color: white !important;
+                padding: 0 0 0 40px;
+                font-size: $lms-font-size-xxl !important;
+                max-width: 330px;
+
+                @include responsive-style(768px) {
+                  padding: 200px 20px 40px 20px;
+                  max-width: 100%;
+                }
+              }
+
+              &:before {
+                right: 0;
+                top: 0;
+                width: 50%;
+                height: 320px;
+                object-fit: contain;
+                border-radius: 0px 8px 8px 0;
+                background-size: cover;
+                background-repeat: no-repeat;
+                background-position: center;
+                display: block;
+                content: "";
+                position: absolute;
+
+                @include responsive-style(768px) {
+                  width: 100%;
+                  height: 160px;
+                }
               }
             }
           }
-        }
 
-        .h5.mt-4 {
-          display: none;
+          .h5.mt-4 {
+            display: none;
+          }
         }
       }
     }
