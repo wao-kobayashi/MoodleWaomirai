@@ -51,51 +51,115 @@ $common-course-styles: (
 // 左側がCSSセレクタ（.category-XX など）で、右側が上記 $common-course-styles のキー名
 // これにより、各カテゴリのスタイルを適用可能にする
 $course-styles: (
-  // 経済カテゴリ
-  ".category-53": "economy",
-  ".category-48": "economy",
-  // 科学カテゴリ
-  ".category-52": "science",
-  ".category-49": "science",
-  // 哲学カテゴリ
-  ".category-51": "philosophy",
-  ".category-47": "philosophy",
-  // 英語カテゴリ
-  ".category-50": "english",
-  ".category-54": "english",
-  // プログラミングカテゴリ（特定のコース用）
-  ".course-999999": "programming"
+  "economy": (
+    ".category-53",
+    ".category-48",
+  ),
+  "science": (
+    ".category-52",
+    ".category-49",
+  ),
+  "philosophy": (
+    ".category-51",
+    ".category-47",
+  ),
+  "english": (
+    ".category-50",
+    ".category-54",
+  ),
+  "programming": (
+    ".course-999999",
+  ),
 );
 
-// 特定の複数コースに適用するスタイル
-// これらは特定の環境（stg・lmswaomirai）で異なるコースIDを持つため、まとめて定義
-$course-multi-select-two: ".course-228, .course-270"; // stg環境では 228, lmswaomirai環境では 270
-$course-multi-select-three: ".course-229, .course-271"; // stg環境では 229, lmswaomirai環境では 271
-
 // メインカテゴリ（main）のコースID
+// メインコースのIDとカテゴリー名の対応リスト（同じ構造で個別定義）
+
 $main-courses: (
-  "philosophy": ".course-255, .course-212",
-  "economy": ".course-260, .course-213",
-  "science": ".course-265, .course-211",
-  "globalenglish": ".course-135, .course-236",
-  "twosubjectpack": ".course-270, .course-228",
-  "threesubjectpack": ".course-271, .course-229",
+  "philosophy": (
+    ".course-255",
+    ".course-212",
+  ),
+  "economy": (
+    ".course-260",
+    ".course-213",
+  ),
+  "science": (
+    ".course-265",
+    ".course-211",
+  ),
+  "globalenglish": (
+    ".course-135",
+    ".course-236",
+  ),
+  "twosubjectpack": (
+    ".course-270",
+    ".course-228",
+  ),
+  "threesubjectpack": (
+    ".course-271",
+    ".course-229",
+  ),
 );
 
 // サブカテゴリ（child）のコースID
+// 子コースのIDとレベル名の対応リスト（個別定義）
+
 $child-courses: (
-  "philosophy-l1": ".course-256, .course-221",
-  "philosophy-l2": ".course-257, .course-225",
-  "philosophy-l3": ".course-258, .course-242",
-  "philosophy-l4": ".course-259, .course-243",
-  "economy-l1": ".course-261, .course-226",
-  "economy-l2": ".course-262, .course-227",
-  "economy-l3": ".course-263, .course-246",
-  "economy-l4": ".course-264, .course-247",
-  "science-l1": ".course-266, .course-223",
-  "science-l2": ".course-267, .course-222",
-  "science-l3": ".course-268, .course-244",
-  "science-l4": ".course-269, .course-245",
-  "globalenglish-l1": ".course-130, .course-253",
-  "globalenglish-l2": ".course-138, .course-254",
+  "philosophy-l1": (
+    ".course-256",
+    ".course-221",
+  ),
+  "philosophy-l2": (
+    ".course-257",
+    ".course-225",
+  ),
+  "philosophy-l3": (
+    ".course-258",
+    ".course-242",
+  ),
+  "philosophy-l4": (
+    ".course-259",
+    ".course-243",
+  ),
+  "economy-l1": (
+    ".course-261",
+    ".course-226",
+  ),
+  "economy-l2": (
+    ".course-262",
+    ".course-227",
+  ),
+  "economy-l3": (
+    ".course-263",
+    ".course-246",
+  ),
+  "economy-l4": (
+    ".course-264",
+    ".course-247",
+  ),
+  "science-l1": (
+    ".course-266",
+    ".course-223",
+  ),
+  "science-l2": (
+    ".course-267",
+    ".course-222",
+  ),
+  "science-l3": (
+    ".course-268",
+    ".course-244",
+  ),
+  "science-l4": (
+    ".course-269",
+    ".course-245",
+  ),
+  "globalenglish-l1": (
+    ".course-130",
+    ".course-253",
+  ),
+  "globalenglish-l2": (
+    ".course-138",
+    ".course-254",
+  ),
 );
