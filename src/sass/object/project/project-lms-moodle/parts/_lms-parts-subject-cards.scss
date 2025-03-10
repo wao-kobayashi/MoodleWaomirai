@@ -156,15 +156,30 @@
     }
   }
 }
+h6 {
+  margin: 30px 10px 0px !important;
+  display: block !important;
+  font-size: $lms-font-size-l !important;
+  position: relative;
+}
+.dashboard-main-contents-subtitle {
+  margin: 6px 10px 0px !important;
+  display: block !important;
+  font-size: $lms-font-size-m !important;
+  position: relative;
+}
 
 .dashboard-main-contents-block-cards {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   // grid-template-rows: repeat(2, 1fr);
   grid-column-gap: 32px;
-  grid-row-gap: 32px;
+  grid-row-gap: 24px;
   padding: 20px 10px 10px;
-
+  margin: 0 0 30px;
+  &.dashboard-main-contents-block-cards-normargin {
+    margin: 0 0 0px !important;
+  }
   @include responsive-style(768px) {
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: auto;
@@ -207,7 +222,7 @@
 
     .common-contents-block-cards-course-img img {
       border-radius: 10px 10px 0 0 !important;
-      height: 120px;
+      height: 95px;
       object-fit: cover;
       width: 100%;
       @include responsive-style(768px) {
@@ -217,7 +232,7 @@
   }
 
   .common-contents-block-cards-course-detail {
-    padding: 13px 20px 20px;
+    padding: 10px 15px 14px;
     text-align: left !important;
     position: relative;
 
@@ -226,7 +241,7 @@
     }
 
     .common-contents-block-cards-course-detail-wrap {
-      padding: 0 0 0 20px;
+      padding: 0 0 0 16px;
       position: relative;
 
       @include responsive-style(768px) {
@@ -251,11 +266,11 @@
     }
 
     .common-contents-block-cards-course-detail-title {
-      font-size: $lms-font-size-l;
+      font-size: $lms-font-size-ml;
       font-weight: bold;
-      line-height: 1.5;
+      line-height: $lineheight-tight;
       color: $cl-black;
-      margin: 5px 0;
+      margin: 5px 0 3px;
       position: relative;
 
       @include responsive-style(768px) {
@@ -280,7 +295,7 @@
     }
 
     .common-contents-block-cards-course-detail-text {
-      font-size: $lms-font-size-m;
+      font-size: $lms-font-size-s;
       color: $cl-black;
       line-height: 1.5;
 

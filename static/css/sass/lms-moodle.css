@@ -302,12 +302,28 @@ html[data-tenantidnumber=lmswaomirai] .lms-index-contents-block-cards .block-pro
     display: none;
   }
 }
+html[data-tenantidnumber=lmswaomirai] h6 {
+  margin: 30px 10px 0px !important;
+  display: block !important;
+  font-size: 20px !important;
+  position: relative;
+}
+html[data-tenantidnumber=lmswaomirai] .dashboard-main-contents-subtitle {
+  margin: 6px 10px 0px !important;
+  display: block !important;
+  font-size: 14px !important;
+  position: relative;
+}
 html[data-tenantidnumber=lmswaomirai] .dashboard-main-contents-block-cards {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-column-gap: 32px;
-  grid-row-gap: 32px;
+  grid-row-gap: 24px;
   padding: 20px 10px 10px;
+  margin: 0 0 30px;
+}
+html[data-tenantidnumber=lmswaomirai] .dashboard-main-contents-block-cards.dashboard-main-contents-block-cards-normargin {
+  margin: 0 0 0px !important;
 }
 @media screen and (max-width: 768px) {
   html[data-tenantidnumber=lmswaomirai] .dashboard-main-contents-block-cards {
@@ -354,7 +370,7 @@ html[data-tenantidnumber=lmswaomirai] .dashboard-main-contents-block-cards .comm
 }
 html[data-tenantidnumber=lmswaomirai] .dashboard-main-contents-block-cards .common-contents-block-cards-course .common-contents-block-cards-course-img img {
   border-radius: 10px 10px 0 0 !important;
-  height: 120px;
+  height: 95px;
   -o-object-fit: cover;
      object-fit: cover;
   width: 100%;
@@ -365,7 +381,7 @@ html[data-tenantidnumber=lmswaomirai] .dashboard-main-contents-block-cards .comm
   }
 }
 html[data-tenantidnumber=lmswaomirai] .dashboard-main-contents-block-cards .common-contents-block-cards-course-detail {
-  padding: 13px 20px 20px;
+  padding: 10px 15px 14px;
   text-align: left !important;
   position: relative;
 }
@@ -375,7 +391,7 @@ html[data-tenantidnumber=lmswaomirai] .dashboard-main-contents-block-cards .comm
   }
 }
 html[data-tenantidnumber=lmswaomirai] .dashboard-main-contents-block-cards .common-contents-block-cards-course-detail .common-contents-block-cards-course-detail-wrap {
-  padding: 0 0 0 20px;
+  padding: 0 0 0 16px;
   position: relative;
 }
 @media screen and (max-width: 768px) {
@@ -400,11 +416,11 @@ html[data-tenantidnumber=lmswaomirai] .dashboard-main-contents-block-cards .comm
   }
 }
 html[data-tenantidnumber=lmswaomirai] .dashboard-main-contents-block-cards .common-contents-block-cards-course-detail .common-contents-block-cards-course-detail-title {
-  font-size: 20px;
+  font-size: 16px;
   font-weight: bold;
-  line-height: 1.5;
+  line-height: 1.25;
   color: #262626;
-  margin: 5px 0;
+  margin: 5px 0 3px;
   position: relative;
 }
 @media screen and (max-width: 768px) {
@@ -429,7 +445,7 @@ html[data-tenantidnumber=lmswaomirai] .dashboard-main-contents-block-cards .comm
   }
 }
 html[data-tenantidnumber=lmswaomirai] .dashboard-main-contents-block-cards .common-contents-block-cards-course-detail .common-contents-block-cards-course-detail-text {
-  font-size: 14px;
+  font-size: 12px;
   color: #262626;
   line-height: 1.5;
 }
@@ -6592,6 +6608,289 @@ html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-view .course-lesso
 html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-view .course-lesson {
   display: block !important;
 }
+html[data-tenantidnumber=lmswaomirai] li[data-key=courseinfo] {
+  display: none !important;
+}
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-view.course-256 li[data-key=courseinfo],
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-view.course-256 li[data-key="1"],
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-complete.course-256 li[data-key=courseinfo],
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-complete.course-256 li[data-key="1"],
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-myreport.course-256 li[data-key=courseinfo],
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-myreport.course-256 li[data-key="1"],
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-report.course-256 li[data-key=courseinfo],
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-report.course-256 li[data-key="1"] {
+  display: none !important;
+}
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-view.course-221 li[data-key=courseinfo],
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-view.course-221 li[data-key="1"],
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-complete.course-221 li[data-key=courseinfo],
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-complete.course-221 li[data-key="1"],
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-myreport.course-221 li[data-key=courseinfo],
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-myreport.course-221 li[data-key="1"],
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-report.course-221 li[data-key=courseinfo],
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-report.course-221 li[data-key="1"] {
+  display: none !important;
+}
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-view.course-257 li[data-key=courseinfo],
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-view.course-257 li[data-key="1"],
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-complete.course-257 li[data-key=courseinfo],
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-complete.course-257 li[data-key="1"],
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-myreport.course-257 li[data-key=courseinfo],
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-myreport.course-257 li[data-key="1"],
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-report.course-257 li[data-key=courseinfo],
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-report.course-257 li[data-key="1"] {
+  display: none !important;
+}
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-view.course-225 li[data-key=courseinfo],
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-view.course-225 li[data-key="1"],
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-complete.course-225 li[data-key=courseinfo],
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-complete.course-225 li[data-key="1"],
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-myreport.course-225 li[data-key=courseinfo],
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-myreport.course-225 li[data-key="1"],
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-report.course-225 li[data-key=courseinfo],
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-report.course-225 li[data-key="1"] {
+  display: none !important;
+}
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-view.course-258 li[data-key=courseinfo],
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-view.course-258 li[data-key="1"],
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-complete.course-258 li[data-key=courseinfo],
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-complete.course-258 li[data-key="1"],
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-myreport.course-258 li[data-key=courseinfo],
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-myreport.course-258 li[data-key="1"],
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-report.course-258 li[data-key=courseinfo],
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-report.course-258 li[data-key="1"] {
+  display: none !important;
+}
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-view.course-242 li[data-key=courseinfo],
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-view.course-242 li[data-key="1"],
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-complete.course-242 li[data-key=courseinfo],
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-complete.course-242 li[data-key="1"],
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-myreport.course-242 li[data-key=courseinfo],
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-myreport.course-242 li[data-key="1"],
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-report.course-242 li[data-key=courseinfo],
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-report.course-242 li[data-key="1"] {
+  display: none !important;
+}
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-view.course-259 li[data-key=courseinfo],
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-view.course-259 li[data-key="1"],
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-complete.course-259 li[data-key=courseinfo],
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-complete.course-259 li[data-key="1"],
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-myreport.course-259 li[data-key=courseinfo],
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-myreport.course-259 li[data-key="1"],
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-report.course-259 li[data-key=courseinfo],
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-report.course-259 li[data-key="1"] {
+  display: none !important;
+}
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-view.course-243 li[data-key=courseinfo],
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-view.course-243 li[data-key="1"],
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-complete.course-243 li[data-key=courseinfo],
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-complete.course-243 li[data-key="1"],
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-myreport.course-243 li[data-key=courseinfo],
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-myreport.course-243 li[data-key="1"],
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-report.course-243 li[data-key=courseinfo],
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-report.course-243 li[data-key="1"] {
+  display: none !important;
+}
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-view.course-261 li[data-key=courseinfo],
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-view.course-261 li[data-key="1"],
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-complete.course-261 li[data-key=courseinfo],
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-complete.course-261 li[data-key="1"],
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-myreport.course-261 li[data-key=courseinfo],
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-myreport.course-261 li[data-key="1"],
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-report.course-261 li[data-key=courseinfo],
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-report.course-261 li[data-key="1"] {
+  display: none !important;
+}
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-view.course-226 li[data-key=courseinfo],
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-view.course-226 li[data-key="1"],
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-complete.course-226 li[data-key=courseinfo],
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-complete.course-226 li[data-key="1"],
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-myreport.course-226 li[data-key=courseinfo],
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-myreport.course-226 li[data-key="1"],
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-report.course-226 li[data-key=courseinfo],
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-report.course-226 li[data-key="1"] {
+  display: none !important;
+}
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-view.course-262 li[data-key=courseinfo],
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-view.course-262 li[data-key="1"],
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-complete.course-262 li[data-key=courseinfo],
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-complete.course-262 li[data-key="1"],
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-myreport.course-262 li[data-key=courseinfo],
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-myreport.course-262 li[data-key="1"],
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-report.course-262 li[data-key=courseinfo],
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-report.course-262 li[data-key="1"] {
+  display: none !important;
+}
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-view.course-227 li[data-key=courseinfo],
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-view.course-227 li[data-key="1"],
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-complete.course-227 li[data-key=courseinfo],
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-complete.course-227 li[data-key="1"],
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-myreport.course-227 li[data-key=courseinfo],
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-myreport.course-227 li[data-key="1"],
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-report.course-227 li[data-key=courseinfo],
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-report.course-227 li[data-key="1"] {
+  display: none !important;
+}
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-view.course-263 li[data-key=courseinfo],
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-view.course-263 li[data-key="1"],
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-complete.course-263 li[data-key=courseinfo],
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-complete.course-263 li[data-key="1"],
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-myreport.course-263 li[data-key=courseinfo],
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-myreport.course-263 li[data-key="1"],
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-report.course-263 li[data-key=courseinfo],
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-report.course-263 li[data-key="1"] {
+  display: none !important;
+}
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-view.course-246 li[data-key=courseinfo],
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-view.course-246 li[data-key="1"],
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-complete.course-246 li[data-key=courseinfo],
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-complete.course-246 li[data-key="1"],
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-myreport.course-246 li[data-key=courseinfo],
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-myreport.course-246 li[data-key="1"],
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-report.course-246 li[data-key=courseinfo],
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-report.course-246 li[data-key="1"] {
+  display: none !important;
+}
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-view.course-264 li[data-key=courseinfo],
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-view.course-264 li[data-key="1"],
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-complete.course-264 li[data-key=courseinfo],
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-complete.course-264 li[data-key="1"],
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-myreport.course-264 li[data-key=courseinfo],
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-myreport.course-264 li[data-key="1"],
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-report.course-264 li[data-key=courseinfo],
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-report.course-264 li[data-key="1"] {
+  display: none !important;
+}
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-view.course-247 li[data-key=courseinfo],
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-view.course-247 li[data-key="1"],
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-complete.course-247 li[data-key=courseinfo],
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-complete.course-247 li[data-key="1"],
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-myreport.course-247 li[data-key=courseinfo],
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-myreport.course-247 li[data-key="1"],
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-report.course-247 li[data-key=courseinfo],
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-report.course-247 li[data-key="1"] {
+  display: none !important;
+}
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-view.course-266 li[data-key=courseinfo],
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-view.course-266 li[data-key="1"],
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-complete.course-266 li[data-key=courseinfo],
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-complete.course-266 li[data-key="1"],
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-myreport.course-266 li[data-key=courseinfo],
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-myreport.course-266 li[data-key="1"],
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-report.course-266 li[data-key=courseinfo],
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-report.course-266 li[data-key="1"] {
+  display: none !important;
+}
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-view.course-223 li[data-key=courseinfo],
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-view.course-223 li[data-key="1"],
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-complete.course-223 li[data-key=courseinfo],
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-complete.course-223 li[data-key="1"],
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-myreport.course-223 li[data-key=courseinfo],
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-myreport.course-223 li[data-key="1"],
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-report.course-223 li[data-key=courseinfo],
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-report.course-223 li[data-key="1"] {
+  display: none !important;
+}
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-view.course-267 li[data-key=courseinfo],
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-view.course-267 li[data-key="1"],
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-complete.course-267 li[data-key=courseinfo],
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-complete.course-267 li[data-key="1"],
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-myreport.course-267 li[data-key=courseinfo],
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-myreport.course-267 li[data-key="1"],
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-report.course-267 li[data-key=courseinfo],
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-report.course-267 li[data-key="1"] {
+  display: none !important;
+}
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-view.course-222 li[data-key=courseinfo],
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-view.course-222 li[data-key="1"],
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-complete.course-222 li[data-key=courseinfo],
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-complete.course-222 li[data-key="1"],
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-myreport.course-222 li[data-key=courseinfo],
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-myreport.course-222 li[data-key="1"],
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-report.course-222 li[data-key=courseinfo],
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-report.course-222 li[data-key="1"] {
+  display: none !important;
+}
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-view.course-268 li[data-key=courseinfo],
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-view.course-268 li[data-key="1"],
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-complete.course-268 li[data-key=courseinfo],
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-complete.course-268 li[data-key="1"],
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-myreport.course-268 li[data-key=courseinfo],
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-myreport.course-268 li[data-key="1"],
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-report.course-268 li[data-key=courseinfo],
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-report.course-268 li[data-key="1"] {
+  display: none !important;
+}
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-view.course-244 li[data-key=courseinfo],
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-view.course-244 li[data-key="1"],
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-complete.course-244 li[data-key=courseinfo],
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-complete.course-244 li[data-key="1"],
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-myreport.course-244 li[data-key=courseinfo],
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-myreport.course-244 li[data-key="1"],
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-report.course-244 li[data-key=courseinfo],
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-report.course-244 li[data-key="1"] {
+  display: none !important;
+}
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-view.course-269 li[data-key=courseinfo],
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-view.course-269 li[data-key="1"],
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-complete.course-269 li[data-key=courseinfo],
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-complete.course-269 li[data-key="1"],
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-myreport.course-269 li[data-key=courseinfo],
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-myreport.course-269 li[data-key="1"],
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-report.course-269 li[data-key=courseinfo],
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-report.course-269 li[data-key="1"] {
+  display: none !important;
+}
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-view.course-245 li[data-key=courseinfo],
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-view.course-245 li[data-key="1"],
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-complete.course-245 li[data-key=courseinfo],
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-complete.course-245 li[data-key="1"],
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-myreport.course-245 li[data-key=courseinfo],
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-myreport.course-245 li[data-key="1"],
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-report.course-245 li[data-key=courseinfo],
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-report.course-245 li[data-key="1"] {
+  display: none !important;
+}
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-view.course-130 li[data-key=courseinfo],
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-view.course-130 li[data-key="1"],
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-complete.course-130 li[data-key=courseinfo],
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-complete.course-130 li[data-key="1"],
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-myreport.course-130 li[data-key=courseinfo],
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-myreport.course-130 li[data-key="1"],
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-report.course-130 li[data-key=courseinfo],
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-report.course-130 li[data-key="1"] {
+  display: none !important;
+}
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-view.course-253 li[data-key=courseinfo],
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-view.course-253 li[data-key="1"],
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-complete.course-253 li[data-key=courseinfo],
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-complete.course-253 li[data-key="1"],
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-myreport.course-253 li[data-key=courseinfo],
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-myreport.course-253 li[data-key="1"],
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-report.course-253 li[data-key=courseinfo],
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-report.course-253 li[data-key="1"] {
+  display: none !important;
+}
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-view.course-138 li[data-key=courseinfo],
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-view.course-138 li[data-key="1"],
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-complete.course-138 li[data-key=courseinfo],
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-complete.course-138 li[data-key="1"],
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-myreport.course-138 li[data-key=courseinfo],
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-myreport.course-138 li[data-key="1"],
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-report.course-138 li[data-key=courseinfo],
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-report.course-138 li[data-key="1"] {
+  display: none !important;
+}
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-view.course-254 li[data-key=courseinfo],
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-view.course-254 li[data-key="1"],
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-complete.course-254 li[data-key=courseinfo],
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-complete.course-254 li[data-key="1"],
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-myreport.course-254 li[data-key=courseinfo],
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-myreport.course-254 li[data-key="1"],
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-report.course-254 li[data-key=courseinfo],
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-report.course-254 li[data-key="1"] {
+  display: none !important;
+}
 html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-view #page.drawers,
 html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-complete #page.drawers,
 html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-myreport #page.drawers,
@@ -11650,6 +11949,11 @@ html[data-tenantidnumber=lmswaomirai] .enrol-header {
     white-space: nowrap;
     text-align: center;
   }
+}
+html[data-tenantidnumber=lmswaomirai] #page-course-view-flexsections .activityiconcontainer.smaller .activityicon,
+html[data-tenantidnumber=lmswaomirai] #page-course-view-topics .activityiconcontainer.smaller .activityicon {
+  width: 24px !important;
+  height: 24px !important;
 }
 html[data-tenantidnumber=lmswaomirai] #page-course-view-flexsections .section-collapsemenu,
 html[data-tenantidnumber=lmswaomirai] #page-course-view-topics .section-collapsemenu {

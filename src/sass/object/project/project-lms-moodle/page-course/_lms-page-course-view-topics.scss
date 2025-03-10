@@ -2,6 +2,10 @@
 //memo &をつけるとbodyにつく
 #page-course-view-flexsections,
 #page-course-view-topics {
+  .activityiconcontainer.smaller .activityicon {
+    width: 24px !important;
+    height: 24px !important;
+  }
   .section-collapsemenu {
     display: none;
   }

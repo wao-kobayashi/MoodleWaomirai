@@ -17,10 +17,33 @@ body {
   }
 }
 
+li[data-key="courseinfo"] {
+  display: none !important;
+}
+
 #page-mod-questionnaire-view,
 #page-mod-questionnaire-complete,
 #page-mod-questionnaire-myreport,
 #page-mod-questionnaire-report {
+  // SCSSの@eachループを使用して各コースタイプを処理
+  // $course-name: コースの識別子（例: "philosophy-l1"）
+  // $course-classes: そのコースに関連するクラス名の配列（例: [".course-256", ".course-221"]）
+  @each $course-name, $course-classes in $child-courses {
+    // 各コースタイプに含まれる複数のクラスをループ処理
+    // $course-class: 個々のクラス名（例: ".course-256"）
+    @each $course-class in $course-classes {
+      // &はSCSSの親セレクタ参照
+      // 例: #page-mod-questionnaire-view.course-256 になる
+      &#{$course-class} {
+        // 特定のコースクラスに対する固有のスタイルをここに定義
+        // これにより、各コースごとに異なるスタイルを適用可能
+        li[data-key="courseinfo"],
+        li[data-key="1"] {
+          display: none !important;
+        }
+      }
+    }
+  }
   #page.drawers {
     margin-top: 48px !important;
     .main-inner {
