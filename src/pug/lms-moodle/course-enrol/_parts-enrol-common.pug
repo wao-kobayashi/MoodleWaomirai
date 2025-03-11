@@ -102,20 +102,21 @@ mixin enrol-lesson-year
 
 // 年間の授業開催スケジュール
 mixin enrol-lesson-googlecalender
- .enrol-section
-    h2.enrol-title 年間の授業開催スケジュール
-    if enrolpage.category == 'philosophy'
-       .enrol-section-calender
-          iframe(src=iframeCalenderPhilosophy, style="border:0" frameborder="0" scrolling="no")
-    else if enrolpage.category == 'science'
-       .enrol-section-calender 
-           iframe(src=iframeCalenderScience, style="border:0" frameborder="0" scrolling="no")
-    else if enrolpage.category == 'economy'
-       .enrol-section-calender
-          iframe(src=iframeCalendeEconomy, style="border:0" frameborder="0" scrolling="no")
-    else if enrolpage.category == 'globalenglish'
-       .enrol-section-calender
-          iframe(src=iframeCalenderEnglish, style="border:0" frameborder="0" scrolling="no")
+  div
+//-  .enrol-section
+//-     h2.enrol-title 年間の授業開催スケジュール
+//-     if enrolpage.category == 'philosophy'
+//-        .enrol-section-calender
+//-           iframe(src=iframeCalenderPhilosophy, style="border:0" frameborder="0" scrolling="no")
+//-     else if enrolpage.category == 'science'
+//-        .enrol-section-calender 
+//-            iframe(src=iframeCalenderScience, style="border:0" frameborder="0" scrolling="no")
+//-     else if enrolpage.category == 'economy'
+//-        .enrol-section-calender
+//-           iframe(src=iframeCalendeEconomy, style="border:0" frameborder="0" scrolling="no")
+//-     else if enrolpage.category == 'globalenglish'
+//-        .enrol-section-calender
+//-           iframe(src=iframeCalenderEnglish, style="border:0" frameborder="0" scrolling="no")
 mixin enrol-howto-register
   .enrol-section
     h2.enrol-title
@@ -173,7 +174,8 @@ mixin enrol-recommend-subject
       .enrol-recommend-subject-wrap
         h3.enrol-recommend-subject-title|複数科目で受講する
         .enrol-section.enrol-recommend-subject-text 
-          |哲学、科学、経済の３科目はまとめて受講することで受講費用が割引になります。※英語/プログラミングは割引対象外です。
+          |哲学、科学、経済の３科目はまとめて受講することで受講費用が割引になります。
+          span.c-sp-hidden|※英語/プログラミングは割引対象外です。
       .enrol-index-contents-block-cards
           .common-contents-block-cards-course
                   .common-contents-block-cards-course-img.common-contents-block-cards-course-img-overlay

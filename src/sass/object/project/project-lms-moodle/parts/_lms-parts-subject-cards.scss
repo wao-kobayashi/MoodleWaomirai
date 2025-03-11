@@ -171,6 +171,7 @@ h6 {
   display: block !important;
   font-size: $lms-font-size-m !important;
   position: relative;
+  color: $cl-graylight;
 }
 
 .dashboard-main-contents-block-cards {
@@ -356,7 +357,7 @@ h6 {
     grid-template-rows: auto;
     grid-column-gap: 20px;
     grid-row-gap: 20px;
-    padding: 0px 5px 10px;
+    padding: 0px 5px 0px;
   }
 
   .common-contents-block-cards-course {

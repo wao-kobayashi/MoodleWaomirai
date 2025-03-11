@@ -328,6 +328,7 @@ html[data-tenantidnumber=stg] .dashboard-main-contents-subtitle {
   display: block !important;
   font-size: 14px !important;
   position: relative;
+  color: #999;
 }
 html[data-tenantidnumber=stg] .dashboard-main-contents-block-cards {
   display: grid;
@@ -553,7 +554,7 @@ html[data-tenantidnumber=stg] .enrol-index-contents-block-cards:focus, html[data
     grid-template-rows: auto;
     grid-column-gap: 20px;
     grid-row-gap: 20px;
-    padding: 0px 5px 10px;
+    padding: 0px 5px 0px;
   }
 }
 html[data-tenantidnumber=stg] .enrol-index-contents-block-cards .common-contents-block-cards-course {
@@ -7736,7 +7737,8 @@ html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo .enrol-secti
 }
 html[data-tenantidnumber=stg] #page-enrol-index .enrol-section .enrol-recommend-subject-wrap,
 html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo .enrol-section .enrol-recommend-subject-wrap {
-  margin: 0 0 16px;
+  margin: 0px 0 16px;
+  padding: 12px 0 0;
 }
 html[data-tenantidnumber=stg] #page-enrol-index .enrol-section .enrol-recommend-subject-wrap .enrol-recommend-subject-title,
 html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo .enrol-section .enrol-recommend-subject-wrap .enrol-recommend-subject-title {

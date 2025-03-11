@@ -247,8 +247,8 @@ $subject-default-max-width: 1140px; // 最大幅
       display: block !important;
     }
     .enrol-recommend-subject-wrap {
-      margin: 0 0 16px;
-
+      margin: 0px 0 16px;
+      padding: 12px 0 0;
       .enrol-recommend-subject-title {
         @include text-l-black;
         color: $cl-black;
