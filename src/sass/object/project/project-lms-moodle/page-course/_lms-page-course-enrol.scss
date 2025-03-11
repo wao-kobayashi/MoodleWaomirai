@@ -246,6 +246,24 @@ $subject-default-max-width: 1140px; // 最大幅
       margin-bottom: 20px;
       display: block !important;
     }
+    .enrol-recommend-subject-wrap {
+      margin: 0 0 16px;
+
+      .enrol-recommend-subject-title {
+        @include text-l-black;
+        color: $cl-black;
+        display: block !important;
+      }
+      .enrol-section.enrol-recommend-subject-text {
+        @include text-s-black;
+        color: $cl-graylight;
+        display: block !important;
+        margin: 6px 0 0;
+        @include responsive-style(768px) {
+          margin: 0 0 0px;
+        }
+      }
+    }
 
     .enrol-subtitle {
       font-size: 13px !important;
@@ -264,7 +282,21 @@ $subject-default-max-width: 1140px; // 最大幅
         display: none;
       }
     }
-
+    .enrol-section-calender {
+      position: relative;
+      width: 100%;
+      padding-top: 75%; /* 4:3 の比率 */
+      @include responsive-style(768px) {
+        padding-top: 180%;
+      }
+      iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+      }
+    }
     .enrol-section-howto {
       position: relative;
       display: grid;
