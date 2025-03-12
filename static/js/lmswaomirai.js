@@ -102,6 +102,15 @@ const UrlLiffMoodleRegister = "https://liff.line.me/2006716288-lL7QzGA3?loycus_u
 const ImgLiffMoodleRegister = "https://go.waomirai.com/l/1026513/2025-02-21/hg5gg/1026513/17401152270P10NmPp/qr_liff_moodle_register.png" 
 
 // ==============================
+// googleCalender系
+// ==============================
+
+const iframeCalenderPhilosophy = "https://calendar.google.com/calendar/embed?src=c_57f70f2fb986aabbb85c2a71ed169e2624e902265abb6dffc1d993f2d781dd4b%40group.calendar.google.com&ctz=Asia%2FTokyo"
+const iframeCalenderScience = "https://calendar.google.com/calendar/embed?src=c_9d34850398ee79fea558cb874c3bebe48860ce3d5fcff5c80f91b203974af452%40group.calendar.google.com&ctz=Asia%2FTokyo"
+const iframeCalenderEconomy = "https://calendar.google.com/calendar/embed?src=c_9ee064fdb148232860ebd82900e5222d5060f6702f608257b9d9625d6bcd3a1c%40group.calendar.google.com&ctz=Asia%2FTokyo"
+const iframeCalenderEnglish = "https://calendar.google.com/calendar/embed?src=c_379c34d3c8e6716b3458dd339f4531bd8ce07f17c4f97d5fec4367888a692290%40group.calendar.google.com&ctz=Asia%2FTokyo"
+
+// ==============================
 // ページ判定とコースIDの取得
 // ==============================
 
@@ -830,7 +839,42 @@ if (bodyId === "page-login-confirm") {
 if (bodyId === "page-enrol-index") {
   
     const subjectCategory = currentViewCourseData.key;  // 現在選択されている科目カテゴリーを取得
-    
+
+    ////////////////////////////
+    // moodleのページエディタでgoogleカレンダーiframeが弾かれるので、jsで埋め込み
+    //////////////////////////// 
+
+    // カレンダーの iframe の URL を決定する
+    let iframeUrl = ""; // まず空の文字列で初期化
+
+    // subjectCategory の値に応じて適切なURLを設定
+    switch (subjectCategory) {
+        case "philosophy":
+            iframeUrl = iframeCalenderPhilosophy; // 哲学用のカレンダー
+            break;
+        case "science":
+            iframeUrl = iframeCalenderScience; // 科学用のカレンダー
+            break;
+        case "economy":
+            iframeUrl = iframeCalenderEconomy; // 経済用のカレンダー（※ タイポに注意）
+            break;
+        case "globalenglish":
+            iframeUrl = iframeCalenderEnglish; // グローバル英語用のカレンダー
+            break;
+        default:
+            // 該当するカテゴリーがない場合は何もしない
+            break;
+    }
+
+    // iframeUrl が設定されている場合のみ処理を実行
+    if (iframeUrl) {
+        // iframe の HTML を生成（カレンダーを埋め込む）
+        const iframeHtml = `<iframe src="${iframeUrl}" style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe>`;
+
+        // .enrol-section-calender の中身を iframe に置き換え
+        $(".enrol-section-calender").html(iframeHtml);
+    }
+
     //英語、プログラミング以外の教科でセット割引の表現を出す
     if (["philosophy", "science", "economy","twosubjectpack","threesubjectpack"].includes(subjectCategory)) {
     // 購入ボタンの右側にセット割引情報を追加

@@ -102,21 +102,10 @@ mixin enrol-lesson-year
 
 // 年間の授業開催スケジュール
 mixin enrol-lesson-googlecalender
-  div
-//-  .enrol-section
-//-     h2.enrol-title 年間の授業開催スケジュール
-//-     if enrolpage.category == 'philosophy'
-//-        .enrol-section-calender
-//-           iframe(src=iframeCalenderPhilosophy, style="border:0" frameborder="0" scrolling="no")
-//-     else if enrolpage.category == 'science'
-//-        .enrol-section-calender 
-//-            iframe(src=iframeCalenderScience, style="border:0" frameborder="0" scrolling="no")
-//-     else if enrolpage.category == 'economy'
-//-        .enrol-section-calender
-//-           iframe(src=iframeCalendeEconomy, style="border:0" frameborder="0" scrolling="no")
-//-     else if enrolpage.category == 'globalenglish'
-//-        .enrol-section-calender
-//-           iframe(src=iframeCalenderEnglish, style="border:0" frameborder="0" scrolling="no")
+ .enrol-section
+    h2.enrol-title 年間の授業開催スケジュール
+    .enrol-section-calender
+
 mixin enrol-howto-register
   .enrol-section
     h2.enrol-title
