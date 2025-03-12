@@ -2,6 +2,12 @@ $subject-sidebar-width: 235px; // サイドバーの幅
 $subject-body-padding: 55px; // サイドバーとの距離
 $subject-default-max-width: 1140px; // 最大幅
 
+//stripeのロゴ大きさ修正
+.core_payment_gateways_modal .stripe .icon {
+  height: 40px !important;
+  width: auto !important;
+}
+
 #page-enrol-index {
   img {
     width: 100%;
