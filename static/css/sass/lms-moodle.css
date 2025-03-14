@@ -1114,6 +1114,9 @@ html[data-tenantidnumber=lmswaomirai] .c-modal .c-modal-wrap-wrapline .c-modal-b
 html[data-tenantidnumber=lmswaomirai] .c-modal .c-modal-wrap-wrapline .c-modal-button-line:hover {
   text-decoration: none !important;
 }
+html[data-tenantidnumber=lmswaomirai] .c-modal .c-modal-wrap-wrap-campaign .c-modal-wrap-text {
+  text-align: center;
+}
 html[data-tenantidnumber=lmswaomirai] .c-modal-bg {
   position: fixed;
   width: 100%;
@@ -12302,54 +12305,71 @@ html[data-tenantidnumber=lmswaomirai] #page-course-view-topics .course-section.m
     margin-top: 0rem;
   }
 }
-html[data-tenantidnumber=lmswaomirai] .category-45 #page.drawers .main-inner {
+html[data-tenantidnumber=lmswaomirai] #page-mod-page-view .no-overflow > h1 {
+  display: none;
+}
+html[data-tenantidnumber=lmswaomirai] #page-mod-page-view #region-main > h2 {
+  display: none;
+}
+html[data-tenantidnumber=lmswaomirai] #page-mod-page-view img {
+  width: 100%;
+}
+html[data-tenantidnumber=lmswaomirai] #page-mod-page-view #page.drawers .main-inner {
   max-width: 680px !important;
 }
 @media screen and (max-width: 768px) {
-  html[data-tenantidnumber=lmswaomirai] .category-45 #page.drawers .main-inner {
+  html[data-tenantidnumber=lmswaomirai] #page-mod-page-view #page.drawers .main-inner {
     padding: 0 15px !important;
   }
 }
-html[data-tenantidnumber=lmswaomirai] .category-45 .more-nav.nav-tabs {
+html[data-tenantidnumber=lmswaomirai] #page-mod-page-view .more-nav.nav-tabs {
   display: none;
 }
-html[data-tenantidnumber=lmswaomirai] .category-45 .moremenu {
+html[data-tenantidnumber=lmswaomirai] #page-mod-page-view .moremenu {
   height: 10px;
 }
-html[data-tenantidnumber=lmswaomirai] .category-45 .tool_catalogue-catalogue > .my-3 > .position-relative {
+html[data-tenantidnumber=lmswaomirai] #page-mod-page-view .tool_catalogue-catalogue > .my-3 > .position-relative {
   display: none !important;
 }
-html[data-tenantidnumber=lmswaomirai] .category-45 .tool_catalogue-catalogue > .my-3 > .pagesectioncontent {
+html[data-tenantidnumber=lmswaomirai] #page-mod-page-view .tool_catalogue-catalogue > .my-3 > .pagesectioncontent {
   padding: 0 0 96px;
 }
-html[data-tenantidnumber=lmswaomirai] .category-45 h1 {
+html[data-tenantidnumber=lmswaomirai] #page-mod-page-view h1 {
   font-size: 30px;
   color: #262626;
   line-height: 1.5;
 }
-html[data-tenantidnumber=lmswaomirai] .category-45 h2 {
+html[data-tenantidnumber=lmswaomirai] #page-mod-page-view h2 {
   font-size: 24px;
   color: #262626;
   line-height: 1.5;
+  padding: 0 0 10px;
+  border-bottom: 1.5px dashed #999;
+  margin: 0 0 15px;
 }
-html[data-tenantidnumber=lmswaomirai] .category-45 h3 {
+html[data-tenantidnumber=lmswaomirai] #page-mod-page-view h3 {
   font-size: 20px;
   color: #262626;
   line-height: 1.5;
 }
-html[data-tenantidnumber=lmswaomirai] .category-45 .howto-table-contents {
+html[data-tenantidnumber=lmswaomirai] #page-mod-page-view .howto-note {
+  color: #4d4d4d;
+  font-size: 12px;
+  color: #262626;
+  line-height: 1.5;
+}
+html[data-tenantidnumber=lmswaomirai] #page-mod-page-view .howto-table-contents {
   background: #efefef !important;
   border-radius: 8px;
   padding: 20px 25px;
   font-size: 16px;
   line-height: 1.5;
-  font-weight: bold;
 }
-html[data-tenantidnumber=lmswaomirai] .category-45 .howto-table-contents a {
+html[data-tenantidnumber=lmswaomirai] #page-mod-page-view .howto-table-contents a {
   color: #005c3f;
   text-decoration: underline;
 }
-html[data-tenantidnumber=lmswaomirai] .category-45 .howto-table-contents a:hover, html[data-tenantidnumber=lmswaomirai] .category-45 .howto-table-contents a:focus {
+html[data-tenantidnumber=lmswaomirai] #page-mod-page-view .howto-table-contents a:hover, html[data-tenantidnumber=lmswaomirai] #page-mod-page-view .howto-table-contents a:focus {
   -webkit-box-shadow: none;
           box-shadow: none;
   -webkit-appearance: none;
@@ -12358,15 +12378,15 @@ html[data-tenantidnumber=lmswaomirai] .category-45 .howto-table-contents a:hover
   -webkit-tap-highlight-color: transparent;
   background: none;
 }
-html[data-tenantidnumber=lmswaomirai] .category-45 .howto-block {
+html[data-tenantidnumber=lmswaomirai] #page-mod-page-view .howto-block {
   padding: 0 0 60px;
 }
-html[data-tenantidnumber=lmswaomirai] .category-45 .howto-image img {
+html[data-tenantidnumber=lmswaomirai] #page-mod-page-view .howto-image img {
   max-width: 680px;
   width: 100%;
   margin: 10px 0 0;
 }
-html[data-tenantidnumber=lmswaomirai] .category-45 .p-alert {
+html[data-tenantidnumber=lmswaomirai] #page-mod-page-view .p-alert {
   color: #f35053 !important;
   font-weight: bold;
 }
