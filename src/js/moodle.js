@@ -1026,7 +1026,7 @@ if (
     // 2科目パックや3科目パックの場合の特別処理
     // これらはレベル設定が必要ないため、即座にモーダルを表示して終了
     if (currentMainSubjectKey === "twosubjectpack" || currentMainSubjectKey === "threesubjectpack") {
-      showLevelSettingModal();
+       showModalAfterCardRegistration();
       return;
     }
 
@@ -1049,25 +1049,64 @@ if (
     } else {
       // 子科目を受講していない場合（例：科学は受講可能だが、L1～L4のレベルを設定していない）
       // レベル設定を促すモーダルを表示
-      showLevelSettingModal();
+       showModalAfterCardRegistration();
     }
   }
 }
 
-/**
- * レベル設定を促すモーダルを表示する関数
- * 科目のレベル（L1～L4）を設定するページへのリンクを含むモーダルを表示
- */
+
+
+
+// カード登録後にモーダルを表示する関数
+function showModalAfterCardRegistration() {
+  var now = new Date(); // 現在の日付を取得
+  var campaignEnd = new Date(2025, 3, 5, 23, 59, 59); // キャンペーン終了日時（2025年4月5日23:59:59）
+  var cookieValue = $.cookie("levelSettingModalShown"); // Cookieにモーダル表示の履歴があるか確認
+
+  // ".c-modal-level-setting"クラスの要素がクリックされた場合にレベル設定モーダルを表示
+  $(document).on("click", ".c-modal-level-setting", function () {
+    showLevelSettingModal();
+  });
+
+  // キャンペーン期間中かつモーダルが未表示の場合
+  if (now <= campaignEnd && !cookieValue) {
+    // キャンペーンモーダルを表示
+    showCampaignModal();
+
+    // モーダルが表示されたことをCookieに記録（365日有効）
+    $.cookie("levelSettingModalShown", "true", { expires: 365, path: "/" });
+    return; // キャンペーンモーダルが表示された後は処理を終了
+  }
+
+  // それ以外の場合はレベル設定モーダルを表示
+  showLevelSettingModal();
+}
+
+
+// 2025年4月オープンのモーダル関数
+function showCampaignModal() {
+  createModal({
+    title: "おめでとうございます！",
+    wrapClass: "c-modal-wrap-wrap-campaign",
+    text: "<b>先着100名様のキャンペーンを<br />適用させていただきます。</b><br /><br />2025年4月は無料で受講いただけます。<br />2025年5月も受講いただけたら<br />Amazonギフト券5000円プレゼントいたします。<br />",
+    buttons: [
+      { text: "OKです", class: "btn-primary c-modal-level-setting c-modal-wrap-close-tag" }
+    ]
+  });
+}
+
+// レベル変更のモーダル関数
 function showLevelSettingModal() {
   createModal({
     image: "https://go.waomirai.com/l/1026513/2025-01-27/hcs2k/1026513/1737961533tHzVY8az/img_modal_subject.png",
     imageClass: "c-modal-wrap-subject-img",
     wrapClass: "c-modal-wrap-subject",
     buttons: [
-      { text: "科目のレベルを設定する", url: UrlChangeSubject, class: "btn-primary" },
+      { text: "科目のレベルを設定する", url: UrlChangeSubject, class: "btn-primary" }
     ]
   });
 }
+
 
 // ==============================
 // マイページの処理
