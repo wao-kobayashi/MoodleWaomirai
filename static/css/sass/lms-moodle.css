@@ -6205,14 +6205,14 @@ html[data-tenantidnumber=lmswaomirai] .pagelayout-mydashboard .summary-modal-con
   position: relative;
   display: block;
   height: 55px;
-  width: 230px;
+  width: 280px;
   margin: 32px 0 0;
 }
 html[data-tenantidnumber=lmswaomirai] .pagelayout-mydashboard .summary-modal-container .location-content a {
   text-indent: -9999px;
   display: block;
   height: 55px;
-  width: 230px;
+  width: 280px;
   margin: 0 auto;
 }
 html[data-tenantidnumber=lmswaomirai] .pagelayout-mydashboard .summary-modal-container .location-content a:focus, html[data-tenantidnumber=lmswaomirai] .pagelayout-mydashboard .summary-modal-container .location-content a:active {
@@ -6227,7 +6227,7 @@ html[data-tenantidnumber=lmswaomirai] .pagelayout-mydashboard .summary-modal-con
   content: "授業を受講する";
   background: #005c3f;
   border-radius: 4px;
-  width: 230px;
+  width: 280px;
   height: 55px;
   text-align: center;
   color: white;
@@ -6250,6 +6250,75 @@ html[data-tenantidnumber=lmswaomirai] .pagelayout-mydashboard .summary-modal-con
 }
 html[data-tenantidnumber=lmswaomirai] .pagelayout-mydashboard .summary-modal-container .location-content:before:hover {
   opacity: 0.8;
+}
+html[data-tenantidnumber=lmswaomirai] .pagelayout-mydashboard .summary-modal-container .description-content-button {
+  /* 横幅はまちまちなので指定しない */
+  height: 48px;
+  border-radius: 4px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 16px !important;
+  border-radius: 8px;
+  line-height: 1;
+  width: 280px;
+  height: 55px;
+  margin: 20px auto 0px;
+}
+html[data-tenantidnumber=lmswaomirai] .pagelayout-mydashboard .summary-modal-container .description-content-button a {
+  width: 280px;
+  height: 55px;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 10px;
+}
+html[data-tenantidnumber=lmswaomirai] .pagelayout-mydashboard .summary-modal-container .description-content-button a:hover {
+  text-decoration: none !important;
+  opacity: 0.7;
+}
+html[data-tenantidnumber=lmswaomirai] .pagelayout-mydashboard .summary-modal-container .description-content-button.primary {
+  background: #005c3f;
+}
+html[data-tenantidnumber=lmswaomirai] .pagelayout-mydashboard .summary-modal-container .description-content-button.primary a {
+  color: #ffffff;
+}
+html[data-tenantidnumber=lmswaomirai] .pagelayout-mydashboard .summary-modal-container .description-content-button.primary a:before {
+  content: "";
+  display: inline-block;
+  width: 25px; /* アイコンの幅 */
+  height: 25px; /* アイコンの高さ */
+  background-image: url("https://go.waomirai.com/l/1026513/2025-03-19/hj31q/1026513/17423770567ZdVOJwz/icn_zoom.svg"); /* アイコン画像 */
+  background-size: contain; /* 画像をボックス内に収める */
+  background-repeat: no-repeat;
+}
+html[data-tenantidnumber=lmswaomirai] .pagelayout-mydashboard .summary-modal-container .description-content-button.secondly {
+  background: #ffffff;
+  border: 2px solid #005c3f;
+}
+html[data-tenantidnumber=lmswaomirai] .pagelayout-mydashboard .summary-modal-container .description-content-button.secondly a {
+  color: #005c3f !important;
+}
+html[data-tenantidnumber=lmswaomirai] .pagelayout-mydashboard .summary-modal-container .description-content-button.zoom a:before {
+  content: "";
+  display: inline-block;
+  width: 25px; /* アイコンの幅 */
+  height: 25px; /* アイコンの高さ */
+  background-image: url("https://go.waomirai.com/l/1026513/2025-03-19/hj31q/1026513/17423770567ZdVOJwz/icn_zoom.svg"); /* アイコン画像 */
+  background-size: contain; /* 画像をボックス内に収める */
+  background-repeat: no-repeat;
 }
 html[data-tenantidnumber=lmswaomirai] .pagelayout-mydashboard .dashboard-main .dashboard-main-navi {
   display: grid;

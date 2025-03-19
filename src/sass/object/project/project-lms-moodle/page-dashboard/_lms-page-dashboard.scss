@@ -564,6 +564,10 @@ $default-max-width: 1170px; // 最大幅
 ////////////////////////
 //カレンダーの予定をクリックしたときのモーダル
 ////////////////////////
+
+$modal-button-width: 280px;
+$modal-button-height: 55px;
+
 .pagelayout-mydashboard {
   .modal {
     .calendar_event_course {
@@ -599,8 +603,6 @@ $default-max-width: 1170px; // 最大幅
       display: none;
     }
     .location-content {
-      $modal-button-width: 230px;
-      $modal-button-height: 55px;
       position: relative;
       display: block;
       height: $modal-button-height;
@@ -642,6 +644,74 @@ $default-max-width: 1170px; // 最大幅
           opacity: 0.8;
         }
       }
+    }
+    .description-content-button {
+      @include button-size-middle;
+      width: $modal-button-width;
+      height: $modal-button-height;
+      margin: 20px auto 0px;
+      a {
+        width: $modal-button-width;
+        height: $modal-button-height;
+        justify-content: center;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        &:hover {
+          text-decoration: none !important;
+          opacity: 0.7;
+        }
+      }
+      &.primary {
+        background: $cl-waogreen;
+        a {
+          color: $cl-white;
+
+          &:before {
+            content: "";
+            display: inline-block;
+            width: 25px; /* アイコンの幅 */
+            height: 25px; /* アイコンの高さ */
+            background-image: url("https://go.waomirai.com/l/1026513/2025-03-19/hj31q/1026513/17423770567ZdVOJwz/icn_zoom.svg"); /* アイコン画像 */
+            background-size: contain; /* 画像をボックス内に収める */
+            background-repeat: no-repeat;
+          }
+        }
+      }
+      &.secondly {
+        background: $cl-white;
+
+        border: 2px solid $cl-waogreen;
+        a {
+          color: $cl-waogreen !important;
+        }
+      }
+      &.zoom {
+        a {
+          &:before {
+            content: "";
+            display: inline-block;
+            width: 25px; /* アイコンの幅 */
+            height: 25px; /* アイコンの高さ */
+            background-image: url("https://go.waomirai.com/l/1026513/2025-03-19/hj31q/1026513/17423770567ZdVOJwz/icn_zoom.svg"); /* アイコン画像 */
+            background-size: contain; /* 画像をボックス内に収める */
+            background-repeat: no-repeat;
+          }
+        }
+      }
+      // &.movie {
+      //   a {
+      //     &:before {
+      //       content: "";
+      //       display: inline-block;
+      //       width: 25px; /* アイコンの幅 */
+      //       height: 25px; /* アイコンの高さ */
+      //       background-image: url("https://go.waomirai.com/l/1026513/2025-03-19/hj31t/1026513/1742377056S4g1Q8Gl/icn_movie.svg"); /* アイコン画像 */
+      //       background-size: contain; /* 画像をボックス内に収める */
+      //       background-repeat: no-repeat;
+      //     }
+      //   }
+      // }
     }
   }
 }
