@@ -4,6 +4,6 @@ block variables
   - var status = 'purchased'
   - var calender = 'events-include'
   // SubjectIds 配列の定義
-  - var SubjectIds = env === 'stg' ? [235] : env === 'lmswaomirai' ? [1001] : []
+  - var SubjectIds = env === 'stg' ? [] : env === 'lmswaomirai' ? [] : []
 block contents
   include _parts-main-dashboard.pug
