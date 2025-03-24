@@ -33,22 +33,42 @@ mixin modalEnglish
                       i.icon.fa.fa-align-left.fa-fw(title='説明' role='img' aria-label='説明' aria-hidden='true')
                       span.sr-only &#x8AAC;&#x660E;
                     .description-content.col-11
-                      p(dir='ltr' style='text-align:left;')
-                      //-   br
-                      //- div
-                      //-   img(src='https://go.waomirai.com/l/1026513/2025-01-28/hcvzy/1026513/17380482641iqkJ3jc/sc_level2_b.jpg' alt='sc_level2_b.jpg')
-                      br
-                      |受講ボタンを時間になったら授業ボタンをクリックして受講してください。
-                      br
-                      |また授業時間外の時はトレーニング動画をお使いくださいませ。
-                      br
-                      br
-                      .description-content-button.primary.zoom 
-                        a(href=link_english_zoom_level1, target='_blank')
-                           |授業を受講する(zoom)
-                      .description-content-button.secondly.movie 
-                        a(href=link_english_training_level1, target='_blank')
-                           |トレーニング動画         
+                      div
+                        .description-content-img-eng
+                          img(src="https://go.waomirai.com/l/1026513/2025-02-27/hgqb2/1026513/1740718786Ldp886rB/eng_lesson1.png")
+                        .description-content-text-eng
+                          |受講時間になったら、受講ボタンをクリックして受講してください。事前に
+                          a(href='https://zoom.us/ja/download', target='_blank', style='text-decoration:underline; color:#005c3f !important;')|zoomアプリのダウンロード
+                          |が必要です
+                          br
+                          br
+                          |授業時間外の時はトレーニング動画(レベル1)をお使いくださいませ。パスワードは「mirai」です
+                          br
+                          br
+                        .description-content-button.primary.zoom 
+                          a(href=link_english_zoom_level1, target='_blank')
+                            |授業を受講する(zoom)
+                        .description-content-button.secondly.movie 
+                          a(href=link_english_training_level1, target='_blank')
+                            |トレーニング動画 (vimeo)   
+                      div
+                        .description-content-img-eng
+                          img(src="https://go.waomirai.com/l/1026513/2025-02-27/hgqb2/1026513/1740718786Ldp886rB/eng_lesson1.png")
+                        .description-content-text-eng
+                          |受講時間になったら、受講ボタンをクリックして受講してください。事前に
+                          a(href='https://zoom.us/ja/download', target='_blank', style='text-decoration:underline; color:#005c3f !important;')|zoomアプリのダウンロード
+                          |が必要です
+                          br
+                          br
+                          |授業時間外の時はトレーニング動画(レベル2)をお使いくださいませ。パスワードは「mirai」です
+                          br
+                          br
+                        .description-content-button.primary.zoom 
+                          a(href=link_english_zoom_level2, target='_blank')
+                            |授業を受講する(zoom)
+                        .description-content-button.secondly.movie 
+                          a(href=link_english_training_level2, target='_blank')
+                            |トレーニング動画 (vimeo)         
             //- .modal-footer(data-region='footer')
             //-   button.btn.btn-secondary(type='button' data-action='delete') &#x524A;&#x9664;
             //-   button.btn.btn-primary(type='button' data-action='edit') &#x7DE8;&#x96C6;

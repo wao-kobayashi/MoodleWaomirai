@@ -12,6 +12,32 @@ $dashboard-sidebar-width: 225px; // サイドバーの幅
 $body-padding: 25px; // サイドバーとの距離
 $default-max-width: 1170px; // 最大幅
 
+@media (min-width: 576px) {
+  .modal-dialog-scrollable {
+    max-height: calc(100% - 1.5rem) !important;
+  }
+}
+
+@media (min-width: 576px) {
+  .modal-dialog-scrollable .modal-content {
+    max-height: calc(100vh - 2.5rem) !important;
+  }
+}
+@media (min-width: 576px) {
+  .modal-dialog {
+    margin: 0.75rem auto !important;
+  }
+}
+
+@media (min-width: 576px) {
+  .modal-dialog {
+    max-width: 480px !important;
+  }
+}
+.modal-header {
+  padding: 0.7rem 1rem 0.7rem !important;
+}
+
 .pagelayout-mydashboard {
   img {
     width: 100%;
@@ -645,11 +671,24 @@ $modal-button-height: 55px;
         }
       }
     }
+    .description-content-img-eng {
+      width: 95%;
+      margin: 0 auto 25px;
+      img {
+        border-radius: 12px;
+      }
+    }
+    .description-content-text-eng {
+      font-size: 93%;
+      width: 95%;
+      margin: 0 auto 5px;
+      // border-bottom: 1px solid;
+    }
     .description-content-button {
       @include button-size-middle;
       width: $modal-button-width;
       height: $modal-button-height;
-      margin: 20px auto 0px;
+      margin: 0px auto 15px;
       a {
         width: $modal-button-width;
         height: $modal-button-height;

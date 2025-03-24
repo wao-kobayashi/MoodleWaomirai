@@ -5488,6 +5488,30 @@ html[data-tenantidnumber=lmswaomirai] #page-my-index #page-wrapper {
   overflow-x: hidden;
   width: 100%;
 }
+@media (min-width: 576px) {
+  html[data-tenantidnumber=lmswaomirai] .modal-dialog-scrollable {
+    max-height: calc(100% - 1.5rem) !important;
+  }
+}
+@media (min-width: 576px) {
+  html[data-tenantidnumber=lmswaomirai] .modal-dialog-scrollable .modal-content {
+    max-height: calc(100vh - 2.5rem) !important;
+  }
+}
+@media (min-width: 576px) {
+  html[data-tenantidnumber=lmswaomirai] .modal-dialog {
+    margin: 0.75rem auto !important;
+  }
+}
+@media (min-width: 576px) {
+  html[data-tenantidnumber=lmswaomirai] .modal-dialog {
+    max-width: 480px !important;
+  }
+}
+html[data-tenantidnumber=lmswaomirai] .modal-header {
+  padding: 11.2px 16px 11.2px !important;
+  padding: 0.7rem 1rem 0.7rem !important;
+}
 html[data-tenantidnumber=lmswaomirai] .pagelayout-mydashboard {
   background: #efefef !important;
 }
@@ -6251,6 +6275,18 @@ html[data-tenantidnumber=lmswaomirai] .pagelayout-mydashboard .summary-modal-con
 html[data-tenantidnumber=lmswaomirai] .pagelayout-mydashboard .summary-modal-container .location-content:before:hover {
   opacity: 0.8;
 }
+html[data-tenantidnumber=lmswaomirai] .pagelayout-mydashboard .summary-modal-container .description-content-img-eng {
+  width: 95%;
+  margin: 0 auto 25px;
+}
+html[data-tenantidnumber=lmswaomirai] .pagelayout-mydashboard .summary-modal-container .description-content-img-eng img {
+  border-radius: 12px;
+}
+html[data-tenantidnumber=lmswaomirai] .pagelayout-mydashboard .summary-modal-container .description-content-text-eng {
+  font-size: 93%;
+  width: 95%;
+  margin: 0 auto 5px;
+}
 html[data-tenantidnumber=lmswaomirai] .pagelayout-mydashboard .summary-modal-container .description-content-button {
   /* 横幅はまちまちなので指定しない */
   height: 48px;
@@ -6269,7 +6305,7 @@ html[data-tenantidnumber=lmswaomirai] .pagelayout-mydashboard .summary-modal-con
   line-height: 1;
   width: 280px;
   height: 55px;
-  margin: 20px auto 0px;
+  margin: 0px auto 15px;
 }
 html[data-tenantidnumber=lmswaomirai] .pagelayout-mydashboard .summary-modal-container .description-content-button a {
   width: 280px;
