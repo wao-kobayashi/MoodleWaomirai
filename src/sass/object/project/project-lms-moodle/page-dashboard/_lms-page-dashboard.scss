@@ -39,6 +39,9 @@ $default-max-width: 1170px; // 最大幅
 }
 
 .pagelayout-mydashboard {
+  .no-overflow {
+    overflow: visible;
+  }
   img {
     width: 100%;
   }
@@ -91,9 +94,14 @@ $default-max-width: 1170px; // 最大幅
     /* テキストブロックの文言を非表示に */
     display: none !important;
   }
-
+  .dashboard-textblock::-webkit-scrollbar {
+    display: none;
+  }
   .dashboard-textblock {
-    overflow: hidden;
+    // overflow: hidden;
+    // & {
+    //   display: none;
+    // }
   }
   .card-title {
     margin: 0 -15px 16px !important;

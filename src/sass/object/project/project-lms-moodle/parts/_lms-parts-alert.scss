@@ -6,7 +6,19 @@
   align-items: center;
   justify-content: space-between;
   gap: 12px;
+  position: relative;
+
   @include responsive-style(768px) {
+    display: block;
+  }
+  .c-alert-banner-close {
+    position: absolute;
+    right: -6px;
+    top: -6px;
+    width: 25px;
+    height: 25px;
+    border-radius: $border-radius-full;
+    background: $cl-main-orange;
     display: block;
   }
   .c-alert-banner-left {
@@ -32,8 +44,12 @@
     }
   }
   .c-alert-banner-text-title {
-    font-size: $lms-font-size-ml;
+    font-size: 15px;
+    color: $cl-black;
     font-weight: 500;
+    a {
+      text-decoration: underline;
+    }
   }
   .c-alert-banner-text-read {
     font-size: $lms-font-size-ml;
@@ -70,9 +86,15 @@
       color: white;
     }
   }
+  &.alert-change-course {
+    // background: $cl-alert;
+    border: 1.5px solid $cl-main-orange;
+    background: #fffde7;
+    margin: 0 auto 15px;
+  }
   &.alert-buy-course {
     // background: $cl-alert;
-    border: 2px solid $cl-waogreen;
+    border: 1.5px solid $cl-waogreen;
     background: #edfbf5;
     .c-alert-banner-left-icon {
       i {

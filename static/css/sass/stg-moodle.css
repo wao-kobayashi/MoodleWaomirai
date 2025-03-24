@@ -770,11 +770,22 @@ html[data-tenantidnumber=stg] .c-alert-banner {
       -ms-flex-pack: justify;
           justify-content: space-between;
   gap: 12px;
+  position: relative;
 }
 @media screen and (max-width: 768px) {
   html[data-tenantidnumber=stg] .c-alert-banner {
     display: block;
   }
+}
+html[data-tenantidnumber=stg] .c-alert-banner .c-alert-banner-close {
+  position: absolute;
+  right: -6px;
+  top: -6px;
+  width: 25px;
+  height: 25px;
+  border-radius: 10000px;
+  background: #ee7a00;
+  display: block;
 }
 html[data-tenantidnumber=stg] .c-alert-banner .c-alert-banner-left {
   display: -webkit-box;
@@ -811,8 +822,12 @@ html[data-tenantidnumber=stg] .c-alert-banner .c-alert-banner-left-icon i {
   line-height: 1;
 }
 html[data-tenantidnumber=stg] .c-alert-banner .c-alert-banner-text-title {
-  font-size: 16px;
+  font-size: 15px;
+  color: #262626;
   font-weight: 500;
+}
+html[data-tenantidnumber=stg] .c-alert-banner .c-alert-banner-text-title a {
+  text-decoration: underline;
 }
 html[data-tenantidnumber=stg] .c-alert-banner .c-alert-banner-text-read {
   font-size: 16px;
@@ -864,8 +879,13 @@ html[data-tenantidnumber=stg] .c-alert-banner.alert .c-alert-banner-right a {
   background: #f35053;
   color: white;
 }
+html[data-tenantidnumber=stg] .c-alert-banner.alert-change-course {
+  border: 1.5px solid #ee7a00;
+  background: #fffde7;
+  margin: 0 auto 15px;
+}
 html[data-tenantidnumber=stg] .c-alert-banner.alert-buy-course {
-  border: 2px solid #005c3f;
+  border: 1.5px solid #005c3f;
   background: #edfbf5;
 }
 html[data-tenantidnumber=stg] .c-alert-banner.alert-buy-course .c-alert-banner-left-icon i {
@@ -5622,6 +5642,9 @@ html[data-tenantidnumber=stg] .modal-header {
 html[data-tenantidnumber=stg] .pagelayout-mydashboard {
   background: #efefef !important;
 }
+html[data-tenantidnumber=stg] .pagelayout-mydashboard .no-overflow {
+  overflow: visible;
+}
 html[data-tenantidnumber=stg] .pagelayout-mydashboard img {
   width: 100%;
 }
@@ -5667,8 +5690,8 @@ html[data-tenantidnumber=stg] .pagelayout-mydashboard .block_html > div > h5 {
   /* テキストブロックの文言を非表示に */
   display: none !important;
 }
-html[data-tenantidnumber=stg] .pagelayout-mydashboard .dashboard-textblock {
-  overflow: hidden;
+html[data-tenantidnumber=stg] .pagelayout-mydashboard .dashboard-textblock::-webkit-scrollbar {
+  display: none;
 }
 html[data-tenantidnumber=stg] .pagelayout-mydashboard .card-title, html[data-tenantidnumber=stg] .pagelayout-mydashboard #dashboard-sp-content .dashboard-left-block .dashboard-left-block-title {
   margin: 0 -15px 16px !important;
