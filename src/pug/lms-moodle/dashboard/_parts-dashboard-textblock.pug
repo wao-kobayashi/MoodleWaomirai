@@ -14,27 +14,24 @@
       .dashboard-left-block-title
         |現在受講中の科目
       .dashboard-left-block-wrap.dashboard-left-block-wrap-subject
-    .dashboard-left-block.dashboard-left-block-english(style='display:none;')  
+    .dashboard-left-block.dashboard-left-block-subject
       .dashboard-left-block-title
-        |英語学習
-      .dashboard-left-block-wrap.dashboard-left-block-wrap-english
-          .dashboard-left-block-wrap-english-text 
-            |今週はWEEK1の
+        |LINE ID連携
+      .dashboard-left-block-wrap.dashboard-left-block-wrap-line 
+        a.c-sp-hidden.triger-line-integration-modal
+          .dashboard-left-block-wrap.dashboard-left-block-wrap-line-img
+            img(src='https://go.waomirai.com/l/1026513/2025-03-23/hjb9m/1026513/17427846057nCvC4dV/icn_LINE_LOGO.svg')
+          .dashboard-left-block-wrap.dashboard-left-block-wrap-line-text
+            |LINEで受講サポートの
             br
-            |トレーニングです!
-          .dashboard-left-block-wrap-english-img 
-          .dashboard-left-block-wrap-english-course 
-            .dashboard-left-block-wrap-english-course-title
-                |平日コース
-            .dashboard-left-block-wrap-english-course-button
-                a(href='#', onclick="alert('開発中です(トレーニング動画に行く予定)')") 
-                  |学習動画はこちら
-          .dashboard-left-block-wrap-english-course 
-            .dashboard-left-block-wrap-english-course-title
-                |土曜コース
-            .dashboard-left-block-wrap-english-course-button
-                a(href='#', onclick="alert('開発中です(トレーニング動画に行く予定)')") 
-                  |学習動画はこちら                 
+            |通知を受け取る
+        a.c-pc-hidden(href=linkLineConnection)
+          .dashboard-left-block-wrap.dashboard-left-block-wrap-line-img
+            img(src='https://go.waomirai.com/l/1026513/2025-03-23/hjb9m/1026513/17427846057nCvC4dV/icn_LINE_LOGO.svg')
+          .dashboard-left-block-wrap.dashboard-left-block-wrap-line-text
+            |LINEで受講サポートの
+            br
+            |通知を受け取る
     //infoHowtoVisibleがtrueの時に「開校のお知らせ」を表示
     if infoHowtoVisible
       .dashboard-left-block.dashboard-left-block-guide 
@@ -53,10 +50,9 @@
           li 
             a(href='https://lms.waomirai.com/mod/page/view.php?id=1350')
               |1週間に同じ授業が２つあります。どれに参加すればいいですか
-          //- li 
-          //-   //stg241
-          //-   a(href='https://lms.waomirai.com/admin/tool/catalogue/courseinfo.php?id=241')
-          //-     |授業のレベルを変更したい        
+          li 
+            a(href='https://lms.waomirai.com/mod/page/view.php?id=567')
+              |受講科目の変更や退会について    
   //infoOpeningVisibleがtrueの時に「開校のお知らせ」を表示
   if infoOpeningVisible 
     .dashboard-main-info(style='display:none;')

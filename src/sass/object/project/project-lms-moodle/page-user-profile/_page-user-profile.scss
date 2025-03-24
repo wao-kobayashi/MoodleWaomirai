@@ -4,4 +4,28 @@
     color: normal;
     text-decoration: underline !important;
   }
+  .node_category.line-connection-seciton {
+    overflow: hidden;
+    .card-lineimg img {
+      width: 100%;
+    }
+    a.line-button {
+      width: 90%;
+      height: 55px;
+      background: $cl-white;
+      color: $cl-brand-line;
+      border: 2px solid $cl-brand-line;
+      border-radius: $border-radius-middle;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-weight: 500;
+      margin: 5px auto;
+      cursor: pointer;
+      &:hover {
+        text-decoration: none;
+        opacity: 0.7;
+      }
+    }
+  }
 }

@@ -220,6 +220,30 @@ $default-max-width: 1170px; // 最大幅
         }
       }
     }
+    .dashboard-left-block-wrap-line {
+      padding: 12px 15px 10px !important;
+
+      a {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        justify-content: flex-start;
+        align-items: center;
+        cursor: pointer;
+        img {
+          width: 36px;
+        }
+        .dashboard-left-block-wrap-line-text {
+          // letter-spacing: -1px;
+          line-height: $lineheight-normal;
+          font-size: $lms-font-size-m;
+        }
+        &:hover {
+          opacity: 0.7;
+          text-decoration: none;
+        }
+      }
+    }
     .dashboard-left-block-subject-child {
       font-size: $lms-font-size-m;
       color: $cl-gray;

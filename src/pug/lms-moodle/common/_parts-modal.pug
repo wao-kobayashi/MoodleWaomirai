@@ -12,12 +12,49 @@ mixin c-modal(options)
         button.c-modal-wrap-button= options.buttonText
 
 //- ミックスインの呼び出し
-+c-modal({
-  close: true,
-  title: "タイトル",
-  text: 'モーダルのテキスト、モーダルのテキストモーダルのテキストモーダルのテキストモーダルのテキスト',
-  buttonText: 'ボタンのテキスト'
-})
+//- .c-modal
+//-       .c-modal-wrap.c-modal-wrap-line-connection
+//-         .c-modal-wrap-close
+//-         .c-modal-wrap-linetitle 
+           
+//-         .c-modal-wrap-qr.c-sp-hidden
+//-           img(src="https://go.waomirai.com/l/1026513/2025-02-21/hg5gg/1026513/17401152270P10NmPp/qr_liff_moodle_register.png")
+//-         .c-modal-wrap-text.c-modal-wrap-text-notice
+//-           | ※すでに友だち追加済の方も、
+//-           br
+//-           | 会員連携のために必ず下記を読み取ってください。
+//-         .c-modal-button-line.c-pc-hidden
+//-           a(href="https://liff.line.me/2006716288-lL7QzGA3?loycus_urlc=NN3v")
+//-             img(src="https://go.waomirai.com/l/1026513/2025-02-20/hg5bg/1026513/17401067674FE8qn1T/btn_lineadd.svg")
+//-         button.c-modal-wrap-button.c-modal-wrap-button-close.c-modal-wrap-close-tag 閉じる
+//-         // 閉じるボタン
+//-         .c-modal-wrap-button-wrap
+//-           // ボタンリストを動的に挿入
+//- .c-modal
+//-       .c-modal-wrap.c-modal-wrap-line-connection
+//-         .c-modal-wrap-close
+//-         .c-modal-wrap-linetitle 
+//-             .c-modal-wrap-linetitle-img
+//-                 img(src='https://go.waomirai.com/l/1026513/2025-03-23/hjb9m/1026513/17427846057nCvC4dV/icn_LINE_LOGO.svg')
+//-             .c-modal-wrap-linetitle-text 
+//-                |スマホで
+//-                br
+//-                |LINEの友だち追加
+//-         .c-modal-wrap-qr.c-sp-hidden
+//-           img(src="https://go.waomirai.com/l/1026513/2025-02-21/hg5gg/1026513/17401152270P10NmPp/qr_liff_moodle_register.png")
+//-         .c-modal-wrap-text
+//-           | 追加後にID連携の案内が届きます
+//-         .c-modal-button-line.c-pc-hidden
+//-           a(href="https://liff.line.me/2006716288-lL7QzGA3?loycus_urlc=NN3v")
+//-             img(src="https://go.waomirai.com/l/1026513/2025-02-20/hg5bg/1026513/17401067674FE8qn1T/btn_lineadd.svg")
+//-         button.c-modal-wrap-button.c-modal-wrap-button-close.c-modal-wrap-close-tag 閉じる
+//- .c-modal-bg
+//- +c-modal({
+//-   close: true,
+//-   title: "タイトル",
+//-   text: 'モーダルのテキスト、モーダルのテキストモーダルのテキストモーダルのテキストモーダルのテキスト',
+//-   buttonText: 'ボタンのテキスト'
+//- })
 //- +c-modal({
 //-   close: true,
 //-   title: 'ああモーダルタイトルモーダル',
