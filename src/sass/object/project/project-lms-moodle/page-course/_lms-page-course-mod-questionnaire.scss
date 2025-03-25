@@ -15,6 +15,9 @@ body {
   .course-lesson {
     display: block !important;
   }
+  .activity-description .no-overflow {
+    display: block !important;
+  }
 }
 
 li[data-key="courseinfo"] {
@@ -28,6 +31,7 @@ li[data-key="courseinfo"] {
   // SCSSの@eachループを使用して各コースタイプを処理
   // $course-name: コースの識別子（例: "philosophy-l1"）
   // $course-classes: そのコースに関連するクラス名の配列（例: [".course-256", ".course-221"]）
+
   @each $course-name, $course-classes in $child-courses {
     // 各コースタイプに含まれる複数のクラスをループ処理
     // $course-class: 個々のクラス名（例: ".course-256"）
@@ -90,6 +94,7 @@ li[data-key="courseinfo"] {
   }
 
   .activity-description .no-overflow {
+    display: none;
     @include responsive-style(768px) {
       margin: 0 -20px;
     }

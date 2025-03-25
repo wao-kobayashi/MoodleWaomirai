@@ -6996,6 +6996,9 @@ html[data-tenantidnumber=stg] #page-mod-questionnaire-view .course-lesson-date {
 html[data-tenantidnumber=stg] #page-mod-questionnaire-view .course-lesson {
   display: block !important;
 }
+html[data-tenantidnumber=stg] #page-mod-questionnaire-view .activity-description .no-overflow {
+  display: block !important;
+}
 html[data-tenantidnumber=stg] li[data-key=courseinfo] {
   display: none !important;
 }
@@ -7348,6 +7351,12 @@ html[data-tenantidnumber=stg] #page-mod-questionnaire-myreport #page-content,
 html[data-tenantidnumber=stg] #page-mod-questionnaire-report #page-content {
   max-width: 830px !important;
   margin: 0 auto;
+}
+html[data-tenantidnumber=stg] #page-mod-questionnaire-view .activity-description .no-overflow,
+html[data-tenantidnumber=stg] #page-mod-questionnaire-complete .activity-description .no-overflow,
+html[data-tenantidnumber=stg] #page-mod-questionnaire-myreport .activity-description .no-overflow,
+html[data-tenantidnumber=stg] #page-mod-questionnaire-report .activity-description .no-overflow {
+  display: none;
 }
 @media screen and (max-width: 768px) {
   html[data-tenantidnumber=stg] #page-mod-questionnaire-view .activity-description .no-overflow,
