@@ -650,6 +650,64 @@ if (bodyId === "page-my-index") {
     }
     // メッセージをダッシュボードに反映
     $("#todays-subject-pc .c-alert-banner-text-title").text(message);
+    
+    // -----------------------------------------------
+    // 「科目変更・レベル変更」は当月20日までにご連絡くださいの表示
+    // -----------------------------------------------
+    
+    // 定数として固定のクッキー名を定義
+    const monthlyChangeCourseCookie = 'hideMonthlyChangeCourseAlert';
+
+    // 現在の月に基づいて、アラートバナーのテキストを動的に設定
+
+    // 次の月の数値をスパン要素に設定
+    // todayMonth+1 により、現在の月の次の月の数値を挿入
+    // 例: 現在の月が5月の場合、6を挿入
+    $(".c-alert-banner-text-title-nextmonth").text(todayMonth+1);
+
+    // 現在の月の数値をスパン要素に設定
+    // todayMonth をそのまま使用して現在の月の数値を挿入
+    // 例: 現在の月が5月の場合、5を挿入
+    $(".c-alert-banner-text-title-thismonth").text(todayMonth);
+
+    // $.removeCookie(monthlyChangeCourseCookie);
+    // アラート表示の条件を確認
+    // 以下の3つの条件をすべて満たす場合にアラートを表示
+    // 1. 現在の日付が13日以上
+    // 2. 現在の日付が20日以下
+    // 3. 対応するクッキーが存在しない（まだアラートを非表示にしていない）
+    if (todayDay >= 13 && todayDay <= 20 && !$.cookie(monthlyChangeCourseCookie)) {
+      // 条件を満たす場合、アラート要素を表示
+      $("#alert-change-course").show();
+    } else {
+      // 条件を満たさない場合、コンソールにログを出力
+      // デバッグ用の情報ログで、なぜアラートが表示されないかを示す
+      console.log("条件を満たさないため通知を非表示");
+    }
+      
+    // アラートバナーの閉じるボタン（バツボタン）がクリックされた時の処理
+    $(".c-alert-banner-close-change-course").click(function() {
+      // 確認モーダルを作成
+      createModal({
+        close: true,  // モーダルを閉じるボタンを表示するオプション
+        title: "非表示にしても良いですか？<br />受講変更手続きは<br />ヘルプページからも可能です",
+        buttons: [
+          // OKボタンを追加。クリック時にクッキーを設定して非表示にする
+          { text: "OKです(非表示に変更)", class: "btn-primary c-modal-change-course-cookie c-modal-wrap-close-tag" }
+        ]
+      });
+    });
+
+    // モーダル内のOKボタンがクリックされた時の処理
+    $(document).on("click", ".c-modal-change-course-cookie", function() {
+      // アラート要素を非表示にする
+      $("#alert-change-course").hide();
+      
+      // クッキーを9日間有効に設定
+      // expires: 9 で9日後に自動的に期限切れとなる
+      $.cookie(monthlyChangeCourseCookie, "true", { expires: 9});
+    });
+
   }
 
   // ===============================================
@@ -720,13 +778,21 @@ if (bodyId === "page-my-index") {
         calendarScheduleColorChange(); // カレンダー色設定を実行
     }, 1000);
   });
-  }
+  $(document).on("click", ".close-btn-change-course", function () {
+    hideBanner("#alert-change-course");   
+  });
+
   // `hasBoughtMainSubject` が true の場合に `calendarScheduleColorChange` を6秒ごとに実行する
   if (hasBoughtMainSubject) {
     // setInterval を使って 6秒(3000ミリ秒)ごとに関数を呼び出す
     // カレンダー登録、直後に色が変わらないので管理者向け設定
     setInterval(calendarScheduleColorChange, 6000);
   }
+
+
+
+}
+
 
 // ==============================
 // ログイン・サインアップページの処理
