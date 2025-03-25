@@ -6,6 +6,9 @@
 //trueの場合は表示、falseの場合は非表示
 - var infoHowtoVisible = true
 
+//LINE連携の表示フラグ
+//trueの場合は表示、falseの場合は非表示
+- var connectionLineVisible = false
 
 //ダッシュボードにコピペするブロック
 .dashboard-textblock
@@ -14,22 +17,23 @@
       .dashboard-left-block-title
         |現在受講中の科目
       .dashboard-left-block-wrap.dashboard-left-block-wrap-subject
-    .dashboard-left-block.dashboard-left-block-subject
-      .dashboard-left-block-title
-        |LINE ID連携
-      .dashboard-left-block-wrap.dashboard-left-block-wrap-line 
-        a.c-sp-hidden.triger-line-integration-modal
-          .dashboard-left-block-wrap.dashboard-left-block-wrap-line-img
-            img(src='https://go.waomirai.com/l/1026513/2025-03-23/hjb9m/1026513/17427846057nCvC4dV/icn_LINE_LOGO.svg')
-          .dashboard-left-block-wrap.dashboard-left-block-wrap-line-text
-            |LINEで受講サポートの
-            br
-            |通知を受け取る
-        a.c-pc-hidden(href=linkLineConnection)
-          .dashboard-left-block-wrap.dashboard-left-block-wrap-line-img
-            img(src='https://go.waomirai.com/l/1026513/2025-03-23/hjb9m/1026513/17427846057nCvC4dV/icn_LINE_LOGO.svg')
-          .dashboard-left-block-wrap.dashboard-left-block-wrap-line-text
-            |LINEで受講サポートの通知を受け取る
+    if connectionLineVisible
+      .dashboard-left-block.dashboard-left-block-subject
+        .dashboard-left-block-title
+          |LINE ID連携
+        .dashboard-left-block-wrap.dashboard-left-block-wrap-line 
+          a.c-sp-hidden.triger-line-integration-modal
+            .dashboard-left-block-wrap.dashboard-left-block-wrap-line-img
+              img(src='https://go.waomirai.com/l/1026513/2025-03-23/hjb9m/1026513/17427846057nCvC4dV/icn_LINE_LOGO.svg')
+            .dashboard-left-block-wrap.dashboard-left-block-wrap-line-text
+              |LINEで受講サポートの
+              br
+              |通知を受け取る
+          a.c-pc-hidden(href=linkLineConnection)
+            .dashboard-left-block-wrap.dashboard-left-block-wrap-line-img
+              img(src='https://go.waomirai.com/l/1026513/2025-03-23/hjb9m/1026513/17427846057nCvC4dV/icn_LINE_LOGO.svg')
+            .dashboard-left-block-wrap.dashboard-left-block-wrap-line-text
+              |LINEで受講サポートの通知を受け取る
     //infoHowtoVisibleがtrueの時に「開校のお知らせ」を表示
     if infoHowtoVisible
       .dashboard-left-block.dashboard-left-block-guide 

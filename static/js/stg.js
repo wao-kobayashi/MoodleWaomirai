@@ -1514,40 +1514,40 @@ if (bodyId === "page-user-profile") {
         }
     });
     // ステップ1: profile_treeクラス内のnode_categoryクラスを持つすべてのセクションを取得
-    const $sections = $('.profile_tree .node_category');
+    // const $sections = $('.profile_tree .node_category');
     
-    // ステップ2: 各セクションを順番にチェック
-    $sections.each(function() {
-      // ステップ3: 現在のセクション内からh3要素を検索
-      const $h3 = $(this).find('h3');
+    // // ステップ2: 各セクションを順番にチェック
+    // $sections.each(function() {
+    //   // ステップ3: 現在のセクション内からh3要素を検索
+    //   const $h3 = $(this).find('h3');
       
-      // ステップ4: h3要素が存在し、そのテキストに「その他」が含まれているかを確認
-      if ($h3.length > 0 && $h3.text().includes('その他')) {
-        // ステップ5: 挿入するカスタムHTMLを作成
-        const lineConnectHTML = `
-        <section class="node_category card d-inline-block w-100 mb-3 line-connection-seciton">
-          <div class="card-lineimg">
-            <img src="https://go.waomirai.com/l/1026513/2025-03-23/hjb9q/1026513/1742784605ULZBDj1J/head_line.png">
-          </div>
-          <div class="card-body">
-            <div class="c-sp-hidden">
-              <a class="line-button triger-line-integration-modal">いますぐLINE連携する</a>
-            </div>
-            <div class="c-pc-hidden">
-              <a class="line-button" href="">いますぐLINE連携する</a>
-            </div>
-          </div>
-        </section>`;
+    //   // ステップ4: h3要素が存在し、そのテキストに「その他」が含まれているかを確認
+    //   if ($h3.length > 0 && $h3.text().includes('その他')) {
+    //     // ステップ5: 挿入するカスタムHTMLを作成
+    //     const lineConnectHTML = `
+    //     <section class="node_category card d-inline-block w-100 mb-3 line-connection-seciton">
+    //       <div class="card-lineimg">
+    //         <img src="https://go.waomirai.com/l/1026513/2025-03-23/hjb9q/1026513/1742784605ULZBDj1J/head_line.png">
+    //       </div>
+    //       <div class="card-body">
+    //         <div class="c-sp-hidden">
+    //           <a class="line-button triger-line-integration-modal">いますぐLINE連携する</a>
+    //         </div>
+    //         <div class="c-pc-hidden">
+    //           <a class="line-button" href="">いますぐLINE連携する</a>
+    //         </div>
+    //       </div>
+    //     </section>`;
               
-        // 「その他」を含むセクションの直後にLINE連携セクションを挿入
-        $(this).after(lineConnectHTML);
+    //     // 「その他」を含むセクションの直後にLINE連携セクションを挿入
+    //     $(this).after(lineConnectHTML);
               
         
-        // ステップ7: 最初に見つかった「その他」セクションの後に挿入したら処理を終了
-        // (複数の「その他」セクションがある場合は最初の1つだけに対応)
-        return false; // eachループを終了（jQueryのeachでは、falseを返すとループが中断される）
-      }
-    });
+    //     // ステップ7: 最初に見つかった「その他」セクションの後に挿入したら処理を終了
+    //     // (複数の「その他」セクションがある場合は最初の1つだけに対応)
+    //     return false; // eachループを終了（jQueryのeachでは、falseを返すとループが中断される）
+    //   }
+    // });
 }
 
 
