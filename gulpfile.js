@@ -81,7 +81,7 @@ function serve() {
         done();
     }));
 
-    gulp.watch('src/pug/index.pug', gulp.series(pugIndexPage,  (done) => {
+    gulp.watch(['src/pug/index.pug','src/pug/index-contact.pug'], gulp.series(pugIndexPage,pugIndexContact,  (done) => {
       browserSync.reload();
       done();
    }));
@@ -149,6 +149,12 @@ function pugIndexPage() {
       .pipe(pug({ plugins: [pugbem] }))
       .pipe(gulp.dest("./")); 
 }
+function pugIndexContact() {
+    return gulp.src(['src/pug/index-contact.pug'])
+        .pipe(plumber())
+        .pipe(pug({ plugins: [pugbem] }))
+        .pipe(gulp.dest("./")); 
+  }
 
 // SCSSタスク
 function scss() {
@@ -166,10 +172,10 @@ function scss() {
 }
 
 // デフォルトタスク
-exports.default = gulp.series(scss, serve, pugStg, pugLms, pugIndexPage);
+exports.default = gulp.series(scss, serve, pugStg, pugLms, pugIndexPage, pugIndexContact);
 exports.scss = scss;
 exports.splitJs = splitJs;
 exports.pugStg = pugStg;
 exports.pugLms = pugLms;
 exports.pugIndexPage = pugIndexPage;
-exports.pugAll = gulp.series(pugStg, pugLms, pugIndexPage);
+exports.pugAll = gulp.series(pugStg, pugLms, pugIndexPage, pugIndexContact);

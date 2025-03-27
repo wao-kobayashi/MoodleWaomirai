@@ -1,0 +1,94 @@
+//////////////////////////////
+//
+// stg用(テスト)のscss
+// dart sass 3.0.0にするとimportが使えなくなるので注意
+// importが使えないとstgとlmsで分けるのが超きつい気がするので、対策が必要
+//
+//////////////////////////////
+
+@import url("https://fonts.googleapis.com/css?family=Noto+Sans+JP:400,500,700,900");
+@import "foundation/_mixin"; //よく使う関数など定義したもの
+@import "foundation/_constant"; //色などの変数定義
+@import "foundation/_reset"; //reset
+@import "object/project/project-lms-moodle/setting/_lms-settings-variable";
+@import "object/project/project-lms-moodle/parts/_lms-parts-button.scss";
+
+@media screen and (max-width: 3000px) and (min-width: 769px) {
+  .c-pc-hidden {
+    display: none !important;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .c-sp-hidden {
+    display: none !important;
+  }
+}
+
+body#lmswaomirai-contact {
+  padding: 60px 0 90px;
+  font-family: "Noto Sans JP", sans-serif;
+  color: $cl-black;
+}
+
+main {
+  text-align: center;
+  max-width: 960px;
+  margin: 0 auto;
+  h2 {
+    margin: 0 auto 20px;
+  }
+  .main-p {
+    margin: 0 auto 45px;
+    line-height: 2;
+    @include text-l-black;
+    a {
+      color: $cl-waogreen !important;
+    }
+  }
+  .contact-columns {
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    @include responsive-style(768px) {
+      flex-direction: column;
+    }
+    .contact-columns-box {
+      flex: 1;
+      // @include lms-boxshadow;
+      border: 2px solid $cl-graylightest;
+      border-radius: $border-radius-middle;
+      padding: 30px 25px 40px;
+      @include responsive-style(768px) {
+        width: 90%;
+      }
+      .contact-columns-title {
+        margin: 0 auto 20px;
+        @include text-l-black;
+        height: 60px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: $cl-waogreen !important;
+        letter-spacing: 1px;
+        font-weight: 500;
+      }
+      a {
+        height: 44px;
+        border-radius: $border-radius-small;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: $lms-font-size-m !important;
+        border-radius: $border-radius-small;
+        @include button-style-primary;
+        text-decoration: none;
+        // @include text-m-black;
+        &:hover {
+          opacity: 0.7;
+        }
+      }
+    }
+  }
+}
