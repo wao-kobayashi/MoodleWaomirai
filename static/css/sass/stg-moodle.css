@@ -1427,6 +1427,25 @@ html[data-tenantidnumber=stg] .btn-secondary {
   border: 1px solid #005c3f;
   color: #005c3f;
 }
+html[data-tenantidnumber=stg] .bs-popover-top .popover-body img {
+  display: none;
+}
+html[data-tenantidnumber=stg] .bs-popover-top .popover-body .footer-section:first-child {
+  padding: 16px 16px 0px !important;
+  padding: 1rem 1rem 0px !important;
+}
+html[data-tenantidnumber=stg] .bs-popover-top .popover-body .footer-section:last-child {
+  display: none;
+}
+html[data-tenantidnumber=stg] .bs-popover-top .popover-body .footer-section {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+html[data-tenantidnumber=stg] .bs-popover-top .popover-body br {
+  display: none;
+}
 html[data-tenantidnumber=stg] footer.footer-popover {
   width: 100% !important;
   max-width: 100% !important;
@@ -1469,7 +1488,7 @@ html[data-tenantidnumber=stg] footer.footer-popover div.footer-popover div:nth-c
 html[data-tenantidnumber=stg] footer.footer-popover .container div:nth-child(1) div {
   position: absolute;
   top: 150px;
-  right: 24px;
+  right: 47px;
   width: 200px;
   text-align: right;
 }
@@ -1492,6 +1511,14 @@ html[data-tenantidnumber=stg] footer.footer-popover .container div.footer-popove
 html[data-tenantidnumber=stg] footer.footer-popover div.footer-popover > div:last-child,
 html[data-tenantidnumber=stg] footer.footer-popover .container > div:last-child {
   display: none;
+}
+html[data-tenantidnumber=stg] footer.footer-popover a {
+  white-space: nowrap !important;
+  font-size: 14px !important;
+  margin: 0 10px 0 0;
+}
+html[data-tenantidnumber=stg] footer.footer-popover a .fa.fa-external-link {
+  color: #999 !important;
 }
 @media screen and (max-width: 3000px) and (min-width: 769px) {
   html[data-tenantidnumber=stg] .c-pc-hidden {
