@@ -346,13 +346,19 @@ $default-max-width: 1170px; // 最大幅
       background: white;
       border-radius: $border-radius-middle;
       list-style: none;
-      padding: 20px 20px 12px;
+      padding: 24px 12px 12px 10px;
       li {
         line-height: 1.35;
         margin: 0 0 15px;
+        display: flex;
+        &:before {
+          content: "・";
+          color: $cl-graylight;
+        }
         a {
           color: $cl-waogreen;
           text-decoration: underline;
+          font-size: $lms-font-size-m;
         }
       }
     }

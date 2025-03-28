@@ -6116,15 +6116,23 @@ html[data-tenantidnumber=stg] .pagelayout-mydashboard .dashboard-left ul {
   background: white;
   border-radius: 8px;
   list-style: none;
-  padding: 20px 20px 12px;
+  padding: 24px 12px 12px 10px;
 }
 html[data-tenantidnumber=stg] .pagelayout-mydashboard .dashboard-left ul li {
   line-height: 1.35;
   margin: 0 0 15px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+html[data-tenantidnumber=stg] .pagelayout-mydashboard .dashboard-left ul li:before {
+  content: "・";
+  color: #999;
 }
 html[data-tenantidnumber=stg] .pagelayout-mydashboard .dashboard-left ul li a {
   color: #005c3f;
   text-decoration: underline;
+  font-size: 14px;
 }
 html[data-tenantidnumber=stg] .pagelayout-mydashboard #page.drawers {
   padding-left: 0px !important;
