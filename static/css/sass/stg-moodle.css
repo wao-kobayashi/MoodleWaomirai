@@ -1675,6 +1675,23 @@ html[data-tenantidnumber=stg] #page-login-forgot_password .login-form-forgotpass
 html[data-tenantidnumber=stg] #page-login-signup {
   background: white;
 }
+html[data-tenantidnumber=stg] #page-login-signup .btn-generate-userid {
+  background: none;
+  border: none;
+  padding: 4px 12px;
+  margin: 10px 0 10px;
+  color: inherit;
+  text-align: inherit;
+  text-decoration: none;
+  cursor: pointer;
+  -moz-appearance: none;
+       appearance: none;
+  -webkit-appearance: none;
+  color: #005c3f !important;
+  border: 1px solid #005c3f !important;
+  font-size: 12px !important;
+  border-radius: 4px;
+}
 html[data-tenantidnumber=stg] #page-login-signup .login-container {
   padding: 16px;
   padding: 1rem;
