@@ -117,6 +117,11 @@ a[href="https://lms.waomirai.com/my/courses.php"]
     > h2 {
       display: none;
     }
+    .open-modal-badge {
+      text-decoration: underline;
+      color: $cl-waogreen;
+      cursor: pointer;
+    }
   }
   .req {
     display: none; //必須マーク削除

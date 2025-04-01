@@ -28,6 +28,9 @@ li[data-key="courseinfo"] {
 #page-mod-questionnaire-complete,
 #page-mod-questionnaire-myreport,
 #page-mod-questionnaire-report {
+  img {
+    width: 100%;
+  }
   // SCSSの@eachループを使用して各コースタイプを処理
   // $course-name: コースの識別子（例: "philosophy-l1"）
   // $course-classes: そのコースに関連するクラス名の配列（例: [".course-256", ".course-221"]）

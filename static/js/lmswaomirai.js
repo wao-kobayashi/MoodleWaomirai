@@ -1171,7 +1171,7 @@ if (bodyId === "page-mod-questionnaire-view" || bodyId === "page-mod-questionnai
 
   // 課題提出セクションの下にリード文を挿入
   // 「授業の視聴が終わったら課題を提出しましょう」という文を、h2タグの後に追加
-  const textQuestionnaireNotAnswered = "<p>授業の視聴が終わったら課題を提出しましょう<br />毎月の課題を全部提出すると、スペシャルなバッジがゲットできます！<br /><br />今月のバッジ、ゲットできるかな？さあ、課題を提出してみましょう！</p>";
+  const textQuestionnaireNotAnswered = "<p>授業の視聴が終わったら課題を提出しましょう<br />毎月の課題を全部提出すると、<span class='open-modal-badge'>スペシャルなバッジ</span>がゲットできます！<br /><br />今月のバッジ、ゲットできるかな？さあ、課題を提出してみましょう！</p>";
   const textQuestionnaireAnswered = "<p>課題を提出済みです。</p>";
   const textQuestionnaireButtonAnswered = "課題を再提出する";
   const textQuestionnaireTextareaPlaceholder = "ここに回答を入力してください";
@@ -1183,6 +1183,8 @@ if (bodyId === "page-mod-questionnaire-view" || bodyId === "page-mod-questionnai
     </div></div>
   `;
   
+
+
   $('.allresponses a,li[data-key="vall"] a').text(textQuestionnaireAnswerAll);
   $(".qn-answer textarea").attr("placeholder", textQuestionnaireTextareaPlaceholder); 
   
@@ -1200,7 +1202,14 @@ if (bodyId === "page-mod-questionnaire-view" || bodyId === "page-mod-questionnai
     $(".mod_questionnaire_completepage h3").after(ButtonQuestionnaireBacktoCalender);
   }
 }
-
+$(".open-modal-badge").click(function() {
+  // 確認モーダルを作成
+  createModal({
+    image: "https://go.waomirai.com/l/1026513/2025-04-01/hjs1g/1026513/17434933816M8hgzmi/modal_badge_sample.png",
+    close: true,  // モーダルを閉じるボタンを表示するオプション
+    closetxt: "閉じる", // 閉じるボタンのテキスト
+  });
+});
 
 // // ==============================
 // // カテゴリページの処理

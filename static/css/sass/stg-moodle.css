@@ -1600,6 +1600,14 @@ html[data-tenantidnumber=stg] #page-mod-questionnaire-myreport #region-main > h2
 html[data-tenantidnumber=stg] #page-mod-questionnaire-report #region-main > h2 {
   display: none;
 }
+html[data-tenantidnumber=stg] #page-mod-questionnaire-view #region-main .open-modal-badge,
+html[data-tenantidnumber=stg] #page-mod-questionnaire-complete #region-main .open-modal-badge,
+html[data-tenantidnumber=stg] #page-mod-questionnaire-myreport #region-main .open-modal-badge,
+html[data-tenantidnumber=stg] #page-mod-questionnaire-report #region-main .open-modal-badge {
+  text-decoration: underline;
+  color: #005c3f;
+  cursor: pointer;
+}
 html[data-tenantidnumber=stg] #page-mod-questionnaire-view .req,
 html[data-tenantidnumber=stg] #page-mod-questionnaire-complete .req,
 html[data-tenantidnumber=stg] #page-mod-questionnaire-myreport .req,
@@ -7053,6 +7061,12 @@ html[data-tenantidnumber=stg] #page-mod-questionnaire-view .activity-description
 }
 html[data-tenantidnumber=stg] li[data-key=courseinfo] {
   display: none !important;
+}
+html[data-tenantidnumber=stg] #page-mod-questionnaire-view img,
+html[data-tenantidnumber=stg] #page-mod-questionnaire-complete img,
+html[data-tenantidnumber=stg] #page-mod-questionnaire-myreport img,
+html[data-tenantidnumber=stg] #page-mod-questionnaire-report img {
+  width: 100%;
 }
 html[data-tenantidnumber=stg] #page-mod-questionnaire-view.course-256 li[data-key=courseinfo],
 html[data-tenantidnumber=stg] #page-mod-questionnaire-view.course-256 li[data-key="1"],
