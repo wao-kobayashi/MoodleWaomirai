@@ -154,4 +154,12 @@ a[href="https://lms.waomirai.com/my/courses.php"]
   }
 }
 
-// 授業画面
+// faqのmodal削除
+#page-course-view-topics {
+  .tool_catalogue-course-cover-modal {
+    display: none !important;
+  }
+  .tool_catalogue-course-cover-modal-backdrop {
+    display: none !important;
+  }
+}

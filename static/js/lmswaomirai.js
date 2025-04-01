@@ -1171,7 +1171,7 @@ if (bodyId === "page-mod-questionnaire-view" || bodyId === "page-mod-questionnai
 
   // 課題提出セクションの下にリード文を挿入
   // 「授業の視聴が終わったら課題を提出しましょう」という文を、h2タグの後に追加
-  const textQuestionnaireNotAnswered = "<p>授業の視聴が終わったら課題を提出しましょう</p>";
+  const textQuestionnaireNotAnswered = "<p>授業の視聴が終わったら課題を提出しましょう<br />毎月の課題を全部提出すると、スペシャルなバッジがゲットできます！<br /><br />今月のバッジ、ゲットできるかな？さあ、課題を提出してみましょう！</p>";
   const textQuestionnaireAnswered = "<p>課題を提出済みです。</p>";
   const textQuestionnaireButtonAnswered = "課題を再提出する";
   const textQuestionnaireTextareaPlaceholder = "ここに回答を入力してください";

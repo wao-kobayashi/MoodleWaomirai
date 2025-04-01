@@ -1640,6 +1640,12 @@ html[data-tenantidnumber=lmswaomirai] #page-admin-tool-catalogue-courseinfo .too
 html[data-tenantidnumber=lmswaomirai] #page-enrol-index .tool_catalogue-catalogue .position-relative {
   display: none !important;
 }
+html[data-tenantidnumber=lmswaomirai] #page-course-view-topics .tool_catalogue-course-cover-modal {
+  display: none !important;
+}
+html[data-tenantidnumber=lmswaomirai] #page-course-view-topics .tool_catalogue-course-cover-modal-backdrop {
+  display: none !important;
+}
 html[data-tenantidnumber=lmswaomirai] .pagelayout-login #page div[role=main],
 html[data-tenantidnumber=lmswaomirai] .login-wrapper {
   height: auto !important;
@@ -6572,21 +6578,15 @@ html[data-tenantidnumber=lmswaomirai] .pagelayout-mydashboard .summary-modal-con
 html[data-tenantidnumber=lmswaomirai] .pagelayout-mydashboard .summary-modal-container .description-content-button.primary a {
   color: #ffffff;
 }
-html[data-tenantidnumber=lmswaomirai] .pagelayout-mydashboard .summary-modal-container .description-content-button.primary a:before {
-  content: "";
-  display: inline-block;
-  width: 25px; /* アイコンの幅 */
-  height: 25px; /* アイコンの高さ */
-  background-image: url("https://go.waomirai.com/l/1026513/2025-03-19/hj31q/1026513/17423770567ZdVOJwz/icn_zoom.svg"); /* アイコン画像 */
-  background-size: contain; /* 画像をボックス内に収める */
-  background-repeat: no-repeat;
-}
 html[data-tenantidnumber=lmswaomirai] .pagelayout-mydashboard .summary-modal-container .description-content-button.secondly {
   background: #ffffff;
   border: 2px solid #005c3f;
 }
 html[data-tenantidnumber=lmswaomirai] .pagelayout-mydashboard .summary-modal-container .description-content-button.secondly a {
   color: #005c3f !important;
+}
+html[data-tenantidnumber=lmswaomirai] .pagelayout-mydashboard .summary-modal-container .description-content-button.subject-main {
+  margin: 30px auto !important;
 }
 html[data-tenantidnumber=lmswaomirai] .pagelayout-mydashboard .summary-modal-container .description-content-button.zoom a:before {
   content: "";
