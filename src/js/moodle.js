@@ -3,7 +3,7 @@
 // ==============================
 
 const UrlHome = "https://lms.waomirai.com/?redirect=0" //トップページ（科目選択）
-const UrlForm = "https://go.waomirai.com/changeform"; // フォームURL 
+const UrlForm = "https://go.waomirai.com/contact-change-subject"; // フォームURL 
 const UrlChangeSubject = "https://lms.waomirai.com/user/edit.php"; // 受講変更ページ  
 
 
