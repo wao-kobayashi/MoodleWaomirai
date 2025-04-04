@@ -209,25 +209,26 @@ body.fixed {
       justify-content: center;
       margin: 0 auto;
       align-items: center;
-      gap: 20px;
+      gap: 18px;
+      @include responsive-style(768px) {
+        margin: 20px auto 20px !important;
+      }
       img {
-        width: 60px;
+        width: 55px;
       }
       .c-modal-wrap-linetitle-text {
-        font-size: 22px;
+        font-size: 20px;
       }
     }
     .c-modal-wrap-text {
       text-align: center;
-
-      @include text-m-black;
-      margin: 0 auto 20px;
+      color: $cl-alert;
+      font-size: $lms-font-size-m !important;
+      font-weight: 600;
+      // @include text-m-black;
+      margin: 0 auto 25px;
       @include responsive-style(768px) {
         margin: 0px auto 5px !important;
-      }
-      span {
-        color: $cl-brand-line;
-        font-weight: bold;
       }
     }
     .c-modal-wrap-qr {

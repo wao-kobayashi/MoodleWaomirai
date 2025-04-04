@@ -8,7 +8,7 @@
 
 //LINE連携の表示フラグ
 //trueの場合は表示、falseの場合は非表示
-- var connectionLineVisible = false
+- var connectionLineVisible = true
 
 //ダッシュボードにコピペするブロック
 .dashboard-textblock
@@ -22,18 +22,13 @@
         .dashboard-left-block-title
           |LINE連携
         .dashboard-left-block-wrap.dashboard-left-block-wrap-line 
-          a.c-sp-hidden.triger-line-integration-modal
+          a.triger-line-integration-modal
             .dashboard-left-block-wrap.dashboard-left-block-wrap-line-img
               img(src='https://go.waomirai.com/l/1026513/2025-03-23/hjb9m/1026513/17427846057nCvC4dV/icn_LINE_LOGO.svg')
             .dashboard-left-block-wrap.dashboard-left-block-wrap-line-text
               |LINEで受講サポートの
               br
               |通知を受け取る
-          a.c-pc-hidden(href=linkLineConnection)
-            .dashboard-left-block-wrap.dashboard-left-block-wrap-line-img
-              img(src='https://go.waomirai.com/l/1026513/2025-03-23/hjb9m/1026513/17427846057nCvC4dV/icn_LINE_LOGO.svg')
-            .dashboard-left-block-wrap.dashboard-left-block-wrap-line-text
-              |LINEで受講サポートの通知を受け取る
     //infoHowtoVisibleがtrueの時に「開校のお知らせ」を表示
     if infoHowtoVisible
       .dashboard-left-block.dashboard-left-block-guide 
@@ -88,7 +83,7 @@
                span.c-alert-banner-text-title-thismonth  
                |月20日」
               |までにお手続きをお願いします。詳細は
-              a(href='https://lms.waomirai.com/mod/page/view.php?id=1349')|コチラ
+              a(href='https://go.waomirai.com/index-contact', target='_blank')|コチラ
           .c-alert-banner-close-change-course
   .dashboard-main#todays-subject-pc
     //ダッシュボードのバナー

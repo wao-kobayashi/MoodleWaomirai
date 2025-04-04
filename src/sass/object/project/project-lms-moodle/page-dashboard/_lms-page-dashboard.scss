@@ -252,6 +252,9 @@ $default-max-width: 1170px; // 最大幅
           // letter-spacing: -1px;
           line-height: $lineheight-normal;
           font-size: $lms-font-size-m;
+          color: $cl-gray !important;
+          a {
+          }
         }
         &:hover {
           opacity: 0.7;

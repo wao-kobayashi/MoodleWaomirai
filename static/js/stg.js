@@ -113,9 +113,9 @@ const UrlChangeSubject = "https://lms.waomirai.com/user/edit.php"; // 受講変�
 // Liff系
 // ==============================
 
-//Moodle会員登録ページ後の会員登録
-const UrlLiffMoodleRegister = "https://liff.line.me/2006716288-lL7QzGA3?loycus_urlc=NN3v" 
-const ImgLiffMoodleRegister = "https://go.waomirai.com/l/1026513/2025-02-21/hg5gg/1026513/17401152270P10NmPp/qr_liff_moodle_register.png" 
+//moodleで友だち追加
+const UrlLiffMoodle = "https://liff.line.me/2006716288-lL7QzGA3?loycus_urlc=y7vy" 
+const ImgLiffMoodle = "https://go.waomirai.com/l/1026513/2025-04-04/hk1f8/1026513/1743763011hBkCW5F9/ImgLiffMoodlefix.png" 
 
 // ==============================
 // googleCalender系
@@ -964,14 +964,14 @@ if (bodyId === "page-login-confirm") {
       授業サポートのお知らせをこちらの<br>公式LINEから配信します。
     </div>
     <div class="c-modal-wrap-qr c-sp-hidden">
-      <img src="${ImgLiffMoodleRegister}">
+      <img src="${ImgLiffMoodle}">
     </div>
     <div class="c-modal-wrap-text c-modal-wrap-text-notice">
       ※すでに友だち追加済の方も、<br>
-      会員連携のために必ず下記を読み取ってください。
+      会員連携のために必ずQRを読み取ってください。
     </div>
     <div class="c-modal-button-line c-pc-hidden">
-      <a href="${UrlLiffMoodleRegister}">
+      <a href="${UrlLiffMoodle}">
         <img src="https://go.waomirai.com/l/1026513/2025-02-20/hg5bg/1026513/17401067674FE8qn1T/btn_lineadd.svg">
       </a>
     </div>
@@ -1654,40 +1654,35 @@ if (bodyId === "page-user-profile") {
         }
     });
     // ステップ1: profile_treeクラス内のnode_categoryクラスを持つすべてのセクションを取得
-    // const $sections = $('.profile_tree .node_category');
+    const $sections = $('.profile_tree .node_category');
     
-    // // ステップ2: 各セクションを順番にチェック
-    // $sections.each(function() {
-    //   // ステップ3: 現在のセクション内からh3要素を検索
-    //   const $h3 = $(this).find('h3');
+    // ステップ2: 各セクションを順番にチェック
+    $sections.each(function() {
+      // ステップ3: 現在のセクション内からh3要素を検索
+      const $h3 = $(this).find('h3');
       
-    //   // ステップ4: h3要素が存在し、そのテキストに「その他」が含まれているかを確認
-    //   if ($h3.length > 0 && $h3.text().includes('その他')) {
-    //     // ステップ5: 挿入するカスタムHTMLを作成
-    //     const lineConnectHTML = `
-    //     <section class="node_category card d-inline-block w-100 mb-3 line-connection-seciton">
-    //       <div class="card-lineimg">
-    //         <img src="https://go.waomirai.com/l/1026513/2025-03-23/hjb9q/1026513/1742784605ULZBDj1J/head_line.png">
-    //       </div>
-    //       <div class="card-body">
-    //         <div class="c-sp-hidden">
-    //           <a class="line-button triger-line-integration-modal">いますぐLINE連携する</a>
-    //         </div>
-    //         <div class="c-pc-hidden">
-    //           <a class="line-button" href="">いますぐLINE連携する</a>
-    //         </div>
-    //       </div>
-    //     </section>`;
+      // ステップ4: h3要素が存在し、そのテキストに「その他」が含まれているかを確認
+      if ($h3.length > 0 && $h3.text().includes('その他')) {
+        // ステップ5: 挿入するカスタムHTMLを作成
+        const lineConnectHTML = `
+        <section class="node_category card d-inline-block w-100 mb-3 line-connection-seciton">
+          <div class="card-lineimg">
+            <img src="https://go.waomirai.com/l/1026513/2025-03-23/hjb9q/1026513/1742784605ULZBDj1J/head_line.png">
+          </div>
+          <div class="card-body">
+              <a class="line-button triger-line-integration-modal">いますぐLINE連携する</a>
+          </div>
+        </section>`;
               
-    //     // 「その他」を含むセクションの直後にLINE連携セクションを挿入
-    //     $(this).after(lineConnectHTML);
+        // 「その他」を含むセクションの直後にLINE連携セクションを挿入
+        $(this).after(lineConnectHTML);
               
         
-    //     // ステップ7: 最初に見つかった「その他」セクションの後に挿入したら処理を終了
-    //     // (複数の「その他」セクションがある場合は最初の1つだけに対応)
-    //     return false; // eachループを終了（jQueryのeachでは、falseを返すとループが中断される）
-    //   }
-    // });
+        // ステップ7: 最初に見つかった「その他」セクションの後に挿入したら処理を終了
+        // (複数の「その他」セクションがある場合は最初の1つだけに対応)
+        return false; // eachループを終了（jQueryのeachでは、falseを返すとループが中断される）
+      }
+    });
 }
 
 
@@ -1699,7 +1694,7 @@ if (bodyId === "page-user-profile") {
 $(".triger-line-integration-modal").on("click", function (e) {
   createModal({
     wrapClass: "c-modal-wrap-line-connection",
-    customModalHtml: `<div class="c-modal-wrap-close"></div><div class="c-modal-wrap-linetitle"> <div class="c-modal-wrap-linetitle-img"><img src="https://go.waomirai.com/l/1026513/2025-03-23/hjb9m/1026513/17427846057nCvC4dV/icn_LINE_LOGO.svg"></div><div class="c-modal-wrap-linetitle-text"> スマホで<br>LINEの友だち追加</div></div><div class="c-modal-wrap-qr c-sp-hidden"><img src="${ImgLiffMoodleRegister}"></div><div class="c-modal-wrap-text">追加後にID連携の案内が届きます</div><div class="c-modal-button-line c-pc-hidden"><a href="https://liff.line.me/2006716288-lL7QzGA3?loycus_urlc=NN3v"><img src="https://go.waomirai.com/l/1026513/2025-02-20/hg5bg/1026513/17401067674FE8qn1T/btn_lineadd.svg"></a></div><button class="c-modal-wrap-button c-modal-wrap-button-close c-modal-wrap-close-tag">閉じる</button>`
+    customModalHtml: `<div class="c-modal-wrap-close"></div><div class="c-modal-wrap-linetitle"> <div class="c-modal-wrap-linetitle-img"><img src="https://go.waomirai.com/l/1026513/2025-03-23/hjb9m/1026513/17427846057nCvC4dV/icn_LINE_LOGO.svg"></div><div class="c-modal-wrap-linetitle-text">LINEで受講サポートの<br>通知を受け取る</div></div><div class="c-modal-wrap-qr c-sp-hidden"><img src="${ImgLiffMoodle}"></div><div class="c-modal-wrap-text">すでに友だち追加済の方も<br>会員連携のために<span class="c-sp-hidden">必ずQRを読み取って下さい</span><span class="c-pc-hidden">必ずボタンを押してください</span><br />※既にLINE連携済みの方は不要です</div><div class="c-modal-button-line c-pc-hidden"><a href="https://liff.line.me/2006716288-lL7QzGA3?loycus_urlc=NN3v"><img src="https://go.waomirai.com/l/1026513/2025-02-20/hg5bg/1026513/17401067674FE8qn1T/btn_lineadd.svg"></a></div><button class="c-modal-wrap-button c-modal-wrap-button-close c-modal-wrap-close-tag">閉じる</button>`
   });
 });
 
