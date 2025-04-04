@@ -1,0 +1,38 @@
+doctype html
+html(lang="ja")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    title modal
+    style(type='text/css').
+            .ab {
+            display: flex;
+            flex-direction: column;
+            }
+
+        @media (min-width: 768px) {
+            .ab {
+                flex-direction: row;
+            }
+        }
+        @media (max-width: 767px) {
+            .a {
+                height: 150px;
+            }
+            .a iframe {
+                height: 100%;
+            }
+
+            .b {
+                height: calc(100vh - 150px);
+            }
+            .b iframe {
+                height: 100%;
+            }
+        }
+  body
+    .ab
+      .a(style="padding:56.25% 0 0 0;position:relative;")
+        iframe(src="https://vimeo.com/event/3887803/embed/b7592cf097", frameborder="0", allow="autoplay; fullscreen; picture-in-picture", allowfullscreen, style="position:absolute;top:0;left:0;width:100%; height:100%;")
+      .b
+        iframe(src="https://vimeo.com/live/interaction_tools/live_event/3887803?module=auto&amp;theme=light&amp;auth_room_unlisted_hash=b7592cf097", width="100%", height="100%", frameborder="0")

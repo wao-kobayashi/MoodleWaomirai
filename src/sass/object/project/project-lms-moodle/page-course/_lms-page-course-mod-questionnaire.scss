@@ -1,10 +1,56 @@
 body {
 }
 
+#page-mod-questionnaire-complete {
+  .mod_questionnaire_flex-container {
+    gap: 20px;
+  }
+}
+
+#page-mod-questionnaire-view {
+  .course-lesson-date {
+    display: block !important;
+  }
+
+  .course-lesson {
+    display: block !important;
+  }
+  .activity-description .no-overflow {
+    display: block !important;
+  }
+}
+
+li[data-key="courseinfo"] {
+  display: none !important;
+}
+
 #page-mod-questionnaire-view,
 #page-mod-questionnaire-complete,
 #page-mod-questionnaire-myreport,
 #page-mod-questionnaire-report {
+  img {
+    width: 100%;
+  }
+  // SCSSの@eachループを使用して各コースタイプを処理
+  // $course-name: コースの識別子（例: "philosophy-l1"）
+  // $course-classes: そのコースに関連するクラス名の配列（例: [".course-256", ".course-221"]）
+
+  @each $course-name, $course-classes in $child-courses {
+    // 各コースタイプに含まれる複数のクラスをループ処理
+    // $course-class: 個々のクラス名（例: ".course-256"）
+    @each $course-class in $course-classes {
+      // &はSCSSの親セレクタ参照
+      // 例: #page-mod-questionnaire-view.course-256 になる
+      &#{$course-class} {
+        // 特定のコースクラスに対する固有のスタイルをここに定義
+        // これにより、各コースごとに異なるスタイルを適用可能
+        li[data-key="courseinfo"],
+        li[data-key="1"] {
+          display: none !important;
+        }
+      }
+    }
+  }
   #page.drawers {
     margin-top: 48px !important;
     .main-inner {
@@ -14,6 +60,7 @@ body {
       }
     }
   }
+
   #page-header {
     @include responsive-style(768px) {
       display: none;
@@ -50,6 +97,7 @@ body {
   }
 
   .activity-description .no-overflow {
+    display: none;
     @include responsive-style(768px) {
       margin: 0 -20px;
     }
@@ -67,11 +115,33 @@ body {
     }
   }
   //動画視聴の部分
+  .no-overflow .course-lesson-date {
+    @include responsive-style(768px) {
+      display: none;
+    }
+  }
+  .course-lesson-date {
+    display: none;
+    font-size: $lms-font-size-m;
+    color: $cl-gray;
+    margin: 0 0 16px;
+  }
+  .c-pc-hidden {
+    .course-lesson-date {
+      margin: 0 0 0px;
+    }
+  }
+
   .course-lesson {
+    display: none;
     position: relative;
     border-radius: $border-radius-middle;
     overflow: hidden;
     @include responsive-style(768px) {
+      border-radius: 0;
+    }
+    img {
+      width: 100%;
       border-radius: 0;
     }
     .course-lesson-wrap {
@@ -83,28 +153,39 @@ body {
       z-index: 1;
       width: 100%;
       height: 100%;
-      color: white;
+      color: $cl-white;
 
       .course-lesson-wrap-title {
-        color: white;
-        font-weight: 500;
+        color: $cl-white;
+        font-weight: 600;
         margin: 0 auto 16px;
-        font-size: $lms-font-size-ml;
+        font-size: $lms-font-size-l;
+        text-align: center !important;
         @include responsive-style(768px) {
-          font-size: $lms-font-size-m;
+          font-size: $lms-font-size-ml;
+        }
+      }
+      .course-lesson-wrap-subtitle {
+        color: $cl-graylightest;
+        font-weight: 500;
+        margin: 0 auto 0px;
+        font-size: $lms-font-size-m;
+        @include responsive-style(768px) {
+          font-size: $lms-font-size-s;
         }
       }
       button {
         @include button-size-big;
         background: $cl-main-orange !important;
-        color: white;
+        color: $cl-white !important;
         /* button style reset */
         appearance: none;
         box-shadow: none !important;
         outline: none;
         padding: 0;
         border: none;
-        width: 340px;
+        width: 360px;
+        margin: 0 auto 16px;
         @include responsive-style(768px) {
           width: 220px;
           @include button-size-middle;
@@ -121,7 +202,7 @@ body {
       z-index: 99;
       left: 0;
       top: 0;
-      background: $overlay;
+      background: rgba(0, 0, 0, 0.58);
       z-index: 1;
       width: 100%;
       height: 100%;
@@ -166,7 +247,7 @@ body {
       .mod_questionnaire_flex-container {
         padding: 30px 20px 20px;
         width: 100%;
-        justify-content: center;
+        justify-content: flex-start;
 
         .allresponses {
           margin: 0 !important;
@@ -176,7 +257,7 @@ body {
           gap: 20px;
         }
         > div {
-          width: 300px;
+          width: 240px;
           flex-grow: none !important;
           @include responsive-style(768px) {
             width: 100%;
@@ -186,7 +267,7 @@ body {
             border: 1px solid $cl-main-orange;
             background: white !important;
             @include button-size-middle;
-            width: 300px;
+            width: 240px;
             @include responsive-style(768px) {
               width: 100%;
             }

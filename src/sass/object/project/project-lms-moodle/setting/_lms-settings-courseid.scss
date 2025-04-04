@@ -1,89 +1,165 @@
 ////////////////////////
 // 共通のスタイルデータ
 ////////////////////////
+
+// 各コースカテゴリごとのスタイル設定を定義
+// 各カテゴリには以下の3つの情報を持たせる
+// - main-color: メインカラー（背景色などに使用）
+// - pale-color: 淡い色（補助的なデザイン要素に使用）
+// - background-image: 背景画像のURL
+
 $common-course-styles: (
   "economy": (
+    // 経済カテゴリのスタイル
     main-color: $cl-economy,
     pale-color: $cl-economy-pale,
-    background-color: $cl-economy,
     background-image:
       url("https://go.waomirai.com/l/1026513/2024-08-08/gzqbt/1026513/1723092445zMMVlFVz/subject_03.jpg"),
   ),
   "science": (
+    // 科学カテゴリのスタイル
     main-color: $cl-science,
     pale-color: $cl-science-pale,
-    background-color: $cl-science,
     background-image:
       url("https://go.waomirai.com/l/1026513/2024-08-08/gzqbx/1026513/1723092445qaV639ZU/subject_02.jpg"),
   ),
   "philosophy": (
+    // 哲学カテゴリのスタイル
     main-color: $cl-philosophy,
     pale-color: $cl-philosophy-pale,
-    background-color: $cl-philosophy,
     background-image:
       url("https://waomirai.com/wp-content/uploads/2024/07/phi_main.jpg"),
   ),
   "english": (
+    // 英語カテゴリのスタイル
     main-color: $cl-english,
     pale-color: $cl-english-pale,
-    background-color: $cl-english,
     background-image:
       url("https://go.waomirai.com/l/1026513/2024-08-08/gzqbq/1026513/1723092445NpS1HkfH/subject_04.jpg"),
   ),
   "programming": (
+    // プログラミングカテゴリのスタイル
     main-color: $cl-programming,
     pale-color: $cl-programming,
-    background-color: $cl-programming,
+    // 本来 pale-color を定義すべきだが、main-color を流用？
     background-image:
       url("https://go.waomirai.com/l/1026513/2024-08-08/gzqbm/1026513/1723092444UDZaTUyz/subject_05.jpg"),
   ),
 );
-////////////////////////
-// テナントごとのコースIDマッピング
-////////////////////////
-// stg環境でのコースID
-$course-styles-stg: (
-  "category-53": "economy",
-  "category-52": "science",
-  "category-51": "philosophy",
-  "category-54": "english",
-  "course-999999": "programming",
-);
-// lms環境でのコースID
-$course-styles-lms: (
-  "category-48": "economy",
-  "category-49": "science",
-  "category-47": "philosophy",
-  "category-50": "english",
-  "course-999999": "programming",
-);
 
+// コースIDとカテゴリー名の対応リスト
+// 左側がCSSセレクタ（.category-XX など）で、右側が上記 $common-course-styles のキー名
+// これにより、各カテゴリのスタイルを適用可能にする
 $course-styles: (
-  ".category-53": "economy",
-  ".category-48": "economy",
-  ".category-52": "science",
-  ".category-49": "science",
-  ".category-51": "philosophy",
-  ".category-47": "philosophy",
-  ".category-50": "english",
-  ".category-54": "english",
+  "economy": (
+    ".category-53",
+    ".category-48",
+  ),
+  "science": (
+    ".category-52",
+    ".category-49",
+  ),
+  "philosophy": (
+    ".category-51",
+    ".category-47",
+  ),
+  "english": (
+    ".category-50",
+    ".category-54",
+  ),
+  "programming": (
+    ".course-999999",
+  ),
 );
 
-$twocategories: ".category-21, .category-22";
+// メインカテゴリ（main）のコースID
+// メインコースのIDとカテゴリー名の対応リスト（同じ構造で個別定義）
 
-$course-styles-for-tenant: if(
-  $tenant== "stg",
-  $course-styles-stg,
-  $course-styles-lms
+$main-courses: (
+  "philosophy": (
+    ".course-255",
+    ".course-212",
+  ),
+  "economy": (
+    ".course-260",
+    ".course-213",
+  ),
+  "science": (
+    ".course-265",
+    ".course-211",
+  ),
+  "globalenglish": (
+    ".course-135",
+    ".course-236",
+  ),
+  "twosubjectpack": (
+    ".course-270",
+    ".course-228",
+  ),
+  "threesubjectpack": (
+    ".course-271",
+    ".course-229",
+  ),
 );
 
-$course-multi-select-two: ".course-228, .course-270"; //stg：228 lmswaomirai：270
-$course-multi-select-three: ".course-229, .course-271"; //stg：229 lmswaomirai：271
+// サブカテゴリ（child）のコースID
+// 子コースのIDとレベル名の対応リスト（個別定義）
 
-////////////////////////////////
-/// #page-mod-questionnaire-view：アンケート詳細
-/// #page-course-view-flexsections：科目詳細
-/// #page-admin-tool-catalogue-courseinfo：科目購入
-/// #page-enrol-index：??????
-/// #page-mod-questionnaire-view:授業視聴
-////////////////////////////////
+$child-courses: (
+  "philosophy-l1": (
+    ".course-256",
+    ".course-221",
+  ),
+  "philosophy-l2": (
+    ".course-257",
+    ".course-225",
+  ),
+  "philosophy-l3": (
+    ".course-258",
+    ".course-242",
+  ),
+  "philosophy-l4": (
+    ".course-259",
+    ".course-243",
+  ),
+  "economy-l1": (
+    ".course-261",
+    ".course-226",
+  ),
+  "economy-l2": (
+    ".course-262",
+    ".course-227",
+  ),
+  "economy-l3": (
+    ".course-263",
+    ".course-246",
+  ),
+  "economy-l4": (
+    ".course-264",
+    ".course-247",
+  ),
+  "science-l1": (
+    ".course-266",
+    ".course-223",
+  ),
+  "science-l2": (
+    ".course-267",
+    ".course-222",
+  ),
+  "science-l3": (
+    ".course-268",
+    ".course-244",
+  ),
+  "science-l4": (
+    ".course-269",
+    ".course-245",
+  ),
+  "globalenglish-l1": (
+    ".course-130",
+    ".course-253",
+  ),
+  "globalenglish-l2": (
+    ".course-138",
+    ".course-254",
+  ),
+);

@@ -8,6 +8,12 @@
 
 // //間違って本番に出してしまいそうなのでコメントアウトしておく
 $tenant: "lms";
+
+//管理者向けにカレンダーのセルの高さを設定
+.course-id-277 .calendarwrapper td > div {
+  min-height: 250px !important; //admin限定でダッシュボードのカレンダーの高さ変更
+}
+
 @import url("https://fonts.googleapis.com/css?family=Noto+Sans+JP:400,500,700,900");
 body {
   font-family: "Noto Sans JP", sans-serif;

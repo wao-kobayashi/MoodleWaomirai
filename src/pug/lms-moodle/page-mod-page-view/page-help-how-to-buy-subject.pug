@@ -1,0 +1,30 @@
+extends ../_layout_moodle.pug
+block variables
+  - var title = '科目を購入しましたがカレンダーに授業予定が表示されません'
+  - var template = 'help' //_layout_moodle.pugでhelpテンプレを指定
+block contents
+  .howto-block.section-1
+    p 
+      |科目を購入後、マイページで受講レベルを設定する必要があります。以下の手順で設定を進めてください。
+  .howto-block
+    h3
+      |①ヘッダーの「マイページ」をクリック
+      br
+      |②ユーザ詳細にある「登録情報の変更」をクリック
+    div.howto-image 
+      img(src='https://go.waomirai.com/l/1026513/2025-03-13/hhs9f/1026513/1741917761YlVAHr6s/howto_change_level_01.png')
+  .howto-block
+    h3
+      |③受講変更欄にあるレベルを変更して、下にスクロールして更新ボタンをクリック
+    div.howto-image 
+      img(src='https://go.waomirai.com/l/1026513/2025-03-13/hhslj/1026513/1741920909E3wAasfg/howto_attend_class_02.png')
+  .howto-block
+    h3
+      |④ヘッダーの「受講カレンダー」をクリック
+    div.howto-image 
+      img(src='https://go.waomirai.com/l/1026513/2025-03-13/hhslf/1026513/1741920909RIvRwcpg/howto_attend_class_03.png')
+  .howto-block
+    h3
+      |⑤受講カレンダーに購入した科目の受講スケジュールが表示されれば、受講準備完了です。
+    div.howto-image 
+      img(src='https://go.waomirai.com/l/1026513/2025-03-13/hhslb/1026513/1741920909m57qMLND/howto_attend_class_04.png')

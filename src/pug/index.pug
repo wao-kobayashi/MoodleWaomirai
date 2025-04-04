@@ -153,7 +153,8 @@ html(lang="jp")
                     a(href=`${environment}/dashboard/page-calender-03aftertomorrow.html`) 03_今日予定なし｜明日以降予定あり
                   li 
                     a(href=`${environment}/dashboard/page-calender-04today_after.html`) 04_今日予定あり｜明日以降予定あり
-
+                  li 
+                    a(href=`${environment}/dashboard/page-calender-05modal.html`) 05_今日予定あり｜明日以降予定あり
               li
                 | 科目購入
                 div(style='font-size:87%; margin:20px 0 0 20px;') 
@@ -218,7 +219,15 @@ html(lang="jp")
                 |講座の受講ヘルプページ
                 ul
                   li
-                    a(href=`${environment}/help/page-howto-attend-lesson.html`)  授業参加（動画）
+                    a(href=`${environment}/page-mod-page-view/page-help-change-levels.html`)  授業レベルの変更方法
+                  li
+                    a(href=`${environment}/page-mod-page-view/page-help-how-to-buy-subject.html`)  科目を購入しましたがカレンダーに授業予定が表示されません
+                  li
+                    a(href=`${environment}/page-mod-page-view/page-help-how-to-attend-class.html`)  授業の参加方法
+                  li
+                    a(href=`${environment}/page-mod-page-view/page-help-which-class-to-attend.html`)  １週間に同じ授業が２つあります。どれに参加すればいいですか？
+                  li
+                    a(href=`${environment}/page-mod-page-view/page-help-watch-archive-class.html`)  アーカイブ動画の見方
               li
                 | 授業レベル設定ロジック
                 div(style='font-size:87%; margin:20px 0 0 20px;') 
@@ -274,9 +283,9 @@ html(lang="jp")
                   li 
                     a(href=`${environment}/setting/page-user-setting.html`) ユーザ設定
     div(style="display:flex;width:calc(70% + 40px); margin:0 auto;display: grid;grid-template-columns: repeat(2, 1fr);grid-template-rows: 1fr;grid-column-gap: 30px;")
-      div(style="padding:10px 20px 30px; box-shadow:0 5px 10px #ccc;")
-        block content
-          +moodleList('moodle-stg')
+      //- div(style="padding:10px 20px 30px; box-shadow:0 5px 10px #ccc;")
+      //-   block content
+      //-     +moodleList('moodle-stg')
       div(style="padding:10px 20px 30px; box-shadow:0 5px 10px #ccc;")
         block content
           +moodleList('moodle-lms')

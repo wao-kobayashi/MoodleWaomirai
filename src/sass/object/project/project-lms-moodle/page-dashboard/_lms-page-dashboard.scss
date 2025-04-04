@@ -12,7 +12,39 @@ $dashboard-sidebar-width: 225px; // サイドバーの幅
 $body-padding: 25px; // サイドバーとの距離
 $default-max-width: 1170px; // 最大幅
 
+@media (min-width: 576px) {
+  .modal-dialog-scrollable {
+    max-height: calc(100% - 1.5rem) !important;
+  }
+}
+
+@media (min-width: 576px) {
+  .modal-dialog-scrollable .modal-content {
+    max-height: calc(100vh - 2.5rem) !important;
+  }
+}
+@media (min-width: 576px) {
+  .modal-dialog {
+    margin: 0.75rem auto !important;
+  }
+}
+
+@media (min-width: 576px) {
+  .modal-dialog {
+    max-width: 480px !important;
+  }
+}
+.modal-header {
+  padding: 0.7rem 1rem 0.7rem !important;
+}
+
 .pagelayout-mydashboard {
+  .no-overflow {
+    overflow: visible;
+  }
+  img {
+    width: 100%;
+  }
   background: $cl-graylightest !important; // 背景設定
 
   .block_myinprogress .tool_catalogue-carousel {
@@ -62,9 +94,14 @@ $default-max-width: 1170px; // 最大幅
     /* テキストブロックの文言を非表示に */
     display: none !important;
   }
-
+  .dashboard-textblock::-webkit-scrollbar {
+    display: none;
+  }
   .dashboard-textblock {
-    overflow: hidden;
+    // overflow: hidden;
+    // & {
+    //   display: none;
+    // }
   }
   .card-title {
     margin: 0 -15px 16px !important;
@@ -191,6 +228,40 @@ $default-max-width: 1170px; // 最大幅
         }
       }
     }
+    .dashboard-left-block-wrap-line {
+      padding: 12px 15px 10px !important;
+
+      a {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        justify-content: flex-start;
+        align-items: center;
+        cursor: pointer;
+        background: $cl-white;
+
+        @include responsive-style(768px) {
+          box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.15) !important;
+          padding: 10px;
+          margin: 0 auto 16px;
+        }
+        img {
+          width: 36px;
+        }
+        .dashboard-left-block-wrap-line-text {
+          // letter-spacing: -1px;
+          line-height: $lineheight-normal;
+          font-size: $lms-font-size-m;
+          color: $cl-gray !important;
+          a {
+          }
+        }
+        &:hover {
+          opacity: 0.7;
+          text-decoration: none;
+        }
+      }
+    }
     .dashboard-left-block-subject-child {
       font-size: $lms-font-size-m;
       color: $cl-gray;
@@ -278,13 +349,19 @@ $default-max-width: 1170px; // 最大幅
       background: white;
       border-radius: $border-radius-middle;
       list-style: none;
-      padding: 20px 20px 12px;
+      padding: 24px 12px 12px 10px;
       li {
         line-height: 1.35;
         margin: 0 0 15px;
+        display: flex;
+        &:before {
+          content: "・";
+          color: $cl-graylight;
+        }
         a {
           color: $cl-waogreen;
           text-decoration: underline;
+          font-size: $lms-font-size-m;
         }
       }
     }
@@ -298,16 +375,26 @@ $default-max-width: 1170px; // 最大幅
 ////////////////////////
 //カレンダー周りのデザイン
 ////////////////////////
+
 .pagelayout-mydashboard {
   .calendarwrapper td > div {
-    height: 10em !important;
+    height: 13em !important;
   }
   // ページの内側部分（drawers）の背景を透明化
+  .maincalendar .calendartable li[data-event-component="mod_questionnaire"] {
+    display: none !important;
+  }
+
   .maincalendar .calendartable li {
     padding: 4px 2px !important;
   }
+
   #page.drawers .main-inner {
     background: transparent;
+  }
+  //謎のカレンダータイトルの丸を削除
+  .calendar-circle.calendar_event_site {
+    display: none;
   }
   h4 {
     margin-bottom: 0 !important;
@@ -477,6 +564,12 @@ $default-max-width: 1170px; // 最大幅
       display: block;
       font-weight: bold;
       border-radius: 2px;
+      overflow: hidden !important;
+      white-space: normal !important;
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 2;
+      height: 42px;
       &:focus,
       &:active {
         box-shadow: none;
@@ -545,6 +638,10 @@ $default-max-width: 1170px; // 最大幅
 ////////////////////////
 //カレンダーの予定をクリックしたときのモーダル
 ////////////////////////
+
+$modal-button-width: 280px;
+$modal-button-height: 55px;
+
 .pagelayout-mydashboard {
   .modal {
     .calendar_event_course {
@@ -568,6 +665,9 @@ $default-max-width: 1170px; // 最大幅
       max-width: 100%;
       padding: 0 5px !important;
     }
+    .description-content img {
+      width: 100%;
+    }
     .row:nth-child(1),
     .row:nth-child(2),
     .row:nth-child(5) {
@@ -577,8 +677,6 @@ $default-max-width: 1170px; // 最大幅
       display: none;
     }
     .location-content {
-      $modal-button-width: 230px;
-      $modal-button-height: 55px;
       position: relative;
       display: block;
       height: $modal-button-height;
@@ -620,6 +718,90 @@ $default-max-width: 1170px; // 最大幅
           opacity: 0.8;
         }
       }
+    }
+    .description-content-img-eng {
+      width: 95%;
+      margin: 0 auto 25px;
+      img {
+        border-radius: 12px;
+      }
+    }
+    .description-content-text-eng {
+      font-size: 93%;
+      width: 95%;
+      margin: 0 auto 5px;
+      // border-bottom: 1px solid;
+    }
+    .description-content-button {
+      @include button-size-middle;
+      width: $modal-button-width;
+      height: $modal-button-height;
+      margin: 0px auto 15px;
+      a {
+        width: $modal-button-width;
+        height: $modal-button-height;
+        justify-content: center;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        &:hover {
+          text-decoration: none !important;
+          opacity: 0.7;
+        }
+      }
+      &.primary {
+        background: $cl-waogreen;
+        a {
+          color: $cl-white;
+
+          // &:before {
+          //   content: "";
+          //   display: inline-block;
+          //   width: 25px; /* アイコンの幅 */
+          //   height: 25px; /* アイコンの高さ */
+          //   background-image: url("https://go.waomirai.com/l/1026513/2025-03-19/hj31q/1026513/17423770567ZdVOJwz/icn_zoom.svg"); /* アイコン画像 */
+          //   background-size: contain; /* 画像をボックス内に収める */
+          //   background-repeat: no-repeat;
+          // }
+        }
+      }
+      &.secondly {
+        background: $cl-white;
+
+        border: 2px solid $cl-waogreen;
+        a {
+          color: $cl-waogreen !important;
+        }
+      }
+      &.subject-main {
+        margin: 30px auto !important;
+      }
+      &.zoom {
+        a {
+          &:before {
+            content: "";
+            display: inline-block;
+            width: 25px; /* アイコンの幅 */
+            height: 25px; /* アイコンの高さ */
+            background-image: url("https://go.waomirai.com/l/1026513/2025-03-19/hj31q/1026513/17423770567ZdVOJwz/icn_zoom.svg"); /* アイコン画像 */
+            background-size: contain; /* 画像をボックス内に収める */
+            background-repeat: no-repeat;
+          }
+        }
+      }
+      // &.movie {
+      //   a {
+      //     &:before {
+      //       content: "";
+      //       display: inline-block;
+      //       width: 25px; /* アイコンの幅 */
+      //       height: 25px; /* アイコンの高さ */
+      //       background-image: url("https://go.waomirai.com/l/1026513/2025-03-19/hj31t/1026513/1742377056S4g1Q8Gl/icn_movie.svg"); /* アイコン画像 */
+      //       background-size: contain; /* 画像をボックス内に収める */
+      //       background-repeat: no-repeat;
+      //     }
+      //   }
+      // }
     }
   }
 }

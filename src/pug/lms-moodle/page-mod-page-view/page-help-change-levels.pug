@@ -1,0 +1,44 @@
+extends ../_layout_moodle.pug
+block variables
+  - var title = '受講レベルの変更方法'
+  - var template = 'help' //_layout_moodle.pugでhelpテンプレを指定
+block contents
+  .howto-block
+    h2
+      |受講レベルを変更するには？
+
+    p
+    |科目の受講レベルを変更する場合、レベル変更手続きをして当月末にレベルが変更されます。
+    br
+    br
+    .howto-table-contents 
+      b|【受講レベルの変更の仕組み】
+      br
+      |・レベル変更の手続きが必要になります。
+      br
+      |・変更したレベルは次月から適用となります。
+      br
+      .howto-note|※当月のXX日までに変更手続き処理を行っていただく必要がございます。
+    br
+    //- br
+    //- br
+    //- p|例えば哲学レベル１からレベル２に変更する場合は以下のようなイメージになります。
+    div 
+      img(src='https://go.waomirai.com/l/1026513/2025-03-13/hhs7x/1026513/1741914951arHa1vDE/howtolevel.png')
+  .howto-block
+    h2
+      |具体的な変更方法
+    h3#section-1
+      |①ナビゲーションから「マイページ」→「受講科目・登録情報の変更」にアクセス
+    div.howto-image 
+      img(src='https://go.waomirai.com/l/1026513/2025-03-13/hhs9f/1026513/1741917761YlVAHr6s/howto_change_level_01.png')
+  .howto-block
+    h3
+      |②受講レベルを変更して下にスクロールして更新ボタンをクリック
+    div.howto-image 
+      img(src='https://go.waomirai.com/l/1026513/2025-03-13/hhs9j/1026513/1741917761Zc03E9TB/howto_change_level_02.png')
+  .howto-block
+    h3
+      |③受講レベルのプルダウンが変わっていれば申請完了です。当月末までお待ちくださいませ。
+    div.howto-image 
+      img(src='https://go.waomirai.com/l/1026513/2025-03-13/hhs9m/1026513/1741917761CZkqg3fT/howto_change_level_03.png')

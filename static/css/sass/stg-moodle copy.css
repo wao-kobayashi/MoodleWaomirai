@@ -1177,30 +1177,29 @@ html[data-tenantidnumber=stg] .c-modal .c-modal-wrap-line-connection .c-modal-wr
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  gap: 18px;
-}
-@media screen and (max-width: 768px) {
-  html[data-tenantidnumber=stg] .c-modal .c-modal-wrap-line-connection .c-modal-wrap-linetitle {
-    margin: 20px auto 20px !important;
-  }
+  gap: 20px;
 }
 html[data-tenantidnumber=stg] .c-modal .c-modal-wrap-line-connection .c-modal-wrap-linetitle img {
-  width: 55px;
+  width: 60px;
 }
 html[data-tenantidnumber=stg] .c-modal .c-modal-wrap-line-connection .c-modal-wrap-linetitle .c-modal-wrap-linetitle-text {
-  font-size: 20px;
+  font-size: 22px;
 }
 html[data-tenantidnumber=stg] .c-modal .c-modal-wrap-line-connection .c-modal-wrap-text {
   text-align: center;
-  color: #f35053;
-  font-size: 14px !important;
-  font-weight: 600;
-  margin: 0 auto 25px;
+  font-size: 16px;
+  color: #262626;
+  line-height: 1.5;
+  margin: 0 auto 20px;
 }
 @media screen and (max-width: 768px) {
   html[data-tenantidnumber=stg] .c-modal .c-modal-wrap-line-connection .c-modal-wrap-text {
     margin: 0px auto 5px !important;
   }
+}
+html[data-tenantidnumber=stg] .c-modal .c-modal-wrap-line-connection .c-modal-wrap-text span {
+  color: #00b900;
+  font-weight: bold;
 }
 html[data-tenantidnumber=stg] .c-modal .c-modal-wrap-line-connection .c-modal-wrap-qr {
   text-align: center;
@@ -1428,25 +1427,6 @@ html[data-tenantidnumber=stg] .btn-secondary {
   border: 1px solid #005c3f;
   color: #005c3f;
 }
-html[data-tenantidnumber=stg] .bs-popover-top .popover-body img {
-  display: none;
-}
-html[data-tenantidnumber=stg] .bs-popover-top .popover-body .footer-section:first-child {
-  padding: 16px 16px 0px !important;
-  padding: 1rem 1rem 0px !important;
-}
-html[data-tenantidnumber=stg] .bs-popover-top .popover-body .footer-section:last-child {
-  display: none;
-}
-html[data-tenantidnumber=stg] .bs-popover-top .popover-body .footer-section {
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-}
-html[data-tenantidnumber=stg] .bs-popover-top .popover-body br {
-  display: none;
-}
 html[data-tenantidnumber=stg] footer.footer-popover {
   width: 100% !important;
   max-width: 100% !important;
@@ -1489,7 +1469,7 @@ html[data-tenantidnumber=stg] footer.footer-popover div.footer-popover div:nth-c
 html[data-tenantidnumber=stg] footer.footer-popover .container div:nth-child(1) div {
   position: absolute;
   top: 150px;
-  right: 47px;
+  right: 24px;
   width: 200px;
   text-align: right;
 }
@@ -1512,14 +1492,6 @@ html[data-tenantidnumber=stg] footer.footer-popover .container div.footer-popove
 html[data-tenantidnumber=stg] footer.footer-popover div.footer-popover > div:last-child,
 html[data-tenantidnumber=stg] footer.footer-popover .container > div:last-child {
   display: none;
-}
-html[data-tenantidnumber=stg] footer.footer-popover a {
-  white-space: nowrap !important;
-  font-size: 14px !important;
-  margin: 0 10px 0 0;
-}
-html[data-tenantidnumber=stg] footer.footer-popover a .fa.fa-external-link {
-  color: #999 !important;
 }
 @media screen and (max-width: 3000px) and (min-width: 769px) {
   html[data-tenantidnumber=stg] .c-pc-hidden {
@@ -1601,14 +1573,6 @@ html[data-tenantidnumber=stg] #page-mod-questionnaire-myreport #region-main > h2
 html[data-tenantidnumber=stg] #page-mod-questionnaire-report #region-main > h2 {
   display: none;
 }
-html[data-tenantidnumber=stg] #page-mod-questionnaire-view #region-main .open-modal-badge,
-html[data-tenantidnumber=stg] #page-mod-questionnaire-complete #region-main .open-modal-badge,
-html[data-tenantidnumber=stg] #page-mod-questionnaire-myreport #region-main .open-modal-badge,
-html[data-tenantidnumber=stg] #page-mod-questionnaire-report #region-main .open-modal-badge {
-  text-decoration: underline;
-  color: #005c3f;
-  cursor: pointer;
-}
 html[data-tenantidnumber=stg] #page-mod-questionnaire-view .req,
 html[data-tenantidnumber=stg] #page-mod-questionnaire-complete .req,
 html[data-tenantidnumber=stg] #page-mod-questionnaire-myreport .req,
@@ -1649,12 +1613,6 @@ html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo .tool_catalo
 html[data-tenantidnumber=stg] #page-enrol-index .tool_catalogue-catalogue .position-relative {
   display: none !important;
 }
-html[data-tenantidnumber=stg] #page-course-view-topics .tool_catalogue-course-cover-modal {
-  display: none !important;
-}
-html[data-tenantidnumber=stg] #page-course-view-topics .tool_catalogue-course-cover-modal-backdrop {
-  display: none !important;
-}
 html[data-tenantidnumber=stg] .pagelayout-login #page div[role=main],
 html[data-tenantidnumber=stg] .login-wrapper {
   height: auto !important;
@@ -1689,23 +1647,6 @@ html[data-tenantidnumber=stg] #page-login-forgot_password .login-form-forgotpass
 }
 html[data-tenantidnumber=stg] #page-login-signup {
   background: white;
-}
-html[data-tenantidnumber=stg] #page-login-signup .btn-generate-userid {
-  background: none;
-  border: none;
-  padding: 4px 12px;
-  margin: 10px 0 10px;
-  color: inherit;
-  text-align: inherit;
-  text-decoration: none;
-  cursor: pointer;
-  -moz-appearance: none;
-       appearance: none;
-  -webkit-appearance: none;
-  color: #005c3f !important;
-  border: 1px solid #005c3f !important;
-  font-size: 12px !important;
-  border-radius: 4px;
 }
 html[data-tenantidnumber=stg] #page-login-signup .login-container {
   padding: 16px;
@@ -5952,7 +5893,6 @@ html[data-tenantidnumber=stg] .pagelayout-mydashboard .dashboard-left .dashboard
 html[data-tenantidnumber=stg] .pagelayout-mydashboard .dashboard-left .dashboard-left-block-wrap-line a .dashboard-left-block-wrap-line-text {
   line-height: 1.5;
   font-size: 14px;
-  color: #4d4d4d !important;
 }
 html[data-tenantidnumber=stg] .pagelayout-mydashboard .dashboard-left .dashboard-left-block-wrap-line a:hover {
   opacity: 0.7;
@@ -6176,23 +6116,15 @@ html[data-tenantidnumber=stg] .pagelayout-mydashboard .dashboard-left ul {
   background: white;
   border-radius: 8px;
   list-style: none;
-  padding: 24px 12px 12px 10px;
+  padding: 20px 20px 12px;
 }
 html[data-tenantidnumber=stg] .pagelayout-mydashboard .dashboard-left ul li {
   line-height: 1.35;
   margin: 0 0 15px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-}
-html[data-tenantidnumber=stg] .pagelayout-mydashboard .dashboard-left ul li:before {
-  content: "・";
-  color: #999;
 }
 html[data-tenantidnumber=stg] .pagelayout-mydashboard .dashboard-left ul li a {
   color: #005c3f;
   text-decoration: underline;
-  font-size: 14px;
 }
 html[data-tenantidnumber=stg] .pagelayout-mydashboard #page.drawers {
   padding-left: 0px !important;
@@ -6588,15 +6520,21 @@ html[data-tenantidnumber=stg] .pagelayout-mydashboard .summary-modal-container .
 html[data-tenantidnumber=stg] .pagelayout-mydashboard .summary-modal-container .description-content-button.primary a {
   color: #ffffff;
 }
+html[data-tenantidnumber=stg] .pagelayout-mydashboard .summary-modal-container .description-content-button.primary a:before {
+  content: "";
+  display: inline-block;
+  width: 25px; /* アイコンの幅 */
+  height: 25px; /* アイコンの高さ */
+  background-image: url("https://go.waomirai.com/l/1026513/2025-03-19/hj31q/1026513/17423770567ZdVOJwz/icn_zoom.svg"); /* アイコン画像 */
+  background-size: contain; /* 画像をボックス内に収める */
+  background-repeat: no-repeat;
+}
 html[data-tenantidnumber=stg] .pagelayout-mydashboard .summary-modal-container .description-content-button.secondly {
   background: #ffffff;
   border: 2px solid #005c3f;
 }
 html[data-tenantidnumber=stg] .pagelayout-mydashboard .summary-modal-container .description-content-button.secondly a {
   color: #005c3f !important;
-}
-html[data-tenantidnumber=stg] .pagelayout-mydashboard .summary-modal-container .description-content-button.subject-main {
-  margin: 30px auto !important;
 }
 html[data-tenantidnumber=stg] .pagelayout-mydashboard .summary-modal-container .description-content-button.zoom a:before {
   content: "";
@@ -7063,12 +7001,6 @@ html[data-tenantidnumber=stg] #page-mod-questionnaire-view .activity-description
 }
 html[data-tenantidnumber=stg] li[data-key=courseinfo] {
   display: none !important;
-}
-html[data-tenantidnumber=stg] #page-mod-questionnaire-view img,
-html[data-tenantidnumber=stg] #page-mod-questionnaire-complete img,
-html[data-tenantidnumber=stg] #page-mod-questionnaire-myreport img,
-html[data-tenantidnumber=stg] #page-mod-questionnaire-report img {
-  width: 100%;
 }
 html[data-tenantidnumber=stg] #page-mod-questionnaire-view.course-256 li[data-key=courseinfo],
 html[data-tenantidnumber=stg] #page-mod-questionnaire-view.course-256 li[data-key="1"],

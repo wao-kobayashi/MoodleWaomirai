@@ -9,10 +9,10 @@ body {
   touch-action: auto !important; //モバイルでmoodleでtouch-action:noneが付くことがあるので抑制対策
 }
 
-img {
-  width: 100%;
-  height: auto;
-}
+// img {
+//   width: 100%;
+//   height: auto;
+// }
 
 a:focus,
 a:active {
@@ -158,6 +158,25 @@ a:active {
 //         padding: 0 0 210px !important;
 //     }
 // }
+.bs-popover-top {
+  .popover-body {
+    img {
+      display: none;
+    }
+    .footer-section:first-child {
+      padding: 1rem 1rem 0px !important;
+    }
+    .footer-section:last-child {
+      display: none;
+    }
+    .footer-section {
+      flex-direction: column;
+    }
+    br {
+      display: none;
+    }
+  }
+}
 footer.footer-popover {
   width: 100% !important;
   max-width: 100% !important;
@@ -166,6 +185,7 @@ footer.footer-popover {
   @include responsive-style(768px) {
     padding: 0 0 60px !important;
   }
+
   .container div.footer-popover,
   div.footer-popover,
   .container {
@@ -195,7 +215,7 @@ footer.footer-popover {
         // padding: 50px 0 0 !important;
         position: absolute;
         top: 150px;
-        right: 24px;
+        right: 47px;
         width: 200px;
         text-align: right;
         @include responsive-style(768px) {
@@ -218,6 +238,14 @@ footer.footer-popover {
     // >div:last-child {
     //     display: none;
     // }
+  }
+  a {
+    white-space: nowrap !important;
+    font-size: $lms-font-size-m !important;
+    margin: 0 10px 0 0;
+    .fa.fa-external-link {
+      color: $cl-graylight !important;
+    }
   }
 }
 

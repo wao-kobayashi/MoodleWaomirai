@@ -81,14 +81,17 @@ function serve() {
         done();
     }));
 
-    gulp.watch('src/pug/index.pug', gulp.series(pugIndexPage,  (done) => {
+    gulp.watch(['src/pug/index.pug','src/pug/index-contact.pug'], gulp.series(pugIndexPage,pugIndexContact,  (done) => {
       browserSync.reload();
       done();
    }));
     //パーシャルの場合は全更新
-    gulp.watch(['src/pug/lms-moodle/**/_*.pug'], gulp.series(pugStg,pugLms,  (done) => {
+    gulp.watch(['src/pug/lms-moodle/**/_*.pug'], gulp.series(pugLms,  (done) => {
     browserSync.reload();
     done();
+    // gulp.watch(['src/pug/lms-moodle/**/_*.pug'], gulp.series(pugStg,pugLms,  (done) => {
+    // browserSync.reload();
+    // done();
 }));
     //単体ファイルの時は単体更新
     gulp.watch(['src/pug/lms-moodle/**/*.pug','!src/pug/lms-moodle/**/_*.pug'], gulp.series(pugStgSingle,pugLmsSingle,  (done) => {
@@ -146,6 +149,12 @@ function pugIndexPage() {
       .pipe(pug({ plugins: [pugbem] }))
       .pipe(gulp.dest("./")); 
 }
+function pugIndexContact() {
+    return gulp.src(['src/pug/index-contact.pug'])
+        .pipe(plumber())
+        .pipe(pug({ plugins: [pugbem] }))
+        .pipe(gulp.dest("./")); 
+  }
 
 // SCSSタスク
 function scss() {
@@ -163,10 +172,10 @@ function scss() {
 }
 
 // デフォルトタスク
-exports.default = gulp.series(scss, serve, pugStg, pugLms, pugIndexPage);
+exports.default = gulp.series(scss, serve, pugStg, pugLms, pugIndexPage, pugIndexContact);
 exports.scss = scss;
 exports.splitJs = splitJs;
 exports.pugStg = pugStg;
 exports.pugLms = pugLms;
 exports.pugIndexPage = pugIndexPage;
-exports.pugAll = gulp.series(pugStg, pugLms, pugIndexPage);
+exports.pugAll = gulp.series(pugStg, pugLms, pugIndexPage, pugIndexContact);

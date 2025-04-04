@@ -2,10 +2,13 @@
 //trueの場合は表示、falseの場合は非表示
 - var infoOpeningVisible = true
 
-//2025年4月開校のお知らせの表示フラグ
+//よくある質問の表示フラグ
 //trueの場合は表示、falseの場合は非表示
-- var infoHowtoVisible = false
+- var infoHowtoVisible = true
 
+//LINE連携の表示フラグ
+//trueの場合は表示、falseの場合は非表示
+- var connectionLineVisible = true
 
 //ダッシュボードにコピペするブロック
 .dashboard-textblock
@@ -14,27 +17,18 @@
       .dashboard-left-block-title
         |現在受講中の科目
       .dashboard-left-block-wrap.dashboard-left-block-wrap-subject
-    .dashboard-left-block.dashboard-left-block-english(style='display:none;')  
-      .dashboard-left-block-title
-        |英語学習
-      .dashboard-left-block-wrap.dashboard-left-block-wrap-english
-          .dashboard-left-block-wrap-english-text 
-            |今週はWEEK1の
-            br
-            |トレーニングです!
-          .dashboard-left-block-wrap-english-img 
-          .dashboard-left-block-wrap-english-course 
-            .dashboard-left-block-wrap-english-course-title
-                |平日コース
-            .dashboard-left-block-wrap-english-course-button
-                a(href='#', onclick="alert('開発中です(トレーニング動画に行く予定)')") 
-                  |学習動画はこちら
-          .dashboard-left-block-wrap-english-course 
-            .dashboard-left-block-wrap-english-course-title
-                |土曜コース
-            .dashboard-left-block-wrap-english-course-button
-                a(href='#', onclick="alert('開発中です(トレーニング動画に行く予定)')") 
-                  |学習動画はこちら                 
+    if connectionLineVisible
+      .dashboard-left-block.dashboard-left-block-subject
+        .dashboard-left-block-title
+          |LINE連携
+        .dashboard-left-block-wrap.dashboard-left-block-wrap-line 
+          a.triger-line-integration-modal
+            .dashboard-left-block-wrap.dashboard-left-block-wrap-line-img
+              img(src='https://go.waomirai.com/l/1026513/2025-03-23/hjb9m/1026513/17427846057nCvC4dV/icn_LINE_LOGO.svg')
+            .dashboard-left-block-wrap.dashboard-left-block-wrap-line-text
+              |LINEで受講サポートの
+              br
+              |通知を受け取る
     //infoHowtoVisibleがtrueの時に「開校のお知らせ」を表示
     if infoHowtoVisible
       .dashboard-left-block.dashboard-left-block-guide 
@@ -42,21 +36,23 @@
           |使い方ガイド
         ul.dashboard-left-block-links
           li 
-            //stg238
-            a(href='https://lms.waomirai.com/admin/tool/catalogue/courseinfo.php?id=238')
-              |新しい科目を受講したい  
+            a(href='https://lms.waomirai.com/mod/page/view.php?id=1351')
+              |授業の参加方法
           li 
-            //stg240               
-            a(href='https://lms.waomirai.com/admin/tool/catalogue/courseinfo.php?id=240')
-              |授業への参加方法は？
+            a(href='https://lms.waomirai.com/mod/page/view.php?id=1348')
+              |受講カレンダーに授業予定が表示されません
+          li            
+            a(href='https://lms.waomirai.com/mod/page/view.php?id=1349')
+              |科目の受講レベルを変更したい
           li 
-            //stg239
-            a(href='https://lms.waomirai.com/admin/tool/catalogue/courseinfo.php?id=239')
-              |過去の授業動画の視聴方法は？
+            a(href='https://lms.waomirai.com/mod/page/view.php?id=1436')
+              |今受講している科目を別の科目に変更したい
           li 
-            //stg241
-            a(href='https://lms.waomirai.com/admin/tool/catalogue/courseinfo.php?id=241')
-              |授業のレベルを変更したい        
+            a(href='https://lms.waomirai.com/mod/page/view.php?id=1350')
+              |受講カレンダーに同じ授業が２つあります
+          li 
+            a(href='https://lms.waomirai.com/mod/page/view.php?id=567')
+              |有料講座を解約するには
   //infoOpeningVisibleがtrueの時に「開校のお知らせ」を表示
   if infoOpeningVisible 
     .dashboard-main-info(style='display:none;')
@@ -74,12 +70,26 @@
              img(src='https://go.waomirai.com/l/1026513/2025-02-13/hfgk8/1026513/1739425024ssYWoCzA/img_2025march_events_pc.png')
           .dashboard-main-info-bottom.c-pc-hidden
              img(src='https://go.waomirai.com/l/1026513/2025-02-13/hfgkc/1026513/1739425024IalrS0n9/img_2025march_events_sp.png')
+  .dashboard-main
+    //ダッシュボードのバナー
+    .c-alert-banner#alert-change-course.c-sp-hidden(style='display:none;')
+      .c-alert-banner-left 
+          .c-alert-banner-text 
+            .c-alert-banner-text-title 
+              span.c-alert-banner-text-title-nextmonth 
+              |月以降の受講レベル及び科目の変更は、
+              b
+               |「
+               span.c-alert-banner-text-title-thismonth  
+               |月20日」
+              |までにお手続きをお願いします。詳細は
+              a(href='https://go.waomirai.com/index-contact', target='_blank')|コチラ
+          .c-alert-banner-close-change-course
   .dashboard-main#todays-subject-pc
     //ダッシュボードのバナー
     .c-alert-banner.alert-buy-course.c-sp-hidden
       .c-alert-banner-left 
           .c-alert-banner-left-icon
-            //- i.fa-solid.fa-ice-cream.fa-5x
             i.icon.fa.fa-solid.fa-circle-exclamation
           .c-alert-banner-text 
             .c-alert-banner-text-title 
@@ -120,11 +130,37 @@
                     .c-alert-banner-text 
                       .c-alert-banner-text-title 
                         |受講している科目がありません。科目の受講登録をしましょう。
+            h6|複数科目で受講する
+            .dashboard-main-contents-subtitle 
+               |哲学、科学、経済の３科目はまとめて受講することで受講費用が割引になります。
+               span.c-sp-hidden|※英語/プログラミングは割引対象外です。
             .dashboard-main-contents-block-cards 
+                a(href=link_twosubjectpack).common-contents-block-cards-course
+                  .common-contents-block-cards-course-img.common-contents-block-cards-course-img-overlay
+                    .common-contents-block-cards-course-img-detail
+                        img(src=imgSubjectTwosubjectpack)
+                  .common-contents-block-cards-course-detail
+                    .common-contents-block-cards-course-detail-wrap.block-multisubject
+                      .common-contents-block-cards-course-detail-title 
+                          |２科目セット
+                      .common-contents-block-cards-course-detail-text 
+                          |２科目選んで11,000円 (2,200円お得！)
+                a(href=link_threesubjectpack).common-contents-block-cards-course
+                  .common-contents-block-cards-course-img.common-contents-block-cards-course-img-overlay
+                    .common-contents-block-cards-course-img-detail
+                       img(src=imgSubjectThreesubjectpack)
+                  .common-contents-block-cards-course-detail 
+                    .common-contents-block-cards-course-detail-wrap.block-multisubject
+                      .common-contents-block-cards-course-detail-title 
+                          |３科目セット
+                      .common-contents-block-cards-course-detail-text 
+                          |３科目選んで15,400円 (4,400円お得！)
+            h6|単品科目で受講する
+            .dashboard-main-contents-block-cards.dashboard-main-contents-block-cards-normargin
                 a(href=link_philosophy).common-contents-block-cards-course
                   .common-contents-block-cards-course-img.common-contents-block-cards-course-img-overlay
                     .common-contents-block-cards-course-img-detail
-                        img(src='https://go.waomirai.com/l/1026513/2024-08-08/gzqbj/1026513/1723092444vFKe6VRn/subject_01.jpg')
+                        img(src=imgSubjectPhilosophy )
                   .common-contents-block-cards-course-detail
                     .common-contents-block-cards-course-detail-wrap.block-philosophy
                       .common-contents-block-cards-course-detail-title 
@@ -134,7 +170,7 @@
                 a(href=link_science).common-contents-block-cards-course
                   .common-contents-block-cards-course-img.common-contents-block-cards-course-img-overlay
                     .common-contents-block-cards-course-img-detail
-                        img(src='https://go.waomirai.com/l/1026513/2024-08-08/gzqbx/1026513/1723092445qaV639ZU/subject_02.jpg')
+                        img(src=imgSubjectScience)
                   .common-contents-block-cards-course-detail 
                     .common-contents-block-cards-course-detail-wrap.block-science
                       .common-contents-block-cards-course-detail-title 
@@ -144,7 +180,7 @@
                 a(href=link_economy).common-contents-block-cards-course
                   .common-contents-block-cards-course-img.common-contents-block-cards-course-img-overlay
                     .common-contents-block-cards-course-img-detail
-                        img(src='https://go.waomirai.com/l/1026513/2024-08-08/gzqbt/1026513/1723092445zMMVlFVz/subject_03.jpg')
+                        img(src=imgSubjectEconomy)
                   .common-contents-block-cards-course-detail
                     .common-contents-block-cards-course-detail-wrap.block-economy
                       .common-contents-block-cards-course-detail-title 
@@ -154,7 +190,7 @@
                 a(href=link_english).common-contents-block-cards-course
                   .common-contents-block-cards-course-img.common-contents-block-cards-course-img-overlay
                     .common-contents-block-cards-course-img-detail
-                        img(src='https://go.waomirai.com/l/1026513/2024-08-08/gzqbq/1026513/1723092445NpS1HkfH/subject_04.jpg')
+                        img(src=imgSubjectEnglish)
                   .common-contents-block-cards-course-detail
                     .common-contents-block-cards-course-detail-wrap.block-english
                       .common-contents-block-cards-course-detail-title 
@@ -166,7 +202,7 @@
                     .common-contents-block-cards-course-img-text 
                        |4月開講予定
                     .common-contents-block-cards-course-img-detail
-                        img(src='https://go.waomirai.com/l/1026513/2024-08-08/gzqbm/1026513/1723092444UDZaTUyz/subject_05.jpg')
+                        img(src=imgSubjectProgramming )
                   .common-contents-block-cards-course-detail
                     .common-contents-block-cards-course-detail-wrap.block-programming
                         .common-contents-block-cards-course-detail-title 

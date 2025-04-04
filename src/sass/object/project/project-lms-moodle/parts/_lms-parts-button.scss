@@ -3,7 +3,7 @@
 /* 基本的にはsizeとstyleセットで使う
 ******************/
 
-@mixin button-size-small{
+@mixin button-size-small {
   /* 横幅はまちまちなので指定しない */
   height: 48px;
   border-radius: $border-radius-small;
@@ -14,7 +14,7 @@
   border-radius: $border-radius-small;
 }
 
-@mixin button-size-middle{
+@mixin button-size-middle {
   /* 横幅はまちまちなので指定しない */
   height: 48px;
   border-radius: $border-radius-small;
@@ -25,23 +25,23 @@
   border-radius: $border-radius-middle;
   line-height: 1;
 }
-@mixin button-size-big{
+@mixin button-size-big {
   /* 横幅はまちまちなので指定しない */
   height: 60px;
   border-radius: $border-radius-small;
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: $lms-font-size-ml !important;
+  font-size: $lms-font-size-l !important;
   line-height: 1;
 }
 
-@mixin button-style-primary{
+@mixin button-style-primary {
   background: $cl-waogreen !important;
   color: $cl-white !important;
-  border:none !important
+  border: none !important;
 }
-@mixin button-style-secondaly{
-  color:$cl-waogreen !important;
+@mixin button-style-secondaly {
+  color: $cl-waogreen !important;
   border: 1px solid $cl-waogreen;
 }

@@ -2,8 +2,11 @@
 // 2科目、3科目セット
 ///////////////////////////////////
 
-#{$course-multi-select-two},
-#{$course-multi-select-three} {
+$twosubjects: (".course-270", ".course-228");
+$threesubjects: (".course-271", ".course-229");
+
+#{join($twosubjects, ", ")},
+#{join($threesubjects, ", ")} {
   .page-context-header {
     display: none; //２科と３科目ヘッダー見えなくする
   }

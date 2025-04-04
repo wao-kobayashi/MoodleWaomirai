@@ -1,6 +1,13 @@
 -
   var useredit = [
+
     {
+      id: 'test',
+      SubjectPageTitle: 'テスト',
+      courseID: env === 'stg' ? 212 : env === 'lmswaomirai' ? 255 : 0,
+      paymentID: env === 'stg' ? [] : env === 'lmswaomirai' ? [] : [0],
+      categoryID: env === 'stg' ? 'category-51' : env === 'lmswaomirai' ? 'category-47' : ''
+    },    {
       id: 'ph-none',
       SubjectPageTitle: '哲学',
       courseID: env === 'stg' ? 212 : env === 'lmswaomirai' ? 255 : 0,

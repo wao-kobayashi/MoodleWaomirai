@@ -22,6 +22,9 @@ body.fixed {
   border-radius: $border-radius-middle;
   height: auto;
   background: white;
+  &:has(.c-modal-wrap-line-connection) {
+    max-width: 340px;
+  }
   &-wrap-subject {
     padding: 0px 0px 30px !important;
     .c-modal-wrap-image {
@@ -194,6 +197,98 @@ body.fixed {
       &:hover {
         text-decoration: none !important;
       }
+    }
+  }
+  .c-modal-wrap-line-connection {
+    padding: 20px 20px 30px !important;
+    @include responsive-style(768px) {
+      padding: 0px 12px 40px !important;
+    }
+    .c-modal-wrap-linetitle {
+      display: flex;
+      justify-content: center;
+      margin: 0 auto;
+      align-items: center;
+      gap: 18px;
+      @include responsive-style(768px) {
+        margin: 20px auto 20px !important;
+      }
+      img {
+        width: 55px;
+      }
+      .c-modal-wrap-linetitle-text {
+        font-size: 20px;
+      }
+    }
+    .c-modal-wrap-text {
+      text-align: center;
+      color: $cl-alert;
+      font-size: $lms-font-size-m !important;
+      font-weight: 600;
+      // @include text-m-black;
+      margin: 0 auto 25px;
+      @include responsive-style(768px) {
+        margin: 0px auto 5px !important;
+      }
+    }
+    .c-modal-wrap-qr {
+      text-align: center;
+      img {
+        margin: 20px 0 30px !important;
+        width: 230px;
+        margin: 0 auto;
+        box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.25);
+      }
+    }
+    .c-modal-wrap-text-notice {
+      text-align: center;
+      font-size: 14px;
+      // @include text-m-black;
+      color: $cl-alert;
+      font-weight: bold;
+      margin: 0 auto 18px;
+      line-height: $lineheight-relaxed;
+      @include responsive-style(768px) {
+        font-size: 12px;
+      }
+    }
+    .c-modal-wrap-close {
+      top: 4px !important;
+      right: 6px !important;
+      opacity: 0.7;
+      &::before,
+      &::after {
+        background-color: $cl-white;
+      }
+    }
+    .c-modal-wrap-button-close {
+      width: 220px;
+      background: $cl-graylight !important;
+      font-size: 14px !important;
+      height: 42px;
+    }
+    .c-modal-button-line {
+      width: 280px;
+      height: 54px;
+      background: $cl-brand-line;
+      font-weight: bold;
+      margin: 30px auto 24px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: $border-radius-middle;
+      cursor: pointer;
+      img {
+        width: 160px;
+      }
+      &:hover {
+        text-decoration: none !important;
+      }
+    }
+  }
+  .c-modal-wrap-wrap-campaign {
+    .c-modal-wrap-text {
+      text-align: center;
     }
   }
 }

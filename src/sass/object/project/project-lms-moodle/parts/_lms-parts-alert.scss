@@ -6,8 +6,39 @@
   align-items: center;
   justify-content: space-between;
   gap: 12px;
+  position: relative;
+
   @include responsive-style(768px) {
     display: block;
+  }
+  .c-alert-banner-close-change-course {
+    position: absolute;
+    right: -6px;
+    top: -11px;
+    width: 30px;
+    height: 30px;
+    border-radius: $border-radius-full;
+    background: $cl-white;
+    display: block;
+    /* Ellipse 71 */
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
+    cursor: pointer;
+    &::before,
+    &::after {
+      position: absolute;
+      left: 15px;
+      top: 5px;
+      content: " ";
+      height: 20px;
+      width: 1.5px;
+      background-color: $cl-graylight;
+    }
+    &::before {
+      transform: rotate(45deg);
+    }
+    &::after {
+      transform: rotate(-45deg);
+    }
   }
   .c-alert-banner-left {
     display: flex;
@@ -32,8 +63,12 @@
     }
   }
   .c-alert-banner-text-title {
-    font-size: $lms-font-size-ml;
+    font-size: 15px;
+    color: $cl-black;
     font-weight: 500;
+    a {
+      text-decoration: underline;
+    }
   }
   .c-alert-banner-text-read {
     font-size: $lms-font-size-ml;
@@ -70,9 +105,15 @@
       color: white;
     }
   }
+  &#alert-change-course {
+    // background: $cl-alert;
+    border: 1.5px solid $cl-main-orange;
+    background: #fffde7;
+    margin: 0 auto 15px;
+  }
   &.alert-buy-course {
     // background: $cl-alert;
-    border: 2px solid $cl-waogreen;
+    border: 1.5px solid $cl-waogreen;
     background: #edfbf5;
     .c-alert-banner-left-icon {
       i {

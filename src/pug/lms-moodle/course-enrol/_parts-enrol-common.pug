@@ -6,6 +6,8 @@ mixin enrol-campaign-banner-25april
         img(src='https://go.waomirai.com/l/1026513/2025-02-27/hgmfv/1026513/17406522008TlkRlCS/banner_free_until_25aprial_sp.png')   
      .c-sp-hidden
         img(src='https://go.waomirai.com/l/1026513/2025-02-27/hgmfy/1026513/1740652201d15nQrmF/banner_free_until_25aprial_pc.png')   
+
+
 //今月の授業カリキュラム
 mixin enrol-lesson-month
   .enrol-section
@@ -92,13 +94,18 @@ mixin enrol-lesson-year
       .c-pc-hidden
         .enrol-section-basesubject-year-lesson-content-button
           if enrolpage.category === 'philosophy'
-            a(href="https://go.waomirai.com/l/1026513/2025-02-09/hf47g/1026513/1739157549JByWW5kq/year_curriculum_philosophy.pdf", target='_blank')|全ての授業カリキュラム(PDF)
+            a(href="https://go.waomirai.com/l/1026513/2025-03-02/hgtlc/1026513/1740967568KvR8yZ4M/year_curriculum_ph.pdf", target='_blank')|全ての授業カリキュラム(PDF)
           else if enrolpage.category === 'science'
-            a(href="https://go.waomirai.com/l/1026513/2025-02-09/hf47n/1026513/1739157549Js3IDL8y/year_curriculum_science.pdf", target='_blank')|全ての授業カリキュラム(PDF)
+            a(href="https://go.waomirai.com/l/1026513/2025-03-02/hgtlg/1026513/1740967568q1jE1q0O/year_curriculum_sc.pdf", target='_blank')|全ての授業カリキュラム(PDF)
           else if enrolpage.category === 'economy'
-            a(href="https://go.waomirai.com/l/1026513/2025-02-09/hf47k/1026513/1739157549czniuNng/year_curriculum_economy.pdf", target='_blank')|全ての授業カリキュラム(PDF)
+            a(href="https://go.waomirai.com/l/1026513/2025-03-02/hgtlk/1026513/17409675682RGtBruz/year_curriculum_ec.pdf", target='_blank')|全ての授業カリキュラム(PDF)
 
-//受講開始までの流れ
+// 年間の授業開催スケジュール
+mixin enrol-lesson-googlecalender
+ .enrol-section
+    h2.enrol-title 年間の授業開催スケジュール
+    .enrol-section-calender
+
 mixin enrol-howto-register
   .enrol-section
     h2.enrol-title
@@ -147,9 +154,47 @@ mixin enrol-howto-register
 
 //他の授業科目も見る
 mixin enrol-recommend-subject
+
  .enrol-section.enrol-recommend-subject
     h2.enrol-title
         |他の授業科目も見る
+    //複数科目セット以外で表示
+    if enrolpage.category !== 'twosubjectpack' && enrolpage.category !== 'threesubjectpack'
+      .enrol-recommend-subject-wrap
+        h3.enrol-recommend-subject-title|複数科目で受講する
+        .enrol-section.enrol-recommend-subject-text 
+          |哲学、科学、経済の３科目はまとめて受講することで受講費用が割引になります。
+          span.c-sp-hidden|※英語/プログラミングは割引対象外です。
+      .enrol-index-contents-block-cards
+          .common-contents-block-cards-course
+                  .common-contents-block-cards-course-img.common-contents-block-cards-course-img-overlay
+                      .common-contents-block-cards-course-img-detail
+                         img(src=imgSubjectTwosubjectpack)
+                  .common-contents-block-cards-course-detail
+                      .common-contents-block-cards-course-detail-wrap.block-multisubject
+                          .common-contents-block-cards-course-detail-title
+                              |２科目セット
+                          .common-contents-block-cards-course-detail-text
+                              |２科目選んで11,000円 (2,200円お得！)
+                  //moodleの仕様でaタグでdivタグ囲むとバグるのでabsluteでリンクを貼る
+                  .common-contents-block-cards-course-link
+                              a(href=link_twosubjectpack)
+                              
+          .common-contents-block-cards-course
+                  .common-contents-block-cards-course-img.common-contents-block-cards-course-img-overlay
+                      .common-contents-block-cards-course-img-detail
+                        img(src=imgSubjectThreesubjectpack)
+                  .common-contents-block-cards-course-detail
+                      .common-contents-block-cards-course-detail-wrap.block-multisubject
+                          .common-contents-block-cards-course-detail-title
+                              |３科目セット
+                          .common-contents-block-cards-course-detail-text
+                               |３科目選んで15,400円 (4,400円お得！)
+                  //moodleの仕様でaタグでdivタグ囲むとバグるのでabsluteでリンクを貼る
+                  .common-contents-block-cards-course-link
+                            a(href=link_threesubjectpack)
+    .enrol-recommend-subject-wrap                    
+      h3.enrol-recommend-subject-title|単品科目で受講する
     .enrol-index-contents-block-cards
         //- 哲学のカード（philosophyカテゴリー以外で表示）
         if enrolpage.category !== 'philosophy'
@@ -173,7 +218,7 @@ mixin enrol-recommend-subject
             .common-contents-block-cards-course
                 .common-contents-block-cards-course-img.common-contents-block-cards-course-img-overlay
                     .common-contents-block-cards-course-img-detail
-                    img(src='https://go.waomirai.com/l/1026513/2024-08-08/gzqbx/1026513/1723092445qaV639ZU/subject_02.jpg')
+                      img(src='https://go.waomirai.com/l/1026513/2024-08-08/gzqbx/1026513/1723092445qaV639ZU/subject_02.jpg')
                 .common-contents-block-cards-course-detail
                     .common-contents-block-cards-course-detail-wrap.block-science
                         .common-contents-block-cards-course-detail-title
@@ -190,7 +235,7 @@ mixin enrol-recommend-subject
             .common-contents-block-cards-course
                 .common-contents-block-cards-course-img.common-contents-block-cards-course-img-overlay
                     .common-contents-block-cards-course-img-detail
-                    img(src='https://go.waomirai.com/l/1026513/2024-08-08/gzqbt/1026513/1723092445zMMVlFVz/subject_03.jpg')
+                      img(src='https://go.waomirai.com/l/1026513/2024-08-08/gzqbt/1026513/1723092445zMMVlFVz/subject_03.jpg')
                 .common-contents-block-cards-course-detail
                     .common-contents-block-cards-course-detail-wrap.block-economy
                         .common-contents-block-cards-course-detail-title
@@ -202,7 +247,7 @@ mixin enrol-recommend-subject
                             a(href=link_economy)
                               
         //- 英語のカード（englishカテゴリー、２科目、３科目以外で表示）
-        if category === 'globalenglish' || category === 'twosubjectpack' || category === 'threesubjectpack'
+        if enrolpage.category !== 'globalenglish' && enrolpage.category !== 'twosubjectpack' && enrolpage.category !== 'threesubjectpack'
             .common-contents-block-cards-course
                 .common-contents-block-cards-course-img
                     img(src='https://go.waomirai.com/l/1026513/2024-08-08/gzqbq/1026513/1723092445NpS1HkfH/subject_04.jpg')

@@ -2,7 +2,17 @@ $subject-sidebar-width: 235px; // サイドバーの幅
 $subject-body-padding: 55px; // サイドバーとの距離
 $subject-default-max-width: 1140px; // 最大幅
 
+//stripeのロゴ大きさ修正
+.core_payment_gateways_modal .stripe .icon {
+  height: 40px !important;
+  width: auto !important;
+}
+
 #page-enrol-index {
+  img {
+    width: 100%;
+    height: auto;
+  }
   .enrol_fee_payment_region {
     right: calc((100vw - 1140px) / 2);
     @include responsive-style($default-max-width) {
@@ -36,6 +46,9 @@ $subject-default-max-width: 1140px; // 最大幅
 
 #page-enrol-index,
 #page-admin-tool-catalogue-courseinfo {
+  img {
+    width: 100%;
+  }
   #page-navbar {
     display: none;
   }
@@ -239,6 +252,24 @@ $subject-default-max-width: 1140px; // 最大幅
       margin-bottom: 20px;
       display: block !important;
     }
+    .enrol-recommend-subject-wrap {
+      margin: 0px 0 16px;
+      padding: 12px 0 0;
+      .enrol-recommend-subject-title {
+        @include text-l-black;
+        color: $cl-black;
+        display: block !important;
+      }
+      .enrol-section.enrol-recommend-subject-text {
+        @include text-s-black;
+        color: $cl-graylight;
+        display: block !important;
+        margin: 6px 0 0;
+        @include responsive-style(768px) {
+          margin: 0 0 0px;
+        }
+      }
+    }
 
     .enrol-subtitle {
       font-size: 13px !important;
@@ -257,7 +288,21 @@ $subject-default-max-width: 1140px; // 最大幅
         display: none;
       }
     }
-
+    .enrol-section-calender {
+      position: relative;
+      width: 100%;
+      padding-top: 75%; /* 4:3 の比率 */
+      @include responsive-style(768px) {
+        padding-top: 180%;
+      }
+      iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+      }
+    }
     .enrol-section-howto {
       position: relative;
       display: grid;

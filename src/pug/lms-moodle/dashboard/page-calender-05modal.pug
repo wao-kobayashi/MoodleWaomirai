@@ -1,0 +1,84 @@
+extends ../_layout_moodle.pug
+
+
+mixin modalEnglish
+    div
+      div(tabindex='-1' style='position: fixed; top: 0px; left: 0px;' aria-hidden='true' data-aria-hidden-tab-index='0')
+      .modal.moodle-has-zindex.show(data-region='modal-container' role='dialog' aria-modal='true' aria-labelledby='12-modal-title' tabindex='-1' style='z-index: 1052;')
+        .modal-dialog.modal-dialog-scrollable(data-region='modal' tabindex='0' data-type='event')
+          .modal-content
+            .modal-header.calendar_event_site(data-region='header')
+              h5#12-modal-title.modal-title(data-region='title') 18:30 &#x79D1;&#x5B66;L2&#xFF5C;&#x300C;&#x307E;&#x305C;&#x308B;&#x306A;&#x5371;&#x967A;&#x300D;&#x3092;&#x6DF7;&#x305C;&#x3066;&#x3057;&#x307E;&#x3063;&#x305F;&#x3089;&#x3069;&#x3046;&#x3059;&#x308B; ?
+              button.close(type='button' data-action='hide' aria-label='閉じる')
+                span(aria-hidden='true') &times;
+            .modal-body(data-region='body' style='')
+              .summary-modal-container(data-region='summary-modal-container' data-event-id='547' data-event-title='18:30 科学L2｜「まぜるな危険」を混ぜてしまったらどうする ?' data-event-count='' data-event-='' data-action-event='false' data-edit-url='https://lms.waomirai.com/calendar/event.php?action=edit&id=547&course=1')
+                .container-fluid
+                  .row
+                    .col-1
+                      i.icon.fa.fa-clock-o.fa-fw(title='期日' role='img' aria-label='期日' aria-hidden='true')
+                      span.sr-only &#x671F;&#x65E5;
+                    .col-11
+                      a(href='https://lms.waomirai.com/calendar/view.php?view=day&time=1742379300') 2025&#x5E74; 03&#x6708; 19&#x65E5;
+                      | , 18:30 
+                      strong &raquo;
+                      |  19:15
+                  .row.mt-1
+                    .col-1
+                      i.icon.fa.fa-calendar.fa-fw(title='イベントタイプ' role='img' aria-label='イベントタイプ' aria-hidden='true')
+                      span.sr-only &#x30A4;&#x30D9;&#x30F3;&#x30C8;&#x30BF;&#x30A4;&#x30D7;
+                    .col-11 &#x30B5;&#x30A4;&#x30C8;&#x30A4;&#x30D9;&#x30F3;&#x30C8;
+                  .row.mt-1
+                    .col-1
+                      i.icon.fa.fa-align-left.fa-fw(title='説明' role='img' aria-label='説明' aria-hidden='true')
+                      span.sr-only &#x8AAC;&#x660E;
+                    .description-content.col-11
+                      div
+                        .description-content-img-eng
+                          img(src="https://go.waomirai.com/l/1026513/2025-02-27/hgqb2/1026513/1740718786Ldp886rB/eng_lesson1.png")
+                        .description-content-text-eng
+                          |受講時間になったら、受講ボタンをクリックして受講してください。事前に
+                          a(href='https://zoom.us/ja/download', target='_blank', style='text-decoration:underline; color:#005c3f !important;')|zoomアプリのダウンロード
+                          |が必要です
+                          br
+                          br
+                          |授業時間外の時はトレーニング動画(レベル1)をお使いくださいませ。パスワードは「mirai」です
+                          br
+                          br
+                        .description-content-button.primary.zoom 
+                          a(href=link_english_zoom_level1, target='_blank')
+                            |授業を受講する(zoom)
+                        .description-content-button.secondly.movie 
+                          a(href=link_english_training_level1, target='_blank')
+                            |トレーニング動画 (vimeo)   
+                      div
+                        .description-content-img-eng
+                          img(src="https://go.waomirai.com/l/1026513/2025-02-27/hgqb2/1026513/1740718786Ldp886rB/eng_lesson1.png")
+                        .description-content-text-eng
+                          |受講時間になったら、受講ボタンをクリックして受講してください。事前に
+                          a(href='https://zoom.us/ja/download', target='_blank', style='text-decoration:underline; color:#005c3f !important;')|zoomアプリのダウンロード
+                          |が必要です
+                          br
+                          br
+                          |授業時間外の時はトレーニング動画(レベル2)をお使いくださいませ。パスワードは「mirai」です
+                          br
+                          br
+                        .description-content-button.primary.zoom 
+                          a(href=link_english_zoom_level2, target='_blank')
+                            |授業を受講する(zoom)
+                        .description-content-button.secondly.movie 
+                          a(href=link_english_training_level2, target='_blank')
+                            |トレーニング動画 (vimeo)         
+            //- .modal-footer(data-region='footer')
+            //-   button.btn.btn-secondary(type='button' data-action='delete') &#x524A;&#x9664;
+            //-   button.btn.btn-primary(type='button' data-action='edit') &#x7DE8;&#x96C6;
+      div(tabindex='-1' style='position: fixed; top: 0px; left: 0px;' aria-hidden='true' data-aria-hidden-tab-index='0')
+block variables
+  - var title = 'ダッシュボード'  // 変数の定義
+  - var status = 'purchased'
+  - var calender = 'events-include' //今日予定あり
+  - var calenderAfterTomorrow = 'AfterTomorrow' //明日以降予定あり
+  - var calenderModal = true //modal
+  - var SubjectIds = env === 'stg' ? [213] : env === 'lmswaomirai' ? [260] : []
+block contents
+  include _parts-main-dashboard.pug

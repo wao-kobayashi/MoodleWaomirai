@@ -45,26 +45,34 @@ $(document).ready(function () {
   // ==============================
 
   // 哲学に関連する子科目
-  { id: 256, name: "哲学 L1", key: "philosophy", parentKey: "philosophy", type: "child", level: "L1" },
-  { id: 257, name: "哲学 L2", key: "philosophy", parentKey: "philosophy", type: "child", level: "L2" },
-  { id: 258, name: "哲学 L3", key: "philosophy", parentKey: "philosophy", type: "child", level: "L3" },
-  { id: 259, name: "哲学 L4", key: "philosophy", parentKey: "philosophy", type: "child", level: "L4" },
+  { id: 256, name: "哲学 レベル1", key: "philosophy", parentKey: "philosophy", type: "child", level: "L1" },
+  { id: 257, name: "哲学 レベル2", key: "philosophy", parentKey: "philosophy", type: "child", level: "L2" },
+  { id: 258, name: "哲学 レベル3", key: "philosophy", parentKey: "philosophy", type: "child", level: "L3" },
+  { id: 259, name: "哲学 レベル4", key: "philosophy", parentKey: "philosophy", type: "child", level: "L4" },
 
   // 科学に関連する子科目
-  { id: 266, name: "科学 L1", key: "science", parentKey: "science", type: "child", level: "L1" },
-  { id: 267, name: "科学 L2", key: "science", parentKey: "science", type: "child", level: "L2" },
-  { id: 268, name: "科学 L3", key: "science", parentKey: "science", type: "child", level: "L3" },
-  { id: 269, name: "科学 L4", key: "science", parentKey: "science", type: "child", level: "L4" },
+  { id: 266, name: "科学 レベル1", key: "science", parentKey: "science", type: "child", level: "L1" },
+  { id: 267, name: "科学 レベル2", key: "science", parentKey: "science", type: "child", level: "L2" },
+  { id: 268, name: "科学 レベル3", key: "science", parentKey: "science", type: "child", level: "L3" },
+  { id: 269, name: "科学 レベル4", key: "science", parentKey: "science", type: "child", level: "L4" },
 
   // 経済に関連する子科目
-  { id: 261, name: "経済 L1", key: "economy", parentKey: "economy", type: "child", level: "L1" },
-  { id: 262, name: "経済 L2", key: "economy", parentKey: "economy", type: "child", level: "L2" },
-  { id: 263, name: "経済 L3", key: "economy", parentKey: "economy", type: "child", level: "L3" },
-  { id: 264, name: "経済 L4", key: "economy", parentKey: "economy", type: "child", level: "L4" },
+  { id: 261, name: "経済 レベル1", key: "economy", parentKey: "economy", type: "child", level: "L1" },
+  { id: 262, name: "経済 レベル2", key: "economy", parentKey: "economy", type: "child", level: "L2" },
+  { id: 263, name: "経済 レベル3", key: "economy", parentKey: "economy", type: "child", level: "L3" },
+  { id: 264, name: "経済 レベル4", key: "economy", parentKey: "economy", type: "child", level: "L4" },
 
   // グローバル英語に関連する子科目
-  { id: 130, name: "グローバル英語 L1", key: "globalenglish", parentKey: "globalenglish", type: "child", level: "L1" },
-  { id: 138, name: "グローバル英語 L2", key: "globalenglish", parentKey: "globalenglish", type: "child", level: "L2" },
+  { id: 130, name: "グローバル英語 レベル1", key: "globalenglish", parentKey: "globalenglish", type: "child", level: "L1" },
+  { id: 138, name: "グローバル英語 レベル2", key: "globalenglish", parentKey: "globalenglish", type: "child", level: "L2" },
+
+  // ==============================
+  // テスト専用科目（通常ユーザーは購入できない
+  // ==============================
+  
+  //用途
+  //動作確認用のテスト講座。
+  { id: 283, name: "WAOテスト講座", type: "child" },
 
   // ==============================
   // admin専用の科目（通常ユーザーは購入できない
@@ -81,7 +89,7 @@ $(document).ready(function () {
 // ==============================
 
 const UrlHome = "https://lms.waomirai.com/?redirect=0" //トップページ（科目選択）
-const UrlForm = "https://go.waomirai.com/changeform"; // フォームURL 
+const UrlForm = "https://go.waomirai.com/contact-change-subject"; // フォームURL 
 const UrlChangeSubject = "https://lms.waomirai.com/user/edit.php"; // 受講変更ページ  
 
 
@@ -89,9 +97,18 @@ const UrlChangeSubject = "https://lms.waomirai.com/user/edit.php"; // 受講変�
 // Liff系
 // ==============================
 
-//Moodle会員登録ページ後の会員登録
-const UrlLiffMoodleRegister = "https://liff.line.me/2006716288-lL7QzGA3?loycus_urlc=NN3v" 
-const ImgLiffMoodleRegister = "https://go.waomirai.com/l/1026513/2025-02-21/hg5gg/1026513/17401152270P10NmPp/qr_liff_moodle_register.png" 
+//moodleで友だち追加
+const UrlLiffMoodle = "https://liff.line.me/2006716288-lL7QzGA3?loycus_urlc=y7vy" 
+const ImgLiffMoodle = "https://go.waomirai.com/l/1026513/2025-04-04/hk1f8/1026513/1743763011hBkCW5F9/ImgLiffMoodlefix.png" 
+
+// ==============================
+// googleCalender系
+// ==============================
+
+const iframeCalenderPhilosophy = "https://calendar.google.com/calendar/embed?src=c_57f70f2fb986aabbb85c2a71ed169e2624e902265abb6dffc1d993f2d781dd4b%40group.calendar.google.com&ctz=Asia%2FTokyo" //哲学
+const iframeCalenderScience = "https://calendar.google.com/calendar/embed?src=c_9d34850398ee79fea558cb874c3bebe48860ce3d5fcff5c80f91b203974af452%40group.calendar.google.com&ctz=Asia%2FTokyo" //科学
+const iframeCalenderEconomy = "https://calendar.google.com/calendar/embed?src=c_9ee064fdb148232860ebd82900e5222d5060f6702f608257b9d9625d6bcd3a1c%40group.calendar.google.com&ctz=Asia%2FTokyo" //経済
+const iframeCalenderEnglish = "https://calendar.google.com/calendar/embed?src=c_379c34d3c8e6716b3458dd339f4531bd8ce07f17c4f97d5fec4367888a692290%40group.calendar.google.com&ctz=Asia%2FTokyo" //グローバル英語
 
 // ==============================
 // ページ判定とコースIDの取得
@@ -284,6 +301,8 @@ function createModal(options = {}) {
 // ダッシュボードページでの処理
 // ==============================
 if (bodyId === "page-my-index") {
+
+
 
   /////////////////////////////////////
   ///初期表示状態
@@ -631,6 +650,64 @@ if (bodyId === "page-my-index") {
     }
     // メッセージをダッシュボードに反映
     $("#todays-subject-pc .c-alert-banner-text-title").text(message);
+    
+    // -----------------------------------------------
+    // 「科目変更・レベル変更」は当月20日までにご連絡くださいの表示
+    // -----------------------------------------------
+    
+    // 定数として固定のクッキー名を定義
+    const monthlyChangeCourseCookie = 'hideMonthlyChangeCourseAlert';
+
+    // 現在の月に基づいて、アラートバナーのテキストを動的に設定
+
+    // 次の月の数値をスパン要素に設定
+    // todayMonth+1 により、現在の月の次の月の数値を挿入
+    // 例: 現在の月が5月の場合、6を挿入
+    $(".c-alert-banner-text-title-nextmonth").text(todayMonth+1);
+
+    // 現在の月の数値をスパン要素に設定
+    // todayMonth をそのまま使用して現在の月の数値を挿入
+    // 例: 現在の月が5月の場合、5を挿入
+    $(".c-alert-banner-text-title-thismonth").text(todayMonth);
+
+    // $.removeCookie(monthlyChangeCourseCookie);
+    // アラート表示の条件を確認
+    // 以下の3つの条件をすべて満たす場合にアラートを表示
+    // 1. 現在の日付が13日以上
+    // 2. 現在の日付が20日以下
+    // 3. 対応するクッキーが存在しない（まだアラートを非表示にしていない）
+    if (todayDay >= 13 && todayDay <= 20 && !$.cookie(monthlyChangeCourseCookie)) {
+      // 条件を満たす場合、アラート要素を表示
+      $("#alert-change-course").show();
+    } else {
+      // 条件を満たさない場合、コンソールにログを出力
+      // デバッグ用の情報ログで、なぜアラートが表示されないかを示す
+      console.log("条件を満たさないため通知を非表示");
+    }
+      
+    // アラートバナーの閉じるボタン（バツボタン）がクリックされた時の処理
+    $(".c-alert-banner-close-change-course").click(function() {
+      // 確認モーダルを作成
+      createModal({
+        close: true,  // モーダルを閉じるボタンを表示するオプション
+        title: "非表示にしても良いですか？<br />受講変更手続きは<br />ヘルプページからも可能です",
+        buttons: [
+          // OKボタンを追加。クリック時にクッキーを設定して非表示にする
+          { text: "OKです(非表示に変更)", class: "btn-primary c-modal-change-course-cookie c-modal-wrap-close-tag" }
+        ]
+      });
+    });
+
+    // モーダル内のOKボタンがクリックされた時の処理
+    $(document).on("click", ".c-modal-change-course-cookie", function() {
+      // アラート要素を非表示にする
+      $("#alert-change-course").hide();
+      
+      // クッキーを9日間有効に設定
+      // expires: 9 で9日後に自動的に期限切れとなる
+      $.cookie(monthlyChangeCourseCookie, "true", { expires: 9});
+    });
+
   }
 
   // ===============================================
@@ -639,50 +716,49 @@ if (bodyId === "page-my-index") {
   // ===============================================
   function calendarScheduleColorChange() {
     console.log("カレンダー色設定を開始");
-
     // カレンダーの各日付セルを処理
-    $(".day").each(function () {
-        // イベント情報を含む要素を検索
-        const $dayContent = $cell.find('[data-region="day-content"]');
-        
-        // イベントが存在する場合の処理
-        if ($dayContent.length > 0) {
-            // イベントリンクを全て取得
-            const $events = $dayContent.find('li a[data-action="view-event"]');
-            
-            // 各イベントの色設定
-            $events.each(function () {
-                const $eventLink = $(this);
-                const courseName = $eventLink.text().trim();
-                console.log(`科目名を検出: ${courseName}`);
+    const today = new Date(); // 現在の日付を取得
+    const todayDay = today.getDate(); // 今日の日
+    const todayMonth = today.getMonth() + 1; // 今日の月（0から始まるので1を加算）
+    const todayYear = today.getFullYear(); // 今日の年
+    let eventFound = false; // 今日のイベントが見つかったかどうか
+    let eventDetails = []; // 今日のイベント詳細を格納
+    let flagTodaysCalendar = false; // 今日の日付が処理されているかを追跡するフラグ
 
-                // 科目名に応じて色とボーダーを設定
-                // !important付きのスタイルで優先度を最大に
-                if (courseName.includes("経済")) {
-                    console.log("経済科目を検出");
-                    $eventLink.attr("style", 
-                        "background: #AA68AA !important;" + 
-                        "border-left: #008EC9 2px solid !important;");
-                } else if (courseName.includes("科学")) {
-                    console.log("科学科目を検出");
-                    $eventLink.attr("style", 
-                        "background: #B6D43E !important;" + 
-                        "border-left: #96B128 2px solid !important;");
-                } else if (courseName.includes("哲学")) {
-                    console.log("哲学科目を検出");
-                    $eventLink.attr("style", 
-                        "background: #FCB72E !important;" + 
-                        "border-left: #E98800 2px solid !important;");
-                } else if (courseName.includes("英語")) {
-                    console.log("英語科目を検出");
-                    $eventLink.attr("style", 
-                        "background: #AA68AA !important;" + 
-                        "border-left: #8D3A8D 2px solid !important;");
-                } else {
-                    console.log("未定義の科目を検出: ", courseName);
-                }
-            });
-        }
+    // .calendarwrapper内のロジックを実行（カレンダー上の日付に対して色変更を適用）
+    $(".day").each(function () {
+      const $cell = $(this); // 各セル（カレンダーの日付）
+      const cellDay = parseInt($cell.attr("data-day"), 10); // セルの日付
+      const cellMonth = parseInt($cell.attr("data-month"), 10); // セルの月
+      const cellYear = parseInt($cell.attr("data-year"), 10); // セルの年
+
+      // カレンダー内のイベントに対して色変更ロジックを適用
+      const $dayContent = $cell.find('[data-region="day-content"]');
+      if ($dayContent.length > 0) { // イベントが存在する場合
+        const $events = $dayContent.find('li a[data-action="view-event"]'); // イベントリンクを取得
+        $events.each(function () {
+          const $eventLink = $(this); // 各イベントリンク
+          const courseName = $eventLink.text().trim(); // イベント名を取得
+          console.log(`Course Name: ${courseName}`);
+
+          // イベント名に応じて背景色を変更
+          if (courseName.includes("経済")) {
+            console.log("経済が見つかりました。背景色を青に変更します。");
+            $eventLink.attr("style", "background: #28afe7 !important; border-left: #008EC9 2px solid !important;");
+          } else if (courseName.includes("科学")) {
+            console.log("科学が見つかりました。背景色を緑に変更します。");
+            $eventLink.attr("style", "background: #B6D43E !important; border-left: #96B128 2px solid !important;");
+          } else if (courseName.includes("哲学")) {
+            console.log("哲学が見つかりました。背景色をオレンジに変更します。");
+            $eventLink.attr("style", "background: #FCB72E !important; border-left: #E98800 2px solid !important;");
+          } else if (courseName.includes("英語")) {
+            console.log("英語が見つかりました。背景色を紫に変更します。");
+            $eventLink.attr("style", "background: #AA68AA !important; border-left: #8D3A8D 2px solid !important;");
+          } else {
+            console.log("条件に一致しない科目: ", courseName);
+          }
+        });
+      }
     });
   }
 
@@ -691,6 +767,7 @@ if (bodyId === "page-my-index") {
   // ===============================================
   // ページ読み込み完了時の処理
   $(document).ready(function () {
+    calendarScheduleColorChange();
     updateClassSchedule();  // 授業スケジュールの更新
   });
 
@@ -699,9 +776,23 @@ if (bodyId === "page-my-index") {
     // 0.3秒の遅延後に色設定を実行（DOMの更新を待つ）
     setTimeout(() => {
         calendarScheduleColorChange(); // カレンダー色設定を実行
-    }, 300);
+    }, 1000);
   });
+  $(document).on("click", ".close-btn-change-course", function () {
+    hideBanner("#alert-change-course");   
+  });
+
+  // `hasBoughtMainSubject` が true の場合に `calendarScheduleColorChange` を6秒ごとに実行する
+  if (hasBoughtMainSubject) {
+    // setInterval を使って 6秒(3000ミリ秒)ごとに関数を呼び出す
+    // カレンダー登録、直後に色が変わらないので管理者向け設定
+    setInterval(calendarScheduleColorChange, 6000);
   }
+
+
+
+}
+
 
 // ==============================
 // ログイン・サインアップページの処理
@@ -709,7 +800,7 @@ if (bodyId === "page-my-index") {
 if (bodyId === "page-login-signup" || bodyId === "page-login-forgot_password") {
   // ログインページのタイトルを「新規会員登録」に変更
   $(".login-heading").text("新規会員登録");
-
+  $("#id_username_label").append("※好きな文字列で作成いただけます");
   // フォームの各入力フィールドにプレースホルダーを設定
   const placeholders = {
     id_username: "例）waomirai", // ユーザー名のプレースホルダー
@@ -749,6 +840,71 @@ if (bodyId === "page-login-signup" || bodyId === "page-login-forgot_password") {
                 </div>`;
     $loginWrapper.before(signupLogoHtml);
   }
+  //////////////////////////////
+  // ID生成ボタンをDOMに追加
+  //////////////////////////////
+  // 【目的】
+  // ユーザ登録フォームなどで、ユーザ名（ID）を自動生成するボタンを追加し、
+  // ユーザがワンクリックで一意性の高いIDを入力できるようにする。
+
+  // 1. ユーザ名入力欄（#id_username）の直後に、自動生成ボタンを追加
+  $('#id_username').after(
+    $('<button/>', {
+        type: 'button', // フォーム送信を防ぐための button タイプ
+        id: 'generateUserIdBtn', // ボタンのID（イベントバインド用）
+        class: 'btn-generate-userid', // 任意のクラス（スタイリング用）
+        text: 'ユーザIDを自動生成' // ボタンに表示するテキスト
+    })
+  );
+
+  // 2. ランダムな英小文字の文字列を生成する関数
+  // 【目的】ユーザIDの末尾にユニーク性を出すためのランダム文字列を付加する。
+  function getRandomLetters(length) {
+      const letters = 'abcdefghijklmnopqrstuvwxyz'; // 使用する文字のセット（英小文字のみ）
+      let result = '';
+      for (let i = 0; i < length; i++) {
+          // 文字セットの中からランダムに1文字選び、結果に追加
+          result += letters.charAt(Math.floor(Math.random() * letters.length));
+      }
+      return result;
+  }
+
+  // 3. ユーザIDを生成する関数
+  // 【目的】日付・時刻・ランダム文字を組み合わせて一意性の高いユーザIDを生成する。
+  function generateUserId() {
+      const now = new Date(); // 現在日時を取得
+
+      // 日付部分をYYMMDD形式で生成（例: 25年3月28日 → "250328"）
+      const year = now.getFullYear().toString().slice(-2);
+      const month = (now.getMonth() + 1).toString().padStart(2, '0');
+      const day = now.getDate().toString().padStart(2, '0');
+
+      // 時間部分をHHmm形式で生成（例: 15時7分 → "1507"）
+      const hours = now.getHours().toString().padStart(2, '0');
+      const minutes = now.getMinutes().toString().padStart(2, '0');
+
+      // ランダムな3文字の英小文字を生成（例: "xwe"）
+      const randomLetters = getRandomLetters(3);
+
+      // すべてを結合してIDにする（例: "2503281507xwe"）
+      return year + month + day + hours + minutes + randomLetters;
+  }
+
+  // 4. ボタンクリック時の処理を定義
+  // 【目的】ユーザがボタンをクリックすると、自動的にIDが生成され、入力欄に反映されるようにする。
+  $(document).on('click', '#generateUserIdBtn', function() {
+      // ユーザIDを生成
+      const userId = generateUserId();
+
+      // 生成したIDを #id_username の入力欄にセット
+      $('#id_username')
+          .val(userId)         // 値をセット
+          .trigger('change')   // 入力変更イベントを発火（他の処理と連携するため）
+          .focus();            // 入力欄にフォーカス（視認性向上）
+
+      // コンソールに生成されたIDを出力（デバッグ目的）
+      console.log('生成されたユーザID:', userId);
+  });
 }
 
 // ログインインデックスページの処理
@@ -788,18 +944,18 @@ if (bodyId === "page-login-confirm") {
     <div class="c-modal-wrap-close"></div>
     <div class="c-modal-wrap-title">会員登録ありがとうございます！</div>
     <div class="c-modal-wrap-text">
-      <span>ワオ未来塾の公式ラインを</span>登録しましょう!<br>
-      授業のお知らせなどをこちらの<br>公式ラインから配信します。
+      <span>ワオ未来塾の公式LINEを</span>登録しましょう!<br>
+      授業サポートのお知らせをこちらの<br>公式LINEから配信します。
     </div>
     <div class="c-modal-wrap-qr c-sp-hidden">
-      <img src="${ImgLiffMoodleRegister}">
+      <img src="${ImgLiffMoodle}">
     </div>
     <div class="c-modal-wrap-text c-modal-wrap-text-notice">
       ※すでに友だち追加済の方も、<br>
-      会員連携のために必ず下記を読み取ってください。
+      会員連携のために必ずQRを読み取ってください。
     </div>
     <div class="c-modal-button-line c-pc-hidden">
-      <a href="${UrlLiffMoodleRegister}">
+      <a href="${UrlLiffMoodle}">
         <img src="https://go.waomirai.com/l/1026513/2025-02-20/hg5bg/1026513/17401067674FE8qn1T/btn_lineadd.svg">
       </a>
     </div>
@@ -816,7 +972,42 @@ if (bodyId === "page-login-confirm") {
 if (bodyId === "page-enrol-index") {
   
     const subjectCategory = currentViewCourseData.key;  // 現在選択されている科目カテゴリーを取得
-    
+
+    ////////////////////////////
+    // moodleのページエディタでgoogleカレンダーiframeが弾かれるので、jsで埋め込み
+    //////////////////////////// 
+
+    // カレンダーの iframe の URL を決定する
+    let iframeUrl = ""; // まず空の文字列で初期化
+
+    // subjectCategory の値に応じて適切なURLを設定
+    switch (subjectCategory) {
+        case "philosophy":
+            iframeUrl = iframeCalenderPhilosophy; // 哲学用のカレンダー
+            break;
+        case "science":
+            iframeUrl = iframeCalenderScience; // 科学用のカレンダー
+            break;
+        case "economy":
+            iframeUrl = iframeCalenderEconomy; // 経済用のカレンダー（※ タイポに注意）
+            break;
+        case "globalenglish":
+            iframeUrl = iframeCalenderEnglish; // グローバル英語用のカレンダー
+            break;
+        default:
+            // 該当するカテゴリーがない場合は何もしない
+            break;
+    }
+
+    // iframeUrl が設定されている場合のみ処理を実行
+    if (iframeUrl) {
+        // iframe の HTML を生成（カレンダーを埋め込む）
+        const iframeHtml = `<iframe src="${iframeUrl}" style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe>`;
+
+        // .enrol-section-calender の中身を iframe に置き換え
+        $(".enrol-section-calender").html(iframeHtml);
+    }
+
     //英語、プログラミング以外の教科でセット割引の表現を出す
     if (["philosophy", "science", "economy","twosubjectpack","threesubjectpack"].includes(subjectCategory)) {
     // 購入ボタンの右側にセット割引情報を追加
@@ -954,29 +1145,71 @@ if (bodyId === "page-enrol-index") {
 // ==============================
 // 受講ページの表示ロジック
 // ==============================
-if (bodyId === "page-mod-questionnaire-view") {
+if (bodyId === "page-mod-questionnaire-view" || bodyId === "page-mod-questionnaire-complete" || bodyId === "page-mod-questionnaire-report"|| bodyId === "page-mod-questionnaire-myreport")  {
+  
 
   // スマートフォン版で、ページタイトルを動画の下に表示するためのロジック
-
   // ページヘッダー（#page-header）を複製して、スマホ用のコンテンツを作成
-  var contentToCloneDashboardLeft = $("#page-header").clone();
+  const urlQuestionnaire = $('li[data-key="modulepage"] a').attr('href');
+  const clonedPageHeader = $("#page-header").clone();
+  const clonedCourseLessonDate = $(".course-lesson-date").clone();
 
   // 複製したコンテンツをラップするためのdiv要素を作成
-  var wrappedContent = $("<div>", {
+  const spPageHeader = $("<div>", {
     id: "sp-page-header",   // 新しいdivにIDを設定（スマホ版のページヘッダー）
     class: "c-pc-hidden",   // デスクトップ版では非表示にするためのクラス（PC版では隠す）
-  }).append(contentToCloneDashboardLeft);  // 複製したヘッダーを新しいdivに追加
+  }).append(clonedPageHeader);  // 複製したヘッダーを新しいdivに追加
+
+  const spCourseLessonDate = $("<div>", {  // 新しいdivにIDを設定（スマホ版のページヘッダー）
+    class: "c-pc-hidden",   // デスクトップ版では非表示にするためのクラス（PC版では隠す）
+  }).append(clonedCourseLessonDate);  // 複製したヘッダーを新しいdivに追加
 
   // スマホ版のヘッダーを#page-contentの直下に配置（コンテンツの一部として追加）
-  $(".activity-description").append(wrappedContent);
+  $(".activity-description").append(spPageHeader);
+  $(".page-context-header").after(spCourseLessonDate);
+
 
   // 課題提出セクションの下にリード文を挿入
   // 「授業の視聴が終わったら課題を提出しましょう」という文を、h2タグの後に追加
-  $(".mod_questionnaire_viewpage h2").after(
-    "<p>授業の視聴が終わったら課題を提出しましょう</p>"
-  );
-}
+  const textQuestionnaireNotAnswered = "<p>授業の視聴が終わったら課題を提出しましょう<br />毎月の課題を全部提出すると、<span class='open-modal-badge'>スペシャルなバッジ</span>がゲットできます！<br /><br />今月のバッジ、ゲットできるかな？さあ、課題を提出してみましょう！</p>";
+  const textQuestionnaireAnswered = "<p>課題を提出済みです。</p>";
+  const textQuestionnaireButtonAnswered = "課題を再提出する";
+  const textQuestionnaireTextareaPlaceholder = "ここに回答を入力してください";
+  const textQuestionnaireAnswerAll = "他の人の回答を見る";
+  const ButtonQuestionnaireBacktoCalender = `
+   <div class="mod_questionnaire_viewpage"><div class="mod_questionnaire_flex-container">
+        <div class="complete"><a href=${urlQuestionnaire} class="btn btn-primary">授業ページに戻る</a></div>
+        <div class="complete"><a href="https://lms.waomirai.com/my/" class="btn btn-primary">受講カレンダーに戻る</a></div>
+    </div></div>
+  `;
+  
 
+
+  $('.allresponses a,li[data-key="vall"] a').text(textQuestionnaireAnswerAll);
+  $(".qn-answer textarea").attr("placeholder", textQuestionnaireTextareaPlaceholder); 
+  
+  //li[data-key="yourresponse"]のある場合は回答済みとして扱う
+  //li[data-key="yourresponse"]は回答済みの場合、授業ページにdomとして要素が存在する
+  if ($('li[data-key="yourresponse"]').length > 0) {
+    $(".mod_questionnaire_viewpage h2").after(textQuestionnaireAnswered);
+    $(".complete .btn-primary").text(textQuestionnaireButtonAnswered);
+  } else {
+    $(".mod_questionnaire_viewpage h2").after(textQuestionnaireNotAnswered);
+  }
+
+  //完了ページには提出済みの文言を追加
+  if ($(".surveyTitle").text().includes("ありがとう")) {
+    $(".mod_questionnaire_completepage h3").after(ButtonQuestionnaireBacktoCalender);
+  }
+}
+$(".open-modal-badge").click(function() {
+  // 確認モーダルを作成
+  createModal({
+    image: "https://go.waomirai.com/l/1026513/2025-04-01/hjs1g/1026513/17434933816M8hgzmi/modal_badge_sample.png",
+    close: true,  // モーダルを閉じるボタンを表示するオプション
+    closetxt: "閉じる", // 閉じるボタンのテキスト
+  });
+});
 
 // // ==============================
 // // カテゴリページの処理
@@ -1021,7 +1254,7 @@ if (
     // 2科目パックや3科目パックの場合の特別処理
     // これらはレベル設定が必要ないため、即座にモーダルを表示して終了
     if (currentMainSubjectKey === "twosubjectpack" || currentMainSubjectKey === "threesubjectpack") {
-      showLevelSettingModal();
+       showModalAfterCardRegistration();
       return;
     }
 
@@ -1044,25 +1277,64 @@ if (
     } else {
       // 子科目を受講していない場合（例：科学は受講可能だが、L1～L4のレベルを設定していない）
       // レベル設定を促すモーダルを表示
-      showLevelSettingModal();
+       showModalAfterCardRegistration();
     }
   }
 }
 
-/**
- * レベル設定を促すモーダルを表示する関数
- * 科目のレベル（L1～L4）を設定するページへのリンクを含むモーダルを表示
- */
+
+
+
+// カード登録後にモーダルを表示する関数
+function showModalAfterCardRegistration() {
+  var now = new Date(); // 現在の日付を取得
+  var campaignEnd = new Date(2025, 3, 5, 23, 59, 59); // キャンペーン終了日時（2025年4月5日23:59:59）
+  var cookieValue = $.cookie("levelSettingModalShown"); // Cookieにモーダル表示の履歴があるか確認
+
+  // ".c-modal-level-setting"クラスの要素がクリックされた場合にレベル設定モーダルを表示
+  $(document).on("click", ".c-modal-level-setting", function () {
+    showLevelSettingModal();
+  });
+
+  // キャンペーン期間中かつモーダルが未表示の場合
+  if (now <= campaignEnd && !cookieValue) {
+    // キャンペーンモーダルを表示
+    showCampaignModal();
+
+    // モーダルが表示されたことをCookieに記録（365日有効）
+    $.cookie("levelSettingModalShown", "true", { expires: 365, path: "/" });
+    return; // キャンペーンモーダルが表示された後は処理を終了
+  }
+
+  // それ以外の場合はレベル設定モーダルを表示
+  showLevelSettingModal();
+}
+
+
+// 2025年4月オープンのモーダル関数
+function showCampaignModal() {
+  createModal({
+    title: "おめでとうございます！",
+    wrapClass: "c-modal-wrap-wrap-campaign",
+    text: "<b>先着100名様のキャンペーンを<br />適用させていただきます。</b><br /><br />2025年4月は無料で受講いただけます。<br />2025年5月も受講いただけたら<br />Amazonギフト券5000円プレゼントいたします。<br />",
+    buttons: [
+      { text: "OKです", class: "btn-primary c-modal-level-setting c-modal-wrap-close-tag" }
+    ]
+  });
+}
+
+// レベル変更のモーダル関数
 function showLevelSettingModal() {
   createModal({
     image: "https://go.waomirai.com/l/1026513/2025-01-27/hcs2k/1026513/1737961533tHzVY8az/img_modal_subject.png",
     imageClass: "c-modal-wrap-subject-img",
     wrapClass: "c-modal-wrap-subject",
     buttons: [
-      { text: "科目のレベルを設定する", url: UrlChangeSubject, class: "btn-primary" },
+      { text: "科目のレベルを設定する", url: UrlChangeSubject, class: "btn-primary" }
     ]
   });
 }
+
 
 // ==============================
 // マイページの処理
@@ -1365,7 +1637,36 @@ if (bodyId === "page-user-profile") {
           this.setAttribute("style", "display: none !important;");
         }
     });
-
+    // ステップ1: profile_treeクラス内のnode_categoryクラスを持つすべてのセクションを取得
+    const $sections = $('.profile_tree .node_category');
+    
+    // ステップ2: 各セクションを順番にチェック
+    $sections.each(function() {
+      // ステップ3: 現在のセクション内からh3要素を検索
+      const $h3 = $(this).find('h3');
+      
+      // ステップ4: h3要素が存在し、そのテキストに「その他」が含まれているかを確認
+      if ($h3.length > 0 && $h3.text().includes('その他')) {
+        // ステップ5: 挿入するカスタムHTMLを作成
+        const lineConnectHTML = `
+        <section class="node_category card d-inline-block w-100 mb-3 line-connection-seciton">
+          <div class="card-lineimg">
+            <img src="https://go.waomirai.com/l/1026513/2025-03-23/hjb9q/1026513/1742784605ULZBDj1J/head_line.png">
+          </div>
+          <div class="card-body">
+              <a class="line-button triger-line-integration-modal">いますぐLINE連携する</a>
+          </div>
+        </section>`;
+              
+        // 「その他」を含むセクションの直後にLINE連携セクションを挿入
+        $(this).after(lineConnectHTML);
+              
+        
+        // ステップ7: 最初に見つかった「その他」セクションの後に挿入したら処理を終了
+        // (複数の「その他」セクションがある場合は最初の1つだけに対応)
+        return false; // eachループを終了（jQueryのeachでは、falseを返すとループが中断される）
+      }
+    });
 }
 
 
@@ -1373,6 +1674,13 @@ if (bodyId === "page-user-profile") {
 // 汎用的な関数
 // ==============================
 
+// ID連携のモーダル
+$(".triger-line-integration-modal").on("click", function (e) {
+  createModal({
+    wrapClass: "c-modal-wrap-line-connection",
+    customModalHtml: `<div class="c-modal-wrap-close"></div><div class="c-modal-wrap-linetitle"> <div class="c-modal-wrap-linetitle-img"><img src="https://go.waomirai.com/l/1026513/2025-03-23/hjb9m/1026513/17427846057nCvC4dV/icn_LINE_LOGO.svg"></div><div class="c-modal-wrap-linetitle-text">LINEで受講サポートの<br>通知を受け取る</div></div><div class="c-modal-wrap-qr c-sp-hidden"><img src="${ImgLiffMoodle}"></div><div class="c-modal-wrap-text">すでに友だち追加済の方も<br>会員連携のために<span class="c-sp-hidden">必ずQRを読み取って下さい</span><span class="c-pc-hidden">必ずボタンを押してください</span><br />※既にLINE連携済みの方は不要です</div><div class="c-modal-button-line c-pc-hidden"><a href="https://liff.line.me/2006716288-lL7QzGA3?loycus_urlc=NN3v"><img src="https://go.waomirai.com/l/1026513/2025-02-20/hg5bg/1026513/17401067674FE8qn1T/btn_lineadd.svg"></a></div><button class="c-modal-wrap-button c-modal-wrap-button-close c-modal-wrap-close-tag">閉じる</button>`
+  });
+});
 
 // classを指定してスクロールできるように
 $(".click-event-subject-comingsoon").on("click", function (e) {
