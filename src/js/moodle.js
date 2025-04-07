@@ -1202,7 +1202,7 @@ if (
 // カード登録後にモーダルを表示する関数
 function showModalAfterCardRegistration() {
   var now = new Date(); // 現在の日付を取得
-  var campaignEnd = new Date(2025, 3, 15, 23, 59, 59); // キャンペーン終了日時（2025年4月5日23:59:59）
+  var campaignEnd = new Date(2025, 3, 15, 23, 59, 59); // キャンペーン終了日時（2025年4月15日23:59:59）
   var cookieValue = $.cookie("levelSettingModalShown"); // Cookieにモーダル表示の履歴があるか確認
   var subjectCategory = currentViewCourseData.key;  // 現在選択されている科目カテゴリーを取得
 
