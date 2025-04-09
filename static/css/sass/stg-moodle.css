@@ -785,7 +785,7 @@ html[data-tenantidnumber=stg] .c-alert-banner .c-alert-banner-close-change-cours
   height: 30px;
   border-radius: 10000px;
   background: #ffffff;
-  display: block;
+  display: none;
   /* Ellipse 71 */
   -webkit-box-shadow: 0px 2px 4px rgba(0, 0, 0, .25);
           box-shadow: 0px 2px 4px rgba(0, 0, 0, .25);
