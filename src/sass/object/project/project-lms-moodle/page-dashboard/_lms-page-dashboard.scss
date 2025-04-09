@@ -118,11 +118,10 @@ $default-max-width: 1170px; // 最大幅
   .dashboard-textblock {
     .dashboard-left {
       width: calc($dashboard-sidebar-width - 0px);
-      height: 360px;
       display: block;
       z-index: 1;
       position: absolute;
-      right: calc(-1 * ($dashboard-sidebar-width + $body-padding));
+      right: calc(-1 * ($dashboard-sidebar-width + $body-padding)) !important;
       top: 0px;
       @include responsive-style(768px) {
         display: none;
