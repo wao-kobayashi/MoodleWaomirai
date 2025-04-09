@@ -5796,11 +5796,10 @@ html[data-tenantidnumber=stg] .pagelayout-mydashboard .card-title:before, html[d
 }
 html[data-tenantidnumber=stg] .pagelayout-mydashboard .dashboard-textblock .dashboard-left {
   width: 225px;
-  height: 360px;
   display: block;
   z-index: 1;
   position: absolute;
-  right: -250px;
+  right: -250px !important;
   top: 0px;
 }
 @media screen and (max-width: 768px) {
