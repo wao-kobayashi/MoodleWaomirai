@@ -90,7 +90,9 @@ $(document).ready(function () {
 
 const UrlHome = "https://lms.waomirai.com/?redirect=0" //トップページ（科目選択）
 const UrlForm = "https://go.waomirai.com/contact-change-subject"; // フォームURL 
-const UrlChangeSubject = "https://lms.waomirai.com/user/edit.php"; // 受講変更ページ  
+const UrlChangeSubject = "https://lms.waomirai.com/user/edit.php"; // 受講変更ページ
+const DayChangeCourseBannerStart = 13; // 受講レベル変更・科目変更・解約の締切日通知モーダルの表示開始日（月の前半）
+const DayChangeCourseDeadLine = 20; // 受講レベル変更・科目変更・解約の締切日（DayChangeCourseBannerStartより後の日の設定が必要）
 
 
 // ==============================
@@ -296,13 +298,21 @@ function createModal(options = {}) {
 }
 
 
+// ==============================
+// URLフラグの取得関数
+// ==============================
+
+// クエリパラメータ "flag" の値を取得するための関数
+// 該当するパラメータが存在しない場合は空文字 "" を返す
+
+function getUrlFlag() {
+  return new URLSearchParams(window.location.search).get("flag") || "";
+}
 
 // ==============================
 // ダッシュボードページでの処理
 // ==============================
 if (bodyId === "page-my-index") {
-
-
 
   /////////////////////////////////////
   ///初期表示状態
@@ -652,7 +662,7 @@ if (bodyId === "page-my-index") {
     $("#todays-subject-pc .c-alert-banner-text-title").text(message);
     
     // -----------------------------------------------
-    // 「科目変更・レベル変更」は当月20日までにご連絡くださいの表示
+    // 「科目変更・レベル変更」は当月変更手続きの締切日までにご連絡くださいの表示
     // -----------------------------------------------
     
     // 定数として固定のクッキー名を定義
@@ -670,44 +680,34 @@ if (bodyId === "page-my-index") {
     // 例: 現在の月が5月の場合、5を挿入
     $(".c-alert-banner-text-title-thismonth").text(todayMonth);
 
-    // $.removeCookie(monthlyChangeCourseCookie);
-    // アラート表示の条件を確認
-    // 以下の3つの条件をすべて満たす場合にアラートを表示
-    // 1. 現在の日付が13日以上
-    // 2. 現在の日付が20日以下
-    // 3. 対応するクッキーが存在しない（まだアラートを非表示にしていない）
-    if (todayDay >= 13 && todayDay <= 20 && !$.cookie(monthlyChangeCourseCookie)) {
-      // 条件を満たす場合、アラート要素を表示
-      $("#alert-change-course").show();
-    } else {
-      // 条件を満たさない場合、コンソールにログを出力
-      // デバッグ用の情報ログで、なぜアラートが表示されないかを示す
-      console.log("条件を満たさないため通知を非表示");
-    }
-      
-    // アラートバナーの閉じるボタン（バツボタン）がクリックされた時の処理
-    $(".c-alert-banner-close-change-course").click(function() {
-      // 確認モーダルを作成
+    // 締切日をスパン要素に設定
+    // DayChangeCourseDeadLineの値を代入
+    $(".c-alert-banner-text-title-thisday").text(DayChangeCourseDeadLine);
+
+    // -----------------------------------------------
+    // 科目変更モーダルの表示条件チェック
+    // -----------------------------------------------
+    // モーダルの表示条件：
+    // 1. 期間条件：当月の受講レベル変更・科目変更・解約の締切日通知モーダルの表示開始日〜締切日の期間内であること
+    //    - DayChangeCourseBannerStart日以降 (todayDay >= DayChangeCourseBannerStart)：受講レベル変更・科目変更・解約の締切日通知モーダルの表示開始日（月の前半）
+    //    - DayChangeCourseDeadLine日以前 (todayDay <= DayChangeCourseDeadLine)：受講レベル変更・科目変更・解約の締切日
+    // 2. 非表示設定：ユーザーが「非表示」を選択していないこと
+    //    - !$.cookie(monthlyChangeCourseCookie)：非表示設定用のクッキーが存在しない
+    // 3. 受講状況：メイン科目を購入済みのユーザーであること
+    //    - hasBoughtMainSubject：メイン科目の購入フラグ
+    if (todayDay >= DayChangeCourseBannerStart && todayDay <= DayChangeCourseDeadLine && !$.cookie(monthlyChangeCourseCookie) && hasBoughtMainSubject) {
+      // 条件を満たす場合、モーダルを表示
       createModal({
-        close: true,  // モーダルを閉じるボタンを表示するオプション
-        title: "非表示にしても良いですか？<br />受講変更手続きは<br />ヘルプページからも可能です",
+        title: "【ご案内】<br />受講レベル及び科目の変更<br />ご解約は当月" + DayChangeCourseDeadLine + "日までに<br />お手続きをお願いします。<br /><br />",
         buttons: [
-          // OKボタンを追加。クリック時にクッキーを設定して非表示にする
-          { text: "OKです(非表示に変更)", class: "btn-primary c-modal-change-course-cookie c-modal-wrap-close-tag" }
+          // OKボタンを追加
+          { text: "確認しました", class: "btn-primary c-modal-wrap-close-tag" }
         ]
       });
-    });
-
-    // モーダル内のOKボタンがクリックされた時の処理
-    $(document).on("click", ".c-modal-change-course-cookie", function() {
-      // アラート要素を非表示にする
-      $("#alert-change-course").hide();
-      
-      // クッキーを9日間有効に設定
-      // expires: 9 で9日後に自動的に期限切れとなる
-      $.cookie(monthlyChangeCourseCookie, "true", { expires: 9});
-    });
-
+      // 非公開設定用のクッキーを設定
+      // expires: (DayChangeCourseDeadLine - DayChangeCourseBannerStart + 1) で、締切日通知モーダル表示の表示開始日～締切日の日数が経過した際に、自動的に期限切れとなる
+      $.cookie(monthlyChangeCourseCookie, "true", { expires: (DayChangeCourseDeadLine - DayChangeCourseBannerStart + 1)});
+    } 
   }
 
   // ===============================================
@@ -789,7 +789,11 @@ if (bodyId === "page-my-index") {
     setInterval(calendarScheduleColorChange, 6000);
   }
 
-
+  // 有料講座を持っている場合に締切日までに科目の変更・有料講座の解約やってねバナーを表示
+  if (hasBoughtMainSubject) {
+      // アラートバナーを表示
+      $("#alert-change-course").show();
+  }
 
 }
 
@@ -1049,7 +1053,15 @@ if (bodyId === "page-enrol-index") {
 
     // 各カテゴリー（哲学、科学、経済）の購入ボタンがクリックされたときの処理
     $(".enrol_fee_payment_region button").on("click", function (event) {
-  
+      
+      // 「科目変更」専用URLからのアクセス時（URLにflagChangeSubjectが含まれている場合）は、
+      // 通常の購入フローで働く「科目変更を促す抑制ロジック」をスキップして処理を続行する。
+      // ※ 通常購入時は、科目変更を促す案内が表示されるが、
+      // すでに科目変更済みのため、ここでは抑制しないようにしている。
+      if (getUrlFlag() === "flagChangeSubject") {
+        return; //抑制を止める
+      }
+      
       // 科目が哲学、科学、経済のいずれかの場合
       if (["philosophy", "science", "economy"].includes(subjectCategory)) {
        
