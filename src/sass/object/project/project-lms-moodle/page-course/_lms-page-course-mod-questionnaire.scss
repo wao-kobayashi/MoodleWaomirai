@@ -65,6 +65,10 @@ li[data-key="courseinfo"] {
       }
     }
   }
+  .subject-movie-sp {
+    padding: 100% 0 0 0;
+    position: relative;
+  }
 
   #page-header {
     @include responsive-style(768px) {

@@ -7375,6 +7375,13 @@ html[data-tenantidnumber=stg] #page-mod-questionnaire-report #page.drawers {
     margin-top: 0rem;
   }
 }
+html[data-tenantidnumber=stg] #page-mod-questionnaire-view .subject-movie-sp,
+html[data-tenantidnumber=stg] #page-mod-questionnaire-complete .subject-movie-sp,
+html[data-tenantidnumber=stg] #page-mod-questionnaire-myreport .subject-movie-sp,
+html[data-tenantidnumber=stg] #page-mod-questionnaire-report .subject-movie-sp {
+  padding: 100% 0 0 0;
+  position: relative;
+}
 @media screen and (max-width: 768px) {
   html[data-tenantidnumber=stg] #page-mod-questionnaire-view #page-header,
   html[data-tenantidnumber=stg] #page-mod-questionnaire-complete #page-header,
