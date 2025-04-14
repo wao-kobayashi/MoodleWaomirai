@@ -86,12 +86,12 @@ function serve() {
       done();
    }));
     //パーシャルの場合は全更新
-    gulp.watch(['src/pug/lms-moodle/**/_*.pug'], gulp.series(pugLms,  (done) => {
-    browserSync.reload();
-    done();
-    // gulp.watch(['src/pug/lms-moodle/**/_*.pug'], gulp.series(pugStg,pugLms,  (done) => {
+    // gulp.watch(['src/pug/lms-moodle/**/_*.pug'], gulp.series(pugLms,  (done) => {
     // browserSync.reload();
     // done();
+    gulp.watch(['src/pug/lms-moodle/**/_*.pug'], gulp.series(pugStg,pugLms,  (done) => {
+    browserSync.reload();
+    done();
 }));
     //単体ファイルの時は単体更新
     gulp.watch(['src/pug/lms-moodle/**/*.pug','!src/pug/lms-moodle/**/_*.pug'], gulp.series(pugStgSingle,pugLmsSingle,  (done) => {

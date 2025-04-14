@@ -717,7 +717,7 @@ if (bodyId === "page-my-index") {
         title: "【ご案内】<br />受講レベル及び科目の変更<br />ご解約は当月" + DayChangeCourseDeadLine + "日までに<br />お手続きをお願いします。<br /><br />",
         buttons: [
           // OKボタンを追加
-          { text: "OKです", class: "btn-primary c-modal-wrap-close-tag" }
+          { text: "確認しました", class: "btn-primary c-modal-wrap-close-tag" }
         ]
       });
       // 非公開設定用のクッキーを設定
