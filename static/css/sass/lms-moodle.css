@@ -775,6 +775,7 @@ html[data-tenantidnumber=lmswaomirai] .c-alert-banner {
 @media screen and (max-width: 768px) {
   html[data-tenantidnumber=lmswaomirai] .c-alert-banner {
     display: block;
+    width: calc(100% - 30px);
   }
 }
 html[data-tenantidnumber=lmswaomirai] .c-alert-banner .c-alert-banner-close-change-course {
@@ -846,6 +847,11 @@ html[data-tenantidnumber=lmswaomirai] .c-alert-banner .c-alert-banner-text-title
   font-size: 15px;
   color: #262626;
   font-weight: 500;
+}
+@media screen and (max-width: 768px) {
+  html[data-tenantidnumber=lmswaomirai] .c-alert-banner .c-alert-banner-text-title {
+    font-size: 14px;
+  }
 }
 html[data-tenantidnumber=lmswaomirai] .c-alert-banner .c-alert-banner-text-title a {
   text-decoration: underline;
