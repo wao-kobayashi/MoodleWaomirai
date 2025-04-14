@@ -7063,6 +7063,11 @@ html[data-tenantidnumber=stg] #page-mod-questionnaire-view .course-lesson-date {
 html[data-tenantidnumber=stg] #page-mod-questionnaire-view .course-lesson {
   display: block !important;
 }
+@media screen and (max-width: 768px) {
+  html[data-tenantidnumber=stg] #page-mod-questionnaire-view .course-lesson.c-sp-hidden {
+    display: none !important;
+  }
+}
 html[data-tenantidnumber=stg] #page-mod-questionnaire-view .activity-description .no-overflow {
   display: block !important;
 }
@@ -7370,6 +7375,13 @@ html[data-tenantidnumber=stg] #page-mod-questionnaire-report #page.drawers {
     margin-top: 0rem;
   }
 }
+html[data-tenantidnumber=stg] #page-mod-questionnaire-view .subject-movie-sp,
+html[data-tenantidnumber=stg] #page-mod-questionnaire-complete .subject-movie-sp,
+html[data-tenantidnumber=stg] #page-mod-questionnaire-myreport .subject-movie-sp,
+html[data-tenantidnumber=stg] #page-mod-questionnaire-report .subject-movie-sp {
+  padding: 100% 0 0 0;
+  position: relative;
+}
 @media screen and (max-width: 768px) {
   html[data-tenantidnumber=stg] #page-mod-questionnaire-view #page-header,
   html[data-tenantidnumber=stg] #page-mod-questionnaire-complete #page-header,
@@ -7437,6 +7449,14 @@ html[data-tenantidnumber=stg] #page-mod-questionnaire-report .activity-descripti
   html[data-tenantidnumber=stg] #page-mod-questionnaire-myreport .activity-description .no-overflow,
   html[data-tenantidnumber=stg] #page-mod-questionnaire-report .activity-description .no-overflow {
     margin: 0 -20px;
+  }
+}
+@media screen and (max-width: 768px) {
+  html[data-tenantidnumber=stg] #page-mod-questionnaire-view .activity-description .no-overflow .course-lesson-date,
+  html[data-tenantidnumber=stg] #page-mod-questionnaire-complete .activity-description .no-overflow .course-lesson-date,
+  html[data-tenantidnumber=stg] #page-mod-questionnaire-myreport .activity-description .no-overflow .course-lesson-date,
+  html[data-tenantidnumber=stg] #page-mod-questionnaire-report .activity-description .no-overflow .course-lesson-date {
+    display: none !important;
   }
 }
 @media screen and (max-width: 768px) {
