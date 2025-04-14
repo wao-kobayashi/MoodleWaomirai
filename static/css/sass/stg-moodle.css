@@ -7063,6 +7063,11 @@ html[data-tenantidnumber=stg] #page-mod-questionnaire-view .course-lesson-date {
 html[data-tenantidnumber=stg] #page-mod-questionnaire-view .course-lesson {
   display: block !important;
 }
+@media screen and (max-width: 768px) {
+  html[data-tenantidnumber=stg] #page-mod-questionnaire-view .course-lesson.c-sp-hidden {
+    display: none !important;
+  }
+}
 html[data-tenantidnumber=stg] #page-mod-questionnaire-view .activity-description .no-overflow {
   display: block !important;
 }
@@ -7437,6 +7442,14 @@ html[data-tenantidnumber=stg] #page-mod-questionnaire-report .activity-descripti
   html[data-tenantidnumber=stg] #page-mod-questionnaire-myreport .activity-description .no-overflow,
   html[data-tenantidnumber=stg] #page-mod-questionnaire-report .activity-description .no-overflow {
     margin: 0 -20px;
+  }
+}
+@media screen and (max-width: 768px) {
+  html[data-tenantidnumber=stg] #page-mod-questionnaire-view .activity-description .no-overflow .course-lesson-date,
+  html[data-tenantidnumber=stg] #page-mod-questionnaire-complete .activity-description .no-overflow .course-lesson-date,
+  html[data-tenantidnumber=stg] #page-mod-questionnaire-myreport .activity-description .no-overflow .course-lesson-date,
+  html[data-tenantidnumber=stg] #page-mod-questionnaire-report .activity-description .no-overflow .course-lesson-date {
+    display: none !important;
   }
 }
 @media screen and (max-width: 768px) {

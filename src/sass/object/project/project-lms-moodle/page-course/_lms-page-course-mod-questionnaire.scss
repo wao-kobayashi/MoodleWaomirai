@@ -13,6 +13,11 @@ body {
   }
 
   .course-lesson {
+    &.c-sp-hidden {
+      @include responsive-style(768px) {
+        display: none !important;
+      }
+    }
     display: block !important;
   }
   .activity-description .no-overflow {
@@ -100,6 +105,11 @@ li[data-key="courseinfo"] {
     display: none;
     @include responsive-style(768px) {
       margin: 0 -20px;
+    }
+    .course-lesson-date {
+      @include responsive-style(768px) {
+        display: none !important;
+      }
     }
   }
   #page-navbar {
