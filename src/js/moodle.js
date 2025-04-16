@@ -227,10 +227,13 @@ function getUrlFlag() {
 // ダッシュボードページでの処理
 // ==============================
 if (bodyId === "page-my-index") {
-
   /////////////////////////////////////
   ///初期表示状態
   ////////////////////////////////////
+  // PC表示でサイドバーがある場合のみ、サイドバーのタグの位置を変更
+  if($(window).width() > 768 && $('.dashboard-left').length){
+    $('.dashboard-left').insertAfter('#block-region-content');
+  }  
 
   //科目を何も持っていない時の場合の処理
   if (!hasBoughtMainSubject && !hasBoughtChildSubject) {

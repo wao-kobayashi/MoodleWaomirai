@@ -5725,6 +5725,22 @@ html[data-tenantidnumber=stg] .modal-header {
   padding: 11.2px 16px 11.2px !important;
   padding: 0.7rem 1rem 0.7rem !important;
 }
+@media (min-width: 769px) {
+  html[data-tenantidnumber=stg] #page.drawers div[role=main] {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+  html[data-tenantidnumber=stg] .dashboard-left {
+    width: 225px;
+    -ms-flex-negative: 0;
+        flex-shrink: 0;
+    margin-left: 25px;
+  }
+}
 html[data-tenantidnumber=stg] .pagelayout-mydashboard {
   background: #efefef !important;
 }
