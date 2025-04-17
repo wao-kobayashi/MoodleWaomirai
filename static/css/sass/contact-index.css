@@ -113,10 +113,8 @@ main h2 {
 }
 main .main-p {
   margin: 0 auto 45px;
-  line-height: 2;
-  font-size: 20px;
-  color: #262626;
-  line-height: 1.5;
+  line-height: 1.75;
+  font-size: 18px;
 }
 main .main-p a {
   color: #005c3f !important;
@@ -147,7 +145,7 @@ main .contact-columns .contact-columns-box {
           flex: 1;
   border: 2px solid #efefef;
   border-radius: 8px;
-  padding: 30px 25px 40px;
+  padding: 50px 0px 40px;
 }
 @media screen and (max-width: 768px) {
   main .contact-columns .contact-columns-box {
@@ -155,10 +153,8 @@ main .contact-columns .contact-columns-box {
   }
 }
 main .contact-columns .contact-columns-box .contact-columns-title {
-  margin: 0 auto 20px;
-  font-size: 20px;
-  color: #262626;
-  line-height: 1.5;
+  margin: 0 auto 25px;
+  font-size: 18px;
   height: 60px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -170,7 +166,7 @@ main .contact-columns .contact-columns-box .contact-columns-title {
       -ms-flex-pack: center;
           justify-content: center;
   color: #005c3f !important;
-  letter-spacing: 1px;
+  letter-spacing: 0px;
   font-weight: 500;
 }
 main .contact-columns .contact-columns-box a {
@@ -191,6 +187,8 @@ main .contact-columns .contact-columns-box a {
   color: #ffffff !important;
   border: none !important;
   text-decoration: none;
+  margin: 0 auto;
+  width: calc(100% - 50px);
 }
 main .contact-columns .contact-columns-box a:hover {
   opacity: 0.7;

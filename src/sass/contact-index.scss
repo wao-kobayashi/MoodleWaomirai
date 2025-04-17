@@ -40,8 +40,8 @@ main {
   }
   .main-p {
     margin: 0 auto 45px;
-    line-height: 2;
-    @include text-l-black;
+    line-height: 1.75;
+    font-size: 18px;
     a {
       color: $cl-waogreen !important;
     }
@@ -59,19 +59,20 @@ main {
       // @include lms-boxshadow;
       border: 2px solid $cl-graylightest;
       border-radius: $border-radius-middle;
-      padding: 30px 25px 40px;
+      padding: 50px 0px 40px;
       @include responsive-style(768px) {
         width: 90%;
       }
       .contact-columns-title {
-        margin: 0 auto 20px;
-        @include text-l-black;
+        margin: 0 auto 25px;
+        // @include text-l-black;
+        font-size: 18px;
         height: 60px;
         display: flex;
         align-items: center;
         justify-content: center;
         color: $cl-waogreen !important;
-        letter-spacing: 1px;
+        letter-spacing: 0px;
         font-weight: 500;
       }
       a {
@@ -84,6 +85,8 @@ main {
         border-radius: $border-radius-small;
         @include button-style-primary;
         text-decoration: none;
+        margin: 0 auto;
+        width: calc(100% - 50px);
         // @include text-m-black;
         &:hover {
           opacity: 0.7;
