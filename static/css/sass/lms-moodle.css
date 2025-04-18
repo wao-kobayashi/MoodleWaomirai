@@ -5726,7 +5726,7 @@ html[data-tenantidnumber=lmswaomirai] .modal-header {
   padding: 0.7rem 1rem 0.7rem !important;
 }
 @media (min-width: 769px) {
-  html[data-tenantidnumber=lmswaomirai] #page.drawers div[role=main] {
+  html[data-tenantidnumber=lmswaomirai] #page-my-index #page.drawers div[role=main] {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -5734,7 +5734,7 @@ html[data-tenantidnumber=lmswaomirai] .modal-header {
         -ms-flex-pack: justify;
             justify-content: space-between;
   }
-  html[data-tenantidnumber=lmswaomirai] .dashboard-left {
+  html[data-tenantidnumber=lmswaomirai] #page-my-index .dashboard-left {
     width: 225px;
     -ms-flex-negative: 0;
         flex-shrink: 0;

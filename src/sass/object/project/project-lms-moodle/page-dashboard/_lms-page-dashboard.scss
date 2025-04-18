@@ -39,14 +39,16 @@ $default-max-width: 1170px; // 最大幅
 }
 
 @media (min-width: 769px) {
-  #page.drawers div[role="main"]{
-    display: flex;
-    justify-content: space-between;
-  }
-  .dashboard-left{
-    width: $dashboard-sidebar-width;
-    flex-shrink: 0;
-    margin-left: $body-padding;
+  #page-my-index{
+    #page.drawers div[role="main"]{
+      display: flex;
+      justify-content: space-between;
+    }
+    .dashboard-left{
+      width: $dashboard-sidebar-width;
+      flex-shrink: 0;
+      margin-left: $body-padding;
+    }
   }
 }
 
