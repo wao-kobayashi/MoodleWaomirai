@@ -8,7 +8,7 @@ const UrlChangeSubject = "https://lms.waomirai.com/user/edit.php"; // 受講変�
 const DayChangeCourseBannerStart = 13; // 受講レベル変更・科目変更・解約の締切日通知モーダルの表示開始日（月の前半）
 const DayChangeCourseDeadLine = 20; // 受講レベル変更・科目変更・解約の締切日（DayChangeCourseBannerStartより後の日の設定が必要）
 
-const DayDisabledFee = 18; // 受講登録手続きを行えない日
+const DayDisabledFee = 1; // 受講登録手続きを行えない日
 
 const NowDate = new Date(); // 現在の日時
 const DayOfMonth = NowDate.toLocaleString('ja-JP', { timeZone: 'Asia/Tokyo', day: '2-digit' }).replace('日', ''); // 現在の日
@@ -902,8 +902,12 @@ if (bodyId === "page-enrol-index") {
     // DayDisabledFeeで定めた日は購入ができないことを示す追従を表示
     ////////////////////////////
     if(DayDisabledFee == DayOfMonth){
+      // 追従のタグを追加
       $("#page-enrol-index").append('<div class="disabled-fee-fixed"><span class="icon-disabled-fee-fixed">&#x26a0;&#xfe0f;</span>毎月' + DayDisabledFee + '日はシステムメンテナンスのため、受講登録手続きができません。<br class="br-disabled-fee-fixed">お手数ですが、翌日以降に手続きをお願いします。</div>');
+      // 追従が出ていることを示すクラスをbodyタグに追加
       $('#page-enrol-index').addClass('is-disabled-fee-fixed');
+      // 科目（哲学/科学/経済/英語/2,3科目セット）の購入ボタンでStripe決済のモーダルが発動しないようにする
+      $(".enrol_fee_payment_region button").attr('data-action', '');
     }
 
     ////////////////////////////
@@ -980,7 +984,7 @@ if (bodyId === "page-enrol-index") {
     var SubjectPriceContent = `<div class="c-pc-hidden fixed-subject-price">${SubjectpPrice.text()} /月</div>`; // 固定表示用のHTMLを作成
     $("#page.drawers").after(SubjectPriceContent); // 画面下部に価格情報を追加
 
-    // 各カテゴリー（哲学、科学、経済）の購入ボタンがクリックされたときの処理
+    // 科目（哲学/科学/経済/英語/2,3科目セット）の購入ボタンがクリックされたときの処理
     $(".enrol_fee_payment_region button").on("click", function (event) {
 
       // DayDisabledFeeで定めた日は購入ができないことを示すモーダルを表示
