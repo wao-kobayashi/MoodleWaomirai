@@ -113,7 +113,7 @@ const DayChangeCourseDeadLine = 20; // 受講レベル変更・科目変更・�
 const DayDisabledFee = 1; // 受講登録手続きを行えない日
 
 const NowDate = new Date(); // 現在の日時
-const DayOfMonth = NowDate.toLocaleString('ja-JP', { timeZone: 'Asia/Tokyo', day: '2-digit' }).replace('日', ''); // 現在の日
+const DayOfMonth = parseInt(NowDate.toLocaleString('ja-JP', { timeZone: 'Asia/Tokyo', day: '2-digit' }).replace('日', '')); // 現在の日
 
 // ==============================
 // Liff系
