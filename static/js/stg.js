@@ -1726,7 +1726,7 @@ $(".click-event-subject-comingsoon").on("click", function (e) {
   // モーダルを表示：セット購入の詳細情報
   createModal({
     close: true,  // モーダルを閉じるボタンを表示
-    title: "この科目は2025年4月に開講予定です", // モーダルのタイトル
+    title: "この科目は開講準備中です", // モーダルのタイトル
     closetxt: "閉じる", // 閉じるボタンのテキスト
   });
 });
