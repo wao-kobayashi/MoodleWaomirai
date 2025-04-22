@@ -1,6 +1,7 @@
 $subject-sidebar-width: 235px; // サイドバーの幅
 $subject-body-padding: 55px; // サイドバーとの距離
 $subject-default-max-width: 1140px; // 最大幅
+$disabled-fee-fixed: 64px; // 購入ができないことを示す追従の高さ
 
 //stripeのロゴ大きさ修正
 .core_payment_gateways_modal .stripe .icon {
@@ -40,6 +41,63 @@ $subject-default-max-width: 1140px; // 最大幅
       margin-left: 0 !important;
       max-width: 100% !important;
       padding: 0 15px !important;
+    }
+  }
+
+  .disabled-fee-fixed{
+    width: 100%;
+    height: $disabled-fee-fixed;
+    line-height: 1.5;
+    padding: 0 min(15px, calc((100vw / 1000) * 15));
+    color: #fff;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    background: $overlay;
+    z-index: 1030;
+    font-size: min($lms-font-size-ml, calc((100vw / 1000) * $lms-font-size-ml));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    @include responsive-style(768px) {
+      font-size: min(11px, calc((100vw / 414) * 11));
+    }
+  }
+  .br-disabled-fee-fixed{
+    display: none;
+    @include responsive-style(768px) {
+      display: inline;
+    }
+  }
+  .icon-disabled-fee-fixed{
+    margin: 0 3px 2px 0;
+  }
+  @include responsive-style(768px) {
+    .icon-disabled-fee-fixed{
+      margin: 0 3px 16.5px 0;
+    }
+  }
+}
+
+#page-enrol-index.is-disabled-fee-fixed {
+  .btn-footer-popover{
+    bottom: calc(2rem + $disabled-fee-fixed);
+  }
+  #goto-top-link{
+    bottom: calc(5rem + $disabled-fee-fixed);
+  }
+  @include responsive-style(768px) {
+    .fixed-subject-price{
+      display: none;
+    }
+    .enrol_fee_payment_region .btn.btn-secondary{
+      display: none !important;
+    }
+    .enrol_fee_payment_region:after{
+      display: none;
+    }
+    #page-footer{
+      padding-bottom: calc(60px + $disabled-fee-fixed) !important;
     }
   }
 }
