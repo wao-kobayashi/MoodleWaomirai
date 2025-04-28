@@ -38,6 +38,20 @@ $default-max-width: 1170px; // 最大幅
   padding: 0.7rem 1rem 0.7rem !important;
 }
 
+@media (min-width: 769px) {
+  #page-my-index{
+    #page.drawers div[role="main"]{
+      display: flex;
+      justify-content: space-between;
+    }
+    .dashboard-left{
+      width: $dashboard-sidebar-width;
+      flex-shrink: 0;
+      margin-left: $body-padding;
+    }
+  }
+}
+
 .pagelayout-mydashboard {
   .no-overflow {
     overflow: visible;

@@ -5725,6 +5725,22 @@ html[data-tenantidnumber=lmswaomirai] .modal-header {
   padding: 11.2px 16px 11.2px !important;
   padding: 0.7rem 1rem 0.7rem !important;
 }
+@media (min-width: 769px) {
+  html[data-tenantidnumber=lmswaomirai] #page-my-index #page.drawers div[role=main] {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+  html[data-tenantidnumber=lmswaomirai] #page-my-index .dashboard-left {
+    width: 225px;
+    -ms-flex-negative: 0;
+        flex-shrink: 0;
+    margin-left: 25px;
+  }
+}
 html[data-tenantidnumber=lmswaomirai] .pagelayout-mydashboard {
   background: #efefef !important;
 }
@@ -7922,6 +7938,69 @@ html[data-tenantidnumber=lmswaomirai] #page-enrol-index #page.drawers .main-inne
     margin-left: 0 !important;
     max-width: 100% !important;
     padding: 0 15px !important;
+  }
+}
+html[data-tenantidnumber=lmswaomirai] #page-enrol-index .disabled-fee-fixed {
+  width: 100%;
+  height: 64px;
+  line-height: 1.5;
+  padding: 0 min(15px, 1.5vw);
+  color: #fff;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  background: rgba(0, 0, 0, .7);
+  z-index: 1030;
+  font-size: min(16px, 1.6vw);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+@media screen and (max-width: 768px) {
+  html[data-tenantidnumber=lmswaomirai] #page-enrol-index .disabled-fee-fixed {
+    font-size: min(11px, 2.6570048309vw);
+  }
+}
+html[data-tenantidnumber=lmswaomirai] #page-enrol-index .br-disabled-fee-fixed {
+  display: none;
+}
+@media screen and (max-width: 768px) {
+  html[data-tenantidnumber=lmswaomirai] #page-enrol-index .br-disabled-fee-fixed {
+    display: inline;
+  }
+}
+html[data-tenantidnumber=lmswaomirai] #page-enrol-index .icon-disabled-fee-fixed {
+  margin: 0 3px 2px 0;
+}
+@media screen and (max-width: 768px) {
+  html[data-tenantidnumber=lmswaomirai] #page-enrol-index .icon-disabled-fee-fixed {
+    margin: 0 3px 16.5px 0;
+  }
+}
+html[data-tenantidnumber=lmswaomirai] #page-enrol-index.is-disabled-fee-fixed .btn-footer-popover {
+  bottom: calc(2rem + 64px);
+}
+html[data-tenantidnumber=lmswaomirai] #page-enrol-index.is-disabled-fee-fixed #goto-top-link {
+  bottom: calc(5rem + 64px);
+}
+@media screen and (max-width: 768px) {
+  html[data-tenantidnumber=lmswaomirai] #page-enrol-index.is-disabled-fee-fixed .fixed-subject-price {
+    display: none;
+  }
+  html[data-tenantidnumber=lmswaomirai] #page-enrol-index.is-disabled-fee-fixed .enrol_fee_payment_region .btn.btn-secondary {
+    display: none !important;
+  }
+  html[data-tenantidnumber=lmswaomirai] #page-enrol-index.is-disabled-fee-fixed .enrol_fee_payment_region:after {
+    display: none;
+  }
+  html[data-tenantidnumber=lmswaomirai] #page-enrol-index.is-disabled-fee-fixed #page-footer {
+    padding-bottom: 124px !important;
   }
 }
 html[data-tenantidnumber=lmswaomirai] #page-enrol-index,
