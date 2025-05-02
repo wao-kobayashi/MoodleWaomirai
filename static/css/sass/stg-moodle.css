@@ -7958,7 +7958,7 @@ html[data-tenantidnumber=stg] #page-enrol-index .disabled-fee-fixed {
   left: 0;
   background: rgba(0, 0, 0, .7);
   z-index: 1030;
-  font-size: min(16px, 0.1vw * 16);
+  font-size: min(16px, 1.6vw);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
