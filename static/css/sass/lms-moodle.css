@@ -6353,6 +6353,13 @@ html[data-tenantidnumber=lmswaomirai] .pagelayout-mydashboard .calendar-controls
   width: 155px;
   display: block;
 }
+html[data-tenantidnumber=lmswaomirai] .pagelayout-mydashboard:not(.is-previous-enabled) .arrow_link.previous {
+  opacity: 0.3;
+  pointer-events: none;
+}
+html[data-tenantidnumber=lmswaomirai] .pagelayout-mydashboard.is-previous-click-disabled .arrow_link.previous {
+  pointer-events: none;
+}
 html[data-tenantidnumber=lmswaomirai] .pagelayout-mydashboard .card-body {
   padding: 20px 15px 18px !important;
 }
@@ -7951,7 +7958,7 @@ html[data-tenantidnumber=lmswaomirai] #page-enrol-index .disabled-fee-fixed {
   left: 0;
   background: rgba(0, 0, 0, .7);
   z-index: 1030;
-  font-size: min(16px, 1.6vw);
+  font-size: min(16px, 0.1vw * 16px);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;

@@ -516,6 +516,15 @@ $default-max-width: 1170px; // 最大幅
       display: block;
     }
   }
+
+  &:not(.is-previous-enabled) .arrow_link.previous{
+    opacity: 0.3;
+    pointer-events: none;
+  }
+  &.is-previous-click-disabled .arrow_link.previous{
+    pointer-events: none;
+  }
+
   // レスポンシブ設定: 768px以上の画面幅でページの幅を設定
   .card-body {
     padding: 20px 15px 18px !important;

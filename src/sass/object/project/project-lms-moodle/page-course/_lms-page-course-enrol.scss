@@ -55,7 +55,7 @@ $disabled-fee-fixed: 64px; // 購入ができないことを示す追従の高�
     left: 0;
     background: $overlay;
     z-index: 1030;
-    font-size: min($lms-font-size-ml, calc((100vw / 1000) * $lms-font-size-ml));
+    font-size: min($lms-font-size-ml, calc((100vw / 1000) * #{$lms-font-size-ml}));
     display: flex;
     align-items: center;
     justify-content: center;
