@@ -809,10 +809,14 @@ if (bodyId === "page-my-index") {
 
         // adminユーザーではない場合、前々月以前に遷移するカレンダーの前月ボタン以外は押せるようにする
         if (!hasBoughtAdminSubject) {
+          // カレンダーの前月ボタンが示す年月をDateオブジェクトとして取得（data属性から年と月を取得し、月は0始まりに補正）
           let previousMonth = new Date(parseInt($('.arrow_link.previous').attr('data-year'), 10),parseInt($('.arrow_link.previous').attr('data-month'), 10) - 1);
+          // 現在の年月日を表すDateオブジェクトを生成（今月の判定に使用）
           let currentMonth = new Date();
+          // 前月ボタンの年月と現在の年月の差を「月数」で算出（年と月の差を合算）
           let monthDiff = (currentMonth.getFullYear() - previousMonth.getFullYear()) * 12 + (currentMonth.getMonth() - previousMonth.getMonth());
-          if(monthDiff >= 2){ // 前月ボタンが前々月以前に遷移する場合
+          // 前月ボタンが前々月以前に遷移する場合
+          if(monthDiff >= 2){
             $('.pagelayout-mydashboard').removeClass('is-previous-enabled'); // 前月ボタンを押せないようにする
           }else{
             $('.pagelayout-mydashboard').addClass('is-previous-enabled'); // 前月ボタンを押せるようにする
