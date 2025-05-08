@@ -690,13 +690,38 @@ if (bodyId === "page-my-index") {
   $(document).ready(function () {
     calendarScheduleColorChange();
     updateClassSchedule();  // 授業スケジュールの更新
+    // カレンダーの前月ボタンを押せるようにする
+    $('.pagelayout-mydashboard').addClass('is-previous-enabled');
   });
 
   // カレンダー月切り替え時の処理
   $(document).on("click", ".arrow_link", function () {
-    // 0.3秒の遅延後に色設定を実行（DOMの更新を待つ）
+    // adminユーザーではない場合、ボタンの連打防止クラスを付ける（表示は変えない）
+    if (!hasBoughtAdminSubject) {
+      $('.pagelayout-mydashboard').addClass('is-previous-click-disabled');
+    }
+
+    // 1秒の遅延後に色設定を実行（DOMの更新を待つ）
     setTimeout(() => {
         calendarScheduleColorChange(); // カレンダー色設定を実行
+
+        // adminユーザーではない場合、前々月以前に遷移するカレンダーの前月ボタン以外は押せるようにする
+        if (!hasBoughtAdminSubject) {
+          // カレンダーの前月ボタンが示す年月をDateオブジェクトとして取得（data属性から年と月を取得し、月は0始まりに補正）
+          let previousMonth = new Date(parseInt($('.arrow_link.previous').attr('data-year'), 10),parseInt($('.arrow_link.previous').attr('data-month'), 10) - 1);
+          // 現在の年月日を表すDateオブジェクトを生成（今月の判定に使用）
+          let currentMonth = new Date();
+          // 前月ボタンの年月と現在の年月の差を「月数」で算出（年と月の差を合算）
+          let monthDiff = (currentMonth.getFullYear() - previousMonth.getFullYear()) * 12 + (currentMonth.getMonth() - previousMonth.getMonth());
+          // 前月ボタンが前々月以前に遷移する場合
+          if(monthDiff >= 2){
+            $('.pagelayout-mydashboard').removeClass('is-previous-enabled'); // 前月ボタンを押せないようにする
+          }else{
+            $('.pagelayout-mydashboard').addClass('is-previous-enabled'); // 前月ボタンを押せるようにする
+          }
+          // ボタンの連打防止クラスを解除（表示は変えない）
+          $('.pagelayout-mydashboard').removeClass('is-previous-click-disabled');
+        }
     }, 1000);
   });
   $(document).on("click", ".close-btn-change-course", function () {
@@ -1176,20 +1201,51 @@ if (bodyId === "page-course-index-category") {
 }
 
 // ==============================
-// メイン3科目または2科目、3科目パック購入後のリダイレクト処理
+// 科目ページの処理
 // ==============================
 // ページIDが'page-course-view-flexsections',page-course-view-topicsかつ管理者でない場合に実行
 if (
   (bodyId === "page-course-view-flexsections" || bodyId === "page-course-view-topics") 
   && !hasBoughtAdminSubject
 ) {
+
+  ////////////////////////////
+  // 前々月以前のトピックを削除
+  ////////////////////////////
+
+  // 正規表現で年と月を抽出するパターン
+  var datePattern = /^(\d{4})年(\d{1,2})月：/;
+
+  // 現在の日付を取得
+  var now = new Date();
+
+  // 前月の1日を計算して基準日を設定
+  var cutoffDate = new Date(now.getFullYear(), now.getMonth() - 1, 1);
+
+  // 各トピックでループを回す
+  $('.course-section-header [data-for="sectiontoggler"]').each(function() {
+      var ariaLabel = $(this).attr('aria-label'); // aria-label属性の値を取得
+      var match = ariaLabel.match(datePattern); // 正規表現で年月を抽出
+      // 年月の表記があるかチェック
+      if (match) {
+          let date = new Date(parseInt(match[1], 10), parseInt(match[2], 10) - 1);
+          // 日付が基準日より前かどうかをチェック
+          if (date < cutoffDate) {
+              // 親要素のトピックの要素を削除
+              $(this).parents('.course-section').remove();
+          }
+      }
+  });
+
+  ////////////////////////////
+  // メイン3科目または2科目、3科目パック購入後のリダイレクト処理
+  ////////////////////////////
+
   // 現在表示しているページがメイン科目（哲学、科学などのトップページ）かチェック
   if (currentViewCourseData?.type === "main") {
     // 現在表示中のメイン科目のキー（例：science, philosophy）を取得
     const currentMainSubjectKey = currentViewCourseData.key;
     
-
-
     // 現在表示中のメイン科目の情報（ID含む）を取得
     const currentMainSubject = subjects.find(
       (subject) => 
