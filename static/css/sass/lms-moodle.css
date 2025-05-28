@@ -6916,6 +6916,32 @@ html[data-tenantidnumber=lmswaomirai] .pagelayout-mydashboard .dashboard-main-in
   right: 0;
   z-index: 1;
 }
+html[data-tenantidnumber=lmswaomirai] #page-my-index .block_calendar_month {
+  position: relative;
+}
+html[data-tenantidnumber=lmswaomirai] #page-my-index .p-abroad-user-jst-label {
+  background: #edfbf5;
+  color: #005c3f;
+  font-size: 12px;
+  padding: 3px 6px;
+  position: absolute;
+  right: 25px;
+  top: 20px;
+  border-radius: 3px;
+  font-weight: 500;
+}
+@media screen and (max-width: 769px) {
+  html[data-tenantidnumber=lmswaomirai] #page-my-index .block_calendar_month .p-abroad-user-jst-label {
+    display: none;
+  }
+  html[data-tenantidnumber=lmswaomirai] #page-my-index .p-abroad-user-jst-label {
+    position: static;
+    display: inline-block;
+    margin: -6px 0 15px;
+    font-size: 14px;
+    padding: 6px 14px;
+  }
+}
 html[data-tenantidnumber=lmswaomirai] #page-user-edit .collapse:not(.show) {
   display: block !important;
 }

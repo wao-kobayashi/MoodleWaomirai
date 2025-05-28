@@ -97,7 +97,7 @@ $(document).ready(function () {
     //用途
     //受講者と管理者ユーザーで挙動を変えたい部分があるので、この講座を持っている人はadminの扱いにする。
     //この講座は表に出ないので一般ユーザーは絶対に受講できない講座
-    { id: 278, name: "admin", key: "admin",  type: "role"}
+    { id: 278, name: "admin", key: "admin",  type: "role"},
 
     // ==============================
     // 海外ユーザー専用の科目（通常ユーザーは購入できない
@@ -732,6 +732,20 @@ if (bodyId === "page-my-index") {
     // 締切日をスパン要素に設定
     // DayChangeCourseDeadLineの値を代入
     $(".c-alert-banner-text-title-thisday").text(DayChangeCourseDeadLine);
+
+    // -----------------------------------------------
+    // カレンダーの上のJST表記のラベルの表示
+    // -----------------------------------------------
+    // 表示条件：checkAbroadUserがtrueの場合（海外ユーザーの講座を持っているか、タイムゾーンが東京以外の場合）
+    if(checkAbroadUser){
+      // 条件を満たす場合、ラベルを表示
+      // 定数としてラベルのHTMLを定義
+      const abroadUserJstLabel = '<div class="p-abroad-user-jst-label">授業時間は日本時間(JST)での表示です</div>';
+      // PC用のラベルを挿入
+      $('.block_calendar_month').append(abroadUserJstLabel);
+      // スマートフォン用のラベルを挿入
+      $('.dashboard-main-navi + .dashboard-main-class .card-title').after(abroadUserJstLabel);
+    }
 
     // -----------------------------------------------
     // 科目変更モーダルの表示条件チェック
