@@ -82,6 +82,14 @@ $(document).ready(function () {
   //受講者と管理者ユーザーで挙動を変えたい部分があるので、この講座を持っている人はadminの扱いにする。
   //この講座は表に出ないので一般ユーザーは絶対に受講できない講座
   { id: 277, name: "admin", key: "admin",  type: "role"}
+
+  // ==============================
+  // 海外ユーザー専用の科目（通常ユーザーは購入できない
+  // ==============================
+
+  //用途
+  //国内ユーザーと海外ユーザーで挙動を変えたい部分があるので、この講座を持っている人は海外ユーザーの扱いにする。
+  { id: 320, name: "abroad", key: "abroad",  type: "role"}
 ];
 
 // ==============================
@@ -182,6 +190,23 @@ const hasBoughtChildSubject = checkGroup((subject) => subject.type === "child");
  //受講者と管理者ユーザーで挙動を変えたい部分があるので、この講座を持っている人はadminの扱いにする。
     //この講座は表に出ないので一般ユーザーは絶対に受講できない講座
 const hasBoughtAdminSubject= checkGroup((subject) => subject.key === "admin");
+
+// 海外ユーザーの講座を持っているかを判定
+ // 国内ユーザーと海外ユーザーで挙動を変えたい部分があるので、海外ユーザーの講座を持っている人は海外ユーザーの扱いにする。
+const hasBoughtAbroadSubject= checkGroup((subject) => subject.key === "abroad");
+
+// ==============================
+// 海外ユーザーチェック関数
+// ==============================
+// ユーザーが海外ユーザーかを判定する関数
+// 海外ユーザーの講座を持っているか、タイムゾーンが東京以外の場合に海外ユーザーとして判定する
+function checkAbroadUser(){
+  if(hasBoughtAbroadSubject || Intl.DateTimeFormat().resolvedOptions().timeZone !== 'Asia/Tokyo'){
+    return true;
+  }else{
+    return false;
+  }
+}
 
 // ==============================
 // 科目の特定レベルチェック関数
