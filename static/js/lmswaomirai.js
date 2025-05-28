@@ -699,6 +699,7 @@ if (bodyId === "page-my-index") {
     
     // 定数として固定のクッキー名を定義
     const monthlyChangeCourseCookie = 'hideMonthlyChangeCourseAlert';
+    const abroadUserCookie = 'hideAbroadUserAlert';
 
     // 現在の月に基づいて、アラートバナーのテキストを動的に設定
 
@@ -739,7 +740,26 @@ if (bodyId === "page-my-index") {
       // 非公開設定用のクッキーを設定
       // expires: (DayChangeCourseDeadLine - DayChangeCourseBannerStart + 1) で、締切日通知モーダル表示の表示開始日～締切日の日数が経過した際に、自動的に期限切れとなる
       $.cookie(monthlyChangeCourseCookie, "true", { expires: (DayChangeCourseDeadLine - DayChangeCourseBannerStart + 1)});
-    } 
+    }
+
+    // -----------------------------------------------
+    // JST表記モーダルの表示条件チェック
+    // -----------------------------------------------
+    // モーダルの表示条件：
+    // 1. checkAbroadUserがtrueの場合（海外ユーザーの講座を持っているか、タイムゾーンが東京以外の場合）
+    // 2. 非表示設定用のクッキーが存在しない場合
+    if(checkAbroadUser && !$.cookie(abroadUserCookie)){
+      // 条件を満たす場合、モーダルを表示
+      createModal({
+        title: "授業時間は「日本時間（JST）」に<br />基づいて表示されます。<br /><br />",
+        buttons: [
+          // OKボタンを追加
+          { text: "確認しました", class: "btn-primary c-modal-wrap-close-tag" }
+        ]
+      });
+      // 非公開設定用のクッキーを設定（1年で期限切れとなる）
+      $.cookie(abroadUserCookie, "true", { expires: 365});
+    }
   }
 
   // ===============================================
