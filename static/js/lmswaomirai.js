@@ -721,7 +721,7 @@ if (bodyId === "page-my-index") {
     // カレンダーの上のJST表記のラベルの表示
     // -----------------------------------------------
     // 表示条件：checkAbroadUserがtrueの場合（海外ユーザーの講座を持っているか、タイムゾーンが東京以外の場合）
-    if(checkAbroadUser){
+    if(checkAbroadUser()){
       // 条件を満たす場合、ラベルを表示
       // 定数としてラベルのHTMLを定義
       const abroadUserJstLabel = '<div class="p-abroad-user-jst-label">授業時間は日本時間(JST)での表示です</div>';
@@ -762,7 +762,7 @@ if (bodyId === "page-my-index") {
     // モーダルの表示条件：
     // 1. checkAbroadUserがtrueの場合（海外ユーザーの講座を持っているか、タイムゾーンが東京以外の場合）
     // 2. 非表示設定用のクッキーが存在しない場合
-    if(checkAbroadUser && !$.cookie(abroadUserCookie)){
+    if(checkAbroadUser() && !$.cookie(abroadUserCookie)){
       // 条件を満たす場合、モーダルを表示
       createModal({
         title: "授業時間は「日本時間（JST）」に<br />基づいて表示されます。<br /><br />",
