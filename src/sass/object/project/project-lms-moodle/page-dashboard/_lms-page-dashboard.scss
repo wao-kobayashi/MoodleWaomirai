@@ -1082,3 +1082,35 @@ $modal-button-height: 55px;
     }
   }
 }
+
+////////////////////////
+//JST表記のラベル
+////////////////////////
+#page-my-index{
+  .block_calendar_month{
+    position: relative;
+  }
+  .p-abroad-user-jst-label{
+    background: #edfbf5;
+    color: $cl-waogreen;
+    font-size: 12px;
+    padding: 3px 6px;
+    position: absolute;
+    right: 25px;
+    top: 20px;
+    border-radius: 3px;
+    font-weight: 500;
+  }
+  @include responsive-style(769px) {
+    .block_calendar_month .p-abroad-user-jst-label{
+      display: none;
+    }
+    .p-abroad-user-jst-label{
+      position: static;
+      display: inline-block;
+      margin: -6px 0 15px;
+      font-size: 14px;
+      padding: 6px 14px;
+    }
+  }
+}
