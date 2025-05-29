@@ -671,7 +671,7 @@ if (bodyId === "page-my-index") {
     if(checkAbroadUser() && !$.cookie(abroadUserCookie)){
       // 条件を満たす場合、モーダルを表示
       createModal({
-        title: "授業時間は「日本時間（JST）」に<br />基づいて表示されます。<br /><br />",
+        title: "授業時間は「日本時間(JST)」に<br />基づいて表示されます。<br /><br />",
         buttons: [
           // OKボタンを追加
           { text: "確認しました", class: "btn-primary c-modal-wrap-close-tag" }
