@@ -97,6 +97,23 @@ const hasBoughtChildSubject = checkGroup((subject) => subject.type === "child");
     //この講座は表に出ないので一般ユーザーは絶対に受講できない講座
 const hasBoughtAdminSubject= checkGroup((subject) => subject.key === "admin");
 
+// 海外ユーザーの講座を持っているかを判定
+ // 国内ユーザーと海外ユーザーで挙動を変えたい部分があるので、海外ユーザーの講座を持っている人は海外ユーザーの扱いにする。
+const hasBoughtAbroadSubject= checkGroup((subject) => subject.key === "abroad");
+
+// ==============================
+// 海外ユーザーチェック関数
+// ==============================
+// ユーザーが海外ユーザーかを判定する関数
+// 海外ユーザーの講座を持っているか、タイムゾーンが東京以外の場合に海外ユーザーとして判定する
+function checkAbroadUser(){
+  if(hasBoughtAbroadSubject || Intl.DateTimeFormat().resolvedOptions().timeZone !== 'Asia/Tokyo'){
+    return true;
+  }else{
+    return false;
+  }
+}
+
 // ==============================
 // 科目の特定レベルチェック関数
 // ==============================
@@ -588,6 +605,7 @@ if (bodyId === "page-my-index") {
     
     // 定数として固定のクッキー名を定義
     const monthlyChangeCourseCookie = 'hideMonthlyChangeCourseAlert';
+    const abroadUserCookie = 'hideAbroadUserAlert';
 
     // 現在の月に基づいて、アラートバナーのテキストを動的に設定
 
@@ -604,6 +622,20 @@ if (bodyId === "page-my-index") {
     // 締切日をスパン要素に設定
     // DayChangeCourseDeadLineの値を代入
     $(".c-alert-banner-text-title-thisday").text(DayChangeCourseDeadLine);
+
+    // -----------------------------------------------
+    // カレンダーの上のJST表記のラベルの表示
+    // -----------------------------------------------
+    // 表示条件：checkAbroadUserがtrueの場合（海外ユーザーの講座を持っているか、タイムゾーンが東京以外の場合）
+    if(checkAbroadUser()){
+      // 条件を満たす場合、ラベルを表示
+      // 定数としてラベルのHTMLを定義
+      const abroadUserJstLabel = '<div class="p-abroad-user-jst-label">授業時間は日本時間(JST)での表示です</div>';
+      // PC用のラベルを挿入
+      $('.block_calendar_month').append(abroadUserJstLabel);
+      // スマートフォン用のラベルを挿入
+      $('.dashboard-main-navi + .dashboard-main-class .card-title').after(abroadUserJstLabel);
+    }
 
     // -----------------------------------------------
     // 科目変更モーダルの表示条件チェック
@@ -628,7 +660,26 @@ if (bodyId === "page-my-index") {
       // 非公開設定用のクッキーを設定
       // expires: (DayChangeCourseDeadLine - DayChangeCourseBannerStart + 1) で、締切日通知モーダル表示の表示開始日～締切日の日数が経過した際に、自動的に期限切れとなる
       $.cookie(monthlyChangeCourseCookie, "true", { expires: (DayChangeCourseDeadLine - DayChangeCourseBannerStart + 1)});
-    } 
+    }
+
+    // -----------------------------------------------
+    // JST表記モーダルの表示条件チェック
+    // -----------------------------------------------
+    // モーダルの表示条件：
+    // 1. checkAbroadUserがtrueの場合（海外ユーザーの講座を持っているか、タイムゾーンが東京以外の場合）
+    // 2. 非表示設定用のクッキーが存在しない場合
+    if(checkAbroadUser() && !$.cookie(abroadUserCookie)){
+      // 条件を満たす場合、モーダルを表示
+      createModal({
+        title: "授業時間は「日本時間(JST)」に<br />基づいて表示されます。<br /><br />",
+        buttons: [
+          // OKボタンを追加
+          { text: "確認しました", class: "btn-primary c-modal-wrap-close-tag" }
+        ]
+      });
+      // 非公開設定用のクッキーを設定（1年で期限切れとなる）
+      $.cookie(abroadUserCookie, "true", { expires: 365});
+    }
   }
 
   // ===============================================
