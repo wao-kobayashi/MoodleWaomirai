@@ -191,6 +191,11 @@ const hasBoughtChildSubject = checkGroup((subject) => subject.type === "child");
     //この講座は表に出ないので一般ユーザーは絶対に受講できない講座
 const hasBoughtAdminSubject= checkGroup((subject) => subject.key === "admin");
 
+// 管理者ユーザーのみbodyにクラスを付ける
+if(hasBoughtAdminSubject){
+    $('body').addClass('is-admin-user');
+}
+
 // 海外ユーザーの講座を持っているかを判定
  // 国内ユーザーと海外ユーザーで挙動を変えたい部分があるので、海外ユーザーの講座を持っている人は海外ユーザーの扱いにする。
 const hasBoughtAbroadSubject= checkGroup((subject) => subject.key === "abroad");

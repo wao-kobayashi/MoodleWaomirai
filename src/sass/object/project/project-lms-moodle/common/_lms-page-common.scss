@@ -260,3 +260,9 @@ footer.footer-popover {
     display: none !important;
   }
 }
+
+// メッセージボタンを管理者ユーザー以外で表示しない
+body:not(.is-admin-user) div[data-region="popover-region-messages"],
+body:not(.is-admin-user) #message-user-button{
+  display: none;
+}

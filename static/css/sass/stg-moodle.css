@@ -1537,6 +1537,10 @@ html[data-tenantidnumber=stg] footer.footer-popover a .fa.fa-external-link {
     display: none !important;
   }
 }
+html[data-tenantidnumber=stg] body:not(.is-admin-user) div[data-region=popover-region-messages],
+html[data-tenantidnumber=stg] body:not(.is-admin-user) #message-user-button {
+  display: none;
+}
 @media screen and (max-width: 768px) {
   html[data-tenantidnumber=stg] #usernavigation .editmode-switch-form,
   html[data-tenantidnumber=stg] #usernavigation .divider {
