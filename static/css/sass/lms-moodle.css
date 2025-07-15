@@ -1537,6 +1537,10 @@ html[data-tenantidnumber=lmswaomirai] footer.footer-popover a .fa.fa-external-li
     display: none !important;
   }
 }
+html[data-tenantidnumber=lmswaomirai] body:not(.is-admin-user) div[data-region=popover-region-messages],
+html[data-tenantidnumber=lmswaomirai] body:not(.is-admin-user) #message-user-button {
+  display: none;
+}
 @media screen and (max-width: 768px) {
   html[data-tenantidnumber=lmswaomirai] #usernavigation .editmode-switch-form,
   html[data-tenantidnumber=lmswaomirai] #usernavigation .divider {
