@@ -98,53 +98,66 @@ select {
   }
 }
 body#lmswaomirai-contact {
-  padding: 60px 0 90px;
+  padding: 0px 0 90px;
   font-family: "Noto Sans JP", sans-serif;
   color: #262626;
 }
 
 main {
   text-align: center;
-  max-width: 960px;
   margin: 0 auto;
 }
-main h2 {
-  margin: 0 auto 20px;
+main .main-box {
+  background: #ffffff;
+  padding: 45px 0;
+  margin: 0 auto 0px;
 }
-main .main-p {
-  margin: 0 auto 45px;
-  line-height: 2;
-  font-size: 20px;
+main .main-box .main-box-wrapper {
+  max-width: 960px;
+  width: 100%;
+  margin: 0 auto 0;
+  padding: 0 0 60px;
+  text-align: left;
+  border-bottom: 2px solid #efefef;
+}
+main .main-box .main-box-wrapper h2 {
+  margin: 0 auto 20px;
+  letter-spacing: 1px;
+}
+main .main-box .main-box-wrapper .main-p {
+  margin: 0 auto 0px;
+  line-height: 2.5;
+  font-size: 16px;
   color: #262626;
   line-height: 1.5;
 }
-main .main-p a {
+main .main-box .main-box-wrapper .main-p a {
   color: #005c3f !important;
 }
+main .contact-title {
+  font-size: 20px;
+  color: #262626;
+  line-height: 1.5;
+  text-align: left;
+  margin: 0 auto 30px;
+  max-width: 960px;
+}
 main .contact-columns {
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  max-width: 960px;
+  display: grid;
   gap: 30px;
+  margin: 0 auto 60px;
+  grid-template-columns: repeat(3, 1fr);
 }
 @media screen and (max-width: 768px) {
   main .contact-columns {
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
+    grid-template-columns: 1fr;
   }
 }
 main .contact-columns .contact-columns-box {
   -webkit-box-flex: 1;
-      -ms-flex: 1;
-          flex: 1;
+      -ms-flex: 1 1 260px;
+          flex: 1 1 260px;
   border: 2px solid #efefef;
   border-radius: 8px;
   padding: 30px 25px 40px;
@@ -155,11 +168,11 @@ main .contact-columns .contact-columns-box {
   }
 }
 main .contact-columns .contact-columns-box .contact-columns-title {
-  margin: 0 auto 20px;
+  margin: 0 auto 0px;
   font-size: 20px;
   color: #262626;
   line-height: 1.5;
-  height: 60px;
+  height: 80px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -172,6 +185,13 @@ main .contact-columns .contact-columns-box .contact-columns-title {
   color: #005c3f !important;
   letter-spacing: 1px;
   font-weight: 500;
+}
+@media screen and (max-width: 768px) {
+  main .contact-columns .contact-columns-box .contact-columns-title {
+    font-size: 20px;
+    color: #262626;
+    line-height: 1.5;
+  }
 }
 main .contact-columns .contact-columns-box a {
   height: 44px;

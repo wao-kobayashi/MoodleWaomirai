@@ -26,36 +26,63 @@
 }
 
 body#lmswaomirai-contact {
-  padding: 60px 0 90px;
+  padding: 0px 0 90px;
   font-family: "Noto Sans JP", sans-serif;
   color: $cl-black;
 }
 
 main {
   text-align: center;
-  max-width: 960px;
+  
   margin: 0 auto;
-  h2 {
-    margin: 0 auto 20px;
-  }
-  .main-p {
-    margin: 0 auto 45px;
-    line-height: 2;
-    @include text-l-black;
-    a {
-      color: $cl-waogreen !important;
+  .main-box{
+    // background: $cl-graylightest;
+    background: $cl-white;
+    padding: 45px 0;
+    margin: 0 auto 0px;
+
+    .main-box-wrapper{
+      max-width: 960px;
+      width: 100%;
+      margin: 0 auto 0;
+      padding: 0 0 60px;
+      text-align: left;
+      border-bottom: 2px solid $cl-graylightest;
+      h2 {
+        margin: 0 auto 20px;
+        letter-spacing: 1px;
+      }
+      .main-p {
+        margin: 0 auto 0px;
+        line-height: 2.5;
+        @include text-m-black;
+        a {
+          color: $cl-waogreen !important;
+        }
+      }
     }
+  }
+
+  .contact-title{
+    @include text-l-black;
+    text-align: left;
+    margin: 0 auto 30px;
+    // padding:0 0 30px;
+    // border-bottom: 2px solid $cl-graylightest;
+    max-width: 960px;
   }
   .contact-columns {
-    justify-content: center;
-    display: flex;
-    align-items: center;
-    gap: 30px;
+    max-width: 960px;
+    display: grid;                                     // 変更
+    gap: 30px;            
+    margin: 0 auto 60px;                             // そのまま
+    grid-template-columns: repeat(3, 1fr);  // 2 列固定
     @include responsive-style(768px) {
-      flex-direction: column;
+ grid-template-columns: 1fr;           // 1 列に
+  
     }
     .contact-columns-box {
-      flex: 1;
+      flex: 1 1 260px;        // 幅の下限を指定（例 260px）
       // @include lms-boxshadow;
       border: 2px solid $cl-graylightest;
       border-radius: $border-radius-middle;
@@ -64,15 +91,18 @@ main {
         width: 90%;
       }
       .contact-columns-title {
-        margin: 0 auto 20px;
+        margin: 0 auto 0px;
         @include text-l-black;
-        height: 60px;
+        height: 80px;
         display: flex;
         align-items: center;
         justify-content: center;
         color: $cl-waogreen !important;
         letter-spacing: 1px;
         font-weight: 500;
+        @include responsive-style(768px) {
+          @include text-l-black;
+        }
       }
       a {
         height: 44px;
