@@ -86,14 +86,14 @@ main {
       // @include lms-boxshadow;
       border: 2px solid $cl-graylightest;
       border-radius: $border-radius-middle;
-      padding: 30px 25px 40px;
+      padding: 15px 25px 40px;
       @include responsive-style(768px) {
         width: 90%;
       }
       .contact-columns-title {
         margin: 0 auto 0px;
         @include text-l-black;
-        height: 80px;
+        height: 110px;
         display: flex;
         align-items: center;
         justify-content: center;
