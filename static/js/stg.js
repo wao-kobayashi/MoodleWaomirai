@@ -1512,7 +1512,7 @@ function showCampaignModal() {
 // レベル変更のモーダル関数
 function showLevelSettingModal() {
   createModal({
-    image: "https://go.waomirai.com/l/1026513/2025-01-27/hcs2k/1026513/1737961533tHzVY8az/img_modal_subject.png",
+    image: "https://go.waomirai.com/l/1026513/2025-07-29/hs5b6/1026513/1753842412LvICKN8s/img_modal_subject.png",
     imageClass: "c-modal-wrap-subject-img",
     wrapClass: "c-modal-wrap-subject",
     buttons: [
