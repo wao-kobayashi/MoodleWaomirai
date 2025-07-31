@@ -387,6 +387,12 @@ $default-max-width: 1170px; // 最大幅
         opacity: 0.7;
       }
     }
+    @include responsive-style(768px) {
+      .dashboard-left-banner{
+        width: 88%;
+        margin: 0 auto;
+      }
+    }
   }
   #page.drawers {
     padding-left: 0px !important;
