@@ -6219,9 +6219,6 @@ html[data-tenantidnumber=stg] .pagelayout-mydashboard .dashboard-left ul li a {
   text-decoration: underline;
   font-size: 14px;
 }
-html[data-tenantidnumber=stg] .pagelayout-mydashboard .dashboard-left .dashboard-left-banner {
-  margin-top: -15px;
-}
 html[data-tenantidnumber=stg] .pagelayout-mydashboard .dashboard-left .dashboard-left-banner-link {
   display: block;
   border-radius: 12px;
