@@ -22,3 +22,7 @@ body {
 html[data-tenantidnumber="lmswaomirai"] {
   @import "object/project/project-lms-moodle/_lms-scss-global";
 }
+
+html[data-tenantidnumber="lmswaomirai"] .dashboard-left-banner{
+  display: none;
+}

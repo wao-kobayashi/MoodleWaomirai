@@ -6219,6 +6219,19 @@ html[data-tenantidnumber=lmswaomirai] .pagelayout-mydashboard .dashboard-left ul
   text-decoration: underline;
   font-size: 14px;
 }
+html[data-tenantidnumber=lmswaomirai] .pagelayout-mydashboard .dashboard-left .dashboard-left-banner {
+  margin-top: -15px;
+}
+html[data-tenantidnumber=lmswaomirai] .pagelayout-mydashboard .dashboard-left .dashboard-left-banner-link {
+  display: block;
+  border-radius: 12px;
+  overflow: hidden;
+  -webkit-box-shadow: 0px 4px 4px rgba(0, 0, 0, .21);
+          box-shadow: 0px 4px 4px rgba(0, 0, 0, .21);
+}
+html[data-tenantidnumber=lmswaomirai] .pagelayout-mydashboard .dashboard-left .dashboard-left-banner-link:hover {
+  opacity: 0.7;
+}
 html[data-tenantidnumber=lmswaomirai] .pagelayout-mydashboard #page.drawers {
   padding-left: 0px !important;
   padding-right: 0px !important;
@@ -12931,4 +12944,8 @@ html[data-tenantidnumber=lmswaomirai] #page-mod-page-view .howto-image img {
 html[data-tenantidnumber=lmswaomirai] #page-mod-page-view .p-alert {
   color: #f35053 !important;
   font-weight: bold;
+}
+
+html[data-tenantidnumber=lmswaomirai] .dashboard-left-banner {
+  display: none;
 }
