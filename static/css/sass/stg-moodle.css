@@ -12782,6 +12782,28 @@ html[data-tenantidnumber=stg] #page-course-view-flexsections .course-section.mai
 html[data-tenantidnumber=stg] #page-course-view-topics .course-section.main .course-section {
   border: none !important;
 }
+html[data-tenantidnumber=stg] #page-course-view-flexsections .subject-page-added .course-content-item-content ul,
+html[data-tenantidnumber=stg] #page-course-view-topics .subject-page-added .course-content-item-content ul {
+  display: grid !important;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+}
+html[data-tenantidnumber=stg] #page-course-view-flexsections .subject-page-added .course-content-item-content ul li:nth-child(2),
+html[data-tenantidnumber=stg] #page-course-view-topics .subject-page-added .course-content-item-content ul li:nth-child(2) {
+  grid-column-start: 1;
+  grid-row-start: 2;
+}
+html[data-tenantidnumber=stg] #page-course-view-flexsections .subject-page-added .course-content-item-content ul li:nth-child(3),
+html[data-tenantidnumber=stg] #page-course-view-topics .subject-page-added .course-content-item-content ul li:nth-child(3) {
+  grid-column-start: 1;
+  grid-row-start: 3;
+}
+html[data-tenantidnumber=stg] #page-course-view-flexsections .subject-page-added .course-content-item-content ul li:nth-child(4),
+html[data-tenantidnumber=stg] #page-course-view-topics .subject-page-added .course-content-item-content ul li:nth-child(4) {
+  grid-row: span 3/span 3;
+  grid-column-start: 2;
+  grid-row-start: 1;
+}
 @media screen and (max-width: 768px) {
   html[data-tenantidnumber=stg] #page-user-preferences .col-1,
   html[data-tenantidnumber=stg] #page-user-preferences .col-2,
