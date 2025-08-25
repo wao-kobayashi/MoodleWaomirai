@@ -253,8 +253,20 @@ span#maincontent
                                                         i.icon.fa.fa-check.fa-fw(aria-hidden="true")
                                                         span.sr-only 完了:
                                                       span 学生が完了するためにはこのアンケートに回答しなければなりません
-                            li 
-                             |授業のまとめシート
+                            li.subject-page-added-note.published
+                              .subject-page-added-note-head 
+                                 .subject-page-added-note-head-title
+                                    |授業の
+                                    br
+                                    |まとめシート
+                                 .subject-page-added-note-head-icon 
+                                    
+                              .subject-page-added-note-content 
+                                |授業の復習にご活用ください！ ファイリングして、あなただけの「未来塾ノート」を作ってみてくださいね！
+                              a.subject-page-added-note-content-download(href="https://lms.waomirai.com/mod/resource/view.php?id=1973")
+                                i.fa-regular.fa-circle-down
+                                .subject-page-added-note-content-download-text
+                                   |ダウンロードする  
                             //li#module-1973.activity.activity-wrapper.resource.hasinfo(
                               data-id="1973" 
                               data-for="cmitem" 
@@ -329,7 +341,7 @@ span#maincontent
                               data-number="1" 
                               data-id="767" 
                               data-for="section_title"
-                              ) 2025年10月：10 万ボルトの強さはどのくらい ?
+                              ) 2025年10月：10万ボルトの強さはどのくらい ?
                           .sectionbadges.d-flex.align-items-center(data-region="sectionbadges")
                         #coursecontentcollapse1.content.course-content-item-content.collapse.show
                           .my-3(data-for="sectioninfo")
@@ -530,4 +542,18 @@ span#maincontent
                                                       div
                                                         i.icon.fa.fa-check.fa-fw(aria-hidden="true")
                                                         span.sr-only 完了:
-                                                      span 学生が完了するためにはこのアンケートに回答しなければなりません
+                                                      span 学生が完了するためにはこのアンケートに回答しなければなりませ
+                            li.subject-page-added-note.not-published
+                              .subject-page-added-note-head 
+                                 .subject-page-added-note-head-title
+                                    |授業の
+                                    br
+                                    |まとめシート
+                                 .subject-page-added-note-head-icon 
+                                    
+                              .subject-page-added-note-content 
+                                |現在準備中です
+                              //- a.subject-page-added-note-content-download(href="https://lms.waomirai.com/mod/resource/view.php?id=1973")
+                              //-   i.fa-regular.fa-circle-down
+                              //-   .subject-page-added-note-content-download-text
+                              //-      |ダウンロードする  

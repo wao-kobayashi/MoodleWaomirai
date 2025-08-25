@@ -102,7 +102,7 @@
       margin-bottom: 0rem !important;
     }
     .d-block {
-      padding: 0px 16px 10px !important;
+      padding: 0px 25px 30px !important;
       border: none !important;
     }
     .section .activity {
@@ -110,29 +110,36 @@
       padding: 0.25rem 0 0.5rem;
     }
     > .course-section-header {
-      background: $cl-graylightest;
-      padding: 20px 15px !important;
+      // background: $cl-white;
+      padding: 18px 15px !important;
+      border-bottom: 2px solid $cl-graylightest;
       h3 {
         font-size: $lms-font-size-xl !important;
       }
     }
     h3 {
       font-size: $lms-font-size-l !important;
+      margin: 0 0 0 10px;
     }
     .course-section-header {
       padding: 0px 15px;
+    }
+    .bulkselect + .d-flex {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      flex-direction: row-reverse;
     }
     .course-section {
       border: none !important;
     }
   }
-
-  //教科ページ専用のscss
   .subject-page-added {
     .course-content-item-content ul {
       display: grid !important;
-      grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: 1fr 220px;
       grid-template-rows: repeat(3, 1fr);
+      gap: 25px 30px;
       li {
         &:nth-child(2) {
           grid-column-start: 1;
@@ -147,6 +154,130 @@
           grid-column-start: 2;
           grid-row-start: 1;
         }
+      }
+    }
+    .activity {
+      padding: 0 !important;
+    }
+    .activity-item {
+      max-height: 66px;
+      display: flex;
+    }
+    .activity-item:not(.activityinline) {
+      padding: 1rem 1rem !important;
+      align-items: center;
+    }
+    .activity-icon.align-self-start {
+      align-self: center !important;
+    }
+    .d-block {
+      padding: 0px 16px 30px !important;
+    }
+    .mt-3,
+    .my-3 {
+      margin-top: 30px !important;
+    }
+    .subject-page-added-note {
+      list-style: none;
+      background: $cl-graylightest;
+      border-radius: 1rem;
+      padding: 20px;
+      .subject-page-added-note-head {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        margin: 0 auto 12px;
+      }
+      .subject-page-added-note-head-title {
+        font-size: $lms-font-size-ml;
+        font-weight: 500;
+      }
+      .subject-page-added-note-head-icon {
+        width: 44px;
+        height: 44px;
+        background: $cl-white;
+        border-radius: $border-radius-full;
+      }
+      .subject-page-added-note-content {
+        font-size: $lms-font-size-s;
+        margin: 0 auto 12px;
+      }
+      .subject-page-added-note-content-download {
+        font-size: $lms-font-size-m;
+        justify-content: center;
+        background: $cl-white;
+        width: 100%;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        gap: 4px;
+        border-radius: $border-radius-big;
+        font-weight: bold;
+        .subject-page-added-note-head-icon {
+          font-size: $lms-font-size-s;
+          margin: 0 8px 0 0;
+          line-height: $lineheight-none;
+        }
+        .subject-page-added-note-content-download-text {
+          line-height: $lineheight-none;
+        }
+      }
+    }
+  }
+}
+
+// ========================================
+// コースカテゴリ別スタイル適用処理
+// ========================================
+//
+// $course-stylesの構造：
+// $course-styles: (
+//   "economy": (".category-53", ".category-48"),
+//   "science": (".category-52", ".category-49"),
+//   "philosophy": (".category-51", ".category-47"),
+//   "english": (".category-50", ".category-54"),
+//   "programming": (".course-999999")
+// );
+//
+// 処理の流れ：
+// 1. 外側のループ：各カテゴリ名（economy, science, philosophy, english, programming）を取得
+// 2. 内側のループ：各カテゴリに属するCSSセレクタ（.category-XX, .course-999999など）を取得
+// 3. 各セレクタ内のdiv要素に対して、統一されたスタイルを適用
+//
+// 目的：
+// - コースのカテゴリごとに異なるセレクタを持つ要素に対して
+// - 各カテゴリ固有の色（main-color, pale-color）を適用
+// - 将来的にカテゴリ別の色分けやスタイル変更が容易になるよう設計
+@each $style-name, $categories in $course-styles {
+  @each $category in $categories {
+    #{$category} {
+      // div {
+      //   background-color: map-get(
+      //     map-get($common-course-styles, $style-name),
+      //     "pale-color"
+      //   );
+      //   color: map-get(
+      //     map-get($common-course-styles, $style-name),
+      //     "main-color"
+      //   );
+      // }
+      .published {
+        background-color: map-get(
+          map-get($common-course-styles, $style-name),
+          "pale-color"
+        ) !important;
+      }
+      .subject-page-added-note-content-download {
+        color: map-get(
+          map-get($common-course-styles, $style-name),
+          "main-color"
+        ) !important;
+        border: map-get(
+            map-get($common-course-styles, $style-name),
+            "main-color"
+          )
+          1px
+          solid;
       }
     }
   }
