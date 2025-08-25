@@ -2,22 +2,39 @@
 //trueの場合は表示、falseの場合は非表示
 - var infoOpeningVisible = false
 
-//よくある質問の表示フラグ
-//trueの場合は表示、falseの場合は非表示
-- var infoHowtoVisible = true
-
-//LINE連携の表示フラグ
-//trueの場合は表示、falseの場合は非表示
-- var connectionLineVisible = true
 
 //ダッシュボードにコピペするブロック
 .dashboard-textblock
   .dashboard-left
     .dashboard-left-block.dashboard-left-block-subject
+      ///////////////////////
+      // 現在受講中の科目
+      ///////////////////////
       .dashboard-left-block-title
         |現在受講中の科目
       .dashboard-left-block-wrap.dashboard-left-block-wrap-subject
-    if connectionLineVisible
+      ///////////////////////
+      // 授業のメモシート
+      ///////////////////////
+      .dashboard-left-block-worksheet 
+        .dashboard-left-block-worksheet-title
+          .dashboard-left-block-worksheet-title-text
+            |授業の
+            br
+            |メモシート
+          .dashboard-left-block-worksheet-title-icon 
+
+        .dashboard-left-block-worksheet-text 
+            |授業中の学びを記録できる
+            br
+            |印刷用シートです。
+            br
+            |ご活用いただくとより授業が楽しめます
+        .dashboard-left-block-worksheet-download 
+          |ダウンロードする
+      ///////////////////////
+      // LINE連携
+      ///////////////////////
       .dashboard-left-block.dashboard-left-block-subject
         .dashboard-left-block-title
           |LINE連携
@@ -30,8 +47,7 @@
               br
               |通知を受け取る
     //infoHowtoVisibleがtrueの時に「開校のお知らせ」を表示
-    if infoHowtoVisible
-      .dashboard-left-block.dashboard-left-block-guide 
+    .dashboard-left-block.dashboard-left-block-guide 
         .dashboard-left-block-title
           |使い方ガイド
         ul.dashboard-left-block-links
