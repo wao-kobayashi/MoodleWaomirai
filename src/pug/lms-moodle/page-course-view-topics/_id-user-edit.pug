@@ -3,7 +3,7 @@
 
    {
       id: 'ph-main-free',   // 何も購入していない（初期状態）
-      SubjectPageTitle: '哲学',
+      SubjectPageTitle: '哲学(L1なし)',
       courseID: env === 'stg' ? 212 : env === 'lmswaomirai' ? 255 : 0,
       paymentID: env === 'stg' ? [212] : env === 'lmswaomirai' ? [255] : [0],
       categoryID: env === 'stg' ? 'category-51' : env === 'lmswaomirai' ? 'category-47' : ''
@@ -65,7 +65,7 @@
       categoryID: env === 'stg' ? 'category-53' : env === 'lmswaomirai' ? 'category-48' : ''
     },
     {
-      id: 'en-none',
+      id: 'en-main-free',
       SubjectPageTitle: '英語',
       courseID: env === 'stg' ? 236 : env === 'lmswaomirai' ? 135 : 0,
       paymentID: env === 'stg' ? [236] : env === 'lmswaomirai' ? [135] : [0],
