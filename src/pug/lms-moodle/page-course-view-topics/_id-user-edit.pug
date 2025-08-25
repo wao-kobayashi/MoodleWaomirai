@@ -1,107 +1,145 @@
 -
+  // ==============================
+  // ユーザー編集ページ用の科目設定データ
+  // ==============================
+  // このファイルは、各科目のページ表示時に必要なID情報を定義する
+  // 環境（stg/lmswaomirai）に応じて適切なcourseIDとpaymentIDを設定
+  // 購入状態（未購入/L1購入済）に応じて表示内容を制御する
+  // ==============================
+  
   var useredit = [
     {
       id: 'ph-main-free',   // 哲学メインページ（サブレベルなし・未購入）
       SubjectPageTitle: '哲学(L1なし)',
+      // courseID: 哲学メイン科目のID（stg:212, lmswaomirai:255）
       courseID: env === 'stg' ? 212 : env === 'lmswaomirai' ? 255 : 0,
+      // paymentID: 哲学メイン科目のみ（L1未購入）
       paymentID: env === 'stg' ? [212] : env === 'lmswaomirai' ? [255] : [0],
       categoryID: env === 'stg' ? 'category-51' : env === 'lmswaomirai' ? 'category-47' : ''
     },
     {
       id: 'ph-main-level1-purchased', // 哲学メインページ（サブレベルあり・L1購入済）
       SubjectPageTitle: '哲学(L1購入済)',
+      // courseID: 哲学メイン科目のID（stg:212, lmswaomirai:255）
       courseID: env === 'stg' ? 212 : env === 'lmswaomirai' ? 255 : 0,
+      // paymentID: 哲学メイン科目 + L1子科目（stg:[212,221], lmswaomirai:[255,256]）
       paymentID: env === 'stg' ? [212,221] : env === 'lmswaomirai' ? [255,256] : [0],
       categoryID: env === 'stg' ? 'category-51' : env === 'lmswaomirai' ? 'category-47' : ''
     },
     {
       id: 'ph-level1', // 哲学L1ページ詳細（L1購入済）
       SubjectPageTitle: '哲学L1',
+      // courseID: 哲学L1子科目のID（stg:221, lmswaomirai:256）
       courseID: env === 'stg' ? 221 : env === 'lmswaomirai' ? 256 : 0,
+      // paymentID: 哲学メイン科目 + L1子科目（stg:[212,221], lmswaomirai:[255,256]）
       paymentID: env === 'stg' ? [212,221] : env === 'lmswaomirai' ? [255,256] : [0],
       categoryID: env === 'stg' ? 'category-51' : env === 'lmswaomirai' ? 'category-47' : ''
     },
     {
       id: 'sc-main-free',   // 科学メインページ（未購入・初期状態）
       SubjectPageTitle: '科学',
+      // courseID: 科学メイン科目のID（stg:211, lmswaomirai:265）
       courseID: env === 'stg' ? 211 : env === 'lmswaomirai' ? 265 : 0,
+      // paymentID: 科学メイン科目のみ（L1未購入）
       paymentID: env === 'stg' ? [211] : env === 'lmswaomirai' ? [265] : [0],
       categoryID: env === 'stg' ? 'category-52' : env === 'lmswaomirai' ? 'category-49' : ''
     },
     {
       id: 'sc-main-level1-purchased', // 科学メインページ（L1購入済）
       SubjectPageTitle: '科学(L1購入済)',
+      // courseID: 科学メイン科目のID（stg:211, lmswaomirai:265）
       courseID: env === 'stg' ? 211 : env === 'lmswaomirai' ? 265 : 0,
+      // paymentID: 科学メイン科目 + L1子科目（stg:[211,223], lmswaomirai:[265,266]）
       paymentID: env === 'stg' ? [211,223] : env === 'lmswaomirai' ? [265,266] : [0],
       categoryID: env === 'stg' ? 'category-52' : env === 'lmswaomirai' ? 'category-49' : ''
     },
     {
       id: 'sc-level1', // 科学L1ページ詳細（L1購入済）
       SubjectPageTitle: '科学L1',
+      // courseID: 科学L1子科目のID（stg:223, lmswaomirai:266）
       courseID: env === 'stg' ? 223 : env === 'lmswaomirai' ? 266 : 0,
+      // paymentID: 科学メイン科目 + L1子科目（stg:[211,223], lmswaomirai:[265,266]）
       paymentID: env === 'stg' ? [211,223] : env === 'lmswaomirai' ? [265,266] : [0],
       categoryID: env === 'stg' ? 'category-52' : env === 'lmswaomirai' ? 'category-49' : ''
     },
     {
       id: 'ec-main-free',   // 経済メインページ（未購入・初期状態）
       SubjectPageTitle: '経済',
+      // courseID: 経済メイン科目のID（stg:213, lmswaomirai:260）
       courseID: env === 'stg' ? 213 : env === 'lmswaomirai' ? 260 : 0,
+      // paymentID: 経済未購入のため[0]
       paymentID: [0],
       categoryID: env === 'stg' ? 'category-53' : env === 'lmswaomirai' ? 'category-48' : ''
     },
     {
       id: 'ec-main-level1-purchased', // 経済メインページ（L1購入済）
       SubjectPageTitle: '経済(L1購入済)',
+      // courseID: 経済メイン科目のID（stg:213, lmswaomirai:260）
       courseID: env === 'stg' ? 213 : env === 'lmswaomirai' ? 260 : 0,
+      // paymentID: 経済メイン科目 + L1子科目（stg:[213,226], lmswaomirai:[260,261]）
       paymentID: env === 'stg' ? [213,226] : env === 'lmswaomirai' ? [260,261] : [0],
       categoryID: env === 'stg' ? 'category-53' : env === 'lmswaomirai' ? 'category-48' : ''
     },
     {
       id: 'ec-level1', // 経済L1ページ詳細（L1購入済）
       SubjectPageTitle: '経済L1',
+      // courseID: 経済L1子科目のID（stg:226, lmswaomirai:261）
       courseID: env === 'stg' ? 226 : env === 'lmswaomirai' ? 261 : 0,
+      // paymentID: 経済メイン科目 + L1子科目（stg:[213,226], lmswaomirai:[260,261]）
       paymentID: env === 'stg' ? [213,226] : env === 'lmswaomirai' ? [260,261] : [0],
       categoryID: env === 'stg' ? 'category-53' : env === 'lmswaomirai' ? 'category-48' : ''
     },
     {
       id: 'en-main-free',   // 英語メインページ（未購入・初期状態）
       SubjectPageTitle: '英語',
+      // courseID: 英語メイン科目のID（stg:236, lmswaomirai:135）
       courseID: env === 'stg' ? 236 : env === 'lmswaomirai' ? 135 : 0,
+      // paymentID: 英語メイン科目のみ（L1未購入）
       paymentID: env === 'stg' ? [236] : env === 'lmswaomirai' ? [135] : [0],
       categoryID: env === 'stg' ? 'category-54' : env === 'lmswaomirai' ? 'category-50' : ''
     },
     {
       id: 'en-main-level1-purchased', // 英語メインページ（L1購入済）
       SubjectPageTitle: '英語(L1購入済)',
+      // courseID: 英語メイン科目のID（stg:236, lmswaomirai:135）
       courseID: env === 'stg' ? 236 : env === 'lmswaomirai' ? 135 : 0,
+      // paymentID: 英語メイン科目 + L1子科目（stg:[236,253], lmswaomirai:[135,130]）
       paymentID: env === 'stg' ? [236,253] : env === 'lmswaomirai' ? [135,130] : [0],
       categoryID: env === 'stg' ? 'category-54' : env === 'lmswaomirai' ? 'category-50' : ''
     },
     {
       id: 'two-main-free',   // 2科目セット（未購入・初期状態）
       SubjectPageTitle: '2科目セット',
+      // courseID: 2科目セットのID（stg:228, lmswaomirai:270）
       courseID: env === 'stg' ? 228 : env === 'lmswaomirai' ? 270 : 0,
+      // paymentID: 2科目セットのみ
       paymentID: env === 'stg' ? [228] : env === 'lmswaomirai' ? [270] : [0],
       categoryID: ''
     },
     {
       id: 'two-main-level1-purchased', // 2科目セット（L1購入済）
       SubjectPageTitle: '2科目セット(L1購入済)',
+      // courseID: 2科目セットのID（stg:228, lmswaomirai:270）
       courseID: env === 'stg' ? 228 : env === 'lmswaomirai' ? 270 : 0,
+      // paymentID: 2科目セットのみ（セット商品のため個別L1は含まない）
       paymentID: env === 'stg' ? [228] : env === 'lmswaomirai' ? [270] : [0],
       categoryID: ''
     },
     {
       id: 'three-main-free',   // 3科目セット（未購入・初期状態）
       SubjectPageTitle: '3科目セット',
+      // courseID: 3科目セットのID（stg:229, lmswaomirai:271）
       courseID: env === 'stg' ? 229 : env === 'lmswaomirai' ? 271 : 0,
+      // paymentID: 3科目セットのみ
       paymentID: env === 'stg' ? [229] : env === 'lmswaomirai' ? [271] : [0],
       categoryID: ''
     },
     {
       id: 'three-main-level1-purchased', // 3科目セット（L1購入済）
       SubjectPageTitle: '3科目セット(L1購入済)',
+      // courseID: 3科目セットのID（stg:229, lmswaomirai:271）
       courseID: env === 'stg' ? 229 : env === 'lmswaomirai' ? 271 : 0,
+      // paymentID: 3科目セットのみ（セット商品のため個別L1は含まない）
       paymentID: env === 'stg' ? [229] : env === 'lmswaomirai' ? [271] : [0],
       categoryID: ''
     }
