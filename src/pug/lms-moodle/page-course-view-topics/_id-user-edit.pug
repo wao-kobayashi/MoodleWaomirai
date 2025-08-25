@@ -16,9 +16,9 @@
       categoryID: env === 'stg' ? 'category-51' : env === 'lmswaomirai' ? 'category-47' : ''
     },
     {
-      id: 'ph-',
-      SubjectPageTitle: '哲学(L1購入済)',
-      courseID: env === 'stg' ? 212 : env === 'lmswaomirai' ? 255 : 0,
+      id: 'ph-level1',
+      SubjectPageTitle: '哲学L1',
+      courseID: env === 'stg' ? 221 : env === 'lmswaomirai' ? 256 : 0,
       paymentID: env === 'stg' ? [212,221] : env === 'lmswaomirai' ? [255,256] : [0],
       categoryID: env === 'stg' ? 'category-51' : env === 'lmswaomirai' ? 'category-47' : ''
     },
@@ -37,6 +37,13 @@
       categoryID: env === 'stg' ? 'category-52' : env === 'lmswaomirai' ? 'category-49' : ''
     },
     {
+      id: 'sc-level1', // L1購入済
+      SubjectPageTitle: '科学L1',
+      courseID: env === 'stg' ? 223 : env === 'lmswaomirai' ? 266 : 0,
+      paymentID: env === 'stg' ? [211,223] : env === 'lmswaomirai' ? [265,266] : [0],
+      categoryID: env === 'stg' ? 'category-52' : env === 'lmswaomirai' ? 'category-49' : ''
+    },
+    {
       id: 'ec-main-free',   // 何も購入していない（初期状態）
       SubjectPageTitle: '経済',
       courseID: env === 'stg' ? 213 : env === 'lmswaomirai' ? 260 : 0,
@@ -47,6 +54,13 @@
       id: 'ec-main-level1-purchased', // L1購入済
       SubjectPageTitle: '経済(L1購入済)',
       courseID: env === 'stg' ? 213 : env === 'lmswaomirai' ? 260 : 0,
+      paymentID: env === 'stg' ? [213,226] : env === 'lmswaomirai' ? [260,261] : [0],
+      categoryID: env === 'stg' ? 'category-53' : env === 'lmswaomirai' ? 'category-48' : ''
+    },
+    {
+      id: 'ec-level1', // L1購入済
+      SubjectPageTitle: '経済L1',
+      courseID: env === 'stg' ? 226 : env === 'lmswaomirai' ? 261 : 0,
       paymentID: env === 'stg' ? [213,226] : env === 'lmswaomirai' ? [260,261] : [0],
       categoryID: env === 'stg' ? 'category-53' : env === 'lmswaomirai' ? 'category-48' : ''
     },
