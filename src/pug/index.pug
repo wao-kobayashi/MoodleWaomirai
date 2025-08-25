@@ -79,6 +79,9 @@ html(lang="jp")
         }
 
       //- モジュール化されたリスト出力部分
+      //- 各セクションは「h3 見出し」+「.moodle-list-category(ID一覧)」+「リンクUL」の構成
+      //- .moodle-list-category には該当セクションに対応するページIDをカンマ区切りで記載し、
+      //- 開発時の検索・画面識別・E2Eテスト時の参照用メタデータとして使う
     mixin moodleList(environment)
         h2 
          |#{environment}
