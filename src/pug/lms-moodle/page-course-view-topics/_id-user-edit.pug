@@ -1,56 +1,50 @@
 -
   var useredit = [
 
-    {
-      id: 'test',
-      SubjectPageTitle: 'テスト',
-      courseID: env === 'stg' ? 212 : env === 'lmswaomirai' ? 255 : 0,
-      paymentID: env === 'stg' ? [] : env === 'lmswaomirai' ? [] : [0],
-      categoryID: env === 'stg' ? 'category-51' : env === 'lmswaomirai' ? 'category-47' : ''
-    },    {
-      id: 'ph-none',
+   {
+      id: 'ph-main-free',   // 何も購入していない（初期状態）
       SubjectPageTitle: '哲学',
       courseID: env === 'stg' ? 212 : env === 'lmswaomirai' ? 255 : 0,
       paymentID: env === 'stg' ? [212] : env === 'lmswaomirai' ? [255] : [0],
       categoryID: env === 'stg' ? 'category-51' : env === 'lmswaomirai' ? 'category-47' : ''
     },
     {
-      id: 'ph-none-admin',
-      SubjectPageTitle: '哲学',
-      courseID: env === 'stg' ? 212 : env === 'lmswaomirai' ? 255 : 0,
-      paymentID: env === 'stg' ? [212,278] : env === 'lmswaomirai' ? [255,277] : [0],
-      categoryID: env === 'stg' ? 'category-51' : env === 'lmswaomirai' ? 'category-47' : ''
-    },
-    {
-      id: 'ph-l1',
+      id: 'ph-main-level1-purchased', // L1購入済
       SubjectPageTitle: '哲学(L1購入済)',
       courseID: env === 'stg' ? 212 : env === 'lmswaomirai' ? 255 : 0,
       paymentID: env === 'stg' ? [212,221] : env === 'lmswaomirai' ? [255,256] : [0],
       categoryID: env === 'stg' ? 'category-51' : env === 'lmswaomirai' ? 'category-47' : ''
     },
     {
-      id: 'sc-none',
+      id: 'ph-',
+      SubjectPageTitle: '哲学(L1購入済)',
+      courseID: env === 'stg' ? 212 : env === 'lmswaomirai' ? 255 : 0,
+      paymentID: env === 'stg' ? [212,221] : env === 'lmswaomirai' ? [255,256] : [0],
+      categoryID: env === 'stg' ? 'category-51' : env === 'lmswaomirai' ? 'category-47' : ''
+    },
+    {
+      id: 'sc-main-free',   // 何も購入していない（初期状態）
       SubjectPageTitle: '科学',
       courseID: env === 'stg' ? 211 : env === 'lmswaomirai' ? 265 : 0,
       paymentID: env === 'stg' ? [211] : env === 'lmswaomirai' ? [265] : [0],
       categoryID: env === 'stg' ? 'category-52' : env === 'lmswaomirai' ? 'category-49' : ''
     },
     {
-      id: 'sc-l1',
+      id: 'sc-main-level1-purchased', // L1購入済
       SubjectPageTitle: '科学(L1購入済)',
       courseID: env === 'stg' ? 211 : env === 'lmswaomirai' ? 265 : 0,
       paymentID: env === 'stg' ? [211,223] : env === 'lmswaomirai' ? [265,266] : [0],
       categoryID: env === 'stg' ? 'category-52' : env === 'lmswaomirai' ? 'category-49' : ''
     },
     {
-      id: 'ec-none',
+      id: 'ec-main-free',   // 何も購入していない（初期状態）
       SubjectPageTitle: '経済',
       courseID: env === 'stg' ? 213 : env === 'lmswaomirai' ? 260 : 0,
       paymentID: env === 'stg' ? [0] : env === 'lmswaomirai' ? [0] : [0],
       categoryID: env === 'stg' ? 'category-53' : env === 'lmswaomirai' ? 'category-48' : ''
     },
     {
-      id: 'ec-l1',
+      id: 'ec-main-level1-purchased', // L1購入済
       SubjectPageTitle: '経済(L1購入済)',
       courseID: env === 'stg' ? 213 : env === 'lmswaomirai' ? 260 : 0,
       paymentID: env === 'stg' ? [213,226] : env === 'lmswaomirai' ? [260,261] : [0],
@@ -64,35 +58,35 @@
       categoryID: env === 'stg' ? 'category-54' : env === 'lmswaomirai' ? 'category-50' : ''
     },
     {
-      id: 'en-l1',
+      id: 'en-main-level1-purchased', // L1購入済
       SubjectPageTitle: '英語(L1購入済)',
       courseID: env === 'stg' ? 236 : env === 'lmswaomirai' ? 135 : 0,
       paymentID: env === 'stg' ? [236,253] : env === 'lmswaomirai' ? [135,130] : [0],
       categoryID: env === 'stg' ? 'category-54' : env === 'lmswaomirai' ? 'category-50' : ''
     },
     {
-      id: 'two-none',
+      id: 'two-main-free',   // 何も購入していない（初期状態）
       SubjectPageTitle: '2科目セット',
       courseID: env === 'stg' ? 228 : env === 'lmswaomirai' ? 270 : 0,
       paymentID: env === 'stg' ? [228] : env === 'lmswaomirai' ? [270] : [0],
       categoryID: ''
     },
     {
-      id: 'two-l1',
+      id: 'two-main-level1-purchased', // L1購入済
       SubjectPageTitle: '2科目セット(L1購入済)',
       courseID: env === 'stg' ? 228 : env === 'lmswaomirai' ? 270 : 0,
       paymentID: env === 'stg' ? [228] : env === 'lmswaomirai' ? [270] : [0],
       categoryID: ''
     },
     {
-      id: 'three-none',
+       id: 'three-main-free',   // 何も購入していない（初期状態）
       SubjectPageTitle: '3科目セット',
       courseID: env === 'stg' ? 229 : env === 'lmswaomirai' ? 271 : 0,
       paymentID: env === 'stg' ? [229] : env === 'lmswaomirai' ? [271] : [0],
       categoryID: ''
     },
     {
-      id: 'three-l1',
+      id: 'three-main-level1-purchased', // L1購入済
       SubjectPageTitle: '3科目セット(L1購入済)',
       courseID: env === 'stg' ? 229 : env === 'lmswaomirai' ? 271 : 0,
       paymentID: env === 'stg' ? [229] : env === 'lmswaomirai' ? [271] : [0],
