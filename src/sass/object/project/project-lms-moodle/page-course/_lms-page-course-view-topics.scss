@@ -134,12 +134,20 @@
       border: none !important;
     }
   }
+  // ========================================
+  // 授業のまとめシート用の処理
+  // ========================================
   .subject-page-added {
     .course-content-item-content ul {
       display: grid !important;
       grid-template-columns: 1fr 220px;
       grid-template-rows: repeat(3, 1fr);
       gap: 25px 30px;
+      //スマホではgridにしない
+      @include responsive-style(768px) {
+        display: flex !important;
+        flex-direction: column;
+      }
       li {
         &:nth-child(2) {
           grid-column-start: 1;
@@ -160,14 +168,29 @@
       padding: 0 !important;
     }
     .activity-item {
-      max-height: 66px;
-      display: flex;
+      height: 66px;
+      // display: flex;
+      @include responsive-style(768px) {
+        height: auto !important;
+      }
+    }
+    .activity-grid {
+      height: 48px;
+      @include responsive-style(768px) {
+        height: auto !important;
+      }
     }
     .activity-item:not(.activityinline) {
-      padding: 1rem 1rem !important;
+      padding: 8px 1rem !important;
       align-items: center;
+      @include responsive-style(768px) {
+        padding: 1rem !important;
+      }
     }
     .activity-icon.align-self-start {
+      align-self: center !important;
+    }
+    .activity-item .activity-completion {
       align-self: center !important;
     }
     .d-block {
@@ -197,6 +220,7 @@
         height: 44px;
         background: $cl-white;
         border-radius: $border-radius-full;
+        position: relative;
       }
       .subject-page-added-note-content {
         font-size: $lms-font-size-s;
@@ -213,14 +237,23 @@
         gap: 4px;
         border-radius: $border-radius-big;
         font-weight: bold;
-        .subject-page-added-note-head-icon {
-          font-size: $lms-font-size-s;
-          margin: 0 8px 0 0;
+        &:hover {
+          text-decoration: none;
+        }
+        span {
+          font-size: $lms-font-size-ml;
+          margin: 3px 0 0 0;
           line-height: $lineheight-none;
         }
         .subject-page-added-note-content-download-text {
           line-height: $lineheight-none;
         }
+      }
+    }
+    //まだアップしていない画像に関してはこちらを優先
+    .subject-page-added-note.not-published {
+      .subject-page-added-note-head-icon:before {
+        background-image: url("https://waomirai.com/lp/assets/moodle/icn-worksheet-not-published.svg") !important;
       }
     }
   }
@@ -278,6 +311,26 @@
           )
           1px
           solid;
+      }
+      .subject-page-added-note-head-icon::before {
+        content: "";
+        display: block;
+        position: absolute;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        margin: auto;
+        z-index: 99;
+        background-image: map-get(
+          map-get($common-course-styles, $style-name),
+          "img-worksheet"
+        ) !important;
+        background-repeat: no-repeat;
+        background-size: contain;
+        width: 30px;
+        height: 30px;
+        display: inline-block;
       }
     }
   }
