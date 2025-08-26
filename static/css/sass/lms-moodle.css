@@ -13053,6 +13053,7 @@ html[data-tenantidnumber=lmswaomirai] #page-course-view-topics .subject-page-add
   grid-row: span 3/span 3;
   grid-column-start: 2;
   grid-row-start: 1;
+  border: 1px solid #dee2e6;
 }
 html[data-tenantidnumber=lmswaomirai] #page-course-view-flexsections .subject-page-added .activity,
 html[data-tenantidnumber=lmswaomirai] #page-course-view-topics .subject-page-added .activity {
