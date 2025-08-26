@@ -1455,8 +1455,14 @@ if (
       window.location.href = `https://lms.waomirai.com/course/view.php?id=${enrolledChildCourse.id}`;
     } else {
       // 子科目を受講していない場合（例：科学は受講可能だが、L1～L4のレベルを設定していない）
-      // レベル設定を促すモーダルを表示
-       showModalAfterCardRegistration();
+      // カード登録後にモーダルを表示する関数
+      // 機能：
+      // 1. キャンペーン期間中（2025年9月15日まで）かつ初回表示の場合
+      //    → キャンペーンモーダルを表示（無料受講案内 + Amazonギフト券プレゼント案内）
+      // 2. それ以外の場合
+      //    → レベル設定モーダルを表示（科目のレベル設定ページへの誘導）
+      // 3. モーダル表示履歴はCookieに保存（365日有効）
+      showModalAfterCardRegistration();
     }
   }
 }
@@ -1467,7 +1473,7 @@ if (
 // カード登録後にモーダルを表示する関数
 function showModalAfterCardRegistration() {
   var now = new Date(); // 現在の日付を取得
-  var campaignEnd = new Date(2025, 8, 14, 23, 59, 59); // キャンペーン終了日時（2025年4月15日23:59:59）
+  var campaignEnd = new Date(2025, 8, 14, 23, 59, 59); // キャンペーン終了日時（2025年9月15日23:59:59）
   var cookieValue = $.cookie("levelSettingModalShown"); // Cookieにモーダル表示の履歴があるか確認
   var subjectCategory = currentViewCourseData.key;  // 現在選択されている科目カテゴリーを取得
 
@@ -1491,7 +1497,7 @@ function showModalAfterCardRegistration() {
 }
 
 
-// 2025年4月オープンのモーダル関数
+// 2025年9月キャンペーンのモーダル関数
 function showCampaignModal() {
   createModal({
     title: "おめでとうございます！",
