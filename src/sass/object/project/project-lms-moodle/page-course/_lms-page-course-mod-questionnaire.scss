@@ -340,4 +340,62 @@ li[data-key="courseinfo"] {
     padding: 8px 20px;
     color: white !important;
   }
+  .mod-questionnaire-worksheet {
+    margin: 12px 0 0;
+    padding: 15px 20px 15px;
+    border: 4px solid $cl-graylightest !important;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    border-radius: $border-radius-middle;
+    align-items: center;
+    @include responsive-style(768px) {
+      padding: 20px 20px 20px;
+      grid-template-columns: auto 1fr;
+      grid-template-rows: auto auto; /* 縦に2行、同じく均等 */
+      align-items: flex-start;
+    }
+    .mod-questionnaire-worksheet-icon {
+      width: 44px;
+      height: 44px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: $cl-waogreen-pale;
+      border-radius: $border-radius-full;
+      margin: 0 8px 0 0;
+      img {
+        width: 30px;
+        height: 30px;
+      }
+    }
+    .mod-questionnaire-worksheet-text {
+      font-size: $lms-font-size-m;
+    }
+    .mod-questionnaire-worksheet-download {
+      color: $cl-waogreen;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 36px;
+      border: 1px solid $cl-waogreen;
+      border-radius: $border-radius-small;
+      padding: 0 10px;
+      cursor: pointer;
+      @include responsive-style(768px) {
+        grid-column: span 2 / span 2;
+        margin: 10px 0 0;
+      }
+      &:hover {
+        opacity: 0.7;
+      }
+      .mod-questionnaire-worksheet-download-text {
+        font-size: $lms-font-size-m;
+      }
+      span {
+        font-size: 16px;
+        margin: 3px 0 0 0;
+        line-height: 1;
+      }
+    }
+  }
 }

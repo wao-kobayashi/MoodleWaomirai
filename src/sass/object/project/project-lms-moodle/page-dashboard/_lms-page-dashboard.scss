@@ -39,12 +39,12 @@ $default-max-width: 1170px; // 最大幅
 }
 
 @media (min-width: 769px) {
-  #page-my-index{
-    #page.drawers div[role="main"]{
+  #page-my-index {
+    #page.drawers div[role="main"] {
       display: flex;
       justify-content: space-between;
     }
-    .dashboard-left{
+    .dashboard-left {
       width: $dashboard-sidebar-width;
       flex-shrink: 0;
       margin-left: $body-padding;
@@ -198,6 +198,83 @@ $default-max-width: 1170px; // 最大幅
     .dashboard-left-block-wrap {
       background: white;
       border-radius: $border-radius-middle;
+    }
+    .dashboard-left-block-worksheet {
+      padding: 20px 17px 20px !important;
+      background: white;
+      border-radius: $border-radius-middle;
+      margin: 40px 0 40px;
+      .dashboard-left-block-worksheet-title {
+        display: flex;
+        justify-content: space-between;
+        .dashboard-left-block-worksheet-title-text {
+          font-size: $lms-font-size-ml;
+          @include responsive-style(768px) {
+            margin: 0 -15px 16px !important;
+            padding: 0px 35px 0px;
+            width: calc(100% + 30px);
+            display: block !important;
+            font-size: $lms-font-size-l !important;
+            position: relative;
+            &:before {
+              @include lms-left-waogreen;
+            }
+          }
+        }
+        .dashboard-left-block-worksheet-title-icon {
+          width: 44px;
+          height: 44px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          background: $cl-waogreen-pale;
+          border-radius: $border-radius-full;
+          margin: 0 0px 0 0;
+          img {
+            width: 30px;
+            height: 30px;
+          }
+        }
+      }
+      .dashboard-left-block-worksheet-text {
+        font-size: $lms-font-size-s;
+        margin: 8px 0 30px;
+        line-height: $lineheight-normal;
+        @include responsive-style(768px) {
+          font-size: $lms-font-size-m;
+        }
+      }
+      .dashboard-left-block-worksheet-download {
+        color: $cl-waogreen;
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        height: 30px;
+        border: 1px solid $cl-waogreen;
+        border-radius: $border-radius-small;
+        padding: 0 10px;
+        cursor: pointer;
+        @include responsive-style(768px) {
+          height: 48px;
+          width: 100%;
+        }
+        &:hover {
+          opacity: 0.7;
+        }
+        .subject-page-added-note-content-download-text {
+          font-size: $lms-font-size-s;
+          @include responsive-style(768px) {
+            font-size: $lms-font-size-m;
+            width: 100%;
+            display: contents;
+          }
+        }
+        span {
+          font-size: 16px;
+          margin: 3px 0 0 0;
+          line-height: 1;
+        }
+      }
     }
     .dashboard-left-block-wrap-subject {
       padding: 20px 15px 18px !important;
@@ -378,17 +455,17 @@ $default-max-width: 1170px; // 最大幅
         }
       }
     }
-    .dashboard-left-banner-link{
+    .dashboard-left-banner-link {
       display: block;
       border-radius: 12px;
       overflow: hidden;
       box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.21);
-      &:hover{
+      &:hover {
         opacity: 0.7;
       }
     }
     @include responsive-style(768px) {
-      .dashboard-left-banner{
+      .dashboard-left-banner {
         width: 88%;
         margin: 0 auto;
       }
@@ -532,11 +609,11 @@ $default-max-width: 1170px; // 最大幅
     }
   }
 
-  &:not(.is-previous-enabled) .arrow_link.previous{
+  &:not(.is-previous-enabled) .arrow_link.previous {
     opacity: 0.3;
     pointer-events: none;
   }
-  &.is-previous-click-disabled .arrow_link.previous{
+  &.is-previous-click-disabled .arrow_link.previous {
     pointer-events: none;
   }
 
@@ -1101,11 +1178,11 @@ $modal-button-height: 55px;
 ////////////////////////
 //JST表記のラベル
 ////////////////////////
-#page-my-index{
-  .block_calendar_month{
+#page-my-index {
+  .block_calendar_month {
     position: relative;
   }
-  .p-abroad-user-jst-label{
+  .p-abroad-user-jst-label {
     background: #edfbf5;
     color: $cl-waogreen;
     font-size: 12px;
@@ -1117,10 +1194,10 @@ $modal-button-height: 55px;
     font-weight: 500;
   }
   @include responsive-style(769px) {
-    .block_calendar_month .p-abroad-user-jst-label{
+    .block_calendar_month .p-abroad-user-jst-label {
       display: none;
     }
-    .p-abroad-user-jst-label{
+    .p-abroad-user-jst-label {
       position: static;
       display: inline-block;
       margin: -6px 0 15px;

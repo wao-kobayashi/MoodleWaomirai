@@ -5891,6 +5891,117 @@ html[data-tenantidnumber=lmswaomirai] .pagelayout-mydashboard .dashboard-left .d
   background: white;
   border-radius: 8px;
 }
+html[data-tenantidnumber=lmswaomirai] .pagelayout-mydashboard .dashboard-left .dashboard-left-block-worksheet {
+  padding: 20px 17px 20px !important;
+  background: white;
+  border-radius: 8px;
+  margin: 40px 0 40px;
+}
+html[data-tenantidnumber=lmswaomirai] .pagelayout-mydashboard .dashboard-left .dashboard-left-block-worksheet .dashboard-left-block-worksheet-title {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+html[data-tenantidnumber=lmswaomirai] .pagelayout-mydashboard .dashboard-left .dashboard-left-block-worksheet .dashboard-left-block-worksheet-title .dashboard-left-block-worksheet-title-text {
+  font-size: 16px;
+}
+@media screen and (max-width: 768px) {
+  html[data-tenantidnumber=lmswaomirai] .pagelayout-mydashboard .dashboard-left .dashboard-left-block-worksheet .dashboard-left-block-worksheet-title .dashboard-left-block-worksheet-title-text {
+    margin: 0 -15px 16px !important;
+    padding: 0px 35px 0px;
+    width: calc(100% + 30px);
+    display: block !important;
+    font-size: 20px !important;
+    position: relative;
+  }
+  html[data-tenantidnumber=lmswaomirai] .pagelayout-mydashboard .dashboard-left .dashboard-left-block-worksheet .dashboard-left-block-worksheet-title .dashboard-left-block-worksheet-title-text:before {
+    width: 6px;
+    height: 25px;
+    content: "";
+    background: #005c3f;
+    display: block;
+    position: absolute;
+    left: 17px;
+    top: 0px;
+    bottom: 0;
+    margin: auto;
+    border-radius: 4px;
+  }
+}
+html[data-tenantidnumber=lmswaomirai] .pagelayout-mydashboard .dashboard-left .dashboard-left-block-worksheet .dashboard-left-block-worksheet-title .dashboard-left-block-worksheet-title-icon {
+  width: 44px;
+  height: 44px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background: #edfbf5;
+  border-radius: 10000px;
+  margin: 0 0px 0 0;
+}
+html[data-tenantidnumber=lmswaomirai] .pagelayout-mydashboard .dashboard-left .dashboard-left-block-worksheet .dashboard-left-block-worksheet-title .dashboard-left-block-worksheet-title-icon img {
+  width: 30px;
+  height: 30px;
+}
+html[data-tenantidnumber=lmswaomirai] .pagelayout-mydashboard .dashboard-left .dashboard-left-block-worksheet .dashboard-left-block-worksheet-text {
+  font-size: 12px;
+  margin: 8px 0 30px;
+  line-height: 1.5;
+}
+@media screen and (max-width: 768px) {
+  html[data-tenantidnumber=lmswaomirai] .pagelayout-mydashboard .dashboard-left .dashboard-left-block-worksheet .dashboard-left-block-worksheet-text {
+    font-size: 14px;
+  }
+}
+html[data-tenantidnumber=lmswaomirai] .pagelayout-mydashboard .dashboard-left .dashboard-left-block-worksheet .dashboard-left-block-worksheet-download {
+  color: #005c3f;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 30px;
+  border: 1px solid #005c3f;
+  border-radius: 4px;
+  padding: 0 10px;
+  cursor: pointer;
+}
+@media screen and (max-width: 768px) {
+  html[data-tenantidnumber=lmswaomirai] .pagelayout-mydashboard .dashboard-left .dashboard-left-block-worksheet .dashboard-left-block-worksheet-download {
+    height: 48px;
+    width: 100%;
+  }
+}
+html[data-tenantidnumber=lmswaomirai] .pagelayout-mydashboard .dashboard-left .dashboard-left-block-worksheet .dashboard-left-block-worksheet-download:hover {
+  opacity: 0.7;
+}
+html[data-tenantidnumber=lmswaomirai] .pagelayout-mydashboard .dashboard-left .dashboard-left-block-worksheet .dashboard-left-block-worksheet-download .subject-page-added-note-content-download-text {
+  font-size: 12px;
+}
+@media screen and (max-width: 768px) {
+  html[data-tenantidnumber=lmswaomirai] .pagelayout-mydashboard .dashboard-left .dashboard-left-block-worksheet .dashboard-left-block-worksheet-download .subject-page-added-note-content-download-text {
+    font-size: 14px;
+    width: 100%;
+    display: contents;
+  }
+}
+html[data-tenantidnumber=lmswaomirai] .pagelayout-mydashboard .dashboard-left .dashboard-left-block-worksheet .dashboard-left-block-worksheet-download span {
+  font-size: 16px;
+  margin: 3px 0 0 0;
+  line-height: 1;
+}
 html[data-tenantidnumber=lmswaomirai] .pagelayout-mydashboard .dashboard-left .dashboard-left-block-wrap-subject {
   padding: 20px 15px 18px !important;
   display: -webkit-box;
@@ -7949,6 +8060,114 @@ html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-report .btn-second
   border: none !important;
   padding: 8px 20px;
   color: white !important;
+}
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-view .mod-questionnaire-worksheet,
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-complete .mod-questionnaire-worksheet,
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-myreport .mod-questionnaire-worksheet,
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-report .mod-questionnaire-worksheet {
+  margin: 12px 0 0;
+  padding: 15px 20px 15px;
+  border: 4px solid #efefef !important;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  border-radius: 8px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+@media screen and (max-width: 768px) {
+  html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-view .mod-questionnaire-worksheet,
+  html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-complete .mod-questionnaire-worksheet,
+  html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-myreport .mod-questionnaire-worksheet,
+  html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-report .mod-questionnaire-worksheet {
+    padding: 20px 20px 20px;
+    grid-template-columns: auto 1fr;
+    grid-template-rows: auto auto; /* 縦に2行、同じく均等 */
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+  }
+}
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-view .mod-questionnaire-worksheet .mod-questionnaire-worksheet-icon,
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-complete .mod-questionnaire-worksheet .mod-questionnaire-worksheet-icon,
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-myreport .mod-questionnaire-worksheet .mod-questionnaire-worksheet-icon,
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-report .mod-questionnaire-worksheet .mod-questionnaire-worksheet-icon {
+  width: 44px;
+  height: 44px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background: #edfbf5;
+  border-radius: 10000px;
+  margin: 0 8px 0 0;
+}
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-view .mod-questionnaire-worksheet .mod-questionnaire-worksheet-icon img,
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-complete .mod-questionnaire-worksheet .mod-questionnaire-worksheet-icon img,
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-myreport .mod-questionnaire-worksheet .mod-questionnaire-worksheet-icon img,
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-report .mod-questionnaire-worksheet .mod-questionnaire-worksheet-icon img {
+  width: 30px;
+  height: 30px;
+}
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-view .mod-questionnaire-worksheet .mod-questionnaire-worksheet-text,
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-complete .mod-questionnaire-worksheet .mod-questionnaire-worksheet-text,
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-myreport .mod-questionnaire-worksheet .mod-questionnaire-worksheet-text,
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-report .mod-questionnaire-worksheet .mod-questionnaire-worksheet-text {
+  font-size: 14px;
+}
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-view .mod-questionnaire-worksheet .mod-questionnaire-worksheet-download,
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-complete .mod-questionnaire-worksheet .mod-questionnaire-worksheet-download,
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-myreport .mod-questionnaire-worksheet .mod-questionnaire-worksheet-download,
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-report .mod-questionnaire-worksheet .mod-questionnaire-worksheet-download {
+  color: #005c3f;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 36px;
+  border: 1px solid #005c3f;
+  border-radius: 4px;
+  padding: 0 10px;
+  cursor: pointer;
+}
+@media screen and (max-width: 768px) {
+  html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-view .mod-questionnaire-worksheet .mod-questionnaire-worksheet-download,
+  html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-complete .mod-questionnaire-worksheet .mod-questionnaire-worksheet-download,
+  html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-myreport .mod-questionnaire-worksheet .mod-questionnaire-worksheet-download,
+  html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-report .mod-questionnaire-worksheet .mod-questionnaire-worksheet-download {
+    grid-column: span 2/span 2;
+    margin: 10px 0 0;
+  }
+}
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-view .mod-questionnaire-worksheet .mod-questionnaire-worksheet-download:hover,
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-complete .mod-questionnaire-worksheet .mod-questionnaire-worksheet-download:hover,
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-myreport .mod-questionnaire-worksheet .mod-questionnaire-worksheet-download:hover,
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-report .mod-questionnaire-worksheet .mod-questionnaire-worksheet-download:hover {
+  opacity: 0.7;
+}
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-view .mod-questionnaire-worksheet .mod-questionnaire-worksheet-download .mod-questionnaire-worksheet-download-text,
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-complete .mod-questionnaire-worksheet .mod-questionnaire-worksheet-download .mod-questionnaire-worksheet-download-text,
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-myreport .mod-questionnaire-worksheet .mod-questionnaire-worksheet-download .mod-questionnaire-worksheet-download-text,
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-report .mod-questionnaire-worksheet .mod-questionnaire-worksheet-download .mod-questionnaire-worksheet-download-text {
+  font-size: 14px;
+}
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-view .mod-questionnaire-worksheet .mod-questionnaire-worksheet-download span,
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-complete .mod-questionnaire-worksheet .mod-questionnaire-worksheet-download span,
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-myreport .mod-questionnaire-worksheet .mod-questionnaire-worksheet-download span,
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-report .mod-questionnaire-worksheet .mod-questionnaire-worksheet-download span {
+  font-size: 16px;
+  margin: 3px 0 0 0;
+  line-height: 1;
 }
 html[data-tenantidnumber=lmswaomirai] .core_payment_gateways_modal .stripe .icon {
   height: 40px !important;

@@ -20,18 +20,21 @@
         .dashboard-left-block-worksheet-title
           .dashboard-left-block-worksheet-title-text
             |授業の
-            br
+            br.c-sp-hidden
             |メモシート
-          .dashboard-left-block-worksheet-title-icon 
-
+          .dashboard-left-block-worksheet-title-icon.c-sp-hidden
+            img(src='https://waomirai.com/lp/assets/moodle/icn-worksheet-wao.svg') 
         .dashboard-left-block-worksheet-text 
             |授業中の学びを記録できる
             br
             |印刷用シートです。
-            br
-            |ご活用いただくとより授業が楽しめます
-        .dashboard-left-block-worksheet-download 
-          |ダウンロードする
+            //- br
+            //- |ご活用いただくとより授業が楽しめます
+        .dashboard-left-block-worksheet-download.triger-download-memosheet
+            span.material-symbols-outlined
+              |download
+            .subject-page-added-note-content-download-text
+                |ダウンロードする  
       ///////////////////////
       // LINE連携
       ///////////////////////
