@@ -13184,9 +13184,6 @@ html[data-tenantidnumber=lmswaomirai] #page-course-view-flexsections .subject-pa
 html[data-tenantidnumber=lmswaomirai] #page-course-view-topics .subject-page-added .subject-page-added-note.not-published .subject-page-added-note-head-icon:before {
   background-image: url("https://waomirai.com/lp/assets/moodle/icn-worksheet-not-published.svg") !important;
 }
-html[data-tenantidnumber=lmswaomirai] .category-53 .published {
-  background-color: #def7ff !important;
-}
 html[data-tenantidnumber=lmswaomirai] .category-53 .subject-page-added-note-content-download {
   color: #28afe7 !important;
   border: #28afe7 1px solid;
@@ -13208,7 +13205,7 @@ html[data-tenantidnumber=lmswaomirai] .category-53 .subject-page-added-note-head
   height: 30px;
   display: inline-block;
 }
-html[data-tenantidnumber=lmswaomirai] .category-48 .published {
+html[data-tenantidnumber=lmswaomirai] .category-53 .published {
   background-color: #def7ff !important;
 }
 html[data-tenantidnumber=lmswaomirai] .category-48 .subject-page-added-note-content-download {
@@ -13232,8 +13229,8 @@ html[data-tenantidnumber=lmswaomirai] .category-48 .subject-page-added-note-head
   height: 30px;
   display: inline-block;
 }
-html[data-tenantidnumber=lmswaomirai] .category-52 .published {
-  background-color: #f1fbc8 !important;
+html[data-tenantidnumber=lmswaomirai] .category-48 .published {
+  background-color: #def7ff !important;
 }
 html[data-tenantidnumber=lmswaomirai] .category-52 .subject-page-added-note-content-download {
   color: #b6d43e !important;
@@ -13256,7 +13253,7 @@ html[data-tenantidnumber=lmswaomirai] .category-52 .subject-page-added-note-head
   height: 30px;
   display: inline-block;
 }
-html[data-tenantidnumber=lmswaomirai] .category-49 .published {
+html[data-tenantidnumber=lmswaomirai] .category-52 .published {
   background-color: #f1fbc8 !important;
 }
 html[data-tenantidnumber=lmswaomirai] .category-49 .subject-page-added-note-content-download {
@@ -13280,8 +13277,8 @@ html[data-tenantidnumber=lmswaomirai] .category-49 .subject-page-added-note-head
   height: 30px;
   display: inline-block;
 }
-html[data-tenantidnumber=lmswaomirai] .category-51 .published {
-  background-color: #fff0c3 !important;
+html[data-tenantidnumber=lmswaomirai] .category-49 .published {
+  background-color: #f1fbc8 !important;
 }
 html[data-tenantidnumber=lmswaomirai] .category-51 .subject-page-added-note-content-download {
   color: #fcaf17 !important;
@@ -13304,7 +13301,7 @@ html[data-tenantidnumber=lmswaomirai] .category-51 .subject-page-added-note-head
   height: 30px;
   display: inline-block;
 }
-html[data-tenantidnumber=lmswaomirai] .category-47 .published {
+html[data-tenantidnumber=lmswaomirai] .category-51 .published {
   background-color: #fff0c3 !important;
 }
 html[data-tenantidnumber=lmswaomirai] .category-47 .subject-page-added-note-content-download {
@@ -13328,8 +13325,8 @@ html[data-tenantidnumber=lmswaomirai] .category-47 .subject-page-added-note-head
   height: 30px;
   display: inline-block;
 }
-html[data-tenantidnumber=lmswaomirai] .category-50 .published {
-  background-color: #f2c9ff !important;
+html[data-tenantidnumber=lmswaomirai] .category-47 .published {
+  background-color: #fff0c3 !important;
 }
 html[data-tenantidnumber=lmswaomirai] .category-50 .subject-page-added-note-content-download {
   color: #aa68aa !important;
@@ -13352,7 +13349,7 @@ html[data-tenantidnumber=lmswaomirai] .category-50 .subject-page-added-note-head
   height: 30px;
   display: inline-block;
 }
-html[data-tenantidnumber=lmswaomirai] .category-54 .published {
+html[data-tenantidnumber=lmswaomirai] .category-50 .published {
   background-color: #f2c9ff !important;
 }
 html[data-tenantidnumber=lmswaomirai] .category-54 .subject-page-added-note-content-download {
@@ -13376,8 +13373,8 @@ html[data-tenantidnumber=lmswaomirai] .category-54 .subject-page-added-note-head
   height: 30px;
   display: inline-block;
 }
-html[data-tenantidnumber=lmswaomirai] .course-999999 .published {
-  background-color: #ee242c !important;
+html[data-tenantidnumber=lmswaomirai] .category-54 .published {
+  background-color: #f2c9ff !important;
 }
 html[data-tenantidnumber=lmswaomirai] .course-999999 .subject-page-added-note-content-download {
   color: #ee242c !important;
@@ -13399,6 +13396,9 @@ html[data-tenantidnumber=lmswaomirai] .course-999999 .subject-page-added-note-he
   width: 30px;
   height: 30px;
   display: inline-block;
+}
+html[data-tenantidnumber=lmswaomirai] .course-999999 .published {
+  background-color: #ee242c !important;
 }
 @media screen and (max-width: 768px) {
   html[data-tenantidnumber=lmswaomirai] #page-user-preferences .col-1,

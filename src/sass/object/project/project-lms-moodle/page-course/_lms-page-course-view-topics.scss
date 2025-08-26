@@ -284,22 +284,7 @@
 @each $style-name, $categories in $course-styles {
   @each $category in $categories {
     #{$category} {
-      // div {
-      //   background-color: map-get(
-      //     map-get($common-course-styles, $style-name),
-      //     "pale-color"
-      //   );
-      //   color: map-get(
-      //     map-get($common-course-styles, $style-name),
-      //     "main-color"
-      //   );
-      // }
-      .published {
-        background-color: map-get(
-          map-get($common-course-styles, $style-name),
-          "pale-light-color"
-        ) !important;
-      }
+      //ダウンロードボタンの色
       .subject-page-added-note-content-download {
         color: map-get(
           map-get($common-course-styles, $style-name),
@@ -312,6 +297,7 @@
           1px
           solid;
       }
+      //アイコンの画像
       .subject-page-added-note-head-icon::before {
         content: "";
         display: block;
@@ -331,6 +317,13 @@
         width: 30px;
         height: 30px;
         display: inline-block;
+      }
+      //公開時のスタイル
+      .published {
+        background-color: map-get(
+          map-get($common-course-styles, $style-name),
+          "pale-light-color"
+        ) !important;
       }
     }
   }
