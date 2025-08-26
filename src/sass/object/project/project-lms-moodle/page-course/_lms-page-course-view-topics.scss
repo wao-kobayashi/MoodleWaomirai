@@ -95,7 +95,7 @@
     margin: 0 auto 32px !important;
     .btn.btn-icon {
       background: white !important;
-      margin-right: 0.75rem !important;
+      margin-right: 0rem !important;
     }
     .mb-3,
     .my-3 {
@@ -140,7 +140,7 @@
   .subject-page-added {
     .course-content-item-content ul {
       display: grid !important;
-      grid-template-columns: 1fr 220px;
+      grid-template-columns: 1fr 210px;
       grid-template-rows: repeat(3, 1fr);
       gap: 25px 30px;
       //スマホではgridにしない
@@ -224,7 +224,7 @@
       }
       .subject-page-added-note-content {
         font-size: $lms-font-size-s;
-        margin: 0 auto 12px;
+        margin: 0 auto 16px;
       }
       .subject-page-added-note-content-download {
         font-size: $lms-font-size-m;
@@ -235,7 +235,7 @@
         display: flex;
         align-items: center;
         gap: 4px;
-        border-radius: $border-radius-big;
+        border-radius: $border-radius-middle;
         font-weight: bold;
         &:hover {
           text-decoration: none;
