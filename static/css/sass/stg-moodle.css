@@ -12954,7 +12954,10 @@ html[data-tenantidnumber=stg] #page-course-view-topics .course-section.main {
   border: 2px solid #efefef;
   border-radius: 10px;
   padding: 0 0px !important;
-  margin: 0 auto 32px !important;
+  margin: 0 auto 40px !important;
+  -webkit-box-shadow: 0px 3px 6px rgba(0, 0, 0, .05);
+          box-shadow: 0px 3px 6px rgba(0, 0, 0, .05);
+  /* Item */
 }
 html[data-tenantidnumber=stg] #page-course-view-flexsections .course-section.main .btn.btn-icon,
 html[data-tenantidnumber=stg] #page-course-view-topics .course-section.main .btn.btn-icon {
