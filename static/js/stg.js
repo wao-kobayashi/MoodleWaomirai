@@ -1401,6 +1401,27 @@ if (
               $(this).parents('.course-section').remove();
           }
       }
+      // 追加部分: 削除していない場合のみ .section を探して操作
+      var $courseSection = $(this).parents('.course-section');
+
+      // modtype_resource 内の activity-icon の href を取得して削除
+      var hrefList = [];
+      $courseSection.find('.modtype_resource').each(function() {
+        var hrefValue = $(this).find('.activity-icon').attr('href');
+        if (hrefValue) {
+            hrefList.push(hrefValue);
+        }
+        $(this).remove(); // .modtype_resource 自体を削除
+      });
+  
+      // .section に href を追加
+      var $section = $courseSection.find('.section');
+      if ($section.length) {
+          hrefList.forEach(function(href) {
+              $section.append('<p>' + href + '</p>');
+          });
+          console.log(".section に href を追加しました:", hrefList);
+      }
   });
 
   ////////////////////////////
