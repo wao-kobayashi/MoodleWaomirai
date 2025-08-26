@@ -1,29 +1,44 @@
-// -----------------------------------------------------------------
-// color
-// -----------------------------------------------------------------
-$cl-white: #ffffff; //ホワイト
-$cl-black: #262626; //ブラック
-$cl-gray: #4d4d4d; //グレー
-$cl-graylight: #999; //グレー
-$cl-graylightest: #efefef; //薄グレー
-$cl-notice: #0f0f0f; //注意する
-$cl-main-orange: #ee7a00; //WAOオレンジ
-$cl-main-orange-pale: #fff6e0; //WAOオレンジペール
-$cl-waogreen: #005c3f; //WAOグリーン
-$cl-waogreen-pale: #edfbf5;
-$cl-philosophy: #fcaf17; //哲学
-$cl-philosophy-darken: #e8810f; //哲学
-$cl-philosophy-pale: #ffe3ac; //哲学ペール
-$cl-science: #b6d43e; //科学
-$cl-science-darken: #9dc03a; //科学ダーク
-$cl-science-pale: #e3f3a3; //科学ペール
-$cl-economy: #28afe7; //経済
-$cl-economy-darken: #0097c4; //経済ダーク
-$cl-economy-pale: #bceafd; //経済ペール
-$cl-english: #aa68aa; //英語
-$cl-english-pale: #f2c9ff; //英語ペール
-$cl-programming: #ee242c; //プログラミング
-$cl-english-pale: #faebff; //英語ペール2
+// =================================================================
+// カラー変数
+// =================================================================
 
-$cl-brand-line: #00b900; //ライン
-$cl-alert: #f35053; //アラート
+// 基本色
+$cl-white: #ffffff; // ホワイト
+$cl-black: #262626; // ブラック
+$cl-gray: #4d4d4d; // グレー
+$cl-graylight: #999; // ライトグレー
+$cl-graylightest: #efefef; // ライテストグレー
+$cl-notice: #0f0f0f; // 注意
+$cl-main-orange: #ee7a00; // WAOオレンジ
+$cl-main-orange-pale: #fff6e0; // WAOオレンジペール
+$cl-waogreen: #005c3f; // WAOグリーン
+$cl-waogreen-pale: #edfbf5; // WAOグリーンペール
+
+// 科目色 - 哲学
+$cl-philosophy: #fcaf17; // 哲学
+$cl-philosophy-darken: #e8810f; // 哲学ダーク
+$cl-philosophy-pale: #ffe3ac; // 哲学ペール
+$cl-philosophy-pale-light: #fff0c3; // 哲学ペールライト
+
+// 科目色 - 科学
+$cl-science: #b6d43e; // 科学
+$cl-science-darken: #9dc03a; // 科学ダーク
+$cl-science-pale: #e3f3a3; // 科学ペール
+$cl-science-pale-light: #f1fbc8; // 科学ペールライト
+
+// 科目色 - 経済
+$cl-economy: #28afe7; // 経済
+$cl-economy-darken: #0097c4; // 経済ダーク
+$cl-economy-pale: #bceafd; // 経済ペール
+$cl-economy-pale-light: #def7ff; // 経済ペールライト
+
+// 科目色 - 英語
+$cl-english: #aa68aa; // 英語
+$cl-english-pale: #f2c9ff; // 英語ペール
+
+// 科目色 - プログラミング
+$cl-programming: #ee242c; // プログラミング
+
+// ユーティリティ色
+$cl-brand-line: #00b900; // ブランドライン
+$cl-alert: #f35053; // アラート

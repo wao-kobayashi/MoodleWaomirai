@@ -297,7 +297,7 @@
       .published {
         background-color: map-get(
           map-get($common-course-styles, $style-name),
-          "pale-color"
+          "pale-light-color"
         ) !important;
       }
       .subject-page-added-note-content-download {

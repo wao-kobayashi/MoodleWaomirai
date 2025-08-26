@@ -1852,6 +1852,22 @@ $(".triger-line-integration-modal").on("click", function (e) {
   });
 });
 
+// メモシートのモーダル
+// ボタンがクリックされた時の処理
+// 3つの科目（哲学、科学リテラシー、経済）のメモシート選択モーダルを表示
+$(".triger-download-memosheet-modal").on("click", function (e) {
+
+  createModal({
+    close: true,  // モーダルを閉じるボタンを表示
+    title: "ダウンロードする<br />メモシートの種類を選択", // モーダルのタイトル
+    buttons: [
+      { text: "哲学（思考力）", url: `https://waomirai.com/`, class: "btn-primary" }, // 2教科セットのリンク
+      { text: "科学リテラシー", url: `https://waomirai.com/`, class: "btn-primary" }, // 3教科セットのリンク
+      { text: "経済", url: `https://waomirai.com/`, class: "btn-primary" }, // 3教科セットのリンク
+    ]
+  });
+});
+
 // classを指定してスクロールできるように
 $(".click-event-subject-comingsoon").on("click", function (e) {
   e.preventDefault(); // デフォルトの動作を防ぐ
