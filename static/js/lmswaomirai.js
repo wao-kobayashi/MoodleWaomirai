@@ -1385,11 +1385,11 @@ if (
             return;
         }
     }
-    
+
     //////////////////////////// 
     // 授業のまとめシートを追加
     //////////////////////////// 
-
+    $courseSection.addClass('subject-page-added');
     // modtype_resource 内の activity-icon の href を取得して削除
     var hrefList = $courseSection.find('.modtype_resource').map(function() {
         // 各 .modtype_resource の中から .activity-icon 要素を探し、その href 属性（ダウンロード先URLなど）を取得

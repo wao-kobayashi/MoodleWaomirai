@@ -13022,9 +13022,9 @@ html[data-tenantidnumber=stg] #page-course-view-topics .course-section.main .cou
 html[data-tenantidnumber=stg] #page-course-view-flexsections .subject-page-added .course-content-item-content ul,
 html[data-tenantidnumber=stg] #page-course-view-topics .subject-page-added .course-content-item-content ul {
   display: grid !important;
-  grid-template-columns: 1fr 210px;
+  grid-template-columns: 1fr 200px;
   grid-template-rows: repeat(3, 1fr);
-  gap: 25px 30px;
+  gap: 20px 25px;
 }
 @media screen and (max-width: 768px) {
   html[data-tenantidnumber=stg] #page-course-view-flexsections .subject-page-added .course-content-item-content ul,
@@ -13152,7 +13152,7 @@ html[data-tenantidnumber=stg] #page-course-view-topics .subject-page-added .subj
 }
 html[data-tenantidnumber=stg] #page-course-view-flexsections .subject-page-added .subject-page-added-note .subject-page-added-note-content-download,
 html[data-tenantidnumber=stg] #page-course-view-topics .subject-page-added .subject-page-added-note .subject-page-added-note-content-download {
-  font-size: 14px;
+  font-size: 12px;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
@@ -13204,8 +13204,8 @@ html[data-tenantidnumber=stg] .category-53 .subject-page-added-note-head-icon::b
   background-image: url("https://waomirai.com/lp/assets/moodle/icn-worksheet-economy.svg") !important;
   background-repeat: no-repeat;
   background-size: contain;
-  width: 30px;
-  height: 30px;
+  width: 28px;
+  height: 28px;
   display: inline-block;
 }
 html[data-tenantidnumber=stg] .category-53 .published {
@@ -13228,8 +13228,8 @@ html[data-tenantidnumber=stg] .category-48 .subject-page-added-note-head-icon::b
   background-image: url("https://waomirai.com/lp/assets/moodle/icn-worksheet-economy.svg") !important;
   background-repeat: no-repeat;
   background-size: contain;
-  width: 30px;
-  height: 30px;
+  width: 28px;
+  height: 28px;
   display: inline-block;
 }
 html[data-tenantidnumber=stg] .category-48 .published {
@@ -13252,12 +13252,12 @@ html[data-tenantidnumber=stg] .category-52 .subject-page-added-note-head-icon::b
   background-image: url("https://waomirai.com/lp/assets/moodle/icn-worksheet-science.svg") !important;
   background-repeat: no-repeat;
   background-size: contain;
-  width: 30px;
-  height: 30px;
+  width: 28px;
+  height: 28px;
   display: inline-block;
 }
 html[data-tenantidnumber=stg] .category-52 .published {
-  background-color: #f1fbc8 !important;
+  background-color: #f5fbe0 !important;
 }
 html[data-tenantidnumber=stg] .category-49 .subject-page-added-note-content-download {
   color: #b6d43e !important;
@@ -13276,12 +13276,12 @@ html[data-tenantidnumber=stg] .category-49 .subject-page-added-note-head-icon::b
   background-image: url("https://waomirai.com/lp/assets/moodle/icn-worksheet-science.svg") !important;
   background-repeat: no-repeat;
   background-size: contain;
-  width: 30px;
-  height: 30px;
+  width: 28px;
+  height: 28px;
   display: inline-block;
 }
 html[data-tenantidnumber=stg] .category-49 .published {
-  background-color: #f1fbc8 !important;
+  background-color: #f5fbe0 !important;
 }
 html[data-tenantidnumber=stg] .category-51 .subject-page-added-note-content-download {
   color: #fcaf17 !important;
@@ -13300,8 +13300,8 @@ html[data-tenantidnumber=stg] .category-51 .subject-page-added-note-head-icon::b
   background-image: url("https://waomirai.com/lp/assets/moodle/icn-worksheet-philosophy.svg") !important;
   background-repeat: no-repeat;
   background-size: contain;
-  width: 30px;
-  height: 30px;
+  width: 28px;
+  height: 28px;
   display: inline-block;
 }
 html[data-tenantidnumber=stg] .category-51 .published {
@@ -13324,8 +13324,8 @@ html[data-tenantidnumber=stg] .category-47 .subject-page-added-note-head-icon::b
   background-image: url("https://waomirai.com/lp/assets/moodle/icn-worksheet-philosophy.svg") !important;
   background-repeat: no-repeat;
   background-size: contain;
-  width: 30px;
-  height: 30px;
+  width: 28px;
+  height: 28px;
   display: inline-block;
 }
 html[data-tenantidnumber=stg] .category-47 .published {
@@ -13348,8 +13348,8 @@ html[data-tenantidnumber=stg] .category-50 .subject-page-added-note-head-icon::b
   background-image: url("") !important;
   background-repeat: no-repeat;
   background-size: contain;
-  width: 30px;
-  height: 30px;
+  width: 28px;
+  height: 28px;
   display: inline-block;
 }
 html[data-tenantidnumber=stg] .category-50 .published {
@@ -13372,8 +13372,8 @@ html[data-tenantidnumber=stg] .category-54 .subject-page-added-note-head-icon::b
   background-image: url("") !important;
   background-repeat: no-repeat;
   background-size: contain;
-  width: 30px;
-  height: 30px;
+  width: 28px;
+  height: 28px;
   display: inline-block;
 }
 html[data-tenantidnumber=stg] .category-54 .published {
@@ -13396,8 +13396,8 @@ html[data-tenantidnumber=stg] .course-999999 .subject-page-added-note-head-icon:
   background-image: url("") !important;
   background-repeat: no-repeat;
   background-size: contain;
-  width: 30px;
-  height: 30px;
+  width: 28px;
+  height: 28px;
   display: inline-block;
 }
 html[data-tenantidnumber=stg] .course-999999 .published {

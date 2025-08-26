@@ -143,9 +143,9 @@
   .subject-page-added {
     .course-content-item-content ul {
       display: grid !important;
-      grid-template-columns: 1fr 210px;
+      grid-template-columns: 1fr 200px;
       grid-template-rows: repeat(3, 1fr);
-      gap: 25px 30px;
+      gap: 20px 25px;
       //スマホではgridにしない
       @include responsive-style(768px) {
         display: flex !important;
@@ -230,7 +230,7 @@
         margin: 0 auto 16px;
       }
       .subject-page-added-note-content-download {
-        font-size: $lms-font-size-m;
+        font-size: $lms-font-size-s;
         justify-content: center;
         background: $cl-white;
         width: 100%;
@@ -317,8 +317,8 @@
         ) !important;
         background-repeat: no-repeat;
         background-size: contain;
-        width: 30px;
-        height: 30px;
+        width: 28px;
+        height: 28px;
         display: inline-block;
       }
       //公開時のスタイル
