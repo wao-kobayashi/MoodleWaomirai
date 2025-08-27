@@ -1,189 +1,523 @@
-//- li.subject-page-added-note.published
-//-   .subject-page-added-note-head 
-//-      .subject-page-added-note-head-title
-//-         |授業の
-//-         br
-//-         |まとめシート
-//-      .subject-page-added-note-head-icon 
-        
-//-   .subject-page-added-note-content 
-//-     |授業の復習にご活用ください！ ファイリングして、あなただけの「未来塾ノート」を作ってみてくださいね！
-//-   a.subject-page-added-note-content-download(href="https://lms.waomirai.com/mod/resource/view.php?id=1973")
-//-     span.material-symbols-outlined
-//-       |download
-//-     .subject-page-added-note-content-download-text
-//-        |ダウンロードする 
-
-// 月別スケジュールの共通ミックスイン
-mixin schedule-month(title, showResource)
-  //- mixin に渡すフラグを設定
-  - var showResource = true
-  li#section-0.subject-page-added.section.course-section.main.clearfix
-    .course-section-header.d-flex(
-      data-number="0" 
-      data-id="766" 
-      data-for="section_title"
-      )
-      .bulkselect.align-self-center.d-none(data-for="sectionBulkSelect")
-        input#sectionCheckbox766(
-          data-bulkcheckbox="1" 
-          data-action="toggleSelectionSection" 
-          data-id="766" 
-          type="checkbox"
-          )
-        label.sr-only(for="sectionCheckbox766") #{title}
-      .d-flex.align-items-start.position-relative
-        a#collapssesection0.btn.btn-icon.mr-1.icons-collapse-expand.justify-content-center.stretched-link(
-          aria-label=title
-          aria-controls="coursecontentcollapse0" 
-          aria-expanded="true" 
-          href="#coursecontentcollapse0" 
-          data-for="sectiontoggler" 
-          data-toggle="collapse" 
-          role="button"
-          )
-          span.expanded-icon.icon-no-margin.p-2(title="折りたたむ")
-            i.icon.fa.fa-chevron-down.fa-fw(aria-hidden="true")
-          span.collapsed-icon.icon-no-margin.p-2(title="展開する")
-            span.dir-rtl-hide
-              i.icon.fa.fa-chevron-right.fa-fw(aria-hidden="true")
-            span.dir-ltr-hide
-              i.icon.fa.fa-chevron-left.fa-fw(aria-hidden="true")
-        h3#sectionid-766-title.sectionname.course-content-item.d-flex.align-self-stretch.align-items-center.mb-0(
-          data-number="0" 
-          data-id="766" 
-          data-for="section_title"
-          ) #{title}
-      .sectionbadges.d-flex.align-items-center(data-region="sectionbadges")
-      .flex-fill.d-flex.justify-content-end.mr-2.align-self-start.mt-2
-        a#collapsesections.section-collapsemenu(
-          data-toggle="toggleall" 
-          role="button" 
-          aria-expanded="true" 
-          href="#"
-          )
-          span.collapseall.text-nowrap すべてを折りたたむ
-          span.expandall.text-nowrap すべてを展開する
-    #coursecontentcollapse0.content.course-content-item-content.collapse.show
-      .my-3(data-for="sectioninfo")
-        div(class="section_availability")
-      ul.section.m-0.p-0.img-text.d-block(data-for="cmlist")
-        // 週別アンケート
-        +week-questionnaire(month, "1週目", "現代科学でわかった恐竜の生態※一般非公開講座", "1361")
-        +week-questionnaire(month, "2週目", "実際にペットにするならどの恐竜", "1313")
-        +week-questionnaire(month, "3週目", "フィードバック", "1314")
-        
-        // 授業概要リソース
-        if showResource
-          +resource-item("授業概要test", "1973")
-
-// 週別アンケートの共通ミックスイン
-mixin week-questionnaire(month, week, title, id)
-  li#module-88.activity.activity-wrapper.questionnaire.hasinfo(
-    data-id=id 
-    data-for="cmitem" 
-    class="modtype_questionnaire"
-    )
-    .activity-item.focus-control(data-activityname="#{month}月#{week}：#{title}")
-      .bulkselect.d-none(data-for="cmBulkSelect")
-        input#cmCheckbox(
-          data-bulkcheckbox="1" 
-          data-action="toggleSelectionCm" 
-          data-id=id 
-          type="checkbox"
-          )
-        label.sr-only(for="cmCheckbox#{id}") 活動 #{month}月#{week}：#{title} を選択する
-      .activity-grid
-        a.activity-icon.activityiconcontainer.smaller.communication.btn.btn-link.courseicon.align-self-start.mr-2(href="https://lms.waomirai.com/mod/questionnaire/view.php?id=#{id}")
-          img.activityicon(
-            alt="アンケート アイコン" 
-            src="https://lms.waomirai.com/theme/image.php/kenai/questionnaire/1749448559/monologo?filtericon=1"
-            )
-        .activity-name-area.activity-instance.d-flex.flex-column.mr-2
-          .activitytitle.media.position-relative.align-self-start(class="modtype_questionnaire")
-            .media-body.align-self-center
-              .activityname
-                a.aalink.stretched-link(
-                  onclick="" 
-                  href="https://lms.waomirai.com/mod/questionnaire/view.php?id=#{id}"
-                  )
-                  span.instancename
-                    | #{month}月#{week}：#{title}
-                    span.accesshide 問い
-        .activity-completion.align-self-start.ml-sm-2
-          .activity-information(
-            data-activityname="#{month}月#{week}：#{title}" 
-            data-region="activity-information"
-            )
-            div(data-region="completion-info")
-              div(
-                aria-label=title 
-                data-region="completionrequirements"
-                )
-                .dropdown.completion-dropdown(id="dropdownDialog_#{id}")
-                  button.btn.btn-sm.dropdown-toggle.icon-no-margin(
-                    data-for="dropdowndialog_button" 
-                    aria-expanded="false" 
-                    aria-haspopup="true" 
-                    data-toggle="dropdown" 
-                    id="dropwdownbutton_#{id}" 
-                    type="button"
-                    ) 未提出
-                  .dropdown-menu.dropdown-menu-right(
-                    data-for="dropdowndialog_dialog" 
-                    aria-labelledby="dropwdownbutton_#{id}"
-                    )
-                    .p-2(data-for="dropdowndialog_content")
-                      .completion-dialog.px-2
-                        strong あなたに必要なこと:
-                        .ml-2(role="list")
-                          .d-flex.mt-2(role="listitem")
-                            div
-                              img.icon(
-                                src="https://lms.waomirai.com/theme/image.php/kenai/core/1749448559/i/dot" 
-                                aria-hidden="true" 
-                                alt=""
-                                )
-                              span.sr-only やるべきこと:
-                            span 学生が完了するためにはこのアンケートに回答しなければなりません
-
-// リソースアイテムの共通ミックスイン
-mixin resource-item(title, id)
-  li#module-.activity.activity-wrapper.resource.hasinfo(
-    data-id=id 
-    data-for="cmitem" 
-    class="modtype_resource"
-    )
-    .activity-item.focus-control(data-activityname=title)
-      .bulkselect.d-none(data-for="cmBulkSelect")
-        input#cmCheckbox(
-          data-bulkcheckbox="1" 
-          data-action="toggleSelectionCm" 
-          data-id=id 
-          type="checkbox"
-          )
-        label.sr-only(for="cmCheckbox#{id}") 活動 #{title} を選択する
-      .activity-grid
-        a.activity-icon.activityiconcontainer.smaller.content.btn.btn-link.courseicon.align-self-start.mr-2(href="https://lms.waomirai.com/mod/resource/view.php?id=#{id}")
-          img.activityicon(
-            alt="ファイル アイコン" 
-            src="https://lms.waomirai.com/theme/image.php/kenai/core/1749448559/f/pdf?filtericon=1"
-            )
-        .activity-name-area.activity-instance.d-flex.flex-column.mr-2
-          .activitytitle.media.position-relative.align-self-start(class="modtype_resource")
-            .media-body.align-self-center
-              .activityname
-                a.aalink.stretched-link(
-                  onclick="" 
-                  href="https://lms.waomirai.com/mod/resource/view.php?id=#{id}"
-                  )
-                  span.instancename
-                    | #{title}
-                    span.accesshide ファイル
-                span.ml-1
-                  span.activitybadge.badge.badge-pill
 
 
+mixin schedule-month-2024dec(worksheet)
+    li#section-1.subject-grid.section.course-section.main.clearfix(
+                            data-number="1" 
+                            data-id="767" 
+                            data-for="section" 
+                            data-sectionreturnid="0" 
+                            data-sectionid="1"
+                            )
+                            .course-section-header.d-flex(
+                              data-number="1" 
+                              data-id="767" 
+                              data-for="section_title"
+                              )
+                              .bulkselect.align-self-center.d-none(data-for="sectionBulkSelect")
+                                input#sectionCheckbox767(
+                                  data-bulkcheckbox="1" 
+                                  data-action="toggleSelectionSection" 
+                                  data-id="767" 
+                                  type="checkbox"
+                                  )
+                                label.sr-only(for="sectionCheckbox767") 2024年12月：10 万ボルトの強さはどのくらい ?
+                              .d-flex.align-items-start.position-relative
+                                a#collapssesection1.btn.btn-icon.mr-1.icons-collapse-expand.justify-content-center.stretched-link(
+                                  aria-label=title 
+                                  aria-controls="coursecontentcollapse1" 
+                                  aria-expanded="true" 
+                                  href="#coursecontentcollapse1" 
+                                  data-for="sectiontoggler" 
+                                  data-toggle="collapse" 
+                                  role="button"
+                                  )
+                                  span.expanded-icon.icon-no-margin.p-2(title="折りたたむ")
+                                    i.icon.fa.fa-chevron-down.fa-fw(aria-hidden="true")
+                                  span.collapsed-icon.icon-no-margin.p-2(title="展開する")
+                                    span.dir-rtl-hide
+                                      i.icon.fa.fa-chevron-right.fa-fw(aria-hidden="true")
+                                    span.dir-ltr-hide
+                                      i.icon.fa.fa-chevron-left.fa-fw(aria-hidden="true")
+                                h3#sectionid-767-title.sectionname.course-content-item.d-flex.align-self-stretch.align-items-center.mb-0(
+                                  data-number="1" 
+                                  data-id="767" 
+                                  data-for="section_title"
+                                  ) 2024年12月：10 万ボルトの強さはどのくらい ?
+                              .sectionbadges.d-flex.align-items-center(data-region="sectionbadges")
+                            #coursecontentcollapse1.content.course-content-item-content.collapse.show
+                              .my-3(data-for="sectioninfo")
+                                div(class="section_availability")
+                              ul.section.m-0.p-0.img-text.d-block(data-for="cmlist")
+                                li#module-1315.activity.activity-wrapper.questionnaire.hasinfo(
+                                  data-id="1315" 
+                                  data-for="cmitem" 
+                                  class="modtype_questionnaire"
+                                  )
+                                  .activity-item.focus-control(data-activityname="10月1週目：発電する動物はどうしているの？")
+                                    .bulkselect.d-none(data-for="cmBulkSelect")
+                                      input#cmCheckbox1315(
+                                        data-bulkcheckbox="1" 
+                                        data-action="toggleSelectionCm" 
+                                        data-id="1315" 
+                                        type="checkbox"
+                                        )
+                                      label.sr-only(for="cmCheckbox1315") 活動 10月1週目：発電する動物はどうしているの？ を選択する
+                                    .activity-grid
+                                      a.activity-icon.activityiconcontainer.smaller.communication.btn.btn-link.courseicon.align-self-start.mr-2(href="https://lms.waomirai.com/mod/questionnaire/view.php?id=1315")
+                                        img.activityicon(
+                                          alt="アンケート アイコン" 
+                                          src="https://lms.waomirai.com/theme/image.php/kenai/questionnaire/1749448559/monologo?filtericon=1"
+                                          )
+                                      .activity-name-area.activity-instance.d-flex.flex-column.mr-2
+                                        .activitytitle.media.position-relative.align-self-start(class="modtype_questionnaire")
+                                          .media-body.align-self-center
+                                            .activityname
+                                              a.aalink.stretched-link(
+                                                onclick="" 
+                                                href="https://lms.waomirai.com/mod/questionnaire/view.php?id=1315"
+                                                )
+                                                span.instancename
+                                                  | 10月1週目：発電する動物はどうしているの？
+                                                  span.accesshide 問い
+                                      .activity-completion.align-self-start.ml-sm-2
+                                        .activity-information(
+                                          data-activityname="10月1週目：発電する動物はどうしているの？" 
+                                          data-region="activity-information"
+                                          )
+                                          div(data-region="completion-info")
+                                            div(
+                                              aria-label="10月1週目：発電する動物はどうしているの？ の完了条件" 
+                                              data-region="completionrequirements"
+                                              )
+                                              .dropdown.completion-dropdown(id="dropdownDialog_68abba5531a3614")
+                                                button.btn.btn-sm.dropdown-toggle.icon-no-margin.btn-success(
+                                                  data-for="dropdowndialog_button" 
+                                                  aria-expanded="false" 
+                                                  aria-haspopup="true" 
+                                                  data-toggle="dropdown" 
+                                                  id="dropwdownbutton_68abba5531a3615" 
+                                                  type="button"
+                                                  )
+                                                  i.icon.fa.fa-check.fa-fw(aria-hidden="true")
+                                                  | 完了
+                                                .dropdown-menu.dropdown-menu-right(
+                                                  data-for="dropdowndialog_dialog" 
+                                                  aria-labelledby="dropwdownbutton_68abba5531a3615"
+                                                  )
+                                                  .p-2(data-for="dropdowndialog_content")
+                                                    .completion-dialog.px-2
+                                                      strong あなたに必要なこと:
+                                                      .ml-2(role="list")
+                                                        .d-flex.mt-2.text-success(role="listitem")
+                                                          div
+                                                            i.icon.fa.fa-check.fa-fw(aria-hidden="true")
+                                                            span.sr-only 完了:
+                                                          span 学生が完了するためにはこのアンケートに回答しなければなりません
+                                li#module-1316.activity.activity-wrapper.questionnaire.hasinfo(
+                                  data-id="1316" 
+                                  data-for="cmitem" 
+                                  class="modtype_questionnaire"
+                                  )
+                                  .activity-item.focus-control(data-activityname="10月2週目：10 万ボルトができること")
+                                    .bulkselect.d-none(data-for="cmBulkSelect")
+                                      input#cmCheckbox1316(
+                                        data-bulkcheckbox="1" 
+                                        data-action="toggleSelectionCm" 
+                                        data-id="1316" 
+                                        type="checkbox"
+                                        )
+                                      label.sr-only(for="cmCheckbox1316") 活動 10月2週目：10 万ボルトができること を選択する
+                                    .activity-grid
+                                      a.activity-icon.activityiconcontainer.smaller.communication.btn.btn-link.courseicon.align-self-start.mr-2(href="https://lms.waomirai.com/mod/questionnaire/view.php?id=1316")
+                                        img.activityicon(
+                                          alt="アンケート アイコン" 
+                                          src="https://lms.waomirai.com/theme/image.php/kenai/questionnaire/1749448559/monologo?filtericon=1"
+                                          )
+                                      .activity-name-area.activity-instance.d-flex.flex-column.mr-2
+                                        .activitytitle.media.position-relative.align-self-start(class="modtype_questionnaire")
+                                          .media-body.align-self-center
+                                            .activityname
+                                              a.aalink.stretched-link(
+                                                onclick="" 
+                                                href="https://lms.waomirai.com/mod/questionnaire/view.php?id=1316"
+                                                )
+                                                span.instancename
+                                                  | 10月2週目：10
+                                                  |   万ボルトができること
+                                                  span.accesshide 問い
+                                      .activity-completion.align-self-start.ml-sm-2
+                                        .activity-information(
+                                          data-activityname="10月2週目：10 万ボルトができること" 
+                                          data-region="activity-information"
+                                          )
+                                          div(data-region="completion-info")
+                                            div(
+                                              aria-label="10月2週目：10 万ボルトができること の完了条件" 
+                                              data-region="completionrequirements"
+                                              )
+                                              .dropdown.completion-dropdown(id="dropdownDialog_68abba5531a3616")
+                                                button.btn.btn-sm.dropdown-toggle.icon-no-margin.btn-success(
+                                                  data-for="dropdowndialog_button" 
+                                                  aria-expanded="false" 
+                                                  aria-haspopup="true" 
+                                                  data-toggle="dropdown" 
+                                                  id="dropwdownbutton_68abba5531a3617" 
+                                                  type="button"
+                                                  )
+                                                  i.icon.fa.fa-check.fa-fw(aria-hidden="true")
+                                                  | 完了
+                                                .dropdown-menu.dropdown-menu-right(
+                                                  data-for="dropdowndialog_dialog" 
+                                                  aria-labelledby="dropwdownbutton_68abba5531a3617"
+                                                  )
+                                                  .p-2(data-for="dropdowndialog_content")
+                                                    .completion-dialog.px-2
+                                                      strong あなたに必要なこと:
+                                                      .ml-2(role="list")
+                                                        .d-flex.mt-2.text-success(role="listitem")
+                                                          div
+                                                            i.icon.fa.fa-check.fa-fw(aria-hidden="true")
+                                                            span.sr-only 完了:
+                                                          span 学生が完了するためにはこのアンケートに回答しなければなりません
+                                li#module-1317.activity.activity-wrapper.questionnaire.hasinfo(
+                                  data-id="1317" 
+                                  data-for="cmitem" 
+                                  class="modtype_questionnaire"
+                                  )
+                                  .activity-item.focus-control(data-activityname="10月3週目：フィードバック")
+                                    .bulkselect.d-none(data-for="cmBulkSelect")
+                                      input#cmCheckbox1317(
+                                        data-bulkcheckbox="1" 
+                                        data-action="toggleSelectionCm" 
+                                        data-id="1317" 
+                                        type="checkbox"
+                                        )
+                                      label.sr-only(for="cmCheckbox1317") 活動 10月3週目：フィードバック を選択する
+                                    .activity-grid
+                                      a.activity-icon.activityiconcontainer.smaller.communication.btn.btn-link.courseicon.align-self-start.mr-2(href="https://lms.waomirai.com/mod/questionnaire/view.php?id=1317")
+                                        img.activityicon(
+                                          alt="アンケート アイコン" 
+                                          src="https://lms.waomirai.com/theme/image.php/kenai/questionnaire/1749448559/monologo?filtericon=1"
+                                          )
+                                      .activity-name-area.activity-instance.d-flex.flex-column.mr-2
+                                        .activitytitle.media.position-relative.align-self-start(class="modtype_questionnaire")
+                                          .media-body.align-self-center
+                                            .activityname
+                                              a.aalink.stretched-link(
+                                                onclick="" 
+                                                href="https://lms.waomirai.com/mod/questionnaire/view.php?id=1317"
+                                                )
+                                                span.instancename
+                                                  | 10月3週目：フィードバック
+                                                  span.accesshide 問い
+                                      .activity-completion.align-self-start.ml-sm-2
+                                        .activity-information(
+                                          data-activityname="10月3週目：フィードバック" 
+                                          data-region="activity-information"
+                                          )
+                                          div(data-region="completion-info")
+                                            div(
+                                              aria-label="10月3週目：フィードバック の完了条件" 
+                                              data-region="completionrequirements"
+                                              )
+                                              .dropdown.completion-dropdown(id="dropdownDialog_68abba5531a3618")
+                                                button.btn.btn-sm.dropdown-toggle.icon-no-margin.btn-success(
+                                                  data-for="dropdowndialog_button" 
+                                                  aria-expanded="false" 
+                                                  aria-haspopup="true" 
+                                                  data-toggle="dropdown" 
+                                                  id="dropwdownbutton_68abba5531a3619" 
+                                                  type="button"
+                                                  )
+                                                  i.icon.fa.fa-check.fa-fw(aria-hidden="true")
+                                                  | 完了
+                                                .dropdown-menu.dropdown-menu-right(
+                                                  data-for="dropdowndialog_dialog" 
+                                                  aria-labelledby="dropwdownbutton_68abba5531a3619"
+                                                  )
+                                                  .p-2(data-for="dropdowndialog_content")
+                                                    .completion-dialog.px-2
+                                                      strong あなたに必要なこと:
+                                                      .ml-2(role="list")
+                                                        .d-flex.mt-2.text-success(role="listitem")
+                                                          div
+                                                            i.icon.fa.fa-check.fa-fw(aria-hidden="true")
+                                                            span.sr-only 完了:
+                                                          span 学生が完了するためにはこのアンケートに回答しなければなりませ
+                                //- li.subject-page-added-note.not-published
+                                //-   .subject-page-added-note-head 
+                                //-      .subject-page-added-note-head-title
+                                //-         |授業の
+                                //-         br
+                                //-         |まとめシート
+                                //-      .subject-page-added-note-head-icon 
+                                        
+                                //-   .subject-page-added-note-content 
+                                //-     |現在準備中です
+                                  //- a.subject-page-added-note-content-download(href="https://lms.waomirai.com/mod/resource/view.php?id=1973")
+                                  //-   i.fa-regular.fa-circle-down
+                                  //-   .subject-page-added-note-content-download-text
+                                  //-      |ダウンロードする  
+
+
+mixin schedule-month-2026oct
+    li#section-1.subject-grid.section.course-section.main.clearfix(
+                            data-number="1" 
+                            data-id="767" 
+                            data-for="section" 
+                            data-sectionreturnid="0" 
+                            data-sectionid="1"
+                            )
+                            .course-section-header.d-flex(
+                              data-number="1" 
+                              data-id="767" 
+                              data-for="section_title"
+                              )
+                              .bulkselect.align-self-center.d-none(data-for="sectionBulkSelect")
+                                input#sectionCheckbox767(
+                                  data-bulkcheckbox="1" 
+                                  data-action="toggleSelectionSection" 
+                                  data-id="767" 
+                                  type="checkbox"
+                                  )
+                                label.sr-only(for="sectionCheckbox767") 2024年12月：10 万ボルトの強さはどのくらい ?
+                              .d-flex.align-items-start.position-relative
+                                a#collapssesection1.btn.btn-icon.mr-1.icons-collapse-expand.justify-content-center.stretched-link(
+                                  aria-label=title 
+                                  aria-controls="coursecontentcollapse1" 
+                                  aria-expanded="true" 
+                                  href="#coursecontentcollapse1" 
+                                  data-for="sectiontoggler" 
+                                  data-toggle="collapse" 
+                                  role="button"
+                                  )
+                                  span.expanded-icon.icon-no-margin.p-2(title="折りたたむ")
+                                    i.icon.fa.fa-chevron-down.fa-fw(aria-hidden="true")
+                                  span.collapsed-icon.icon-no-margin.p-2(title="展開する")
+                                    span.dir-rtl-hide
+                                      i.icon.fa.fa-chevron-right.fa-fw(aria-hidden="true")
+                                    span.dir-ltr-hide
+                                      i.icon.fa.fa-chevron-left.fa-fw(aria-hidden="true")
+                                h3#sectionid-767-title.sectionname.course-content-item.d-flex.align-self-stretch.align-items-center.mb-0(
+                                  data-number="1" 
+                                  data-id="767" 
+                                  data-for="section_title"
+                                  ) #{title}
+                              .sectionbadges.d-flex.align-items-center(data-region="sectionbadges")
+                            #coursecontentcollapse1.content.course-content-item-content.collapse.show
+                              .my-3(data-for="sectioninfo")
+                                div(class="section_availability")
+                              ul.section.m-0.p-0.img-text.d-block(data-for="cmlist")
+                                li#module-1315.activity.activity-wrapper.questionnaire.hasinfo(
+                                  data-id="1315" 
+                                  data-for="cmitem" 
+                                  class="modtype_questionnaire"
+                                  )
+                                  .activity-item.focus-control(data-activityname="10月1週目：発電する動物はどうしているの？")
+                                    .bulkselect.d-none(data-for="cmBulkSelect")
+                                      input#cmCheckbox1315(
+                                        data-bulkcheckbox="1" 
+                                        data-action="toggleSelectionCm" 
+                                        data-id="1315" 
+                                        type="checkbox"
+                                        )
+                                      label.sr-only(for="cmCheckbox1315") 活動 10月1週目：発電する動物はどうしているの？ を選択する
+                                    .activity-grid
+                                      a.activity-icon.activityiconcontainer.smaller.communication.btn.btn-link.courseicon.align-self-start.mr-2(href="https://lms.waomirai.com/mod/questionnaire/view.php?id=1315")
+                                        img.activityicon(
+                                          alt="アンケート アイコン" 
+                                          src="https://lms.waomirai.com/theme/image.php/kenai/questionnaire/1749448559/monologo?filtericon=1"
+                                          )
+                                      .activity-name-area.activity-instance.d-flex.flex-column.mr-2
+                                        .activitytitle.media.position-relative.align-self-start(class="modtype_questionnaire")
+                                          .media-body.align-self-center
+                                            .activityname
+                                              a.aalink.stretched-link(
+                                                onclick="" 
+                                                href="https://lms.waomirai.com/mod/questionnaire/view.php?id=1315"
+                                                )
+                                                span.instancename
+                                                  | 10月1週目：発電する動物はどうしているの？
+                                                  span.accesshide 問い
+                                      .activity-completion.align-self-start.ml-sm-2
+                                        .activity-information(
+                                          data-activityname="10月1週目：発電する動物はどうしているの？" 
+                                          data-region="activity-information"
+                                          )
+                                          div(data-region="completion-info")
+                                            div(
+                                              aria-label="10月1週目：発電する動物はどうしているの？ の完了条件" 
+                                              data-region="completionrequirements"
+                                              )
+                                              .dropdown.completion-dropdown(id="dropdownDialog_68abba5531a3614")
+                                                button.btn.btn-sm.dropdown-toggle.icon-no-margin.btn-success(
+                                                  data-for="dropdowndialog_button" 
+                                                  aria-expanded="false" 
+                                                  aria-haspopup="true" 
+                                                  data-toggle="dropdown" 
+                                                  id="dropwdownbutton_68abba5531a3615" 
+                                                  type="button"
+                                                  )
+                                                  i.icon.fa.fa-check.fa-fw(aria-hidden="true")
+                                                  | 完了
+                                                .dropdown-menu.dropdown-menu-right(
+                                                  data-for="dropdowndialog_dialog" 
+                                                  aria-labelledby="dropwdownbutton_68abba5531a3615"
+                                                  )
+                                                  .p-2(data-for="dropdowndialog_content")
+                                                    .completion-dialog.px-2
+                                                      strong あなたに必要なこと:
+                                                      .ml-2(role="list")
+                                                        .d-flex.mt-2.text-success(role="listitem")
+                                                          div
+                                                            i.icon.fa.fa-check.fa-fw(aria-hidden="true")
+                                                            span.sr-only 完了:
+                                                          span 学生が完了するためにはこのアンケートに回答しなければなりません
+                                li#module-1316.activity.activity-wrapper.questionnaire.hasinfo(
+                                  data-id="1316" 
+                                  data-for="cmitem" 
+                                  class="modtype_questionnaire"
+                                  )
+                                  .activity-item.focus-control(data-activityname="10月2週目：10 万ボルトができること")
+                                    .bulkselect.d-none(data-for="cmBulkSelect")
+                                      input#cmCheckbox1316(
+                                        data-bulkcheckbox="1" 
+                                        data-action="toggleSelectionCm" 
+                                        data-id="1316" 
+                                        type="checkbox"
+                                        )
+                                      label.sr-only(for="cmCheckbox1316") 活動 10月2週目：10 万ボルトができること を選択する
+                                    .activity-grid
+                                      a.activity-icon.activityiconcontainer.smaller.communication.btn.btn-link.courseicon.align-self-start.mr-2(href="https://lms.waomirai.com/mod/questionnaire/view.php?id=1316")
+                                        img.activityicon(
+                                          alt="アンケート アイコン" 
+                                          src="https://lms.waomirai.com/theme/image.php/kenai/questionnaire/1749448559/monologo?filtericon=1"
+                                          )
+                                      .activity-name-area.activity-instance.d-flex.flex-column.mr-2
+                                        .activitytitle.media.position-relative.align-self-start(class="modtype_questionnaire")
+                                          .media-body.align-self-center
+                                            .activityname
+                                              a.aalink.stretched-link(
+                                                onclick="" 
+                                                href="https://lms.waomirai.com/mod/questionnaire/view.php?id=1316"
+                                                )
+                                                span.instancename
+                                                  | 10月2週目：10
+                                                  |   万ボルトができること
+                                                  span.accesshide 問い
+                                      .activity-completion.align-self-start.ml-sm-2
+                                        .activity-information(
+                                          data-activityname="10月2週目：10 万ボルトができること" 
+                                          data-region="activity-information"
+                                          )
+                                          div(data-region="completion-info")
+                                            div(
+                                              aria-label="10月2週目：10 万ボルトができること の完了条件" 
+                                              data-region="completionrequirements"
+                                              )
+                                              .dropdown.completion-dropdown(id="dropdownDialog_68abba5531a3616")
+                                                button.btn.btn-sm.dropdown-toggle.icon-no-margin.btn-success(
+                                                  data-for="dropdowndialog_button" 
+                                                  aria-expanded="false" 
+                                                  aria-haspopup="true" 
+                                                  data-toggle="dropdown" 
+                                                  id="dropwdownbutton_68abba5531a3617" 
+                                                  type="button"
+                                                  )
+                                                  i.icon.fa.fa-check.fa-fw(aria-hidden="true")
+                                                  | 完了
+                                                .dropdown-menu.dropdown-menu-right(
+                                                  data-for="dropdowndialog_dialog" 
+                                                  aria-labelledby="dropwdownbutton_68abba5531a3617"
+                                                  )
+                                                  .p-2(data-for="dropdowndialog_content")
+                                                    .completion-dialog.px-2
+                                                      strong あなたに必要なこと:
+                                                      .ml-2(role="list")
+                                                        .d-flex.mt-2.text-success(role="listitem")
+                                                          div
+                                                            i.icon.fa.fa-check.fa-fw(aria-hidden="true")
+                                                            span.sr-only 完了:
+                                                          span 学生が完了するためにはこのアンケートに回答しなければなりません
+                                li#module-1317.activity.activity-wrapper.questionnaire.hasinfo(
+                                  data-id="1317" 
+                                  data-for="cmitem" 
+                                  class="modtype_questionnaire"
+                                  )
+                                  .activity-item.focus-control(data-activityname="10月3週目：フィードバック")
+                                    .bulkselect.d-none(data-for="cmBulkSelect")
+                                      input#cmCheckbox1317(
+                                        data-bulkcheckbox="1" 
+                                        data-action="toggleSelectionCm" 
+                                        data-id="1317" 
+                                        type="checkbox"
+                                        )
+                                      label.sr-only(for="cmCheckbox1317") 活動 10月3週目：フィードバック を選択する
+                                    .activity-grid
+                                      a.activity-icon.activityiconcontainer.smaller.communication.btn.btn-link.courseicon.align-self-start.mr-2(href="https://lms.waomirai.com/mod/questionnaire/view.php?id=1317")
+                                        img.activityicon(
+                                          alt="アンケート アイコン" 
+                                          src="https://lms.waomirai.com/theme/image.php/kenai/questionnaire/1749448559/monologo?filtericon=1"
+                                          )
+                                      .activity-name-area.activity-instance.d-flex.flex-column.mr-2
+                                        .activitytitle.media.position-relative.align-self-start(class="modtype_questionnaire")
+                                          .media-body.align-self-center
+                                            .activityname
+                                              a.aalink.stretched-link(
+                                                onclick="" 
+                                                href="https://lms.waomirai.com/mod/questionnaire/view.php?id=1317"
+                                                )
+                                                span.instancename
+                                                  | 10月3週目：フィードバック
+                                                  span.accesshide 問い
+                                      .activity-completion.align-self-start.ml-sm-2
+                                        .activity-information(
+                                          data-activityname="10月3週目：フィードバック" 
+                                          data-region="activity-information"
+                                          )
+                                          div(data-region="completion-info")
+                                            div(
+                                              aria-label="10月3週目：フィードバック の完了条件" 
+                                              data-region="completionrequirements"
+                                              )
+                                              .dropdown.completion-dropdown(id="dropdownDialog_68abba5531a3618")
+                                                button.btn.btn-sm.dropdown-toggle.icon-no-margin.btn-success(
+                                                  data-for="dropdowndialog_button" 
+                                                  aria-expanded="false" 
+                                                  aria-haspopup="true" 
+                                                  data-toggle="dropdown" 
+                                                  id="dropwdownbutton_68abba5531a3619" 
+                                                  type="button"
+                                                  )
+                                                  i.icon.fa.fa-check.fa-fw(aria-hidden="true")
+                                                  | 完了
+                                                .dropdown-menu.dropdown-menu-right(
+                                                  data-for="dropdowndialog_dialog" 
+                                                  aria-labelledby="dropwdownbutton_68abba5531a3619"
+                                                  )
+                                                  .p-2(data-for="dropdowndialog_content")
+                                                    .completion-dialog.px-2
+                                                      strong あなたに必要なこと:
+                                                      .ml-2(role="list")
+                                                        .d-flex.mt-2.text-success(role="listitem")
+                                                          div
+                                                            i.icon.fa.fa-check.fa-fw(aria-hidden="true")
+                                                            span.sr-only 完了:
+                                                          span 学生が完了するためにはこのアンケートに回答しなければなりませ
+                                //- li.subject-page-added-note.not-published
+                                //-   .subject-page-added-note-head 
+                                //-      .subject-page-added-note-head-title
+                                //-         |授業の
+                                //-         br
+                                //-         |まとめシート
+                                //-      .subject-page-added-note-head-icon 
+                                        
+                                //-   .subject-page-added-note-content 
+                                //-     |現在準備中です
+                                  //- a.subject-page-added-note-content-download(href="https://lms.waomirai.com/mod/resource/view.php?id=1973")
+                                  //-   i.fa-regular.fa-circle-down
+                                  //-   .subject-page-added-note-content-download-text
+                                  //-      |ダウンロードする  
 
 
 
@@ -192,269 +526,5 @@ span#maincontent
        #course-format-68abba554630268abba5531a3620
             h2.accesshide トピックアウトライン
             ul.topics(data-for="course_sectionlist")
-              li#section-1.subject-grid.section.course-section.main.clearfix(
-                                    data-number="1" 
-                                    data-id="767" 
-                                    data-for="section" 
-                                    data-sectionreturnid="0" 
-                                    data-sectionid="1"
-                                    )
-                                    .course-section-header.d-flex(
-                                      data-number="1" 
-                                      data-id="767" 
-                                      data-for="section_title"
-                                      )
-                                      .bulkselect.align-self-center.d-none(data-for="sectionBulkSelect")
-                                        input#sectionCheckbox767(
-                                          data-bulkcheckbox="1" 
-                                          data-action="toggleSelectionSection" 
-                                          data-id="767" 
-                                          type="checkbox"
-                                          )
-                                        label.sr-only(for="sectionCheckbox767") トピック 2025年2月：10 万ボルトの強さはどのくらい ? を選択する
-                                      .d-flex.align-items-start.position-relative
-                                        a#collapssesection1.btn.btn-icon.mr-1.icons-collapse-expand.justify-content-center.stretched-link(
-                                          aria-label="2025年2月：10 万ボルトの強さはどのくらい ?" 
-                                          aria-controls="coursecontentcollapse1" 
-                                          aria-expanded="true" 
-                                          href="#coursecontentcollapse1" 
-                                          data-for="sectiontoggler" 
-                                          data-toggle="collapse" 
-                                          role="button"
-                                          )
-                                          span.expanded-icon.icon-no-margin.p-2(title="折りたたむ")
-                                            i.icon.fa.fa-chevron-down.fa-fw(aria-hidden="true")
-                                          span.collapsed-icon.icon-no-margin.p-2(title="展開する")
-                                            span.dir-rtl-hide
-                                              i.icon.fa.fa-chevron-right.fa-fw(aria-hidden="true")
-                                            span.dir-ltr-hide
-                                              i.icon.fa.fa-chevron-left.fa-fw(aria-hidden="true")
-                                        h3#sectionid-767-title.sectionname.course-content-item.d-flex.align-self-stretch.align-items-center.mb-0(
-                                          data-number="1" 
-                                          data-id="767" 
-                                          data-for="section_title"
-                                          ) 2025年2月：10万ボルトの強さはどのくらい ?
-                                      .sectionbadges.d-flex.align-items-center(data-region="sectionbadges")
-                                    #coursecontentcollapse1.content.course-content-item-content.collapse.show
-                                      .my-3(data-for="sectioninfo")
-                                        div(class="section_availability")
-                                      ul.section.m-0.p-0.img-text.d-block(data-for="cmlist")
-                                        li#module-1315.activity.activity-wrapper.questionnaire.hasinfo(
-                                          data-id="1315" 
-                                          data-for="cmitem" 
-                                          class="modtype_questionnaire"
-                                          )
-                                          .activity-item.focus-control(data-activityname="10月1週目：発電する動物はどうしているの？")
-                                            .bulkselect.d-none(data-for="cmBulkSelect")
-                                              input#cmCheckbox1315(
-                                                data-bulkcheckbox="1" 
-                                                data-action="toggleSelectionCm" 
-                                                data-id="1315" 
-                                                type="checkbox"
-                                                )
-                                              label.sr-only(for="cmCheckbox1315") 活動 10月1週目：発電する動物はどうしているの？ を選択する
-                                            .activity-grid
-                                              a.activity-icon.activityiconcontainer.smaller.communication.btn.btn-link.courseicon.align-self-start.mr-2(href="https://lms.waomirai.com/mod/questionnaire/view.php?id=1315")
-                                                img.activityicon(
-                                                  alt="アンケート アイコン" 
-                                                  src="https://lms.waomirai.com/theme/image.php/kenai/questionnaire/1749448559/monologo?filtericon=1"
-                                                  )
-                                              .activity-name-area.activity-instance.d-flex.flex-column.mr-2
-                                                .activitytitle.media.position-relative.align-self-start(class="modtype_questionnaire")
-                                                  .media-body.align-self-center
-                                                    .activityname
-                                                      a.aalink.stretched-link(
-                                                        onclick="" 
-                                                        href="https://lms.waomirai.com/mod/questionnaire/view.php?id=1315"
-                                                        )
-                                                        span.instancename
-                                                          | 10月1週目：発電する動物はどうしているの？
-                                                          span.accesshide 問い
-                                              .activity-completion.align-self-start.ml-sm-2
-                                                .activity-information(
-                                                  data-activityname="10月1週目：発電する動物はどうしているの？" 
-                                                  data-region="activity-information"
-                                                  )
-                                                  div(data-region="completion-info")
-                                                    div(
-                                                      aria-label="10月1週目：発電する動物はどうしているの？ の完了条件" 
-                                                      data-region="completionrequirements"
-                                                      )
-                                                      .dropdown.completion-dropdown(id="dropdownDialog_68abba5531a3614")
-                                                        button.btn.btn-sm.dropdown-toggle.icon-no-margin.btn-success(
-                                                          data-for="dropdowndialog_button" 
-                                                          aria-expanded="false" 
-                                                          aria-haspopup="true" 
-                                                          data-toggle="dropdown" 
-                                                          id="dropwdownbutton_68abba5531a3615" 
-                                                          type="button"
-                                                          )
-                                                          i.icon.fa.fa-check.fa-fw(aria-hidden="true")
-                                                          | 完了
-                                                        .dropdown-menu.dropdown-menu-right(
-                                                          data-for="dropdowndialog_dialog" 
-                                                          aria-labelledby="dropwdownbutton_68abba5531a3615"
-                                                          )
-                                                          .p-2(data-for="dropdowndialog_content")
-                                                            .completion-dialog.px-2
-                                                              strong あなたに必要なこと:
-                                                              .ml-2(role="list")
-                                                                .d-flex.mt-2.text-success(role="listitem")
-                                                                  div
-                                                                    i.icon.fa.fa-check.fa-fw(aria-hidden="true")
-                                                                    span.sr-only 完了:
-                                                                  span 学生が完了するためにはこのアンケートに回答しなければなりません
-                                        li#module-1316.activity.activity-wrapper.questionnaire.hasinfo(
-                                          data-id="1316" 
-                                          data-for="cmitem" 
-                                          class="modtype_questionnaire"
-                                          )
-                                          .activity-item.focus-control(data-activityname="10月2週目：10 万ボルトができること")
-                                            .bulkselect.d-none(data-for="cmBulkSelect")
-                                              input#cmCheckbox1316(
-                                                data-bulkcheckbox="1" 
-                                                data-action="toggleSelectionCm" 
-                                                data-id="1316" 
-                                                type="checkbox"
-                                                )
-                                              label.sr-only(for="cmCheckbox1316") 活動 10月2週目：10 万ボルトができること を選択する
-                                            .activity-grid
-                                              a.activity-icon.activityiconcontainer.smaller.communication.btn.btn-link.courseicon.align-self-start.mr-2(href="https://lms.waomirai.com/mod/questionnaire/view.php?id=1316")
-                                                img.activityicon(
-                                                  alt="アンケート アイコン" 
-                                                  src="https://lms.waomirai.com/theme/image.php/kenai/questionnaire/1749448559/monologo?filtericon=1"
-                                                  )
-                                              .activity-name-area.activity-instance.d-flex.flex-column.mr-2
-                                                .activitytitle.media.position-relative.align-self-start(class="modtype_questionnaire")
-                                                  .media-body.align-self-center
-                                                    .activityname
-                                                      a.aalink.stretched-link(
-                                                        onclick="" 
-                                                        href="https://lms.waomirai.com/mod/questionnaire/view.php?id=1316"
-                                                        )
-                                                        span.instancename
-                                                          | 10月2週目：10
-                                                          |   万ボルトができること
-                                                          span.accesshide 問い
-                                              .activity-completion.align-self-start.ml-sm-2
-                                                .activity-information(
-                                                  data-activityname="10月2週目：10 万ボルトができること" 
-                                                  data-region="activity-information"
-                                                  )
-                                                  div(data-region="completion-info")
-                                                    div(
-                                                      aria-label="10月2週目：10 万ボルトができること の完了条件" 
-                                                      data-region="completionrequirements"
-                                                      )
-                                                      .dropdown.completion-dropdown(id="dropdownDialog_68abba5531a3616")
-                                                        button.btn.btn-sm.dropdown-toggle.icon-no-margin.btn-success(
-                                                          data-for="dropdowndialog_button" 
-                                                          aria-expanded="false" 
-                                                          aria-haspopup="true" 
-                                                          data-toggle="dropdown" 
-                                                          id="dropwdownbutton_68abba5531a3617" 
-                                                          type="button"
-                                                          )
-                                                          i.icon.fa.fa-check.fa-fw(aria-hidden="true")
-                                                          | 完了
-                                                        .dropdown-menu.dropdown-menu-right(
-                                                          data-for="dropdowndialog_dialog" 
-                                                          aria-labelledby="dropwdownbutton_68abba5531a3617"
-                                                          )
-                                                          .p-2(data-for="dropdowndialog_content")
-                                                            .completion-dialog.px-2
-                                                              strong あなたに必要なこと:
-                                                              .ml-2(role="list")
-                                                                .d-flex.mt-2.text-success(role="listitem")
-                                                                  div
-                                                                    i.icon.fa.fa-check.fa-fw(aria-hidden="true")
-                                                                    span.sr-only 完了:
-                                                                  span 学生が完了するためにはこのアンケートに回答しなければなりません
-                                        li#module-1317.activity.activity-wrapper.questionnaire.hasinfo(
-                                          data-id="1317" 
-                                          data-for="cmitem" 
-                                          class="modtype_questionnaire"
-                                          )
-                                          .activity-item.focus-control(data-activityname="10月3週目：フィードバック")
-                                            .bulkselect.d-none(data-for="cmBulkSelect")
-                                              input#cmCheckbox1317(
-                                                data-bulkcheckbox="1" 
-                                                data-action="toggleSelectionCm" 
-                                                data-id="1317" 
-                                                type="checkbox"
-                                                )
-                                              label.sr-only(for="cmCheckbox1317") 活動 10月3週目：フィードバック を選択する
-                                            .activity-grid
-                                              a.activity-icon.activityiconcontainer.smaller.communication.btn.btn-link.courseicon.align-self-start.mr-2(href="https://lms.waomirai.com/mod/questionnaire/view.php?id=1317")
-                                                img.activityicon(
-                                                  alt="アンケート アイコン" 
-                                                  src="https://lms.waomirai.com/theme/image.php/kenai/questionnaire/1749448559/monologo?filtericon=1"
-                                                  )
-                                              .activity-name-area.activity-instance.d-flex.flex-column.mr-2
-                                                .activitytitle.media.position-relative.align-self-start(class="modtype_questionnaire")
-                                                  .media-body.align-self-center
-                                                    .activityname
-                                                      a.aalink.stretched-link(
-                                                        onclick="" 
-                                                        href="https://lms.waomirai.com/mod/questionnaire/view.php?id=1317"
-                                                        )
-                                                        span.instancename
-                                                          | 10月3週目：フィードバック
-                                                          span.accesshide 問い
-                                              .activity-completion.align-self-start.ml-sm-2
-                                                .activity-information(
-                                                  data-activityname="10月3週目：フィードバック" 
-                                                  data-region="activity-information"
-                                                  )
-                                                  div(data-region="completion-info")
-                                                    div(
-                                                      aria-label="10月3週目：フィードバック の完了条件" 
-                                                      data-region="completionrequirements"
-                                                      )
-                                                      .dropdown.completion-dropdown(id="dropdownDialog_68abba5531a3618")
-                                                        button.btn.btn-sm.dropdown-toggle.icon-no-margin.btn-success(
-                                                          data-for="dropdowndialog_button" 
-                                                          aria-expanded="false" 
-                                                          aria-haspopup="true" 
-                                                          data-toggle="dropdown" 
-                                                          id="dropwdownbutton_68abba5531a3619" 
-                                                          type="button"
-                                                          )
-                                                          i.icon.fa.fa-check.fa-fw(aria-hidden="true")
-                                                          | 完了
-                                                        .dropdown-menu.dropdown-menu-right(
-                                                          data-for="dropdowndialog_dialog" 
-                                                          aria-labelledby="dropwdownbutton_68abba5531a3619"
-                                                          )
-                                                          .p-2(data-for="dropdowndialog_content")
-                                                            .completion-dialog.px-2
-                                                              strong あなたに必要なこと:
-                                                              .ml-2(role="list")
-                                                                .d-flex.mt-2.text-success(role="listitem")
-                                                                  div
-                                                                    i.icon.fa.fa-check.fa-fw(aria-hidden="true")
-                                                                    span.sr-only 完了:
-                                                                  span 学生が完了するためにはこのアンケートに回答しなければなりませ
-                                        //- li.subject-page-added-note.not-published
-                                        //-   .subject-page-added-note-head 
-                                        //-      .subject-page-added-note-head-title
-                                        //-         |授業の
-                                        //-         br
-                                        //-         |まとめシート
-                                        //-      .subject-page-added-note-head-icon 
-                                                
-                                        //-   .subject-page-added-note-content 
-                                        //-     |現在準備中です
-                                          //- a.subject-page-added-note-content-download(href="https://lms.waomirai.com/mod/resource/view.php?id=1973")
-                                          //-   i.fa-regular.fa-circle-down
-                                          //-   .subject-page-added-note-content-download-text
-                                          //-      |ダウンロードする  
-              +schedule-month("2025年7月：10 万ボルトの強さはどのくらい ?", true) 
-              +schedule-month("2025年8月：10 万ボルトの強さはどのくらい ?", true) 
-              +schedule-month("2025年9月：10 万ボルトの強さはどのくらい ?", true) 
-              +schedule-month("2025年10月：10 万ボルトの強さはどのくらい ?", true) 
-
-              +schedule-month("2025年11月：10 万ボルトの強さはどのくらい ?", true) 
-              +schedule-month("2025年12月：10 万ボルトの強さはどのくらい ?", true) 
-                        // 年と月を自由に変更可能
-                        
+            +schedule-month("2025年7月：10 万ボルトの強さはどのくらい ?")
+            +schedule-month("2025年8月：10 万ボルトの強さはどのくらい ?")
