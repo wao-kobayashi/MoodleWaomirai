@@ -12,6 +12,7 @@
   img {
     width: 100%;
   }
+
   .course-detail-banner {
     padding: 25px 20px 30px;
     border-radius: $border-radius-middle;
@@ -93,7 +94,7 @@
     border-radius: 10px;
     padding: 0 0px !important;
     margin: 0 auto 40px !important;
-    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.05);
+    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.03);
     /* Item */
 
     .btn.btn-icon {
@@ -116,6 +117,7 @@
       // background: $cl-white;
       padding: 18px 15px !important;
       border-bottom: 2px solid $cl-graylightest;
+      background: #f8f8f8;
       h3 {
         font-size: $lms-font-size-xl !important;
       }
@@ -178,6 +180,7 @@
         height: auto !important;
       }
     }
+
     .activity-grid {
       height: 48px;
       @include responsive-style(768px) {
@@ -260,6 +263,11 @@
         background-image: url("https://waomirai.com/lp/assets/moodle/icn-worksheet-not-published.svg") !important;
       }
     }
+  }
+}
+#page-course-view-topics {
+  .secondary-navigation {
+    padding-bottom: 40px !important;
   }
 }
 

@@ -12955,8 +12955,8 @@ html[data-tenantidnumber=lmswaomirai] #page-course-view-topics .course-section.m
   border-radius: 10px;
   padding: 0 0px !important;
   margin: 0 auto 40px !important;
-  -webkit-box-shadow: 0px 3px 6px rgba(0, 0, 0, .05);
-          box-shadow: 0px 3px 6px rgba(0, 0, 0, .05);
+  -webkit-box-shadow: 0px 3px 6px rgba(0, 0, 0, .03);
+          box-shadow: 0px 3px 6px rgba(0, 0, 0, .03);
   /* Item */
 }
 html[data-tenantidnumber=lmswaomirai] #page-course-view-flexsections .course-section.main .btn.btn-icon,
@@ -12987,6 +12987,7 @@ html[data-tenantidnumber=lmswaomirai] #page-course-view-flexsections .course-sec
 html[data-tenantidnumber=lmswaomirai] #page-course-view-topics .course-section.main > .course-section-header {
   padding: 18px 15px !important;
   border-bottom: 2px solid #efefef;
+  background: #f8f8f8;
 }
 html[data-tenantidnumber=lmswaomirai] #page-course-view-flexsections .course-section.main > .course-section-header h3,
 html[data-tenantidnumber=lmswaomirai] #page-course-view-topics .course-section.main > .course-section-header h3 {
@@ -13187,6 +13188,9 @@ html[data-tenantidnumber=lmswaomirai] #page-course-view-topics .subject-page-add
 html[data-tenantidnumber=lmswaomirai] #page-course-view-flexsections .subject-page-added .subject-page-added-note.not-published .subject-page-added-note-head-icon:before,
 html[data-tenantidnumber=lmswaomirai] #page-course-view-topics .subject-page-added .subject-page-added-note.not-published .subject-page-added-note-head-icon:before {
   background-image: url("https://waomirai.com/lp/assets/moodle/icn-worksheet-not-published.svg") !important;
+}
+html[data-tenantidnumber=lmswaomirai] #page-course-view-topics .secondary-navigation {
+  padding-bottom: 40px !important;
 }
 html[data-tenantidnumber=lmswaomirai] .category-53 .subject-page-added-note-content-download {
   color: #28afe7 !important;
