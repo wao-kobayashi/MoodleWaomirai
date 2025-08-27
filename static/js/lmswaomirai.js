@@ -1958,7 +1958,7 @@ $(".triger-download-memosheet-modal").on("click", function (e) {
     buttons: [
       { text: "哲学（思考力）", url: `https://waomirai.com/lp/assets/moodle/memosheet_philosphy.pdf`, class: "btn-primary", blank: true  }, // 2教科セットのリンク
       { text: "科学リテラシー", url: `https://waomirai.com/lp/assets/moodle/memosheet_science.pdf`, class: "btn-primary", blank: true  }, // 3教科セットのリンク
-      { text: "経済", url: `https://waomirai.com/lp/assets/moodle/memosheet_economy.pdf`, class: "btn-primary", blank: true  }, // 3教科セットのリンク
+      { text: "経済（お金）", url: `https://waomirai.com/lp/assets/moodle/memosheet_economy.pdf`, class: "btn-primary", blank: true  }, // 3教科セットのリンク
     ]
   });
 });
