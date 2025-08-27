@@ -1391,8 +1391,9 @@ if (
     ////////////////////////////
 
     // コース詳細ページが哲学、科学、経済のいずれかの場合
-    // まとめシートは上記３教科のため、英語はロジック判定しない
-    if (["philosophy", "science", "economy"].includes(currentViewCourseData?.key)) {
+    // まとめシートは上記３教科のため
+    if (["philosophy", "science", "economy"].includes(currentViewCourseData?.key) && 
+        ariaLabel && ariaLabel.includes('年') && ariaLabel.includes('月')) {
       $courseSection.addClass('subject-page-added');
       // modtype_resource 内の activity-icon の href を取得して削除
       var hrefList = $courseSection.find('.modtype_resource').map(function() {
