@@ -28,7 +28,7 @@ body.fixed {
   &-wrap-subject {
     padding: 0px 0px 30px !important;
     .c-modal-wrap-image {
-      margin: 0 auto 25px !important;
+      margin: 0 auto 0px !important;
     }
     img {
       border-radius: 8px 8px 0 0 !important;
@@ -57,7 +57,7 @@ body.fixed {
 
     &-text {
       @include text-m-black;
-      margin: 0 auto 32px;
+      margin: 0 auto 8px;
     }
     &-closetxt {
       color: $cl-graylight;
@@ -72,6 +72,7 @@ body.fixed {
       flex-direction: column;
       gap: 30px;
       width: 100%;
+      padding: 24px 0 0;
       a {
         width: 100%;
         cursor: pointer;

@@ -958,7 +958,7 @@ html[data-tenantidnumber=lmswaomirai] .c-modal-wrap-subject {
   padding: 0px 0px 30px !important;
 }
 html[data-tenantidnumber=lmswaomirai] .c-modal-wrap-subject .c-modal-wrap-image {
-  margin: 0 auto 25px !important;
+  margin: 0 auto 0px !important;
 }
 html[data-tenantidnumber=lmswaomirai] .c-modal-wrap-subject img {
   border-radius: 8px 8px 0 0 !important;
@@ -989,7 +989,7 @@ html[data-tenantidnumber=lmswaomirai] .c-modal-wrap-text {
   font-size: 16px;
   color: #262626;
   line-height: 1.5;
-  margin: 0 auto 32px;
+  margin: 0 auto 8px;
 }
 html[data-tenantidnumber=lmswaomirai] .c-modal-wrap-closetxt {
   color: #999;
@@ -1008,6 +1008,7 @@ html[data-tenantidnumber=lmswaomirai] .c-modal-wrap-button-wrap {
           flex-direction: column;
   gap: 30px;
   width: 100%;
+  padding: 24px 0 0;
 }
 html[data-tenantidnumber=lmswaomirai] .c-modal-wrap-button-wrap a {
   width: 100%;
