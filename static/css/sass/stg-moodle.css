@@ -972,7 +972,7 @@ html[data-tenantidnumber=stg] .c-modal-wrap-subject .c-modal-wrap-button {
 }
 html[data-tenantidnumber=stg] .c-modal-wrap {
   position: relative;
-  padding: 56px 20px 40px;
+  padding: 48px 20px 40px;
 }
 html[data-tenantidnumber=stg] .c-modal-wrap-title {
   font-size: 20px;

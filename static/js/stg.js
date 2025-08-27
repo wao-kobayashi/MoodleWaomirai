@@ -1316,24 +1316,6 @@ if (bodyId === "page-mod-questionnaire-view" || bodyId === "page-mod-questionnai
   $(".activity-description").append(spPageHeader);
   $(".page-context-header").after(spCourseLessonDate);
 
-  //授業ページ下にメモシートを追加
-  $('div[role="main"]').before(`
-    <div class="mod-questionnaire-worksheet">
-      <div class="mod-questionnaire-worksheet-icon">
-        <img src="https://waomirai.com/lp/assets/moodle/icn-worksheet-wao.svg">
-      </div>
-      <div class="mod-questionnaire-worksheet-text">
-        授業中の学びを記録できる印刷用シートです。<br>
-        メモがわりにご利用いただけます。
-      </div>
-      <div class="mod-questionnaire-worksheet-download">
-        <span class="material-symbols-outlined">download</span>
-        <div class="mod-questionnaire-worksheet-download-text triger-download-memosheet-modal">
-          メモシートをダウンロード
-        </div>
-      </div>
-    </div>
-  `);
 
   // 課題提出セクションの下にリード文を挿入
   // 「授業の視聴が終わったら課題を提出しましょう」という文を、h2タグの後に追加
@@ -1368,6 +1350,35 @@ if (bodyId === "page-mod-questionnaire-view" || bodyId === "page-mod-questionnai
     $(".mod_questionnaire_completepage h3").after(ButtonQuestionnaireBacktoCalender);
   }
 }
+
+if (bodyId === "page-mod-questionnaire-view")  {
+
+  //授業ページ下にメモシートを追加
+  $(function() {
+    //授業動画がある時に発火
+    //アーカイブの時にあってもメモシートはあまり意味がないため
+    if ($('.course-lesson').length) {
+      $('div[role="main"]').before(`
+        <div class="mod-questionnaire-worksheet">
+          <div class="mod-questionnaire-worksheet-icon">
+            <img src="https://waomirai.com/lp/assets/moodle/icn-worksheet-wao.svg">
+          </div>
+          <div class="mod-questionnaire-worksheet-text">
+            授業中の学びを記録できる印刷用シートです。<br>
+            メモがわりにご利用いただけます。
+          </div>
+          <div class="mod-questionnaire-worksheet-download">
+            <span class="material-symbols-outlined">download</span>
+            <div class="mod-questionnaire-worksheet-download-text triger-download-memosheet-modal">
+              メモシートをダウンロード
+            </div>
+          </div>
+        </div>
+      `);
+    }
+  });
+}
+
 $(".open-modal-badge").click(function() {
   // 確認モーダルを作成
   createModal({
