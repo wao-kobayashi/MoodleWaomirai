@@ -1423,7 +1423,7 @@ if (
                   <div class="subject-page-added-note-content">
                       授業の復習にご活用ください！ファイリングして、あなただけの「未来塾ノート」を作ってみてくださいね！
                   </div>
-                  <a class="subject-page-added-note-content-download" href="${hrefList[0]}">
+                  <a class="subject-page-added-note-content-download" href="${hrefList[0]}" target="_blank">
                       <span class="material-symbols-outlined">download</span>
                       <div class="subject-page-added-note-content-download-text">ダウンロードする</div>
                   </a>
