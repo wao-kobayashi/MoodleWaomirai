@@ -1294,60 +1294,65 @@ if (
 
     //////////////////////////// 
     // 授業のまとめシートを追加
-    //////////////////////////// 
-    $courseSection.addClass('subject-page-added');
-    // modtype_resource 内の activity-icon の href を取得して削除
-    var hrefList = $courseSection.find('.modtype_resource').map(function() {
-        // 各 .modtype_resource の中から .activity-icon 要素を探し、その href 属性（ダウンロード先URLなど）を取得
-        var href = $(this).find('.activity-icon').attr('href');
-        // 取得した後、このリソース（.modtype_resource）自体をセクションから削除
-        // 目的：標準のリソース表示を隠し、後段で用意するカスタムの「まとめシート」UIに置き換えるため
-        $(this).remove();
-        // 取得できた場合はそのURLを返し、取得できなければ null を返す（後で .get() で配列化）
-        return href || null;
-    }).get(); // jQuery の map() からプレーンな配列に変換
+    ////////////////////////////
 
-    // 現在処理中のコースセクション内から、実際にリストアイテム（アクティビティ群）を挿入する .section を取得
-    var $section = $courseSection.find('.section');
+    // コース詳細ページが哲学、科学、経済のいずれかの場合
+    // まとめシートは上記３教科のため、英語はロジック判定しない
+    if (["philosophy", "science", "economy"].includes(currentViewCourseData?.key)) {
+      $courseSection.addClass('subject-page-added');
+      // modtype_resource 内の activity-icon の href を取得して削除
+      var hrefList = $courseSection.find('.modtype_resource').map(function() {
+          // 各 .modtype_resource の中から .activity-icon 要素を探し、その href 属性（ダウンロード先URLなど）を取得
+          var href = $(this).find('.activity-icon').attr('href');
+          // 取得した後、このリソース（.modtype_resource）自体をセクションから削除
+          // 目的：標準のリソース表示を隠し、後段で用意するカスタムの「まとめシート」UIに置き換えるため
+          $(this).remove();
+          // 取得できた場合はそのURLを返し、取得できなければ null を返す（後で .get() で配列化）
+          return href || null;
+      }).get(); // jQuery の map() からプレーンな配列に変換
 
-    // .section が存在する場合のみ、カスタムUIの挿入を行う
-    if ($section.length) {
-        if (hrefList.length) {
-            // 1件以上のリソース（mod）が存在する場合：ダウンロード可能な「まとめシート」を表示
-            // 先頭のURL（hrefList[0]）をダウンロードボタンのリンク先に使用
-            var modHtml = `
-            <li class="subject-page-added-note published">
-                <div class="subject-page-added-note-head">
-                    <div class="subject-page-added-note-head-title">授業の<br>まとめシート</div>
-                    <div class="subject-page-added-note-head-icon"></div>
-                </div>
-                <div class="subject-page-added-note-content">
-                    授業の復習にご活用ください！ファイリングして、あなただけの「未来塾ノート」を作ってみてくださいね！
-                </div>
-                <a class="subject-page-added-note-content-download" href="${hrefList[0]}">
-                    <span class="material-symbols-outlined">download</span>
-                    <div class="subject-page-added-note-content-download-text">ダウンロードする</div>
-                </a>
-            </li>`;
-            // 生成した「まとめシート」要素を当該 .section の末尾に追加
-            $section.append(modHtml);
-            // デバッグ用ログ：追加したURLリストを出力
-            console.log(".section に href を追加しました:", hrefList);
-        } else {
-            // リソース（mod）が存在しない場合：準備中の表示を行う
-            var noModHtml = `
-            <li class="subject-page-added-note not-published">
-                <div class="subject-page-added-note-head">
-                    <div class="subject-page-added-note-head-title">授業の<br>まとめシート</div>
-                    <div class="subject-page-added-note-head-icon"></div>
-                </div>
-                <div class="subject-page-added-note-content">
-                    現在準備中です。
-                </div>
-            </li>`;
-            // 生成した「準備中」要素を当該 .section の末尾に追加
-            $section.append(noModHtml);
-        }
+      // 現在処理中のコースセクション内から、実際にリストアイテム（アクティビティ群）を挿入する .section を取得
+      var $section = $courseSection.find('.section');
+
+      // .section が存在する場合のみ、カスタムUIの挿入を行う
+      if ($section.length) {
+          if (hrefList.length) {
+              // 1件以上のリソース（mod）が存在する場合：ダウンロード可能な「まとめシート」を表示
+              // 先頭のURL（hrefList[0]）をダウンロードボタンのリンク先に使用
+              var modHtml = `
+              <li class="subject-page-added-note published">
+                  <div class="subject-page-added-note-head">
+                      <div class="subject-page-added-note-head-title">授業の<br>まとめシート</div>
+                      <div class="subject-page-added-note-head-icon"></div>
+                  </div>
+                  <div class="subject-page-added-note-content">
+                      授業の復習にご活用ください！ファイリングして、あなただけの「未来塾ノート」を作ってみてくださいね！
+                  </div>
+                  <a class="subject-page-added-note-content-download" href="${hrefList[0]}">
+                      <span class="material-symbols-outlined">download</span>
+                      <div class="subject-page-added-note-content-download-text">ダウンロードする</div>
+                  </a>
+              </li>`;
+              // 生成した「まとめシート」要素を当該 .section の末尾に追加
+              $section.append(modHtml);
+              // デバッグ用ログ：追加したURLリストを出力
+              console.log(".section に href を追加しました:", hrefList);
+          } else {
+              // リソース（mod）が存在しない場合：準備中の表示を行う
+              var noModHtml = `
+              <li class="subject-page-added-note not-published">
+                  <div class="subject-page-added-note-head">
+                      <div class="subject-page-added-note-head-title">授業の<br>まとめシート</div>
+                      <div class="subject-page-added-note-head-icon"></div>
+                  </div>
+                  <div class="subject-page-added-note-content">
+                      現在準備中です。
+                  </div>
+              </li>`;
+              // 生成した「準備中」要素を当該 .section の末尾に追加
+              $section.append(noModHtml);
+          }
+      }
     }
 });
 
