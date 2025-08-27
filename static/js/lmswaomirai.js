@@ -266,7 +266,7 @@ function createModal(options = {}) {
         (button) =>
           `<a href="${button.url || "#"}" class="c-modal-wrap-button ${
             button.class || ""
-          }">${button.text}</a>` // ボタンのHTMLを動的に生成
+          }"${button.blank ? ' target="_blank" rel="noopener noreferrer"' : ""}>${button.text}</a>` // ボタンのHTMLを動的に生成
       )
       .join(""); // ボタンを連結して返す
   };
@@ -1927,9 +1927,9 @@ $(".triger-download-memosheet-modal").on("click", function (e) {
     close: true,  // モーダルを閉じるボタンを表示
     title: "ダウンロードする<br />メモシートの種類を選択", // モーダルのタイトル
     buttons: [
-      { text: "哲学（思考力）", url: `https://waomirai.com/`, class: "btn-primary" }, // 2教科セットのリンク
-      { text: "科学リテラシー", url: `https://waomirai.com/`, class: "btn-primary" }, // 3教科セットのリンク
-      { text: "経済", url: `https://waomirai.com/`, class: "btn-primary" }, // 3教科セットのリンク
+      { text: "哲学（思考力）", url: `https://waomirai.com/lp/assets/moodle/memosheet_philosphy.pdf`, class: "btn-primary", blank: true  }, // 2教科セットのリンク
+      { text: "科学リテラシー", url: `https://waomirai.com/lp/assets/moodle/memosheet_science.pdf`, class: "btn-primary", blank: true  }, // 3教科セットのリンク
+      { text: "経済", url: `https://waomirai.com/lp/assets/moodle/memosheet_economy.pdf`, class: "btn-primary", blank: true  }, // 3教科セットのリンク
     ]
   });
 });
