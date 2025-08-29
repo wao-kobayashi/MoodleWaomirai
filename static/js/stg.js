@@ -1419,10 +1419,10 @@ if (
 
   // 各トピックでループを回す
   $('.course-section-header [data-for="sectiontoggler"]').each(function() {
-    var $courseSection = $(this).closest('.course-section');
-    var ariaLabel = $(this).attr('aria-label');
+    var $courseSection = $(this).closest('.course-section');  // aria-label属性の値を取得
+    var ariaLabel = $(this).attr('aria-label'); // 正規表現で年月を抽出
     var match = ariaLabel.match(datePattern);
-
+    // 年月の表記があるかチェック
     if (match) {
         var date = new Date(parseInt(match[1], 10), parseInt(match[2], 10) - 1);
         if (date < cutoffDate) {
@@ -1568,7 +1568,7 @@ if (
 // カード登録後にモーダルを表示する関数
 function showModalAfterCardRegistration() {
   var now = new Date(); // 現在の日付を取得
-  var campaignEnd = new Date(2025, 8, 14, 23, 59, 59); // キャンペーン終了日時（2025年9月15日23:59:59）
+  var campaignEnd = new Date(2025, 8, 14, 23, 59, 59); // キャンペーン終了日時（2025年9月14日23:59:59）
   var cookieValue = $.cookie("levelSettingModalShown"); // Cookieにモーダル表示の履歴があるか確認
   var subjectCategory = currentViewCourseData.key;  // 現在選択されている科目カテゴリーを取得
 
