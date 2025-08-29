@@ -1370,7 +1370,7 @@ if (bodyId === "page-mod-questionnaire-view")  {
   if (currentViewCourseData?.key === "philosophy") {
     memosheet = memosheetPhilosophy; // 哲学用のメモシート
   } else if (currentViewCourseData?.key === "science") {
-    memosheet = memosheetScience; // 理科用のメモシート
+    memosheet = memosheetScience; // 科学用のメモシート
   } else if (currentViewCourseData?.key === "economy") {
     memosheet = memosheetEconomy; // 経済用のメモシート
   }
@@ -1486,8 +1486,8 @@ if (
       // 現在処理中のコースセクション内から、実際にリストアイテム（アクティビティ群）を挿入する .section を取得
       var $section = $courseSection.find('.section');
 
-      // .section が存在する場合のみ、カスタムUIの挿入を行う
-      if ($section.length) {
+      // .section が存在する＆問いが存在する場合、カスタムUIの挿入を行う
+      if ($section.length && $section.find('li.modtype_questionnaire').length) {
           if (hrefList.length) {
               // 1件以上のリソース（mod）が存在する場合：ダウンロード可能な「まとめシート」を表示
               // 先頭のURL（hrefList[0]）をダウンロードボタンのリンク先に使用

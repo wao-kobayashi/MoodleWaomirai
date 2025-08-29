@@ -200,6 +200,13 @@
     .activity-item .activity-completion {
       align-self: center !important;
     }
+    .instancename {
+      display: -webkit-box;
+      -webkit-line-clamp: 2; /* 最大2行に制限 */
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
     .d-block {
       padding: 0px 16px 30px !important;
     }

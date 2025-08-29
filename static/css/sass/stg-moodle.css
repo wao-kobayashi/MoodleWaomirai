@@ -13121,6 +13121,14 @@ html[data-tenantidnumber=stg] #page-course-view-topics .subject-page-added .acti
   -ms-flex-item-align: center !important;
       align-self: center !important;
 }
+html[data-tenantidnumber=stg] #page-course-view-flexsections .subject-page-added .instancename,
+html[data-tenantidnumber=stg] #page-course-view-topics .subject-page-added .instancename {
+  display: -webkit-box;
+  -webkit-line-clamp: 2; /* 最大2行に制限 */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
 html[data-tenantidnumber=stg] #page-course-view-flexsections .subject-page-added .d-block,
 html[data-tenantidnumber=stg] #page-course-view-topics .subject-page-added .d-block {
   padding: 0px 16px 30px !important;
