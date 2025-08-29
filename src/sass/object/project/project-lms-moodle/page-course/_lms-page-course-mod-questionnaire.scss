@@ -390,6 +390,14 @@ li[data-key="courseinfo"] {
       }
       .mod-questionnaire-worksheet-download-text {
         font-size: $lms-font-size-m;
+        a {
+          color: $cl-waogreen;
+          text-decoration: none;
+          &:hover,
+          &:active {
+            text-decoration: none;
+          }
+        }
       }
       span {
         font-size: 16px;

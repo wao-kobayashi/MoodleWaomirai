@@ -8162,6 +8162,22 @@ html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-myreport .mod-ques
 html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-report .mod-questionnaire-worksheet .mod-questionnaire-worksheet-download .mod-questionnaire-worksheet-download-text {
   font-size: 14px;
 }
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-view .mod-questionnaire-worksheet .mod-questionnaire-worksheet-download .mod-questionnaire-worksheet-download-text a,
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-complete .mod-questionnaire-worksheet .mod-questionnaire-worksheet-download .mod-questionnaire-worksheet-download-text a,
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-myreport .mod-questionnaire-worksheet .mod-questionnaire-worksheet-download .mod-questionnaire-worksheet-download-text a,
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-report .mod-questionnaire-worksheet .mod-questionnaire-worksheet-download .mod-questionnaire-worksheet-download-text a {
+  color: #005c3f;
+  text-decoration: none;
+}
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-view .mod-questionnaire-worksheet .mod-questionnaire-worksheet-download .mod-questionnaire-worksheet-download-text a:hover, html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-view .mod-questionnaire-worksheet .mod-questionnaire-worksheet-download .mod-questionnaire-worksheet-download-text a:active,
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-complete .mod-questionnaire-worksheet .mod-questionnaire-worksheet-download .mod-questionnaire-worksheet-download-text a:hover,
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-complete .mod-questionnaire-worksheet .mod-questionnaire-worksheet-download .mod-questionnaire-worksheet-download-text a:active,
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-myreport .mod-questionnaire-worksheet .mod-questionnaire-worksheet-download .mod-questionnaire-worksheet-download-text a:hover,
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-myreport .mod-questionnaire-worksheet .mod-questionnaire-worksheet-download .mod-questionnaire-worksheet-download-text a:active,
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-report .mod-questionnaire-worksheet .mod-questionnaire-worksheet-download .mod-questionnaire-worksheet-download-text a:hover,
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-report .mod-questionnaire-worksheet .mod-questionnaire-worksheet-download .mod-questionnaire-worksheet-download-text a:active {
+  text-decoration: none;
+}
 html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-view .mod-questionnaire-worksheet .mod-questionnaire-worksheet-download span,
 html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-complete .mod-questionnaire-worksheet .mod-questionnaire-worksheet-download span,
 html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-myreport .mod-questionnaire-worksheet .mod-questionnaire-worksheet-download span,

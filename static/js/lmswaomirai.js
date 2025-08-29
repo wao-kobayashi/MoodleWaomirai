@@ -125,6 +125,14 @@ const iframeCalenderEconomy = "https://calendar.google.com/calendar/embed?src=c_
 const iframeCalenderEnglish = "https://calendar.google.com/calendar/embed?src=c_379c34d3c8e6716b3458dd339f4531bd8ce07f17c4f97d5fec4367888a692290%40group.calendar.google.com&ctz=Asia%2FTokyo" //グローバル英語
 
 // ==============================
+// 授業のメモシート
+// ==============================
+
+const memosheetPhilosophy = "https://waomirai.com/lp/assets/moodle/memosheet_philosphy.pdf" //哲学
+const memosheetScience = "https://waomirai.com/lp/assets/moodle/memosheet_science.pdf" //科学
+const memosheetEconomy = "https://waomirai.com/lp/assets/moodle/memosheet_economy.pdf" //経済
+
+// ==============================
 // ページ判定とコースIDの取得
 // ==============================
 
@@ -1337,30 +1345,54 @@ if (bodyId === "page-mod-questionnaire-view" || bodyId === "page-mod-questionnai
 
 if (bodyId === "page-mod-questionnaire-view")  {
 
-  //授業ページ下にメモシートを追加
+  // メモシートのURLを格納する変数を用意
+  // 最初は空文字で初期化しておく
+  let memosheet = "";
+
+  // 現在表示している授業データ(currentViewCourseData)のキーに応じて
+  // それぞれの専用メモシートURLを代入する
+  if (currentViewCourseData?.key === "philosophy") {
+    memosheet = memosheetPhilosophy; // 哲学用のメモシート
+  } else if (currentViewCourseData?.key === "science") {
+    memosheet = memosheetScience; // 理科用のメモシート
+  } else if (currentViewCourseData?.key === "economy") {
+    memosheet = memosheetEconomy; // 経済用のメモシート
+  }
+
+  // jQueryのDOM読み込み完了処理
   $(function() {
-    //授業動画がある時に発火
-    //アーカイブの時にあってもメモシートはあまり意味がないため
+    // 授業ページに動画がある場合のみ処理を実行
+    // （アーカイブ時には意味が薄いため表示しない）
     if ($('.course-lesson').length) {
+
+      // 授業ページの「main」要素の手前にメモシートのUIを追加
       $('div[role="main"]').before(`
         <div class="mod-questionnaire-worksheet">
+          <!-- アイコン表示 -->
           <div class="mod-questionnaire-worksheet-icon">
             <img src="https://waomirai.com/lp/assets/moodle/icn-worksheet-wao.svg">
           </div>
+
+          <!-- 説明テキスト -->
           <div class="mod-questionnaire-worksheet-text">
             授業中の学びを記録できる印刷用シートです。<br>
             メモがわりにご利用いただけます。
           </div>
+
+          <!-- ダウンロードリンク部分 -->
           <div class="mod-questionnaire-worksheet-download">
             <span class="material-symbols-outlined">download</span>
-            <div class="mod-questionnaire-worksheet-download-text triger-download-memosheet-modal">
-              メモシートをダウンロード
+            <div class="mod-questionnaire-worksheet-download-text">
+              <!-- ここでテンプレートリテラルを使って変数を埋め込む -->
+              <a href="${memosheet}" target="_blank">メモシートをダウンロード</a>
             </div>
           </div>
         </div>
       `);
     }
   });
+
+  
 }
 
 $(".open-modal-badge").click(function() {
@@ -1955,12 +1987,13 @@ $(document).on("click", ".triger-download-memosheet-modal", function (e) {
     close: true,
     title: "ダウンロードする<br />メモシートの種類を選択",
     buttons: [
-      { text: "哲学（思考力）", url: `https://waomirai.com/lp/assets/moodle/memosheet_philosphy.pdf`, class: "btn-primary", blank: true },
-      { text: "科学リテラシー", url: `https://waomirai.com/lp/assets/moodle/memosheet_science.pdf`, class: "btn-primary", blank: true },
-      { text: "経済（お金）", url: `https://waomirai.com/lp/assets/moodle/memosheet_economy.pdf`, class: "btn-primary", blank: true }
+      { text: "哲学（思考力）", url: memosheetPhilosophy, class: "btn-primary", blank: true },
+      { text: "科学リテラシー", url: memosheetScience, class: "btn-primary", blank: true },
+      { text: "経済（お金）", url: memosheetEconomy, class: "btn-primary", blank: true }
     ]
   });
 });
+
 // classを指定してスクロールできるように
 $(".click-event-subject-comingsoon").on("click", function (e) {
   e.preventDefault(); // デフォルトの動作を防ぐ
