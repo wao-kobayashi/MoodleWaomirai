@@ -8168,15 +8168,25 @@ html[data-tenantidnumber=stg] #page-mod-questionnaire-myreport .mod-questionnair
 html[data-tenantidnumber=stg] #page-mod-questionnaire-report .mod-questionnaire-worksheet .mod-questionnaire-worksheet-download .mod-questionnaire-worksheet-download-text a {
   color: #005c3f;
   text-decoration: none;
+  -webkit-tap-highlight-color: transparent !important;
+  -webkit-focus-ring-color: transparent !important;
+  background-color: none !important;
 }
-html[data-tenantidnumber=stg] #page-mod-questionnaire-view .mod-questionnaire-worksheet .mod-questionnaire-worksheet-download .mod-questionnaire-worksheet-download-text a:hover, html[data-tenantidnumber=stg] #page-mod-questionnaire-view .mod-questionnaire-worksheet .mod-questionnaire-worksheet-download .mod-questionnaire-worksheet-download-text a:active,
+html[data-tenantidnumber=stg] #page-mod-questionnaire-view .mod-questionnaire-worksheet .mod-questionnaire-worksheet-download .mod-questionnaire-worksheet-download-text a:hover, html[data-tenantidnumber=stg] #page-mod-questionnaire-view .mod-questionnaire-worksheet .mod-questionnaire-worksheet-download .mod-questionnaire-worksheet-download-text a:active, html[data-tenantidnumber=stg] #page-mod-questionnaire-view .mod-questionnaire-worksheet .mod-questionnaire-worksheet-download .mod-questionnaire-worksheet-download-text a:focus,
 html[data-tenantidnumber=stg] #page-mod-questionnaire-complete .mod-questionnaire-worksheet .mod-questionnaire-worksheet-download .mod-questionnaire-worksheet-download-text a:hover,
 html[data-tenantidnumber=stg] #page-mod-questionnaire-complete .mod-questionnaire-worksheet .mod-questionnaire-worksheet-download .mod-questionnaire-worksheet-download-text a:active,
+html[data-tenantidnumber=stg] #page-mod-questionnaire-complete .mod-questionnaire-worksheet .mod-questionnaire-worksheet-download .mod-questionnaire-worksheet-download-text a:focus,
 html[data-tenantidnumber=stg] #page-mod-questionnaire-myreport .mod-questionnaire-worksheet .mod-questionnaire-worksheet-download .mod-questionnaire-worksheet-download-text a:hover,
 html[data-tenantidnumber=stg] #page-mod-questionnaire-myreport .mod-questionnaire-worksheet .mod-questionnaire-worksheet-download .mod-questionnaire-worksheet-download-text a:active,
+html[data-tenantidnumber=stg] #page-mod-questionnaire-myreport .mod-questionnaire-worksheet .mod-questionnaire-worksheet-download .mod-questionnaire-worksheet-download-text a:focus,
 html[data-tenantidnumber=stg] #page-mod-questionnaire-report .mod-questionnaire-worksheet .mod-questionnaire-worksheet-download .mod-questionnaire-worksheet-download-text a:hover,
-html[data-tenantidnumber=stg] #page-mod-questionnaire-report .mod-questionnaire-worksheet .mod-questionnaire-worksheet-download .mod-questionnaire-worksheet-download-text a:active {
+html[data-tenantidnumber=stg] #page-mod-questionnaire-report .mod-questionnaire-worksheet .mod-questionnaire-worksheet-download .mod-questionnaire-worksheet-download-text a:active,
+html[data-tenantidnumber=stg] #page-mod-questionnaire-report .mod-questionnaire-worksheet .mod-questionnaire-worksheet-download .mod-questionnaire-worksheet-download-text a:focus {
   text-decoration: none;
+  outline: none !important;
+  background-color: none !important;
+  -webkit-tap-highlight-color: transparent !important;
+  -webkit-focus-ring-color: transparent !important;
 }
 html[data-tenantidnumber=stg] #page-mod-questionnaire-view .mod-questionnaire-worksheet .mod-questionnaire-worksheet-download span,
 html[data-tenantidnumber=stg] #page-mod-questionnaire-complete .mod-questionnaire-worksheet .mod-questionnaire-worksheet-download span,

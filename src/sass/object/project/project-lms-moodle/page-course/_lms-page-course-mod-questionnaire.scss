@@ -393,9 +393,17 @@ li[data-key="courseinfo"] {
         a {
           color: $cl-waogreen;
           text-decoration: none;
+          -webkit-tap-highlight-color: transparent !important;
+          -webkit-focus-ring-color: transparent !important;
+          background-color: none !important;
           &:hover,
-          &:active {
+          &:active,
+          &:focus {
             text-decoration: none;
+            outline: none !important;
+            background-color: none !important;
+            -webkit-tap-highlight-color: transparent !important;
+            -webkit-focus-ring-color: transparent !important;
           }
         }
       }

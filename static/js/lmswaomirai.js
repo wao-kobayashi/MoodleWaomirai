@@ -1384,7 +1384,7 @@ if (bodyId === "page-mod-questionnaire-view")  {
             <span class="material-symbols-outlined">download</span>
             <div class="mod-questionnaire-worksheet-download-text">
               <!-- ここでテンプレートリテラルを使って変数を埋め込む -->
-              <a href="${memosheet}" target="_blank">メモシートをダウンロード</a>
+              <a href="${memosheet}" target="_blank" class="mod-questionnaire-worksheet-download-text-link">メモシートをダウンロード</a>
             </div>
           </div>
         </div>
