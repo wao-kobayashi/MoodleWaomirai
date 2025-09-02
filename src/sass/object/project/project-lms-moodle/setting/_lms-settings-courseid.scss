@@ -15,6 +15,7 @@ $common-course-styles: (
     main-color: $cl-economy,
     pale-color: $cl-economy-pale,
     pale-light-color: $cl-economy-pale-light,
+    button-textcolor-worksheet: $cl-economy,
     img-worksheet:
       url("https://waomirai.com/lp/assets/moodle/icn-worksheet-economy.svg"),
     background-image:
@@ -24,7 +25,8 @@ $common-course-styles: (
     // 科学カテゴリのスタイル
     main-color: $cl-science,
     pale-color: $cl-science-pale,
-    pale-light-color: $cl-science-pale-light,
+    pale-light-color: #f0fbca,
+    button-textcolor-worksheet: #a1be2a,
     img-worksheet:
       url("https://waomirai.com/lp/assets/moodle/icn-worksheet-science.svg"),
     background-image:
@@ -34,7 +36,8 @@ $common-course-styles: (
     // 哲学カテゴリのスタイル
     main-color: $cl-philosophy,
     pale-color: $cl-philosophy-pale,
-    pale-light-color: $cl-philosophy-pale-light,
+    pale-light-color: #fff6ce,
+    button-textcolor-worksheet: $cl-english,
     img-worksheet:
       url("https://waomirai.com/lp/assets/moodle/icn-worksheet-philosophy.svg"),
     background-image:
@@ -45,6 +48,7 @@ $common-course-styles: (
     main-color: $cl-english,
     pale-color: $cl-english-pale,
     pale-light-color: $cl-english-pale,
+    button-textcolor-worksheet: $cl-english,
     img-worksheet: url(""),
     background-image:
       url("https://go.waomirai.com/l/1026513/2024-08-08/gzqbq/1026513/1723092445NpS1HkfH/subject_04.jpg"),
