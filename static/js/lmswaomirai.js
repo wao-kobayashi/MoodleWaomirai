@@ -1455,7 +1455,7 @@ if (
     // まとめシートは上記３教科のため
     if (["philosophy", "science", "economy"].includes(currentViewCourseData?.key) && 
         ariaLabel && ariaLabel.includes('年') && ariaLabel.includes('月')) {
-      $courseSection.addClass('subject-page-added');
+     
       // modtype_resource 内の activity-icon の href を取得して削除
       var hrefList = $courseSection.find('.modtype_resource').map(function() {
           // 各 .modtype_resource の中から .activity-icon 要素を探し、その href 属性（ダウンロード先URLなど）を取得
@@ -1473,6 +1473,7 @@ if (
       // .section が存在する＆問いが存在する場合、カスタムUIの挿入を行う
       if ($section.length && $section.find('li.modtype_questionnaire').length) {
           if (hrefList.length) {
+              $courseSection.addClass('subject-page-added');
               // 1件以上のリソース（mod）が存在する場合：ダウンロード可能な「まとめシート」を表示
               // 先頭のURL（hrefList[0]）をダウンロードボタンのリンク先に使用
               var modHtml = `
@@ -1493,21 +1494,7 @@ if (
               $section.append(modHtml);
               // デバッグ用ログ：追加したURLリストを出力
               console.log(".section に href を追加しました:", hrefList);
-          } else {
-              // リソース（mod）が存在しない場合：準備中の表示を行う
-              var noModHtml = `
-              <li class="subject-page-added-note not-published">
-                  <div class="subject-page-added-note-head">
-                      <div class="subject-page-added-note-head-title">授業の<br>まとめシート</div>
-                      <div class="subject-page-added-note-head-icon"></div>
-                  </div>
-                  <div class="subject-page-added-note-content">
-                      現在準備中です。
-                  </div>
-              </li>`;
-              // 生成した「準備中」要素を当該 .section の末尾に追加
-              $section.append(noModHtml);
-          }
+          } 
       }
     }
 });
