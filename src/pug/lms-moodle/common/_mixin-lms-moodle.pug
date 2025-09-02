@@ -1,15 +1,17 @@
 -
  // 科目ごとの環境別IDを定義
  // stg環境とlmswaomirai環境それぞれの科目のIDを管理するオブジェクト
+ // stgの変数はlmswaomiraiと同じにした
+ // 別々にしていたが、リリース時にstgを参照して本番で事故ったのでローカルもlmswaomiraiと同じにした
  var subjectPugIds = {
-   philosophy: { stg: 212, lmswaomirai: 255 },    // 哲学
-   science: { stg: 211, lmswaomirai: 265 },       // 理科
-   economy: { stg: 213, lmswaomirai: 260 },       // 経済
-   english: { stg: 236, lmswaomirai: 135 },       // 英語 
-   programming: { stg: 235, lmswaomirai: 999 },    // プログラミング
-   twosubjectpack: { stg: 228, lmswaomirai: 270 },    // ２科目セット
-   threesubjectpack: { stg: 229, lmswaomirai: 271 }    // ３科目セット
- }
+    philosophy:      { stg: 255, lmswaomirai: 255 }, // 哲学
+    science:         { stg: 265, lmswaomirai: 265 }, // 理科
+    economy:         { stg: 260, lmswaomirai: 260 }, // 経済
+    english:         { stg: 135, lmswaomirai: 135 }, // 英語
+    programming:     { stg: 999, lmswaomirai: 999 }, // プログラミング
+    twosubjectpack:  { stg: 270, lmswaomirai: 270 }, // ２科目セット
+    threesubjectpack:{ stg: 271, lmswaomirai: 271 }  // ３科目セット
+  }
 
 // 各科目の登録ページへのリンクを生成
 // 環境がstgまたはlmswaomiraiの場合は、その環境に対応するIDを使ってURLを生成
