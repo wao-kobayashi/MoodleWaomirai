@@ -26,7 +26,9 @@ $common-course-styles: (
     main-color: $cl-science,
     pale-color: $cl-science-pale,
     pale-light-color: #f0fbca,
+    //既存ルールだと色が微妙に合わないので微調整している
     button-textcolor-worksheet: #a1be2a,
+    //既存ルールだと色が微妙に合わないので微調整している
     img-worksheet:
       url("https://waomirai.com/lp/assets/moodle/icn-worksheet-science.svg"),
     background-image:
@@ -37,6 +39,7 @@ $common-course-styles: (
     main-color: $cl-philosophy,
     pale-color: $cl-philosophy-pale,
     pale-light-color: #fff6ce,
+    //既存ルールだと色が微妙に合わないので微調整している
     button-textcolor-worksheet: $cl-english,
     img-worksheet:
       url("https://waomirai.com/lp/assets/moodle/icn-worksheet-philosophy.svg"),
