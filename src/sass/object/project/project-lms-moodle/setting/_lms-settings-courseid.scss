@@ -6,6 +6,7 @@
 // 各カテゴリには以下の3つの情報を持たせる
 // - main-color: メインカラー（背景色などに使用）
 // - pale-color: 淡い色（補助的なデザイン要素に使用）
+// - img-worksheet: ワークシートのサムネ
 // - background-image: 背景画像のURL
 
 $common-course-styles: (
@@ -13,6 +14,10 @@ $common-course-styles: (
     // 経済カテゴリのスタイル
     main-color: $cl-economy,
     pale-color: $cl-economy-pale,
+    pale-light-color: $cl-economy-pale-light,
+    button-textcolor-worksheet: $cl-economy,
+    img-worksheet:
+      url("https://waomirai.com/lp/assets/moodle/icn-worksheet-economy.svg"),
     background-image:
       url("https://go.waomirai.com/l/1026513/2024-08-08/gzqbt/1026513/1723092445zMMVlFVz/subject_03.jpg"),
   ),
@@ -20,6 +25,12 @@ $common-course-styles: (
     // 科学カテゴリのスタイル
     main-color: $cl-science,
     pale-color: $cl-science-pale,
+    pale-light-color: #f0fbca,
+    //既存ルールだと色が微妙に合わないので微調整している
+    button-textcolor-worksheet: #a1be2a,
+    //既存ルールだと色が微妙に合わないので微調整している
+    img-worksheet:
+      url("https://waomirai.com/lp/assets/moodle/icn-worksheet-science.svg"),
     background-image:
       url("https://go.waomirai.com/l/1026513/2024-08-08/gzqbx/1026513/1723092445qaV639ZU/subject_02.jpg"),
   ),
@@ -27,6 +38,11 @@ $common-course-styles: (
     // 哲学カテゴリのスタイル
     main-color: $cl-philosophy,
     pale-color: $cl-philosophy-pale,
+    pale-light-color: #fff6ce,
+    //既存ルールだと色が微妙に合わないので微調整している
+    button-textcolor-worksheet: $cl-english,
+    img-worksheet:
+      url("https://waomirai.com/lp/assets/moodle/icn-worksheet-philosophy.svg"),
     background-image:
       url("https://waomirai.com/wp-content/uploads/2024/07/phi_main.jpg"),
   ),
@@ -34,6 +50,9 @@ $common-course-styles: (
     // 英語カテゴリのスタイル
     main-color: $cl-english,
     pale-color: $cl-english-pale,
+    pale-light-color: $cl-english-pale,
+    button-textcolor-worksheet: $cl-english,
+    img-worksheet: url(""),
     background-image:
       url("https://go.waomirai.com/l/1026513/2024-08-08/gzqbq/1026513/1723092445NpS1HkfH/subject_04.jpg"),
   ),
@@ -41,7 +60,8 @@ $common-course-styles: (
     // プログラミングカテゴリのスタイル
     main-color: $cl-programming,
     pale-color: $cl-programming,
-    // 本来 pale-color を定義すべきだが、main-color を流用？
+    pale-light-color: $cl-programming,
+    img-worksheet: url(""),
     background-image:
       url("https://go.waomirai.com/l/1026513/2024-08-08/gzqbm/1026513/1723092444UDZaTUyz/subject_05.jpg"),
   ),
@@ -68,7 +88,7 @@ $course-styles: (
     ".category-54",
   ),
   "programming": (
-    ".course-999999",
+    /* カテゴリ未定 */ ".category-9999",
   ),
 );
 

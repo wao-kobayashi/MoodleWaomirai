@@ -31,6 +31,14 @@ const iframeCalenderEconomy = "https://calendar.google.com/calendar/embed?src=c_
 const iframeCalenderEnglish = "https://calendar.google.com/calendar/embed?src=c_379c34d3c8e6716b3458dd339f4531bd8ce07f17c4f97d5fec4367888a692290%40group.calendar.google.com&ctz=Asia%2FTokyo" //グローバル英語
 
 // ==============================
+// 授業のメモシート
+// ==============================
+
+const memosheetPhilosophy = "https://waomirai.com/lp/assets/moodle/memosheet_philosphy.pdf" //哲学
+const memosheetScience = "https://waomirai.com/lp/assets/moodle/memosheet_science.pdf" //科学
+const memosheetEconomy = "https://waomirai.com/lp/assets/moodle/memosheet_economy.pdf" //経済
+
+// ==============================
 // ページ判定とコースIDの取得
 // ==============================
 
@@ -172,7 +180,7 @@ function createModal(options = {}) {
         (button) =>
           `<a href="${button.url || "#"}" class="c-modal-wrap-button ${
             button.class || ""
-          }">${button.text}</a>` // ボタンのHTMLを動的に生成
+          }"${button.blank ? ' target="_blank" rel="noopener noreferrer"' : ""}>${button.text}</a>` // ボタンのHTMLを動的に生成
       )
       .join(""); // ボタンを連結して返す
   };
@@ -1240,6 +1248,59 @@ if (bodyId === "page-mod-questionnaire-view" || bodyId === "page-mod-questionnai
     $(".mod_questionnaire_completepage h3").after(ButtonQuestionnaireBacktoCalender);
   }
 }
+
+if (bodyId === "page-mod-questionnaire-view")  {
+
+  // メモシートのURLを格納する変数を用意
+  // 最初は空文字で初期化しておく
+  let memosheet = "";
+
+  // 現在表示している授業データ(currentViewCourseData)のキーに応じて
+  // それぞれの専用メモシートURLを代入する
+  if (currentViewCourseData?.key === "philosophy") {
+    memosheet = memosheetPhilosophy; // 哲学用のメモシート
+  } else if (currentViewCourseData?.key === "science") {
+    memosheet = memosheetScience; // 科学用のメモシート
+  } else if (currentViewCourseData?.key === "economy") {
+    memosheet = memosheetEconomy; // 経済用のメモシート
+  }
+
+  // jQueryのDOM読み込み完了処理
+  $(function() {
+    // 授業ページに動画がある場合のみ処理を実行
+    // （アーカイブ時には意味が薄いため表示しない）
+    if ($('.course-lesson').length) {
+
+      // 授業ページの「main」要素の手前にメモシートのUIを追加
+      $('div[role="main"]').before(`
+        <div class="mod-questionnaire-worksheet">
+          <!-- アイコン表示 -->
+          <div class="mod-questionnaire-worksheet-icon">
+            <img src="https://waomirai.com/lp/assets/moodle/icn-worksheet-wao.svg">
+          </div>
+
+          <!-- 説明テキスト -->
+          <div class="mod-questionnaire-worksheet-text">
+            授業中の学びを記録できる印刷用シートです。<br>
+            メモがわりにご利用いただけます。
+          </div>
+
+          <!-- ダウンロードリンク部分 -->
+          <div class="mod-questionnaire-worksheet-download">
+            <span class="material-symbols-outlined">download</span>
+            <div class="mod-questionnaire-worksheet-download-text">
+              <!-- ここでテンプレートリテラルを使って変数を埋め込む -->
+              <a href="${memosheet}" target="_blank" class="mod-questionnaire-worksheet-download-text-link">メモシートをダウンロード</a>
+            </div>
+          </div>
+        </div>
+      `);
+    }
+  });
+
+  
+}
+
 $(".open-modal-badge").click(function() {
   // 確認モーダルを作成
   createModal({
@@ -1280,18 +1341,71 @@ if (
 
   // 各トピックでループを回す
   $('.course-section-header [data-for="sectiontoggler"]').each(function() {
-      var ariaLabel = $(this).attr('aria-label'); // aria-label属性の値を取得
-      var match = ariaLabel.match(datePattern); // 正規表現で年月を抽出
-      // 年月の表記があるかチェック
-      if (match) {
-          let date = new Date(parseInt(match[1], 10), parseInt(match[2], 10) - 1);
-          // 日付が基準日より前かどうかをチェック
-          if (date < cutoffDate) {
-              // 親要素のトピックの要素を削除
-              $(this).parents('.course-section').remove();
-          }
+    var $courseSection = $(this).closest('.course-section');  // aria-label属性の値を取得
+    var ariaLabel = $(this).attr('aria-label'); // 正規表現で年月を抽出
+    var match = ariaLabel.match(datePattern);
+    // 年月の表記があるかチェック
+    if (match) {
+        var date = new Date(parseInt(match[1], 10), parseInt(match[2], 10) - 1);
+        if (date < cutoffDate) {
+            $courseSection.remove();
+            return;
+        }
+    }
+
+    //////////////////////////// 
+    // 授業のまとめシートを追加
+    ////////////////////////////
+
+    // コース詳細ページが哲学、科学、経済のいずれかの場合
+    // まとめシートは上記３教科のため
+    if (["philosophy", "science", "economy"].includes(currentViewCourseData?.key) && 
+        ariaLabel && ariaLabel.includes('年') && ariaLabel.includes('月')) {
+     
+      // modtype_resource 内の activity-icon の href を取得して削除
+      var hrefList = $courseSection.find('.modtype_resource').map(function() {
+          // 各 .modtype_resource の中から .activity-icon 要素を探し、その href 属性（ダウンロード先URLなど）を取得
+          var href = $(this).find('.activity-icon').attr('href');
+          // 取得した後、このリソース（.modtype_resource）自体をセクションから削除
+          // 目的：標準のリソース表示を隠し、後段で用意するカスタムの「まとめシート」UIに置き換えるため
+          $(this).remove();
+          // 取得できた場合はそのURLを返し、取得できなければ null を返す（後で .get() で配列化）
+          return href || null;
+      }).get(); // jQuery の map() からプレーンな配列に変換
+
+      // 現在処理中のコースセクション内から、実際にリストアイテム（アクティビティ群）を挿入する .section を取得
+      var $section = $courseSection.find('.section');
+
+      // .section が存在する＆問いが存在する場合、カスタムUIの挿入を行う
+      if ($section.length && $section.find('li.modtype_questionnaire').length) {
+          if (hrefList.length) {
+              $courseSection.addClass('subject-page-added');
+              // 1件以上のリソース（mod）が存在する場合：ダウンロード可能な「まとめシート」を表示
+              // 先頭のURL（hrefList[0]）をダウンロードボタンのリンク先に使用
+              var modHtml = `
+              <li class="subject-page-added-note published">
+                  <div class="subject-page-added-note-head">
+                      <div class="subject-page-added-note-head-title">授業の<br>まとめシート</div>
+                      <div class="subject-page-added-note-head-icon"></div>
+                  </div>
+                  <div class="subject-page-added-note-content">
+                      授業の復習にご活用ください！ファイリングして、あなただけの「未来塾ノート」を作ってみてくださいね！
+                  </div>
+                  <a class="subject-page-added-note-content-download" href="${hrefList[0]}" target="_blank">
+                      <span class="material-symbols-outlined">download</span>
+                      <div class="subject-page-added-note-content-download-text">ダウンロードする</div>
+                  </a>
+              </li>`;
+              // 生成した「まとめシート」要素を当該 .section の末尾に追加
+              $section.append(modHtml);
+              // デバッグ用ログ：追加したURLリストを出力
+              console.log(".section に href を追加しました:", hrefList);
+          } 
       }
-  });
+    }
+});
+
+
 
   ////////////////////////////
   // メイン3科目または2科目、3科目パック購入後のリダイレクト処理
@@ -1345,8 +1459,14 @@ if (
       window.location.href = `https://lms.waomirai.com/course/view.php?id=${enrolledChildCourse.id}`;
     } else {
       // 子科目を受講していない場合（例：科学は受講可能だが、L1～L4のレベルを設定していない）
-      // レベル設定を促すモーダルを表示
-       showModalAfterCardRegistration();
+      // カード登録後にモーダルを表示する関数
+      // 機能：
+      // 1. キャンペーン期間中（2025年9月15日まで）かつ初回表示の場合
+      //    → キャンペーンモーダルを表示（無料受講案内 + Amazonギフト券プレゼント案内）
+      // 2. それ以外の場合
+      //    → レベル設定モーダルを表示（科目のレベル設定ページへの誘導）
+      // 3. モーダル表示履歴はCookieに保存（365日有効）
+      showModalAfterCardRegistration();
     }
   }
 }
@@ -1357,15 +1477,9 @@ if (
 // カード登録後にモーダルを表示する関数
 function showModalAfterCardRegistration() {
   var now = new Date(); // 現在の日付を取得
-  var campaignEnd = new Date(2025, 3, 15, 23, 59, 59); // キャンペーン終了日時（2025年4月15日23:59:59）
+  var campaignEnd = new Date(2025, 8, 14, 23, 59, 59); // キャンペーン終了日時（2025年9月14日23:59:59）
   var cookieValue = $.cookie("levelSettingModalShown"); // Cookieにモーダル表示の履歴があるか確認
   var subjectCategory = currentViewCourseData.key;  // 現在選択されている科目カテゴリーを取得
-
-  // globalenglish 以外なら即座に通常モーダルだけ表示
-  if (subjectCategory !== "globalenglish") {
-    showLevelSettingModal();
-    return;
-  }
 
   // ".c-modal-level-setting"クラスの要素がクリックされた場合にレベル設定モーダルを表示
   $(document).on("click", ".c-modal-level-setting", function () {
@@ -1387,12 +1501,12 @@ function showModalAfterCardRegistration() {
 }
 
 
-// 2025年4月オープンのモーダル関数
+// 2025年9月キャンペーンのモーダル関数
 function showCampaignModal() {
   createModal({
     title: "おめでとうございます！",
     wrapClass: "c-modal-wrap-wrap-campaign",
-    text: "<b>先着100名様のキャンペーンを<br />適用させていただきます。</b><br /><br />2025年4月は無料で受講いただけます。<br />2025年5月も受講いただけたら<br />Amazonギフト券5000円プレゼントいたします。<br />",
+    text: "<b>キャンペーンを<br />適用させていただきます。</b><br /><br />2025年8・9月は無料で受講いただけます。<br />2025年10月も受講いただけたら<br />Amazonギフト券5000円プレゼントいたします。<br />",
     buttons: [
       { text: "OKです", class: "btn-primary c-modal-level-setting c-modal-wrap-close-tag" }
     ]
@@ -1755,6 +1869,21 @@ $(".triger-line-integration-modal").on("click", function (e) {
   createModal({
     wrapClass: "c-modal-wrap-line-connection",
     customModalHtml: `<div class="c-modal-wrap-close"></div><div class="c-modal-wrap-linetitle"> <div class="c-modal-wrap-linetitle-img"><img src="https://go.waomirai.com/l/1026513/2025-03-23/hjb9m/1026513/17427846057nCvC4dV/icn_LINE_LOGO.svg"></div><div class="c-modal-wrap-linetitle-text">LINEで受講サポートの<br>通知を受け取る</div></div><div class="c-modal-wrap-qr c-sp-hidden"><img src="${ImgLiffMoodle}"></div><div class="c-modal-wrap-text">すでに友だち追加済の方も<br>会員連携のために<span class="c-sp-hidden">必ずQRを読み取って下さい</span><span class="c-pc-hidden">必ずボタンを押してください</span><br />※既にLINE連携済みの方は不要です</div><div class="c-modal-button-line c-pc-hidden"><a href="https://liff.line.me/2006716288-lL7QzGA3?loycus_urlc=NN3v"><img src="https://go.waomirai.com/l/1026513/2025-02-20/hg5bg/1026513/17401067674FE8qn1T/btn_lineadd.svg"></a></div><button class="c-modal-wrap-button c-modal-wrap-button-close c-modal-wrap-close-tag">閉じる</button>`
+  });
+});
+
+// メモシートのモーダル
+// ボタンがクリックされた時の処理
+// 3つの科目（哲学、科学リテラシー、経済）のメモシート選択モーダルを表示
+$(document).on("click", ".triger-download-memosheet-modal", function (e) {
+  createModal({
+    close: true,
+    title: "ダウンロードする<br />メモシートの種類を選択",
+    buttons: [
+      { text: "哲学（思考力）", url: memosheetPhilosophy, class: "btn-primary", blank: true },
+      { text: "科学リテラシー", url: memosheetScience, class: "btn-primary", blank: true },
+      { text: "経済（お金）", url: memosheetEconomy, class: "btn-primary", blank: true }
+    ]
   });
 });
 

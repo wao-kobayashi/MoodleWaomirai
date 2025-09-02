@@ -69,15 +69,26 @@ html(lang="jp")
         .moodle-list li:last-child {
           margin-bottom: 20px;
         }
-
+        h3{
+          margin:0 0 4px;
+        }
+        .moodle-list-category{
+          color:#999;
+          font-size:12px;
+           margin:0 0 4px;
+        }
 
       //- モジュール化されたリスト出力部分
+      //- 各セクションは「h3 見出し」+「.moodle-list-category(ID一覧)」+「リンクUL」の構成
+      //- .moodle-list-category には該当セクションに対応するページIDをカンマ区切りで記載し、
+      //- 開発時の検索・画面識別・E2Eテスト時の参照用メタデータとして使う
     mixin moodleList(environment)
         h2 
          |#{environment}
         ul.moodle-list
               li
-                | moodleログイン
+                h3|moodleログイン
+                .moodle-list-category|#page-login-signup,#page-login-index,#page-login-signup
                 ul
                   li
                     a(href=`${environment}/signup/page-moodle-login.html`) ログイン
@@ -91,7 +102,8 @@ html(lang="jp")
                     a(href=`${environment}/signup/page-moodle-signup-complate.html`) 完了
 
               li 
-                | ホーム
+                h3|ホーム
+                .moodle-list-category|#page-index-guest,#page-index-logged-in-purchased,#page-index-logged-in-perchaced
                 ul
                   li
                     a(href=`${environment}/index/page-index-guest.html`) ゲスト
@@ -101,7 +113,8 @@ html(lang="jp")
                     a(href=`${environment}/index/page-index-logged-in-perchaced.html`) 購入済み
 
               li
-                | ダッシュボード
+                h3|ダッシュボード
+                .moodle-list-category|#page-my-index
                 div(style='font-size:87%; margin:20px 0 0 20px;') 
                     |JSなし、ダッシュボードコピペ用
                 ul
@@ -156,7 +169,8 @@ html(lang="jp")
                   li 
                     a(href=`${environment}/dashboard/page-calender-05modal.html`) 05_今日予定あり｜明日以降予定あり
               li
-                | 科目購入
+                h3|科目購入
+                .moodle-list-category|#page-enrol-index
                 div(style='font-size:87%; margin:20px 0 0 20px;') 
                   |哲学
                 ul
@@ -209,12 +223,26 @@ html(lang="jp")
                     a(href=`${environment}/course-enrol/page-enrol-three-two.html`) 3科目パック（2科目セット購入済）
               
               li
-                | 購入した後の科目ページ（course-view-topics）
+                h3|購入した後の科目ページ（course-view-topics）
+                .moodle-list-category|#page-course-view-topics
                 include lms-moodle/page-course-view-topics/_id-user-edit.pug
                 ul
                   each item in useredit
                     li
                       a(href=`${environment}/page-course-view-topics/${item.id}.html`) #{item.SubjectPageTitle}
+              li
+                h3|授業受講
+                .moodle-list-category|#page-mod-questionnaire-view
+                ul
+                  li
+                    a(href=`${environment}/path-mod-questionnaire/page-path-mod-questionnaire.html`) 授業受講
+                  li
+                    a(href=`${environment}/path-mod-questionnaire/page-path-mod-questionnaire-archive.html`) 授業受講のアーカイブ
+                  li
+                    a(href=`${environment}/path-mod-questionnaire/page-path-mod-questionnaire-question.html`) 授業受講(質問続き)
+                  li
+                    a(href=`${environment}/path-mod-questionnaire/parts-lesson.html`) 授業受講のパーツ（開発用）
+
               li
                 |講座の受講ヘルプページ
                 ul
@@ -229,7 +257,8 @@ html(lang="jp")
                   li
                     a(href=`${environment}/page-mod-page-view/page-help-watch-archive-class.html`)  アーカイブ動画の見方
               li
-                | 授業レベル設定ロジック
+                h3|授業レベル設定ロジック
+                .moodle-list-category|#page-user-edit
                 div(style='font-size:87%; margin:20px 0 0 20px;') 
                   | 何も買っていない
                 ul
@@ -260,7 +289,7 @@ html(lang="jp")
                     a(href=`${environment}/page-user-edit/three-none.html`) 3科目セット
 
                 div(style='font-size:87%; margin:20px 0 0 20px;') 
-                  | すでに登録
+                  h3| すでに登録
                 ul
                   li
                     a(href=`${environment}/page-user-edit/ph-register.html`) 哲学
@@ -276,7 +305,8 @@ html(lang="jp")
                     a(href=`${environment}/page-user-edit/en-register.html`) 英語
 
               li
-                | 設定関連
+                h3|設定関連
+                .moodle-list-category|#page-mypage,#page-user-setting
                 ul
                   li
                     a(href=`${environment}/mypage/page-mypage.html`) マイページ

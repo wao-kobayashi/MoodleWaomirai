@@ -958,7 +958,7 @@ html[data-tenantidnumber=stg] .c-modal-wrap-subject {
   padding: 0px 0px 30px !important;
 }
 html[data-tenantidnumber=stg] .c-modal-wrap-subject .c-modal-wrap-image {
-  margin: 0 auto 25px !important;
+  margin: 0 auto 0px !important;
 }
 html[data-tenantidnumber=stg] .c-modal-wrap-subject img {
   border-radius: 8px 8px 0 0 !important;
@@ -972,7 +972,7 @@ html[data-tenantidnumber=stg] .c-modal-wrap-subject .c-modal-wrap-button {
 }
 html[data-tenantidnumber=stg] .c-modal-wrap {
   position: relative;
-  padding: 56px 20px 40px;
+  padding: 48px 20px 40px;
 }
 html[data-tenantidnumber=stg] .c-modal-wrap-title {
   font-size: 20px;
@@ -989,7 +989,7 @@ html[data-tenantidnumber=stg] .c-modal-wrap-text {
   font-size: 16px;
   color: #262626;
   line-height: 1.5;
-  margin: 0 auto 32px;
+  margin: 0 auto 8px;
 }
 html[data-tenantidnumber=stg] .c-modal-wrap-closetxt {
   color: #999;
@@ -1008,6 +1008,7 @@ html[data-tenantidnumber=stg] .c-modal-wrap-button-wrap {
           flex-direction: column;
   gap: 30px;
   width: 100%;
+  padding: 24px 0 0;
 }
 html[data-tenantidnumber=stg] .c-modal-wrap-button-wrap a {
   width: 100%;
@@ -2724,42 +2725,42 @@ html[data-tenantidnumber=stg] #page-course-view-topics.category-54 #page-header 
 html[data-tenantidnumber=stg] #page-course-view-topics.category-54 #page-header .h5.mt-4 {
   display: none;
 }
-html[data-tenantidnumber=stg] #page-course-view-topics.course-999999 #page.drawers {
+html[data-tenantidnumber=stg] #page-course-view-topics.category-9999 #page.drawers {
   margin-top: 50px;
 }
 @media screen and (max-width: 768px) {
-  html[data-tenantidnumber=stg] #page-course-view-topics.course-999999 #page.drawers .main-inner {
+  html[data-tenantidnumber=stg] #page-course-view-topics.category-9999 #page.drawers .main-inner {
     margin-top: 0px !important;
     padding-top: 0px !important;
   }
 }
 @media screen and (max-width: 768px) {
-  html[data-tenantidnumber=stg] #page-course-view-topics.course-999999 #page-header {
+  html[data-tenantidnumber=stg] #page-course-view-topics.category-9999 #page-header {
     margin: 0 -20px;
   }
 }
-html[data-tenantidnumber=stg] #page-course-view-topics.course-999999 #page-header .page-header-headings {
+html[data-tenantidnumber=stg] #page-course-view-topics.category-9999 #page-header .page-header-headings {
   background: #ee242c !important;
 }
-html[data-tenantidnumber=stg] #page-course-view-topics.course-999999 #page-header .page-header-headings:before {
+html[data-tenantidnumber=stg] #page-course-view-topics.category-9999 #page-header .page-header-headings:before {
   background-image: url("https://go.waomirai.com/l/1026513/2024-08-08/gzqbm/1026513/1723092444UDZaTUyz/subject_05.jpg");
 }
 @media screen and (max-width: 768px) {
-  html[data-tenantidnumber=stg] #page-course-view-topics.course-999999 #page-header .page-header-headings {
+  html[data-tenantidnumber=stg] #page-course-view-topics.category-9999 #page-header .page-header-headings {
     margin: 0px -20px 0px !important;
   }
 }
-html[data-tenantidnumber=stg] #page-course-view-topics.course-999999 #page-header .mr-auto,
-html[data-tenantidnumber=stg] #page-course-view-topics.course-999999 #page-header .mx-auto {
+html[data-tenantidnumber=stg] #page-course-view-topics.category-9999 #page-header .mr-auto,
+html[data-tenantidnumber=stg] #page-course-view-topics.category-9999 #page-header .mx-auto {
   width: 100%;
 }
-html[data-tenantidnumber=stg] #page-course-view-topics.course-999999 #page-header .page-context-header {
+html[data-tenantidnumber=stg] #page-course-view-topics.category-9999 #page-header .page-context-header {
   padding: 0 !important;
 }
-html[data-tenantidnumber=stg] #page-course-view-topics.course-999999 #page-header .page-context-header .page-header-image {
+html[data-tenantidnumber=stg] #page-course-view-topics.category-9999 #page-header .page-context-header .page-header-image {
   display: none !important;
 }
-html[data-tenantidnumber=stg] #page-course-view-topics.course-999999 #page-header .page-context-header .page-header-headings {
+html[data-tenantidnumber=stg] #page-course-view-topics.category-9999 #page-header .page-context-header .page-header-headings {
   width: 100%;
   position: relative;
   height: 320px;
@@ -2773,25 +2774,25 @@ html[data-tenantidnumber=stg] #page-course-view-topics.course-999999 #page-heade
   margin: 0px 0 48px !important;
 }
 @media screen and (max-width: 768px) {
-  html[data-tenantidnumber=stg] #page-course-view-topics.course-999999 #page-header .page-context-header .page-header-headings {
+  html[data-tenantidnumber=stg] #page-course-view-topics.category-9999 #page-header .page-context-header .page-header-headings {
     margin: 0px 0 48px !important;
     height: auto;
     border-radius: 0;
   }
 }
-html[data-tenantidnumber=stg] #page-course-view-topics.course-999999 #page-header .page-context-header .page-header-headings h1 {
+html[data-tenantidnumber=stg] #page-course-view-topics.category-9999 #page-header .page-context-header .page-header-headings h1 {
   color: white !important;
   padding: 0 0 0 40px;
   font-size: 30px !important;
   max-width: 330px;
 }
 @media screen and (max-width: 768px) {
-  html[data-tenantidnumber=stg] #page-course-view-topics.course-999999 #page-header .page-context-header .page-header-headings h1 {
+  html[data-tenantidnumber=stg] #page-course-view-topics.category-9999 #page-header .page-context-header .page-header-headings h1 {
     padding: 200px 20px 40px 20px;
     max-width: 100%;
   }
 }
-html[data-tenantidnumber=stg] #page-course-view-topics.course-999999 #page-header .page-context-header .page-header-headings:before {
+html[data-tenantidnumber=stg] #page-course-view-topics.category-9999 #page-header .page-context-header .page-header-headings:before {
   right: 0;
   top: 0;
   width: 50%;
@@ -2807,12 +2808,12 @@ html[data-tenantidnumber=stg] #page-course-view-topics.course-999999 #page-heade
   position: absolute;
 }
 @media screen and (max-width: 768px) {
-  html[data-tenantidnumber=stg] #page-course-view-topics.course-999999 #page-header .page-context-header .page-header-headings:before {
+  html[data-tenantidnumber=stg] #page-course-view-topics.category-9999 #page-header .page-context-header .page-header-headings:before {
     width: 100%;
     height: 160px;
   }
 }
-html[data-tenantidnumber=stg] #page-course-view-topics.course-999999 #page-header .h5.mt-4 {
+html[data-tenantidnumber=stg] #page-course-view-topics.category-9999 #page-header .h5.mt-4 {
   display: none;
 }
 html[data-tenantidnumber=stg] #page-course-view-flexsections.category-53 #page.drawers {
@@ -3543,42 +3544,42 @@ html[data-tenantidnumber=stg] #page-course-view-flexsections.category-54 #page-h
 html[data-tenantidnumber=stg] #page-course-view-flexsections.category-54 #page-header .h5.mt-4 {
   display: none;
 }
-html[data-tenantidnumber=stg] #page-course-view-flexsections.course-999999 #page.drawers {
+html[data-tenantidnumber=stg] #page-course-view-flexsections.category-9999 #page.drawers {
   margin-top: 50px;
 }
 @media screen and (max-width: 768px) {
-  html[data-tenantidnumber=stg] #page-course-view-flexsections.course-999999 #page.drawers .main-inner {
+  html[data-tenantidnumber=stg] #page-course-view-flexsections.category-9999 #page.drawers .main-inner {
     margin-top: 0px !important;
     padding-top: 0px !important;
   }
 }
 @media screen and (max-width: 768px) {
-  html[data-tenantidnumber=stg] #page-course-view-flexsections.course-999999 #page-header {
+  html[data-tenantidnumber=stg] #page-course-view-flexsections.category-9999 #page-header {
     margin: 0 -20px;
   }
 }
-html[data-tenantidnumber=stg] #page-course-view-flexsections.course-999999 #page-header .page-header-headings {
+html[data-tenantidnumber=stg] #page-course-view-flexsections.category-9999 #page-header .page-header-headings {
   background: #ee242c !important;
 }
-html[data-tenantidnumber=stg] #page-course-view-flexsections.course-999999 #page-header .page-header-headings:before {
+html[data-tenantidnumber=stg] #page-course-view-flexsections.category-9999 #page-header .page-header-headings:before {
   background-image: url("https://go.waomirai.com/l/1026513/2024-08-08/gzqbm/1026513/1723092444UDZaTUyz/subject_05.jpg");
 }
 @media screen and (max-width: 768px) {
-  html[data-tenantidnumber=stg] #page-course-view-flexsections.course-999999 #page-header .page-header-headings {
+  html[data-tenantidnumber=stg] #page-course-view-flexsections.category-9999 #page-header .page-header-headings {
     margin: 0px -20px 0px !important;
   }
 }
-html[data-tenantidnumber=stg] #page-course-view-flexsections.course-999999 #page-header .mr-auto,
-html[data-tenantidnumber=stg] #page-course-view-flexsections.course-999999 #page-header .mx-auto {
+html[data-tenantidnumber=stg] #page-course-view-flexsections.category-9999 #page-header .mr-auto,
+html[data-tenantidnumber=stg] #page-course-view-flexsections.category-9999 #page-header .mx-auto {
   width: 100%;
 }
-html[data-tenantidnumber=stg] #page-course-view-flexsections.course-999999 #page-header .page-context-header {
+html[data-tenantidnumber=stg] #page-course-view-flexsections.category-9999 #page-header .page-context-header {
   padding: 0 !important;
 }
-html[data-tenantidnumber=stg] #page-course-view-flexsections.course-999999 #page-header .page-context-header .page-header-image {
+html[data-tenantidnumber=stg] #page-course-view-flexsections.category-9999 #page-header .page-context-header .page-header-image {
   display: none !important;
 }
-html[data-tenantidnumber=stg] #page-course-view-flexsections.course-999999 #page-header .page-context-header .page-header-headings {
+html[data-tenantidnumber=stg] #page-course-view-flexsections.category-9999 #page-header .page-context-header .page-header-headings {
   width: 100%;
   position: relative;
   height: 320px;
@@ -3592,25 +3593,25 @@ html[data-tenantidnumber=stg] #page-course-view-flexsections.course-999999 #page
   margin: 0px 0 48px !important;
 }
 @media screen and (max-width: 768px) {
-  html[data-tenantidnumber=stg] #page-course-view-flexsections.course-999999 #page-header .page-context-header .page-header-headings {
+  html[data-tenantidnumber=stg] #page-course-view-flexsections.category-9999 #page-header .page-context-header .page-header-headings {
     margin: 0px 0 48px !important;
     height: auto;
     border-radius: 0;
   }
 }
-html[data-tenantidnumber=stg] #page-course-view-flexsections.course-999999 #page-header .page-context-header .page-header-headings h1 {
+html[data-tenantidnumber=stg] #page-course-view-flexsections.category-9999 #page-header .page-context-header .page-header-headings h1 {
   color: white !important;
   padding: 0 0 0 40px;
   font-size: 30px !important;
   max-width: 330px;
 }
 @media screen and (max-width: 768px) {
-  html[data-tenantidnumber=stg] #page-course-view-flexsections.course-999999 #page-header .page-context-header .page-header-headings h1 {
+  html[data-tenantidnumber=stg] #page-course-view-flexsections.category-9999 #page-header .page-context-header .page-header-headings h1 {
     padding: 200px 20px 40px 20px;
     max-width: 100%;
   }
 }
-html[data-tenantidnumber=stg] #page-course-view-flexsections.course-999999 #page-header .page-context-header .page-header-headings:before {
+html[data-tenantidnumber=stg] #page-course-view-flexsections.category-9999 #page-header .page-context-header .page-header-headings:before {
   right: 0;
   top: 0;
   width: 50%;
@@ -3626,12 +3627,12 @@ html[data-tenantidnumber=stg] #page-course-view-flexsections.course-999999 #page
   position: absolute;
 }
 @media screen and (max-width: 768px) {
-  html[data-tenantidnumber=stg] #page-course-view-flexsections.course-999999 #page-header .page-context-header .page-header-headings:before {
+  html[data-tenantidnumber=stg] #page-course-view-flexsections.category-9999 #page-header .page-context-header .page-header-headings:before {
     width: 100%;
     height: 160px;
   }
 }
-html[data-tenantidnumber=stg] #page-course-view-flexsections.course-999999 #page-header .h5.mt-4 {
+html[data-tenantidnumber=stg] #page-course-view-flexsections.category-9999 #page-header .h5.mt-4 {
   display: none;
 }
 html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo.category-53 #page.drawers {
@@ -4362,42 +4363,42 @@ html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo.category-54 
 html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo.category-54 #page-header .h5.mt-4 {
   display: none;
 }
-html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo.course-999999 #page.drawers {
+html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo.category-9999 #page.drawers {
   margin-top: 50px;
 }
 @media screen and (max-width: 768px) {
-  html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo.course-999999 #page.drawers .main-inner {
+  html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo.category-9999 #page.drawers .main-inner {
     margin-top: 0px !important;
     padding-top: 0px !important;
   }
 }
 @media screen and (max-width: 768px) {
-  html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo.course-999999 #page-header {
+  html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo.category-9999 #page-header {
     margin: 0 -20px;
   }
 }
-html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo.course-999999 #page-header .page-header-headings {
+html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo.category-9999 #page-header .page-header-headings {
   background: #ee242c !important;
 }
-html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo.course-999999 #page-header .page-header-headings:before {
+html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo.category-9999 #page-header .page-header-headings:before {
   background-image: url("https://go.waomirai.com/l/1026513/2024-08-08/gzqbm/1026513/1723092444UDZaTUyz/subject_05.jpg");
 }
 @media screen and (max-width: 768px) {
-  html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo.course-999999 #page-header .page-header-headings {
+  html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo.category-9999 #page-header .page-header-headings {
     margin: 0px -20px 0px !important;
   }
 }
-html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo.course-999999 #page-header .mr-auto,
-html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo.course-999999 #page-header .mx-auto {
+html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo.category-9999 #page-header .mr-auto,
+html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo.category-9999 #page-header .mx-auto {
   width: 100%;
 }
-html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo.course-999999 #page-header .page-context-header {
+html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo.category-9999 #page-header .page-context-header {
   padding: 0 !important;
 }
-html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo.course-999999 #page-header .page-context-header .page-header-image {
+html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo.category-9999 #page-header .page-context-header .page-header-image {
   display: none !important;
 }
-html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo.course-999999 #page-header .page-context-header .page-header-headings {
+html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo.category-9999 #page-header .page-context-header .page-header-headings {
   width: 100%;
   position: relative;
   height: 320px;
@@ -4411,25 +4412,25 @@ html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo.course-99999
   margin: 0px 0 48px !important;
 }
 @media screen and (max-width: 768px) {
-  html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo.course-999999 #page-header .page-context-header .page-header-headings {
+  html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo.category-9999 #page-header .page-context-header .page-header-headings {
     margin: 0px 0 48px !important;
     height: auto;
     border-radius: 0;
   }
 }
-html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo.course-999999 #page-header .page-context-header .page-header-headings h1 {
+html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo.category-9999 #page-header .page-context-header .page-header-headings h1 {
   color: white !important;
   padding: 0 0 0 40px;
   font-size: 30px !important;
   max-width: 330px;
 }
 @media screen and (max-width: 768px) {
-  html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo.course-999999 #page-header .page-context-header .page-header-headings h1 {
+  html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo.category-9999 #page-header .page-context-header .page-header-headings h1 {
     padding: 200px 20px 40px 20px;
     max-width: 100%;
   }
 }
-html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo.course-999999 #page-header .page-context-header .page-header-headings:before {
+html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo.category-9999 #page-header .page-context-header .page-header-headings:before {
   right: 0;
   top: 0;
   width: 50%;
@@ -4445,12 +4446,12 @@ html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo.course-99999
   position: absolute;
 }
 @media screen and (max-width: 768px) {
-  html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo.course-999999 #page-header .page-context-header .page-header-headings:before {
+  html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo.category-9999 #page-header .page-context-header .page-header-headings:before {
     width: 100%;
     height: 160px;
   }
 }
-html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo.course-999999 #page-header .h5.mt-4 {
+html[data-tenantidnumber=stg] #page-admin-tool-catalogue-courseinfo.category-9999 #page-header .h5.mt-4 {
   display: none;
 }
 html[data-tenantidnumber=stg] #page-enrol-index.category-53 #page.drawers {
@@ -5181,42 +5182,42 @@ html[data-tenantidnumber=stg] #page-enrol-index.category-54 #page-header .page-c
 html[data-tenantidnumber=stg] #page-enrol-index.category-54 #page-header .h5.mt-4 {
   display: none;
 }
-html[data-tenantidnumber=stg] #page-enrol-index.course-999999 #page.drawers {
+html[data-tenantidnumber=stg] #page-enrol-index.category-9999 #page.drawers {
   margin-top: 50px;
 }
 @media screen and (max-width: 768px) {
-  html[data-tenantidnumber=stg] #page-enrol-index.course-999999 #page.drawers .main-inner {
+  html[data-tenantidnumber=stg] #page-enrol-index.category-9999 #page.drawers .main-inner {
     margin-top: 0px !important;
     padding-top: 0px !important;
   }
 }
 @media screen and (max-width: 768px) {
-  html[data-tenantidnumber=stg] #page-enrol-index.course-999999 #page-header {
+  html[data-tenantidnumber=stg] #page-enrol-index.category-9999 #page-header {
     margin: 0 -20px;
   }
 }
-html[data-tenantidnumber=stg] #page-enrol-index.course-999999 #page-header .page-header-headings {
+html[data-tenantidnumber=stg] #page-enrol-index.category-9999 #page-header .page-header-headings {
   background: #ee242c !important;
 }
-html[data-tenantidnumber=stg] #page-enrol-index.course-999999 #page-header .page-header-headings:before {
+html[data-tenantidnumber=stg] #page-enrol-index.category-9999 #page-header .page-header-headings:before {
   background-image: url("https://go.waomirai.com/l/1026513/2024-08-08/gzqbm/1026513/1723092444UDZaTUyz/subject_05.jpg");
 }
 @media screen and (max-width: 768px) {
-  html[data-tenantidnumber=stg] #page-enrol-index.course-999999 #page-header .page-header-headings {
+  html[data-tenantidnumber=stg] #page-enrol-index.category-9999 #page-header .page-header-headings {
     margin: 0px -20px 0px !important;
   }
 }
-html[data-tenantidnumber=stg] #page-enrol-index.course-999999 #page-header .mr-auto,
-html[data-tenantidnumber=stg] #page-enrol-index.course-999999 #page-header .mx-auto {
+html[data-tenantidnumber=stg] #page-enrol-index.category-9999 #page-header .mr-auto,
+html[data-tenantidnumber=stg] #page-enrol-index.category-9999 #page-header .mx-auto {
   width: 100%;
 }
-html[data-tenantidnumber=stg] #page-enrol-index.course-999999 #page-header .page-context-header {
+html[data-tenantidnumber=stg] #page-enrol-index.category-9999 #page-header .page-context-header {
   padding: 0 !important;
 }
-html[data-tenantidnumber=stg] #page-enrol-index.course-999999 #page-header .page-context-header .page-header-image {
+html[data-tenantidnumber=stg] #page-enrol-index.category-9999 #page-header .page-context-header .page-header-image {
   display: none !important;
 }
-html[data-tenantidnumber=stg] #page-enrol-index.course-999999 #page-header .page-context-header .page-header-headings {
+html[data-tenantidnumber=stg] #page-enrol-index.category-9999 #page-header .page-context-header .page-header-headings {
   width: 100%;
   position: relative;
   height: 320px;
@@ -5230,25 +5231,25 @@ html[data-tenantidnumber=stg] #page-enrol-index.course-999999 #page-header .page
   margin: 0px 0 48px !important;
 }
 @media screen and (max-width: 768px) {
-  html[data-tenantidnumber=stg] #page-enrol-index.course-999999 #page-header .page-context-header .page-header-headings {
+  html[data-tenantidnumber=stg] #page-enrol-index.category-9999 #page-header .page-context-header .page-header-headings {
     margin: 0px 0 48px !important;
     height: auto;
     border-radius: 0;
   }
 }
-html[data-tenantidnumber=stg] #page-enrol-index.course-999999 #page-header .page-context-header .page-header-headings h1 {
+html[data-tenantidnumber=stg] #page-enrol-index.category-9999 #page-header .page-context-header .page-header-headings h1 {
   color: white !important;
   padding: 0 0 0 40px;
   font-size: 30px !important;
   max-width: 330px;
 }
 @media screen and (max-width: 768px) {
-  html[data-tenantidnumber=stg] #page-enrol-index.course-999999 #page-header .page-context-header .page-header-headings h1 {
+  html[data-tenantidnumber=stg] #page-enrol-index.category-9999 #page-header .page-context-header .page-header-headings h1 {
     padding: 200px 20px 40px 20px;
     max-width: 100%;
   }
 }
-html[data-tenantidnumber=stg] #page-enrol-index.course-999999 #page-header .page-context-header .page-header-headings:before {
+html[data-tenantidnumber=stg] #page-enrol-index.category-9999 #page-header .page-context-header .page-header-headings:before {
   right: 0;
   top: 0;
   width: 50%;
@@ -5264,12 +5265,12 @@ html[data-tenantidnumber=stg] #page-enrol-index.course-999999 #page-header .page
   position: absolute;
 }
 @media screen and (max-width: 768px) {
-  html[data-tenantidnumber=stg] #page-enrol-index.course-999999 #page-header .page-context-header .page-header-headings:before {
+  html[data-tenantidnumber=stg] #page-enrol-index.category-9999 #page-header .page-context-header .page-header-headings:before {
     width: 100%;
     height: 160px;
   }
 }
-html[data-tenantidnumber=stg] #page-enrol-index.course-999999 #page-header .h5.mt-4 {
+html[data-tenantidnumber=stg] #page-enrol-index.category-9999 #page-header .h5.mt-4 {
   display: none;
 }
 html[data-tenantidnumber=stg] .pagelayout-frontpage img {
@@ -5890,6 +5891,117 @@ html[data-tenantidnumber=stg] .pagelayout-mydashboard .dashboard-left .dashboard
 html[data-tenantidnumber=stg] .pagelayout-mydashboard .dashboard-left .dashboard-left-block-wrap {
   background: white;
   border-radius: 8px;
+}
+html[data-tenantidnumber=stg] .pagelayout-mydashboard .dashboard-left .dashboard-left-block-worksheet {
+  padding: 20px 17px 20px !important;
+  background: white;
+  border-radius: 8px;
+  margin: 40px 0 40px;
+}
+html[data-tenantidnumber=stg] .pagelayout-mydashboard .dashboard-left .dashboard-left-block-worksheet .dashboard-left-block-worksheet-title {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+html[data-tenantidnumber=stg] .pagelayout-mydashboard .dashboard-left .dashboard-left-block-worksheet .dashboard-left-block-worksheet-title .dashboard-left-block-worksheet-title-text {
+  font-size: 16px;
+}
+@media screen and (max-width: 768px) {
+  html[data-tenantidnumber=stg] .pagelayout-mydashboard .dashboard-left .dashboard-left-block-worksheet .dashboard-left-block-worksheet-title .dashboard-left-block-worksheet-title-text {
+    margin: 0 -15px 16px !important;
+    padding: 0px 35px 0px;
+    width: calc(100% + 30px);
+    display: block !important;
+    font-size: 20px !important;
+    position: relative;
+  }
+  html[data-tenantidnumber=stg] .pagelayout-mydashboard .dashboard-left .dashboard-left-block-worksheet .dashboard-left-block-worksheet-title .dashboard-left-block-worksheet-title-text:before {
+    width: 6px;
+    height: 25px;
+    content: "";
+    background: #005c3f;
+    display: block;
+    position: absolute;
+    left: 17px;
+    top: 0px;
+    bottom: 0;
+    margin: auto;
+    border-radius: 4px;
+  }
+}
+html[data-tenantidnumber=stg] .pagelayout-mydashboard .dashboard-left .dashboard-left-block-worksheet .dashboard-left-block-worksheet-title .dashboard-left-block-worksheet-title-icon {
+  width: 44px;
+  height: 44px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background: #edfbf5;
+  border-radius: 10000px;
+  margin: 0 0px 0 0;
+}
+html[data-tenantidnumber=stg] .pagelayout-mydashboard .dashboard-left .dashboard-left-block-worksheet .dashboard-left-block-worksheet-title .dashboard-left-block-worksheet-title-icon img {
+  width: 30px;
+  height: 30px;
+}
+html[data-tenantidnumber=stg] .pagelayout-mydashboard .dashboard-left .dashboard-left-block-worksheet .dashboard-left-block-worksheet-text {
+  font-size: 12px;
+  margin: 8px 0 30px;
+  line-height: 1.5;
+}
+@media screen and (max-width: 768px) {
+  html[data-tenantidnumber=stg] .pagelayout-mydashboard .dashboard-left .dashboard-left-block-worksheet .dashboard-left-block-worksheet-text {
+    font-size: 14px;
+  }
+}
+html[data-tenantidnumber=stg] .pagelayout-mydashboard .dashboard-left .dashboard-left-block-worksheet .dashboard-left-block-worksheet-download {
+  color: #005c3f;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 30px;
+  border: 1px solid #005c3f;
+  border-radius: 4px;
+  padding: 0 10px;
+  cursor: pointer;
+}
+@media screen and (max-width: 768px) {
+  html[data-tenantidnumber=stg] .pagelayout-mydashboard .dashboard-left .dashboard-left-block-worksheet .dashboard-left-block-worksheet-download {
+    height: 48px;
+    width: 100%;
+  }
+}
+html[data-tenantidnumber=stg] .pagelayout-mydashboard .dashboard-left .dashboard-left-block-worksheet .dashboard-left-block-worksheet-download:hover {
+  opacity: 0.7;
+}
+html[data-tenantidnumber=stg] .pagelayout-mydashboard .dashboard-left .dashboard-left-block-worksheet .dashboard-left-block-worksheet-download .subject-page-added-note-content-download-text {
+  font-size: 13px;
+}
+@media screen and (max-width: 768px) {
+  html[data-tenantidnumber=stg] .pagelayout-mydashboard .dashboard-left .dashboard-left-block-worksheet .dashboard-left-block-worksheet-download .subject-page-added-note-content-download-text {
+    font-size: 14px;
+    width: 100%;
+    display: contents;
+  }
+}
+html[data-tenantidnumber=stg] .pagelayout-mydashboard .dashboard-left .dashboard-left-block-worksheet .dashboard-left-block-worksheet-download span {
+  font-size: 16px;
+  margin: 3px 0 0 0;
+  line-height: 1;
 }
 html[data-tenantidnumber=stg] .pagelayout-mydashboard .dashboard-left .dashboard-left-block-wrap-subject {
   padding: 20px 15px 18px !important;
@@ -7949,6 +8061,140 @@ html[data-tenantidnumber=stg] #page-mod-questionnaire-report .btn-secondary {
   border: none !important;
   padding: 8px 20px;
   color: white !important;
+}
+html[data-tenantidnumber=stg] #page-mod-questionnaire-view .mod-questionnaire-worksheet,
+html[data-tenantidnumber=stg] #page-mod-questionnaire-complete .mod-questionnaire-worksheet,
+html[data-tenantidnumber=stg] #page-mod-questionnaire-myreport .mod-questionnaire-worksheet,
+html[data-tenantidnumber=stg] #page-mod-questionnaire-report .mod-questionnaire-worksheet {
+  margin: 12px 0 0;
+  padding: 15px 20px 15px;
+  border: 4px solid #efefef !important;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  border-radius: 8px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+@media screen and (max-width: 768px) {
+  html[data-tenantidnumber=stg] #page-mod-questionnaire-view .mod-questionnaire-worksheet,
+  html[data-tenantidnumber=stg] #page-mod-questionnaire-complete .mod-questionnaire-worksheet,
+  html[data-tenantidnumber=stg] #page-mod-questionnaire-myreport .mod-questionnaire-worksheet,
+  html[data-tenantidnumber=stg] #page-mod-questionnaire-report .mod-questionnaire-worksheet {
+    padding: 20px 20px 20px;
+    grid-template-columns: auto 1fr;
+    grid-template-rows: auto auto; /* 縦に2行、同じく均等 */
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+  }
+}
+html[data-tenantidnumber=stg] #page-mod-questionnaire-view .mod-questionnaire-worksheet .mod-questionnaire-worksheet-icon,
+html[data-tenantidnumber=stg] #page-mod-questionnaire-complete .mod-questionnaire-worksheet .mod-questionnaire-worksheet-icon,
+html[data-tenantidnumber=stg] #page-mod-questionnaire-myreport .mod-questionnaire-worksheet .mod-questionnaire-worksheet-icon,
+html[data-tenantidnumber=stg] #page-mod-questionnaire-report .mod-questionnaire-worksheet .mod-questionnaire-worksheet-icon {
+  width: 44px;
+  height: 44px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background: #edfbf5;
+  border-radius: 10000px;
+  margin: 0 12px 0 0;
+}
+html[data-tenantidnumber=stg] #page-mod-questionnaire-view .mod-questionnaire-worksheet .mod-questionnaire-worksheet-icon img,
+html[data-tenantidnumber=stg] #page-mod-questionnaire-complete .mod-questionnaire-worksheet .mod-questionnaire-worksheet-icon img,
+html[data-tenantidnumber=stg] #page-mod-questionnaire-myreport .mod-questionnaire-worksheet .mod-questionnaire-worksheet-icon img,
+html[data-tenantidnumber=stg] #page-mod-questionnaire-report .mod-questionnaire-worksheet .mod-questionnaire-worksheet-icon img {
+  width: 30px;
+  height: 30px;
+}
+html[data-tenantidnumber=stg] #page-mod-questionnaire-view .mod-questionnaire-worksheet .mod-questionnaire-worksheet-text,
+html[data-tenantidnumber=stg] #page-mod-questionnaire-complete .mod-questionnaire-worksheet .mod-questionnaire-worksheet-text,
+html[data-tenantidnumber=stg] #page-mod-questionnaire-myreport .mod-questionnaire-worksheet .mod-questionnaire-worksheet-text,
+html[data-tenantidnumber=stg] #page-mod-questionnaire-report .mod-questionnaire-worksheet .mod-questionnaire-worksheet-text {
+  font-size: 14px;
+}
+html[data-tenantidnumber=stg] #page-mod-questionnaire-view .mod-questionnaire-worksheet .mod-questionnaire-worksheet-download,
+html[data-tenantidnumber=stg] #page-mod-questionnaire-complete .mod-questionnaire-worksheet .mod-questionnaire-worksheet-download,
+html[data-tenantidnumber=stg] #page-mod-questionnaire-myreport .mod-questionnaire-worksheet .mod-questionnaire-worksheet-download,
+html[data-tenantidnumber=stg] #page-mod-questionnaire-report .mod-questionnaire-worksheet .mod-questionnaire-worksheet-download {
+  color: #005c3f;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 36px;
+  border: 1px solid #005c3f;
+  border-radius: 4px;
+  padding: 0 10px;
+  cursor: pointer;
+}
+@media screen and (max-width: 768px) {
+  html[data-tenantidnumber=stg] #page-mod-questionnaire-view .mod-questionnaire-worksheet .mod-questionnaire-worksheet-download,
+  html[data-tenantidnumber=stg] #page-mod-questionnaire-complete .mod-questionnaire-worksheet .mod-questionnaire-worksheet-download,
+  html[data-tenantidnumber=stg] #page-mod-questionnaire-myreport .mod-questionnaire-worksheet .mod-questionnaire-worksheet-download,
+  html[data-tenantidnumber=stg] #page-mod-questionnaire-report .mod-questionnaire-worksheet .mod-questionnaire-worksheet-download {
+    grid-column: span 2/span 2;
+    margin: 10px 0 0;
+  }
+}
+html[data-tenantidnumber=stg] #page-mod-questionnaire-view .mod-questionnaire-worksheet .mod-questionnaire-worksheet-download:hover,
+html[data-tenantidnumber=stg] #page-mod-questionnaire-complete .mod-questionnaire-worksheet .mod-questionnaire-worksheet-download:hover,
+html[data-tenantidnumber=stg] #page-mod-questionnaire-myreport .mod-questionnaire-worksheet .mod-questionnaire-worksheet-download:hover,
+html[data-tenantidnumber=stg] #page-mod-questionnaire-report .mod-questionnaire-worksheet .mod-questionnaire-worksheet-download:hover {
+  opacity: 0.7;
+}
+html[data-tenantidnumber=stg] #page-mod-questionnaire-view .mod-questionnaire-worksheet .mod-questionnaire-worksheet-download .mod-questionnaire-worksheet-download-text,
+html[data-tenantidnumber=stg] #page-mod-questionnaire-complete .mod-questionnaire-worksheet .mod-questionnaire-worksheet-download .mod-questionnaire-worksheet-download-text,
+html[data-tenantidnumber=stg] #page-mod-questionnaire-myreport .mod-questionnaire-worksheet .mod-questionnaire-worksheet-download .mod-questionnaire-worksheet-download-text,
+html[data-tenantidnumber=stg] #page-mod-questionnaire-report .mod-questionnaire-worksheet .mod-questionnaire-worksheet-download .mod-questionnaire-worksheet-download-text {
+  font-size: 14px;
+}
+html[data-tenantidnumber=stg] #page-mod-questionnaire-view .mod-questionnaire-worksheet .mod-questionnaire-worksheet-download .mod-questionnaire-worksheet-download-text a,
+html[data-tenantidnumber=stg] #page-mod-questionnaire-complete .mod-questionnaire-worksheet .mod-questionnaire-worksheet-download .mod-questionnaire-worksheet-download-text a,
+html[data-tenantidnumber=stg] #page-mod-questionnaire-myreport .mod-questionnaire-worksheet .mod-questionnaire-worksheet-download .mod-questionnaire-worksheet-download-text a,
+html[data-tenantidnumber=stg] #page-mod-questionnaire-report .mod-questionnaire-worksheet .mod-questionnaire-worksheet-download .mod-questionnaire-worksheet-download-text a {
+  color: #005c3f;
+  text-decoration: none;
+  -webkit-tap-highlight-color: transparent !important;
+  -webkit-focus-ring-color: transparent !important;
+  background-color: none !important;
+}
+html[data-tenantidnumber=stg] #page-mod-questionnaire-view .mod-questionnaire-worksheet .mod-questionnaire-worksheet-download .mod-questionnaire-worksheet-download-text a:hover, html[data-tenantidnumber=stg] #page-mod-questionnaire-view .mod-questionnaire-worksheet .mod-questionnaire-worksheet-download .mod-questionnaire-worksheet-download-text a:active, html[data-tenantidnumber=stg] #page-mod-questionnaire-view .mod-questionnaire-worksheet .mod-questionnaire-worksheet-download .mod-questionnaire-worksheet-download-text a:focus,
+html[data-tenantidnumber=stg] #page-mod-questionnaire-complete .mod-questionnaire-worksheet .mod-questionnaire-worksheet-download .mod-questionnaire-worksheet-download-text a:hover,
+html[data-tenantidnumber=stg] #page-mod-questionnaire-complete .mod-questionnaire-worksheet .mod-questionnaire-worksheet-download .mod-questionnaire-worksheet-download-text a:active,
+html[data-tenantidnumber=stg] #page-mod-questionnaire-complete .mod-questionnaire-worksheet .mod-questionnaire-worksheet-download .mod-questionnaire-worksheet-download-text a:focus,
+html[data-tenantidnumber=stg] #page-mod-questionnaire-myreport .mod-questionnaire-worksheet .mod-questionnaire-worksheet-download .mod-questionnaire-worksheet-download-text a:hover,
+html[data-tenantidnumber=stg] #page-mod-questionnaire-myreport .mod-questionnaire-worksheet .mod-questionnaire-worksheet-download .mod-questionnaire-worksheet-download-text a:active,
+html[data-tenantidnumber=stg] #page-mod-questionnaire-myreport .mod-questionnaire-worksheet .mod-questionnaire-worksheet-download .mod-questionnaire-worksheet-download-text a:focus,
+html[data-tenantidnumber=stg] #page-mod-questionnaire-report .mod-questionnaire-worksheet .mod-questionnaire-worksheet-download .mod-questionnaire-worksheet-download-text a:hover,
+html[data-tenantidnumber=stg] #page-mod-questionnaire-report .mod-questionnaire-worksheet .mod-questionnaire-worksheet-download .mod-questionnaire-worksheet-download-text a:active,
+html[data-tenantidnumber=stg] #page-mod-questionnaire-report .mod-questionnaire-worksheet .mod-questionnaire-worksheet-download .mod-questionnaire-worksheet-download-text a:focus {
+  text-decoration: none;
+  outline: none !important;
+  background-color: none !important;
+  -webkit-tap-highlight-color: transparent !important;
+  -webkit-focus-ring-color: transparent !important;
+}
+html[data-tenantidnumber=stg] #page-mod-questionnaire-view .mod-questionnaire-worksheet .mod-questionnaire-worksheet-download span,
+html[data-tenantidnumber=stg] #page-mod-questionnaire-complete .mod-questionnaire-worksheet .mod-questionnaire-worksheet-download span,
+html[data-tenantidnumber=stg] #page-mod-questionnaire-myreport .mod-questionnaire-worksheet .mod-questionnaire-worksheet-download span,
+html[data-tenantidnumber=stg] #page-mod-questionnaire-report .mod-questionnaire-worksheet .mod-questionnaire-worksheet-download span {
+  font-size: 16px;
+  margin: 3px 0 0 0;
+  line-height: 1;
 }
 html[data-tenantidnumber=stg] .core_payment_gateways_modal .stripe .icon {
   height: 40px !important;
@@ -11069,7 +11315,7 @@ html[data-tenantidnumber=stg] .category-50 .enrol-section-basesubject-year-lesso
       -ms-flex-align: start;
           align-items: flex-start;
   background: #ffffff;
-  border: 2px solid #faebff !important;
+  border: 2px solid #f2c9ff !important;
 }
 @media screen and (max-width: 768px) {
   html[data-tenantidnumber=stg] .category-50 .enrol-section-basesubject-year-lesson-content .enrol-section-basesubject-year-lesson-content-child .enrol-section-basesubject-year-lesson-content-child-curriculum {
@@ -11090,7 +11336,7 @@ html[data-tenantidnumber=stg] .category-50 .enrol-section-basesubject-year-lesso
   padding: 8px 0 0;
   width: 45px;
   height: 45px;
-  background: #faebff !important;
+  background: #f2c9ff !important;
   font-size: 12px;
 }
 @media screen and (max-width: 768px) {
@@ -11268,7 +11514,7 @@ html[data-tenantidnumber=stg] .category-50 .enrol-section-basesubject-timetable-
   }
 }
 html[data-tenantidnumber=stg] .category-50 .enrol-section-basesubject-timetable-content-child.active {
-  background: #faebff !important;
+  background: #f2c9ff !important;
   border-left: 2px solid #aa68aa !important;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -11479,7 +11725,7 @@ html[data-tenantidnumber=stg] .category-54 .enrol-section-basesubject-year-lesso
       -ms-flex-align: start;
           align-items: flex-start;
   background: #ffffff;
-  border: 2px solid #faebff !important;
+  border: 2px solid #f2c9ff !important;
 }
 @media screen and (max-width: 768px) {
   html[data-tenantidnumber=stg] .category-54 .enrol-section-basesubject-year-lesson-content .enrol-section-basesubject-year-lesson-content-child .enrol-section-basesubject-year-lesson-content-child-curriculum {
@@ -11500,7 +11746,7 @@ html[data-tenantidnumber=stg] .category-54 .enrol-section-basesubject-year-lesso
   padding: 8px 0 0;
   width: 45px;
   height: 45px;
-  background: #faebff !important;
+  background: #f2c9ff !important;
   font-size: 12px;
 }
 @media screen and (max-width: 768px) {
@@ -11678,7 +11924,7 @@ html[data-tenantidnumber=stg] .category-54 .enrol-section-basesubject-timetable-
   }
 }
 html[data-tenantidnumber=stg] .category-54 .enrol-section-basesubject-timetable-content-child.active {
-  background: #faebff !important;
+  background: #f2c9ff !important;
   border-left: 2px solid #aa68aa !important;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -11717,11 +11963,11 @@ html[data-tenantidnumber=stg] .category-54 .enrol-section-basesubject-timetable-
   font-weight: 300;
 }
 @media screen and (min-width: 768px) {
-  html[data-tenantidnumber=stg] .course-999999 .enrol-section-basesubject-thismonth-lesson {
+  html[data-tenantidnumber=stg] .category-9999 .enrol-section-basesubject-thismonth-lesson {
     margin: -10px auto 0px;
   }
 }
-html[data-tenantidnumber=stg] .course-999999 .enrol-section-basesubject-thismonth-lesson .enrol-section-basesubject-thismonth-lesson-grid {
+html[data-tenantidnumber=stg] .category-9999 .enrol-section-basesubject-thismonth-lesson .enrol-section-basesubject-thismonth-lesson-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-column-gap: 30px;
@@ -11729,7 +11975,7 @@ html[data-tenantidnumber=stg] .course-999999 .enrol-section-basesubject-thismont
   border-radius: 8px;
 }
 @media screen and (max-width: 768px) {
-  html[data-tenantidnumber=stg] .course-999999 .enrol-section-basesubject-thismonth-lesson .enrol-section-basesubject-thismonth-lesson-grid {
+  html[data-tenantidnumber=stg] .category-9999 .enrol-section-basesubject-thismonth-lesson .enrol-section-basesubject-thismonth-lesson-grid {
     display: block;
     width: calc(100% + 40px);
     overflow-x: scroll;
@@ -11737,53 +11983,53 @@ html[data-tenantidnumber=stg] .course-999999 .enrol-section-basesubject-thismont
     margin: 10px -20px 25px;
   }
 }
-html[data-tenantidnumber=stg] .course-999999 .enrol-section-basesubject-thismonth-lesson .enrol-section-basesubject-thismonth-lesson-grid-level {
+html[data-tenantidnumber=stg] .category-9999 .enrol-section-basesubject-thismonth-lesson .enrol-section-basesubject-thismonth-lesson-grid-level {
   border-radius: 8px;
 }
-html[data-tenantidnumber=stg] .course-999999 .enrol-section-basesubject-thismonth-lesson .enrol-section-basesubject-thismonth-lesson-grid-level .title {
+html[data-tenantidnumber=stg] .category-9999 .enrol-section-basesubject-thismonth-lesson .enrol-section-basesubject-thismonth-lesson-grid-level .title {
   font-size: 20px;
   margin: 0 4px 0 0;
 }
-html[data-tenantidnumber=stg] .course-999999 .enrol-section-basesubject-thismonth-lesson .enrol-section-basesubject-thismonth-lesson-grid-level .large {
+html[data-tenantidnumber=stg] .category-9999 .enrol-section-basesubject-thismonth-lesson .enrol-section-basesubject-thismonth-lesson-grid-level .large {
   font-size: 30px;
   margin: 0 4px 0 0;
 }
 @media screen and (max-width: 768px) {
-  html[data-tenantidnumber=stg] .course-999999 .enrol-section-basesubject-thismonth-lesson .enrol-section-basesubject-thismonth-lesson-grid-level .large {
+  html[data-tenantidnumber=stg] .category-9999 .enrol-section-basesubject-thismonth-lesson .enrol-section-basesubject-thismonth-lesson-grid-level .large {
     font-size: 30px;
   }
 }
-html[data-tenantidnumber=stg] .course-999999 .enrol-section-basesubject-thismonth-lesson .enrol-section-basesubject-thismonth-lesson-grid-level span {
+html[data-tenantidnumber=stg] .category-9999 .enrol-section-basesubject-thismonth-lesson .enrol-section-basesubject-thismonth-lesson-grid-level span {
   font-size: 20px;
 }
 @media screen and (max-width: 768px) {
-  html[data-tenantidnumber=stg] .course-999999 .enrol-section-basesubject-thismonth-lesson .enrol-section-basesubject-thismonth-lesson-grid-level span {
+  html[data-tenantidnumber=stg] .category-9999 .enrol-section-basesubject-thismonth-lesson .enrol-section-basesubject-thismonth-lesson-grid-level span {
     font-size: 24px;
   }
 }
-html[data-tenantidnumber=stg] .course-999999 .enrol-section-basesubject-thismonth-lesson .enrol-section-basesubject-thismonth-lesson-grid-lesson {
+html[data-tenantidnumber=stg] .category-9999 .enrol-section-basesubject-thismonth-lesson .enrol-section-basesubject-thismonth-lesson-grid-lesson {
   position: relative;
   border-radius: 8px;
   background: #ffffff;
 }
 @media screen and (max-width: 768px) {
-  html[data-tenantidnumber=stg] .course-999999 .enrol-section-basesubject-thismonth-lesson .enrol-section-basesubject-thismonth-lesson-grid-lesson {
+  html[data-tenantidnumber=stg] .category-9999 .enrol-section-basesubject-thismonth-lesson .enrol-section-basesubject-thismonth-lesson-grid-lesson {
     width: 70%;
     display: inline-block;
     margin: 0 10px 0 20px;
   }
-  html[data-tenantidnumber=stg] .course-999999 .enrol-section-basesubject-thismonth-lesson .enrol-section-basesubject-thismonth-lesson-grid-lesson:last-child {
+  html[data-tenantidnumber=stg] .category-9999 .enrol-section-basesubject-thismonth-lesson .enrol-section-basesubject-thismonth-lesson-grid-lesson:last-child {
     margin: 0 120px 0 20px;
   }
 }
-html[data-tenantidnumber=stg] .course-999999 .enrol-section-basesubject-thismonth-lesson .enrol-section-basesubject-thismonth-lesson-grid-lesson .enrol-section-basesubject-thismonth-lesson-grid-lesson-banner {
+html[data-tenantidnumber=stg] .category-9999 .enrol-section-basesubject-thismonth-lesson .enrol-section-basesubject-thismonth-lesson-grid-lesson .enrol-section-basesubject-thismonth-lesson-grid-lesson-banner {
   position: relative;
 }
-html[data-tenantidnumber=stg] .course-999999 .enrol-section-basesubject-thismonth-lesson .enrol-section-basesubject-thismonth-lesson-grid-lesson .enrol-section-basesubject-thismonth-lesson-grid-lesson-banner img {
+html[data-tenantidnumber=stg] .category-9999 .enrol-section-basesubject-thismonth-lesson .enrol-section-basesubject-thismonth-lesson-grid-lesson .enrol-section-basesubject-thismonth-lesson-grid-lesson-banner img {
   margin: 0px 0px 8px;
   border-radius: 8px;
 }
-html[data-tenantidnumber=stg] .course-999999 .enrol-section-basesubject-thismonth-lesson .enrol-section-basesubject-thismonth-lesson-grid-lesson .enrol-section-basesubject-thismonth-lesson-grid-lesson-week {
+html[data-tenantidnumber=stg] .category-9999 .enrol-section-basesubject-thismonth-lesson .enrol-section-basesubject-thismonth-lesson-grid-lesson .enrol-section-basesubject-thismonth-lesson-grid-lesson-week {
   position: absolute;
   z-index: 1;
   top: 10px;
@@ -11795,7 +12041,7 @@ html[data-tenantidnumber=stg] .course-999999 .enrol-section-basesubject-thismont
   border-radius: 10px;
   font-size: 14px;
 }
-html[data-tenantidnumber=stg] .course-999999 .enrol-section-basesubject-thismonth-lesson .enrol-section-basesubject-thismonth-lesson-grid-lesson .enrol-section-basesubject-thismonth-lesson-grid-lesson-text {
+html[data-tenantidnumber=stg] .category-9999 .enrol-section-basesubject-thismonth-lesson .enrol-section-basesubject-thismonth-lesson-grid-lesson .enrol-section-basesubject-thismonth-lesson-grid-lesson-text {
   padding: 0px 0px;
   font-size: 14px;
   height: 40px;
@@ -11807,11 +12053,11 @@ html[data-tenantidnumber=stg] .course-999999 .enrol-section-basesubject-thismont
   -webkit-line-clamp: 2;
 }
 @media screen and (max-width: 768px) {
-  html[data-tenantidnumber=stg] .course-999999 .enrol-section-basesubject-year-lesson {
+  html[data-tenantidnumber=stg] .category-9999 .enrol-section-basesubject-year-lesson {
     margin: 0 -20px;
   }
 }
-html[data-tenantidnumber=stg] .course-999999 .enrol-section-basesubject-year-lesson .enrol-section-basesubject-year-lesson-tab {
+html[data-tenantidnumber=stg] .category-9999 .enrol-section-basesubject-year-lesson .enrol-section-basesubject-year-lesson-tab {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -11820,11 +12066,11 @@ html[data-tenantidnumber=stg] .course-999999 .enrol-section-basesubject-year-les
   gap: 20px;
 }
 @media screen and (max-width: 768px) {
-  html[data-tenantidnumber=stg] .course-999999 .enrol-section-basesubject-year-lesson .enrol-section-basesubject-year-lesson-tab {
+  html[data-tenantidnumber=stg] .category-9999 .enrol-section-basesubject-year-lesson .enrol-section-basesubject-year-lesson-tab {
     gap: 12px;
   }
 }
-html[data-tenantidnumber=stg] .course-999999 .enrol-section-basesubject-year-lesson .enrol-section-basesubject-year-lesson-tab .enrol-section-basesubject-year-lesson-tab-child {
+html[data-tenantidnumber=stg] .category-9999 .enrol-section-basesubject-year-lesson .enrol-section-basesubject-year-lesson-tab .enrol-section-basesubject-year-lesson-tab-child {
   border-radius: 10px 10px 0 0;
   border: 1px solid #999;
   border-bottom: none;
@@ -11835,12 +12081,12 @@ html[data-tenantidnumber=stg] .course-999999 .enrol-section-basesubject-year-les
   text-align: center;
 }
 @media screen and (max-width: 768px) {
-  html[data-tenantidnumber=stg] .course-999999 .enrol-section-basesubject-year-lesson .enrol-section-basesubject-year-lesson-tab .enrol-section-basesubject-year-lesson-tab-child {
+  html[data-tenantidnumber=stg] .category-9999 .enrol-section-basesubject-year-lesson .enrol-section-basesubject-year-lesson-tab .enrol-section-basesubject-year-lesson-tab-child {
     padding: 5px 12px;
     font-size: 12px;
   }
 }
-html[data-tenantidnumber=stg] .course-999999 .enrol-section-basesubject-year-lesson .enrol-section-basesubject-year-lesson-tab .enrol-section-basesubject-year-lesson-tab-child.active {
+html[data-tenantidnumber=stg] .category-9999 .enrol-section-basesubject-year-lesson .enrol-section-basesubject-year-lesson-tab .enrol-section-basesubject-year-lesson-tab-child.active {
   text-align: center;
   background: #ee242c !important;
   background: #ffffff;
@@ -11849,16 +12095,16 @@ html[data-tenantidnumber=stg] .course-999999 .enrol-section-basesubject-year-les
   border-bottom: none;
   font-weight: bold;
 }
-html[data-tenantidnumber=stg] .course-999999 .enrol-section-basesubject-year-lesson-content {
+html[data-tenantidnumber=stg] .category-9999 .enrol-section-basesubject-year-lesson-content {
   border-radius: 0px;
 }
 @media screen and (max-width: 768px) {
-  html[data-tenantidnumber=stg] .course-999999 .enrol-section-basesubject-year-lesson-content {
+  html[data-tenantidnumber=stg] .category-9999 .enrol-section-basesubject-year-lesson-content {
     padding: 12px 16px 3px;
     background: #efefef;
   }
 }
-html[data-tenantidnumber=stg] .course-999999 .enrol-section-basesubject-year-lesson-content .enrol-section-basesubject-year-lesson-content-child {
+html[data-tenantidnumber=stg] .category-9999 .enrol-section-basesubject-year-lesson-content .enrol-section-basesubject-year-lesson-content-child {
   margin: 0 0 20px;
   padding: 12px;
   display: none;
@@ -11870,7 +12116,7 @@ html[data-tenantidnumber=stg] .course-999999 .enrol-section-basesubject-year-les
   border-radius: 0 0 8px 8px;
 }
 @media screen and (max-width: 768px) {
-  html[data-tenantidnumber=stg] .course-999999 .enrol-section-basesubject-year-lesson-content .enrol-section-basesubject-year-lesson-content-child {
+  html[data-tenantidnumber=stg] .category-9999 .enrol-section-basesubject-year-lesson-content .enrol-section-basesubject-year-lesson-content-child {
     border-radius: 8px;
     background: #ffffff;
     padding: 0 10px 0;
@@ -11880,7 +12126,7 @@ html[data-tenantidnumber=stg] .course-999999 .enrol-section-basesubject-year-les
     gap: 0px 12px;
   }
 }
-html[data-tenantidnumber=stg] .course-999999 .enrol-section-basesubject-year-lesson-content .enrol-section-basesubject-year-lesson-content-child .enrol-section-basesubject-year-lesson-content-child-curriculum {
+html[data-tenantidnumber=stg] .category-9999 .enrol-section-basesubject-year-lesson-content .enrol-section-basesubject-year-lesson-content-child .enrol-section-basesubject-year-lesson-content-child-curriculum {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -11892,7 +12138,7 @@ html[data-tenantidnumber=stg] .course-999999 .enrol-section-basesubject-year-les
   border: 2px solid #ee242c !important;
 }
 @media screen and (max-width: 768px) {
-  html[data-tenantidnumber=stg] .course-999999 .enrol-section-basesubject-year-lesson-content .enrol-section-basesubject-year-lesson-content-child .enrol-section-basesubject-year-lesson-content-child-curriculum {
+  html[data-tenantidnumber=stg] .category-9999 .enrol-section-basesubject-year-lesson-content .enrol-section-basesubject-year-lesson-content-child .enrol-section-basesubject-year-lesson-content-child-curriculum {
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
@@ -11904,7 +12150,7 @@ html[data-tenantidnumber=stg] .course-999999 .enrol-section-basesubject-year-les
     border-radius: 8px;
   }
 }
-html[data-tenantidnumber=stg] .course-999999 .enrol-section-basesubject-year-lesson-content .enrol-section-basesubject-year-lesson-content-child .enrol-section-basesubject-year-lesson-content-child-curriculum .enrol-section-basesubject-year-lesson-content-child-curriculum-month {
+html[data-tenantidnumber=stg] .category-9999 .enrol-section-basesubject-year-lesson-content .enrol-section-basesubject-year-lesson-content-child .enrol-section-basesubject-year-lesson-content-child-curriculum .enrol-section-basesubject-year-lesson-content-child-curriculum-month {
   border-radius: 4px 0 8px 0;
   text-align: center;
   padding: 8px 0 0;
@@ -11914,7 +12160,7 @@ html[data-tenantidnumber=stg] .course-999999 .enrol-section-basesubject-year-les
   font-size: 12px;
 }
 @media screen and (max-width: 768px) {
-  html[data-tenantidnumber=stg] .course-999999 .enrol-section-basesubject-year-lesson-content .enrol-section-basesubject-year-lesson-content-child .enrol-section-basesubject-year-lesson-content-child-curriculum .enrol-section-basesubject-year-lesson-content-child-curriculum-month {
+  html[data-tenantidnumber=stg] .category-9999 .enrol-section-basesubject-year-lesson-content .enrol-section-basesubject-year-lesson-content-child .enrol-section-basesubject-year-lesson-content-child-curriculum .enrol-section-basesubject-year-lesson-content-child-curriculum-month {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -11931,50 +12177,50 @@ html[data-tenantidnumber=stg] .course-999999 .enrol-section-basesubject-year-les
     font-size: 14px;
   }
 }
-html[data-tenantidnumber=stg] .course-999999 .enrol-section-basesubject-year-lesson-content .enrol-section-basesubject-year-lesson-content-child .enrol-section-basesubject-year-lesson-content-child-curriculum .enrol-section-basesubject-year-lesson-content-child-curriculum-month span.month {
+html[data-tenantidnumber=stg] .category-9999 .enrol-section-basesubject-year-lesson-content .enrol-section-basesubject-year-lesson-content-child .enrol-section-basesubject-year-lesson-content-child-curriculum .enrol-section-basesubject-year-lesson-content-child-curriculum-month span.month {
   font-size: 20px;
   margin: 0 2px 0 0;
 }
 @media screen and (max-width: 768px) {
-  html[data-tenantidnumber=stg] .course-999999 .enrol-section-basesubject-year-lesson-content .enrol-section-basesubject-year-lesson-content-child .enrol-section-basesubject-year-lesson-content-child-curriculum .enrol-section-basesubject-year-lesson-content-child-curriculum-month span.month {
+  html[data-tenantidnumber=stg] .category-9999 .enrol-section-basesubject-year-lesson-content .enrol-section-basesubject-year-lesson-content-child .enrol-section-basesubject-year-lesson-content-child-curriculum .enrol-section-basesubject-year-lesson-content-child-curriculum-month span.month {
     font-size: 20px;
     margin: -4px 2px 0 0;
     letter-spacing: -0.3px;
   }
 }
-html[data-tenantidnumber=stg] .course-999999 .enrol-section-basesubject-year-lesson-content .enrol-section-basesubject-year-lesson-content-child .enrol-section-basesubject-year-lesson-content-child-curriculum .enrol-section-basesubject-year-lesson-content-child-curriculum-detail {
+html[data-tenantidnumber=stg] .category-9999 .enrol-section-basesubject-year-lesson-content .enrol-section-basesubject-year-lesson-content-child .enrol-section-basesubject-year-lesson-content-child-curriculum .enrol-section-basesubject-year-lesson-content-child-curriculum-detail {
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
   padding: 12px 16px 8px;
 }
 @media screen and (max-width: 768px) {
-  html[data-tenantidnumber=stg] .course-999999 .enrol-section-basesubject-year-lesson-content .enrol-section-basesubject-year-lesson-content-child .enrol-section-basesubject-year-lesson-content-child-curriculum .enrol-section-basesubject-year-lesson-content-child-curriculum-detail {
+  html[data-tenantidnumber=stg] .category-9999 .enrol-section-basesubject-year-lesson-content .enrol-section-basesubject-year-lesson-content-child .enrol-section-basesubject-year-lesson-content-child-curriculum .enrol-section-basesubject-year-lesson-content-child-curriculum-detail {
     padding: 0px 0 0 10px;
   }
 }
-html[data-tenantidnumber=stg] .course-999999 .enrol-section-basesubject-year-lesson-content .enrol-section-basesubject-year-lesson-content-child .enrol-section-basesubject-year-lesson-content-child-curriculum .enrol-section-basesubject-year-lesson-content-child-curriculum-detail .enrol-section-basesubject-year-lesson-content-child-curriculum-detail-title {
+html[data-tenantidnumber=stg] .category-9999 .enrol-section-basesubject-year-lesson-content .enrol-section-basesubject-year-lesson-content-child .enrol-section-basesubject-year-lesson-content-child-curriculum .enrol-section-basesubject-year-lesson-content-child-curriculum-detail .enrol-section-basesubject-year-lesson-content-child-curriculum-detail-title {
   font-weight: bold;
   font-size: 14px;
   border-bottom: 2px dotted #efefef;
   padding: 0 0 8px;
 }
 @media screen and (max-width: 768px) {
-  html[data-tenantidnumber=stg] .course-999999 .enrol-section-basesubject-year-lesson-content .enrol-section-basesubject-year-lesson-content-child .enrol-section-basesubject-year-lesson-content-child-curriculum .enrol-section-basesubject-year-lesson-content-child-curriculum-detail .enrol-section-basesubject-year-lesson-content-child-curriculum-detail-title {
+  html[data-tenantidnumber=stg] .category-9999 .enrol-section-basesubject-year-lesson-content .enrol-section-basesubject-year-lesson-content-child .enrol-section-basesubject-year-lesson-content-child-curriculum .enrol-section-basesubject-year-lesson-content-child-curriculum-detail .enrol-section-basesubject-year-lesson-content-child-curriculum-detail-title {
     border-bottom: 0;
     padding: 0;
     font-weight: normal;
   }
 }
-html[data-tenantidnumber=stg] .course-999999 .enrol-section-basesubject-year-lesson-content .enrol-section-basesubject-year-lesson-content-child .enrol-section-basesubject-year-lesson-content-child-curriculum .enrol-section-basesubject-year-lesson-content-child-curriculum-detail .enrol-section-basesubject-year-lesson-content-child-curriculum-detail-subcontent {
+html[data-tenantidnumber=stg] .category-9999 .enrol-section-basesubject-year-lesson-content .enrol-section-basesubject-year-lesson-content-child .enrol-section-basesubject-year-lesson-content-child-curriculum .enrol-section-basesubject-year-lesson-content-child-curriculum-detail .enrol-section-basesubject-year-lesson-content-child-curriculum-detail-subcontent {
   font-size: 12px;
   border-bottom: 2px dotted #efefef;
   padding: 6px 0 6px;
 }
-html[data-tenantidnumber=stg] .course-999999 .enrol-section-basesubject-year-lesson-content .enrol-section-basesubject-year-lesson-content-child .enrol-section-basesubject-year-lesson-content-child-curriculum .enrol-section-basesubject-year-lesson-content-child-curriculum-detail .enrol-section-basesubject-year-lesson-content-child-curriculum-detail-subcontent:last-child {
+html[data-tenantidnumber=stg] .category-9999 .enrol-section-basesubject-year-lesson-content .enrol-section-basesubject-year-lesson-content-child .enrol-section-basesubject-year-lesson-content-child-curriculum .enrol-section-basesubject-year-lesson-content-child-curriculum-detail .enrol-section-basesubject-year-lesson-content-child-curriculum-detail-subcontent:last-child {
   border-bottom: none;
 }
-html[data-tenantidnumber=stg] .course-999999 .enrol-section-basesubject-year-lesson-content .enrol-section-basesubject-year-lesson-content-button {
+html[data-tenantidnumber=stg] .category-9999 .enrol-section-basesubject-year-lesson-content .enrol-section-basesubject-year-lesson-content-button {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -11982,7 +12228,7 @@ html[data-tenantidnumber=stg] .course-999999 .enrol-section-basesubject-year-les
       -ms-flex-pack: center;
           justify-content: center;
 }
-html[data-tenantidnumber=stg] .course-999999 .enrol-section-basesubject-year-lesson-content .enrol-section-basesubject-year-lesson-content-button a {
+html[data-tenantidnumber=stg] .category-9999 .enrol-section-basesubject-year-lesson-content .enrol-section-basesubject-year-lesson-content-button a {
   padding: 10px 20px;
   border-radius: 5px;
   background: #ffffff;
@@ -11992,17 +12238,17 @@ html[data-tenantidnumber=stg] .course-999999 .enrol-section-basesubject-year-les
   cursor: pointer;
   margin: 10px auto 20px;
 }
-html[data-tenantidnumber=stg] .course-999999 .enrol-section-basesubject-timetable {
+html[data-tenantidnumber=stg] .category-9999 .enrol-section-basesubject-timetable {
   background: #efefef;
   padding: 20px 20px 16px 8px;
   border-radius: 8px;
 }
 @media screen and (max-width: 768px) {
-  html[data-tenantidnumber=stg] .course-999999 .enrol-section-basesubject-timetable {
+  html[data-tenantidnumber=stg] .category-9999 .enrol-section-basesubject-timetable {
     padding: 10px 10px 8px 4px;
   }
 }
-html[data-tenantidnumber=stg] .course-999999 .enrol-section-basesubject-timetable-head {
+html[data-tenantidnumber=stg] .category-9999 .enrol-section-basesubject-timetable-head {
   border-radius: 10px;
   display: grid;
   grid-gap: 5px;
@@ -12011,33 +12257,33 @@ html[data-tenantidnumber=stg] .course-999999 .enrol-section-basesubject-timetabl
   grid-template-columns: 0.6fr repeat(7, 1fr);
 }
 @media screen and (max-width: 768px) {
-  html[data-tenantidnumber=stg] .course-999999 .enrol-section-basesubject-timetable-head {
+  html[data-tenantidnumber=stg] .category-9999 .enrol-section-basesubject-timetable-head {
     grid-template-columns: 0.6fr repeat(5, 1fr);
   }
 }
-html[data-tenantidnumber=stg] .course-999999 .enrol-section-basesubject-timetable-head-child {
+html[data-tenantidnumber=stg] .category-9999 .enrol-section-basesubject-timetable-head-child {
   border-radius: 4px;
   padding: 0px 0 8px;
 }
 @media screen and (max-width: 768px) {
-  html[data-tenantidnumber=stg] .course-999999 .enrol-section-basesubject-timetable-head-child {
+  html[data-tenantidnumber=stg] .category-9999 .enrol-section-basesubject-timetable-head-child {
     padding: 0px 0 4px;
   }
 }
-html[data-tenantidnumber=stg] .course-999999 .enrol-section-basesubject-timetable-head-child:first-child {
+html[data-tenantidnumber=stg] .category-9999 .enrol-section-basesubject-timetable-head-child:first-child {
   font-size: 12px;
 }
-html[data-tenantidnumber=stg] .course-999999 .enrol-section-basesubject-timetable-head-child:nth-child(n+2) {
+html[data-tenantidnumber=stg] .category-9999 .enrol-section-basesubject-timetable-head-child:nth-child(n+2) {
   font-size: 14px; /* 1番目を除く2番目以降に適用 */
   font-weight: bold;
 }
 @media screen and (max-width: 768px) {
-  html[data-tenantidnumber=stg] .course-999999 .enrol-section-basesubject-timetable-head-child:nth-child(n+2) {
+  html[data-tenantidnumber=stg] .category-9999 .enrol-section-basesubject-timetable-head-child:nth-child(n+2) {
     font-size: 12px; /* 1番目を除く2番目以降に適用 */
     font-weight: normal;
   }
 }
-html[data-tenantidnumber=stg] .course-999999 .enrol-section-basesubject-timetable-content {
+html[data-tenantidnumber=stg] .category-9999 .enrol-section-basesubject-timetable-content {
   display: grid;
   grid-gap: 5px;
   margin: 0 0 5px;
@@ -12045,12 +12291,12 @@ html[data-tenantidnumber=stg] .course-999999 .enrol-section-basesubject-timetabl
   grid-template-columns: 0.6fr repeat(7, 1fr);
 }
 @media screen and (max-width: 768px) {
-  html[data-tenantidnumber=stg] .course-999999 .enrol-section-basesubject-timetable-content {
+  html[data-tenantidnumber=stg] .category-9999 .enrol-section-basesubject-timetable-content {
     grid-template-columns: 0.6fr repeat(5, 1fr);
     grid-gap: 5px;
   }
 }
-html[data-tenantidnumber=stg] .course-999999 .enrol-section-basesubject-timetable-content-child {
+html[data-tenantidnumber=stg] .category-9999 .enrol-section-basesubject-timetable-content-child {
   padding: 8px;
   text-align: center;
   border-radius: 4px;
@@ -12069,25 +12315,25 @@ html[data-tenantidnumber=stg] .course-999999 .enrol-section-basesubject-timetabl
       -ms-flex-pack: center;
           justify-content: center;
 }
-html[data-tenantidnumber=stg] .course-999999 .enrol-section-basesubject-timetable-content-child:first-child {
+html[data-tenantidnumber=stg] .category-9999 .enrol-section-basesubject-timetable-content-child:first-child {
   font-size: 14px;
 }
 @media screen and (max-width: 768px) {
-  html[data-tenantidnumber=stg] .course-999999 .enrol-section-basesubject-timetable-content-child:first-child {
+  html[data-tenantidnumber=stg] .category-9999 .enrol-section-basesubject-timetable-content-child:first-child {
     font-size: 10px;
   }
 }
-html[data-tenantidnumber=stg] .course-999999 .enrol-section-basesubject-timetable-content-child:nth-child(n+2) {
+html[data-tenantidnumber=stg] .category-9999 .enrol-section-basesubject-timetable-content-child:nth-child(n+2) {
   background: #ffffff;
 }
 @media screen and (max-width: 768px) {
-  html[data-tenantidnumber=stg] .course-999999 .enrol-section-basesubject-timetable-content-child {
+  html[data-tenantidnumber=stg] .category-9999 .enrol-section-basesubject-timetable-content-child {
     padding: 0px;
     height: 70px;
     font-size: 12px;
   }
 }
-html[data-tenantidnumber=stg] .course-999999 .enrol-section-basesubject-timetable-content-child.active {
+html[data-tenantidnumber=stg] .category-9999 .enrol-section-basesubject-timetable-content-child.active {
   background: #ee242c !important;
   border-left: 2px solid #ee242c !important;
   display: -webkit-box;
@@ -12105,10 +12351,10 @@ html[data-tenantidnumber=stg] .course-999999 .enrol-section-basesubject-timetabl
           justify-content: center;
   background: #e0e0e0;
 }
-html[data-tenantidnumber=stg] .course-999999 .enrol-section-basesubject-timetable-content-child-start {
+html[data-tenantidnumber=stg] .category-9999 .enrol-section-basesubject-timetable-content-child-start {
   display: block;
 }
-html[data-tenantidnumber=stg] .course-999999 .enrol-section-basesubject-timetable-content-child-start::after {
+html[data-tenantidnumber=stg] .category-9999 .enrol-section-basesubject-timetable-content-child-start::after {
   content: "";
   display: block;
   width: 4px;
@@ -12116,13 +12362,13 @@ html[data-tenantidnumber=stg] .course-999999 .enrol-section-basesubject-timetabl
   background: #262626;
   margin: 4px auto;
 }
-html[data-tenantidnumber=stg] .course-999999 .enrol-section-basesubject-timetable-content-child-end {
+html[data-tenantidnumber=stg] .category-9999 .enrol-section-basesubject-timetable-content-child-end {
   display: block;
 }
-html[data-tenantidnumber=stg] .course-999999 .enrol-section-basesubject-timetable-content-child-grade {
+html[data-tenantidnumber=stg] .category-9999 .enrol-section-basesubject-timetable-content-child-grade {
   font-size: 12px;
 }
-html[data-tenantidnumber=stg] .course-999999 .enrol-section-basesubject-timetable-content-child span.none {
+html[data-tenantidnumber=stg] .category-9999 .enrol-section-basesubject-timetable-content-child span.none {
   font-size: 30px;
   font-weight: 300;
 }
@@ -12735,13 +12981,14 @@ html[data-tenantidnumber=stg] #page-course-view-topics .course-section.main {
   border: 2px solid #efefef;
   border-radius: 10px;
   padding: 0 0px !important;
-  margin: 0 auto 32px !important;
+  margin: 0 auto 40px !important;
+  /* Item */
 }
 html[data-tenantidnumber=stg] #page-course-view-flexsections .course-section.main .btn.btn-icon,
 html[data-tenantidnumber=stg] #page-course-view-topics .course-section.main .btn.btn-icon {
   background: white !important;
-  margin-right: 12px !important;
-  margin-right: 0.75rem !important;
+  margin-right: 0px !important;
+  margin-right: 0rem !important;
 }
 html[data-tenantidnumber=stg] #page-course-view-flexsections .course-section.main .mb-3,
 html[data-tenantidnumber=stg] #page-course-view-flexsections .course-section.main .my-3,
@@ -12752,7 +12999,7 @@ html[data-tenantidnumber=stg] #page-course-view-topics .course-section.main .my-
 }
 html[data-tenantidnumber=stg] #page-course-view-flexsections .course-section.main .d-block,
 html[data-tenantidnumber=stg] #page-course-view-topics .course-section.main .d-block {
-  padding: 0px 16px 10px !important;
+  padding: 0px 25px 30px !important;
   border: none !important;
 }
 html[data-tenantidnumber=stg] #page-course-view-flexsections .course-section.main .section .activity,
@@ -12763,8 +13010,9 @@ html[data-tenantidnumber=stg] #page-course-view-topics .course-section.main .sec
 }
 html[data-tenantidnumber=stg] #page-course-view-flexsections .course-section.main > .course-section-header,
 html[data-tenantidnumber=stg] #page-course-view-topics .course-section.main > .course-section-header {
-  background: #efefef;
-  padding: 20px 15px !important;
+  padding: 18px 15px !important;
+  border-bottom: 2px solid #efefef;
+  background: #f8f8f8;
 }
 html[data-tenantidnumber=stg] #page-course-view-flexsections .course-section.main > .course-section-header h3,
 html[data-tenantidnumber=stg] #page-course-view-topics .course-section.main > .course-section-header h3 {
@@ -12773,14 +13021,425 @@ html[data-tenantidnumber=stg] #page-course-view-topics .course-section.main > .c
 html[data-tenantidnumber=stg] #page-course-view-flexsections .course-section.main h3,
 html[data-tenantidnumber=stg] #page-course-view-topics .course-section.main h3 {
   font-size: 20px !important;
+  margin: 0 0 0 10px;
 }
 html[data-tenantidnumber=stg] #page-course-view-flexsections .course-section.main .course-section-header,
 html[data-tenantidnumber=stg] #page-course-view-topics .course-section.main .course-section-header {
   padding: 0px 15px;
 }
+html[data-tenantidnumber=stg] #page-course-view-flexsections .course-section.main .bulkselect + .d-flex,
+html[data-tenantidnumber=stg] #page-course-view-topics .course-section.main .bulkselect + .d-flex {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: reverse;
+      -ms-flex-direction: row-reverse;
+          flex-direction: row-reverse;
+}
 html[data-tenantidnumber=stg] #page-course-view-flexsections .course-section.main .course-section,
 html[data-tenantidnumber=stg] #page-course-view-topics .course-section.main .course-section {
   border: none !important;
+}
+html[data-tenantidnumber=stg] #page-course-view-flexsections .subject-page-added .course-content-item-content ul,
+html[data-tenantidnumber=stg] #page-course-view-topics .subject-page-added .course-content-item-content ul {
+  display: grid !important;
+  grid-template-columns: 1fr 220px;
+  grid-template-rows: repeat(3, 1fr);
+  gap: 20px 25px;
+}
+@media screen and (max-width: 768px) {
+  html[data-tenantidnumber=stg] #page-course-view-flexsections .subject-page-added .course-content-item-content ul,
+  html[data-tenantidnumber=stg] #page-course-view-topics .subject-page-added .course-content-item-content ul {
+    display: -webkit-box !important;
+    display: -ms-flexbox !important;
+    display: flex !important;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+}
+html[data-tenantidnumber=stg] #page-course-view-flexsections .subject-page-added .course-content-item-content ul li.activity:nth-child(2),
+html[data-tenantidnumber=stg] #page-course-view-topics .subject-page-added .course-content-item-content ul li.activity:nth-child(2) {
+  grid-column-start: 1;
+  grid-row-start: 2;
+}
+html[data-tenantidnumber=stg] #page-course-view-flexsections .subject-page-added .course-content-item-content ul li.activity:nth-child(3),
+html[data-tenantidnumber=stg] #page-course-view-topics .subject-page-added .course-content-item-content ul li.activity:nth-child(3) {
+  grid-column-start: 1;
+  grid-row-start: 3;
+}
+html[data-tenantidnumber=stg] #page-course-view-flexsections .subject-page-added .course-content-item-content ul .subject-page-added-note,
+html[data-tenantidnumber=stg] #page-course-view-topics .subject-page-added .course-content-item-content ul .subject-page-added-note {
+  grid-row: span 3/span 3;
+  grid-column-start: 2;
+  grid-row-start: 1;
+  border: 1px solid #dee2e6;
+}
+html[data-tenantidnumber=stg] #page-course-view-flexsections .subject-page-added .activity,
+html[data-tenantidnumber=stg] #page-course-view-topics .subject-page-added .activity {
+  padding: 0 !important;
+}
+html[data-tenantidnumber=stg] #page-course-view-flexsections .subject-page-added .activity-item,
+html[data-tenantidnumber=stg] #page-course-view-topics .subject-page-added .activity-item {
+  height: 66px;
+}
+@media screen and (max-width: 768px) {
+  html[data-tenantidnumber=stg] #page-course-view-flexsections .subject-page-added .activity-item,
+  html[data-tenantidnumber=stg] #page-course-view-topics .subject-page-added .activity-item {
+    height: auto !important;
+  }
+}
+html[data-tenantidnumber=stg] #page-course-view-flexsections .subject-page-added .activity-grid,
+html[data-tenantidnumber=stg] #page-course-view-topics .subject-page-added .activity-grid {
+  height: 48px;
+}
+@media screen and (max-width: 768px) {
+  html[data-tenantidnumber=stg] #page-course-view-flexsections .subject-page-added .activity-grid,
+  html[data-tenantidnumber=stg] #page-course-view-topics .subject-page-added .activity-grid {
+    height: auto !important;
+  }
+}
+html[data-tenantidnumber=stg] #page-course-view-flexsections .subject-page-added .activity-item:not(.activityinline),
+html[data-tenantidnumber=stg] #page-course-view-topics .subject-page-added .activity-item:not(.activityinline) {
+  padding: 8px 16px !important;
+  padding: 8px 1rem !important;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+@media screen and (max-width: 768px) {
+  html[data-tenantidnumber=stg] #page-course-view-flexsections .subject-page-added .activity-item:not(.activityinline),
+  html[data-tenantidnumber=stg] #page-course-view-topics .subject-page-added .activity-item:not(.activityinline) {
+    padding: 1rem !important;
+  }
+}
+html[data-tenantidnumber=stg] #page-course-view-flexsections .subject-page-added .activity-icon.align-self-start,
+html[data-tenantidnumber=stg] #page-course-view-topics .subject-page-added .activity-icon.align-self-start {
+  -ms-flex-item-align: center !important;
+      align-self: center !important;
+}
+html[data-tenantidnumber=stg] #page-course-view-flexsections .subject-page-added .activity-item .activity-completion,
+html[data-tenantidnumber=stg] #page-course-view-topics .subject-page-added .activity-item .activity-completion {
+  -ms-flex-item-align: center !important;
+      align-self: center !important;
+}
+html[data-tenantidnumber=stg] #page-course-view-flexsections .subject-page-added .instancename,
+html[data-tenantidnumber=stg] #page-course-view-topics .subject-page-added .instancename {
+  display: -webkit-box;
+  -webkit-line-clamp: 2; /* 最大2行に制限 */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+html[data-tenantidnumber=stg] #page-course-view-flexsections .subject-page-added .d-block,
+html[data-tenantidnumber=stg] #page-course-view-topics .subject-page-added .d-block {
+  padding: 0px 16px 30px !important;
+}
+html[data-tenantidnumber=stg] #page-course-view-flexsections .subject-page-added .mt-3,
+html[data-tenantidnumber=stg] #page-course-view-flexsections .subject-page-added .my-3,
+html[data-tenantidnumber=stg] #page-course-view-topics .subject-page-added .mt-3,
+html[data-tenantidnumber=stg] #page-course-view-topics .subject-page-added .my-3 {
+  margin-top: 30px !important;
+}
+html[data-tenantidnumber=stg] #page-course-view-flexsections .subject-page-added .subject-page-added-note,
+html[data-tenantidnumber=stg] #page-course-view-topics .subject-page-added .subject-page-added-note {
+  list-style: none;
+  background: #efefef;
+  border-radius: 1rem;
+  padding: 20px;
+}
+html[data-tenantidnumber=stg] #page-course-view-flexsections .subject-page-added .subject-page-added-note .subject-page-added-note-head,
+html[data-tenantidnumber=stg] #page-course-view-topics .subject-page-added .subject-page-added-note .subject-page-added-note-head {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin: 0 auto 12px;
+}
+html[data-tenantidnumber=stg] #page-course-view-flexsections .subject-page-added .subject-page-added-note .subject-page-added-note-head-title,
+html[data-tenantidnumber=stg] #page-course-view-topics .subject-page-added .subject-page-added-note .subject-page-added-note-head-title {
+  font-size: 16px;
+  font-weight: 500;
+}
+html[data-tenantidnumber=stg] #page-course-view-flexsections .subject-page-added .subject-page-added-note .subject-page-added-note-head-icon,
+html[data-tenantidnumber=stg] #page-course-view-topics .subject-page-added .subject-page-added-note .subject-page-added-note-head-icon {
+  width: 44px;
+  height: 44px;
+  background: #ffffff;
+  border-radius: 10000px;
+  position: relative;
+}
+html[data-tenantidnumber=stg] #page-course-view-flexsections .subject-page-added .subject-page-added-note .subject-page-added-note-content,
+html[data-tenantidnumber=stg] #page-course-view-topics .subject-page-added .subject-page-added-note .subject-page-added-note-content {
+  font-size: 12px;
+  margin: 0 auto 16px;
+}
+html[data-tenantidnumber=stg] #page-course-view-flexsections .subject-page-added .subject-page-added-note .subject-page-added-note-content-download,
+html[data-tenantidnumber=stg] #page-course-view-topics .subject-page-added .subject-page-added-note .subject-page-added-note-content-download {
+  font-size: 14px;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background: #ffffff;
+  width: 100%;
+  height: 44px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 4px;
+  border-radius: 8px;
+  font-weight: bold;
+}
+html[data-tenantidnumber=stg] #page-course-view-flexsections .subject-page-added .subject-page-added-note .subject-page-added-note-content-download:hover,
+html[data-tenantidnumber=stg] #page-course-view-topics .subject-page-added .subject-page-added-note .subject-page-added-note-content-download:hover {
+  text-decoration: none;
+}
+html[data-tenantidnumber=stg] #page-course-view-flexsections .subject-page-added .subject-page-added-note .subject-page-added-note-content-download span,
+html[data-tenantidnumber=stg] #page-course-view-topics .subject-page-added .subject-page-added-note .subject-page-added-note-content-download span {
+  font-size: 16px;
+  margin: 3px 0 0 0;
+  line-height: 1;
+}
+html[data-tenantidnumber=stg] #page-course-view-flexsections .subject-page-added .subject-page-added-note .subject-page-added-note-content-download .subject-page-added-note-content-download-text,
+html[data-tenantidnumber=stg] #page-course-view-topics .subject-page-added .subject-page-added-note .subject-page-added-note-content-download .subject-page-added-note-content-download-text {
+  line-height: 1;
+}
+html[data-tenantidnumber=stg] #page-course-view-flexsections .subject-page-added .subject-page-added-note.not-published .subject-page-added-note-head-icon:before,
+html[data-tenantidnumber=stg] #page-course-view-topics .subject-page-added .subject-page-added-note.not-published .subject-page-added-note-head-icon:before {
+  background-image: url("https://waomirai.com/lp/assets/moodle/icn-worksheet-not-published.svg") !important;
+}
+html[data-tenantidnumber=stg] #page-course-view-topics .secondary-navigation {
+  padding-bottom: 40px !important;
+}
+html[data-tenantidnumber=stg] .category-53 .subject-page-added-note-content-download {
+  color: #28afe7 !important;
+  border: #28afe7 1px solid;
+}
+html[data-tenantidnumber=stg] .category-53 .subject-page-added-note-head-icon::before {
+  content: "";
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  z-index: 99;
+  background-image: url("https://waomirai.com/lp/assets/moodle/icn-worksheet-economy.svg") !important;
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 28px;
+  height: 28px;
+  display: inline-block;
+}
+html[data-tenantidnumber=stg] .category-53 .published {
+  background-color: #def7ff !important;
+}
+html[data-tenantidnumber=stg] .category-48 .subject-page-added-note-content-download {
+  color: #28afe7 !important;
+  border: #28afe7 1px solid;
+}
+html[data-tenantidnumber=stg] .category-48 .subject-page-added-note-head-icon::before {
+  content: "";
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  z-index: 99;
+  background-image: url("https://waomirai.com/lp/assets/moodle/icn-worksheet-economy.svg") !important;
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 28px;
+  height: 28px;
+  display: inline-block;
+}
+html[data-tenantidnumber=stg] .category-48 .published {
+  background-color: #def7ff !important;
+}
+html[data-tenantidnumber=stg] .category-52 .subject-page-added-note-content-download {
+  color: #b6d43e !important;
+  border: #b6d43e 1px solid;
+}
+html[data-tenantidnumber=stg] .category-52 .subject-page-added-note-head-icon::before {
+  content: "";
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  z-index: 99;
+  background-image: url("https://waomirai.com/lp/assets/moodle/icn-worksheet-science.svg") !important;
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 28px;
+  height: 28px;
+  display: inline-block;
+}
+html[data-tenantidnumber=stg] .category-52 .published {
+  background-color: #f0fbca !important;
+}
+html[data-tenantidnumber=stg] .category-49 .subject-page-added-note-content-download {
+  color: #b6d43e !important;
+  border: #b6d43e 1px solid;
+}
+html[data-tenantidnumber=stg] .category-49 .subject-page-added-note-head-icon::before {
+  content: "";
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  z-index: 99;
+  background-image: url("https://waomirai.com/lp/assets/moodle/icn-worksheet-science.svg") !important;
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 28px;
+  height: 28px;
+  display: inline-block;
+}
+html[data-tenantidnumber=stg] .category-49 .published {
+  background-color: #f0fbca !important;
+}
+html[data-tenantidnumber=stg] .category-51 .subject-page-added-note-content-download {
+  color: #fcaf17 !important;
+  border: #fcaf17 1px solid;
+}
+html[data-tenantidnumber=stg] .category-51 .subject-page-added-note-head-icon::before {
+  content: "";
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  z-index: 99;
+  background-image: url("https://waomirai.com/lp/assets/moodle/icn-worksheet-philosophy.svg") !important;
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 28px;
+  height: 28px;
+  display: inline-block;
+}
+html[data-tenantidnumber=stg] .category-51 .published {
+  background-color: #fff6ce !important;
+}
+html[data-tenantidnumber=stg] .category-47 .subject-page-added-note-content-download {
+  color: #fcaf17 !important;
+  border: #fcaf17 1px solid;
+}
+html[data-tenantidnumber=stg] .category-47 .subject-page-added-note-head-icon::before {
+  content: "";
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  z-index: 99;
+  background-image: url("https://waomirai.com/lp/assets/moodle/icn-worksheet-philosophy.svg") !important;
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 28px;
+  height: 28px;
+  display: inline-block;
+}
+html[data-tenantidnumber=stg] .category-47 .published {
+  background-color: #fff6ce !important;
+}
+html[data-tenantidnumber=stg] .category-50 .subject-page-added-note-content-download {
+  color: #aa68aa !important;
+  border: #aa68aa 1px solid;
+}
+html[data-tenantidnumber=stg] .category-50 .subject-page-added-note-head-icon::before {
+  content: "";
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  z-index: 99;
+  background-image: url("") !important;
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 28px;
+  height: 28px;
+  display: inline-block;
+}
+html[data-tenantidnumber=stg] .category-50 .published {
+  background-color: #f2c9ff !important;
+}
+html[data-tenantidnumber=stg] .category-54 .subject-page-added-note-content-download {
+  color: #aa68aa !important;
+  border: #aa68aa 1px solid;
+}
+html[data-tenantidnumber=stg] .category-54 .subject-page-added-note-head-icon::before {
+  content: "";
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  z-index: 99;
+  background-image: url("") !important;
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 28px;
+  height: 28px;
+  display: inline-block;
+}
+html[data-tenantidnumber=stg] .category-54 .published {
+  background-color: #f2c9ff !important;
+}
+html[data-tenantidnumber=stg] .category-9999 .subject-page-added-note-content-download {
+  color: #ee242c !important;
+  border: #ee242c 1px solid;
+}
+html[data-tenantidnumber=stg] .category-9999 .subject-page-added-note-head-icon::before {
+  content: "";
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  z-index: 99;
+  background-image: url("") !important;
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 28px;
+  height: 28px;
+  display: inline-block;
+}
+html[data-tenantidnumber=stg] .category-9999 .published {
+  background-color: #ee242c !important;
 }
 @media screen and (max-width: 768px) {
   html[data-tenantidnumber=stg] #page-user-preferences .col-1,

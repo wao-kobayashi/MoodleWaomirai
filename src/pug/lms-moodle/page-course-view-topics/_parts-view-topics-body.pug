@@ -1,610 +1,553 @@
-body#page-course-view-flexsections(class=allID + ' ' + existingClasses)
-    .toast-wrapper.mx-auto.py-0.fixed-top(role='status' aria-live='polite')
-    #page-wrapper.d-print-block
-      div
-        a.sr-only.sr-only-focusable(href='#maincontent') &#x30E1;&#x30A4;&#x30F3;&#x30B3;&#x30F3;&#x30C6;&#x30F3;&#x30C4;&#x3078;&#x30B9;&#x30AD;&#x30C3;&#x30D7;&#x3059;&#x308B;
-      script(src='https://lms.waomirai.com/lib/javascript.php/1738558509/lib/polyfills/polyfill.js')
-      script(src='https://lms.waomirai.com/theme/yui_combo.php?rollup/3.18.1/yui-moodlesimple-min.js')
-      script(src='https://lms.waomirai.com/lib/javascript.php/1738558509/lib/javascript-static.js')
-      script.
-        //<![CDATA[
+body#page-course-view-topics(class=allID + ' ' + existingClasses)
+  .toast-wrapper.mx-auto.py-0.fixed-top(
+    aria-live="polite" 
+    role="status"
+    )
+  #page-wrapper.d-print-block
+    div
+      a.sr-only.sr-only-focusable(href="#maincontent") メインコンテンツへスキップする
+    script(src="https://lms.waomirai.com/lib/javascript.php/1749448559/lib/polyfills/polyfill.js")
+    script(src="https://lms.waomirai.com/theme/yui_combo.php?rollup/3.18.1/yui-moodlesimple-min.js")
+    script(src="https://lms.waomirai.com/lib/javascript.php/1749448559/lib/javascript-static.js")
+    script.
+      //<![CDATA[
         document.body.className += ' jsenabled';
         //]]>
-      // Google Tag Manager (noscript)
-      noscript
-        iframe(src='https://www.googletagmanager.com/ns.html?id=GTM-W3X8CG9C' height='0' width='0' style='display:none;visibility:hidden')
-      // End Google Tag Manager (noscript)
-      .header-banner.alert-setting-level(style='display:none;')
-        .header-banner-left
-          .header-banner-left-icon
-            i.icon.fa.fa-solid.fa-triangle-exclamation(aria-hidden='true')
-          .header-banner-text
-            .header-banner-text-title  &#x79D1;&#x76EE;&#x306E;&#x30EC;&#x30D9;&#x30EB;&#x3092;&#x8A2D;&#x5B9A;&#x3057;&#x307E;&#x3057;&#x3087;&#x3046;
-            .header-banner-text-read &#x30EC;&#x30D9;&#x30EB;&#x3092;&#x8A2D;&#x5B9A;&#x3057;&#x306A;&#x3044;&#x3068;&#x6388;&#x696D;&#x3092;&#x53D7;&#x8B1B;&#x3067;&#x304D;&#x307E;&#x305B;&#x3093;
-        .header-banner-right
-          a(href='https://lms.waomirai.com/admin/tool/catalogue/courseinfo.php?id=230') &#x79D1;&#x76EE;&#x306E;&#x30EC;&#x30D9;&#x30EB;&#x3092;&#x8A2D;&#x5B9A;&#x3059;&#x308B;&#x306B;&#x306F;&#xFF1F; 
-      nav.navbar.fixed-top.navbar-light.bg-white.navbar-expand(aria-label='サイトナビゲーション')
-        button.navbar-toggler.aabtn.d-block.d-md-none.my-1.mr-2(data-toggler='drawers' data-action='toggle' data-target='theme_boost-drawers-primary' data-disabled-toggle='undefined' data-restore-tooltip-on-blur='true')
-          span.navbar-toggler-icon
-          span.sr-only &#x30B5;&#x30A4;&#x30C9;&#x30D1;&#x30CD;&#x30EB;
-        a.navbar-brand.d-none.d-md-flex.align-items-center.m-0.mr-3.p-0.aabtn(href='https://lms.waomirai.com/my/')
-          img.logo.mr-1(src='https://lms.waomirai.com/pluginfile.php/1/tool_tenant/headerlogo/3/%E3%83%AF%E3%82%AA%E6%9C%AA%E6%9D%A5%E5%A1%BE%E3%83%AD%E3%82%B3%E3%82%99A%EF%BC%88%E5%9F%BA%E6%9C%AC%E5%BD%A2%EF%BC%89.png' alt='lmswaomirai')
-        ul.navbar-nav.d-none.d-md-flex.mr-3.tenantswitch
-        .primary-navigation
-          nav.moremenu.navigation.observed
-            ul#moremenu-67ca995af1f54-navbar-nav.nav.more-nav.navbar-nav(role='menubar')
-              li.nav-item(data-key='home' role='none' data-forceintomoremenu='false')
-                a.nav-link(role='menuitem' href='https://lms.waomirai.com/?redirect=0' tabindex='-1')
-                  | &#x79D1;&#x76EE;&#x4E00;&#x89A7;
-              li.nav-item(data-key='myhome' role='none' data-forceintomoremenu='false')
-                a.nav-link(role='menuitem' href='https://lms.waomirai.com/my/' tabindex='-1')
-                  | &#x53D7;&#x8B1B;&#x30AB;&#x30EC;&#x30F3;&#x30C0;&#x30FC;
-              li.nav-item.dropdown.dropdownmoremenu(role='none' data-region='morebutton')
-                a#moremenu-dropdown-67ca995af1f54.dropdown-toggle.nav-link(href='#' role='menuitem' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false' tabindex='-1')
-                  | &#x3055;&#x3089;&#x306B;
-                ul.dropdown-menu.dropdown-menu-left(data-region='moredropdown' aria-labelledby='moremenu-dropdown-67ca995af1f54' role='menu')
-                  li.nav-item(data-key='mycourses' role='none' data-forceintomoremenu='false')
-                    a.dropdown-item(role='menuitem' href='https://lms.waomirai.com/my/courses.php' tabindex='-1')
-                      | &#x767B;&#x9332;&#x6E08;&#x307F;&#x8B1B;&#x5EA7;
-                  li.nav-item(data-key='' role='none' data-forceintomoremenu='false')
-                    a.dropdown-item(role='menuitem' href='https://lms.waomirai.com/user/profile.php' tabindex='-1')
-                      | &#x30DE;&#x30A4;&#x30DA;&#x30FC;&#x30B8;
-                  li.nav-item(data-key='' role='none' data-forceintomoremenu='false')
-                    a.dropdown-item(role='menuitem' href='https://lms.waomirai.com/user/preferences.php' tabindex='-1')
-                      | &#x30E6;&#x30FC;&#x30B6;&#x8A2D;&#x5B9A;
-        ul.navbar-nav.d-none.d-md-flex.my-1.px-1
-          // page_heading_menu
-        #usernavigation.navbar-nav.ml-auto
-          #nav-notification-popover-container.popover-region.collapsed.popover-region-notifications(data-userid='750' data-region='popover-region')
-            .popover-region-toggle.nav-link.icon-no-margin(data-region='popover-region-toggle' role='button' aria-controls='popover-region-container-67ca995b0049667ca995aef2373' aria-haspopup='true' aria-label=' 新しい通知のない通知ウィンドウを表示する   ' tabindex='0')
-              i.icon.fa.fa-bell-o.fa-fw(title='通知メニューに切り替える' role='img' aria-label='通知メニューに切り替える' aria-hidden='true')
-              span.sr-only &#x901A;&#x77E5;&#x30E1;&#x30CB;&#x30E5;&#x30FC;&#x306B;&#x5207;&#x308A;&#x66FF;&#x3048;&#x308B;
-              .count-container.hidden(data-region='count-container' aria-hidden='true')
-                | 0
-            #popover-region-container-67ca995b0049667ca995aef2373.popover-region-container(data-region='popover-region-container' aria-expanded='false' aria-hidden='true' aria-label='通知ウィンドウ' role='region')
-              .popover-region-header-container
-                h3.popover-region-header-text(data-region='popover-region-header-text') &#x901A;&#x77E5;
-                .popover-region-header-actions(data-region='popover-region-header-actions')
-                  a.mark-all-read-button(href='#' title='すべてを既読にする' data-action='mark-all-read' role='button' aria-label='すべてを既読にする')
-                    span.normal-icon
-                      i.icon.fa.fa-check.fa-fw(aria-hidden='true')
-                    span.loading-icon.icon-no-margin
-                      i.icon.fa.fa-circle-o-notch.fa-spin.fa-fw(title='読み込み中' role='img' aria-label='読み込み中' aria-hidden='true')
-                      span.sr-only &#x8AAD;&#x307F;&#x8FBC;&#x307F;&#x4E2D;
-              .popover-region-content-container(data-region='popover-region-content-container')
-                .popover-region-content(data-region='popover-region-content')
-                  .all-notifications(data-region='all-notifications' role='log' aria-busy='false' aria-atomic='false' aria-relevant='additions')
-                  .empty-message(tabindex='0' data-region='empty-message') &#x3042;&#x306A;&#x305F;&#x306B;&#x901A;&#x77E5;&#x306F;&#x3042;&#x308A;&#x307E;&#x305B;&#x3093;&#x3002;
-                span.loading-icon.icon-no-margin
-                  i.icon.fa.fa-circle-o-notch.fa-spin.fa-fw(title='読み込み中' role='img' aria-label='読み込み中' aria-hidden='true')
-                  span.sr-only &#x8AAD;&#x307F;&#x8FBC;&#x307F;&#x4E2D;
-              a.see-all-link(href='https://lms.waomirai.com/message/output/popup/notifications.php')
-                .popover-region-footer-container
-                  .popover-region-seeall-text &#x3059;&#x3079;&#x3066;&#x3092;&#x8868;&#x793A;&#x3059;&#x308B;
-          .d-flex.align-items-stretch.usermenu-container(data-region='usermenu')
-            .usermenu
-              .dropdown.show
-                a#user-menu-toggle.btn.dropdown-toggle(href='#' role='button' data-toggle='dropdown' aria-label='ユーザメニュー' aria-haspopup='true' aria-controls='user-action-menu')
-                  span.userbutton
-                    span.avatars
-                      span.avatar.current
-                        span.userinitials.size-35 &#x3010;&#x8B19;
-                #user-action-menu.dropdown-menu.dropdown-menu-right
-                  #usermenu-carousel.carousel.slide(data-touch='false' data-interval='false' data-keyboard='false')
-                    .carousel-inner
-                      #carousel-item-main.carousel-item.active(role='menu' tabindex='-1' aria-label='ユーザ')
-                        a.dropdown-item(href='https://lms.waomirai.com/user/profile.php' role='menuitem' tabindex='-1')
-                          | &#x30DE;&#x30A4;&#x30DA;&#x30FC;&#x30B8;
-                        a.dropdown-item(href='https://lms.waomirai.com/grade/report/overview/index.php' role='menuitem' tabindex='-1')
-                          | &#x8A55;&#x5B9A;
-                        a.dropdown-item(href='https://lms.waomirai.com/calendar/view.php?view=month' role='menuitem' tabindex='-1')
-                          | &#x30AB;&#x30EC;&#x30F3;&#x30C0;&#x30FC;
-                        a.dropdown-item(href='https://lms.waomirai.com/user/files.php' role='menuitem' tabindex='-1')
-                          | &#x30D7;&#x30E9;&#x30A4;&#x30D9;&#x30FC;&#x30C8;&#x30D5;&#x30A1;&#x30A4;&#x30EB;
-                        a.dropdown-item(href='https://lms.waomirai.com/reportbuilder/index.php' role='menuitem' tabindex='-1')
-                          | &#x30EC;&#x30DD;&#x30FC;&#x30C8;
-                        .dropdown-divider
-                        a.dropdown-item(href='https://lms.waomirai.com/user/preferences.php' role='menuitem' tabindex='-1')
-                          | &#x30E6;&#x30FC;&#x30B6;&#x8A2D;&#x5B9A;
-                        .dropdown-divider
-                        a.dropdown-item(href='https://lms.waomirai.com/login/logout.php?sesskey=ZjsscW3Ec8' role='menuitem' tabindex='-1')
-                          | &#x30ED;&#x30B0;&#x30A2;&#x30A6;&#x30C8;
-      #theme_boost-drawers-primary.drawer.drawer-left.drawer-primary.d-print-none(data-region='fixed-drawer' data-preference='' data-state='show-drawer-primary' data-forceopen='0' data-close-on-resize='1' aria-hidden='true')
-        .drawerheader
-          button.btn.drawertoggle.icon-no-margin.hidden(data-toggler='drawers' data-action='closedrawer' data-target='theme_boost-drawers-primary' data-placement='right' title='ドロワを閉じる' data-aria-hidden-tab-index='' tabindex='-1' data-disabled-toggle='tooltip')
-            i.icon.fa.fa-times.fa-fw(aria-hidden='true')
-          img.logo.py-1.h-100(src='https://lms.waomirai.com/pluginfile.php/1/tool_tenant/headerlogo/3/%E3%83%AF%E3%82%AA%E6%9C%AA%E6%9D%A5%E5%A1%BE%E3%83%AD%E3%82%B3%E3%82%99A%EF%BC%88%E5%9F%BA%E6%9C%AC%E5%BD%A2%EF%BC%89.png' alt='lmswaomirai')
-          .drawerheadercontent.hidden
-        .drawercontent.drag-container(data-usertour='scroller')
-          .list-group
-            a.list-group-item.list-group-item-action(href='https://lms.waomirai.com/?redirect=0' data-aria-hidden-tab-index='' tabindex='-1')
-              | &#x79D1;&#x76EE;&#x4E00;&#x89A7;
-            a.list-group-item.list-group-item-action(href='https://lms.waomirai.com/my/' data-aria-hidden-tab-index='' tabindex='-1')
-              | &#x53D7;&#x8B1B;&#x30AB;&#x30EC;&#x30F3;&#x30C0;&#x30FC;
-            a.list-group-item.list-group-item-action(href='https://lms.waomirai.com/my/courses.php' data-aria-hidden-tab-index='' tabindex='-1')
-              | &#x767B;&#x9332;&#x6E08;&#x307F;&#x8B1B;&#x5EA7;
-            a.list-group-item.list-group-item-action(href='https://lms.waomirai.com/user/profile.php' data-aria-hidden-tab-index='' tabindex='-1')
-              | &#x30DE;&#x30A4;&#x30DA;&#x30FC;&#x30B8;
-            a.list-group-item.list-group-item-action(href='https://lms.waomirai.com/user/preferences.php' data-aria-hidden-tab-index='' tabindex='-1')
-              | &#x30E6;&#x30FC;&#x30B6;&#x8A2D;&#x5B9A;
-          ul.position-absolute.fixed-bottom.navbar-nav.ml-3.tenantswitch
-      #theme_boost-drawers-courseindex.drawer.drawer-left.show.d-print-none(data-region='fixed-drawer' data-preference='drawer-open-index' data-state='show-drawer-left' data-forceopen='0' data-close-on-resize='0')
-        .drawerheader
-          button.btn.drawertoggle.icon-no-margin(data-toggler='drawers' data-action='closedrawer' data-target='theme_boost-drawers-courseindex' data-placement='right' title='コースインデックスを閉じる' data-disabled-toggle='tooltip')
-            i.icon.fa.fa-times.fa-fw(aria-hidden='true')
-          .drawerheadercontent
-            #courseindexdrawercontrols.dropdown
-              button.btn.btn-icon.rounded-circle.mx-2(type='button' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false' title='コースインデックスオプション')
-                i.icon.fa.fa-ellipsis-v.fa-fw.m-0(aria-hidden='true')
-              .dropdown-menu.dropdown-menu-right
-                a.dropdown-item(href='#' data-action='expandallcourseindexsections')
-                  i.icon.fa.fa-angles-down.fa-fw(aria-hidden='true')
-                  |                             &#x3059;&#x3079;&#x3066;&#x3092;&#x5C55;&#x958B;&#x3059;&#x308B;
-                a.dropdown-item(href='#' data-action='collapseallcourseindexsections')
-                  span.dir-rtl-hide
-                    i.icon.fa.fa-angles-right.fa-fw(aria-hidden='true')
-                  span.dir-ltr-hide
-                    i.icon.fa.fa-angles-left.fa-fw(aria-hidden='true')
-                  |                             &#x3059;&#x3079;&#x3066;&#x3092;&#x6298;&#x308A;&#x305F;&#x305F;&#x3080;
-        .drawercontent.drag-container(data-usertour='scroller')
-          nav#courseindex.courseindex
-            #courseindex-content
-              #course-index.courseindex(role='tree')
-                #course-index-section-766.courseindex-section(data-for='section' data-id='766' data-number='0' role='treeitem' aria-owns='courseindexcollapse0' tabindex='0' aria-selected='true')
-                  #courseindexsection0.courseindex-item.d-flex.courseindex-section-title.pageitem(data-for='section_item' tabindex='-1')
-                    a.courseindex-chevron.icons-collapse-expand(data-toggle='collapse' href='#courseindexcollapse0' aria-expanded='true' aria-controls='courseindexcollapse0' tabindex='-1')
-                      span.collapsed-icon.icon-no-margin.mr-1(title='展開する' tabindex='-1')
-                        span.dir-rtl-hide(tabindex='-1')
-                          i.icon.fa.fa-chevron-right.fa-fw(aria-hidden='true' tabindex='-1')
-                        span.dir-ltr-hide(tabindex='-1')
-                          i.icon.fa.fa-chevron-left.fa-fw(aria-hidden='true' tabindex='-1')
-                        span.sr-only(tabindex='-1') &#x5C55;&#x958B;&#x3059;&#x308B;
-                      span.expanded-icon.icon-no-margin.mr-1(title='折りたたむ' tabindex='-1')
-                        i.icon.fa.fa-chevron-down.fa-fw(aria-hidden='true' tabindex='-1')
-                        span.sr-only(tabindex='-1') &#x6298;&#x308A;&#x305F;&#x305F;&#x3080;
-                    a.courseindex-link.text-truncate(href='https://lms.waomirai.com/course/view.php?id=283#section-0' data-action='togglecourseindexsection' data-for='section_title' tabindex='-1')
-                      | 2025&#x5E74;4&#x6708;&#xFF1A;&#x6050;&#x7ADC;&#x304C;&#x3044;&#x305F;&#x3089;&#x30DA;&#x30C3;&#x30C8;&#x306B;&#x3067;&#x304D;&#x308B; ?
-                    span.current-badge.badge.badge-primary.ml-2.px-2.rounded-pill(tabindex='-1')
-                      | &#x30CF;&#x30A4;&#x30E9;&#x30A4;&#x30C8;
-                    span.courseindex-locked.ml-1(data-for='cm_name' tabindex='-1')
-                      i.icon.fa.fa-lock.fa-fw(aria-hidden='true' tabindex='-1')
-                    span.dragicon.ml-auto(tabindex='-1')
-                      i.icon.fa.fa-arrows.fa-fw(aria-hidden='true' tabindex='-1')
-                  #courseindexcollapse0.courseindex-item-content.collapse.show(aria-labelledby='courseindexsection0' role='group' tabindex='-1')
-                    ul.courseindex-sectioncontent.unlist(data-for='cmlist' data-id='766' role='group' tabindex='-1')
-                      li#course-index-cm-1312.courseindex-item.d-flex(data-for='cm' data-id='1312' role='treeitem' tabindex='-1' aria-selected='false')
-                        span.completioninfo.completion_incomplete(data-for='cm_completion' data-value='0')
-                          i.icon.fa.fa-circle-thin.fa-fw(title='ToDo' role='img' aria-label='ToDo' aria-hidden='true')
-                          span.sr-only ToDo
-                        a.courseindex-link.text-truncate(href='https://lms.waomirai.com/mod/questionnaire/view.php?id=1312' data-for='cm_name' tabindex='-1')
-                          | 4&#x6708;1&#x9031;&#x76EE;&#xFF1A;&#x73FE;&#x4EE3;&#x79D1;&#x5B66;&#x3067;&#x308F;&#x304B;&#x3063;&#x305F;&#x6050;&#x7ADC;&#x306E;&#x751F;&#x614B;&#x203B;&#x4E00;&#x822C;&#x975E;&#x516C;&#x958B;&#x8B1B;&#x5EA7;
-                        span.courseindex-locked.ml-1(data-for='cm_name' tabindex='-1')
-                          i.icon.fa.fa-lock.fa-fw(aria-hidden='true' tabindex='-1')
-                        span.dragicon.ml-auto(tabindex='-1')
-                          i.icon.fa.fa-arrows.fa-fw(aria-hidden='true' tabindex='-1')
-                      li#course-index-cm-1313.courseindex-item.d-flex(data-for='cm' data-id='1313' role='treeitem' tabindex='-1' aria-selected='false')
-                        span.completioninfo.completion_incomplete(data-for='cm_completion' data-value='0')
-                          i.icon.fa.fa-circle-thin.fa-fw(title='ToDo' role='img' aria-label='ToDo' aria-hidden='true')
-                          span.sr-only ToDo
-                        a.courseindex-link.text-truncate(href='https://lms.waomirai.com/mod/questionnaire/view.php?id=1313' data-for='cm_name' tabindex='-1')
-                          | 4&#x6708;2&#x9031;&#x76EE;&#xFF1A;&#x5B9F;&#x969B;&#x306B;&#x30DA;&#x30C3;&#x30C8;&#x306B;&#x3059;&#x308B;&#x306A;&#x3089;&#x3069;&#x306E;&#x6050;&#x7ADC;
-                        span.courseindex-locked.ml-1(data-for='cm_name' tabindex='-1')
-                          i.icon.fa.fa-lock.fa-fw(aria-hidden='true' tabindex='-1')
-                        span.dragicon.ml-auto(tabindex='-1')
-                          i.icon.fa.fa-arrows.fa-fw(aria-hidden='true' tabindex='-1')
-                      li#course-index-cm-1314.courseindex-item.d-flex(data-for='cm' data-id='1314' role='treeitem' tabindex='-1' aria-selected='false')
-                        span.completioninfo.completion_incomplete(data-for='cm_completion' data-value='0')
-                          i.icon.fa.fa-circle-thin.fa-fw(title='ToDo' role='img' aria-label='ToDo' aria-hidden='true')
-                          span.sr-only ToDo
-                        a.courseindex-link.text-truncate(href='https://lms.waomirai.com/mod/questionnaire/view.php?id=1314' data-for='cm_name' tabindex='-1')
-                          | 4&#x6708;3&#x9031;&#x76EE;&#xFF1A;&#x30D5;&#x30A3;&#x30FC;&#x30C9;&#x30D0;&#x30C3;&#x30AF;
-                        span.courseindex-locked.ml-1(data-for='cm_name' tabindex='-1')
-                          i.icon.fa.fa-lock.fa-fw(aria-hidden='true' tabindex='-1')
-                        span.dragicon.ml-auto(tabindex='-1')
-                          i.icon.fa.fa-arrows.fa-fw(aria-hidden='true' tabindex='-1')
-                #course-index-section-767.courseindex-section(data-for='section' data-id='767' data-number='1' role='treeitem' aria-owns='courseindexcollapse1' tabindex='-1' aria-selected='false')
-                  #courseindexsection1.courseindex-item.d-flex.courseindex-section-title(data-for='section_item' tabindex='-1')
-                    a.courseindex-chevron.icons-collapse-expand(data-toggle='collapse' href='#courseindexcollapse1' aria-expanded='true' aria-controls='courseindexcollapse1' tabindex='-1')
-                      span.collapsed-icon.icon-no-margin.mr-1(title='展開する' tabindex='-1')
-                        span.dir-rtl-hide(tabindex='-1')
-                          i.icon.fa.fa-chevron-right.fa-fw(aria-hidden='true' tabindex='-1')
-                        span.dir-ltr-hide(tabindex='-1')
-                          i.icon.fa.fa-chevron-left.fa-fw(aria-hidden='true' tabindex='-1')
-                        span.sr-only(tabindex='-1') &#x5C55;&#x958B;&#x3059;&#x308B;
-                      span.expanded-icon.icon-no-margin.mr-1(title='折りたたむ' tabindex='-1')
-                        i.icon.fa.fa-chevron-down.fa-fw(aria-hidden='true' tabindex='-1')
-                        span.sr-only(tabindex='-1') &#x6298;&#x308A;&#x305F;&#x305F;&#x3080;
-                    a.courseindex-link.text-truncate(href='https://lms.waomirai.com/course/view.php?id=283#section-1' data-action='togglecourseindexsection' data-for='section_title' tabindex='-1')
-                      | 2025&#x5E74;5&#x6708;&#xFF1A;10 &#x4E07;&#x30DC;&#x30EB;&#x30C8;&#x306E;&#x5F37;&#x3055;&#x306F;&#x3069;&#x306E;&#x304F;&#x3089;&#x3044; ?
-                    span.current-badge.badge.badge-primary.ml-2.px-2.rounded-pill(tabindex='-1')
-                      | &#x30CF;&#x30A4;&#x30E9;&#x30A4;&#x30C8;
-                    span.courseindex-locked.ml-1(data-for='cm_name' tabindex='-1')
-                      i.icon.fa.fa-lock.fa-fw(aria-hidden='true' tabindex='-1')
-                    span.dragicon.ml-auto(tabindex='-1')
-                      i.icon.fa.fa-arrows.fa-fw(aria-hidden='true' tabindex='-1')
-                  #courseindexcollapse1.courseindex-item-content.collapse.show(aria-labelledby='courseindexsection1' role='group' tabindex='-1')
-                    ul.courseindex-sectioncontent.unlist(data-for='cmlist' data-id='767' role='group' tabindex='-1')
-                      li#course-index-cm-1315.courseindex-item.d-flex(data-for='cm' data-id='1315' role='treeitem' tabindex='-1' aria-selected='false')
-                        span.completioninfo.completion_incomplete(data-for='cm_completion' data-value='0')
-                          i.icon.fa.fa-circle-thin.fa-fw(title='ToDo' role='img' aria-label='ToDo' aria-hidden='true')
-                          span.sr-only ToDo
-                        a.courseindex-link.text-truncate(href='https://lms.waomirai.com/mod/questionnaire/view.php?id=1315' data-for='cm_name' tabindex='-1')
-                          | 5&#x6708;1&#x9031;&#x76EE;&#xFF1A;&#x767A;&#x96FB;&#x3059;&#x308B;&#x52D5;&#x7269;&#x306F;&#x3069;&#x3046;&#x3057;&#x3066;&#x3044;&#x308B;&#x306E;&#xFF1F;
-                        span.courseindex-locked.ml-1(data-for='cm_name' tabindex='-1')
-                          i.icon.fa.fa-lock.fa-fw(aria-hidden='true' tabindex='-1')
-                        span.dragicon.ml-auto(tabindex='-1')
-                          i.icon.fa.fa-arrows.fa-fw(aria-hidden='true' tabindex='-1')
-                      li#course-index-cm-1316.courseindex-item.d-flex(data-for='cm' data-id='1316' role='treeitem' tabindex='-1' aria-selected='false')
-                        span.completioninfo.completion_incomplete(data-for='cm_completion' data-value='0')
-                          i.icon.fa.fa-circle-thin.fa-fw(title='ToDo' role='img' aria-label='ToDo' aria-hidden='true')
-                          span.sr-only ToDo
-                        a.courseindex-link.text-truncate(href='https://lms.waomirai.com/mod/questionnaire/view.php?id=1316' data-for='cm_name' tabindex='-1')
-                          | 5&#x6708;2&#x9031;&#x76EE;&#xFF1A;10 &#x4E07;&#x30DC;&#x30EB;&#x30C8;&#x304C;&#x3067;&#x304D;&#x308B;&#x3053;&#x3068;
-                        span.courseindex-locked.ml-1(data-for='cm_name' tabindex='-1')
-                          i.icon.fa.fa-lock.fa-fw(aria-hidden='true' tabindex='-1')
-                        span.dragicon.ml-auto(tabindex='-1')
-                          i.icon.fa.fa-arrows.fa-fw(aria-hidden='true' tabindex='-1')
-                      li#course-index-cm-1317.courseindex-item.d-flex(data-for='cm' data-id='1317' role='treeitem' tabindex='-1' aria-selected='false')
-                        span.completioninfo.completion_incomplete(data-for='cm_completion' data-value='0')
-                          i.icon.fa.fa-circle-thin.fa-fw(title='ToDo' role='img' aria-label='ToDo' aria-hidden='true')
-                          span.sr-only ToDo
-                        a.courseindex-link.text-truncate(href='https://lms.waomirai.com/mod/questionnaire/view.php?id=1317' data-for='cm_name' tabindex='-1')
-                          | 5&#x6708;3&#x9031;&#x76EE;&#xFF1A;&#x30D5;&#x30A3;&#x30FC;&#x30C9;&#x30D0;&#x30C3;&#x30AF;
-                        span.courseindex-locked.ml-1(data-for='cm_name' tabindex='-1')
-                          i.icon.fa.fa-lock.fa-fw(aria-hidden='true' tabindex='-1')
-                        span.dragicon.ml-auto(tabindex='-1')
-                          i.icon.fa.fa-arrows.fa-fw(aria-hidden='true' tabindex='-1')
-      #page.drawers.show-drawer-left.drag-container(data-region='mainpage' data-usertour='scroller')
-        #topofscroll.main-inner
-          .drawer-toggles.d-flex
-            .drawer-toggler.drawer-left-toggle.open-nav.d-print-none
-              button.btn.icon-no-margin(data-toggler='drawers' data-action='toggle' data-target='theme_boost-drawers-courseindex' data-placement='right' title='コースインデックスを開く' data-disabled-toggle='tooltip')
-                span.sr-only &#x30B3;&#x30FC;&#x30B9;&#x30A4;&#x30F3;&#x30C7;&#x30C3;&#x30AF;&#x30B9;&#x3092;&#x958B;&#x304F;
-                i.icon.fa.fa-list.fa-fw(aria-hidden='true')
-          header#page-header.header-maxwidth.d-print-none
-            .w-100
-              .d-flex.flex-wrap
-                #page-navbar
-                  nav(aria-label='ナビゲーションバー')
-                    ol.breadcrumb
-                .ml-auto.d-flex
-                #course-header
-              .d-flex.align-items-center
-                .mr-auto
-                  .page-context-header
-                    .page-header-headings
-                      h1.h2 WAO&#x30C6;&#x30B9;&#x30C8;&#x8B1B;&#x5EA7;
-                .header-actions-container.ml-auto(data-region='header-actions-container')
-          .secondary-navigation.d-print-none
-            nav.moremenu.navigation.observed
-              ul#moremenu-67ca995af1e21-nav-tabs.nav.more-nav.nav-tabs(role='menubar')
-                li.nav-item(data-key='coursehome' role='none' data-forceintomoremenu='false')
-                  a.nav-link.active.active_tree_node(role='menuitem' href='https://lms.waomirai.com/course/view.php?id=283' aria-current='true')
-                    | &#x30B3;&#x30FC;&#x30B9;
-                li.nav-item(data-key='courseinfo' role='none' data-forceintomoremenu='false')
-                  a.nav-link(role='menuitem' href='https://lms.waomirai.com/admin/tool/catalogue/courseinfo.php?id=283' tabindex='-1')
-                    | &#x8A73;&#x7D30;&#x60C5;&#x5831;
-                li.nav-item(data-key='1' role='none' data-forceintomoremenu='false')
-                  a.nav-link(role='menuitem' href='https://lms.waomirai.com/local/feedbackviewer/my.php?id=283' tabindex='-1')
-                    | &#x30D5;&#x30A3;&#x30FC;&#x30C9;&#x30D0;&#x30C3;&#x30AF;&#x30D3;&#x30E5;&#x30FC;&#x30A2;
-                li.nav-item.dropdown.dropdownmoremenu.d-none(role='none' data-region='morebutton')
-                  a#moremenu-dropdown-67ca995af1e21.dropdown-toggle.nav-link(href='#' role='menuitem' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false' tabindex='-1')
-                    | &#x3055;&#x3089;&#x306B;
-                  ul.dropdown-menu.dropdown-menu-left(data-region='moredropdown' aria-labelledby='moremenu-dropdown-67ca995af1e21' role='menu')
-          #page-content.pb-3.d-print-block
-            #region-main-box
-              section#region-main(aria-label='コンテンツ')
-                span#user-notifications.notifications
-                div(role='main')
-                  span#maincontent
-                  .course-content
-                    #course-format-67ca995b0e0b767ca995aef23718.stateready
-                      h2.accesshide &#x30C8;&#x30D4;&#x30C3;&#x30AF;&#x30A2;&#x30A6;&#x30C8;&#x30E9;&#x30A4;&#x30F3;
-                      ul.topics(data-for='course_sectionlist')
-                        li#section-0.section.course-section.main.clearfix(data-sectionid='0' data-sectionreturnid='0' data-for='section' data-id='766' data-number='0' data-indexed='true')
-                          .course-section-header.d-flex(data-for='section_title' data-id='766' data-number='0')
-                            .bulkselect.align-self-center.d-none(data-for='sectionBulkSelect')
-                              input#sectionCheckbox766(type='checkbox' data-id='766' data-action='toggleSelectionSection' data-bulkcheckbox='1')
-                              label.sr-only(for='sectionCheckbox766')
-                                | &#x30C8;&#x30D4;&#x30C3;&#x30AF; 2025&#x5E74;4&#x6708;&#xFF1A;&#x6050;&#x7ADC;&#x304C;&#x3044;&#x305F;&#x3089;&#x30DA;&#x30C3;&#x30C8;&#x306B;&#x3067;&#x304D;&#x308B; ? &#x3092;&#x9078;&#x629E;&#x3059;&#x308B;
-                            .d-flex.align-items-start.position-relative
-                              a#collapssesection0.btn.btn-icon.mr-1.icons-collapse-expand.justify-content-center.stretched-link(role='button' data-toggle='collapse' data-for='sectiontoggler' href='#coursecontentcollapse0' aria-expanded='true' aria-controls='coursecontentcollapse0' aria-label='2025年4月：恐竜がいたらペットにできる ?')
-                                span.expanded-icon.icon-no-margin.p-2(title='折りたたむ')
-                                  i.icon.fa.fa-chevron-down.fa-fw(aria-hidden='true')
-                                span.collapsed-icon.icon-no-margin.p-2(title='展開する')
-                                  span.dir-rtl-hide
-                                    i.icon.fa.fa-chevron-right.fa-fw(aria-hidden='true')
-                                  span.dir-ltr-hide
-                                    i.icon.fa.fa-chevron-left.fa-fw(aria-hidden='true')
-                              h3#sectionid-766-title.sectionname.course-content-item.d-flex.align-self-stretch.align-items-center.mb-0(data-for='section_title' data-id='766' data-number='0')
-                                | 2025&#x5E74;4&#x6708;&#xFF1A;&#x6050;&#x7ADC;&#x304C;&#x3044;&#x305F;&#x3089;&#x30DA;&#x30C3;&#x30C8;&#x306B;&#x3067;&#x304D;&#x308B; ?
-                            .sectionbadges.d-flex.align-items-center(data-region='sectionbadges')
-                            .flex-fill.d-flex.justify-content-end.mr-2.align-self-start.mt-2
-                              a#collapsesections.section-collapsemenu(href='#' aria-expanded='true' role='button' data-toggle='toggleall' aria-controls='collapssesection0 collapssesection1')
-                                span.collapseall.text-nowrap &#x3059;&#x3079;&#x3066;&#x3092;&#x6298;&#x308A;&#x305F;&#x305F;&#x3080;
-                                span.expandall.text-nowrap &#x3059;&#x3079;&#x3066;&#x3092;&#x5C55;&#x958B;&#x3059;&#x308B;
-                          #coursecontentcollapse0.content.course-content-item-content.collapse.show
-                            .my-3(data-for='sectioninfo')
-                              .section_availability
-                            ul.section.m-0.p-0.img-text.d-block(data-for='cmlist')
-                              li#module-1312.activity.activity-wrapper.questionnaire.modtype_questionnaire.hasinfo(data-for='cmitem' data-id='1312' data-indexed='true')
-                                .activity-item.focus-control(data-activityname='4月1週目：現代科学でわかった恐竜の生態※一般非公開講座')
-                                  .bulkselect.d-none(data-for='cmBulkSelect')
-                                    input#cmCheckbox1312(type='checkbox' data-id='1312' data-action='toggleSelectionCm' data-bulkcheckbox='1' disabled='')
-                                    label.sr-only(for='cmCheckbox1312')
-                                      | &#x6D3B;&#x52D5; 4&#x6708;1&#x9031;&#x76EE;&#xFF1A;&#x73FE;&#x4EE3;&#x79D1;&#x5B66;&#x3067;&#x308F;&#x304B;&#x3063;&#x305F;&#x6050;&#x7ADC;&#x306E;&#x751F;&#x614B;&#x203B;&#x4E00;&#x822C;&#x975E;&#x516C;&#x958B;&#x8B1B;&#x5EA7; &#x3092;&#x9078;&#x629E;&#x3059;&#x308B;
-                                  .activity-grid
-                                    a.activity-icon.activityiconcontainer.smaller.communication.btn.btn-link.courseicon.align-self-start.mr-2(href='https://lms.waomirai.com/mod/questionnaire/view.php?id=1312')
-                                      img.activityicon(src='https://lms.waomirai.com/theme/image.php/kenai/questionnaire/1738558509/monologo?filtericon=1' alt='アンケート アイコン')
-                                    .activity-name-area.activity-instance.d-flex.flex-column.mr-2
-                                      .activitytitle.media.modtype_questionnaire.position-relative.align-self-start
-                                        .media-body.align-self-center
-                                          .activityname
-                                            a.aalink.stretched-link(href='https://lms.waomirai.com/mod/questionnaire/view.php?id=1312' onclick='')
-                                              span.instancename
-                                                | 4&#x6708;1&#x9031;&#x76EE;&#xFF1A;&#x73FE;&#x4EE3;&#x79D1;&#x5B66;&#x3067;&#x308F;&#x304B;&#x3063;&#x305F;&#x6050;&#x7ADC;&#x306E;&#x751F;&#x614B;&#x203B;&#x4E00;&#x822C;&#x975E;&#x516C;&#x958B;&#x8B1B;&#x5EA7; 
-                                                span.accesshide  &#x554F;&#x3044;
-                                    .activity-completion.align-self-start.ml-sm-2
-                                      .activity-information(data-region='activity-information' data-activityname='4月1週目：現代科学でわかった恐竜の生態※一般非公開講座')
-                                        div(data-region='completion-info')
-                                          div(data-region='completionrequirements' aria-label='4月1週目：現代科学でわかった恐竜の生態※一般非公開講座 の完了条件')
-                                            #dropdownDialog_67ca995aef2376.dropdown.completion-dropdown(data-dropdown-dialog-initialized='true')
-                                              button#dropwdownbutton_67ca995aef2377.btn.btn-sm.dropdown-toggle.icon-no-margin(type='button' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false' data-for='dropdowndialog_button')
-                                                | ToDo
-                                              .dropdown-menu.dropdown-menu-right(aria-labelledby='dropwdownbutton_67ca995aef2377' data-for='dropdowndialog_dialog')
-                                                .p-2(data-for='dropdowndialog_content')
-                                                  .completion-dialog.px-2
-                                                    strong &#x3042;&#x306A;&#x305F;&#x306B;&#x5FC5;&#x8981;&#x306A;&#x3053;&#x3068;:
-                                                    .ml-2(role='list')
-                                                      .d-flex.mt-2(role='listitem')
-                                                        div
-                                                          img.icon(alt='' aria-hidden='true' src='https://lms.waomirai.com/theme/image.php/kenai/core/1738558509/i/dot')
-                                                          span.sr-only &#x3084;&#x308B;&#x3079;&#x304D;&#x3053;&#x3068;:
-                                                        span &#x5B66;&#x751F;&#x304C;&#x5B8C;&#x4E86;&#x3059;&#x308B;&#x305F;&#x3081;&#x306B;&#x306F;&#x3053;&#x306E;&#x30A2;&#x30F3;&#x30B1;&#x30FC;&#x30C8;&#x306B;&#x56DE;&#x7B54;&#x3057;&#x306A;&#x3051;&#x308C;&#x3070;&#x306A;&#x308A;&#x307E;&#x305B;&#x3093;
-                              li#module-1313.activity.activity-wrapper.questionnaire.modtype_questionnaire.hasinfo(data-for='cmitem' data-id='1313' data-indexed='true')
-                                .activity-item.focus-control(data-activityname='4月2週目：実際にペットにするならどの恐竜')
-                                  .bulkselect.d-none(data-for='cmBulkSelect')
-                                    input#cmCheckbox1313(type='checkbox' data-id='1313' data-action='toggleSelectionCm' data-bulkcheckbox='1' disabled='')
-                                    label.sr-only(for='cmCheckbox1313')
-                                      | &#x6D3B;&#x52D5; 4&#x6708;2&#x9031;&#x76EE;&#xFF1A;&#x5B9F;&#x969B;&#x306B;&#x30DA;&#x30C3;&#x30C8;&#x306B;&#x3059;&#x308B;&#x306A;&#x3089;&#x3069;&#x306E;&#x6050;&#x7ADC; &#x3092;&#x9078;&#x629E;&#x3059;&#x308B;
-                                  .activity-grid
-                                    a.activity-icon.activityiconcontainer.smaller.communication.btn.btn-link.courseicon.align-self-start.mr-2(href='https://lms.waomirai.com/mod/questionnaire/view.php?id=1313')
-                                      img.activityicon(src='https://lms.waomirai.com/theme/image.php/kenai/questionnaire/1738558509/monologo?filtericon=1' alt='アンケート アイコン')
-                                    .activity-name-area.activity-instance.d-flex.flex-column.mr-2
-                                      .activitytitle.media.modtype_questionnaire.position-relative.align-self-start
-                                        .media-body.align-self-center
-                                          .activityname
-                                            a.aalink.stretched-link(href='https://lms.waomirai.com/mod/questionnaire/view.php?id=1313' onclick='')
-                                              span.instancename
-                                                | 4&#x6708;2&#x9031;&#x76EE;&#xFF1A;&#x5B9F;&#x969B;&#x306B;&#x30DA;&#x30C3;&#x30C8;&#x306B;&#x3059;&#x308B;&#x306A;&#x3089;&#x3069;&#x306E;&#x6050;&#x7ADC; 
-                                                span.accesshide  &#x554F;&#x3044;
-                                    .activity-completion.align-self-start.ml-sm-2
-                                      .activity-information(data-region='activity-information' data-activityname='4月2週目：実際にペットにするならどの恐竜')
-                                        div(data-region='completion-info')
-                                          div(data-region='completionrequirements' aria-label='4月2週目：実際にペットにするならどの恐竜 の完了条件')
-                                            #dropdownDialog_67ca995aef2378.dropdown.completion-dropdown(data-dropdown-dialog-initialized='true')
-                                              button#dropwdownbutton_67ca995aef2379.btn.btn-sm.dropdown-toggle.icon-no-margin(type='button' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false' data-for='dropdowndialog_button')
-                                                | ToDo
-                                              .dropdown-menu.dropdown-menu-right(aria-labelledby='dropwdownbutton_67ca995aef2379' data-for='dropdowndialog_dialog')
-                                                .p-2(data-for='dropdowndialog_content')
-                                                  .completion-dialog.px-2
-                                                    strong &#x3042;&#x306A;&#x305F;&#x306B;&#x5FC5;&#x8981;&#x306A;&#x3053;&#x3068;:
-                                                    .ml-2(role='list')
-                                                      .d-flex.mt-2(role='listitem')
-                                                        div
-                                                          img.icon(alt='' aria-hidden='true' src='https://lms.waomirai.com/theme/image.php/kenai/core/1738558509/i/dot')
-                                                          span.sr-only &#x3084;&#x308B;&#x3079;&#x304D;&#x3053;&#x3068;:
-                                                        span &#x5B66;&#x751F;&#x304C;&#x5B8C;&#x4E86;&#x3059;&#x308B;&#x305F;&#x3081;&#x306B;&#x306F;&#x3053;&#x306E;&#x30A2;&#x30F3;&#x30B1;&#x30FC;&#x30C8;&#x306B;&#x56DE;&#x7B54;&#x3057;&#x306A;&#x3051;&#x308C;&#x3070;&#x306A;&#x308A;&#x307E;&#x305B;&#x3093;
-                              li#module-1314.activity.activity-wrapper.questionnaire.modtype_questionnaire.hasinfo(data-for='cmitem' data-id='1314' data-indexed='true')
-                                .activity-item.focus-control(data-activityname='4月3週目：フィードバック')
-                                  .bulkselect.d-none(data-for='cmBulkSelect')
-                                    input#cmCheckbox1314(type='checkbox' data-id='1314' data-action='toggleSelectionCm' data-bulkcheckbox='1' disabled='')
-                                    label.sr-only(for='cmCheckbox1314')
-                                      | &#x6D3B;&#x52D5; 4&#x6708;3&#x9031;&#x76EE;&#xFF1A;&#x30D5;&#x30A3;&#x30FC;&#x30C9;&#x30D0;&#x30C3;&#x30AF; &#x3092;&#x9078;&#x629E;&#x3059;&#x308B;
-                                  .activity-grid
-                                    a.activity-icon.activityiconcontainer.smaller.communication.btn.btn-link.courseicon.align-self-start.mr-2(href='https://lms.waomirai.com/mod/questionnaire/view.php?id=1314')
-                                      img.activityicon(src='https://lms.waomirai.com/theme/image.php/kenai/questionnaire/1738558509/monologo?filtericon=1' alt='アンケート アイコン')
-                                    .activity-name-area.activity-instance.d-flex.flex-column.mr-2
-                                      .activitytitle.media.modtype_questionnaire.position-relative.align-self-start
-                                        .media-body.align-self-center
-                                          .activityname
-                                            a.aalink.stretched-link(href='https://lms.waomirai.com/mod/questionnaire/view.php?id=1314' onclick='')
-                                              span.instancename
-                                                | 4&#x6708;3&#x9031;&#x76EE;&#xFF1A;&#x30D5;&#x30A3;&#x30FC;&#x30C9;&#x30D0;&#x30C3;&#x30AF; 
-                                                span.accesshide  &#x554F;&#x3044;
-                                    .activity-completion.align-self-start.ml-sm-2
-                                      .activity-information(data-region='activity-information' data-activityname='4月3週目：フィードバック')
-                                        div(data-region='completion-info')
-                                          div(data-region='completionrequirements' aria-label='4月3週目：フィードバック の完了条件')
-                                            #dropdownDialog_67ca995aef23710.dropdown.completion-dropdown(data-dropdown-dialog-initialized='true')
-                                              button#dropwdownbutton_67ca995aef23711.btn.btn-sm.dropdown-toggle.icon-no-margin(type='button' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false' data-for='dropdowndialog_button')
-                                                | ToDo
-                                              .dropdown-menu.dropdown-menu-right(aria-labelledby='dropwdownbutton_67ca995aef23711' data-for='dropdowndialog_dialog')
-                                                .p-2(data-for='dropdowndialog_content')
-                                                  .completion-dialog.px-2
-                                                    strong &#x3042;&#x306A;&#x305F;&#x306B;&#x5FC5;&#x8981;&#x306A;&#x3053;&#x3068;:
-                                                    .ml-2(role='list')
-                                                      .d-flex.mt-2(role='listitem')
-                                                        div
-                                                          img.icon(alt='' aria-hidden='true' src='https://lms.waomirai.com/theme/image.php/kenai/core/1738558509/i/dot')
-                                                          span.sr-only &#x3084;&#x308B;&#x3079;&#x304D;&#x3053;&#x3068;:
-                                                        span &#x5B66;&#x751F;&#x304C;&#x5B8C;&#x4E86;&#x3059;&#x308B;&#x305F;&#x3081;&#x306B;&#x306F;&#x3053;&#x306E;&#x30A2;&#x30F3;&#x30B1;&#x30FC;&#x30C8;&#x306B;&#x56DE;&#x7B54;&#x3057;&#x306A;&#x3051;&#x308C;&#x3070;&#x306A;&#x308A;&#x307E;&#x305B;&#x3093;
-                        li#section-1.section.course-section.main.clearfix(data-sectionid='1' data-sectionreturnid='0' data-for='section' data-id='767' data-number='1' data-indexed='true')
-                          .course-section-header.d-flex(data-for='section_title' data-id='767' data-number='1')
-                            .bulkselect.align-self-center.d-none(data-for='sectionBulkSelect')
-                              input#sectionCheckbox767(type='checkbox' data-id='767' data-action='toggleSelectionSection' data-bulkcheckbox='1')
-                              label.sr-only(for='sectionCheckbox767')
-                                | &#x30C8;&#x30D4;&#x30C3;&#x30AF; 2025&#x5E74;5&#x6708;&#xFF1A;10 &#x4E07;&#x30DC;&#x30EB;&#x30C8;&#x306E;&#x5F37;&#x3055;&#x306F;&#x3069;&#x306E;&#x304F;&#x3089;&#x3044; ? &#x3092;&#x9078;&#x629E;&#x3059;&#x308B;
-                            .d-flex.align-items-start.position-relative
-                              a#collapssesection1.btn.btn-icon.mr-1.icons-collapse-expand.justify-content-center.stretched-link(role='button' data-toggle='collapse' data-for='sectiontoggler' href='#coursecontentcollapse1' aria-expanded='true' aria-controls='coursecontentcollapse1' aria-label='2025年5月：10 万ボルトの強さはどのくらい ?')
-                                span.expanded-icon.icon-no-margin.p-2(title='折りたたむ')
-                                  i.icon.fa.fa-chevron-down.fa-fw(aria-hidden='true')
-                                span.collapsed-icon.icon-no-margin.p-2(title='展開する')
-                                  span.dir-rtl-hide
-                                    i.icon.fa.fa-chevron-right.fa-fw(aria-hidden='true')
-                                  span.dir-ltr-hide
-                                    i.icon.fa.fa-chevron-left.fa-fw(aria-hidden='true')
-                              h3#sectionid-767-title.sectionname.course-content-item.d-flex.align-self-stretch.align-items-center.mb-0(data-for='section_title' data-id='767' data-number='1')
-                                | 2025&#x5E74;5&#x6708;&#xFF1A;10 &#x4E07;&#x30DC;&#x30EB;&#x30C8;&#x306E;&#x5F37;&#x3055;&#x306F;&#x3069;&#x306E;&#x304F;&#x3089;&#x3044; ?
-                            .sectionbadges.d-flex.align-items-center(data-region='sectionbadges')
-                          #coursecontentcollapse1.content.course-content-item-content.collapse.show
-                            .my-3(data-for='sectioninfo')
-                              .section_availability
-                            ul.section.m-0.p-0.img-text.d-block(data-for='cmlist')
-                              li#module-1315.activity.activity-wrapper.questionnaire.modtype_questionnaire.hasinfo(data-for='cmitem' data-id='1315' data-indexed='true')
-                                .activity-item.focus-control(data-activityname='5月1週目：発電する動物はどうしているの？')
-                                  .bulkselect.d-none(data-for='cmBulkSelect')
-                                    input#cmCheckbox1315(type='checkbox' data-id='1315' data-action='toggleSelectionCm' data-bulkcheckbox='1' disabled='')
-                                    label.sr-only(for='cmCheckbox1315')
-                                      | &#x6D3B;&#x52D5; 5&#x6708;1&#x9031;&#x76EE;&#xFF1A;&#x767A;&#x96FB;&#x3059;&#x308B;&#x52D5;&#x7269;&#x306F;&#x3069;&#x3046;&#x3057;&#x3066;&#x3044;&#x308B;&#x306E;&#xFF1F; &#x3092;&#x9078;&#x629E;&#x3059;&#x308B;
-                                  .activity-grid
-                                    a.activity-icon.activityiconcontainer.smaller.communication.btn.btn-link.courseicon.align-self-start.mr-2(href='https://lms.waomirai.com/mod/questionnaire/view.php?id=1315')
-                                      img.activityicon(src='https://lms.waomirai.com/theme/image.php/kenai/questionnaire/1738558509/monologo?filtericon=1' alt='アンケート アイコン')
-                                    .activity-name-area.activity-instance.d-flex.flex-column.mr-2
-                                      .activitytitle.media.modtype_questionnaire.position-relative.align-self-start
-                                        .media-body.align-self-center
-                                          .activityname
-                                            a.aalink.stretched-link(href='https://lms.waomirai.com/mod/questionnaire/view.php?id=1315' onclick='')
-                                              span.instancename
-                                                | 5&#x6708;1&#x9031;&#x76EE;&#xFF1A;&#x767A;&#x96FB;&#x3059;&#x308B;&#x52D5;&#x7269;&#x306F;&#x3069;&#x3046;&#x3057;&#x3066;&#x3044;&#x308B;&#x306E;&#xFF1F; 
-                                                span.accesshide  &#x554F;&#x3044;
-                                    .activity-completion.align-self-start.ml-sm-2
-                                      .activity-information(data-region='activity-information' data-activityname='5月1週目：発電する動物はどうしているの？')
-                                        div(data-region='completion-info')
-                                          div(data-region='completionrequirements' aria-label='5月1週目：発電する動物はどうしているの？ の完了条件')
-                                            #dropdownDialog_67ca995aef23712.dropdown.completion-dropdown(data-dropdown-dialog-initialized='true')
-                                              button#dropwdownbutton_67ca995aef23713.btn.btn-sm.dropdown-toggle.icon-no-margin(type='button' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false' data-for='dropdowndialog_button')
-                                                | ToDo
-                                              .dropdown-menu.dropdown-menu-right(aria-labelledby='dropwdownbutton_67ca995aef23713' data-for='dropdowndialog_dialog')
-                                                .p-2(data-for='dropdowndialog_content')
-                                                  .completion-dialog.px-2
-                                                    strong &#x3042;&#x306A;&#x305F;&#x306B;&#x5FC5;&#x8981;&#x306A;&#x3053;&#x3068;:
-                                                    .ml-2(role='list')
-                                                      .d-flex.mt-2(role='listitem')
-                                                        div
-                                                          img.icon(alt='' aria-hidden='true' src='https://lms.waomirai.com/theme/image.php/kenai/core/1738558509/i/dot')
-                                                          span.sr-only &#x3084;&#x308B;&#x3079;&#x304D;&#x3053;&#x3068;:
-                                                        span &#x5B66;&#x751F;&#x304C;&#x5B8C;&#x4E86;&#x3059;&#x308B;&#x305F;&#x3081;&#x306B;&#x306F;&#x3053;&#x306E;&#x30A2;&#x30F3;&#x30B1;&#x30FC;&#x30C8;&#x306B;&#x56DE;&#x7B54;&#x3057;&#x306A;&#x3051;&#x308C;&#x3070;&#x306A;&#x308A;&#x307E;&#x305B;&#x3093;
-                              li#module-1316.activity.activity-wrapper.questionnaire.modtype_questionnaire.hasinfo(data-for='cmitem' data-id='1316' data-indexed='true')
-                                .activity-item.focus-control(data-activityname='5月2週目：10 万ボルトができること')
-                                  .bulkselect.d-none(data-for='cmBulkSelect')
-                                    input#cmCheckbox1316(type='checkbox' data-id='1316' data-action='toggleSelectionCm' data-bulkcheckbox='1' disabled='')
-                                    label.sr-only(for='cmCheckbox1316')
-                                      | &#x6D3B;&#x52D5; 5&#x6708;2&#x9031;&#x76EE;&#xFF1A;10 &#x4E07;&#x30DC;&#x30EB;&#x30C8;&#x304C;&#x3067;&#x304D;&#x308B;&#x3053;&#x3068; &#x3092;&#x9078;&#x629E;&#x3059;&#x308B;
-                                  .activity-grid
-                                    a.activity-icon.activityiconcontainer.smaller.communication.btn.btn-link.courseicon.align-self-start.mr-2(href='https://lms.waomirai.com/mod/questionnaire/view.php?id=1316')
-                                      img.activityicon(src='https://lms.waomirai.com/theme/image.php/kenai/questionnaire/1738558509/monologo?filtericon=1' alt='アンケート アイコン')
-                                    .activity-name-area.activity-instance.d-flex.flex-column.mr-2
-                                      .activitytitle.media.modtype_questionnaire.position-relative.align-self-start
-                                        .media-body.align-self-center
-                                          .activityname
-                                            a.aalink.stretched-link(href='https://lms.waomirai.com/mod/questionnaire/view.php?id=1316' onclick='')
-                                              span.instancename
-                                                | 5&#x6708;2&#x9031;&#x76EE;&#xFF1A;10 &#x4E07;&#x30DC;&#x30EB;&#x30C8;&#x304C;&#x3067;&#x304D;&#x308B;&#x3053;&#x3068; 
-                                                span.accesshide  &#x554F;&#x3044;
-                                    .activity-completion.align-self-start.ml-sm-2
-                                      .activity-information(data-region='activity-information' data-activityname='5月2週目：10 万ボルトができること')
-                                        div(data-region='completion-info')
-                                          div(data-region='completionrequirements' aria-label='5月2週目：10 万ボルトができること の完了条件')
-                                            #dropdownDialog_67ca995aef23714.dropdown.completion-dropdown(data-dropdown-dialog-initialized='true')
-                                              button#dropwdownbutton_67ca995aef23715.btn.btn-sm.dropdown-toggle.icon-no-margin(type='button' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false' data-for='dropdowndialog_button')
-                                                | ToDo
-                                              .dropdown-menu.dropdown-menu-right(aria-labelledby='dropwdownbutton_67ca995aef23715' data-for='dropdowndialog_dialog')
-                                                .p-2(data-for='dropdowndialog_content')
-                                                  .completion-dialog.px-2
-                                                    strong &#x3042;&#x306A;&#x305F;&#x306B;&#x5FC5;&#x8981;&#x306A;&#x3053;&#x3068;:
-                                                    .ml-2(role='list')
-                                                      .d-flex.mt-2(role='listitem')
-                                                        div
-                                                          img.icon(alt='' aria-hidden='true' src='https://lms.waomirai.com/theme/image.php/kenai/core/1738558509/i/dot')
-                                                          span.sr-only &#x3084;&#x308B;&#x3079;&#x304D;&#x3053;&#x3068;:
-                                                        span &#x5B66;&#x751F;&#x304C;&#x5B8C;&#x4E86;&#x3059;&#x308B;&#x305F;&#x3081;&#x306B;&#x306F;&#x3053;&#x306E;&#x30A2;&#x30F3;&#x30B1;&#x30FC;&#x30C8;&#x306B;&#x56DE;&#x7B54;&#x3057;&#x306A;&#x3051;&#x308C;&#x3070;&#x306A;&#x308A;&#x307E;&#x305B;&#x3093;
-                              li#module-1317.activity.activity-wrapper.questionnaire.modtype_questionnaire.hasinfo(data-for='cmitem' data-id='1317' data-indexed='true')
-                                .activity-item.focus-control(data-activityname='5月3週目：フィードバック')
-                                  .bulkselect.d-none(data-for='cmBulkSelect')
-                                    input#cmCheckbox1317(type='checkbox' data-id='1317' data-action='toggleSelectionCm' data-bulkcheckbox='1' disabled='')
-                                    label.sr-only(for='cmCheckbox1317')
-                                      | &#x6D3B;&#x52D5; 5&#x6708;3&#x9031;&#x76EE;&#xFF1A;&#x30D5;&#x30A3;&#x30FC;&#x30C9;&#x30D0;&#x30C3;&#x30AF; &#x3092;&#x9078;&#x629E;&#x3059;&#x308B;
-                                  .activity-grid
-                                    a.activity-icon.activityiconcontainer.smaller.communication.btn.btn-link.courseicon.align-self-start.mr-2(href='https://lms.waomirai.com/mod/questionnaire/view.php?id=1317')
-                                      img.activityicon(src='https://lms.waomirai.com/theme/image.php/kenai/questionnaire/1738558509/monologo?filtericon=1' alt='アンケート アイコン')
-                                    .activity-name-area.activity-instance.d-flex.flex-column.mr-2
-                                      .activitytitle.media.modtype_questionnaire.position-relative.align-self-start
-                                        .media-body.align-self-center
-                                          .activityname
-                                            a.aalink.stretched-link(href='https://lms.waomirai.com/mod/questionnaire/view.php?id=1317' onclick='')
-                                              span.instancename
-                                                | 5&#x6708;3&#x9031;&#x76EE;&#xFF1A;&#x30D5;&#x30A3;&#x30FC;&#x30C9;&#x30D0;&#x30C3;&#x30AF; 
-                                                span.accesshide  &#x554F;&#x3044;
-                                    .activity-completion.align-self-start.ml-sm-2
-                                      .activity-information(data-region='activity-information' data-activityname='5月3週目：フィードバック')
-                                        div(data-region='completion-info')
-                                          div(data-region='completionrequirements' aria-label='5月3週目：フィードバック の完了条件')
-                                            #dropdownDialog_67ca995aef23716.dropdown.completion-dropdown(data-dropdown-dialog-initialized='true')
-                                              button#dropwdownbutton_67ca995aef23717.btn.btn-sm.dropdown-toggle.icon-no-margin(type='button' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false' data-for='dropdowndialog_button')
-                                                | ToDo
-                                              .dropdown-menu.dropdown-menu-right(aria-labelledby='dropwdownbutton_67ca995aef23717' data-for='dropdowndialog_dialog')
-                                                .p-2(data-for='dropdowndialog_content')
-                                                  .completion-dialog.px-2
-                                                    strong &#x3042;&#x306A;&#x305F;&#x306B;&#x5FC5;&#x8981;&#x306A;&#x3053;&#x3068;:
-                                                    .ml-2(role='list')
-                                                      .d-flex.mt-2(role='listitem')
-                                                        div
-                                                          img.icon(alt='' aria-hidden='true' src='https://lms.waomirai.com/theme/image.php/kenai/core/1738558509/i/dot')
-                                                          span.sr-only &#x3084;&#x308B;&#x3079;&#x304D;&#x3053;&#x3068;:
-                                                        span &#x5B66;&#x751F;&#x304C;&#x5B8C;&#x4E86;&#x3059;&#x308B;&#x305F;&#x3081;&#x306B;&#x306F;&#x3053;&#x306E;&#x30A2;&#x30F3;&#x30B1;&#x30FC;&#x30C8;&#x306B;&#x56DE;&#x7B54;&#x3057;&#x306A;&#x3051;&#x308C;&#x3070;&#x306A;&#x308A;&#x307E;&#x305B;&#x3093;
-        #goto-top-link
-          a#backToTop.btn.btn-light(role='button' href='#' style='display: none;')
-            i.icon.fa.fa-arrow-up.fa-fw(title='トップへ戻る' role='img' aria-label='トップへ戻る' aria-hidden='true')
-            span.sr-only &#x30C8;&#x30C3;&#x30D7;&#x3078;&#x623B;&#x308B;
-        footer#page-footer.footer-popover.bg-white
-          div(data-region='footer-container-popover')
-            button.btn.btn-icon.bg-secondary.icon-no-margin.btn-footer-popover(data-action='footer-popover' aria-label='フッタを表示する' data-original-title='' title='')
-              i.icon.fa.fa-question.fa-fw(aria-hidden='true')
-          .footer-content-popover.container(data-region='footer-content-popover')
-            .footer-section.p-3.border-bottom
-              div
-                a(href='https://lms.waomirai.com/user/contactsitesupport.php')
-                  i.icon.fa.fa-envelope-o.fa-fw(aria-hidden='true')
-                a(href='https://go.waomirai.com/contact' target='_blank') &#x30B5;&#x30DD;&#x30FC;&#x30C8;&#x306B;&#x9023;&#x7D61;
-            .footer-section.p-3.border-bottom
+    // Google Tag Manager (noscript)
+    noscript
+      | <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-W3X8CG9C" height="0" width="0"
+      |   style="display:none;visibility:hidden"></iframe>
+    // End Google Tag Manager (noscript)
+    .header-banner.alert-setting-level(style="display:none;")
+      .header-banner-left
+        .header-banner-left-icon
+          i.icon.fa.fa-solid.fa-triangle-exclamation
+        .header-banner-text
+          .header-banner-text-title 科目のレベルを設定しましょう
+          .header-banner-text-read レベルを設定しないと授業を受講できません
+      .header-banner-right
+        a(href="https://lms.waomirai.com/admin/tool/catalogue/courseinfo.php?id=230") 科目のレベルを設定するには？
+    nav.navbar.fixed-top.navbar-light.bg-white.navbar-expand(aria-label="サイトナビゲーション")
+      button.navbar-toggler.aabtn.d-block.d-md-none.my-1.mr-2(
+        data-target="theme_boost-drawers-primary" 
+        data-action="toggle" 
+        data-toggler="drawers"
+        )
+        span.navbar-toggler-icon
+        span.sr-only サイドパネル
+      a.navbar-brand.d-none.d-md-flex.align-items-center.m-0.mr-3.p-0.aabtn(href="https://lms.waomirai.com/my/")
+        img.logo.mr-1(
+          alt="lmswaomirai" 
+          src="https://lms.waomirai.com/pluginfile.php/1/tool_tenant/headerlogo/3/%E3%83%AF%E3%82%AA%E6%9C%AA%E6%9D%A5%E5%A1%BE%E3%83%AD%E3%82%B3%E3%82%99A%EF%BC%88%E5%9F%BA%E6%9C%AC%E5%BD%A2%EF%BC%89.png"
+          )
+      ul.navbar-nav.d-none.d-md-flex.mr-3.tenantswitch
+      .primary-navigation
+        nav.moremenu.navigation
+          ul#moremenu-68abba5533c30-navbar-nav.nav.more-nav.navbar-nav(role="menubar")
+            li.nav-item(
+              data-forceintomoremenu="false" 
+              role="none" 
+              data-key="home"
+              )
+              a.nav-link(
+                tabindex="-1" 
+                href="https://lms.waomirai.com/?redirect=0" 
+                role="menuitem"
+                ) 科目一覧
+            li.nav-item(
+              data-forceintomoremenu="false" 
+              role="none" 
+              data-key="myhome"
+              )
+              a.nav-link(
+                tabindex="-1" 
+                href="https://lms.waomirai.com/my/" 
+                role="menuitem"
+                ) 受講カレンダー
+            li.nav-item(
+              data-forceintomoremenu="false" 
+              role="none" 
+              data-key="mycourses"
+              )
+              a.nav-link(
+                tabindex="-1" 
+                href="https://lms.waomirai.com/my/courses.php" 
+                role="menuitem"
+                ) 登録済み講座
+            li.nav-item(
+              data-forceintomoremenu="false" 
+              role="none" 
+              data-key=""
+              )
+              a.nav-link(
+                tabindex="-1" 
+                href="https://lms.waomirai.com/user/profile.php" 
+                role="menuitem"
+                ) マイページ
+            li.nav-item(
+              data-forceintomoremenu="false" 
+              role="none" 
+              data-key=""
+              )
+              a.nav-link(
+                tabindex="-1" 
+                href="https://lms.waomirai.com/user/preferences.php" 
+                role="menuitem"
+                ) ユーザ設定
+            li.nav-item.dropdown.dropdownmoremenu.d-none(
+              data-region="morebutton" 
+              role="none"
+              )
+              a#moremenu-dropdown-68abba5533c30.dropdown-toggle.nav-link(
+                tabindex="-1" 
+                aria-expanded="false" 
+                aria-haspopup="true" 
+                data-toggle="dropdown" 
+                role="menuitem" 
+                href="#"
+                ) さらに
+              ul.dropdown-menu.dropdown-menu-left(
+                role="menu" 
+                aria-labelledby="moremenu-dropdown-68abba5533c30" 
+                data-region="moredropdown"
+                )
+      ul.navbar-nav.d-none.d-md-flex.my-1.px-1
+        // page_heading_menu
+      #usernavigation.navbar-nav.ml-auto
+        #nav-notification-popover-container.popover-region.collapsed.popover-region-notifications(
+          data-region="popover-region" 
+          data-userid="937"
+          )
+          .popover-region-toggle.nav-link.icon-no-margin(
+            tabindex="0" 
+            aria-label=" 新しい通知のない通知ウィンドウを表示する " 
+            aria-haspopup="true" 
+            aria-controls="popover-region-container-68abba5535a8368abba5531a363" 
+            role="button" 
+            data-region="popover-region-toggle"
+            )
+            i.icon.fa.fa-bell-o.fa-fw(
+              aria-label="通知メニューに切り替える" 
+              role="img" 
+              title="通知メニューに切り替える"
+              )
+            .count-container.hidden(
+              aria-hidden="true" 
+              data-region="count-container"
+              ) 0
+          #popover-region-container-68abba5535a8368abba5531a363.popover-region-container(
+            role="region" 
+            aria-label="通知ウィンドウ" 
+            aria-hidden="true" 
+            aria-expanded="false" 
+            data-region="popover-region-container"
+            )
+            .popover-region-header-container
+              h3.popover-region-header-text(data-region="popover-region-header-text") 通知
+              .popover-region-header-actions(data-region="popover-region-header-actions")
+                a.mark-all-read-button(
+                  aria-label="すべてを既読にする" 
+                  role="button" 
+                  data-action="mark-all-read" 
+                  title="すべてを既読にする" 
+                  href="#"
+                  )
+                  span.normal-icon
+                    i.icon.fa.fa-check.fa-fw(aria-hidden="true")
+                  span.loading-icon.icon-no-margin
+                    i.icon.fa.fa-circle-o-notch.fa-spin.fa-fw(
+                      aria-label="読み込み中" 
+                      role="img" 
+                      title="読み込み中"
+                      )
+            .popover-region-content-container(data-region="popover-region-content-container")
+              .popover-region-content(data-region="popover-region-content")
+                .all-notifications(
+                  aria-relevant="additions" 
+                  aria-atomic="false" 
+                  aria-busy="false" 
+                  role="log" 
+                  data-region="all-notifications"
+                  )
+                .empty-message(
+                  data-region="empty-message" 
+                  tabindex="0"
+                  ) あなたに通知はありません。
+              span.loading-icon.icon-no-margin
+                i.icon.fa.fa-circle-o-notch.fa-spin.fa-fw(
+                  aria-label="読み込み中" 
+                  role="img" 
+                  title="読み込み中"
+                  )
+            a.see-all-link(href="https://lms.waomirai.com/message/output/popup/notifications.php")
+              .popover-region-footer-container
+                .popover-region-seeall-text すべてを表示する
+        .popover-region.collapsed(data-region="popover-region-messages")
+          a#message-drawer-toggle-68abba55368e768abba5531a364.nav-link.popover-region-toggle.position-relative.icon-no-margin(
+            role="button" 
+            href="#"
+            )
+            i.icon.fa.fa-comment-o.fa-fw(
+              aria-label="メッセージドロワに切り替える" 
+              role="img" 
+              title="メッセージドロワに切り替える"
+              )
+            .count-container.hidden(data-region="count-container")
+              span(aria-hidden="true") 0
+              span.sr-only 0 件の未読会話があります。
+          span.sr-only.sr-only-focusable(
+            tabindex="-1" 
+            data-region="jumpto"
+            )
+        .d-flex.align-items-stretch.usermenu-container(data-region="usermenu")
+          .usermenu
+            .dropdown.show
+              a#user-menu-toggle.btn.dropdown-toggle(
+                aria-controls="user-action-menu" 
+                aria-haspopup="true" 
+                aria-label="ユーザメニュー" 
+                data-toggle="dropdown" 
+                role="button" 
+                href="#"
+                )
+                span.userbutton
+                  span.avatars
+                    span.avatar.current
+                      span.userinitials.size-35 ワ★
+              #user-action-menu.dropdown-menu.dropdown-menu-right
+                #usermenu-carousel.carousel.slide(
+                  data-keyboard="false" 
+                  data-interval="false" 
+                  data-touch="false"
+                  )
+                  .carousel-inner
+                    #carousel-item-main.carousel-item.active(
+                      aria-label="ユーザ" 
+                      tabindex="-1" 
+                      role="menu"
+                      )
+                      a.dropdown-item(
+                        tabindex="-1" 
+                        role="menuitem" 
+                        href="https://lms.waomirai.com/user/profile.php"
+                        ) マイページ
+                      a.dropdown-item(
+                        tabindex="-1" 
+                        role="menuitem" 
+                        href="https://lms.waomirai.com/grade/report/overview/index.php"
+                        ) 評定
+                      a.dropdown-item(
+                        tabindex="-1" 
+                        role="menuitem" 
+                        href="https://lms.waomirai.com/calendar/view.php?view=month"
+                        ) カレンダー
+                      a.dropdown-item(
+                        tabindex="-1" 
+                        role="menuitem" 
+                        href="https://lms.waomirai.com/user/files.php"
+                        ) プライベートファイル
+                      a.dropdown-item(
+                        tabindex="-1" 
+                        role="menuitem" 
+                        href="https://lms.waomirai.com/reportbuilder/index.php"
+                        ) レポート
+                      .dropdown-divider
+                      a.dropdown-item(
+                        tabindex="-1" 
+                        role="menuitem" 
+                        href="https://lms.waomirai.com/user/preferences.php"
+                        ) ユーザ設定
+                      .dropdown-divider
+                      a.dropdown-item(
+                        tabindex="-1" 
+                        role="menuitem" 
+                        href="https://lms.waomirai.com/login/logout.php?sesskey=cYJ2qLFXnq"
+                        ) ログアウト
+    .drawer.drawer-left.drawer-primary.d-print-none.not-initialized(
+      data-close-on-resize="1" 
+      data-forceopen="0" 
+      data-state="show-drawer-primary" 
+      data-preference="" 
+      id="theme_boost-drawers-primary" 
+      data-region="fixed-drawer"
+      )
+      .drawerheader
+        button.btn.drawertoggle.icon-no-margin.hidden(
+          title="ドロワを閉じる" 
+          data-placement="right" 
+          data-toggle="tooltip" 
+          data-target="theme_boost-drawers-primary" 
+          data-action="closedrawer" 
+          data-toggler="drawers"
+          )
+          i.icon.fa.fa-times.fa-fw(aria-hidden="true")
+        img.logo.py-1.h-100(
+          alt="lmswaomirai" 
+          src="https://lms.waomirai.com/pluginfile.php/1/tool_tenant/headerlogo/3/%E3%83%AF%E3%82%AA%E6%9C%AA%E6%9D%A5%E5%A1%BE%E3%83%AD%E3%82%B3%E3%82%99A%EF%BC%88%E5%9F%BA%E6%9C%AC%E5%BD%A2%EF%BC%89.png"
+          )
+        .drawerheadercontent.hidden
+      .drawercontent.drag-container(data-usertour="scroller")
+        .list-group
+          a.list-group-item.list-group-item-action(href="https://lms.waomirai.com/?redirect=0") 科目一覧
+          a.list-group-item.list-group-item-action(href="https://lms.waomirai.com/my/") 受講カレンダー
+          a.list-group-item.list-group-item-action(href="https://lms.waomirai.com/my/courses.php") 登録済み講座
+          a.list-group-item.list-group-item-action(href="https://lms.waomirai.com/user/profile.php") マイページ
+          a.list-group-item.list-group-item-action(href="https://lms.waomirai.com/user/preferences.php") ユーザ設定
+        ul.position-absolute.fixed-bottom.navbar-nav.ml-3.tenantswitch
+    .drawer.drawer-left.show.d-print-none.not-initialized(
+      data-close-on-resize="0" 
+      data-forceopen="0" 
+      data-state="show-drawer-left" 
+      data-preference="drawer-open-index" 
+      id="theme_boost-drawers-courseindex" 
+      data-region="fixed-drawer"
+      )
+      .drawerheader
+        button.btn.drawertoggle.icon-no-margin.hidden(
+          title="コースインデックスを閉じる" 
+          data-placement="right" 
+          data-toggle="tooltip" 
+          data-target="theme_boost-drawers-courseindex" 
+          data-action="closedrawer" 
+          data-toggler="drawers"
+          )
+          i.icon.fa.fa-times.fa-fw(aria-hidden="true")
+        .drawerheadercontent.hidden
+          #courseindexdrawercontrols.dropdown
+            button.btn.btn-icon.rounded-circle.mx-2(
+              title="コースインデックスオプション" 
+              aria-expanded="false" 
+              aria-haspopup="true" 
+              data-toggle="dropdown" 
+              type="button"
+              )
+              i.icon.fa.fa-ellipsis-v.fa-fw.m-0(aria-hidden="true")
+            .dropdown-menu.dropdown-menu-right
+              a.dropdown-item(
+                data-action="expandallcourseindexsections" 
+                href="#"
+                )
+                i.icon.fa.fa-angles-down.fa-fw(aria-hidden="true")
+                | すべてを展開する
+              a.dropdown-item(
+                data-action="collapseallcourseindexsections" 
+                href="#"
+                )
+                span.dir-rtl-hide
+                  i.icon.fa.fa-angles-right.fa-fw(aria-hidden="true")
+                span.dir-ltr-hide
+                  i.icon.fa.fa-angles-left.fa-fw(aria-hidden="true")
+                | すべてを折りたたむ
+      .drawercontent.drag-container(data-usertour="scroller")
+        nav#courseindex.courseindex
+          #courseindex-content
+            #course-index-placeholder(
+              aria-hidden="true" 
+              data-region="loading-placeholder-content"
+              )
+              ul.media-list
+                li.media
+                  .media-body.col-md-6.p-0.d-flex.align-items-center
+                    .bg-pulse-grey.rounded-circle.mr-2
+                    .bg-pulse-grey.w-100
+                li.media
+                  .media-body.col-md-6.p-0.d-flex.align-items-center
+                    .bg-pulse-grey.rounded-circle.mr-2
+                    .bg-pulse-grey.w-100
+                li.media
+                  .media-body.col-md-6.p-0.d-flex.align-items-center
+                    .bg-pulse-grey.rounded-circle.mr-2
+                    .bg-pulse-grey.w-100
+                li.media
+                  .media-body.col-md-6.p-0.d-flex.align-items-center
+                    .bg-pulse-grey.rounded-circle.mr-2
+                    .bg-pulse-grey.w-100
+    #page.drawers.show-drawer-left.drag-container(
+      data-usertour="scroller" 
+      data-region="mainpage"
+      )
+      #topofscroll.main-inner
+        .drawer-toggles.d-flex
+          .drawer-toggler.drawer-left-toggle.open-nav.d-print-none
+            button.btn.icon-no-margin(
+              title="コースインデックスを開く" 
+              data-placement="right" 
+              data-toggle="tooltip" 
+              data-target="theme_boost-drawers-courseindex" 
+              data-action="toggle" 
+              data-toggler="drawers"
+              )
+              span.sr-only コースインデックスを開く
+              i.icon.fa.fa-list.fa-fw(aria-hidden="true")
+        header#page-header.header-maxwidth.d-print-none
+          .w-100
+            .d-flex.flex-wrap
+              #page-navbar
+                nav(aria-label="ナビゲーションバー")
+                  ol.breadcrumb
+              .ml-auto.d-flex
+              #course-header
+            .d-flex.align-items-center
+              .mr-auto
+                .page-context-header
+                  .page-header-headings
+                    h1.h2 WAOテスト講座
+              .header-actions-container.ml-auto(data-region="header-actions-container")
+        .secondary-navigation.d-print-none
+          nav.moremenu.navigation
+            ul#moremenu-68abba5533af4-nav-tabs.nav.more-nav.nav-tabs(role="menubar")
+              li.nav-item(
+                data-forceintomoremenu="false" 
+                role="none" 
+                data-key="coursehome"
+                )
+                a.nav-link.active(
+                  aria-current="true" 
+                  href="https://lms.waomirai.com/course/view.php?id=283" 
+                  class="active_tree_node" 
+                  role="menuitem"
+                  ) コース
+              li.nav-item(
+                data-forceintomoremenu="false" 
+                role="none" 
+                data-key="courseinfo"
+                )
+                a.nav-link(
+                  tabindex="-1" 
+                  href="https://lms.waomirai.com/admin/tool/catalogue/courseinfo.php?id=283" 
+                  role="menuitem"
+                  ) 詳細情報
+              li.nav-item(
+                data-forceintomoremenu="false" 
+                role="none" 
+                data-key="badgesview"
+                )
+                a.nav-link(
+                  tabindex="-1" 
+                  href="https://lms.waomirai.com/badges/view.php?type=2&id=283" 
+                  role="menuitem"
+                  ) バッジ
+              li.nav-item(
+                data-forceintomoremenu="false" 
+                role="none" 
+                data-key="1"
+                )
+                a.nav-link(
+                  tabindex="-1" 
+                  href="https://lms.waomirai.com/local/feedbackviewer/my.php?id=283" 
+                  role="menuitem"
+                  ) フィードバックビューア
+              li.nav-item.dropdown.dropdownmoremenu.d-none(
+                data-region="morebutton" 
+                role="none"
+                )
+                a#moremenu-dropdown-68abba5533af4.dropdown-toggle.nav-link(
+                  tabindex="-1" 
+                  aria-expanded="false" 
+                  aria-haspopup="true" 
+                  data-toggle="dropdown" 
+                  role="menuitem" 
+                  href="#"
+                  ) さらに
+                ul.dropdown-menu.dropdown-menu-left(
+                  role="menu" 
+                  aria-labelledby="moremenu-dropdown-68abba5533af4" 
+                  data-region="moredropdown"
+                  )
+        #page-content.pb-3.d-print-block
+          #region-main-box
+            section#region-main(aria-label="コンテンツ")
+              span#user-notifications.notifications
+              div(role="main")
+                include parts-view-topics-body-content.pug
+      #goto-top-link
+        a#backToTop.btn.btn-light(
+          style="display:none" 
+          href="#" 
+          role="button"
+          )
+          i.icon.fa.fa-arrow-up.fa-fw(
+            aria-label="トップへ戻る" 
+            role="img" 
+            title="トップへ戻る"
+            )
+      footer#page-footer.footer-popover.bg-white
+        div(data-region="footer-container-popover")
+          button.btn.btn-icon.bg-secondary.icon-no-margin.btn-footer-popover(
+            aria-label="フッタを表示する" 
+            data-action="footer-popover"
+            )
+            i.icon.fa.fa-question.fa-fw(aria-hidden="true")
+        .footer-content-popover.container(data-region="footer-content-popover")
+          .footer-section.p-3.border-bottom
+            div
+              a(
+                target="blank" 
+                href="https://go.waomirai.com/index-contact"
+                )
+                i.icon.fa.fa-envelope-o.fa-fw(aria-hidden="true")
+                | お問い合わせ・各種手続き
+                i.icon.fa.fa-external-link.fa-fw.ml-1(aria-hidden="true")
+          .footer-section.p-3.border-bottom
+            .logininfo
               .logininfo
-                .logininfo
-                  | &#x30ED;&#x30B0;&#x30A4;&#x30F3;&#x30E6;&#x30FC;&#x30B6;&#x30FC;&#x540D;&#xFF1A;
-                  a(href='https://lms.waomirai.com/user/profile.php?id=750' title='プロファイルを表示する') &#x3010;&#x30C6;&#x30B9;&#x30C8;&#x3011;&#x5C0F;&#x6797; &#x8B19;&#x592A;&#x90CE;
-                  |  &#x3055;&#x3093; (
-                  a(href='https://lms.waomirai.com/login/logout.php?sesskey=ZjsscW3Ec8') &#x30ED;&#x30B0;&#x30A2;&#x30A6;&#x30C8;
-                  | )
-              .tool_usertours-resettourcontainer
-              br
-              p
-                a(href='https://lms.waomirai.com/course/view.php?id=112' target='_blank' style='text-decoration: revert-layer;') &#xFF1E;&#x3088;&#x304F;&#x3042;&#x308B;&#x3054;&#x8CEA;&#x554F;&#xFF08;&#x304A;&#x554F;&#x3044;&#x5408;&#x308F;&#x305B;&#xFF09;
-              p
-                a(href='https://waomirai.com/commerce_law' target='_blank' style='text-decoration: revert-layer;')
-                  | &#xFF1E;&#x7279;&#x8A31;&#x5546;&#x53D6;&#x5F15;&#x6CD5;&#x306B;&#x57FA;&#x3065;&#x304F;&#x8868;&#x8A18;
-                  i.fa-solid.fa-up-right-from-square(aria-hidden='true')
-              p
-                a(href='https://www.wao-corp.com/privacy/' target='_blank' style='text-decoration: revert-layer;')
-                  | &#xFF1E;&#x30D7;&#x30E9;&#x30A4;&#x30D0;&#x30B7;&#x30FC;&#x30DD;&#x30EA;&#x30B7;&#x30FC;
-                  i.fa-solid.fa-up-right-from-square(aria-hidden='true')
-              p
-                a(href='https://go.waomirai.com/terms' target='_blank' style='text-decoration: revert-layer;')
-                  | &#xFF1E;&#x5229;&#x7528;&#x898F;&#x7D04;
-                  i.fa-solid.fa-up-right-from-square(aria-hidden='true')
-              a(href='https://lms.waomirai.com/?tenant=lmswaomirai')
-                img(src='https://go.waomirai.com/l/1026513/2023-11-16/gddzt/1026513/1700192228BDlbz92f/logo_basic_white.png' width='60%')
-              script.
-                //<![CDATA[
+                | ログインユーザー名：
+                a(
+                  title="プロファイルを表示する" 
+                  href="https://lms.waomirai.com/user/profile.php?id=937"
+                  ) ワオ未来塾お客様検証アカウント ★
+                | さん (
+                a(href="https://lms.waomirai.com/login/logout.php?sesskey=cYJ2qLFXnq") ログアウト
+                | )
+            div(class="tool_usertours-resettourcontainer")
+            br
+            p
+              a(
+                style="text-decoration: revert-layer;" 
+                target="_blank" 
+                href="https://lms.waomirai.com/course/view.php?id=112"
+                ) ＞よくあるご質問（お問い合わせ）
+            p
+              a(
+                style="text-decoration: revert-layer;" 
+                target="_blank" 
+                href="https://waomirai.com/commerce_law"
+                )
+                | ＞特許商取引法に基づく表記
+                i.fa-solid.fa-up-right-from-square
+            p
+              a(
+                style="text-decoration: revert-layer;" 
+                target="_blank" 
+                href="https://www.wao-corp.com/privacy/"
+                )
+                | ＞プライバシーポリシー
+                i.fa-solid.fa-up-right-from-square
+            p
+              a(
+                style="text-decoration: revert-layer;" 
+                target="_blank" 
+                href="https://go.waomirai.com/terms"
+                )
+                | ＞利用規約
+                i.fa-solid.fa-up-right-from-square
+            a(href="https://lms.waomirai.com/?tenant=lmswaomirai")
+              img(
+                width="60%" 
+                src="https://go.waomirai.com/l/1026513/2023-11-16/gddzt/1026513/1700192228BDlbz92f/logo_basic_white.png"
+                )
+            script.
+              //<![CDATA[
                 var require = {
-                baseUrl : 'https://lms.waomirai.com/lib/requirejs.php/1738558509/',
+                baseUrl: 'https://lms.waomirai.com/lib/requirejs.php/1749448559/',
                 // We only support AMD modules with an explicit define() statement.
                 enforceDefine: true,
                 skipDataMain: true,
-                waitSeconds : 0,
+                waitSeconds: 0,
                 paths: {
-                jquery: 'https://lms.waomirai.com/lib/javascript.php/1738558509/lib/jquery/jquery-3.7.1.min',
-                jqueryui: 'https://lms.waomirai.com/lib/javascript.php/1738558509/lib/jquery/ui-1.13.2/jquery-ui.min',
-                jqueryprivate: 'https://lms.waomirai.com/lib/javascript.php/1738558509/lib/requirejs/jquery-private'
+                jquery: 'https://lms.waomirai.com/lib/javascript.php/1749448559/lib/jquery/jquery-3.7.1.min',
+                jqueryui: 'https://lms.waomirai.com/lib/javascript.php/1749448559/lib/jquery/ui-1.13.2/jquery-ui.min',
+                jqueryprivate: 'https://lms.waomirai.com/lib/javascript.php/1749448559/lib/requirejs/jquery-private'
                 },
                 // Custom jquery config map.
                 map: {
@@ -620,141 +563,1208 @@ body#page-course-view-flexsections(class=allID + ' ' + existingClasses)
                 }
                 };
                 //]]>
-              script(src='https://lms.waomirai.com/lib/javascript.php/1738558509/lib/requirejs/require.min.js')
-              script.
-                //<![CDATA[
+            script(src="https://lms.waomirai.com/lib/javascript.php/1749448559/lib/requirejs/require.min.js")
+            script.
+              //<![CDATA[
                 M.util.js_pending("core/first");
-                require(['core/first'], function() {
+                require(['core/first'], function () {
                 require(['core/prefetch'])
                 ;
-                M.util.js_pending('filter_mathjaxloader/loader'); require(['filter_mathjaxloader/loader'], function(amd) {amd.configure({"mathjaxconfig":"\\nMathJax.Hub.Config({\n    config: [\"Accessible.js\", \"Safe.js\"],\n    errorSettings: { message: [\"!\"] },\n    skipStartupTypeset: true,\n    messageStyle: \"none\"\n});\n","lang":"ja"}); M.util.js_complete('filter_mathjaxloader/loader');});;
-                require(["media_videojs/loader"], function(loader) {
+                M.util.js_pending('filter_mathjaxloader/loader'); require(['filter_mathjaxloader/loader'], function (amd) { amd.configure({ "mathjaxconfig": "\nMathJax.Hub.Config({\n  config: [\"Accessible.js\", \"Safe.js\"],\n  errorSettings: { message: [\"!\"] },\n  skipStartupTypeset: true,\n  messageStyle: \"none\"\n});\n", "lang": "ja" }); M.util.js_complete('filter_mathjaxloader/loader'); });;
+                require(["media_videojs/loader"], function (loader) {
                 loader.setUp('ja');
                 });;
-                M.util.js_pending('filter_syntaxhighlighter/hljs'); require(['filter_syntaxhighlighter/hljs'], function(amd) {amd.initHighlighting(); M.util.js_complete('filter_syntaxhighlighter/hljs');});;
-                M.util.js_pending('core_courseformat/courseeditor'); require(['core_courseformat/courseeditor'], function(amd) {amd.setViewFormat("283", {"editing":false,"supportscomponents":true,"statekey":"1741330627_1741330776","overriddenStrings":[{"component":"format_topics","key":"sectionavailability_title"},{"component":"format_topics","key":"sectiondelete_title"},{"component":"format_topics","key":"sectionsdelete_title"},{"component":"format_topics","key":"sectionsdelete_info"},{"component":"format_topics","key":"sectionmove_title"},{"component":"format_topics","key":"sectionsavailability_title"},{"component":"format_topics","key":"sectionsmove_title"},{"component":"format_topics","key":"sectionsmove_info"},{"component":"format_topics","key":"selectsection"}]}); M.util.js_complete('core_courseformat/courseeditor');});;
-                require(['core_courseformat/local/courseindex/placeholder'], function(component) {
+                M.util.js_pending('filter_syntaxhighlighter/hljs'); require(['filter_syntaxhighlighter/hljs'], function (amd) { amd.initHighlighting(); M.util.js_complete('filter_syntaxhighlighter/hljs'); });;
+                M.util.js_pending('core_courseformat/courseeditor'); require(['core_courseformat/courseeditor'], function (amd) { amd.setViewFormat("283", { "editing": false, "supportscomponents": true, "statekey": "1756084688_1756084730", "overriddenStrings": [{ "component": "format_topics", "key": "sectionavailability_title" }, { "component": "format_topics", "key": "sectiondelete_title" }, { "component": "format_topics", "key": "sectionsdelete_title" }, { "component": "format_topics", "key": "sectionsdelete_info" }, { "component": "format_topics", "key": "sectionmove_title" }, { "component": "format_topics", "key": "sectionsavailability_title" }, { "component": "format_topics", "key": "sectionsmove_title" }, { "component": "format_topics", "key": "sectionsmove_info" }, { "component": "format_topics", "key": "selectsection" }] }); M.util.js_complete('core_courseformat/courseeditor'); });;
+                require(['core_courseformat/local/courseindex/placeholder'], function (component) {
                 component.init('course-index-placeholder');
                 });
                 ;
-                require(['core_courseformat/local/courseindex/drawer'], function(component) {
+                require(['core_courseformat/local/courseindex/drawer'], function (component) {
                 component.init('courseindex');
                 });
                 ;
-                M.util.js_pending('theme_kenai/gototop'); require(['theme_kenai/gototop'], function(amd) {amd.init(); M.util.js_complete('theme_kenai/gototop');});;
-                require(['core/moremenu'], function(moremenu) {
-                moremenu(document.querySelector('#moremenu-67ca995af1f54-navbar-nav'));
+                M.util.js_pending('theme_kenai/gototop'); require(['theme_kenai/gototop'], function (amd) { amd.init(); M.util.js_complete('theme_kenai/gototop'); });;
+                require(['core/moremenu'], function (moremenu) {
+                moremenu(document.querySelector('#moremenu-68abba5533c30-navbar-nav'));
                 });
                 ;
-                require(['jquery', 'message_popup/notification_popover_controller'], function($, Controller) {
+                require(['jquery', 'message_popup/notification_popover_controller'], function ($, Controller) {
                 var container = $('#nav-notification-popover-container');
                 var controller = new Controller(container);
                 controller.registerEventListeners();
                 controller.registerListNavigationEventListeners();
                 });
                 ;
-                require(['core/usermenu'], function(UserMenu) {
+                require(
+                [
+                'jquery',
+                'core_message/message_popover'
+                ],
+                function (
+                $,
+                Popover
+                ) {
+                var toggle = $('#message-drawer-toggle-68abba55368e768abba5531a364');
+                Popover.init(toggle);
+                });
+                ;
+                require(['core/usermenu'], function (UserMenu) {
                 UserMenu.init();
                 });
                 ;
                 require(['theme_boost/drawers']);
                 ;
-                require(['theme_boost/courseindexdrawercontrols'], function(component) {
+                require(['theme_boost/courseindexdrawercontrols'], function (component) {
                 component.init('courseindexdrawercontrols');
                 });
                 ;
                 require(['theme_boost/drawers']);
                 ;
-                require(['core/moremenu'], function(moremenu) {
-                moremenu(document.querySelector('#moremenu-67ca995af1e21-nav-tabs'));
+                require(['core/moremenu'], function (moremenu) {
+                moremenu(document.querySelector('#moremenu-68abba5533af4-nav-tabs'));
                 });
                 ;
-                require(['theme_boost/footer-popover'], function(FooterPopover) {
+                require(['theme_boost/footer-popover'], function (FooterPopover) {
                 FooterPopover.init();
                 });
                 ;
+                require(['jquery', 'core_message/message_drawer'], function ($, MessageDrawer) {
+                var root = $('#message-drawer-68abba553ac2568abba5531a367');
+                MessageDrawer.init(root, '68abba553ac2568abba5531a367', false);
+                });
+                ;
                 M.util.js_pending('theme_boost/loader');
-                require(['theme_boost/loader', 'theme_boost/drawer'], function(Loader, Drawer) {
+                require(['theme_boost/loader', 'theme_boost/drawer'], function (Loader, Drawer) {
                 Drawer.init();
                 M.util.js_complete('theme_boost/loader');
                 });
                 ;
-                M.util.js_pending('core_courseformat/courseeditor'); require(['core_courseformat/courseeditor'], function(amd) {amd.setViewFormat("283", {"editing":false,"supportscomponents":true,"statekey":"1741330627_1741330776","overriddenStrings":[{"component":"format_topics","key":"sectionavailability_title"},{"component":"format_topics","key":"sectiondelete_title"},{"component":"format_topics","key":"sectionsdelete_title"},{"component":"format_topics","key":"sectionsdelete_info"},{"component":"format_topics","key":"sectionmove_title"},{"component":"format_topics","key":"sectionsavailability_title"},{"component":"format_topics","key":"sectionsmove_title"},{"component":"format_topics","key":"sectionsmove_info"},{"component":"format_topics","key":"selectsection"}]}); M.util.js_complete('core_courseformat/courseeditor');});;
-                M.util.js_pending('format_topics/mutations'); require(['format_topics/mutations'], function(amd) {amd.init(); M.util.js_complete('format_topics/mutations');});;
-                M.util.js_pending('format_topics/section'); require(['format_topics/section'], function(amd) {amd.init(); M.util.js_complete('format_topics/section');});;
-                require(['core/local/dropdown/dialog'], function(Module) {
-                Module.init('#' + 'dropdownDialog_67ca995aef2376');
+                M.util.js_pending('core_courseformat/courseeditor'); require(['core_courseformat/courseeditor'], function (amd) { amd.setViewFormat("283", { "editing": false, "supportscomponents": true, "statekey": "1756084688_1756084730", "overriddenStrings": [{ "component": "format_topics", "key": "sectionavailability_title" }, { "component": "format_topics", "key": "sectiondelete_title" }, { "component": "format_topics", "key": "sectionsdelete_title" }, { "component": "format_topics", "key": "sectionsdelete_info" }, { "component": "format_topics", "key": "sectionmove_title" }, { "component": "format_topics", "key": "sectionsavailability_title" }, { "component": "format_topics", "key": "sectionsmove_title" }, { "component": "format_topics", "key": "sectionsmove_info" }, { "component": "format_topics", "key": "selectsection" }] }); M.util.js_complete('core_courseformat/courseeditor'); });;
+                M.util.js_pending('format_topics/mutations'); require(['format_topics/mutations'], function (amd) { amd.init(); M.util.js_complete('format_topics/mutations'); });;
+                M.util.js_pending('format_topics/section'); require(['format_topics/section'], function (amd) { amd.init(); M.util.js_complete('format_topics/section'); });;
+                require(['core/local/dropdown/dialog'], function (Module) {
+                Module.init('#' + 'dropdownDialog_68abba5531a368');
                 });
                 ;
-                require(['core/local/dropdown/dialog'], function(Module) {
-                Module.init('#' + 'dropdownDialog_67ca995aef2378');
+                require(['core/local/dropdown/dialog'], function (Module) {
+                Module.init('#' + 'dropdownDialog_68abba5531a3610');
                 });
                 ;
-                require(['core/local/dropdown/dialog'], function(Module) {
-                Module.init('#' + 'dropdownDialog_67ca995aef23710');
+                require(['core/local/dropdown/dialog'], function (Module) {
+                Module.init('#' + 'dropdownDialog_68abba5531a3612');
                 });
                 ;
-                require(['core/local/dropdown/dialog'], function(Module) {
-                Module.init('#' + 'dropdownDialog_67ca995aef23712');
+                require(['core/local/dropdown/dialog'], function (Module) {
+                Module.init('#' + 'dropdownDialog_68abba5531a3614');
                 });
                 ;
-                require(['core/local/dropdown/dialog'], function(Module) {
-                Module.init('#' + 'dropdownDialog_67ca995aef23714');
+                require(['core/local/dropdown/dialog'], function (Module) {
+                Module.init('#' + 'dropdownDialog_68abba5531a3616');
                 });
                 ;
-                require(['core/local/dropdown/dialog'], function(Module) {
-                Module.init('#' + 'dropdownDialog_67ca995aef23716');
+                require(['core/local/dropdown/dialog'], function (Module) {
+                Module.init('#' + 'dropdownDialog_68abba5531a3618');
                 });
                 ;
-                require(['core_courseformat/local/content'], function(component) {
-                component.init('course-format-67ca995b0e0b767ca995aef23718', {}, 0);
+                require(['core_courseformat/local/content'], function (component) {
+                component.init('course-format-68abba554630268abba5531a3620', {}, 0);
                 });
                 ;
-                M.util.js_pending('core_course/view'); require(['core_course/view'], function(amd) {amd.init(); M.util.js_complete('core_course/view');});;
-                M.util.js_pending('theme_kenai/forcedfooter'); require(['theme_kenai/forcedfooter'], function(amd) {amd.init("<div id=\\"forced-footer\">\n    \u00a9\ufe0fWAO CORPORATION\n<\/div>"); M.util.js_complete('theme_kenai/forcedfooter');});;
-                M.util.js_pending('core/notification'); require(['core/notification'], function(amd) {amd.init(2846, []); M.util.js_complete('core/notification');});;
-                M.util.js_pending('core/log'); require(['core/log'], function(amd) {amd.setConfig({"level":"warn"}); M.util.js_complete('core/log');});;
-                M.util.js_pending('core/page_global'); require(['core/page_global'], function(amd) {amd.init(); M.util.js_complete('core/page_global');});;
-                M.util.js_pending('core/utility'); require(['core/utility'], function(amd) {M.util.js_complete('core/utility');});
+                M.util.js_pending('core_course/view'); require(['core_course/view'], function (amd) { amd.init(); M.util.js_complete('core_course/view'); });;
+                M.util.js_pending('theme_kenai/forcedfooter'); require(['theme_kenai/forcedfooter'], function (amd) { amd.init("<div id=\"forced-footer\">\n  \u00a9\ufe0fWAO CORPORATION\n<\/div>"); M.util.js_complete('theme_kenai/forcedfooter'); });;
+                M.util.js_pending('core/notification'); require(['core/notification'], function (amd) { amd.init(2846, []); M.util.js_complete('core/notification'); });;
+                M.util.js_pending('core/log'); require(['core/log'], function (amd) { amd.setConfig({ "level": "warn" }); M.util.js_complete('core/log'); });;
+                M.util.js_pending('core/page_global'); require(['core/page_global'], function (amd) { amd.init(); M.util.js_complete('core/page_global'); });;
+                M.util.js_pending('core/utility'); require(['core/utility'], function (amd) { M.util.js_complete('core/utility'); });
                 M.util.js_complete("core/first");
                 });
                 //]]>
-              script(src='https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js?delayStartupUntil=configured')
-              script(src='https://lms.waomirai.com/lib/javascript.php/1738558509/course/format/topics/format.js')
-              script.
-                //<![CDATA[
-                M.str = {"moodle":{"lastmodified":"\\u6700\u7d42\u66f4\u65b0\u65e5\u6642","name":"\u540d\u79f0","error":"\u30a8\u30e9\u30fc","info":"\u60c5\u5831","yes":"Yes","no":"No","cancel":"\u30ad\u30e3\u30f3\u30bb\u30eb","confirm":"\u78ba\u8a8d","areyousure":"\u672c\u5f53\u306b\u3088\u308d\u3057\u3044\u3067\u3059\u304b?","closebuttontitle":"\u9589\u3058\u308b","unknownerror":"\u4e0d\u660e\u306a\u30a8\u30e9\u30fc","file":"\u30d5\u30a1\u30a4\u30eb","url":"URL","collapseall":"\u3059\u3079\u3066\u3092\u6298\u308a\u305f\u305f\u3080","expandall":"\u3059\u3079\u3066\u3092\u5c55\u958b\u3059\u308b"},"repository":{"type":"\u30bf\u30a4\u30d7","size":"\u30b5\u30a4\u30ba","invalidjson":"\u7121\u52b9\u306aJSON\u30b9\u30c8\u30ea\u30f3\u30b0\u3067\u3059\u3002","nofilesattached":"\u6dfb\u4ed8\u3055\u308c\u3066\u3044\u308b\u30d5\u30a1\u30a4\u30eb\u306f\u3042\u308a\u307e\u305b\u3093\u3002","filepicker":"\u30d5\u30a1\u30a4\u30eb\u30d4\u30c3\u30ab","logout":"\u30ed\u30b0\u30a2\u30a6\u30c8","nofilesavailable":"\u5229\u7528\u3067\u304d\u308b\u30d5\u30a1\u30a4\u30eb\u306f\u3042\u308a\u307e\u305b\u3093\u3002","norepositoriesavailable":"\u7533\u3057\u8a33\u3054\u3056\u3044\u307e\u305b\u3093\u3001\u73fe\u5728\u306e\u3042\u306a\u305f\u306e\u30ea\u30dd\u30b8\u30c8\u30ea\u3067\u306f\u6240\u8981\u306e\u30d5\u30a9\u30fc\u30de\u30c3\u30c8\u306e\u30d5\u30a1\u30a4\u30eb\u3092\u8fd4\u3059\u3053\u3068\u304c\u3067\u304d\u307e\u305b\u3093\u3002","fileexistsdialogheader":"\u30d5\u30a1\u30a4\u30eb\u767b\u9332\u6e08\u307f","fileexistsdialog_editor":"\u305d\u306e\u30d5\u30a1\u30a4\u30eb\u540d\u306e\u30d5\u30a1\u30a4\u30eb\u306f\u3042\u306a\u305f\u304c\u7de8\u96c6\u3057\u3066\u3044\u308b\u30c6\u30ad\u30b9\u30c8\u306b\u3059\u3067\u306b\u6dfb\u4ed8\u3055\u308c\u3066\u3044\u307e\u3059\u3002","fileexistsdialog_filemanager":"\u540c\u4e00\u30d5\u30a1\u30a4\u30eb\u540d\u306e\u30d5\u30a1\u30a4\u30eb\u304c\u3059\u3067\u306b\u6dfb\u4ed8\u3055\u308c\u3066\u3044\u307e\u3059\u3002","renameto":"\u30ea\u30cd\u30fc\u30e0 -> {$a}","referencesexist":"\u3053\u306e\u30d5\u30a1\u30a4\u30eb\u306b\u306f {$a} \u4ef6\u306e\u30ea\u30f3\u30af\u304c\u3042\u308a\u307e\u3059\u3002","select":"\u9078\u629e"},"admin":{"confirmdeletecomments":"\u672c\u5f53\u306b\u9078\u629e\u3057\u305f\u30b3\u30e1\u30f3\u30c8\u3092\u524a\u9664\u3057\u3066\u3082\u3088\u308d\u3057\u3044\u3067\u3059\u304b?","confirmation":"\u78ba\u8a8d"},"debug":{"debuginfo":"\u30c7\u30d0\u30c3\u30b0\u60c5\u5831","line":"\u884c","stacktrace":"\u30b9\u30bf\u30c3\u30af\u30c8\u30ec\u30fc\u30b9"},"langconfig":{"labelsep":":"}};
+            script(src="https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js?delayStartupUntil=configured")
+            script(
+              src="https://lms.waomirai.com/lib/javascript.php/1749448559/course/format/topics/format.js"
+              )
+            script.
+              //<![CDATA[
+                M.str = { "moodle": { "lastmodified": "\u6700\u7d42\u66f4\u65b0\u65e5\u6642", "name": "\u540d\u79f0", "error": "\u30a8\u30e9\u30fc", "info": "\u60c5\u5831", "yes": "Yes", "no": "No", "cancel": "\u30ad\u30e3\u30f3\u30bb\u30eb", "confirm": "\u78ba\u8a8d", "areyousure": "\u672c\u5f53\u306b\u3088\u308d\u3057\u3044\u3067\u3059\u304b?", "closebuttontitle": "\u9589\u3058\u308b", "unknownerror": "\u4e0d\u660e\u306a\u30a8\u30e9\u30fc", "file": "\u30d5\u30a1\u30a4\u30eb", "url": "URL", "collapseall": "\u3059\u3079\u3066\u3092\u6298\u308a\u305f\u305f\u3080", "expandall": "\u3059\u3079\u3066\u3092\u5c55\u958b\u3059\u308b" }, "repository": { "type": "\u30bf\u30a4\u30d7", "size": "\u30b5\u30a4\u30ba", "invalidjson": "\u7121\u52b9\u306aJSON\u30b9\u30c8\u30ea\u30f3\u30b0\u3067\u3059\u3002", "nofilesattached": "\u6dfb\u4ed8\u3055\u308c\u3066\u3044\u308b\u30d5\u30a1\u30a4\u30eb\u306f\u3042\u308a\u307e\u305b\u3093\u3002", "filepicker": "\u30d5\u30a1\u30a4\u30eb\u30d4\u30c3\u30ab", "logout": "\u30ed\u30b0\u30a2\u30a6\u30c8", "nofilesavailable": "\u5229\u7528\u3067\u304d\u308b\u30d5\u30a1\u30a4\u30eb\u306f\u3042\u308a\u307e\u305b\u3093\u3002", "norepositoriesavailable": "\u7533\u3057\u8a33\u3054\u3056\u3044\u307e\u305b\u3093\u3001\u73fe\u5728\u306e\u3042\u306a\u305f\u306e\u30ea\u30dd\u30b8\u30c8\u30ea\u3067\u306f\u6240\u8981\u306e\u30d5\u30a9\u30fc\u30de\u30c3\u30c8\u306e\u30d5\u30a1\u30a4\u30eb\u3092\u8fd4\u3059\u3053\u3068\u304c\u3067\u304d\u307e\u305b\u3093\u3002", "fileexistsdialogheader": "\u30d5\u30a1\u30a4\u30eb\u767b\u9332\u6e08\u307f", "fileexistsdialog_editor": "\u305d\u306e\u30d5\u30a1\u30a4\u30eb\u540d\u306e\u30d5\u30a1\u30a4\u30eb\u306f\u3042\u306a\u305f\u304c\u7de8\u96c6\u3057\u3066\u3044\u308b\u30c6\u30ad\u30b9\u30c8\u306b\u3059\u3067\u306b\u6dfb\u4ed8\u3055\u308c\u3066\u3044\u307e\u3059\u3002", "fileexistsdialog_filemanager": "\u540c\u4e00\u30d5\u30a1\u30a4\u30eb\u540d\u306e\u30d5\u30a1\u30a4\u30eb\u304c\u3059\u3067\u306b\u6dfb\u4ed8\u3055\u308c\u3066\u3044\u307e\u3059\u3002", "renameto": "\u30ea\u30cd\u30fc\u30e0 -> {$a}", "referencesexist": "\u3053\u306e\u30d5\u30a1\u30a4\u30eb\u306b\u306f {$a} \u4ef6\u306e\u30ea\u30f3\u30af\u304c\u3042\u308a\u307e\u3059\u3002", "select": "\u9078\u629e" }, "admin": { "confirmdeletecomments": "\u672c\u5f53\u306b\u9078\u629e\u3057\u305f\u30b3\u30e1\u30f3\u30c8\u3092\u524a\u9664\u3057\u3066\u3082\u3088\u308d\u3057\u3044\u3067\u3059\u304b?", "confirmation": "\u78ba\u8a8d" }, "debug": { "debuginfo": "\u30c7\u30d0\u30c3\u30b0\u60c5\u5831", "line": "\u884c", "stacktrace": "\u30b9\u30bf\u30c3\u30af\u30c8\u30ec\u30fc\u30b9" }, "langconfig": { "labelsep": ":" } };
                 //]]>
-              script.
-                //<![CDATA[
-                (function() {document.body.className += ' course-id-283 course-id-206 course-id-268 course-id-266 course-id-265';
+            script.
+              //<![CDATA[
+                (function () {
+                document.body.className += ' course-id-319 course-id-283 course-id-271 course-id-270 course-id-259 course-id-258 course-id-257 course-id-256 course-id-255 course-id-264 course-id-263 course-id-262 course-id-261 course-id-260 course-id-269 course-id-268 course-id-267 course-id-266 course-id-265 course-id-130 course-id-135 course-id-138 course-id-284 course-id-313 course-id-312 course-id-311 course-id-310 course-id-309 course-id-308 course-id-307 course-id-306 course-id-305 course-id-304 course-id-303 course-id-302 course-id-301 course-id-300 course-id-299 course-id-298 course-id-297 course-id-296 course-id-295 course-id-294 course-id-293 course-id-292 course-id-291 course-id-290 course-id-289 course-id-288 course-id-287 course-id-286 course-id-285';
                 M.util.help_popups.setup(Y);
-                M.util.js_pending('random67ca995aef23719'); Y.on('domready', function() { M.util.js_complete("init");  M.util.js_complete('random67ca995aef23719'); });
+                M.util.js_pending('random68abba5531a3621'); Y.on('domready', function () { M.util.js_complete("init"); M.util.js_complete('random68abba5531a3621'); });
                 })();
                 //]]>
-            .footer-section.p-3
-              span Powered by
-              a(href='https://moodle.com/workplace/' target='_blank')
-                | Moodle Workplace
-          .footer-content-debugging.footer-dark.bg-dark.text-light
-            .container-fluid.footer-dark-inner
-      div
-        #forced-footer
-          | &copy;&#xFE0F;WAO CORPORATION
-    #yui3-css-stamp(style='position: absolute !important; visibility: hidden !important')
-    script(type='text/javascript' id='' charset='').
-      piAId="1027513";piCId="";piHostname="go.waomirai.com";(function(){function b(){var a=document.createElement("script");a.type="text/javascript";a.src=("https:"==document.location.protocol?"https://":"http://")+piHostname+"/pd.js";var c=document.getElementsByTagName("script")[0];c.parentNode.insertBefore(a,c)}window.attachEvent?window.attachEvent("onload",b):window.addEventListener("load",b,!1)})();
-    iframe(height='0' width='0' style='display: none; visibility: hidden;')
-    div(style='display: none; visibility: hidden;')
-      script(async='null' src='https://s.yimg.jp/images/listing/tool/cv/ytag.js')
-      script.
-        window.yjDataLayer=window.yjDataLayer||[];function ytag(){yjDataLayer.push(arguments)}ytag({type:"yss_retargeting",config:{yahoo_ss_retargeting_id:"1001324905",yahoo_sstag_custom_params:{}}});
-    div(style='display: none; visibility: hidden;')
-      script.
-        !function(b,e,f,g,a,c,d){b.fbq||(a=b.fbq=function(){a.callMethod?a.callMethod.apply(a,arguments):a.queue.push(arguments)},b._fbq||(b._fbq=a),a.push=a,a.loaded=!0,a.version="2.0",a.queue=[],c=e.createElement(f),c.async=!0,c.src=g,d=e.getElementsByTagName(f)[0],d.parentNode.insertBefore(c,d))}(window,document,"script","https://connect.facebook.net/en_US/fbevents.js");fbq("init","991613366033962");fbq("track","PageView");
-      noscript
-    div(style='display: none; visibility: hidden;')
-      script.
-        !function(d,g,e){d.TiktokAnalyticsObject=e;var a=d[e]=d[e]||[];a.methods="page track identify instances debug on off once ready alias group enableCookie disableCookie holdConsent revokeConsent grantConsent".split(" ");a.setAndDefer=function(b,c){b[c]=function(){b.push([c].concat(Array.prototype.slice.call(arguments,0)))}};for(d=0;d<a.methods.length;d++)a.setAndDefer(a,a.methods[d]);a.instance=function(b){b=a._i[b]||[];for(var c=0;c<a.methods.length;c++)a.setAndDefer(b,a.methods[c]);return b};a.load=
-        function(b,c){var f="https://analytics.tiktok.com/i18n/pixel/events.js";a._i=a._i||{};a._i[b]=[];a._i[b]._u=f;a._t=a._t||{};a._t[b]=+new Date;a._o=a._o||{};a._o[b]=c||{};c=document.createElement("script");c.type="text/javascript";c.async=!0;c.src=f+"?sdkid\\x3d"+b+"\x26lib\x3d"+e;b=document.getElementsByTagName("script")[0];b.parentNode.insertBefore(c,b)};a.load("CQUN883C77U0JHDT5O1G");a.page()}(window,document,"ttq");
-    iframe(allow='join-ad-interest-group' data-tagging-id='AW-16476562618' data-load-time='1741330779522' height='0' width='0' src='https://td.doubleclick.net/td/rul/16476562618?random=1741330779521&cv=11&fst=1741330779521&fmt=3&bg=ffffff&guid=ON&async=1&gtm=45be5360z89171708627za201zb9171715086&gcd=13l3l3l3l1l1&dma=0&tag_exp=102067808~102482433~102539968~102587591~102640600~102693808~102717422~102788824&u_w=1920&u_h=1080&url=https%3A%2F%2Flms.waomirai.com%2Fcourse%2Fview.php%3Fid%3D283&ref=https%3A%2F%2Flms.waomirai.com%2Fmod%2Fquestionnaire%2Fview.php%3Fid%3D1312&hn=www.googleadservices.com&frm=0&tiba=%E3%82%B3%E3%83%BC%E3%82%B9%3A%20WAO%E3%83%86%E3%82%B9%E3%83%88%E8%AC%9B%E5%BA%A7%20%7C%20%E3%83%AF%E3%82%AA%E6%9C%AA%E6%9D%A5%E5%A1%BE%20%E5%AD%A6%E7%BF%92%E3%83%9D%E3%83%BC%E3%82%BF%E3%83%AB&npa=0&pscdl=noapi&auid=1736632518.1741329557&uaa=arm&uab=64&uafvl=Not(A%253ABrand%3B99.0.0.0%7CGoogle%2520Chrome%3B133.0.6943.142%7CChromium%3B133.0.6943.142&uamb=0&uam=&uap=macOS&uapv=14.6.1&uaw=0&fledge=1&_tu=Cg' style='display: none; visibility: hidden;')
+          .footer-section.p-3
+            span Powered by
+            a(
+              target="_blank" 
+              href="https://moodle.com/workplace/"
+              ) Moodle Workplace
+        .footer-content-debugging.footer-dark.bg-dark.text-light
+          .container-fluid.footer-dark-inner
+    #drawer-68abba553ac2568abba5531a367.drawer.bg-white.hidden(
+      tabindex="0" 
+      role="region" 
+      data-region="right-hand-drawer" 
+      aria-hidden="true" 
+      aria-expanded="false"
+      )
+      #message-drawer-68abba553ac2568abba5531a367.message-app(
+        role="region" 
+        data-region="message-drawer"
+        )
+        .closewidget.text-right.pr-2
+          a.text-dark.btn-link(
+            aria-label="閉じる" 
+            title="閉じる" 
+            href="#" 
+            data-action="closedrawer"
+            )
+            i.icon.fa.fa-window-close.fa-fw(aria-hidden="true")
+        .header-container.position-relative(data-region="header-container")
+          .hidden.border-bottom.p-1.px-sm-2(
+            data-region="view-contacts" 
+            aria-hidden="true"
+            )
+            .d-flex.align-items-center
+              .align-self-stretch
+                a.h-100.d-flex.align-items-center.mr-2(
+                  role="button" 
+                  data-route-back="" 
+                  href="#"
+                  )
+                  .icon-back-in-drawer
+                    span.dir-rtl-hide
+                      i.icon.fa.fa-chevron-left.fa-fw(aria-hidden="true")
+                    span.dir-ltr-hide
+                      i.icon.fa.fa-chevron-right.fa-fw(aria-hidden="true")
+                  .icon-back-in-app
+                    span.dir-rtl-hide
+                      i.icon.fa.fa-times.fa-fw(aria-hidden="true")
+              div コンタクト
+              .ml-auto
+                a(
+                  aria-label="検索" 
+                  role="button" 
+                  data-route="view-search" 
+                  href="#"
+                  )
+                  i.icon.fa.fa-search.fa-fw(aria-hidden="true")
+          .hidden.bg-white.position-relative.border-bottom.p-1.px-sm-2(
+            data-region="view-conversation" 
+            aria-hidden="true"
+            )
+            .hidden(data-region="header-content")
+            .hidden(data-region="header-edit-mode")
+              .d-flex.p-2.align-items-center
+                | 選択済みメッセージ:
+                span.ml-1(data-region="message-selected-court") 1
+                button.ml-auto.close(
+                  data-action="cancel-edit-mode" 
+                  aria-label="メッセージ選択を解除する" 
+                  type="button"
+                  )
+                  span(aria-hidden="true") ×
+            div(data-region="header-placeholder")
+              .d-flex
+                .ml-2.rounded-circle.bg-pulse-grey.align-self-center(style="height: 38px; width: 38px")
+                .ml-2(style="flex: 1")
+                  .mt-1.bg-pulse-grey.w-75(style="height: 16px;")
+                .ml-2.bg-pulse-grey.align-self-center(style="height: 16px; width: 20px")
+            .hidden.position-absolute.z-index-1(
+              style="top: 0; bottom: -1px; right: 0; left: 0; background: rgba(0,0,0,0.3);" 
+              data-region="confirm-dialogue-container"
+              )
+          .border-bottom.p-1.px-sm-2(
+            data-region="view-overview" 
+            aria-hidden="false"
+            )
+            .d-flex.align-items-center
+              .input-group.simplesearchform
+                input.form-control(
+                  data-region="view-overview-search-input" 
+                  aria-label="検索" 
+                  placeholder="検索" 
+                  type="text"
+                  )
+                .input-group-append
+                  span.icon-no-margin.btn.btn-submit
+                    i.icon.fa.fa-search.fa-fw(aria-hidden="true")
+            .text-right.mt-sm-3
+              a(
+                role="button" 
+                data-route="view-contacts" 
+                href="#"
+                )
+                i.icon.fa.fa-user.fa-fw(aria-hidden="true")
+                | コンタクト
+                span.badge.badge-primary.bg-primary.ml-2.hidden(data-region="contact-request-count")
+                  span(aria-hidden="true") 0
+                  span.sr-only 0 件の保留コンタクトリクエストがあります。
+          .hidden.border-bottom.p-1.px-sm-2.view-search(
+            data-region="view-search" 
+            aria-hidden="true"
+            )
+            .d-flex.align-items-center
+              a.mr-2.align-self-stretch.d-flex.align-items-center(
+                role="button" 
+                data-action="cancel-search" 
+                data-route-back="" 
+                href="#"
+                )
+                .icon-back-in-drawer
+                  span.dir-rtl-hide
+                    i.icon.fa.fa-chevron-left.fa-fw(aria-hidden="true")
+                  span.dir-ltr-hide
+                    i.icon.fa.fa-chevron-right.fa-fw(aria-hidden="true")
+                .icon-back-in-app
+                  span.dir-rtl-hide
+                    i.icon.fa.fa-times.fa-fw(aria-hidden="true")
+              .input-group.simplesearchform
+                input.form-control(
+                  data-region="search-input" 
+                  aria-label="検索" 
+                  placeholder="検索" 
+                  type="text"
+                  )
+                .input-group-append
+                  button.btn.btn-submit.icon-no-margin(
+                    aria-label="検索" 
+                    data-action="search" 
+                    type="button"
+                    )
+                    span(data-region="search-icon-container")
+                      i.icon.fa.fa-search.fa-fw(aria-hidden="true")
+                    span.hidden(data-region="loading-icon-container")
+                      span.loading-icon.icon-no-margin
+                        i.icon.fa.fa-circle-o-notch.fa-spin.fa-fw(
+                          aria-label="読み込み中" 
+                          role="img" 
+                          title="読み込み中"
+                          )
+          .hidden.border-bottom.p-1.px-sm-2.pb-sm-3(
+            data-region="view-settings" 
+            aria-hidden="true"
+            )
+            .d-flex.align-items-center
+              .align-self-stretch
+                a.h-100.d-flex.mr-2.align-items-center(
+                  role="button" 
+                  data-route-back="" 
+                  href="#"
+                  )
+                  .icon-back-in-drawer
+                    span.dir-rtl-hide
+                      i.icon.fa.fa-chevron-left.fa-fw(aria-hidden="true")
+                    span.dir-ltr-hide
+                      i.icon.fa.fa-chevron-right.fa-fw(aria-hidden="true")
+                  .icon-back-in-app
+                    span.dir-rtl-hide
+                      i.icon.fa.fa-times.fa-fw(aria-hidden="true")
+              div 設定
+        .body-container.position-relative(data-region="body-container")
+          .hidden(
+            aria-hidden="true" 
+            data-region="view-contact"
+            )
+            .p-2.pt-3(data-region="content-container")
+          .hidden.h-100(
+            data-user-id="937" 
+            aria-hidden="true" 
+            data-region="view-contacts"
+            )
+            .d-flex.flex-column.h-100
+              .p-3.border-bottom
+                ul.nav.nav-pills.nav-fill(role="tablist")
+                  li.nav-item
+                    a#contacts-tab-68abba553ac2568abba5531a367.nav-link.active(
+                      aria-selected="true" 
+                      aria-controls="contacts-tab-panel-68abba553ac2568abba5531a367" 
+                      role="tab" 
+                      data-action="show-contacts-section" 
+                      data-toggle="tab" 
+                      href="#contacts-tab-panel-68abba553ac2568abba5531a367"
+                      ) コンタクト
+                  li.nav-item
+                    a#requests-tab-68abba553ac2568abba5531a367.nav-link(
+                      aria-selected="false" 
+                      aria-controls="requests-tab-panel-68abba553ac2568abba5531a367" 
+                      role="tab" 
+                      data-action="show-requests-section" 
+                      data-toggle="tab" 
+                      href="#requests-tab-panel-68abba553ac2568abba5531a367"
+                      )
+                      | リクエスト
+                      span.badge.badge-primary.bg-primary.ml-2.hidden(data-region="contact-request-count")
+                        span(aria-hidden="true") 0
+                        span.sr-only 0 件の保留コンタクトリクエストがあります。
+              .tab-content.d-flex.flex-column.h-100
+                #contacts-tab-panel-68abba553ac2568abba5531a367.tab-pane.fade.show.active.h-100.lazy-load-list(
+                  aria-labelledby="contacts-tab-68abba553ac2568abba5531a367" 
+                  role="tabpanel" 
+                  data-section="contacts" 
+                  data-user-id="937" 
+                  data-region="lazy-load-list" 
+                  aria-live="polite"
+                  )
+                  .hidden.text-center.p-2(data-region="empty-message-container") コンタクトなし
+                  .hidden.list-group(data-region="content-container")
+                  .list-group(data-region="placeholder-container")
+                  .w-100.text-center.p-3.hidden(data-region="loading-icon-container")
+                    span.loading-icon.icon-no-margin
+                      i.icon.fa.fa-circle-o-notch.fa-spin.fa-fw(
+                        aria-label="読み込み中" 
+                        role="img" 
+                        title="読み込み中"
+                        )
+                #requests-tab-panel-68abba553ac2568abba5531a367.tab-pane.fade.h-100.lazy-load-list(
+                  aria-labelledby="requests-tab-68abba553ac2568abba5531a367" 
+                  role="tabpanel" 
+                  data-section="requests" 
+                  data-user-id="937" 
+                  data-region="lazy-load-list" 
+                  aria-live="polite"
+                  )
+                  .hidden.text-center.p-2(data-region="empty-message-container") コンタクトリストはありません。
+                  .hidden.list-group(data-region="content-container")
+                  .list-group(data-region="placeholder-container")
+                  .w-100.text-center.p-3.hidden(data-region="loading-icon-container")
+                    span.loading-icon.icon-no-margin
+                      i.icon.fa.fa-circle-o-notch.fa-spin.fa-fw(
+                        aria-label="読み込み中" 
+                        role="img" 
+                        title="読み込み中"
+                        )
+          .view-conversation.hidden.h-100(
+            style="overflow-y: auto; overflow-x: hidden" 
+            data-message-poll-after-max="300" 
+            data-message-poll-max="120" 
+            data-message-poll-min="10" 
+            data-midnight="1756047600" 
+            data-user-id="937" 
+            data-region="view-conversation" 
+            aria-hidden="true"
+            )
+            .position-relative.h-100(
+              style="overflow-y: auto; overflow-x: hidden" 
+              data-region="content-container"
+              )
+              .content-message-container.hidden.h-100.px-2.pt-0(
+                style="overflow-y: auto; overflow-x: hidden" 
+                role="log" 
+                data-region="content-message-container"
+                )
+                .py-3.sticky-top.z-index-1.border-bottom.text-center.hidden(data-region="contact-request-sent-message-container")
+                  p.m-0 コンタクトリクエストが送信されました。
+                  p.font-italic.font-weight-light(data-region="text")
+                .p-3.text-center.hidden(data-region="self-conversation-message-container")
+                  p.m-0 パーソナルスペース
+                  p.font-italic.font-weight-light(data-region="text") 後でアクセスするため、下書きメッセージ、リンク、ノート等を保存します。
+                .hidden.text-center.p-3(data-region="more-messages-loading-icon-container")
+                  span.loading-icon.icon-no-margin
+                    i.icon.fa.fa-circle-o-notch.fa-spin.fa-fw(
+                      aria-label="読み込み中" 
+                      role="img" 
+                      title="読み込み中"
+                      )
+              .p-4.w-100.h-100.hidden.position-absolute.z-index-1(
+                style="top: 0; background: rgba(0,0,0,0.3);" 
+                data-region="confirm-dialogue-container"
+                )
+                .p-3.bg-white(
+                  role="alert" 
+                  data-region="confirm-dialogue"
+                  )
+                  p.text-muted(data-region="dialogue-text")
+                  .mb-2.custom-control.custom-checkbox.hidden(data-region="delete-messages-for-all-users-toggle-container")
+                    input#delete-messages-for-all-users.custom-control-input(
+                      data-region="delete-messages-for-all-users-toggle" 
+                      type="checkbox"
+                      )
+                    label.custom-control-label.text-muted(for="delete-messages-for-all-users") 私および他の人のために削除する
+                  button.btn.btn-primary.btn-block.hidden(
+                    data-action="confirm-block" 
+                    type="button"
+                    )
+                    span(data-region="dialogue-button-text") ブロック
+                    span.hidden(data-region="loading-icon-container")
+                      span.loading-icon.icon-no-margin
+                        i.icon.fa.fa-circle-o-notch.fa-spin.fa-fw(
+                          aria-label="読み込み中" 
+                          role="img" 
+                          title="読み込み中"
+                          )
+                  button.btn.btn-primary.btn-block.hidden(
+                    data-action="confirm-unblock" 
+                    type="button"
+                    )
+                    span(data-region="dialogue-button-text") ブロック解除
+                    span.hidden(data-region="loading-icon-container")
+                      span.loading-icon.icon-no-margin
+                        i.icon.fa.fa-circle-o-notch.fa-spin.fa-fw(
+                          aria-label="読み込み中" 
+                          role="img" 
+                          title="読み込み中"
+                          )
+                  button.btn.btn-primary.btn-block.hidden(
+                    data-action="confirm-remove-contact" 
+                    type="button"
+                    )
+                    span(data-region="dialogue-button-text") 削除
+                    span.hidden(data-region="loading-icon-container")
+                      span.loading-icon.icon-no-margin
+                        i.icon.fa.fa-circle-o-notch.fa-spin.fa-fw(
+                          aria-label="読み込み中" 
+                          role="img" 
+                          title="読み込み中"
+                          )
+                  button.btn.btn-primary.btn-block.hidden(
+                    data-action="confirm-add-contact" 
+                    type="button"
+                    )
+                    span(data-region="dialogue-button-text") 追加
+                    span.hidden(data-region="loading-icon-container")
+                      span.loading-icon.icon-no-margin
+                        i.icon.fa.fa-circle-o-notch.fa-spin.fa-fw(
+                          aria-label="読み込み中" 
+                          role="img" 
+                          title="読み込み中"
+                          )
+                  button.btn.btn-primary.btn-block.hidden(
+                    data-action="confirm-delete-selected-messages" 
+                    type="button"
+                    )
+                    span(data-region="dialogue-button-text") 削除
+                    span.hidden(data-region="loading-icon-container")
+                      span.loading-icon.icon-no-margin
+                        i.icon.fa.fa-circle-o-notch.fa-spin.fa-fw(
+                          aria-label="読み込み中" 
+                          role="img" 
+                          title="読み込み中"
+                          )
+                  button.btn.btn-primary.btn-block.hidden(
+                    data-action="confirm-delete-conversation" 
+                    type="button"
+                    )
+                    span(data-region="dialogue-button-text") 削除
+                    span.hidden(data-region="loading-icon-container")
+                      span.loading-icon.icon-no-margin
+                        i.icon.fa.fa-circle-o-notch.fa-spin.fa-fw(
+                          aria-label="読み込み中" 
+                          role="img" 
+                          title="読み込み中"
+                          )
+                  button.btn.btn-primary.btn-block.hidden(
+                    data-action="request-add-contact" 
+                    type="button"
+                    )
+                    span(data-region="dialogue-button-text") コンタクトリクエストを送信する
+                    span.hidden(data-region="loading-icon-container")
+                      span.loading-icon.icon-no-margin
+                        i.icon.fa.fa-circle-o-notch.fa-spin.fa-fw(
+                          aria-label="読み込み中" 
+                          role="img" 
+                          title="読み込み中"
+                          )
+                  button.btn.btn-primary.btn-block.hidden(
+                    data-action="accept-contact-request" 
+                    type="button"
+                    )
+                    span(data-region="dialogue-button-text") 承認およびコンタクトに追加する
+                    span.hidden(data-region="loading-icon-container")
+                      span.loading-icon.icon-no-margin
+                        i.icon.fa.fa-circle-o-notch.fa-spin.fa-fw(
+                          aria-label="読み込み中" 
+                          role="img" 
+                          title="読み込み中"
+                          )
+                  button.btn.btn-secondary.btn-block.hidden(
+                    data-action="decline-contact-request" 
+                    type="button"
+                    )
+                    span(data-region="dialogue-button-text") 拒否
+                    span.hidden(data-region="loading-icon-container")
+                      span.loading-icon.icon-no-margin
+                        i.icon.fa.fa-circle-o-notch.fa-spin.fa-fw(
+                          aria-label="読み込み中" 
+                          role="img" 
+                          title="読み込み中"
+                          )
+                  button.btn.btn-primary.btn-block(
+                    data-action="okay-confirm" 
+                    type="button"
+                    ) OK
+                  button.btn.btn-secondary.btn-block(
+                    data-action="cancel-confirm" 
+                    type="button"
+                    ) キャンセル
+              .px-2.pb-2.pt-0(data-region="content-placeholder")
+                .h-100.d-flex.flex-column
+                  .px-2.pb-2.pt-0.bg-light.h-100(style="overflow-y: auto")
+                    .mt-4
+                      .mb-4
+                        .mx-auto.bg-white(style="height: 25px; width: 100px")
+                      .d-flex.flex-column.p-2.bg-white.rounded.mb-2
+                        .d-flex.align-items-center.mb-2
+                          .mr-2
+                            .rounded-circle.bg-pulse-grey(style="height: 35px; width: 35px")
+                          .mr-4.w-75.bg-pulse-grey(style="height: 16px")
+                          .ml-auto.bg-pulse-grey(style="width: 35px; height: 16px")
+                        .bg-pulse-grey.w-100(style="height: 16px")
+                        .bg-pulse-grey.w-100.mt-2(style="height: 16px")
+                        .bg-pulse-grey.w-100.mt-2(style="height: 16px")
+                        .bg-pulse-grey.w-100.mt-2(style="height: 16px")
+                        .bg-pulse-grey.w-75.mt-2(style="height: 16px")
+                      .d-flex.flex-column.p-2.bg-white.rounded.mb-2
+                        .d-flex.align-items-center.mb-2
+                          .mr-2
+                            .rounded-circle.bg-pulse-grey(style="height: 35px; width: 35px")
+                          .mr-4.w-75.bg-pulse-grey(style="height: 16px")
+                          .ml-auto.bg-pulse-grey(style="width: 35px; height: 16px")
+                        .bg-pulse-grey.w-100(style="height: 16px")
+                        .bg-pulse-grey.w-100.mt-2(style="height: 16px")
+                        .bg-pulse-grey.w-100.mt-2(style="height: 16px")
+                        .bg-pulse-grey.w-100.mt-2(style="height: 16px")
+                        .bg-pulse-grey.w-75.mt-2(style="height: 16px")
+                      .d-flex.flex-column.p-2.bg-white.rounded.mb-2
+                        .d-flex.align-items-center.mb-2
+                          .mr-2
+                            .rounded-circle.bg-pulse-grey(style="height: 35px; width: 35px")
+                          .mr-4.w-75.bg-pulse-grey(style="height: 16px")
+                          .ml-auto.bg-pulse-grey(style="width: 35px; height: 16px")
+                        .bg-pulse-grey.w-100(style="height: 16px")
+                        .bg-pulse-grey.w-100.mt-2(style="height: 16px")
+                        .bg-pulse-grey.w-100.mt-2(style="height: 16px")
+                        .bg-pulse-grey.w-100.mt-2(style="height: 16px")
+                        .bg-pulse-grey.w-75.mt-2(style="height: 16px")
+                    .mt-4
+                      .mb-4
+                        .mx-auto.bg-white(style="height: 25px; width: 100px")
+                      .d-flex.flex-column.p-2.bg-white.rounded.mb-2
+                        .d-flex.align-items-center.mb-2
+                          .mr-2
+                            .rounded-circle.bg-pulse-grey(style="height: 35px; width: 35px")
+                          .mr-4.w-75.bg-pulse-grey(style="height: 16px")
+                          .ml-auto.bg-pulse-grey(style="width: 35px; height: 16px")
+                        .bg-pulse-grey.w-100(style="height: 16px")
+                        .bg-pulse-grey.w-100.mt-2(style="height: 16px")
+                        .bg-pulse-grey.w-100.mt-2(style="height: 16px")
+                        .bg-pulse-grey.w-100.mt-2(style="height: 16px")
+                        .bg-pulse-grey.w-75.mt-2(style="height: 16px")
+                      .d-flex.flex-column.p-2.bg-white.rounded.mb-2
+                        .d-flex.align-items-center.mb-2
+                          .mr-2
+                            .rounded-circle.bg-pulse-grey(style="height: 35px; width: 35px")
+                          .mr-4.w-75.bg-pulse-grey(style="height: 16px")
+                          .ml-auto.bg-pulse-grey(style="width: 35px; height: 16px")
+                        .bg-pulse-grey.w-100(style="height: 16px")
+                        .bg-pulse-grey.w-100.mt-2(style="height: 16px")
+                        .bg-pulse-grey.w-100.mt-2(style="height: 16px")
+                        .bg-pulse-grey.w-100.mt-2(style="height: 16px")
+                        .bg-pulse-grey.w-75.mt-2(style="height: 16px")
+                      .d-flex.flex-column.p-2.bg-white.rounded.mb-2
+                        .d-flex.align-items-center.mb-2
+                          .mr-2
+                            .rounded-circle.bg-pulse-grey(style="height: 35px; width: 35px")
+                          .mr-4.w-75.bg-pulse-grey(style="height: 16px")
+                          .ml-auto.bg-pulse-grey(style="width: 35px; height: 16px")
+                        .bg-pulse-grey.w-100(style="height: 16px")
+                        .bg-pulse-grey.w-100.mt-2(style="height: 16px")
+                        .bg-pulse-grey.w-100.mt-2(style="height: 16px")
+                        .bg-pulse-grey.w-100.mt-2(style="height: 16px")
+                        .bg-pulse-grey.w-75.mt-2(style="height: 16px")
+                    .mt-4
+                      .mb-4
+                        .mx-auto.bg-white(style="height: 25px; width: 100px")
+                      .d-flex.flex-column.p-2.bg-white.rounded.mb-2
+                        .d-flex.align-items-center.mb-2
+                          .mr-2
+                            .rounded-circle.bg-pulse-grey(style="height: 35px; width: 35px")
+                          .mr-4.w-75.bg-pulse-grey(style="height: 16px")
+                          .ml-auto.bg-pulse-grey(style="width: 35px; height: 16px")
+                        .bg-pulse-grey.w-100(style="height: 16px")
+                        .bg-pulse-grey.w-100.mt-2(style="height: 16px")
+                        .bg-pulse-grey.w-100.mt-2(style="height: 16px")
+                        .bg-pulse-grey.w-100.mt-2(style="height: 16px")
+                        .bg-pulse-grey.w-75.mt-2(style="height: 16px")
+                      .d-flex.flex-column.p-2.bg-white.rounded.mb-2
+                        .d-flex.align-items-center.mb-2
+                          .mr-2
+                            .rounded-circle.bg-pulse-grey(style="height: 35px; width: 35px")
+                          .mr-4.w-75.bg-pulse-grey(style="height: 16px")
+                          .ml-auto.bg-pulse-grey(style="width: 35px; height: 16px")
+                        .bg-pulse-grey.w-100(style="height: 16px")
+                        .bg-pulse-grey.w-100.mt-2(style="height: 16px")
+                        .bg-pulse-grey.w-100.mt-2(style="height: 16px")
+                        .bg-pulse-grey.w-100.mt-2(style="height: 16px")
+                        .bg-pulse-grey.w-75.mt-2(style="height: 16px")
+                      .d-flex.flex-column.p-2.bg-white.rounded.mb-2
+                        .d-flex.align-items-center.mb-2
+                          .mr-2
+                            .rounded-circle.bg-pulse-grey(style="height: 35px; width: 35px")
+                          .mr-4.w-75.bg-pulse-grey(style="height: 16px")
+                          .ml-auto.bg-pulse-grey(style="width: 35px; height: 16px")
+                        .bg-pulse-grey.w-100(style="height: 16px")
+                        .bg-pulse-grey.w-100.mt-2(style="height: 16px")
+                        .bg-pulse-grey.w-100.mt-2(style="height: 16px")
+                        .bg-pulse-grey.w-100.mt-2(style="height: 16px")
+                        .bg-pulse-grey.w-75.mt-2(style="height: 16px")
+                    .mt-4
+                      .mb-4
+                        .mx-auto.bg-white(style="height: 25px; width: 100px")
+                      .d-flex.flex-column.p-2.bg-white.rounded.mb-2
+                        .d-flex.align-items-center.mb-2
+                          .mr-2
+                            .rounded-circle.bg-pulse-grey(style="height: 35px; width: 35px")
+                          .mr-4.w-75.bg-pulse-grey(style="height: 16px")
+                          .ml-auto.bg-pulse-grey(style="width: 35px; height: 16px")
+                        .bg-pulse-grey.w-100(style="height: 16px")
+                        .bg-pulse-grey.w-100.mt-2(style="height: 16px")
+                        .bg-pulse-grey.w-100.mt-2(style="height: 16px")
+                        .bg-pulse-grey.w-100.mt-2(style="height: 16px")
+                        .bg-pulse-grey.w-75.mt-2(style="height: 16px")
+                      .d-flex.flex-column.p-2.bg-white.rounded.mb-2
+                        .d-flex.align-items-center.mb-2
+                          .mr-2
+                            .rounded-circle.bg-pulse-grey(style="height: 35px; width: 35px")
+                          .mr-4.w-75.bg-pulse-grey(style="height: 16px")
+                          .ml-auto.bg-pulse-grey(style="width: 35px; height: 16px")
+                        .bg-pulse-grey.w-100(style="height: 16px")
+                        .bg-pulse-grey.w-100.mt-2(style="height: 16px")
+                        .bg-pulse-grey.w-100.mt-2(style="height: 16px")
+                        .bg-pulse-grey.w-100.mt-2(style="height: 16px")
+                        .bg-pulse-grey.w-75.mt-2(style="height: 16px")
+                      .d-flex.flex-column.p-2.bg-white.rounded.mb-2
+                        .d-flex.align-items-center.mb-2
+                          .mr-2
+                            .rounded-circle.bg-pulse-grey(style="height: 35px; width: 35px")
+                          .mr-4.w-75.bg-pulse-grey(style="height: 16px")
+                          .ml-auto.bg-pulse-grey(style="width: 35px; height: 16px")
+                        .bg-pulse-grey.w-100(style="height: 16px")
+                        .bg-pulse-grey.w-100.mt-2(style="height: 16px")
+                        .bg-pulse-grey.w-100.mt-2(style="height: 16px")
+                        .bg-pulse-grey.w-100.mt-2(style="height: 16px")
+                        .bg-pulse-grey.w-75.mt-2(style="height: 16px")
+                    .mt-4
+                      .mb-4
+                        .mx-auto.bg-white(style="height: 25px; width: 100px")
+                      .d-flex.flex-column.p-2.bg-white.rounded.mb-2
+                        .d-flex.align-items-center.mb-2
+                          .mr-2
+                            .rounded-circle.bg-pulse-grey(style="height: 35px; width: 35px")
+                          .mr-4.w-75.bg-pulse-grey(style="height: 16px")
+                          .ml-auto.bg-pulse-grey(style="width: 35px; height: 16px")
+                        .bg-pulse-grey.w-100(style="height: 16px")
+                        .bg-pulse-grey.w-100.mt-2(style="height: 16px")
+                        .bg-pulse-grey.w-100.mt-2(style="height: 16px")
+                        .bg-pulse-grey.w-100.mt-2(style="height: 16px")
+                        .bg-pulse-grey.w-75.mt-2(style="height: 16px")
+                      .d-flex.flex-column.p-2.bg-white.rounded.mb-2
+                        .d-flex.align-items-center.mb-2
+                          .mr-2
+                            .rounded-circle.bg-pulse-grey(style="height: 35px; width: 35px")
+                          .mr-4.w-75.bg-pulse-grey(style="height: 16px")
+                          .ml-auto.bg-pulse-grey(style="width: 35px; height: 16px")
+                        .bg-pulse-grey.w-100(style="height: 16px")
+                        .bg-pulse-grey.w-100.mt-2(style="height: 16px")
+                        .bg-pulse-grey.w-100.mt-2(style="height: 16px")
+                        .bg-pulse-grey.w-100.mt-2(style="height: 16px")
+                        .bg-pulse-grey.w-75.mt-2(style="height: 16px")
+                      .d-flex.flex-column.p-2.bg-white.rounded.mb-2
+                        .d-flex.align-items-center.mb-2
+                          .mr-2
+                            .rounded-circle.bg-pulse-grey(style="height: 35px; width: 35px")
+                          .mr-4.w-75.bg-pulse-grey(style="height: 16px")
+                          .ml-auto.bg-pulse-grey(style="width: 35px; height: 16px")
+                        .bg-pulse-grey.w-100(style="height: 16px")
+                        .bg-pulse-grey.w-100.mt-2(style="height: 16px")
+                        .bg-pulse-grey.w-100.mt-2(style="height: 16px")
+                        .bg-pulse-grey.w-100.mt-2(style="height: 16px")
+                        .bg-pulse-grey.w-75.mt-2(style="height: 16px")
+          .hidden(
+            data-region="view-group-info" 
+            aria-hidden="true"
+            )
+            .pt-3.h-100.d-flex.flex-column(
+              style="overflow-y: auto" 
+              data-region="group-info-content-container"
+              )
+          .h-100.view-overview-body(
+            data-user-id="937" 
+            data-region="view-overview" 
+            aria-hidden="false"
+            )
+            #message-drawer-view-overview-container-68abba553ac2568abba5531a367.d-flex.flex-column.h-100(style="overflow-y: auto")
+              .section.border-0.card.rounded-0(data-region="view-overview-favourites")
+                #view-overview-favourites-toggle.card-header.rounded-0(data-region="toggle")
+                  button.btn.btn-link.w-100.text-left.p-1.p-sm-2.d-flex.rounded-0.align-items-center.overview-section-toggle.collapsed(
+                    aria-controls="view-overview-favourites-target-68abba553ac2568abba5531a367" 
+                    aria-expanded="false" 
+                    data-target="#view-overview-favourites-target-68abba553ac2568abba5531a367" 
+                    data-toggle="collapse"
+                    )
+                    span.collapsed-icon-container
+                      i.icon.fa.fa-caret-right.fa-fw(aria-hidden="true")
+                    span.expanded-icon-container
+                      i.icon.fa.fa-caret-down.fa-fw(aria-hidden="true")
+                    span.font-weight-bold 星付き
+                    small.hidden.ml-1(data-region="section-total-count-container")
+                      | (
+                      span(
+                        data-region="section-total-count" 
+                        aria-hidden="true"
+                        )
+                      span.sr-only 合計会話数
+                      | )
+                    span.hidden.ml-2(data-region="loading-icon-container")
+                      span.loading-icon.icon-no-margin
+                        i.icon.fa.fa-circle-o-notch.fa-spin.fa-fw(
+                          aria-label="読み込み中" 
+                          role="img" 
+                          title="読み込み中"
+                          )
+                    span.hidden.badge.badge-pill.badge-primary.ml-auto.bg-primary(data-region="section-unread-count")
+                      span(aria-hidden="true")
+                      span.sr-only 件の未読会話があります。
+                #view-overview-favourites-target-68abba553ac2568abba5531a367.collapse.border-bottom.lazy-load-list(
+                  data-parent="#message-drawer-view-overview-container-68abba553ac2568abba5531a367" 
+                  aria-labelledby="view-overview-favourites-toggle" 
+                  data-user-id="937" 
+                  data-region="lazy-load-list" 
+                  aria-live="polite"
+                  )
+                  .hidden.text-center.p-2(data-region="empty-message-container")
+                    p.text-muted.mt-2 星付きの会話はありません。
+                  .hidden.list-group(data-region="content-container")
+                  .list-group(data-region="placeholder-container")
+                    .text-center.py-2
+                      span.loading-icon.icon-no-margin
+                        i.icon.fa.fa-circle-o-notch.fa-spin.fa-fw(
+                          aria-label="読み込み中" 
+                          role="img" 
+                          title="読み込み中"
+                          )
+                  .w-100.text-center.p-3.hidden(data-region="loading-icon-container")
+                    span.loading-icon.icon-no-margin
+                      i.icon.fa.fa-circle-o-notch.fa-spin.fa-fw(
+                        aria-label="読み込み中" 
+                        role="img" 
+                        title="読み込み中"
+                        )
+              .section.border-0.card.rounded-0(data-region="view-overview-group-messages")
+                #view-overview-group-messages-toggle.card-header.rounded-0(data-region="toggle")
+                  button.btn.btn-link.w-100.text-left.p-1.p-sm-2.d-flex.rounded-0.align-items-center.overview-section-toggle.collapsed(
+                    aria-controls="view-overview-group-messages-target-68abba553ac2568abba5531a367" 
+                    aria-expanded="false" 
+                    data-target="#view-overview-group-messages-target-68abba553ac2568abba5531a367" 
+                    data-toggle="collapse"
+                    )
+                    span.collapsed-icon-container
+                      i.icon.fa.fa-caret-right.fa-fw(aria-hidden="true")
+                    span.expanded-icon-container
+                      i.icon.fa.fa-caret-down.fa-fw(aria-hidden="true")
+                    span.font-weight-bold グループ
+                    small.hidden.ml-1(data-region="section-total-count-container")
+                      | (
+                      span(
+                        data-region="section-total-count" 
+                        aria-hidden="true"
+                        )
+                      span.sr-only 合計会話数
+                      | )
+                    span.hidden.ml-2(data-region="loading-icon-container")
+                      span.loading-icon.icon-no-margin
+                        i.icon.fa.fa-circle-o-notch.fa-spin.fa-fw(
+                          aria-label="読み込み中" 
+                          role="img" 
+                          title="読み込み中"
+                          )
+                    span.hidden.badge.badge-pill.badge-primary.ml-auto.bg-primary(data-region="section-unread-count")
+                      span(aria-hidden="true")
+                      span.sr-only 件の未読会話があります。
+                #view-overview-group-messages-target-68abba553ac2568abba5531a367.collapse.border-bottom.lazy-load-list(
+                  data-parent="#message-drawer-view-overview-container-68abba553ac2568abba5531a367" 
+                  aria-labelledby="view-overview-group-messages-toggle" 
+                  data-user-id="937" 
+                  data-region="lazy-load-list" 
+                  aria-live="polite"
+                  )
+                  .hidden.text-center.p-2(data-region="empty-message-container")
+                    p.text-muted.mt-2 グループ会話なし
+                  .hidden.list-group(data-region="content-container")
+                  .list-group(data-region="placeholder-container")
+                    .text-center.py-2
+                      span.loading-icon.icon-no-margin
+                        i.icon.fa.fa-circle-o-notch.fa-spin.fa-fw(
+                          aria-label="読み込み中" 
+                          role="img" 
+                          title="読み込み中"
+                          )
+                  .w-100.text-center.p-3.hidden(data-region="loading-icon-container")
+                    span.loading-icon.icon-no-margin
+                      i.icon.fa.fa-circle-o-notch.fa-spin.fa-fw(
+                        aria-label="読み込み中" 
+                        role="img" 
+                        title="読み込み中"
+                        )
+              .section.border-0.card.rounded-0(data-region="view-overview-messages")
+                #view-overview-messages-toggle.card-header.rounded-0(data-region="toggle")
+                  button.btn.btn-link.w-100.text-left.p-1.p-sm-2.d-flex.rounded-0.align-items-center.overview-section-toggle.collapsed(
+                    aria-controls="view-overview-messages-target-68abba553ac2568abba5531a367" 
+                    aria-expanded="false" 
+                    data-target="#view-overview-messages-target-68abba553ac2568abba5531a367" 
+                    data-toggle="collapse"
+                    )
+                    span.collapsed-icon-container
+                      i.icon.fa.fa-caret-right.fa-fw(aria-hidden="true")
+                    span.expanded-icon-container
+                      i.icon.fa.fa-caret-down.fa-fw(aria-hidden="true")
+                    span.font-weight-bold プライベート
+                    small.hidden.ml-1(data-region="section-total-count-container")
+                      | (
+                      span(
+                        data-region="section-total-count" 
+                        aria-hidden="true"
+                        )
+                      span.sr-only 合計会話数
+                      | )
+                    span.hidden.ml-2(data-region="loading-icon-container")
+                      span.loading-icon.icon-no-margin
+                        i.icon.fa.fa-circle-o-notch.fa-spin.fa-fw(
+                          aria-label="読み込み中" 
+                          role="img" 
+                          title="読み込み中"
+                          )
+                    span.hidden.badge.badge-pill.badge-primary.ml-auto.bg-primary(data-region="section-unread-count")
+                      span(aria-hidden="true")
+                      span.sr-only 件の未読会話があります。
+                #view-overview-messages-target-68abba553ac2568abba5531a367.collapse.border-bottom.lazy-load-list(
+                  data-parent="#message-drawer-view-overview-container-68abba553ac2568abba5531a367" 
+                  aria-labelledby="view-overview-messages-toggle" 
+                  data-user-id="937" 
+                  data-region="lazy-load-list" 
+                  aria-live="polite"
+                  )
+                  .hidden.text-center.p-2(data-region="empty-message-container")
+                    p.text-muted.mt-2 プライベート会話なし
+                  .hidden.list-group(data-region="content-container")
+                  .list-group(data-region="placeholder-container")
+                    .text-center.py-2
+                      span.loading-icon.icon-no-margin
+                        i.icon.fa.fa-circle-o-notch.fa-spin.fa-fw(
+                          aria-label="読み込み中" 
+                          role="img" 
+                          title="読み込み中"
+                          )
+                  .w-100.text-center.p-3.hidden(data-region="loading-icon-container")
+                    span.loading-icon.icon-no-margin
+                      i.icon.fa.fa-circle-o-notch.fa-spin.fa-fw(
+                        aria-label="読み込み中" 
+                        role="img" 
+                        title="読み込み中"
+                        )
+          .h-100.hidden(
+            style="overflow-y: auto" 
+            data-messages-offset="0" 
+            data-users-offset="0" 
+            data-user-id="937" 
+            aria-hidden="true" 
+            data-region="view-search"
+            )
+            .hidden(
+              style="overflow-y: auto" 
+              data-region="search-results-container"
+              )
+              .d-flex.flex-column
+                .mb-3.bg-white(data-region="all-contacts-container")
+                  .pt-2(data-region="contacts-container")
+                    h4.h6.px-2 コンタクト
+                    .list-group(data-region="list")
+                  .pt-2.border-top(data-region="non-contacts-container")
+                    h4.h6.px-2 非コンタクト
+                    .list-group(data-region="list")
+                  .text-right
+                    button.btn.btn-link.text-primary(data-action="load-more-users")
+                      span(data-region="button-text") さらに読み込む
+                      span.hidden(data-region="loading-icon-container")
+                        span.loading-icon.icon-no-margin
+                          i.icon.fa.fa-circle-o-notch.fa-spin.fa-fw(
+                            aria-label="読み込み中" 
+                            role="img" 
+                            title="読み込み中"
+                            )
+                .bg-white(data-region="messages-container")
+                  h4.h6.px-2.pt-2 メッセージ
+                  .list-group(data-region="list")
+                  .text-right
+                    button.btn.btn-link.text-primary(data-action="load-more-messages")
+                      span(data-region="button-text") さらに読み込む
+                      span.hidden(data-region="loading-icon-container")
+                        span.loading-icon.icon-no-margin
+                          i.icon.fa.fa-circle-o-notch.fa-spin.fa-fw(
+                            aria-label="読み込み中" 
+                            role="img" 
+                            title="読み込み中"
+                            )
+                p.hidden.p-3.text-center(data-region="no-results-container") 該当データはありません。
+            .hidden(data-region="loading-placeholder")
+              .text-center.pt-3.icon-size-4
+                span.loading-icon.icon-no-margin
+                  i.icon.fa.fa-circle-o-notch.fa-spin.fa-fw(
+                    aria-label="読み込み中" 
+                    role="img" 
+                    title="読み込み中"
+                    )
+            .p-3.text-center(data-region="empty-message-container")
+              p 人およびメッセージを検索する
+          .h-100.hidden.bg-white(
+            data-region="view-settings" 
+            aria-hidden="true"
+            )
+            .hidden(data-region="content-container")
+              .p-3(data-region="settings")
+                h3.h6.font-weight-bold プライバシー
+                p あなたにメッセージを送信する人を制限できます。
+                .mb-3(data-preference="blocknoncontacts")
+                  fieldset
+                    legend.sr-only 受け入れるメッセージの送信元:
+                    .custom-control.custom-radio.mb-2
+                      input#block-noncontacts-68abba553ac2568abba5531a367-1.custom-control-input(
+                        value="1" 
+                        name="message_blocknoncontacts" 
+                        type="radio"
+                        )
+                      label.custom-control-label.ml-2(for="block-noncontacts-68abba553ac2568abba5531a367-1") マイコンタクトのみ
+                    .custom-control.custom-radio.mb-2
+                      input#block-noncontacts-68abba553ac2568abba5531a367-0.custom-control-input(
+                        value="0" 
+                        name="message_blocknoncontacts" 
+                        type="radio"
+                        )
+                      label.custom-control-label.ml-2(for="block-noncontacts-68abba553ac2568abba5531a367-0") マイコンタクトおよびマイコースの誰でも
+                .hidden(data-region="notification-preference-container")
+                  h3.mb-2.mt-4.h6.font-weight-bold 通知プレファレンス
+                h3.mb-2.mt-4.h6.font-weight-bold 一般
+                div(data-preference="entertosend")
+                  .custom-control.custom-switch
+                    input#enter-to-send-68abba553ac2568abba5531a367.custom-control-input(type="checkbox")
+                    label.custom-control-label(for="enter-to-send-68abba553ac2568abba5531a367") Enterで送信する
+            div(data-region="placeholder-container")
+              .d-flex.flex-column.p-3
+                .w-25.bg-pulse-grey.h6(style="height: 18px")
+                .w-75.bg-pulse-grey.mb-4(style="height: 18px")
+                .mb-3
+                  .w-100.d-flex.mb-3
+                    .bg-pulse-grey.rounded-circle(style="width: 18px; height: 18px")
+                    .bg-pulse-grey.w-50.ml-2(style="height: 18px")
+                  .w-100.d-flex.mb-3
+                    .bg-pulse-grey.rounded-circle(style="width: 18px; height: 18px")
+                    .bg-pulse-grey.w-50.ml-2(style="height: 18px")
+                  .w-100.d-flex.mb-3
+                    .bg-pulse-grey.rounded-circle(style="width: 18px; height: 18px")
+                    .bg-pulse-grey.w-50.ml-2(style="height: 18px")
+                .w-50.bg-pulse-grey.h6.mb-3.mt-2(style="height: 18px")
+                .mb-4
+                  .w-100.d-flex.mb-2.align-items-center
+                    .bg-pulse-grey.w-25(style="width: 18px; height: 27px")
+                    .bg-pulse-grey.w-25.ml-2(style="height: 18px")
+                  .w-100.d-flex.mb-2.align-items-center
+                    .bg-pulse-grey.w-25(style="width: 18px; height: 27px")
+                    .bg-pulse-grey.w-25.ml-2(style="height: 18px")
+                .w-25.bg-pulse-grey.h6.mb-3.mt-2(style="height: 18px")
+                .mb-3
+                  .w-100.d-flex.mb-2.align-items-center
+                    .bg-pulse-grey.w-25(style="width: 18px; height: 27px")
+                    .bg-pulse-grey.w-50.ml-2(style="height: 18px")
+        .footer-container.position-relative(data-region="footer-container")
+          .hidden.border-top.bg-white.position-relative(
+            data-enter-to-send="0" 
+            data-region="view-conversation" 
+            aria-hidden="true"
+            )
+            .hidden.p-sm-2(data-region="content-messages-footer-container")
+              .emoji-auto-complete-container.w-100.hidden(
+                aria-hidden="true" 
+                aria-live="polite" 
+                data-region="emoji-auto-complete-container"
+                )
+              .d-flex.mt-sm-1
+                textarea.form-control.bg-light(
+                  maxlength="4096" 
+                  style="resize: none" 
+                  placeholder="メッセージを書く ..." 
+                  aria-label="メッセージを書く ..." 
+                  data-max-rows="5" 
+                  data-min-rows="3" 
+                  data-auto-rows="" 
+                  rows="3" 
+                  data-region="send-message-txt" 
+                  dir="auto"
+                  )
+                .position-relative.d-flex.flex-column
+                  .emoji-picker-container.hidden(
+                    aria-hidden="true" 
+                    data-region="emoji-picker-container"
+                    )
+                    .card.shadow.emoji-picker(data-region="emoji-picker")
+                      .card-header.px-1.pt-1.pb-0.d-flex.justify-content-between.flex-shrink-0
+                        button.btn.btn-outline-secondary.icon-no-margin.category-button.rounded-0.selected(
+                          title="最近" 
+                          data-category="Recent" 
+                          data-action="show-category"
+                          )
+                          i.icon.fa.fa-clock-o.fa-fw(aria-hidden="true")
+                        button.btn.btn-outline-secondary.icon-no-margin.category-button.rounded-0(
+                          title="スマイリー & 感情" 
+                          data-category="Smileys & Emotion" 
+                          data-action="show-category"
+                          )
+                          i.icon.fa.fa-smile-o.fa-fw(aria-hidden="true")
+                        button.btn.btn-outline-secondary.icon-no-margin.category-button.rounded-0(
+                          title="人 & 身体" 
+                          data-category="People & Body" 
+                          data-action="show-category"
+                          )
+                          i.icon.fa.fa-male.fa-fw(aria-hidden="true")
+                        button.btn.btn-outline-secondary.icon-no-margin.category-button.rounded-0(
+                          title="動物 & 自然" 
+                          data-category="Animals & Nature" 
+                          data-action="show-category"
+                          )
+                          i.icon.fa.fa-leaf.fa-fw(aria-hidden="true")
+                        button.btn.btn-outline-secondary.icon-no-margin.category-button.rounded-0(
+                          title="フード & ドリンク" 
+                          data-category="Food & Drink" 
+                          data-action="show-category"
+                          )
+                          i.icon.fa.fa-cutlery.fa-fw(aria-hidden="true")
+                        button.btn.btn-outline-secondary.icon-no-margin.category-button.rounded-0(
+                          title="旅行 & 場所" 
+                          data-category="Travel & Places" 
+                          data-action="show-category"
+                          )
+                          i.icon.fa.fa-plane.fa-fw(aria-hidden="true")
+                        button.btn.btn-outline-secondary.icon-no-margin.category-button.rounded-0(
+                          title="活動" 
+                          data-category="Activities" 
+                          data-action="show-category"
+                          )
+                          i.icon.fa.fa-futbol-o.fa-fw(aria-hidden="true")
+                        button.btn.btn-outline-secondary.icon-no-margin.category-button.rounded-0(
+                          title="物" 
+                          data-category="Objects" 
+                          data-action="show-category"
+                          )
+                          i.icon.fa.fa-lightbulb-o.fa-fw(aria-hidden="true")
+                        button.btn.btn-outline-secondary.icon-no-margin.category-button.rounded-0(
+                          title="記号" 
+                          data-category="Symbols" 
+                          data-action="show-category"
+                          )
+                          i.icon.fa.fa-heart.fa-fw(aria-hidden="true")
+                        button.btn.btn-outline-secondary.icon-no-margin.category-button.rounded-0(
+                          title="旗" 
+                          data-category="Flags" 
+                          data-action="show-category"
+                          )
+                          i.icon.fa.fa-flag.fa-fw(aria-hidden="true")
+                      .card-body.p-2.d-flex.flex-column.overflow-hidden
+                        .input-group.mb-1.flex-shrink-0
+                          .input-group-prepend
+                            span.input-group-text.pr-0.bg-white.text-muted
+                              i.icon.fa.fa-search.fa-fw(aria-hidden="true")
+                          input.form-control.border-left-0(
+                            data-region="search-input" 
+                            aria-label="検索" 
+                            placeholder="検索" 
+                            type="text"
+                            )
+                        .flex-grow-1.overflow-auto.emojis-container.h-100(data-region="emojis-container")
+                          .position-relative(data-region="row-container")
+                        .flex-grow-1.overflow-auto.search-results-container.h-100.hidden(data-region="search-results-container")
+                          .position-relative(data-region="row-container")
+                      .card-footer.d-flex.flex-shrink-0(data-region="footer")
+                        .emoji-preview(data-region="emoji-preview")
+                        .emoji-short-name.text-muted.text-wrap.ml-2(data-region="emoji-short-name")
+                  button.btn.btn-link.btn-icon.icon-size-3.ml-1(
+                    data-action="toggle-emoji-picker" 
+                    aria-label="絵文字ピッカを切り替える"
+                    )
+                    i.icon.fa.fa-smile-o.fa-fw(aria-hidden="true")
+                  button.btn.btn-link.btn-icon.icon-size-3.ml-1.mt-auto(
+                    data-action="send-message" 
+                    aria-label="メッセージを送信する"
+                    )
+                    span(data-region="send-icon-container")
+                      i.icon.fa.fa-paper-plane.fa-fw(aria-hidden="true")
+                    span.hidden(data-region="loading-icon-container")
+                      span.loading-icon.icon-no-margin
+                        i.icon.fa.fa-circle-o-notch.fa-spin.fa-fw(
+                          aria-label="読み込み中" 
+                          role="img" 
+                          title="読み込み中"
+                          )
+            .hidden.p-sm-2(data-region="content-messages-footer-edit-mode-container")
+              .d-flex.p-3.justify-content-end
+                button.btn.btn-link.btn-icon.my-1.icon-size-4(
+                  title="選択したメッセージを削除する" 
+                  data-placement="top" 
+                  data-toggle="tooltip" 
+                  data-action="delete-selected-messages"
+                  )
+                  span(data-region="icon-container")
+                    i.icon.fa.fa-trash.fa-fw(aria-hidden="true")
+                  span.hidden(data-region="loading-icon-container")
+                    span.loading-icon.icon-no-margin
+                      i.icon.fa.fa-circle-o-notch.fa-spin.fa-fw(
+                        aria-label="読み込み中" 
+                        role="img" 
+                        title="読み込み中"
+                        )
+                  span.sr-only 選択したメッセージを削除する
+            .hidden.bg-secondary.p-sm-3(data-region="content-messages-footer-require-contact-container")
+              .p-3.bg-white
+                p(data-region="title")
+                p.text-muted(data-region="text")
+                button.btn.btn-primary.btn-block(
+                  data-action="request-add-contact" 
+                  type="button"
+                  )
+                  span(data-region="dialogue-button-text") コンタクトリクエストを送信する
+                  span.hidden(data-region="loading-icon-container")
+                    span.loading-icon.icon-no-margin
+                      i.icon.fa.fa-circle-o-notch.fa-spin.fa-fw(
+                        aria-label="読み込み中" 
+                        role="img" 
+                        title="読み込み中"
+                        )
+            .hidden.bg-secondary.p-sm-3(data-region="content-messages-footer-require-unblock-container")
+              .p-3.bg-white
+                p.text-muted(data-region="text") あなたはこのユーザをブロックしました。
+                button.btn.btn-primary.btn-block(
+                  data-action="request-unblock" 
+                  type="button"
+                  )
+                  span(data-region="dialogue-button-text") ユーザのブロックを解除する
+                  span.hidden(data-region="loading-icon-container")
+                    span.loading-icon.icon-no-margin
+                      i.icon.fa.fa-circle-o-notch.fa-spin.fa-fw(
+                        aria-label="読み込み中" 
+                        role="img" 
+                        title="読み込み中"
+                        )
+            .hidden.bg-secondary.p-sm-3(data-region="content-messages-footer-unable-to-message")
+              .p-3.bg-white
+                p.text-muted(data-region="text") あなたはこのユーザにメッセージを送信できません。
+            .p-sm-2(data-region="placeholder-container")
+              .d-flex
+                .bg-pulse-grey.w-100(style="height: 80px")
+                .mx-2.mb-2.align-self-end.bg-pulse-grey(style="height: 20px; width: 20px")
+            .hidden.position-absolute.z-index-1(
+              style="top: -1px; bottom: 0; right: 0; left: 0; background: rgba(0,0,0,0.3);" 
+              data-region="confirm-dialogue-container"
+              )
+          .text-center(data-region="view-overview")
+            a(href="https://lms.waomirai.com/message/index.php") すべてを表示する

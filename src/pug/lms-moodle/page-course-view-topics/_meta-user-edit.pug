@@ -1,7 +1,26 @@
+// ==============================
+// ユーザー編集ページ用のメタデータ処理
+// ==============================
+// このファイルは、_id-user-edit.pugで定義されたusereditデータから
+// 現在のページID（pageid）に対応する科目情報を取得し、
+// HTMLのクラス名やID、タイトルなどのメタデータを生成する
+// ==============================
+
+// 現在のページIDに対応する科目設定データを取得
 - var userEdit = useredit.find(u => u.id === pageid)
-//- - var template = userEdit.template
-- var courseID = 'course-'+ userEdit .courseID
-- var paymentID = userEdit.paymentID.map((id) => `course-id-${id}`) //ここのidはただの引数
-- var categoryID =  userEdit.categoryID
+// 該当する科目設定が見つからない場合はエラーを投げる
+- if (!userEdit)
+  - throw new Error(`userEdit is undefined for pageid=${pageid}`)
+
+// 科目IDを基にCSSクラス名を生成（例：course-255）
+- var courseID = 'course-' + userEdit.courseID
+// 購入済み科目IDの配列をCSSクラス名の配列に変換（例：['course-id-255', 'course-id-256']）
+- var paymentID = userEdit.paymentID.map((id) => `course-id-${id}`)
+// カテゴリIDを取得
+- var categoryID = userEdit.categoryID
+// 全てのIDを結合してCSSクラス名の文字列を作成
 - var allID = [courseID, categoryID,...paymentID].join(' ')
+// 科目ページのタイトルを取得
+- var title = userEdit.SubjectPageTitle
+// Moodleの基本CSSクラス名を定義（レイアウト、テーマ、機能などの設定）
 - var existingClasses = "format-flexsections limitedwidth  path-course path-course-view chrome dir-ltr lang-ja_wp yui-skin-sam yui3-skin-sam lms-waomirai-com pagelayout-course theme uses-drawers"
