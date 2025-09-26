@@ -4,7 +4,9 @@ include common/_mixin-lms-moodle.pug
 html(dir="ltr", lang="ja", xml:lang="ja", data-tenantid=(env == 'stg' ? '2' : '3'), data-tenantidnumber=env)
   head
     //course用のページIDを読み込
-    include course-enrol/_id_enrolpages 
+    include course-enrol/_id_enrolpages.pug
+    //リンクや画像のパスを設定
+    include _assets.pug 
     block variables 
     //- - var additionalClasses = [courseIDClass, ...paymentIDClasses].join(' ')
     //- title #{status}

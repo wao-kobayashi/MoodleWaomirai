@@ -10,6 +10,8 @@ body {
 
 html[data-tenantidnumber=lmswaomirai] {
   @import url("https://fonts.googleapis.com/css?family=Noto+Sans+JP:400,500,700,900");
+  /*  固定パス */
+  /*  画像URL生成関数 */
   /* 全体の幅 */
   /* フォント */
   /* border-radius */
@@ -2015,7 +2017,7 @@ html[data-tenantidnumber=lmswaomirai] #page-course-view-topics.category-53 #page
   background: #28afe7 !important;
 }
 html[data-tenantidnumber=lmswaomirai] #page-course-view-topics.category-53 #page-header .page-header-headings:before {
-  background-image: url("https://go.waomirai.com/l/1026513/2024-08-08/gzqbt/1026513/1723092445zMMVlFVz/subject_03.jpg");
+  background-image: url("https://waomirai.com/lp/assets/moodle/images/subject_economy.jpg");
 }
 @media screen and (max-width: 768px) {
   html[data-tenantidnumber=lmswaomirai] #page-course-view-topics.category-53 #page-header .page-header-headings {
@@ -2106,7 +2108,7 @@ html[data-tenantidnumber=lmswaomirai] #page-course-view-topics.category-48 #page
   background: #28afe7 !important;
 }
 html[data-tenantidnumber=lmswaomirai] #page-course-view-topics.category-48 #page-header .page-header-headings:before {
-  background-image: url("https://go.waomirai.com/l/1026513/2024-08-08/gzqbt/1026513/1723092445zMMVlFVz/subject_03.jpg");
+  background-image: url("https://waomirai.com/lp/assets/moodle/images/subject_economy.jpg");
 }
 @media screen and (max-width: 768px) {
   html[data-tenantidnumber=lmswaomirai] #page-course-view-topics.category-48 #page-header .page-header-headings {
@@ -2197,7 +2199,7 @@ html[data-tenantidnumber=lmswaomirai] #page-course-view-topics.category-52 #page
   background: #b6d43e !important;
 }
 html[data-tenantidnumber=lmswaomirai] #page-course-view-topics.category-52 #page-header .page-header-headings:before {
-  background-image: url("https://go.waomirai.com/l/1026513/2024-08-08/gzqbx/1026513/1723092445qaV639ZU/subject_02.jpg");
+  background-image: url("https://waomirai.com/lp/assets/moodle/images/subject_science.jpg");
 }
 @media screen and (max-width: 768px) {
   html[data-tenantidnumber=lmswaomirai] #page-course-view-topics.category-52 #page-header .page-header-headings {
@@ -2288,7 +2290,7 @@ html[data-tenantidnumber=lmswaomirai] #page-course-view-topics.category-49 #page
   background: #b6d43e !important;
 }
 html[data-tenantidnumber=lmswaomirai] #page-course-view-topics.category-49 #page-header .page-header-headings:before {
-  background-image: url("https://go.waomirai.com/l/1026513/2024-08-08/gzqbx/1026513/1723092445qaV639ZU/subject_02.jpg");
+  background-image: url("https://waomirai.com/lp/assets/moodle/images/subject_science.jpg");
 }
 @media screen and (max-width: 768px) {
   html[data-tenantidnumber=lmswaomirai] #page-course-view-topics.category-49 #page-header .page-header-headings {
@@ -2379,7 +2381,7 @@ html[data-tenantidnumber=lmswaomirai] #page-course-view-topics.category-51 #page
   background: #fcaf17 !important;
 }
 html[data-tenantidnumber=lmswaomirai] #page-course-view-topics.category-51 #page-header .page-header-headings:before {
-  background-image: url("https://waomirai.com/wp-content/uploads/2024/07/phi_main.jpg");
+  background-image: url("https://waomirai.com/lp/assets/moodle/images/subject_philosophy.jpg");
 }
 @media screen and (max-width: 768px) {
   html[data-tenantidnumber=lmswaomirai] #page-course-view-topics.category-51 #page-header .page-header-headings {
@@ -2470,7 +2472,7 @@ html[data-tenantidnumber=lmswaomirai] #page-course-view-topics.category-47 #page
   background: #fcaf17 !important;
 }
 html[data-tenantidnumber=lmswaomirai] #page-course-view-topics.category-47 #page-header .page-header-headings:before {
-  background-image: url("https://waomirai.com/wp-content/uploads/2024/07/phi_main.jpg");
+  background-image: url("https://waomirai.com/lp/assets/moodle/images/subject_philosophy.jpg");
 }
 @media screen and (max-width: 768px) {
   html[data-tenantidnumber=lmswaomirai] #page-course-view-topics.category-47 #page-header .page-header-headings {
@@ -2561,7 +2563,7 @@ html[data-tenantidnumber=lmswaomirai] #page-course-view-topics.category-50 #page
   background: #aa68aa !important;
 }
 html[data-tenantidnumber=lmswaomirai] #page-course-view-topics.category-50 #page-header .page-header-headings:before {
-  background-image: url("https://go.waomirai.com/l/1026513/2024-08-08/gzqbq/1026513/1723092445NpS1HkfH/subject_04.jpg");
+  background-image: url("https://waomirai.com/lp/assets/moodle/images/subject_english.jpg");
 }
 @media screen and (max-width: 768px) {
   html[data-tenantidnumber=lmswaomirai] #page-course-view-topics.category-50 #page-header .page-header-headings {
@@ -2652,7 +2654,7 @@ html[data-tenantidnumber=lmswaomirai] #page-course-view-topics.category-54 #page
   background: #aa68aa !important;
 }
 html[data-tenantidnumber=lmswaomirai] #page-course-view-topics.category-54 #page-header .page-header-headings:before {
-  background-image: url("https://go.waomirai.com/l/1026513/2024-08-08/gzqbq/1026513/1723092445NpS1HkfH/subject_04.jpg");
+  background-image: url("https://waomirai.com/lp/assets/moodle/images/subject_english.jpg");
 }
 @media screen and (max-width: 768px) {
   html[data-tenantidnumber=lmswaomirai] #page-course-view-topics.category-54 #page-header .page-header-headings {
@@ -2743,7 +2745,7 @@ html[data-tenantidnumber=lmswaomirai] #page-course-view-topics.category-9999 #pa
   background: #ee242c !important;
 }
 html[data-tenantidnumber=lmswaomirai] #page-course-view-topics.category-9999 #page-header .page-header-headings:before {
-  background-image: url("https://go.waomirai.com/l/1026513/2024-08-08/gzqbm/1026513/1723092444UDZaTUyz/subject_05.jpg");
+  background-image: url("https://waomirai.com/lp/assets/moodle/images/subject_programming.jpg");
 }
 @media screen and (max-width: 768px) {
   html[data-tenantidnumber=lmswaomirai] #page-course-view-topics.category-9999 #page-header .page-header-headings {
@@ -2834,7 +2836,7 @@ html[data-tenantidnumber=lmswaomirai] #page-course-view-flexsections.category-53
   background: #28afe7 !important;
 }
 html[data-tenantidnumber=lmswaomirai] #page-course-view-flexsections.category-53 #page-header .page-header-headings:before {
-  background-image: url("https://go.waomirai.com/l/1026513/2024-08-08/gzqbt/1026513/1723092445zMMVlFVz/subject_03.jpg");
+  background-image: url("https://waomirai.com/lp/assets/moodle/images/subject_economy.jpg");
 }
 @media screen and (max-width: 768px) {
   html[data-tenantidnumber=lmswaomirai] #page-course-view-flexsections.category-53 #page-header .page-header-headings {
@@ -2925,7 +2927,7 @@ html[data-tenantidnumber=lmswaomirai] #page-course-view-flexsections.category-48
   background: #28afe7 !important;
 }
 html[data-tenantidnumber=lmswaomirai] #page-course-view-flexsections.category-48 #page-header .page-header-headings:before {
-  background-image: url("https://go.waomirai.com/l/1026513/2024-08-08/gzqbt/1026513/1723092445zMMVlFVz/subject_03.jpg");
+  background-image: url("https://waomirai.com/lp/assets/moodle/images/subject_economy.jpg");
 }
 @media screen and (max-width: 768px) {
   html[data-tenantidnumber=lmswaomirai] #page-course-view-flexsections.category-48 #page-header .page-header-headings {
@@ -3016,7 +3018,7 @@ html[data-tenantidnumber=lmswaomirai] #page-course-view-flexsections.category-52
   background: #b6d43e !important;
 }
 html[data-tenantidnumber=lmswaomirai] #page-course-view-flexsections.category-52 #page-header .page-header-headings:before {
-  background-image: url("https://go.waomirai.com/l/1026513/2024-08-08/gzqbx/1026513/1723092445qaV639ZU/subject_02.jpg");
+  background-image: url("https://waomirai.com/lp/assets/moodle/images/subject_science.jpg");
 }
 @media screen and (max-width: 768px) {
   html[data-tenantidnumber=lmswaomirai] #page-course-view-flexsections.category-52 #page-header .page-header-headings {
@@ -3107,7 +3109,7 @@ html[data-tenantidnumber=lmswaomirai] #page-course-view-flexsections.category-49
   background: #b6d43e !important;
 }
 html[data-tenantidnumber=lmswaomirai] #page-course-view-flexsections.category-49 #page-header .page-header-headings:before {
-  background-image: url("https://go.waomirai.com/l/1026513/2024-08-08/gzqbx/1026513/1723092445qaV639ZU/subject_02.jpg");
+  background-image: url("https://waomirai.com/lp/assets/moodle/images/subject_science.jpg");
 }
 @media screen and (max-width: 768px) {
   html[data-tenantidnumber=lmswaomirai] #page-course-view-flexsections.category-49 #page-header .page-header-headings {
@@ -3198,7 +3200,7 @@ html[data-tenantidnumber=lmswaomirai] #page-course-view-flexsections.category-51
   background: #fcaf17 !important;
 }
 html[data-tenantidnumber=lmswaomirai] #page-course-view-flexsections.category-51 #page-header .page-header-headings:before {
-  background-image: url("https://waomirai.com/wp-content/uploads/2024/07/phi_main.jpg");
+  background-image: url("https://waomirai.com/lp/assets/moodle/images/subject_philosophy.jpg");
 }
 @media screen and (max-width: 768px) {
   html[data-tenantidnumber=lmswaomirai] #page-course-view-flexsections.category-51 #page-header .page-header-headings {
@@ -3289,7 +3291,7 @@ html[data-tenantidnumber=lmswaomirai] #page-course-view-flexsections.category-47
   background: #fcaf17 !important;
 }
 html[data-tenantidnumber=lmswaomirai] #page-course-view-flexsections.category-47 #page-header .page-header-headings:before {
-  background-image: url("https://waomirai.com/wp-content/uploads/2024/07/phi_main.jpg");
+  background-image: url("https://waomirai.com/lp/assets/moodle/images/subject_philosophy.jpg");
 }
 @media screen and (max-width: 768px) {
   html[data-tenantidnumber=lmswaomirai] #page-course-view-flexsections.category-47 #page-header .page-header-headings {
@@ -3380,7 +3382,7 @@ html[data-tenantidnumber=lmswaomirai] #page-course-view-flexsections.category-50
   background: #aa68aa !important;
 }
 html[data-tenantidnumber=lmswaomirai] #page-course-view-flexsections.category-50 #page-header .page-header-headings:before {
-  background-image: url("https://go.waomirai.com/l/1026513/2024-08-08/gzqbq/1026513/1723092445NpS1HkfH/subject_04.jpg");
+  background-image: url("https://waomirai.com/lp/assets/moodle/images/subject_english.jpg");
 }
 @media screen and (max-width: 768px) {
   html[data-tenantidnumber=lmswaomirai] #page-course-view-flexsections.category-50 #page-header .page-header-headings {
@@ -3471,7 +3473,7 @@ html[data-tenantidnumber=lmswaomirai] #page-course-view-flexsections.category-54
   background: #aa68aa !important;
 }
 html[data-tenantidnumber=lmswaomirai] #page-course-view-flexsections.category-54 #page-header .page-header-headings:before {
-  background-image: url("https://go.waomirai.com/l/1026513/2024-08-08/gzqbq/1026513/1723092445NpS1HkfH/subject_04.jpg");
+  background-image: url("https://waomirai.com/lp/assets/moodle/images/subject_english.jpg");
 }
 @media screen and (max-width: 768px) {
   html[data-tenantidnumber=lmswaomirai] #page-course-view-flexsections.category-54 #page-header .page-header-headings {
@@ -3562,7 +3564,7 @@ html[data-tenantidnumber=lmswaomirai] #page-course-view-flexsections.category-99
   background: #ee242c !important;
 }
 html[data-tenantidnumber=lmswaomirai] #page-course-view-flexsections.category-9999 #page-header .page-header-headings:before {
-  background-image: url("https://go.waomirai.com/l/1026513/2024-08-08/gzqbm/1026513/1723092444UDZaTUyz/subject_05.jpg");
+  background-image: url("https://waomirai.com/lp/assets/moodle/images/subject_programming.jpg");
 }
 @media screen and (max-width: 768px) {
   html[data-tenantidnumber=lmswaomirai] #page-course-view-flexsections.category-9999 #page-header .page-header-headings {
@@ -3653,7 +3655,7 @@ html[data-tenantidnumber=lmswaomirai] #page-admin-tool-catalogue-courseinfo.cate
   background: #28afe7 !important;
 }
 html[data-tenantidnumber=lmswaomirai] #page-admin-tool-catalogue-courseinfo.category-53 #page-header .page-header-headings:before {
-  background-image: url("https://go.waomirai.com/l/1026513/2024-08-08/gzqbt/1026513/1723092445zMMVlFVz/subject_03.jpg");
+  background-image: url("https://waomirai.com/lp/assets/moodle/images/subject_economy.jpg");
 }
 @media screen and (max-width: 768px) {
   html[data-tenantidnumber=lmswaomirai] #page-admin-tool-catalogue-courseinfo.category-53 #page-header .page-header-headings {
@@ -3744,7 +3746,7 @@ html[data-tenantidnumber=lmswaomirai] #page-admin-tool-catalogue-courseinfo.cate
   background: #28afe7 !important;
 }
 html[data-tenantidnumber=lmswaomirai] #page-admin-tool-catalogue-courseinfo.category-48 #page-header .page-header-headings:before {
-  background-image: url("https://go.waomirai.com/l/1026513/2024-08-08/gzqbt/1026513/1723092445zMMVlFVz/subject_03.jpg");
+  background-image: url("https://waomirai.com/lp/assets/moodle/images/subject_economy.jpg");
 }
 @media screen and (max-width: 768px) {
   html[data-tenantidnumber=lmswaomirai] #page-admin-tool-catalogue-courseinfo.category-48 #page-header .page-header-headings {
@@ -3835,7 +3837,7 @@ html[data-tenantidnumber=lmswaomirai] #page-admin-tool-catalogue-courseinfo.cate
   background: #b6d43e !important;
 }
 html[data-tenantidnumber=lmswaomirai] #page-admin-tool-catalogue-courseinfo.category-52 #page-header .page-header-headings:before {
-  background-image: url("https://go.waomirai.com/l/1026513/2024-08-08/gzqbx/1026513/1723092445qaV639ZU/subject_02.jpg");
+  background-image: url("https://waomirai.com/lp/assets/moodle/images/subject_science.jpg");
 }
 @media screen and (max-width: 768px) {
   html[data-tenantidnumber=lmswaomirai] #page-admin-tool-catalogue-courseinfo.category-52 #page-header .page-header-headings {
@@ -3926,7 +3928,7 @@ html[data-tenantidnumber=lmswaomirai] #page-admin-tool-catalogue-courseinfo.cate
   background: #b6d43e !important;
 }
 html[data-tenantidnumber=lmswaomirai] #page-admin-tool-catalogue-courseinfo.category-49 #page-header .page-header-headings:before {
-  background-image: url("https://go.waomirai.com/l/1026513/2024-08-08/gzqbx/1026513/1723092445qaV639ZU/subject_02.jpg");
+  background-image: url("https://waomirai.com/lp/assets/moodle/images/subject_science.jpg");
 }
 @media screen and (max-width: 768px) {
   html[data-tenantidnumber=lmswaomirai] #page-admin-tool-catalogue-courseinfo.category-49 #page-header .page-header-headings {
@@ -4017,7 +4019,7 @@ html[data-tenantidnumber=lmswaomirai] #page-admin-tool-catalogue-courseinfo.cate
   background: #fcaf17 !important;
 }
 html[data-tenantidnumber=lmswaomirai] #page-admin-tool-catalogue-courseinfo.category-51 #page-header .page-header-headings:before {
-  background-image: url("https://waomirai.com/wp-content/uploads/2024/07/phi_main.jpg");
+  background-image: url("https://waomirai.com/lp/assets/moodle/images/subject_philosophy.jpg");
 }
 @media screen and (max-width: 768px) {
   html[data-tenantidnumber=lmswaomirai] #page-admin-tool-catalogue-courseinfo.category-51 #page-header .page-header-headings {
@@ -4108,7 +4110,7 @@ html[data-tenantidnumber=lmswaomirai] #page-admin-tool-catalogue-courseinfo.cate
   background: #fcaf17 !important;
 }
 html[data-tenantidnumber=lmswaomirai] #page-admin-tool-catalogue-courseinfo.category-47 #page-header .page-header-headings:before {
-  background-image: url("https://waomirai.com/wp-content/uploads/2024/07/phi_main.jpg");
+  background-image: url("https://waomirai.com/lp/assets/moodle/images/subject_philosophy.jpg");
 }
 @media screen and (max-width: 768px) {
   html[data-tenantidnumber=lmswaomirai] #page-admin-tool-catalogue-courseinfo.category-47 #page-header .page-header-headings {
@@ -4199,7 +4201,7 @@ html[data-tenantidnumber=lmswaomirai] #page-admin-tool-catalogue-courseinfo.cate
   background: #aa68aa !important;
 }
 html[data-tenantidnumber=lmswaomirai] #page-admin-tool-catalogue-courseinfo.category-50 #page-header .page-header-headings:before {
-  background-image: url("https://go.waomirai.com/l/1026513/2024-08-08/gzqbq/1026513/1723092445NpS1HkfH/subject_04.jpg");
+  background-image: url("https://waomirai.com/lp/assets/moodle/images/subject_english.jpg");
 }
 @media screen and (max-width: 768px) {
   html[data-tenantidnumber=lmswaomirai] #page-admin-tool-catalogue-courseinfo.category-50 #page-header .page-header-headings {
@@ -4290,7 +4292,7 @@ html[data-tenantidnumber=lmswaomirai] #page-admin-tool-catalogue-courseinfo.cate
   background: #aa68aa !important;
 }
 html[data-tenantidnumber=lmswaomirai] #page-admin-tool-catalogue-courseinfo.category-54 #page-header .page-header-headings:before {
-  background-image: url("https://go.waomirai.com/l/1026513/2024-08-08/gzqbq/1026513/1723092445NpS1HkfH/subject_04.jpg");
+  background-image: url("https://waomirai.com/lp/assets/moodle/images/subject_english.jpg");
 }
 @media screen and (max-width: 768px) {
   html[data-tenantidnumber=lmswaomirai] #page-admin-tool-catalogue-courseinfo.category-54 #page-header .page-header-headings {
@@ -4381,7 +4383,7 @@ html[data-tenantidnumber=lmswaomirai] #page-admin-tool-catalogue-courseinfo.cate
   background: #ee242c !important;
 }
 html[data-tenantidnumber=lmswaomirai] #page-admin-tool-catalogue-courseinfo.category-9999 #page-header .page-header-headings:before {
-  background-image: url("https://go.waomirai.com/l/1026513/2024-08-08/gzqbm/1026513/1723092444UDZaTUyz/subject_05.jpg");
+  background-image: url("https://waomirai.com/lp/assets/moodle/images/subject_programming.jpg");
 }
 @media screen and (max-width: 768px) {
   html[data-tenantidnumber=lmswaomirai] #page-admin-tool-catalogue-courseinfo.category-9999 #page-header .page-header-headings {
@@ -4472,7 +4474,7 @@ html[data-tenantidnumber=lmswaomirai] #page-enrol-index.category-53 #page-header
   background: #28afe7 !important;
 }
 html[data-tenantidnumber=lmswaomirai] #page-enrol-index.category-53 #page-header .page-header-headings:before {
-  background-image: url("https://go.waomirai.com/l/1026513/2024-08-08/gzqbt/1026513/1723092445zMMVlFVz/subject_03.jpg");
+  background-image: url("https://waomirai.com/lp/assets/moodle/images/subject_economy.jpg");
 }
 @media screen and (max-width: 768px) {
   html[data-tenantidnumber=lmswaomirai] #page-enrol-index.category-53 #page-header .page-header-headings {
@@ -4563,7 +4565,7 @@ html[data-tenantidnumber=lmswaomirai] #page-enrol-index.category-48 #page-header
   background: #28afe7 !important;
 }
 html[data-tenantidnumber=lmswaomirai] #page-enrol-index.category-48 #page-header .page-header-headings:before {
-  background-image: url("https://go.waomirai.com/l/1026513/2024-08-08/gzqbt/1026513/1723092445zMMVlFVz/subject_03.jpg");
+  background-image: url("https://waomirai.com/lp/assets/moodle/images/subject_economy.jpg");
 }
 @media screen and (max-width: 768px) {
   html[data-tenantidnumber=lmswaomirai] #page-enrol-index.category-48 #page-header .page-header-headings {
@@ -4654,7 +4656,7 @@ html[data-tenantidnumber=lmswaomirai] #page-enrol-index.category-52 #page-header
   background: #b6d43e !important;
 }
 html[data-tenantidnumber=lmswaomirai] #page-enrol-index.category-52 #page-header .page-header-headings:before {
-  background-image: url("https://go.waomirai.com/l/1026513/2024-08-08/gzqbx/1026513/1723092445qaV639ZU/subject_02.jpg");
+  background-image: url("https://waomirai.com/lp/assets/moodle/images/subject_science.jpg");
 }
 @media screen and (max-width: 768px) {
   html[data-tenantidnumber=lmswaomirai] #page-enrol-index.category-52 #page-header .page-header-headings {
@@ -4745,7 +4747,7 @@ html[data-tenantidnumber=lmswaomirai] #page-enrol-index.category-49 #page-header
   background: #b6d43e !important;
 }
 html[data-tenantidnumber=lmswaomirai] #page-enrol-index.category-49 #page-header .page-header-headings:before {
-  background-image: url("https://go.waomirai.com/l/1026513/2024-08-08/gzqbx/1026513/1723092445qaV639ZU/subject_02.jpg");
+  background-image: url("https://waomirai.com/lp/assets/moodle/images/subject_science.jpg");
 }
 @media screen and (max-width: 768px) {
   html[data-tenantidnumber=lmswaomirai] #page-enrol-index.category-49 #page-header .page-header-headings {
@@ -4836,7 +4838,7 @@ html[data-tenantidnumber=lmswaomirai] #page-enrol-index.category-51 #page-header
   background: #fcaf17 !important;
 }
 html[data-tenantidnumber=lmswaomirai] #page-enrol-index.category-51 #page-header .page-header-headings:before {
-  background-image: url("https://waomirai.com/wp-content/uploads/2024/07/phi_main.jpg");
+  background-image: url("https://waomirai.com/lp/assets/moodle/images/subject_philosophy.jpg");
 }
 @media screen and (max-width: 768px) {
   html[data-tenantidnumber=lmswaomirai] #page-enrol-index.category-51 #page-header .page-header-headings {
@@ -4927,7 +4929,7 @@ html[data-tenantidnumber=lmswaomirai] #page-enrol-index.category-47 #page-header
   background: #fcaf17 !important;
 }
 html[data-tenantidnumber=lmswaomirai] #page-enrol-index.category-47 #page-header .page-header-headings:before {
-  background-image: url("https://waomirai.com/wp-content/uploads/2024/07/phi_main.jpg");
+  background-image: url("https://waomirai.com/lp/assets/moodle/images/subject_philosophy.jpg");
 }
 @media screen and (max-width: 768px) {
   html[data-tenantidnumber=lmswaomirai] #page-enrol-index.category-47 #page-header .page-header-headings {
@@ -5018,7 +5020,7 @@ html[data-tenantidnumber=lmswaomirai] #page-enrol-index.category-50 #page-header
   background: #aa68aa !important;
 }
 html[data-tenantidnumber=lmswaomirai] #page-enrol-index.category-50 #page-header .page-header-headings:before {
-  background-image: url("https://go.waomirai.com/l/1026513/2024-08-08/gzqbq/1026513/1723092445NpS1HkfH/subject_04.jpg");
+  background-image: url("https://waomirai.com/lp/assets/moodle/images/subject_english.jpg");
 }
 @media screen and (max-width: 768px) {
   html[data-tenantidnumber=lmswaomirai] #page-enrol-index.category-50 #page-header .page-header-headings {
@@ -5109,7 +5111,7 @@ html[data-tenantidnumber=lmswaomirai] #page-enrol-index.category-54 #page-header
   background: #aa68aa !important;
 }
 html[data-tenantidnumber=lmswaomirai] #page-enrol-index.category-54 #page-header .page-header-headings:before {
-  background-image: url("https://go.waomirai.com/l/1026513/2024-08-08/gzqbq/1026513/1723092445NpS1HkfH/subject_04.jpg");
+  background-image: url("https://waomirai.com/lp/assets/moodle/images/subject_english.jpg");
 }
 @media screen and (max-width: 768px) {
   html[data-tenantidnumber=lmswaomirai] #page-enrol-index.category-54 #page-header .page-header-headings {
@@ -5200,7 +5202,7 @@ html[data-tenantidnumber=lmswaomirai] #page-enrol-index.category-9999 #page-head
   background: #ee242c !important;
 }
 html[data-tenantidnumber=lmswaomirai] #page-enrol-index.category-9999 #page-header .page-header-headings:before {
-  background-image: url("https://go.waomirai.com/l/1026513/2024-08-08/gzqbm/1026513/1723092444UDZaTUyz/subject_05.jpg");
+  background-image: url("https://waomirai.com/lp/assets/moodle/images/subject_programming.jpg");
 }
 @media screen and (max-width: 768px) {
   html[data-tenantidnumber=lmswaomirai] #page-enrol-index.category-9999 #page-header .page-header-headings {
