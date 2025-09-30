@@ -1,192 +1,67 @@
 
 -
   // 当月授業の画像URL
+  // 月とレベルに基づいてレッスンテキストを取得する関数
+  function getLessonTexts(subject, level, month) {
+    const curriculum = yearCurriculum[subject][`level${level}`];
+    const monthData = curriculum.find(item => item.month === month);
+    
+    if (!monthData) return null;
+    
+    return [
+      monthData.subcontents1,
+      monthData.subcontents2,
+      monthData.subcontents3
+    ];
+  }
+
+  // 現在の月を設定（手動で変更）
+  var currentMonth = 10;  
+
+
 
   //哲学
-  var imgPhLv1Week1 = 'https://go.waomirai.com/l/1026513/2025-05-15/hmd6z/1026513/17472866358Nah5AU2/phi_lv1_month6_week1.jpg';
-  var imgPhLv1Week2 = 'https://go.waomirai.com/l/1026513/2025-05-15/hmd6w/1026513/17472866354bwIcudI/phi_lv1_month6_week2.jpg';
-  var imgPhLv1Week3 = 'https://go.waomirai.com/l/1026513/2025-05-15/hmd6s/1026513/17472866350jCdgA3P/phi_lv1_month6_week3.jpg';
-  var imgPhLv2Week1 = 'https://go.waomirai.com/l/1026513/2025-05-15/hmd6p/1026513/1747286634A9W4lJcc/phi_lv2_month6_week1.jpg';
-  var imgPhLv2Week2 = 'https://go.waomirai.com/l/1026513/2025-05-15/hmd6l/1026513/1747286634KE2VnNOg/phi_lv2_month6_week2.jpg';
-  var imgPhLv2Week3 = 'https://go.waomirai.com/l/1026513/2025-05-15/hmd6h/1026513/1747286634OZvkgHRF/phi_lv2_month6_week3.jpg';
-  var imgPhLv3Week1 = 'https://go.waomirai.com/l/1026513/2025-05-15/hmd6d/1026513/1747286634ebFK7dmB/phi_lv3_month6_week1.jpg';
-  var imgPhLv3Week2 = 'https://go.waomirai.com/l/1026513/2025-05-15/hmd69/1026513/1747286634959UTEk1/phi_lv3_month6_week2.jpg';
-  var imgPhLv3Week3 = 'https://go.waomirai.com/l/1026513/2025-05-15/hmd66/1026513/1747286633izbY5h5y/phi_lv3_month6_week3.jpg';
-  var imgPhLv4Week1 = 'https://go.waomirai.com/l/1026513/2025-05-15/hmd63/1026513/1747286633OQJqbJEb/phi_lv4_month6_week1.jpg';
-  var imgPhLv4Week2 = 'https://go.waomirai.com/l/1026513/2025-05-15/hmd5z/1026513/1747286633JhYGqZZT/phi_lv4_month6_week2.jpg';
-  var imgPhLv4Week3 = 'https://go.waomirai.com/l/1026513/2025-05-15/hmd5w/1026513/1747286633nqS01zgr/phi_lv4_month6_week3.jpg';
+  var imgPhLv1Week1 = 'https://go.waomirai.com/l/1026513/2025-08-06/hsjq1/1026513/17544615624akRz79b/phi_lv1_month7_week1.jpg';
+  var imgPhLv1Week2 = 'https://go.waomirai.com/l/1026513/2025-08-06/hsjpx/1026513/17544615619rvs7iZz/phi_lv1_month7_week2.jpg';
+  var imgPhLv1Week3 = 'https://go.waomirai.com/l/1026513/2025-08-06/hsjq4/1026513/1754461562wsmCJH5C/phi_lv1_month7_week3.jpg';
+  var imgPhLv2Week1 = 'https://go.waomirai.com/l/1026513/2025-08-06/hsjq7/1026513/1754461562kFpkPhGC/phi_lv2_month7_week1.jpg';
+  var imgPhLv2Week2 = 'https://go.waomirai.com/l/1026513/2025-08-06/hsjqb/1026513/1754461562UJjz1kY6/phi_lv2_month7_week2.jpg';
+  var imgPhLv2Week3 = 'https://go.waomirai.com/l/1026513/2025-08-06/hsjqj/1026513/1754461563uu8fztMK/phi_lv2_month7_week3.jpg';
+  var imgPhLv3Week1 = 'https://go.waomirai.com/l/1026513/2025-08-06/hsjqf/1026513/1754461563lLSRiOEM/phi_lv3_month7_week1.jpg';
+  var imgPhLv3Week2 = 'https://go.waomirai.com/l/1026513/2025-08-06/hsjqm/1026513/1754461563BCsUcKD5/phi_lv3_month7_week2.jpg';
+  var imgPhLv3Week3 = 'https://go.waomirai.com/l/1026513/2025-08-06/hsjqt/1026513/1754461564UDOYJSIY/phi_lv3_month7_week3.jpg';
+  var imgPhLv4Week1 = 'https://go.waomirai.com/l/1026513/2025-08-06/hsjqq/1026513/1754461564l27ec4sW/phi_lv4_month7_week1.jpg';
+  var imgPhLv4Week2 = 'https://go.waomirai.com/l/1026513/2025-08-06/hsjqx/1026513/1754461564lY8VZGYG/phi_lv4_month7_week2.jpg';
+  var imgPhLv4Week3 = 'https://go.waomirai.com/l/1026513/2025-08-06/hsjr1/1026513/1754461564jpsU58PS/phi_lv4_month7_week3.jpg';
 
   //科学
-  var imgScLv1Week1 = 'https://go.waomirai.com/l/1026513/2025-05-15/hmd5s/1026513/17472866334TBi7Lve/sci_lv1_month6_week1.jpg';
-  var imgScLv1Week2 = 'https://go.waomirai.com/l/1026513/2025-05-15/hmd96/1026513/1747286639oHqo0r7z/sci_lv1_month6_week2.jpg';
-  var imgScLv1Week3 = 'https://go.waomirai.com/l/1026513/2025-05-15/hmd99/1026513/1747286639OTHllqyd/sci_lv1_month6_week3.jpg';
-  var imgScLv2Week1 = 'https://go.waomirai.com/l/1026513/2025-05-15/hmd93/1026513/1747286639DhKfBF5y/sci_lv2_month6_week1.jpg';
-  var imgScLv2Week2 = 'https://go.waomirai.com/l/1026513/2025-05-15/hmd8z/1026513/1747286638G5yPiWJz/sci_lv2_month6_week2.jpg';
-  var imgScLv2Week3 = 'https://go.waomirai.com/l/1026513/2025-05-15/hmd8w/1026513/1747286638uBs3rZeU/sci_lv2_month6_week3.jpg';
-  var imgScLv3Week1 = 'https://go.waomirai.com/l/1026513/2025-05-15/hmd8s/1026513/17472866386UKe5gzZ/sci_lv3_month6_week1.jpg';
-  var imgScLv3Week2 = 'https://go.waomirai.com/l/1026513/2025-05-15/hmd8p/1026513/1747286638mtYc2tIq/sci_lv3_month6_week2.jpg';
-  var imgScLv3Week3 = 'https://go.waomirai.com/l/1026513/2025-05-15/hmd8l/1026513/1747286638L4Yj6FR8/sci_lv3_month6_week3.jpg';
-  var imgScLv4Week1 = 'https://go.waomirai.com/l/1026513/2025-05-15/hmd8h/1026513/17472866387Th6FAUm/sci_lv4_month6_week1.jpg';
-  var imgScLv4Week2 = 'https://go.waomirai.com/l/1026513/2025-05-15/hmd89/1026513/1747286637Q4B40eni/sci_lv4_month6_week2.jpg';
-  var imgScLv4Week3 = 'https://go.waomirai.com/l/1026513/2025-05-15/hmd8d/1026513/1747286637CBItultO/sci_lv4_month6_week3.jpg';
+  var imgScLv1Week1 = 'https://go.waomirai.com/l/1026513/2025-08-06/hsjnq/1026513/1754460782ZvabZC8Z/sci_lv1_month7_week1.jpg';
+  var imgScLv1Week2 = 'https://go.waomirai.com/l/1026513/2025-08-06/hsjnt/1026513/1754460782HW9IHQod/sci_lv1_month7_week2.jpg';
+  var imgScLv1Week3 = 'https://go.waomirai.com/l/1026513/2025-08-06/hsjp1/1026513/1754460783iWDafbmk/sci_lv1_month7_week3.jpg';
+  var imgScLv2Week1 = 'https://go.waomirai.com/l/1026513/2025-08-06/hsjnx/1026513/175446078326d3ORh6/sci_lv2_month7_week1.jpg';
+  var imgScLv2Week2 = 'https://go.waomirai.com/l/1026513/2025-08-06/hsjp7/1026513/17544607833raaKFk4/sci_lv2_month7_week2.jpg';
+  var imgScLv2Week3 = 'https://go.waomirai.com/l/1026513/2025-08-06/hsjp4/1026513/17544607846iaVzzcz/sci_lv2_month7_week3.jpg';
+  var imgScLv3Week1 = 'https://go.waomirai.com/l/1026513/2025-08-06/hsjpj/1026513/17544607847NSdVeBA/sci_lv3_month7_week1.jpg';
+  var imgScLv3Week2 = 'https://go.waomirai.com/l/1026513/2025-08-06/hsjpb/1026513/1754460784kj9K6EzZ/sci_lv3_month7_week2.jpg';
+  var imgScLv3Week3 = 'https://go.waomirai.com/l/1026513/2025-08-06/hsjpf/1026513/1754460784p2WV9HOe/sci_lv3_month7_week3.jpg';
+  var imgScLv4Week1 = 'https://go.waomirai.com/l/1026513/2025-08-06/hsjpq/1026513/1754460785bC2lwzYZ/sci_lv4_month7_week1.jpg';
+  var imgScLv4Week2 = 'https://go.waomirai.com/l/1026513/2025-08-06/hsjpm/1026513/1754460785UYEqOa0S/sci_lv4_month7_week2.jpg';
+  var imgScLv4Week3 = 'https://go.waomirai.com/l/1026513/2025-08-06/hsjpt/1026513/17544607856u7waIeA/sci_lv4_month7_week3.jpg';
 
   //経済
-  var imgEcLv1Week1 = 'https://go.waomirai.com/l/1026513/2025-05-15/hmd86/1026513/1747286637zVIEBSsQ/eco_lv1_month6_week1.jpg';
-  var imgEcLv1Week2 = 'https://go.waomirai.com/l/1026513/2025-05-15/hmd83/1026513/1747286637wgTaM1K1/eco_lv1_month6_week2.jpg';
-  var imgEcLv1Week3 = 'https://go.waomirai.com/l/1026513/2025-05-15/hmd7z/1026513/1747286637iaSv8LlQ/eco_lv1_month6_week3.jpg';
-  var imgEcLv2Week1 = 'https://go.waomirai.com/l/1026513/2025-05-15/hmd7w/1026513/1747286637pVfRUQ59/eco_lv2_month6_week1.jpg';
-  var imgEcLv2Week2 = 'https://go.waomirai.com/l/1026513/2025-05-15/hmd7s/1026513/1747286636uFhIta3v/eco_lv2_month6_week2.jpg';
-  var imgEcLv2Week3 = 'https://go.waomirai.com/l/1026513/2025-05-15/hmd7p/1026513/1747286636qDPSIzHY/eco_lv2_month6_week3.jpg';
-  var imgEcLv3Week1 = 'https://go.waomirai.com/l/1026513/2025-05-15/hmd7l/1026513/1747286636FcncTmf8/eco_lv3_month6_week1.jpg';
-  var imgEcLv3Week2 = 'https://go.waomirai.com/l/1026513/2025-05-15/hmd7h/1026513/1747286636SihDERzy/eco_lv3_month6_week2.jpg';
-  var imgEcLv3Week3 = 'https://go.waomirai.com/l/1026513/2025-05-15/hmd7d/1026513/1747286636KQkIfnZB/eco_lv3_month6_week3.jpg';
-  var imgEcLv4Week1 = 'https://go.waomirai.com/l/1026513/2025-05-15/hmd76/1026513/1747286636zzzIjpZ8/eco_lv4_month6_week1.jpg';
-  var imgEcLv4Week2 = 'https://go.waomirai.com/l/1026513/2025-05-15/hmd73/1026513/1747286635aZYm1F2b/eco_lv4_month6_week2.jpg';
-  var imgEcLv4Week3 = 'https://go.waomirai.com/l/1026513/2025-05-15/hmd79/1026513/1747286636f8vutiIq/eco_lv4_month6_week3.jpg';
+  var imgEcLv1Week1 = 'https://go.waomirai.com/l/1026513/2025-08-06/hsjr7/1026513/1754461771UnwROzgm/eco_lv1_month7_week1.jpg';
+  var imgEcLv1Week2 = 'https://go.waomirai.com/l/1026513/2025-08-06/hsjr4/1026513/1754461771NcMA1Knk/eco_lv1_month7_week2.jpg';
+  var imgEcLv1Week3 = 'https://go.waomirai.com/l/1026513/2025-08-06/hsjrb/1026513/1754461773r1fz5JjO/eco_lv1_month7_week3.jpg';
+  var imgEcLv2Week1 = 'https://go.waomirai.com/l/1026513/2025-08-06/hsjrf/1026513/1754461773nU9QdWZp/eco_lv2_month7_week1.jpg';
+  var imgEcLv2Week2 = 'https://go.waomirai.com/l/1026513/2025-08-06/hsjrj/1026513/1754461773cJ90HKkW/eco_lv2_month7_week2.jpg';
+  var imgEcLv2Week3 = 'https://go.waomirai.com/l/1026513/2025-08-06/hsjrm/1026513/1754461774TsOcarcn/eco_lv2_month7_week3.jpg';
+  var imgEcLv3Week1 = 'https://go.waomirai.com/l/1026513/2025-08-06/hsjrq/1026513/1754461775w665ZA29/eco_lv3_month7_week1.jpg';
+  var imgEcLv3Week2 = 'https://go.waomirai.com/l/1026513/2025-08-06/hsjrt/1026513/1754461775ww6uisJK/eco_lv3_month7_week2.jpg';
+  var imgEcLv3Week3 = 'https://go.waomirai.com/l/1026513/2025-08-06/hsjrx/1026513/1754461775zeg5DdIE/eco_lv3_month7_week3.jpg';
+  var imgEcLv4Week1 = 'https://go.waomirai.com/l/1026513/2025-08-06/hsjs1/1026513/1754461776SGthakFD/eco_lv4_month7_week1.jpg';
+  var imgEcLv4Week2 = 'https://go.waomirai.com/l/1026513/2025-08-06/hsjs4/1026513/1754461776rsKZylcW/eco_lv4_month7_week2.jpg';
+  var imgEcLv4Week3 = 'https://go.waomirai.com/l/1026513/2025-08-06/hsjs7/1026513/17544617776t9ysV93/eco_lv4_month7_week3.jpg';
 -
-  // 授業データ（レベル、学年、レッスン内容）
-  var thisMonthLessons = {
-    //哲学
-    philosophy: [
-      {
-        level: "1", // レベル名
-        grade: "小3-4", // 対象学年
-        lessons: [
-          { week: "1周目", banner: imgPhLv1Week1, text: "世の中ルールが多すぎる？" },
-          { week: "2周目", banner: imgPhLv1Week2, text: "今あるルールが変わるとき" },
-          { week: "3周目", banner: imgPhLv1Week3, text: "フィードバック" }
-        ]
-      },
-      {
-        level: "2",
-        grade: "小5-6",
-        lessons: [
-          { week: "1周目", banner: imgPhLv2Week1, text: "ChatGPT許可か禁止か" },
-          { week: "2周目", banner: imgPhLv2Week2, text: "AIが「人工」でなくなる日⁉" },
-          { week: "3周目", banner: imgPhLv2Week3, text: "フィードバック" }
-        ]
-      },
-      {
-        level: "3", // レベル名
-        grade: "中学生", // 対象学年
-        lessons: [
-          { week: "1周目", banner: imgPhLv3Week1, text: "トゥキュディデスの３つの戦争動機" },
-          { week: "2周目", banner: imgPhLv3Week2, text: "戦争を抑止するには" },
-          { week: "3周目", banner: imgPhLv3Week3, text: "フィードバック" }
-        ]
-      },
-      {
-        level: "4",
-        grade: "高校生",
-        lessons: [
-          { week: "1周目", banner: imgPhLv4Week1, text: "戦争が正当化される条件" },
-          { week: "2周目", banner: imgPhLv4Week2, text: "人々に通底する根源へ" },
-          { week: "3周目", banner: imgPhLv4Week3, text: "フィードバック" }
-        ]
-      }
-    ],
-    //科学
-    science: [
-      {
-        level: "1",
-        grade: "小3-4",
-        lessons: [
-          { week: "1周目", banner: imgScLv1Week1, text: "平和と発明の象徴　ノーベル賞" },
-          { week: "2周目", banner: imgScLv1Week2, text: "アルフレッド・ノーベルの生涯と発明" },
-          { week: "3周目", banner: imgScLv1Week3, text: "フィードバック" }
-        ]
-      },
-      {
-        level: "2",
-        grade: "小5-6",
-        lessons: [
-          { week: "1周目", banner: imgScLv2Week1, text: "細菌とウイルスって何が違うの?" },
-          { week: "2周目", banner: imgScLv2Week2, text: "マスクはする必要があるの" },
-          { week: "3周目", banner: imgScLv2Week3, text: "フィードバック" }
-        ]
-      },
-      {
-        level: "3",
-        grade: "中学生",
-        lessons: [
-          { week: "1周目", banner: imgScLv3Week1, text: "野口英世の真実" },
-          { week: "2周目", banner: imgScLv3Week2, text: "目に見えないモノとのたたかい" },
-          { week: "3周目", banner: imgScLv3Week3, text: "フィードバック" }
-        ]
-      },
-      {
-        level: "4",
-        grade: "高校生",
-        lessons: [
-          { week: "1周目", banner: imgScLv4Week1, text: "三角形の秘密を解き明かす" },
-          { week: "2周目", banner: imgScLv4Week2, text: "ピタゴラスの足跡" },
-          { week: "3周目", banner: imgScLv4Week3, text: "フィードバック" }
-        ]
-      },
-    ],
-    //経済
-    economy: [
-      {
-        level: "1",
-        grade: "小3-4",
-        lessons: [
-          { week: "1周目", banner: imgEcLv1Week1, text: "働くこととお金の関係" },
-          { week: "2周目", banner: imgEcLv1Week2, text: "給料はどう決まる ?" },
-          { week: "3周目", banner: imgEcLv1Week3, text: "フィードバック" }
-        ]
-      },
-      {
-        level: "2",
-        grade: "小5-6",
-        lessons: [
-          { week: "1周目", banner: imgEcLv2Week1, text: "ただの小石が100 万円になるヒミツにせまる！" },
-          { week: "2周目", banner: imgEcLv2Week2, text: "「 値段」と「価値」、どうちがう？" },
-          { week: "3周目", banner: imgEcLv2Week3, text: "フィードバック" }
-        ]
-      },
-      {
-        level: "3",
-        grade: "中学生",
-        lessons: [
-          { week: "1周目", banner: imgEcLv3Week1, text: "ビジネスモデルの作り方" },
-          { week: "2周目", banner: imgEcLv3Week2, text: "経済学 × 心理学で考える（行動経済学）" },
-          { week: "3周目", banner: imgEcLv3Week3, text: "フィードバック" }
-        ]
-      },
-      {
-        level: "4",
-        grade: "高校生",
-        lessons: [
-          { week: "1周目", banner: imgEcLv4Week1, text: "アダム・スミスの『国富論』" },
-          { week: "2周目", banner: imgEcLv4Week2, text: "ミクロ経済学の基礎" },
-          { week: "3周目", banner: imgEcLv4Week3, text: "フィードバック" }
-        ]
-      },
-    ],
-    //英語
-    globalenglish: [
-      {
-        level: "1",
-        grade: "英語初挑戦の方",
-        lessons: [
-          { week: "1周目", banner: "https://go.waomirai.com/l/1026513/2025-02-05/hdw9n/1026513/17388115572akwZ6Km/thumbnail_ph.jpg", text: "人気スポットを英語でレポート【前半】" },
-          { week: "2周目", banner: "https://go.waomirai.com/l/1026513/2025-02-05/hdw9n/1026513/17388115572akwZ6Km/thumbnail_ph.jpg", text: "人気スポットを英語でレポート【後半】" },
-          { week: "3周目", banner: "https://go.waomirai.com/l/1026513/2025-02-05/hdw9n/1026513/17388115572akwZ6Km/thumbnail_ph.jpg", text: "フィードバック" }
-        ]
-      },
-      {
-        level: "2",
-        grade: "英語が少し話せる方",
-        lessons: [
-          { week: "1周目", banner: "https://go.waomirai.com/l/1026513/2025-02-05/hdw9n/1026513/17388115572akwZ6Km/thumbnail_ph.jpg", text: "日本の人気スポットを英語でレポート【前半】" },
-          { week: "2周目", banner: "https://go.waomirai.com/l/1026513/2025-02-05/hdw9n/1026513/17388115572akwZ6Km/thumbnail_ph.jpg", text: "日本の人気スポットを英語でレポート【後半】" },
-          { week: "3周目", banner: "https://go.waomirai.com/l/1026513/2025-02-05/hdw9n/1026513/17388115572akwZ6Km/thumbnail_ph.jpg", text: "フィードバック" }
-        ]
-      }
-    ]
-  };
-
-  // 年間の授業カリキュラムデータ（月ごとの内容）
   var yearCurriculum = {
     //哲学
     philosophy: {
@@ -1407,6 +1282,150 @@
               ]
     },
   };
+  // 授業データ（レベル、学年、レッスン内容）
+  var thisMonthLessons = {
+    //哲学
+    philosophy: [
+      {
+        level: "1", // レベル名
+        grade: "小3-4", // 対象学年
+        lessons: getLessonTexts('philosophy', 1, currentMonth).map((text, i) => ({
+              week: `${i + 1}周目`,
+              banner: eval(`imgPhLv1Week${i + 1}`),
+              text: text
+          }))
+      },
+      {
+        level: "2",
+        grade: "小5-6",
+        lessons: getLessonTexts('philosophy', 2, currentMonth).map((text, i) => ({
+              week: `${i + 1}周目`,
+              banner: eval(`imgPhLv2Week${i + 1}`),
+              text: text
+          }))
+      },
+      {
+        level: "3", // レベル名
+        grade: "中学生", // 対象学年
+        lessons: getLessonTexts('philosophy', 3, currentMonth).map((text, i) => ({
+                week: `${i + 1}周目`,
+                banner: eval(`imgPhLv3Week${i + 1}`),
+                text: text
+            }))
+      },
+      {
+        level: "4",
+        grade: "高校生",
+        lessons: getLessonTexts('philosophy', 4, currentMonth).map((text, i) => ({
+                week: `${i + 1}周目`,
+                banner: eval(`imgPhLv4Week${i + 1}`),
+                text: text
+            }))
+      }
+    ],
+    //科学
+    science: [
+      {
+        level: "1",
+        grade: "小3-4",
+        lessons: getLessonTexts('science', 1, currentMonth).map((text, i) => ({
+              week: `${i + 1}周目`,
+              banner: eval(`imgScLv1Week${i + 1}`),
+              text: text
+          }))
+      },
+      {
+        level: "2",
+        grade: "小5-6",
+        lessons: getLessonTexts('science', 2, currentMonth).map((text, i) => ({
+              week: `${i + 1}周目`,
+              banner: eval(`imgScLv2Week${i + 1}`),
+              text: text
+          }))
+      },
+      {
+        level: "3",
+        grade: "中学生",
+        lessons: getLessonTexts('science', 3, currentMonth).map((text, i) => ({
+              week: `${i + 1}周目`,
+              banner: eval(`imgScLv3Week${i + 1}`),
+              text: text
+          }))
+      },
+      {
+        level: "4",
+        grade: "高校生",
+        lessons: getLessonTexts('science', 4, currentMonth).map((text, i) => ({
+              week: `${i + 1}周目`,
+              banner: eval(`imgScLv4Week${i + 1}`),
+              text: text
+          }))
+      },
+    ],
+    //経済
+    economy: [
+      {
+        level: "1",
+        grade: "小3-4",
+        lessons: getLessonTexts('economy', 1, currentMonth).map((text, i) => ({
+              week: `${i + 1}周目`,
+              banner: eval(`imgEcLv1Week${i + 1}`),
+              text: text
+          }))
+      },
+      {
+        level: "2",
+        grade: "小5-6",
+        lessons: getLessonTexts('economy', 2, currentMonth).map((text, i) => ({
+                  week: `${i + 1}周目`,
+                  banner: eval(`imgEcLv2Week${i + 1}`),
+                  text: text
+              }))
+      },
+      {
+        level: "3",
+        grade: "中学生",
+        lessons: getLessonTexts('economy', 3, currentMonth).map((text, i) => ({
+                  week: `${i + 1}周目`,
+                  banner: eval(`imgEcLv3Week${i + 1}`),
+                  text: text
+              }))
+      },
+      {
+        level: "4",
+        grade: "高校生",
+        lessons: getLessonTexts('economy', 4, currentMonth).map((text, i) => ({
+                  week: `${i + 1}周目`,
+                  banner: eval(`imgEcLv4Week${i + 1}`),
+                  text: text
+              }))
+      },
+    ],
+    //英語
+    globalenglish: [
+      {
+        level: "1",
+        grade: "英語初挑戦の方",
+        lessons: [
+          { week: "1周目", banner: "https://go.waomirai.com/l/1026513/2025-02-05/hdw9n/1026513/17388115572akwZ6Km/thumbnail_ph.jpg", text: "人気スポットを英語でレポート【前半】" },
+          { week: "2周目", banner: "https://go.waomirai.com/l/1026513/2025-02-05/hdw9n/1026513/17388115572akwZ6Km/thumbnail_ph.jpg", text: "人気スポットを英語でレポート【後半】" },
+          { week: "3周目", banner: "https://go.waomirai.com/l/1026513/2025-02-05/hdw9n/1026513/17388115572akwZ6Km/thumbnail_ph.jpg", text: "フィードバック" }
+        ]
+      },
+      {
+        level: "2",
+        grade: "英語が少し話せる方",
+        lessons: [
+          { week: "1周目", banner: "https://go.waomirai.com/l/1026513/2025-02-05/hdw9n/1026513/17388115572akwZ6Km/thumbnail_ph.jpg", text: "日本の人気スポットを英語でレポート【前半】" },
+          { week: "2周目", banner: "https://go.waomirai.com/l/1026513/2025-02-05/hdw9n/1026513/17388115572akwZ6Km/thumbnail_ph.jpg", text: "日本の人気スポットを英語でレポート【後半】" },
+          { week: "3周目", banner: "https://go.waomirai.com/l/1026513/2025-02-05/hdw9n/1026513/17388115572akwZ6Km/thumbnail_ph.jpg", text: "フィードバック" }
+        ]
+      }
+    ]
+  };
+
+  // 年間の授業カリキュラムデータ（月ごとの内容）
+
 
 
   // 曜日と時間割のデータ
