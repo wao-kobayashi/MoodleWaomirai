@@ -1085,8 +1085,12 @@ if (bodyId === "page-enrol-index") {
     const today = new Date(); // 現在の日付を取得
     const AmazonGiftFreeCampaignEndDate = new Date(AmazonGiftFreeCampaignEnd); // AmazonGiftFreeCampaignEndをDateオブジェクトに変換
 
-    if (today <= AmazonGiftFreeCampaignEndDate) {
-        $(".enrol-campaign-banner").show(); // キャンペーンバナーを表示
+    // URLクエリパラメータを取得し、htmlCopyが含まれているかチェック
+    const searchParams = new URLSearchParams(window.location.search);
+    const isHtmlCopy = searchParams.has("htmlCopy") || searchParams.get("params") === "htmlCopy";
+
+    if (!isHtmlCopy && today <= AmazonGiftFreeCampaignEnd) {
+      $(".enrol-campaign-banner").show(); // キャンペーンバナーを表示
     }
 
     const subjectCategory = currentViewCourseData.key;  // 現在選択されている科目カテゴリーを取得
@@ -1610,7 +1614,7 @@ function showCampaignModal() {
   createModal({
     title: "おめでとうございます！",
     wrapClass: "c-modal-wrap-wrap-campaign",
-    text: "<b>キャンペーンを<br />適用させていただきます。</b><br /><br />2025年8・9月は無料で受講いただけます。<br />2025年10月も受講いただけたら<br />Amazonギフト券5000円プレゼントいたします。<br />",
+    text: "<b>キャンペーンを<br />適用させていただきます。</b><br /><br />2025年10・11月は無料で受講いただけます。<br />2025年11月も受講いただけたら<br />Amazonギフト券5000円プレゼントいたします。<br />",
     buttons: [
       { text: "OKです", class: "btn-primary c-modal-level-setting c-modal-wrap-close-tag" }
     ]
