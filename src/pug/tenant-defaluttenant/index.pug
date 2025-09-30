@@ -1,0 +1,260 @@
+doctype html
+html(dir="ltr", lang="ja", xml:lang="ja", data-tenantid="1")
+  head
+    title ログイン・新規会員登録 | ワオ未来塾　学習サイト
+    link(rel="shortcut icon", href="https://lms.waomirai.com/pluginfile.php/1/tool_tenant/favicon/1/fabicon.png")
+    meta(http-equiv="Content-Type", content="text/html; charset=utf-8")
+    meta(name="keywords", content="moodle, ログイン・新規会員登録 | ワオ未来塾　学習サイト")
+    link(rel="stylesheet", type="text/css", href="https://lms.waomirai.com/theme/yui_combo.php?rollup/3.18.1/yui-moodlesimple-min.css")
+    script(id="firstthemesheet", type="text/css").
+      /** Required in order to fix style inclusion problems in IE with YUI **/
+    link(rel="stylesheet", type="text/css", href="https://lms.waomirai.com/theme/workplace/wpcss.php/kenai/1749448559_1/all-1-1744594505")
+    link(rel="stylesheet", type="text/css", href="https://lms.waomirai.com/filter/syntaxhighlighter/styles/atom-one-dark.min.css")
+    script.
+      //<![CDATA[
+      var M = {}; M.yui = {};
+      M.pageloadstarttime = new Date();
+      M.cfg = {"wwwroot":"https:\/\/lms.waomirai.com","homeurl":{},"sesskey":"XDTaPNJUKx","sessiontimeout":"28800","sessiontimeoutwarning":"1200","themerev":"1749448559","slasharguments":1,"theme":"kenai","iconsystemmodule":"core\/icon_system_fontawesome","jsrev":"1749448559","admin":"admin","svgicons":true,"usertimezone":"\u30a2\u30b8\u30a2\/\u6771\u4eac","language":"ja_wp","courseId":1,"courseContextId":2,"contextid":1,"contextInstanceId":0,"langrev":1759000804,"templaterev":"1749448559"};var yui1ConfigFn = function(me) {if(/-skin|reset|fonts|grids|base/.test(me.name)){me.type='css';me.path=me.path.replace(/\.js/,'.css');me.path=me.path.replace(/\/yui2-skin/,'/assets/skins/sam/yui2-skin')}};
+      var yui2ConfigFn = function(me) {var parts=me.name.replace(/^moodle-/,'').split('-'),component=parts.shift(),module=parts[0],min='-min';if(/-(skin|core)$/.test(me.name)){parts.pop();me.type='css';min=''}
+      if(module){var filename=parts.join('-');me.path=component+'/'+module+'/'+filename+min+'.'+me.type}else{me.path=component+'/'+component+'.'+me.type}};
+      YUI_config = {"debug":false,"base":"https:\/\/lms.waomirai.com\/lib\/yuilib\/3.18.1\/","comboBase":"https:\/\/lms.waomirai.com\/theme\/yui_combo.php?","combine":true,"filter":null,"insertBefore":"firstthemesheet","groups":{"yui2":{"base":"https:\/\/lms.waomirai.com\/lib\/yuilib\/2in3\/2.9.0\/build\/","comboBase":"https:\/\/lms.waomirai.com\/theme\/yui_combo.php?","combine":true,"ext":false,"root":"2in3\/2.9.0\/build\/","patterns":{"yui2-":{"group":"yui2","configFn":yui1ConfigFn}}},"moodle":{"name":"moodle","base":"https:\/\/lms.waomirai.com\/theme\/yui_combo.php?m\/1749448559\/","combine":true,"comboBase":"https:\/\/lms.waomirai.com\/theme\/yui_combo.php?","ext":false,"root":"m\/1749448559\/","patterns":{"moodle-":{"group":"moodle","configFn":yui2ConfigFn}},"filter":null,"modules":{"moodle-core-actionmenu":{"requires":["base","event","node-event-simulate"]},"moodle-core-blocks":{"requires":["base","node","io","dom","dd","dd-scroll","moodle-core-dragdrop","moodle-core-notification"]},"moodle-core-chooserdialogue":{"requires":["base","panel","moodle-core-notification"]},"moodle-core-dragdrop":{"requires":["base","node","io","dom","dd","event-key","event-focus","moodle-core-notification"]},"moodle-core-event":{"requires":["event-custom"]},"moodle-core-formchangechecker":{"requires":["base","event-focus","moodle-core-event"]},"moodle-core-handlebars":{"condition":{"trigger":"handlebars","when":"after"}},"moodle-core-lockscroll":{"requires":["plugin","base-build"]},"moodle-core-maintenancemodetimer":{"requires":["base","node"]},"moodle-core-notification":{"requires":["moodle-core-notification-dialogue","moodle-core-notification-alert","moodle-core-notification-confirm","moodle-core-notification-exception","moodle-core-notification-ajaxexception"]},"moodle-core-notification-dialogue":{"requires":["base","node","panel","escape","event-key","dd-plugin","moodle-core-widget-focusafterclose","moodle-core-lockscroll"]},"moodle-core-notification-alert":{"requires":["moodle-core-notification-dialogue"]},"moodle-core-notification-confirm":{"requires":["moodle-core-notification-dialogue"]},"moodle-core-notification-exception":{"requires":["moodle-core-notification-dialogue"]},"moodle-core-notification-ajaxexception":{"requires":["moodle-core-notification-dialogue"]},"moodle-core_availability-form":{"requires":["base","node","event","event-delegate","panel","moodle-core-notification-dialogue","json"]},"moodle-backup-backupselectall":{"requires":["node","event","node-event-simulate","anim"]},"moodle-course-categoryexpander":{"requires":["node","event-key"]},"moodle-course-dragdrop":{"requires":["base","node","io","dom","dd","dd-scroll","moodle-core-dragdrop","moodle-core-notification","moodle-course-coursebase","moodle-course-util"]},"moodle-course-management":{"requires":["base","node","io-base","moodle-core-notification-exception","json-parse","dd-constrain","dd-proxy","dd-drop","dd-delegate","node-event-delegate"]},"moodle-course-util":{"requires":["node"],"use":["moodle-course-util-base"],"submodules":{"moodle-course-util-base":{},"moodle-course-util-section":{"requires":["node","moodle-course-util-base"]},"moodle-course-util-cm":{"requires":["node","moodle-course-util-base"]}}},"moodle-form-dateselector":{"requires":["base","node","overlay","calendar"]},"moodle-form-shortforms":{"requires":["node","base","selector-css3","moodle-core-event"]},"moodle-question-chooser":{"requires":["moodle-core-chooserdialogue"]},"moodle-question-preview":{"requires":["base","dom","event-delegate","event-key","core_question_engine"]},"moodle-question-searchform":{"requires":["base","node"]},"moodle-availability_completion-form":{"requires":["base","node","event","moodle-core_availability-form"]},"moodle-availability_date-form":{"requires":["base","node","event","io","moodle-core_availability-form"]},"moodle-availability_grade-form":{"requires":["base","node","event","moodle-core_availability-form"]},"moodle-availability_group-form":{"requires":["base","node","event","moodle-core_availability-form"]},"moodle-availability_grouping-form":{"requires":["base","node","event","moodle-core_availability-form"]},"moodle-availability_profile-form":{"requires":["base","node","event","moodle-core_availability-form"]},"moodle-availability_relativedate-form":{"requires":["base","node","event","moodle-core_availability-form"]},"moodle-mod_assign-history":{"requires":["node","transition"]},"moodle-mod_attendance-groupfilter":{"requires":["base","node"]},"moodle-mod_quiz-autosave":{"requires":["base","node","event","event-valuechange","node-event-delegate","io-form"]},"moodle-mod_quiz-dragdrop":{"requires":["base","node","io","dom","dd","dd-scroll","moodle-core-dragdrop","moodle-core-notification","moodle-mod_quiz-quizbase","moodle-mod_quiz-util-base","moodle-mod_quiz-util-page","moodle-mod_quiz-util-slot","moodle-course-util"]},"moodle-mod_quiz-modform":{"requires":["base","node","event"]},"moodle-mod_quiz-questionchooser":{"requires":["moodle-core-chooserdialogue","moodle-mod_quiz-util","querystring-parse"]},"moodle-mod_quiz-quizbase":{"requires":["base","node"]},"moodle-mod_quiz-toolboxes":{"requires":["base","node","event","event-key","io","moodle-mod_quiz-quizbase","moodle-mod_quiz-util-slot","moodle-core-notification-ajaxexception"]},"moodle-mod_quiz-util":{"requires":["node","moodle-core-actionmenu"],"use":["moodle-mod_quiz-util-base"],"submodules":{"moodle-mod_quiz-util-base":{},"moodle-mod_quiz-util-slot":{"requires":["node","moodle-mod_quiz-util-base"]},"moodle-mod_quiz-util-page":{"requires":["node","moodle-mod_quiz-util-base"]}}},"moodle-message_airnotifier-toolboxes":{"requires":["base","node","io"]},"moodle-block_xp-rulepicker":{"requires":["base","node","handlebars","moodle-core-notification-dialogue"]},"moodle-block_xp-filters":{"requires":["base","node","moodle-core-dragdrop","moodle-core-notification-confirm","moodle-block_xp-rulepicker"]},"moodle-block_xp-notification":{"requires":["base","node","handlebars","button-plugin","moodle-core-notification-dialogue"]},"moodle-filter_glossary-autolinker":{"requires":["base","node","io-base","json-parse","event-delegate","overlay","moodle-core-event","moodle-core-notification-alert","moodle-core-notification-exception","moodle-core-notification-ajaxexception"]},"moodle-editor_atto-editor":{"requires":["node","transition","io","overlay","escape","event","event-simulate","event-custom","node-event-html5","node-event-simulate","yui-throttle","moodle-core-notification-dialogue","moodle-editor_atto-rangy","handlebars","timers","querystring-stringify"]},"moodle-editor_atto-plugin":{"requires":["node","base","escape","event","event-outside","handlebars","event-custom","timers","moodle-editor_atto-menu"]},"moodle-editor_atto-menu":{"requires":["moodle-core-notification-dialogue","node","event","event-custom"]},"moodle-editor_atto-rangy":{"requires":[]},"moodle-report_eventlist-eventfilter":{"requires":["base","event","node","node-event-delegate","datatable","autocomplete","autocomplete-filters"]},"moodle-report_loglive-fetchlogs":{"requires":["base","event","node","io","node-event-delegate"]},"moodle-gradereport_history-userselector":{"requires":["escape","event-delegate","event-key","handlebars","io-base","json-parse","moodle-core-notification-dialogue"]},"moodle-qbank_editquestion-chooser":{"requires":["moodle-core-chooserdialogue"]},"moodle-tool_lp-dragdrop-reorder":{"requires":["moodle-core-dragdrop"]},"moodle-assignfeedback_editpdf-editor":{"requires":["base","event","node","io","graphics","json","event-move","event-resize","transition","querystring-stringify-simple","moodle-core-notification-dialog","moodle-core-notification-alert","moodle-core-notification-warning","moodle-core-notification-exception","moodle-core-notification-ajaxexception"]},"moodle-atto_accessibilitychecker-button":{"requires":["color-base","moodle-editor_atto-plugin"]},"moodle-atto_accessibilityhelper-button":{"requires":["moodle-editor_atto-plugin"]},"moodle-atto_align-button":{"requires":["moodle-editor_atto-plugin"]},"moodle-atto_bold-button":{"requires":["moodle-editor_atto-plugin"]},"moodle-atto_charmap-button":{"requires":["moodle-editor_atto-plugin"]},"moodle-atto_clear-button":{"requires":["moodle-editor_atto-plugin"]},"moodle-atto_collapse-button":{"requires":["moodle-editor_atto-plugin"]},"moodle-atto_emojipicker-button":{"requires":["moodle-editor_atto-plugin"]},"moodle-atto_emoticon-button":{"requires":["moodle-editor_atto-plugin"]},"moodle-atto_equation-button":{"requires":["moodle-editor_atto-plugin","moodle-core-event","io","event-valuechange","tabview","array-extras"]},"moodle-atto_h5p-button":{"requires":["moodle-editor_atto-plugin"]},"moodle-atto_html-beautify":{},"moodle-atto_html-button":{"requires":["promise","moodle-editor_atto-plugin","moodle-atto_html-beautify","moodle-atto_html-codemirror","event-valuechange"]},"moodle-atto_html-codemirror":{"requires":["moodle-atto_html-codemirror-skin"]},"moodle-atto_image-button":{"requires":["moodle-editor_atto-plugin"]},"moodle-atto_indent-button":{"requires":["moodle-editor_atto-plugin"]},"moodle-atto_italic-button":{"requires":["moodle-editor_atto-plugin"]},"moodle-atto_link-button":{"requires":["moodle-editor_atto-plugin"]},"moodle-atto_managefiles-button":{"requires":["moodle-editor_atto-plugin"]},"moodle-atto_managefiles-usedfiles":{"requires":["node","escape"]},"moodle-atto_media-button":{"requires":["moodle-editor_atto-plugin","moodle-form-shortforms"]},"moodle-atto_noautolink-button":{"requires":["moodle-editor_atto-plugin"]},"moodle-atto_orderedlist-button":{"requires":["moodle-editor_atto-plugin"]},"moodle-atto_recordrtc-button":{"requires":["moodle-editor_atto-plugin","moodle-atto_recordrtc-recording"]},"moodle-atto_recordrtc-recording":{"requires":["moodle-atto_recordrtc-button"]},"moodle-atto_rtl-button":{"requires":["moodle-editor_atto-plugin"]},"moodle-atto_strike-button":{"requires":["moodle-editor_atto-plugin"]},"moodle-atto_subscript-button":{"requires":["moodle-editor_atto-plugin"]},"moodle-atto_superscript-button":{"requires":["moodle-editor_atto-plugin"]},"moodle-atto_table-button":{"requires":["moodle-editor_atto-plugin","moodle-editor_atto-menu","event","event-valuechange"]},"moodle-atto_title-button":{"requires":["moodle-editor_atto-plugin"]},"moodle-atto_underline-button":{"requires":["moodle-editor_atto-plugin"]},"moodle-atto_undo-button":{"requires":["moodle-editor_atto-plugin"]},"moodle-atto_unorderedlist-button":{"requires":["moodle-editor_atto-plugin"]}}},"gallery":{"name":"gallery","base":"https:\/\/lms.waomirai.com\/lib\/yuilib\/gallery\/","combine":true,"comboBase":"https:\/\/lms.waomirai.com\/theme\/yui_combo.php?","ext":false,"root":"gallery\/1749448559\/","patterns":{"gallery-":{"group":"gallery"}}}},"modules":{"core_filepicker":{"name":"core_filepicker","fullpath":"https:\/\/lms.waomirai.com\/lib\/javascript.php\/1749448559\/repository\/filepicker.js","requires":["base","node","node-event-simulate","json","async-queue","io-base","io-upload-iframe","io-form","yui2-treeview","panel","cookie","datatable","datatable-sort","resize-plugin","dd-plugin","escape","moodle-core_filepicker","moodle-core-notification-dialogue"]},"core_comment":{"name":"core_comment","fullpath":"https:\/\/lms.waomirai.com\/lib\/javascript.php\/1749448559\/comment\/comment.js","requires":["base","io-base","node","json","yui2-animation","overlay","escape"]}},"logInclude":[],"logExclude":[],"logLevel":null};
+      M.yui.loader = {modules: {}};
+      
+      //]]>
+    script(src="https://storage.pardot.com/1026513/1724128460RuzGLFou/jquery_3.7.1.js")
+    script(src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js")
+    // 本番テナント(lmswaomirai)のCSS/JS
+    link(rel="StyleSheet", href="https://go.waomirai.com/l/1026513/2025-04-14/hkk2c/1026513/1744618407uAG42GiL/lms_moodle.css?20250731")
+    script(src="https://go.waomirai.com/l/1026513/2025-02-02/hddmg/1026513/1738553597MuCnRPCZ/lmswaomirai.js?20250715").
+      
+    // テストテナント(stg)のCSS/JS
+    link(rel="StyleSheet", href="https://go.waomirai.com/l/1026513/2025-02-02/hddm8/1026513/1738553395lD4256Y8/stg_moodle.css?2025073102")
+    script(src="https://go.waomirai.com/l/1026513/2025-02-02/hddmc/1026513/1738553445SpbsRibO/stg.js")
+    link(href="../static/css/sass/lms-moodle.css", rel="stylesheet")
+    link(href="../static/css/sass/defaluttenant-moodle.css", rel="stylesheet")
+    // Google Tag Manager
+    script.
+      (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+      'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+      })(window,document,'script','dataLayer','GTM-W3X8CG9C');
+    // End Google Tag Manager
+    // FontAwesome
+    script(src="https://kit.fontawesome.com/bc1aaa30bf.js", crossorigin="anonymous")
+    // FontAwesome end
+    // Material Icon
+    link(href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined", rel="stylesheet")
+    // Material Icon end
+    meta(property="og:image", content="https://go.waomirai.com/image/oggreen")
+    // トップページJS
+    script(src="https://go.waomirai.com/moodle/top3_1.js")
+    // Vimeo埋め込みで必要？
+    script(src="https://player.vimeo.com/api/player.js")
+    // Vimeo end
+    // SignUp
+    script(src="https://go.waomirai.com/moodle/signup.js")
+    // SiguUp end
+    meta(name="robots", content="noindex")
+    meta(name="robots", content="noindex")
+    meta(name="robots", content="noindex")
+    meta(name="robots", content="noindex")
+    meta(name="robots", content="noindex")
+    meta(name="robots", content="noindex")
+    meta(name="robots", content="noindex")
+    meta(name="robots", content="noindex")
+    meta(name="robots", content="noindex")
+    meta(name="robots", content="noindex")
+    meta(name="robots", content="noindex")
+    meta(name="robots", content="noindex")
+    meta(name="robots", content="noindex")
+    meta(name="robots", content="noindex")
+    meta(name="robots", content="noindex")
+    meta(name="robots", content="noindex")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+  body#page-login-index(class="format-site  path-login chrome dir-ltr lang-ja_wp yui-skin-sam yui3-skin-sam lms-waomirai-com pagelayout-login course-1 context-1 notloggedin theme ")
+    .toast-wrapper.mx-auto.py-0.fixed-top(role='status' aria-live='polite')
+    #page-wrapper
+      div
+        a.sr-only.sr-only-focusable(href='#maincontent') &#x30E1;&#x30A4;&#x30F3;&#x30B3;&#x30F3;&#x30C6;&#x30F3;&#x30C4;&#x3078;&#x30B9;&#x30AD;&#x30C3;&#x30D7;&#x3059;&#x308B;
+      script(src='https://lms.waomirai.com/lib/javascript.php/1749448559/lib/polyfills/polyfill.js')
+      script(src='https://lms.waomirai.com/theme/yui_combo.php?rollup/3.18.1/yui-moodlesimple-min.js')
+      script(src='https://lms.waomirai.com/lib/javascript.php/1749448559/lib/javascript-static.js')
+      script.
+        //<![CDATA[
+        document.body.className += ' jsenabled';
+        //]]>
+      // Google Tag Manager (noscript)
+      noscript
+        iframe(src='https://www.googletagmanager.com/ns.html?id=GTM-W3X8CG9C' height='0' width='0' style='display:none;visibility:hidden')
+      // End Google Tag Manager (noscript)
+      .header-banner.alert-setting-level(style='display:none;')
+        .header-banner-left
+          .header-banner-left-icon
+            i.icon.fa.fa-solid.fa-triangle-exclamation
+          .header-banner-text
+            .header-banner-text-title  &#x79D1;&#x76EE;&#x306E;&#x30EC;&#x30D9;&#x30EB;&#x3092;&#x8A2D;&#x5B9A;&#x3057;&#x307E;&#x3057;&#x3087;&#x3046;
+            .header-banner-text-read &#x30EC;&#x30D9;&#x30EB;&#x3092;&#x8A2D;&#x5B9A;&#x3057;&#x306A;&#x3044;&#x3068;&#x6388;&#x696D;&#x3092;&#x53D7;&#x8B1B;&#x3067;&#x304D;&#x307E;&#x305B;&#x3093;
+        .header-banner-right
+          a(href='https://lms.waomirai.com/admin/tool/catalogue/courseinfo.php?id=230') &#x79D1;&#x76EE;&#x306E;&#x30EC;&#x30D9;&#x30EB;&#x3092;&#x8A2D;&#x5B9A;&#x3059;&#x308B;&#x306B;&#x306F;&#xFF1F; 
+      #page.container-fluid.pt-5.mt-0
+        #page-content.row
+          #region-main-box.col-12
+            section#region-main.col-12.h-100(aria-label='コンテンツ')
+              .login-wrapper
+                .login-container
+                  div(role='main')
+                    span#maincontent
+                    .loginform
+                      .d-flex.justify-content-end.mb-3
+                      #loginlogo.login-logo
+                        img#logoimage.img-fluid(src='https://lms.waomirai.com/pluginfile.php/1/tool_tenant/loginlogo/1/%E3%83%AF%E3%82%AA%E6%9C%AA%E6%9D%A5%E5%A1%BE%E3%83%AD%E3%82%B3%E3%82%99A%EF%BC%88%E5%9F%BA%E6%9C%AC%E5%BD%A2%EF%BC%89.png' alt='ワオ未来塾　学習サイト')
+                        h1.login-heading.sr-only &#x30EF;&#x30AA;&#x672A;&#x6765;&#x587E;&#x3000;&#x5B66;&#x7FD2;&#x30B5;&#x30A4;&#x30C8;
+                      a#loginerrormessage.sr-only(href='#') &#x6B8B;&#x5FF5;&#x3067;&#x3059;&#x304C;&#x3001;&#x3042;&#x306A;&#x305F;&#x306E;&#x30D6;&#x30E9;&#x30A6;&#x30B6;&#x3067;&#x306F;&#x30AF;&#x30C3;&#x30AD;&#x30FC;&#x304C;&#x6709;&#x52B9;&#x306B;&#x3055;&#x308C;&#x3066;&#x3044;&#x307E;&#x305B;&#x3093;&#x3002;
+                      .alert.alert-danger(role='alert') &#x6B8B;&#x5FF5;&#x3067;&#x3059;&#x304C;&#x3001;&#x3042;&#x306A;&#x305F;&#x306E;&#x30D6;&#x30E9;&#x30A6;&#x30B6;&#x3067;&#x306F;&#x30AF;&#x30C3;&#x30AD;&#x30FC;&#x304C;&#x6709;&#x52B9;&#x306B;&#x3055;&#x308C;&#x3066;&#x3044;&#x307E;&#x305B;&#x3093;&#x3002;
+                      a.sr-only(href='https://lms.waomirai.com/login/signup.php') &#x65B0;&#x3057;&#x3044;&#x30A2;&#x30AB;&#x30A6;&#x30F3;&#x30C8;&#x4F5C;&#x6210;&#x306B;&#x30B9;&#x30AD;&#x30C3;&#x30D7;&#x3059;&#x308B;
+                      form#login.login-form(action='https://lms.waomirai.com/login/index.php' method='post')
+                        input(type='hidden' name='logintoken' value='2f963OYmKSWFaFJO5gCPjDx1jgiVQrZX')
+                        .login-form-username.form-group
+                          label.sr-only(for='username')
+                            | &#x30E6;&#x30FC;&#x30B6;&#x540D;&#x307E;&#x305F;&#x306F;&#x30E1;&#x30FC;&#x30EB;&#x30A2;&#x30C9;&#x30EC;&#x30B9;
+                          input#username.form-control(type='text' name='username' value='' placeholder='ユーザ名またはメールアドレス' autocomplete='username')
+                        .login-form-password.form-group
+                          label.sr-only(for='password') &#x30D1;&#x30B9;&#x30EF;&#x30FC;&#x30C9;
+                          input#password.form-control(type='password' name='password' value='' placeholder='パスワード' autocomplete='current-password')
+                        .login-form-submit.form-group
+                          button#loginbtn.btn.btn-primary.btn-lg(type='submit') &#x30ED;&#x30B0;&#x30A4;&#x30F3;
+                        .login-form-forgotpassword.form-group
+                          a(href='https://lms.waomirai.com/login/forgot_password.php') &#x30D1;&#x30B9;&#x30EF;&#x30FC;&#x30C9;&#x3092;&#x304A;&#x5FD8;&#x308C;&#x3067;&#x3057;&#x3087;&#x3046;&#x304B;&#xFF1F;
+                      .login-divider
+                      .login-instructions.mb-3
+                        h2.login-heading &#x30A2;&#x30AB;&#x30A6;&#x30F3;&#x30C8;&#x3092;&#x304A;&#x6301;&#x3061;&#x3067;&#x306A;&#x3044;&#x65B9;&#x306F;&#x3053;&#x3061;&#x3089;
+                        |             &#x30EF;&#x30AA;&#x672A;&#x6765;&#x587E;&#x306E;&#x8B1B;&#x5EA7;&#x3092;&#x53D7;&#x8B1B;&#x3059;&#x308B;&#x305F;&#x3081;&#x306B;&#x306F;&#x3001;&#x30A2;&#x30AB;&#x30A6;&#x30F3;&#x30C8;&#x4F5C;&#x6210;&#xFF08;&#x7121;&#x6599;&#xFF09;&#x3092;&#x304A;&#x9858;&#x3044;&#x3044;&#x305F;&#x3057;&#x307E;&#x3059;&#x3002;&#x3000;&#x3000;&#x203B;&#x6700;&#x7D42;&#x30ED;&#x30B0;&#x30A4;&#x30F3;&#x304B;&#x3089;1&#x5E74;&#x4EE5;&#x4E0A;&#x7D4C;&#x904E;&#x3059;&#x308B;&#x3068;&#x30A2;&#x30AB;&#x30A6;&#x30F3;&#x30C8;&#x304C;&#x524A;&#x9664;&#x3055;&#x308C;&#x307E;&#x3059;&#x3002;&#x305D;&#x306E;&#x969B;&#x306F;&#x6539;&#x3081;&#x3066;&#x30A2;&#x30AB;&#x30A6;&#x30F3;&#x30C8;&#x4F5C;&#x6210;&#x3092;&#x304A;&#x9858;&#x3044;&#x3044;&#x305F;&#x3057;&#x307E;&#x3059;&#x3002;
+                      .login-signup
+                        a.btn.btn-secondary(href='https://lms.waomirai.com/login/signup.php') &#x30A2;&#x30AB;&#x30A6;&#x30F3;&#x30C8;&#x3092;&#x4F5C;&#x6210;&#x3059;&#x308B;&#xFF08;&#x7121;&#x6599;&#xFF09;
+                      .login-divider
+                      h2.login-heading &#x3000;
+                      form#guestlogin(action='https://lms.waomirai.com/login/index.php' method='post')
+                        input(type='hidden' name='logintoken' value='2f963OYmKSWFaFJO5gCPjDx1jgiVQrZX')
+                        input(type='hidden' name='username' value='guest')
+                        input(type='hidden' name='password' value='guest')
+                        button.btn.btn-secondary(type='submit') &#x30AD;&#x30E3;&#x30F3;&#x30BB;&#x30EB;
+                      .login-divider
+                      .text-gray-600
+                        | &#x3042;&#x306A;&#x305F;&#x306E;&#x30D6;&#x30E9;&#x30A6;&#x30B6;&#x306E;&#x30AF;&#x30C3;&#x30AD;&#x30FC;&#x3092;&#x6709;&#x52B9;&#x306B;&#x3057;&#x3066;&#x304F;&#x3060;&#x3055;&#x3044;&#x3002;
+                        a.btn.btn-link.p-0(role='button' data-container='body' data-toggle='popover' data-placement='right' data-content='<div class="no-overflow"><p>このサイトでは2種類のクッキーが使用されます:</p>\
+                        <p>重要なクッキーはセッションクッキーで通常MoodleSessionと呼ばれます。継続的にログインしてサイトを閲覧できるようにするため、あなたのブラウザでこのクッキーを有効にしてください。 ログアウトまたはブラウザを閉じた場合、(あなたのブラウザおよびサーバの) クッキーは破棄されます。</p>\
+                        <p>もう1つのクッキーは純粋に便宜的な理由で使用され、通常MOODLEIDのように呼ばれます。このクッキーはあなたのユーザ名をブラウザに憶えさせるために使用されます。これはあなたがサイトへ戻った場合、ログインページのユーザ名が初めから入力されていることを意味します。このクッキーは拒否しても安全です - あなたはログイン時にユーザ名を毎回入力する必要があります。</p>\
+                        </div> ' data-html='true' tabindex='0' data-trigger='focus' aria-label='ヘルプ')
+                          i.icon.fa.fa-question-circle.text-info.fa-fw(title='あなたのブラウザのクッキーを有効にしてください。 のヘルプ' role='img' aria-label='あなたのブラウザのクッキーを有効にしてください。 のヘルプ')
+                      span.text-gray-600 Powered by
+                      a(href='https://moodle.com/workplace/' target='_blank')
+                        | Moodle Workplace
+      footer#page-footer.footer-popover.bg-white
+        div(data-region='footer-container-popover')
+          button.btn.btn-icon.bg-secondary.icon-no-margin.btn-footer-popover(data-action='footer-popover' aria-label='フッタを表示する')
+            i.icon.fa.fa-question.fa-fw(aria-hidden='true')
+        .footer-content-popover.container(data-region='footer-content-popover')
+          .footer-section.p-3.border-bottom
+            div
+              a(href='https://go.waomirai.com/index-contact' target='blank')
+                i.icon.fa.fa-envelope-o.fa-fw(aria-hidden='true')
+                | &#x304A;&#x554F;&#x3044;&#x5408;&#x308F;&#x305B;&#x30FB;&#x5404;&#x7A2E;&#x624B;&#x7D9A;&#x304D;
+                i.icon.fa.fa-external-link.fa-fw.ml-1(aria-hidden='true')
+          .footer-section.p-3.border-bottom
+            .logininfo
+              .logininfo &#x3042;&#x306A;&#x305F;&#x306F;&#x30ED;&#x30B0;&#x30A4;&#x30F3;&#x3057;&#x3066;&#x3044;&#x307E;&#x305B;&#x3093;&#x3002;
+            .tool_usertours-resettourcontainer
+            br
+            p
+              a(href='https://lms.waomirai.com/course/view.php?id=112' target='_blank' style='text-decoration: revert-layer;') &#xFF1E;&#x3088;&#x304F;&#x3042;&#x308B;&#x3054;&#x8CEA;&#x554F;&#xFF08;&#x304A;&#x554F;&#x3044;&#x5408;&#x308F;&#x305B;&#xFF09;
+            p
+              a(href='https://waomirai.com/commerce_law' target='_blank' style='text-decoration: revert-layer;')
+                | &#xFF1E;&#x7279;&#x8A31;&#x5546;&#x53D6;&#x5F15;&#x6CD5;&#x306B;&#x57FA;&#x3065;&#x304F;&#x8868;&#x8A18;
+                i.fa-solid.fa-up-right-from-square
+            p
+              a(href='https://www.wao-corp.com/privacy/' target='_blank' style='text-decoration: revert-layer;')
+                | &#xFF1E;&#x30D7;&#x30E9;&#x30A4;&#x30D0;&#x30B7;&#x30FC;&#x30DD;&#x30EA;&#x30B7;&#x30FC;
+                i.fa-solid.fa-up-right-from-square
+            p
+              a(href='https://go.waomirai.com/terms' target='_blank' style='text-decoration: revert-layer;')
+                | &#xFF1E;&#x5229;&#x7528;&#x898F;&#x7D04;
+                i.fa-solid.fa-up-right-from-square
+            a(href='https://lms.waomirai.com/?tenant=lmswaomirai')
+              img(src='https://go.waomirai.com/l/1026513/2023-11-16/gddzt/1026513/1700192228BDlbz92f/logo_basic_white.png' width='60%')
+            script.
+              //<![CDATA[
+              var require = {
+              baseUrl : 'https://lms.waomirai.com/lib/requirejs.php/1749448559/',
+              // We only support AMD modules with an explicit define() statement.
+              enforceDefine: true,
+              skipDataMain: true,
+              waitSeconds : 0,
+              paths: {
+              jquery: 'https://lms.waomirai.com/lib/javascript.php/1749448559/lib/jquery/jquery-3.7.1.min',
+              jqueryui: 'https://lms.waomirai.com/lib/javascript.php/1749448559/lib/jquery/ui-1.13.2/jquery-ui.min',
+              jqueryprivate: 'https://lms.waomirai.com/lib/javascript.php/1749448559/lib/requirejs/jquery-private'
+              },
+              // Custom jquery config map.
+              map: {
+              // '*' means all modules will get 'jqueryprivate'
+              // for their 'jquery' dependency.
+              '*': { jquery: 'jqueryprivate' },
+              // Stub module for 'process'. This is a workaround for a bug in MathJax (see MDL-60458).
+              '*': { process: 'core/first' },
+              // 'jquery-private' wants the real jQuery module
+              // though. If this line was not here, there would
+              // be an unresolvable cyclic dependency.
+              jqueryprivate: { jquery: 'jquery' }
+              }
+              };
+              //]]>
+            script(src='https://lms.waomirai.com/lib/javascript.php/1749448559/lib/requirejs/require.min.js')
+            script.
+              //<![CDATA[
+              M.util.js_pending("core/first");
+              require(['core/first'], function() {
+              require(['core/prefetch'])
+              ;
+              M.util.js_pending('filter_mathjaxloader/loader'); require(['filter_mathjaxloader/loader'], function(amd) {amd.configure({"mathjaxconfig":"\\nMathJax.Hub.Config({\n    config: [\"Accessible.js\", \"Safe.js\"],\n    errorSettings: { message: [\"!\"] },\n    skipStartupTypeset: true,\n    messageStyle: \"none\"\n});\n","lang":"ja"}); M.util.js_complete('filter_mathjaxloader/loader');});;
+              require(["media_videojs/loader"], function(loader) {
+              loader.setUp('ja');
+              });;
+              M.util.js_pending('filter_syntaxhighlighter/hljs'); require(['filter_syntaxhighlighter/hljs'], function(amd) {amd.initHighlighting(); M.util.js_complete('filter_syntaxhighlighter/hljs');});;
+              require(['theme_boost/footer-popover'], function(FooterPopover) {
+              FooterPopover.init();
+              });
+              ;
+              M.util.js_pending('theme_boost/loader');
+              require(['theme_boost/loader'], function() {
+              M.util.js_complete('theme_boost/loader');
+              });
+              ;
+              M.util.js_pending('filter_syntaxhighlighter/hljs'); require(['filter_syntaxhighlighter/hljs'], function(amd) {amd.initHighlighting(); M.util.js_complete('filter_syntaxhighlighter/hljs');});;
+              document.getElementById('loginerrormessage').focus();
+              ;
+              M.util.js_pending('theme_kenai/forcedfooter'); require(['theme_kenai/forcedfooter'], function(amd) {amd.init("<div id=\\"forced-footer\">\n    \u00a9\ufe0fWAO CORPORATION\n<\/div>"); M.util.js_complete('theme_kenai/forcedfooter');});;
+              M.util.js_pending('core/notification'); require(['core/notification'], function(amd) {amd.init(1, []); M.util.js_complete('core/notification');});;
+              M.util.js_pending('core/log'); require(['core/log'], function(amd) {amd.setConfig({"level":"warn"}); M.util.js_complete('core/log');});;
+              M.util.js_pending('core/page_global'); require(['core/page_global'], function(amd) {amd.init(); M.util.js_complete('core/page_global');});;
+              M.util.js_pending('core/utility'); require(['core/utility'], function(amd) {M.util.js_complete('core/utility');});
+              M.util.js_complete("core/first");
+              });
+              //]]>
+            script(src='https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js?delayStartupUntil=configured')
+            script.
+              //<![CDATA[
+              M.str = {"moodle":{"lastmodified":"\\u6700\u7d42\u66f4\u65b0\u65e5\u6642","name":"\u540d\u79f0","error":"\u30a8\u30e9\u30fc","info":"\u60c5\u5831","yes":"Yes","no":"No","cancel":"\u30ad\u30e3\u30f3\u30bb\u30eb","confirm":"\u78ba\u8a8d","areyousure":"\u672c\u5f53\u306b\u3088\u308d\u3057\u3044\u3067\u3059\u304b?","closebuttontitle":"\u9589\u3058\u308b","unknownerror":"\u4e0d\u660e\u306a\u30a8\u30e9\u30fc","file":"\u30d5\u30a1\u30a4\u30eb","url":"URL","collapseall":"\u3059\u3079\u3066\u3092\u6298\u308a\u305f\u305f\u3080","expandall":"\u3059\u3079\u3066\u3092\u5c55\u958b\u3059\u308b"},"repository":{"type":"\u30bf\u30a4\u30d7","size":"\u30b5\u30a4\u30ba","invalidjson":"\u7121\u52b9\u306aJSON\u30b9\u30c8\u30ea\u30f3\u30b0\u3067\u3059\u3002","nofilesattached":"\u6dfb\u4ed8\u3055\u308c\u3066\u3044\u308b\u30d5\u30a1\u30a4\u30eb\u306f\u3042\u308a\u307e\u305b\u3093\u3002","filepicker":"\u30d5\u30a1\u30a4\u30eb\u30d4\u30c3\u30ab","logout":"\u30ed\u30b0\u30a2\u30a6\u30c8","nofilesavailable":"\u5229\u7528\u3067\u304d\u308b\u30d5\u30a1\u30a4\u30eb\u306f\u3042\u308a\u307e\u305b\u3093\u3002","norepositoriesavailable":"\u7533\u3057\u8a33\u3054\u3056\u3044\u307e\u305b\u3093\u3001\u73fe\u5728\u306e\u3042\u306a\u305f\u306e\u30ea\u30dd\u30b8\u30c8\u30ea\u3067\u306f\u6240\u8981\u306e\u30d5\u30a9\u30fc\u30de\u30c3\u30c8\u306e\u30d5\u30a1\u30a4\u30eb\u3092\u8fd4\u3059\u3053\u3068\u304c\u3067\u304d\u307e\u305b\u3093\u3002","fileexistsdialogheader":"\u30d5\u30a1\u30a4\u30eb\u767b\u9332\u6e08\u307f","fileexistsdialog_editor":"\u305d\u306e\u30d5\u30a1\u30a4\u30eb\u540d\u306e\u30d5\u30a1\u30a4\u30eb\u306f\u3042\u306a\u305f\u304c\u7de8\u96c6\u3057\u3066\u3044\u308b\u30c6\u30ad\u30b9\u30c8\u306b\u3059\u3067\u306b\u6dfb\u4ed8\u3055\u308c\u3066\u3044\u307e\u3059\u3002","fileexistsdialog_filemanager":"\u540c\u4e00\u30d5\u30a1\u30a4\u30eb\u540d\u306e\u30d5\u30a1\u30a4\u30eb\u304c\u3059\u3067\u306b\u6dfb\u4ed8\u3055\u308c\u3066\u3044\u307e\u3059\u3002","renameto":"\u30ea\u30cd\u30fc\u30e0 -> {$a}","referencesexist":"\u3053\u306e\u30d5\u30a1\u30a4\u30eb\u306b\u306f {$a} \u4ef6\u306e\u30ea\u30f3\u30af\u304c\u3042\u308a\u307e\u3059\u3002","select":"\u9078\u629e"},"admin":{"confirmdeletecomments":"\u672c\u5f53\u306b\u9078\u629e\u3057\u305f\u30b3\u30e1\u30f3\u30c8\u3092\u524a\u9664\u3057\u3066\u3082\u3088\u308d\u3057\u3044\u3067\u3059\u304b?","confirmation":"\u78ba\u8a8d"},"debug":{"debuginfo":"\u30c7\u30d0\u30c3\u30b0\u60c5\u5831","line":"\u884c","stacktrace":"\u30b9\u30bf\u30c3\u30af\u30c8\u30ec\u30fc\u30b9"},"langconfig":{"labelsep":":"}};
+              //]]>
+            script.
+              //<![CDATA[
+              (function() {M.util.help_popups.setup(Y);
+              M.util.js_pending('random68db962e5e64c2'); Y.on('domready', function() { M.util.js_complete("init");  M.util.js_complete('random68db962e5e64c2'); });
+              })();
+              //]]>
+          .footer-section.p-3
+            span Powered by
+            a(href='https://moodle.com/workplace/' target='_blank')
+              | Moodle Workplace
+        .footer-content-debugging.footer-dark.bg-dark.text-light
+          .container-fluid.footer-dark-inner

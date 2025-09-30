@@ -1,0 +1,13 @@
+//////////////////////////////
+//
+// テストテナント(defalut tenant)のscss
+// dart sass 3.0.0にするとimportが使えなくなるので注意
+// importが使えないとstgとlmsで分けるのが超きつい気がするので、対策が必要
+//
+//////////////////////////////
+
+html[data-tenantid="1"] {
+  body {
+    background: red;
+  }
+}

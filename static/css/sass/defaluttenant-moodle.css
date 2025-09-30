@@ -1,0 +1,3 @@
+html[data-tenantid="1"] body {
+  background: red;
+}
