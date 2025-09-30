@@ -122,6 +122,7 @@ const DayDisabledFee = 1; // 受講登録手続きを行えない日
 
 const NowDate = new Date(); // 現在の日時
 const DayOfMonth = parseInt(NowDate.toLocaleString('ja-JP', { timeZone: 'Asia/Tokyo', day: '2-digit' }).replace('日', '')); // 現在の日
+const AmazonGiftFreeCampaignEnd = new Date(2025, 9, 5, 23, 59, 59); // キャンペーン終了日時（2025年10月5日23:59:59）
 
 // ==============================
 // Liff系
@@ -1094,7 +1095,20 @@ if (bodyId === "page-login-confirm") {
 // 購入処理：ページ内の購入ボタンやセット割引の表示、購入関連のモーダル処理
 // ==============================
 if (bodyId === "page-enrol-index") {
-  
+    ////////////////////////////
+    // キャンペーンバナーの表示
+    ////////////////////////////
+    const today = new Date(); // 現在の日付を取得
+    const AmazonGiftFreeCampaignEndDate = new Date(AmazonGiftFreeCampaignEnd); // AmazonGiftFreeCampaignEndをDateオブジェクトに変換
+
+    // URLクエリパラメータを取得し、htmlCopyが含まれているかチェック
+    const searchParams = new URLSearchParams(window.location.search);
+    const isHtmlCopy = searchParams.has("htmlCopy") || searchParams.get("params") === "htmlCopy";
+
+    if (!isHtmlCopy && today <= AmazonGiftFreeCampaignEnd) {
+      $(".enrol-campaign-banner").show(); // キャンペーンバナーを表示
+    }
+
     const subjectCategory = currentViewCourseData.key;  // 現在選択されている科目カテゴリーを取得
 
     ////////////////////////////
@@ -1584,10 +1598,10 @@ if (
 
 
 
+
 // カード登録後にモーダルを表示する関数
 function showModalAfterCardRegistration() {
   var now = new Date(); // 現在の日付を取得
-  var campaignEnd = new Date(2025, 8, 14, 23, 59, 59); // キャンペーン終了日時（2025年9月14日23:59:59）
   var cookieValue = $.cookie("levelSettingModalShown"); // Cookieにモーダル表示の履歴があるか確認
   var subjectCategory = currentViewCourseData.key;  // 現在選択されている科目カテゴリーを取得
 
@@ -1597,7 +1611,7 @@ function showModalAfterCardRegistration() {
   });
 
   // キャンペーン期間中かつモーダルが未表示の場合
-  if (now <= campaignEnd && !cookieValue) {
+  if (now <= AmazonGiftFreeCampaignEnd && !cookieValue) {
     // キャンペーンモーダルを表示
     showCampaignModal();
 
@@ -1616,7 +1630,7 @@ function showCampaignModal() {
   createModal({
     title: "おめでとうございます！",
     wrapClass: "c-modal-wrap-wrap-campaign",
-    text: "<b>キャンペーンを<br />適用させていただきます。</b><br /><br />2025年8・9月は無料で受講いただけます。<br />2025年10月も受講いただけたら<br />Amazonギフト券5000円プレゼントいたします。<br />",
+    text: "<b>キャンペーンを<br />適用させていただきます。</b><br /><br />2025年10・11月は無料で受講いただけます。<br />2025年11月も受講いただけたら<br />Amazonギフト券5000円プレゼントいたします。<br />",
     buttons: [
       { text: "OKです", class: "btn-primary c-modal-level-setting c-modal-wrap-close-tag" }
     ]
