@@ -100,11 +100,11 @@ mixin enrol-lesson-year
       .c-pc-hidden
         .enrol-section-basesubject-year-lesson-content-button
           if enrolpage.category === 'philosophy'
-            a(href="https://go.waomirai.com/l/1026513/2025-03-02/hgtlc/1026513/1740967568KvR8yZ4M/year_curriculum_ph.pdf", target='_blank')|全ての授業カリキュラム(PDF)
+            a(href=CurriculumYearPhilosohpy target='_blank')|全ての授業カリキュラム(PDF)
           else if enrolpage.category === 'science'
-            a(href="https://go.waomirai.com/l/1026513/2025-03-02/hgtlg/1026513/1740967568q1jE1q0O/year_curriculum_sc.pdf", target='_blank')|全ての授業カリキュラム(PDF)
+            a(href=CurriculumYearScience, target='_blank')|全ての授業カリキュラム(PDF)
           else if enrolpage.category === 'economy'
-            a(href="https://go.waomirai.com/l/1026513/2025-03-02/hgtlk/1026513/17409675682RGtBruz/year_curriculum_ec.pdf", target='_blank')|全ての授業カリキュラム(PDF)
+            a(href=CurriculumYearEconomy, target='_blank')|全ての授業カリキュラム(PDF)
 
 // 年間の授業開催スケジュール
 mixin enrol-lesson-googlecalender
@@ -175,7 +175,7 @@ mixin enrol-recommend-subject
           .common-contents-block-cards-course
                   .common-contents-block-cards-course-img.common-contents-block-cards-course-img-overlay
                       .common-contents-block-cards-course-img-detail
-                         img(src=ImgSubjectTwoPack)
+                         img(src=ImgSubjectTwoSubjectPack)
                   .common-contents-block-cards-course-detail
                       .common-contents-block-cards-course-detail-wrap.block-multisubject
                           .common-contents-block-cards-course-detail-title
@@ -189,7 +189,7 @@ mixin enrol-recommend-subject
           .common-contents-block-cards-course
                   .common-contents-block-cards-course-img.common-contents-block-cards-course-img-overlay
                       .common-contents-block-cards-course-img-detail
-                        img(src=ImgSubjectThreePack)
+                        img(src=ImgSubjectThreeSubjectPack )
                   .common-contents-block-cards-course-detail
                       .common-contents-block-cards-course-detail-wrap.block-multisubject
                           .common-contents-block-cards-course-detail-title

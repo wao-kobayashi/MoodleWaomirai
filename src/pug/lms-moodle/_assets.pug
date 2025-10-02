@@ -3,9 +3,11 @@
 //==============================================================================
 
 // サーバーパス設定
-- var pathServer = 'http://localhost:3000/static/images'
+//- - var pathServer = 'http://localhost:3000/static/images'
+//- - var pathServerThumbnail = 'http://localhost:3000/static/class-thumbnails'
+- var pathServer = 'https://waomirai.com/lp/assets/moodle/images'
+- var pathServerThumbnail = 'https://waomirai.com/lp/assets/class-thumbnails'
 - function img(filename) { return `${pathServer}/${filename}`; }
-- var pathServerThumbnail = 'http://localhost:3000/static/class-thumbnails'
 - function imgThumb(filename) { return `${pathServerThumbnail}/${filename}`; }
 
 //==============================================================================
@@ -69,8 +71,8 @@
 - var ImgSubjectEconomy      = img('subject_economy.jpg');
 - var ImgSubjectEnglish      = img('subject_english.jpg');
 - var ImgSubjectProgramming  = img('subject_programming.jpg');
-- var ImgSubjectTwoPack      = img('subject_twosubjectpack.png');
-- var ImgSubjectThreePack    = img('subject_threesubjectpack.png');
+- var ImgSubjectTwoSubjectPack      = img('subject_twosubjectpack.png');
+- var ImgSubjectThreeSubjectPack    = img('subject_threesubjectpack.png');
 
 //-- 英語
 - var ImgSubjectEnglishLesson01      = imgThumb('eng_lesson_01.png');
@@ -81,8 +83,8 @@
 - var ImgSubjectEnglishLesson06      = imgThumb('eng_lesson_06.png');
 
 //-- 教科別ヘッダー
-- var ImgPageTwoPackHeader   = img('page_icn_howto_take_01.svg');
-- var ImgPageThreePackHeader = img('page_icn_howto_take_02.svg');
+- var ImgPageFvTwoSubjectPack   = img('page_fv_twosubjectpack.png');
+- var ImgPageFvThreeSubjectPack = img('page_fv_threesubjectpack.png');
 
 
 //==============================================================================
@@ -100,6 +102,11 @@
 - var iframeCalenderScience    = "https://calendar.google.com/calendar/embed?src=c_9d34850398ee79fea558cb874c3bebe48860ce3d5fcff5c80f91b203974af452%40group.calendar.google.com&ctz=Asia%2FTokyo"
 - var iframeCalendeEconomy     = "https://calendar.google.com/calendar/embed?src=c_9ee064fdb148232860ebd82900e5222d5060f6702f608257b9d9625d6bcd3a1c%40group.calendar.google.com&ctz=Asia%2FTokyo"
 - var iframeCalenderEnglish    = "https://calendar.google.com/calendar/embed?src=c_379c34d3c8e6716b3458dd339f4531bd8ce07f17c4f97d5fec4367888a692290%40group.calendar.google.com&ctz=Asia%2FTokyo"
+
+// 年間カリキュラム
+- var CurriculumYearPhilosohpy = img('year_curriculum_ph.pdf');
+- var CurriculumYearScience = img('year_curriculum_sc.pdf');
+- var CurriculumYearEconomy = img('year_curriculum_ec.pdf');
 
 // LINE連携
 - var qrLineConnection   = 'https://loycus-prd.s3-ap-northeast-1.amazonaws.com/upload_media/235/img/MjAyNS0wMy0yNSAxMTowNjoxOQ==.png'
