@@ -1,3 +1,9 @@
+////////////////////////////////
+// テストテナント(defalut tenant)tはもう使われないテナントで
+// ユーザーがまれにアクセスする可能性があるため
+// アクセスした場合に最新の学習サイトへ誘導するモーダルを表示するJS
+////////////////////////////////
+
 $(document).ready(function () {
   const tenantId = $("html").data("tenantid");
   //tenantId1はdefalut-tenant
