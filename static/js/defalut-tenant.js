@@ -1,5 +1,5 @@
 ////////////////////////////////
-// テストテナント(defalut tenant)tはもう使われないテナントで
+// テストテナント(defalut tenant)はもう使われないテナントで
 // ユーザーがまれにアクセスする可能性があるため
 // アクセスした場合に最新の学習サイトへ誘導するモーダルを表示するJS
 ////////////////////////////////
@@ -26,7 +26,7 @@ $(document).ready(function () {
       } else if (bodyId === "page-login-index") {
         linkUrl = "https://lms.waomirai.com/login/index.php?tenant=lmswaomirai";
       } else if (bodyId === "page-login-signup") {
-        linkUrl = "https://lms.waomirai.com/signup?tenant=lmswaomirai";
+        linkUrl = "https://lms.waomirai.com/login/signup.php?tenant=lmswaomirai";
       }
 
       const modal = `
