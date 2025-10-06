@@ -108,6 +108,7 @@ $(document).ready(function () {
     { id: 321, name: "abroad", key: "abroad",  type: "role"}
   ]
 
+
 // ==============================
 // 各種変数
 // ==============================
@@ -1640,7 +1641,7 @@ function showCampaignModal() {
 // レベル変更のモーダル関数
 function showLevelSettingModal() {
   createModal({
-    image: "https://go.waomirai.com/l/1026513/2025-07-29/hs5b6/1026513/1753842412LvICKN8s/img_modal_subject.png",
+    image: "https://waomirai.com/lp/assets/moodle/images/modal_subject.png",
     imageClass: "c-modal-wrap-subject-img",
     wrapClass: "c-modal-wrap-subject",
     buttons: [
@@ -1992,7 +1993,7 @@ if (bodyId === "page-user-profile") {
 $(".triger-line-integration-modal").on("click", function (e) {
   createModal({
     wrapClass: "c-modal-wrap-line-connection",
-    customModalHtml: `<div class="c-modal-wrap-close"></div><div class="c-modal-wrap-linetitle"> <div class="c-modal-wrap-linetitle-img"><img src="https://go.waomirai.com/l/1026513/2025-03-23/hjb9m/1026513/17427846057nCvC4dV/icn_LINE_LOGO.svg"></div><div class="c-modal-wrap-linetitle-text">LINEで受講サポートの<br>通知を受け取る</div></div><div class="c-modal-wrap-qr c-sp-hidden"><img src="${ImgLiffMoodle}"></div><div class="c-modal-wrap-text">すでに友だち追加済の方も<br>会員連携のために<span class="c-sp-hidden">必ずQRを読み取って下さい</span><span class="c-pc-hidden">必ずボタンを押してください</span><br />※既にLINE連携済みの方は不要です</div><div class="c-modal-button-line c-pc-hidden"><a href="https://liff.line.me/2006716288-lL7QzGA3?loycus_urlc=NN3v"><img src="https://go.waomirai.com/l/1026513/2025-02-20/hg5bg/1026513/17401067674FE8qn1T/btn_lineadd.svg"></a></div><button class="c-modal-wrap-button c-modal-wrap-button-close c-modal-wrap-close-tag">閉じる</button>`
+    customModalHtml: `<div class="c-modal-wrap-close"></div><div class="c-modal-wrap-linetitle"> <div class="c-modal-wrap-linetitle-img"><img src="https://waomirai.com/lp/assets/moodle/images/icn_line.svg"></div><div class="c-modal-wrap-linetitle-text">LINEで受講サポートの<br>通知を受け取る</div></div><div class="c-modal-wrap-qr c-sp-hidden"><img src="${ImgLiffMoodle}"></div><div class="c-modal-wrap-text">すでに友だち追加済の方も<br>会員連携のために<span class="c-sp-hidden">必ずQRを読み取って下さい</span><span class="c-pc-hidden">必ずボタンを押してください</span><br />※既にLINE連携済みの方は不要です</div><div class="c-modal-button-line c-pc-hidden"><a href="https://liff.line.me/2006716288-lL7QzGA3?loycus_urlc=NN3v"><img src="https://go.waomirai.com/l/1026513/2025-02-20/hg5bg/1026513/17401067674FE8qn1T/btn_lineadd.svg"></a></div><button class="c-modal-wrap-button c-modal-wrap-button-close c-modal-wrap-close-tag">閉じる</button>`
   });
 });
 
