@@ -73,25 +73,9 @@
             a(href='https://lms.waomirai.com/mod/page/view.php?id=567')
               |有料講座を解約するには
     .dashboard-left-banner
-      a(href="https://go.waomirai.com/campaign-friend-referral-apply" target="_blank").dashboard-left-banner-link
+      a(href="https://waomirai.com/lp/campaign-friend-referral-apply/" target="_blank").dashboard-left-banner-link
         img(src=ImgBannerFrRef alt="友だちを紹介して一緒に1500円分図書カードもらえる")
-  //infoOpeningVisibleがtrueの時に「開校のお知らせ」を表示
-  if infoOpeningVisible 
-    .dashboard-main-info(style='display:none;')
-          h5.card-title|開校のお知らせ
-          .dashboard-main-info-text 
-            b|ワオ未来塾は2025年4月に開校します。
-            br
-            |開校前のイベントとして2月25日〜4月4日の間で未来塾の講座が
-            br.c-sp-hidden
-            |たっぷり体験できる 無料体験MONTHを開催しています
-          .dashboard-main-info-button
-            a(href='https://go.waomirai.com/event-2025march', target='_blank') 
-              |詳細を見る
-          .dashboard-main-info-right.c-sp-hidden
-             img(src='https://go.waomirai.com/l/1026513/2025-02-13/hfgk8/1026513/1739425024ssYWoCzA/img_2025march_events_pc.png')
-          .dashboard-main-info-bottom.c-pc-hidden
-             img(src='https://go.waomirai.com/l/1026513/2025-02-13/hfgkc/1026513/1739425024IalrS0n9/img_2025march_events_sp.png')
+
   .dashboard-main
     //ダッシュボードのバナー
     .c-alert-banner#alert-change-course(style='display:none;')
@@ -122,7 +106,7 @@
     .dashboard-main-navi.c-pc-hidden
         a.dashboard-main-navi-child.scroll-to-block_calendar_month(href='#') 
             .dashboard-main-navi-child-img 
-                img(src='https://go.waomirai.com/l/1026513/2025-01-05/hbd34/1026513/1736131604vz7kVmsa/icn_calender.svg')
+                img(src=IcnCalender)
             .dashboard-main-navi-child-text 
               |受講カレンダー
             //下の矢印
@@ -130,14 +114,14 @@
               .dashboard-main-navi-child-arrow-wrap 
         a.dashboard-main-navi-child.scroll-to-dashboard-sp-content(href='#') 
             .dashboard-main-navi-child-img 
-                img(src='https://go.waomirai.com/l/1026513/2025-01-05/hbd31/1026513/17361316040W4smv7Z/icn_subject.svg')
+                img(src=IcnSubject)
             .dashboard-main-navi-child-text 
               |受講科目の確認
             .dashboard-main-navi-child-arrow 
               .dashboard-main-navi-child-arrow-wrap 
         a.dashboard-main-navi-child.scroll-to-dashboard-left-block-guide-scroll(href='#') 
             .dashboard-main-navi-child-img 
-                img(src='https://go.waomirai.com/l/1026513/2025-01-05/hbd37/1026513/1736131604KlZKQe9J/icn_guide.svg')
+                img(src=IcnGuide)
             .dashboard-main-navi-child-text 
               |受講ガイド   
             .dashboard-main-navi-child-arrow 
@@ -184,7 +168,7 @@
                 a(href=link_philosophy).common-contents-block-cards-course
                   .common-contents-block-cards-course-img.common-contents-block-cards-course-img-overlay
                     .common-contents-block-cards-course-img-detail
-                        img(src=imgSubjectPhilosophy)
+                        img(src=ImgSubjectPhilosophy)
                   .common-contents-block-cards-course-detail
                     .common-contents-block-cards-course-detail-wrap.block-philosophy
                       .common-contents-block-cards-course-detail-title 
