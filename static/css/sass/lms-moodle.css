@@ -8200,6 +8200,9 @@ html[data-tenantidnumber=lmswaomirai] .core_payment_gateways_modal .stripe .icon
   height: 40px !important;
   width: auto !important;
 }
+html[data-tenantidnumber=lmswaomirai] #page-enrol-index .enrol-campaign-banner {
+  display: none;
+}
 html[data-tenantidnumber=lmswaomirai] #page-enrol-index img {
   width: 100%;
   height: auto;
