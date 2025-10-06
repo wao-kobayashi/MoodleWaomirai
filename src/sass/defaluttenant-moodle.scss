@@ -7,18 +7,18 @@
 //////////////////////////////
 
 @import url("https://fonts.googleapis.com/css?family=Noto+Sans+JP:400,500,700,900");
-@import "foundation/_mixin"; //よく使う関数など定義したもの
-@import "foundation/_constant"; //色などの変数定義
-@import "object/project/project-lms-moodle/setting/_lms-settings-variable"; //色などの変数定義
-@import "object/project/project-lms-moodle/setting/_lms-settings-animation"; //アニメーション
-@import "object/project/project-lms-moodle/setting/_lms-settings-courseid"; //コースidの定義
-@import "object/project/project-lms-moodle/setting/_lms-settings-drawer"; //moodleのドロワー撲滅
-@import "object/project/project-lms-moodle/parts/_lms-parts-button"; //ボタン
-@import "object/project/project-lms-moodle/parts/_lms-parts-subject-cards"; //教科カード
-@import "object/project/project-lms-moodle/parts/_lms-parts-alert"; //アラートバー
-@import "object/project/project-lms-moodle/parts/_lms-parts-modal"; //モーダル
 
 html[data-tenantid="1"] {
+  @import "foundation/_mixin"; //よく使う関数など定義したもの
+  @import "foundation/_constant"; //色などの変数定義
+  @import "object/project/project-lms-moodle/setting/_lms-settings-variable"; //色などの変数定義
+  @import "object/project/project-lms-moodle/setting/_lms-settings-animation"; //アニメーション
+  @import "object/project/project-lms-moodle/setting/_lms-settings-courseid"; //コースidの定義
+  @import "object/project/project-lms-moodle/setting/_lms-settings-drawer"; //moodleのドロワー撲滅
+  @import "object/project/project-lms-moodle/parts/_lms-parts-button"; //ボタン
+  @import "object/project/project-lms-moodle/parts/_lms-parts-subject-cards"; //教科カード
+  @import "object/project/project-lms-moodle/parts/_lms-parts-alert"; //アラートバー
+  @import "object/project/project-lms-moodle/parts/_lms-parts-modal"; //モーダル
   .c-modal {
     position: fixed;
     align-items: center;
