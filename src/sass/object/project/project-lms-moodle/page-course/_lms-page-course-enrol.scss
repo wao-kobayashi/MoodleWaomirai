@@ -10,6 +10,9 @@ $disabled-fee-fixed: 64px; // 購入ができないことを示す追従の高�
 }
 
 #page-enrol-index {
+  .enrol-campaign-banner {
+    display: none;
+  }
   img {
     width: 100%;
     height: auto;
@@ -44,7 +47,7 @@ $disabled-fee-fixed: 64px; // 購入ができないことを示す追従の高�
     }
   }
 
-  .disabled-fee-fixed{
+  .disabled-fee-fixed {
     width: 100%;
     height: $disabled-fee-fixed;
     line-height: 1.5;
@@ -55,7 +58,10 @@ $disabled-fee-fixed: 64px; // 購入ができないことを示す追従の高�
     left: 0;
     background: $overlay;
     z-index: 1030;
-    font-size: min($lms-font-size-ml,calc(($lms-font-size-ml / 1px) * 100vw / 1000));
+    font-size: min(
+      $lms-font-size-ml,
+      calc(($lms-font-size-ml / 1px) * 100vw / 1000)
+    );
     display: flex;
     align-items: center;
     justify-content: center;
@@ -63,40 +69,40 @@ $disabled-fee-fixed: 64px; // 購入ができないことを示す追従の高�
       font-size: min(11px, calc((100vw / 414) * 11));
     }
   }
-  .br-disabled-fee-fixed{
+  .br-disabled-fee-fixed {
     display: none;
     @include responsive-style(768px) {
       display: inline;
     }
   }
-  .icon-disabled-fee-fixed{
+  .icon-disabled-fee-fixed {
     margin: 0 3px 2px 0;
   }
   @include responsive-style(768px) {
-    .icon-disabled-fee-fixed{
+    .icon-disabled-fee-fixed {
       margin: 0 3px 16.5px 0;
     }
   }
 }
 
 #page-enrol-index.is-disabled-fee-fixed {
-  .btn-footer-popover{
+  .btn-footer-popover {
     bottom: calc(2rem + $disabled-fee-fixed);
   }
-  #goto-top-link{
+  #goto-top-link {
     bottom: calc(5rem + $disabled-fee-fixed);
   }
   @include responsive-style(768px) {
-    .fixed-subject-price{
+    .fixed-subject-price {
       display: none;
     }
-    .enrol_fee_payment_region .btn.btn-secondary{
+    .enrol_fee_payment_region .btn.btn-secondary {
       display: none !important;
     }
-    .enrol_fee_payment_region:after{
+    .enrol_fee_payment_region:after {
       display: none;
     }
-    #page-footer{
+    #page-footer {
       padding-bottom: calc(60px + $disabled-fee-fixed) !important;
     }
   }
