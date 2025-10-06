@@ -107,7 +107,7 @@ const DayDisabledFee = 1; // 受講登録手続きを行えない日
 
 const NowDate = new Date(); // 現在の日時
 const DayOfMonth = parseInt(NowDate.toLocaleString('ja-JP', { timeZone: 'Asia/Tokyo', day: '2-digit' }).replace('日', '')); // 現在の日
-const AmazonGiftFreeCampaignEnd = new Date(2025, 9, 5, 23, 59, 59); // キャンペーン終了日時（2025年10月5日23:59:59）
+const AmazonGiftFreeCampaignEnd = new Date(2026, 10, 5, 23, 59, 59); // キャンペーン終了日時（2025年10月5日23:59:59）
 
 // ==============================
 // Liff系
@@ -1091,7 +1091,18 @@ if (bodyId === "page-enrol-index") {
     const isHtmlCopy = searchParams.has("htmlCopy") || searchParams.get("params") === "htmlCopy";
 
     if (!isHtmlCopy && today <= AmazonGiftFreeCampaignEnd) {
-      $(".enrol-campaign-banner").show(); // キャンペーンバナーを表示
+      $(function() {
+        const CampaignBannerHtml = `
+            <div class="c-pc-hidden">
+              <img src="https://go.waomirai.com/l/1026513/2025-10-05/hxdg1/1026513/1759719091aqmrlvsz/banner_free_until_25nov_sp.png">
+            </div>
+            <div class="c-sp-hidden">
+              <img src="https://go.waomirai.com/l/1026513/2025-10-05/hxdg4/1026513/1759719091RP5rm98W/banner_free_until_25nov_pc.png">
+            </div>
+        `;      
+        $('.enrol-campaign-banner').append(CampaignBannerHtml);
+        $('.enrol-campaign-banner').show();
+      });
     }
 
     const subjectCategory = currentViewCourseData.key;  // 現在選択されている科目カテゴリーを取得
