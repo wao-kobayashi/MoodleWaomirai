@@ -85,20 +85,16 @@ function serve() {
       browserSync.reload();
       done();
    }));
-    //パーシャルの場合は全更新
-    // gulp.watch(['src/pug/lms-moodle/**/_*.pug'], gulp.series(pugLms,  (done) => {
-    // browserSync.reload();
-    // done();
-    gulp.watch(['src/pug/lms-moodle/**/_*.pug'], gulp.series(pugStg,pugLms,  (done) => {
+
+    gulp.watch(['src/pug/tenant-defaluttenant/**.pug'], gulp.series(pugDefalutTenant, (done) => {
     browserSync.reload();
     done();
-}));
+    }));
     //単体ファイルの時は単体更新
     gulp.watch(['src/pug/lms-moodle/**/*.pug','!src/pug/lms-moodle/**/_*.pug'], gulp.series(pugStgSingle,pugLmsSingle,  (done) => {
         browserSync.reload();
         done();
     }));
-  
     gulp.watch(srcpaths.js, gulp.series(splitJs, (done) => {
         browserSync.reload();
         done();
@@ -143,6 +139,13 @@ function pugLmsSingle() {
   return pugEnvTaskSingle('lmswaomirai', dstpaths.lmswaomirai);
 }
 
+function pugDefalutTenant() {
+    return gulp.src(['src/pug/tenant-defaluttenant/**.pug'])
+        .pipe(plumber())
+        .pipe(pug({ plugins: [pugbem] }))
+        .pipe(gulp.dest("./moodle-defaluttenant")); 
+  }
+
 function pugIndexPage() {
   return gulp.src(['src/pug/index.pug'])
       .pipe(plumber())
@@ -177,5 +180,6 @@ exports.scss = scss;
 exports.splitJs = splitJs;
 exports.pugStg = pugStg;
 exports.pugLms = pugLms;
+exports.pugDefalutTenant = pugDefalutTenant;
 exports.pugIndexPage = pugIndexPage;
-exports.pugAll = gulp.series(pugStg, pugLms, pugIndexPage, pugIndexContact);
+exports.pugAll = gulp.series(pugStg, pugLms, pugDefalutTenant, pugIndexPage, pugIndexContact);
