@@ -852,7 +852,7 @@ if (bodyId === "page-login-signup" || bodyId === "page-login-forgot_password") {
   if ($loginWrapper.length) {
     const signupLogoHtml = `
                 <div class="signup-logo">
-                    <img src="https://go.waomirai.com/l/1026513/2023-11-16/gddzt/1026513/1700192228BDlbz92f/logo_basic_white.png" style="width: 100%;">
+                    <img src="https://waomirai.com/lp/assets/moodle/images/logo_waomirai.svg" style="width: 100%;">
                 </div>`;
     $loginWrapper.before(signupLogoHtml);
   }
@@ -972,7 +972,7 @@ if (bodyId === "page-login-confirm") {
     </div>
     <div class="c-modal-button-line c-pc-hidden">
       <a href="${UrlLiffMoodle}">
-        <img src="https://go.waomirai.com/l/1026513/2025-02-20/hg5bg/1026513/17401067674FE8qn1T/btn_lineadd.svg">
+        <img src="https://waomirai.com/lp/assets/moodle/images/icn_linewhite.svg">
       </a>
     </div>
     <button class="c-modal-wrap-button c-modal-wrap-button-close c-modal-wrap-close-tag">閉じる</button>
@@ -1867,7 +1867,7 @@ if (bodyId === "page-user-profile") {
         const lineConnectHTML = `
         <section class="node_category card d-inline-block w-100 mb-3 line-connection-seciton">
           <div class="card-lineimg">
-            <img src="https://go.waomirai.com/l/1026513/2025-03-23/hjb9q/1026513/1742784605ULZBDj1J/head_line.png">
+            <img src="https://waomirai.com/lp/assets/moodle/images/page_mypage_line.png">
           </div>
           <div class="card-body">
               <a class="line-button triger-line-integration-modal">いますぐLINE連携する</a>
@@ -1894,7 +1894,7 @@ if (bodyId === "page-user-profile") {
 $(".triger-line-integration-modal").on("click", function (e) {
   createModal({
     wrapClass: "c-modal-wrap-line-connection",
-    customModalHtml: `<div class="c-modal-wrap-close"></div><div class="c-modal-wrap-linetitle"> <div class="c-modal-wrap-linetitle-img"><img src="https://waomirai.com/lp/assets/moodle/images/icn_line.svg"></div><div class="c-modal-wrap-linetitle-text">LINEで受講サポートの<br>通知を受け取る</div></div><div class="c-modal-wrap-qr c-sp-hidden"><img src="${ImgLiffMoodle}"></div><div class="c-modal-wrap-text">すでに友だち追加済の方も<br>会員連携のために<span class="c-sp-hidden">必ずQRを読み取って下さい</span><span class="c-pc-hidden">必ずボタンを押してください</span><br />※既にLINE連携済みの方は不要です</div><div class="c-modal-button-line c-pc-hidden"><a href="https://liff.line.me/2006716288-lL7QzGA3?loycus_urlc=NN3v"><img src="https://go.waomirai.com/l/1026513/2025-02-20/hg5bg/1026513/17401067674FE8qn1T/btn_lineadd.svg"></a></div><button class="c-modal-wrap-button c-modal-wrap-button-close c-modal-wrap-close-tag">閉じる</button>`
+    customModalHtml: `<div class="c-modal-wrap-close"></div><div class="c-modal-wrap-linetitle"> <div class="c-modal-wrap-linetitle-img"><img src="https://waomirai.com/lp/assets/moodle/images/icn_line.svg"></div><div class="c-modal-wrap-linetitle-text">LINEで受講サポートの<br>通知を受け取る</div></div><div class="c-modal-wrap-qr c-sp-hidden"><img src="${ImgLiffMoodle}"></div><div class="c-modal-wrap-text">すでに友だち追加済の方も<br>会員連携のために<span class="c-sp-hidden">必ずQRを読み取って下さい</span><span class="c-pc-hidden">必ずボタンを押してください</span><br />※既にLINE連携済みの方は不要です</div><div class="c-modal-button-line c-pc-hidden"><a href="https://liff.line.me/2006716288-lL7QzGA3?loycus_urlc=NN3v"><img src="https://waomirai.com/lp/assets/moodle/images/icn_linewhite.svg"></a></div><button class="c-modal-wrap-button c-modal-wrap-button-close c-modal-wrap-close-tag">閉じる</button>`
   });
 });
 
