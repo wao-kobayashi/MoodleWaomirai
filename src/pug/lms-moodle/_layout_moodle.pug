@@ -110,7 +110,7 @@ html(dir="ltr", lang="ja", xml:lang="ja", data-tenantid=(env == 'stg' ? '2' : '3
                         li.breadcrumb-item
                           a(href='https://lms.waomirai.com/course/index.php?categoryid=4') &#x30EF;&#x30AA;&#x672A;&#x6765;&#x587E; &#x5B66;&#x7FD2;&#x30DD;&#x30FC;&#x30BF;&#x30EB;
                         li.breadcrumb-item
-                          span|testC
+                          span &#x767B;&#x9332;&#x30AA;&#x30D7;&#x30B7;&#x30E7;&#x30F3;
                   .ml-auto.d-flex
                   #course-header
                 .d-flex.align-items-center
@@ -121,7 +121,7 @@ html(dir="ltr", lang="ja", xml:lang="ja", data-tenantid=(env == 'stg' ? '2' : '3
                       .page-header-headings
                         //- p|あああ
                         //- h1.h2 #{SubjectPageTitle}
-                        h1.h2|aaaa
+                        h1.h2=enrolpage.SubjectPageTitle
                   .header-actions-container.ml-auto(data-region='header-actions-container')
             #page-content.pb-3.d-print-block
               #region-main-box
@@ -747,7 +747,7 @@ html(dir="ltr", lang="ja", xml:lang="ja", data-tenantid=(env == 'stg' ? '2' : '3
                         li.breadcrumb-item
                           a(href='https://lms.waomirai.com/course/view.php?id=112#section-1' title='よくある質問とお問い合わせ') &#x3088;&#x304F;&#x3042;&#x308B;&#x8CEA;&#x554F;&#x3068;&#x304A;&#x554F;&#x3044;&#x5408;&#x308F;&#x305B;
                         li.breadcrumb-item
-                          span testB
+                          span #{title}
                   .ml-auto.d-flex
                   #course-header
                 .d-flex.align-items-center
@@ -757,7 +757,7 @@ html(dir="ltr", lang="ja", xml:lang="ja", data-tenantid=(env == 'stg' ? '2' : '3
                         .content.activityiconcontainer.icon-size-6.modicon_page
                           img.icon.activityicon(aria-hidden='true' src='https://lms.waomirai.com/theme/image.php/kenai/page/1738558509/monologo?filtericon=1' alt='')
                       .page-header-headings
-                        h1.h2 testC
+                        h1.h2 #{title}
                   .header-actions-container.ml-auto(data-region='header-actions-container')
             #page-content.pb-3.d-print-block
               #region-main-box
