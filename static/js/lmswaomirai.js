@@ -1418,37 +1418,45 @@ if (bodyId === "page-mod-questionnaire-view")  {
   // 「レベル」リンクのhrefを格納する変数（最初はnull）
   let levelLink = null;
 
-  // <ol class="breadcrumb"> 内のすべての <li> 要素を順に処理
+  // 「3週目」が ol.breadcrumb li のどこかに含まれているか確認
+  let hasWeek3 = false;
+
   $('ol.breadcrumb li').each(function() {
-    // 現在の <li> 要素をjQueryオブジェクトとして取得
     const $li = $(this);
-  
-    // <li> 内のテキストに「レベル」という文字が含まれているかチェック
-    if ($li.text().includes('レベル')) {
-      // <li> 内の <a> 要素を探す
-      const $link = $li.find('a');
-  
-      // <a> が存在する場合、その href 属性の値を取得
-      if ($link.length > 0) {
-        levelLink = $link.attr('href'); // href文字列を変数に代入
-      }
-  
-      // 「レベル」を含む要素が1つ見つかったらループを終了
-      return false;
+    if ($li.text().includes('3週目')) {
+      hasWeek3 = true;
+      return false; // 見つかったらループ終了
     }
   });
 
-  // 🔹 levelLink が取得できた場合のみ処理を実行
-  if (levelLink) {
-    // .mod_questionnaire_viewpage 内の .complete 要素の直後にリンクを挿入
-    $('.mod_questionnaire_viewpage .complete').after(`
-      <div>
-        <a href="${levelLink}" target="_blank" class="btn btn-primary">
-          メモシートをダウンロード
-        </a>
-      </div>
-    `);
+  // 「3週目」が存在する場合のみ処理を実行
+  if (hasWeek3) {
+    // <ol class="breadcrumb"> 内のすべての <li> 要素を順に処理
+    $('ol.breadcrumb li').each(function() {
+      const $li = $(this);
+    
+      // <li> 内のテキストに「レベル」という文字が含まれているかチェック
+      if ($li.text().includes('レベル')) {
+        const $link = $li.find('a');
+        if ($link.length > 0) {
+          levelLink = $link.attr('href');
+        }
+        return false; // 最初に見つかったら終了
+      }
+    });
+
+    // 🔹 levelLink が取得できた場合のみ処理を実行
+    if (levelLink) {
+      $('.mod_questionnaire_viewpage .complete').after(`
+        <div>
+          <a href="${levelLink}" target="_blank" class="btn btn-primary">
+            授業のまとめシート
+          </a>
+        </div>
+      `);
+    }
   }
+
 }
 
 $(".open-modal-badge").click(function() {
