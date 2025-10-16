@@ -14,12 +14,11 @@ $lms-font-size-xxl: 30px;
 /* material iconのfont-size */
 
 $lms-material-icon-font-size-m: 16px;
-$lms-material-icon-font-size-l: 20px;
 
 @mixin material-icon-l($icon-name) {
   font-family: "Material Symbols Outlined";
   content: $icon-name;
-  font-size: $lms-material-icon-font-size-l;
+  font-size: $lms-material-icon-font-size-m;
   padding: 1px 7px 0 0px;
   font-weight: normal;
 }
