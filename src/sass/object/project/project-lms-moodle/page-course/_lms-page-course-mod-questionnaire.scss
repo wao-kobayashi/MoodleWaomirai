@@ -256,6 +256,7 @@ li[data-key="courseinfo"] {
       }
       p {
         padding: 0 16px;
+        line-height: $lineheight-relaxed !important;
         @include text-m-black;
       }
       .mod_questionnaire_flex-container {
@@ -267,7 +268,7 @@ li[data-key="courseinfo"] {
           margin: 0 !important;
         }
         @include responsive-style(960px) {
-          gap: 20px;
+          gap: 0px;
         }
         @include responsive-style(768px) {
           flex-direction: column;
@@ -293,13 +294,44 @@ li[data-key="courseinfo"] {
             width: 100%;
           }
           .btn-primary {
+            // color: $cl-waogreen !important;
+            // border: 1px solid $cl-waogreen;
+
+            // color: $cl-black !important;
+            // border: 2px solid $cl-black;
             color: $cl-main-orange !important;
-            border: 1px solid $cl-main-orange;
+            border: 2px solid $cl-main-orange;
             background: white !important;
             @include button-size-middle;
             width: 240px;
             @include responsive-style(768px) {
               width: 100%;
+            }
+          }
+        }
+        .complete {
+          .btn-primary {
+            color: $cl-white !important;
+            background: $cl-main-orange !important;
+            border: none !important;
+            &::before {
+              font-family: "Material Symbols Outlined";
+              content: "edit_square"; /* アイコン名 */
+              font-size: 20px;
+              vertical-align: middle;
+              padding: 0 7px 0 0;
+            }
+          }
+        }
+        .lesson-summary {
+          .btn-primary {
+            &::before {
+              border: none !important;
+              font-family: "Material Symbols Outlined";
+              content: "description"; /* アイコン名 */
+              font-size: 20px;
+              vertical-align: middle;
+              padding: 0 7px 0 0;
             }
           }
         }

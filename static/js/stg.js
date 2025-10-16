@@ -1464,7 +1464,7 @@ if (bodyId === "page-mod-questionnaire-view")  {
     // 🔹 levelLink が取得できた場合のみ処理を実行
     if (levelLink) {
       $('.mod_questionnaire_viewpage .complete').after(`
-        <div>
+        <div class="lesson-summary">
           <a href="${levelLink}" target="_blank" class="btn btn-primary">
             授業のまとめシート
           </a>

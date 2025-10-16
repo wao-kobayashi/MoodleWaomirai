@@ -7768,7 +7768,7 @@ html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-myreport .course-l
 html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-report .course-lesson .course-lesson-wrap button {
   /* 横幅はまちまちなので指定しない */
   height: 60px;
-  border-radius: 4px;
+  border-radius: 8px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -7902,6 +7902,7 @@ html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-complete div[role=
 html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-myreport div[role=main] .mod_questionnaire_viewpage p,
 html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-report div[role=main] .mod_questionnaire_viewpage p {
   padding: 0 16px;
+  line-height: 1.75 !important;
   font-size: 16px;
   color: #262626;
   line-height: 1.5;
@@ -7927,7 +7928,7 @@ html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-report div[role=ma
   html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-complete div[role=main] .mod_questionnaire_viewpage .mod_questionnaire_flex-container,
   html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-myreport div[role=main] .mod_questionnaire_viewpage .mod_questionnaire_flex-container,
   html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-report div[role=main] .mod_questionnaire_viewpage .mod_questionnaire_flex-container {
-    gap: 20px;
+    gap: 0px;
   }
 }
 @media screen and (max-width: 768px) {
@@ -7993,7 +7994,7 @@ html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-complete div[role=
 html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-myreport div[role=main] .mod_questionnaire_viewpage .mod_questionnaire_flex-container > div .btn-primary,
 html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-report div[role=main] .mod_questionnaire_viewpage .mod_questionnaire_flex-container > div .btn-primary {
   color: #ee7a00 !important;
-  border: 1px solid #ee7a00;
+  border: 2px solid #ee7a00;
   background: white !important;
   /* 横幅はまちまちなので指定しない */
   height: 48px;
@@ -8019,6 +8020,35 @@ html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-report div[role=ma
   html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-report div[role=main] .mod_questionnaire_viewpage .mod_questionnaire_flex-container > div .btn-primary {
     width: 100%;
   }
+}
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-view div[role=main] .mod_questionnaire_viewpage .mod_questionnaire_flex-container .complete .btn-primary,
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-complete div[role=main] .mod_questionnaire_viewpage .mod_questionnaire_flex-container .complete .btn-primary,
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-myreport div[role=main] .mod_questionnaire_viewpage .mod_questionnaire_flex-container .complete .btn-primary,
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-report div[role=main] .mod_questionnaire_viewpage .mod_questionnaire_flex-container .complete .btn-primary {
+  color: #ffffff !important;
+  background: #ee7a00 !important;
+  border: none !important;
+}
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-view div[role=main] .mod_questionnaire_viewpage .mod_questionnaire_flex-container .complete .btn-primary::before,
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-complete div[role=main] .mod_questionnaire_viewpage .mod_questionnaire_flex-container .complete .btn-primary::before,
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-myreport div[role=main] .mod_questionnaire_viewpage .mod_questionnaire_flex-container .complete .btn-primary::before,
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-report div[role=main] .mod_questionnaire_viewpage .mod_questionnaire_flex-container .complete .btn-primary::before {
+  font-family: "Material Symbols Outlined";
+  content: "edit_square"; /* アイコン名 */
+  font-size: 20px;
+  vertical-align: middle;
+  padding: 0 7px 0 0;
+}
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-view div[role=main] .mod_questionnaire_viewpage .mod_questionnaire_flex-container .lesson-summary .btn-primary::before,
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-complete div[role=main] .mod_questionnaire_viewpage .mod_questionnaire_flex-container .lesson-summary .btn-primary::before,
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-myreport div[role=main] .mod_questionnaire_viewpage .mod_questionnaire_flex-container .lesson-summary .btn-primary::before,
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-report div[role=main] .mod_questionnaire_viewpage .mod_questionnaire_flex-container .lesson-summary .btn-primary::before {
+  border: none !important;
+  font-family: "Material Symbols Outlined";
+  content: "description"; /* アイコン名 */
+  font-size: 20px;
+  vertical-align: middle;
+  padding: 0 7px 0 0;
 }
 html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-view .surveyTitle,
 html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-complete .surveyTitle,
