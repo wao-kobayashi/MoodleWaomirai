@@ -202,6 +202,7 @@ li[data-key="courseinfo"] {
         border: none;
         width: 360px;
         margin: 0 auto 16px;
+        font-weight: bold;
         @include responsive-style(768px) {
           width: 220px;
           @include button-size-middle;
@@ -231,7 +232,7 @@ li[data-key="courseinfo"] {
   div[role="main"] {
     width: 100%;
     // background: $cl-graylightest !important;
-    padding: 20px 10px 20px;
+    padding: 30px 10px 0px;
     border: 4px solid $cl-graylightest !important;
     border-radius: $border-radius-middle;
     margin: 20px 0 0;

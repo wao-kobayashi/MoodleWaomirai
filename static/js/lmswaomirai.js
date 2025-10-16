@@ -1423,7 +1423,7 @@ if (bodyId === "page-mod-questionnaire-view")  {
 
   $('ol.breadcrumb li').each(function() {
     const $li = $(this);
-    if ($li.text().includes('3週目')) {
+    if ($li.text().includes('3週目')||$li.text().includes('３週目') ) {
       hasWeek3 = true;
       return false; // 見つかったらループ終了
     }

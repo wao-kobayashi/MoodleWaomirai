@@ -7796,6 +7796,7 @@ html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-report .course-les
   border: none;
   width: 360px;
   margin: 0 auto 16px;
+  font-weight: bold;
 }
 @media screen and (max-width: 768px) {
   html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-view .course-lesson .course-lesson-wrap button,
@@ -7852,7 +7853,7 @@ html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-complete div[role=
 html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-myreport div[role=main],
 html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-report div[role=main] {
   width: 100%;
-  padding: 20px 10px 20px;
+  padding: 30px 10px 0px;
   border: 4px solid #efefef !important;
   border-radius: 8px;
   margin: 20px 0 0;
