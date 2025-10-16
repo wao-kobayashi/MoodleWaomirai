@@ -1299,6 +1299,8 @@ if (bodyId === "page-enrol-index") {
 // ==============================
 // 受講ページの表示ロジック
 // ==============================
+
+// 受講ページ（view, complete, report, myreport）の場合
 if (bodyId === "page-mod-questionnaire-view" || bodyId === "page-mod-questionnaire-complete" || bodyId === "page-mod-questionnaire-report"|| bodyId === "page-mod-questionnaire-myreport")  {
   
 
@@ -1357,8 +1359,13 @@ if (bodyId === "page-mod-questionnaire-view" || bodyId === "page-mod-questionnai
   }
 }
 
+//受講ページの最初の画面のみ(page-mod-questionnaire-view)
 if (bodyId === "page-mod-questionnaire-view")  {
 
+  //////////////////////////////////////
+  // 授業のメモシートのブロックを入れる
+  //////////////////////////////////////
+  
   // メモシートのURLを格納する変数を用意
   // 最初は空文字で初期化しておく
   let memosheet = "";
@@ -1403,10 +1410,45 @@ if (bodyId === "page-mod-questionnaire-view")  {
           </div>
         </div>
       `);
+       // 授業ページの「main」要素の手前にメモシートのUIを追加
+  
     }
   });
 
+  // 「レベル」リンクのhrefを格納する変数（最初はnull）
+  let levelLink = null;
+
+  // <ol class="breadcrumb"> 内のすべての <li> 要素を順に処理
+  $('ol.breadcrumb li').each(function() {
+    // 現在の <li> 要素をjQueryオブジェクトとして取得
+    const $li = $(this);
   
+    // <li> 内のテキストに「レベル」という文字が含まれているかチェック
+    if ($li.text().includes('レベル')) {
+      // <li> 内の <a> 要素を探す
+      const $link = $li.find('a');
+  
+      // <a> が存在する場合、その href 属性の値を取得
+      if ($link.length > 0) {
+        levelLink = $link.attr('href'); // href文字列を変数に代入
+      }
+  
+      // 「レベル」を含む要素が1つ見つかったらループを終了
+      return false;
+    }
+  });
+
+  // 🔹 levelLink が取得できた場合のみ処理を実行
+  if (levelLink) {
+    // .mod_questionnaire_viewpage 内の .complete 要素の直後にリンクを挿入
+    $('.mod_questionnaire_viewpage .complete').after(`
+      <div>
+        <a href="${levelLink}" target="_blank" class="btn btn-primary">
+          メモシートをダウンロード
+        </a>
+      </div>
+    `);
+  }
 }
 
 $(".open-modal-badge").click(function() {
