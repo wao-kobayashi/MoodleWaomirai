@@ -1362,7 +1362,12 @@ if (bodyId === "page-mod-questionnaire-view")  {
       `);
     }
   }
-
+  //提出ボタンをわかりやすくするためにcss装飾用のclassを追加
+  $('.mod_questionnaire_flex-container .complete .btn-primary').addClass('send-answer');
+  //最初の提出ボタンをわかりやすくするためにcss装飾用のclassを追加
+  if ($('.mod_questionnaire_flex-container .complete .btn-primary').text().includes('課題を提出する')){
+    $('.mod_questionnaire_flex-container .complete .btn-primary').addClass('send-answer-first');
+  }
 }
 
 $(".open-modal-badge").click(function() {

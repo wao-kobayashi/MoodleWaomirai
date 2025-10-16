@@ -7236,8 +7236,10 @@ html[data-tenantidnumber=lmswaomirai] #page-user-profile .node_category.line-con
   text-decoration: none;
   opacity: 0.7;
 }
-html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-complete .mod_questionnaire_flex-container {
-  gap: 20px;
+@media screen and (max-width: 768px) {
+  html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-complete .mod_questionnaire_flex-container {
+    gap: 20px;
+  }
 }
 html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-view .course-lesson-date {
   display: block !important;
@@ -7917,6 +7919,8 @@ html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-report div[role=ma
   -webkit-box-pack: start;
       -ms-flex-pack: start;
           justify-content: flex-start;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
 }
 html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-view div[role=main] .mod_questionnaire_viewpage .mod_questionnaire_flex-container .allresponses,
 html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-complete div[role=main] .mod_questionnaire_viewpage .mod_questionnaire_flex-container .allresponses,
@@ -7954,11 +7958,22 @@ html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-report div[role=ma
           flex-grow: 0 !important;
 }
 @media screen and (min-width: 768px) {
-  html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-view div[role=main] .mod_questionnaire_viewpage .mod_questionnaire_flex-container > div,
-  html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-complete div[role=main] .mod_questionnaire_viewpage .mod_questionnaire_flex-container > div,
-  html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-myreport div[role=main] .mod_questionnaire_viewpage .mod_questionnaire_flex-container > div,
-  html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-report div[role=main] .mod_questionnaire_viewpage .mod_questionnaire_flex-container > div {
+  html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-view div[role=main] .mod_questionnaire_viewpage .mod_questionnaire_flex-container > div:nth-child(3n+1), html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-view div[role=main] .mod_questionnaire_viewpage .mod_questionnaire_flex-container > div:nth-child(3n+2),
+  html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-complete div[role=main] .mod_questionnaire_viewpage .mod_questionnaire_flex-container > div:nth-child(3n+1),
+  html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-complete div[role=main] .mod_questionnaire_viewpage .mod_questionnaire_flex-container > div:nth-child(3n+2),
+  html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-myreport div[role=main] .mod_questionnaire_viewpage .mod_questionnaire_flex-container > div:nth-child(3n+1),
+  html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-myreport div[role=main] .mod_questionnaire_viewpage .mod_questionnaire_flex-container > div:nth-child(3n+2),
+  html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-report div[role=main] .mod_questionnaire_viewpage .mod_questionnaire_flex-container > div:nth-child(3n+1),
+  html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-report div[role=main] .mod_questionnaire_viewpage .mod_questionnaire_flex-container > div:nth-child(3n+2) {
     margin-right: 20px !important;
+    margin-bottom: 20px;
+  }
+  html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-view div[role=main] .mod_questionnaire_viewpage .mod_questionnaire_flex-container > div:nth-child(3n+3),
+  html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-complete div[role=main] .mod_questionnaire_viewpage .mod_questionnaire_flex-container > div:nth-child(3n+3),
+  html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-myreport div[role=main] .mod_questionnaire_viewpage .mod_questionnaire_flex-container > div:nth-child(3n+3),
+  html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-report div[role=main] .mod_questionnaire_viewpage .mod_questionnaire_flex-container > div:nth-child(3n+3) {
+    margin-right: 0px !important;
+    margin-bottom: 20px;
   }
 }
 @media screen and (max-width: 960px) {
@@ -7971,6 +7986,7 @@ html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-report div[role=ma
         -ms-flex: 1;
             flex: 1;
     margin-right: 0px !important;
+    margin-bottom: 0px;
   }
   html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-view div[role=main] .mod_questionnaire_viewpage .mod_questionnaire_flex-container > div .btn-primary,
   html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-complete div[role=main] .mod_questionnaire_viewpage .mod_questionnaire_flex-container > div .btn-primary,
@@ -7994,8 +8010,9 @@ html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-view div[role=main
 html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-complete div[role=main] .mod_questionnaire_viewpage .mod_questionnaire_flex-container > div .btn-primary,
 html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-myreport div[role=main] .mod_questionnaire_viewpage .mod_questionnaire_flex-container > div .btn-primary,
 html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-report div[role=main] .mod_questionnaire_viewpage .mod_questionnaire_flex-container > div .btn-primary {
-  color: #005c3f !important;
-  border: 2px solid #005c3f;
+  font-weight: bold;
+  color: #ee7a00 !important;
+  border: 2px solid #ee7a00;
   background: #ffffff !important;
   /* 横幅はまちまちなので指定しない */
   height: 48px;
@@ -8022,22 +8039,24 @@ html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-report div[role=ma
     width: 100%;
   }
 }
-html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-view div[role=main] .mod_questionnaire_viewpage .mod_questionnaire_flex-container .complete .btn-primary,
-html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-complete div[role=main] .mod_questionnaire_viewpage .mod_questionnaire_flex-container .complete .btn-primary,
-html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-myreport div[role=main] .mod_questionnaire_viewpage .mod_questionnaire_flex-container .complete .btn-primary,
-html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-report div[role=main] .mod_questionnaire_viewpage .mod_questionnaire_flex-container .complete .btn-primary {
-  color: #ffffff !important;
-  background: #005c3f !important;
-}
-html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-view div[role=main] .mod_questionnaire_viewpage .mod_questionnaire_flex-container .complete .btn-primary::before,
-html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-complete div[role=main] .mod_questionnaire_viewpage .mod_questionnaire_flex-container .complete .btn-primary::before,
-html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-myreport div[role=main] .mod_questionnaire_viewpage .mod_questionnaire_flex-container .complete .btn-primary::before,
-html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-report div[role=main] .mod_questionnaire_viewpage .mod_questionnaire_flex-container .complete .btn-primary::before {
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-view div[role=main] .mod_questionnaire_viewpage .mod_questionnaire_flex-container .send-answer.btn-primary::before,
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-complete div[role=main] .mod_questionnaire_viewpage .mod_questionnaire_flex-container .send-answer.btn-primary::before,
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-myreport div[role=main] .mod_questionnaire_viewpage .mod_questionnaire_flex-container .send-answer.btn-primary::before,
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-report div[role=main] .mod_questionnaire_viewpage .mod_questionnaire_flex-container .send-answer.btn-primary::before {
   font-family: "Material Symbols Outlined";
   content: "edit_square"; /* アイコン名 */
   font-size: 20px;
   vertical-align: middle;
   padding: 0 7px 0 0;
+  font-weight: normal;
+}
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-view div[role=main] .mod_questionnaire_viewpage .mod_questionnaire_flex-container .send-answer-first.btn-primary,
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-complete div[role=main] .mod_questionnaire_viewpage .mod_questionnaire_flex-container .send-answer-first.btn-primary,
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-myreport div[role=main] .mod_questionnaire_viewpage .mod_questionnaire_flex-container .send-answer-first.btn-primary,
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-report div[role=main] .mod_questionnaire_viewpage .mod_questionnaire_flex-container .send-answer-first.btn-primary {
+  color: #ffffff !important;
+  background: #ee7a00 !important;
+  border: none !important;
 }
 html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-view div[role=main] .mod_questionnaire_viewpage .mod_questionnaire_flex-container .lesson-summary .btn-primary::before,
 html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-complete div[role=main] .mod_questionnaire_viewpage .mod_questionnaire_flex-container .lesson-summary .btn-primary::before,
@@ -8049,6 +8068,7 @@ html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-report div[role=ma
   font-size: 20px;
   vertical-align: middle;
   padding: 0 7px 0 0;
+  font-weight: normal;
 }
 html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-view .surveyTitle,
 html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-complete .surveyTitle,
@@ -8124,7 +8144,7 @@ html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-report .control-bu
 html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-report .btn-secondary {
   float: none !important;
   margin: 0 0 30px 55px;
-  background: #005c3f;
+  background: #ee7a00 !important;
   border: none !important;
   padding: 8px 20px;
   color: white !important;

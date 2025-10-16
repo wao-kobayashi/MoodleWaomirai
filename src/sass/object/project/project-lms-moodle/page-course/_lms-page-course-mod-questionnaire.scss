@@ -3,7 +3,9 @@ body {
 
 #page-mod-questionnaire-complete {
   .mod_questionnaire_flex-container {
-    gap: 20px;
+    @include responsive-style(768px) {
+      gap: 20px;
+    }
   }
 }
 
@@ -263,6 +265,7 @@ li[data-key="courseinfo"] {
         padding: 30px 20px 20px;
         width: 100%;
         justify-content: flex-start;
+        flex-wrap: wrap;
 
         .allresponses {
           margin: 0 !important;
@@ -279,12 +282,23 @@ li[data-key="courseinfo"] {
           width: 240px;
           flex-grow: 0 !important;
           @include min-responsive-style(768px) {
-            margin-right: 20px !important;
+            &:nth-child(3n + 1),
+            &:nth-child(3n + 2) {
+              margin-right: 20px !important;
+              margin-bottom: 20px;
+            }
+
+            &:nth-child(3n + 3) {
+              margin-right: 0px !important;
+              margin-bottom: 20px;
+            }
           }
+
           @include responsive-style(960px) {
             width: auto !important;
             flex: 1;
             margin-right: 0px !important;
+            margin-bottom: 0px;
             .btn-primary {
               width: auto !important;
               flex: 1;
@@ -294,17 +308,10 @@ li[data-key="courseinfo"] {
             width: 100%;
           }
           .btn-primary {
-            color: $cl-waogreen !important;
-            border: 2px solid $cl-waogreen;
+            font-weight: bold;
+            color: $cl-main-orange !important;
+            border: 2px solid $cl-main-orange;
             background: $cl-white !important;
-            // color: $cl-waogreen !important;
-            // border: 2px solid $cl-waogreen;
-
-            // color: $cl-black !important;
-            // border: 2px solid $cl-black;
-            // color: $cl-main-orange !important;
-            // border: 2px solid $cl-main-orange;
-            // background: white !important;
             @include button-size-middle;
             width: 240px;
             @include responsive-style(768px) {
@@ -312,23 +319,23 @@ li[data-key="courseinfo"] {
             }
           }
         }
-        .complete {
-          .btn-primary {
-            color: $cl-white !important;
-            background: $cl-waogreen !important;
 
-            // color: $cl-white !important;
-            // background: $cl-main-orange !important;
-            // border: none !important;
-            &::before {
-              font-family: "Material Symbols Outlined";
-              content: "edit_square"; /* アイコン名 */
-              font-size: 20px;
-              vertical-align: middle;
-              padding: 0 7px 0 0;
-            }
+        .send-answer.btn-primary {
+          &::before {
+            font-family: "Material Symbols Outlined";
+            content: "edit_square"; /* アイコン名 */
+            font-size: 20px;
+            vertical-align: middle;
+            padding: 0 7px 0 0;
+            font-weight: normal;
           }
         }
+        .send-answer-first.btn-primary {
+          color: $cl-white !important;
+          background: $cl-main-orange !important;
+          border: none !important;
+        }
+
         .lesson-summary {
           .btn-primary {
             &::before {
@@ -338,6 +345,7 @@ li[data-key="courseinfo"] {
               font-size: 20px;
               vertical-align: middle;
               padding: 0 7px 0 0;
+              font-weight: normal;
             }
           }
         }
@@ -389,7 +397,7 @@ li[data-key="courseinfo"] {
   .btn-secondary {
     float: none !important;
     margin: 0 0 30px 55px;
-    background: $cl-waogreen;
+    background: $cl-main-orange !important;
     border: none !important;
     padding: 8px 20px;
     color: white !important;
@@ -468,4 +476,7 @@ li[data-key="courseinfo"] {
       }
     }
   }
+}
+
+#page-mod-questionnaire-view {
 }
