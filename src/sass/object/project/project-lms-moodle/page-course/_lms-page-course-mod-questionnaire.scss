@@ -266,13 +266,29 @@ li[data-key="courseinfo"] {
         .allresponses {
           margin: 0 !important;
         }
+        @include responsive-style(960px) {
+          gap: 20px;
+        }
         @include responsive-style(768px) {
           flex-direction: column;
           gap: 20px;
         }
+
         > div {
           width: 240px;
           flex-grow: none !important;
+          @include min-responsive-style(768px) {
+            margin-right: 20px !important;
+          }
+          @include responsive-style(960px) {
+            width: auto !important;
+            flex: 1;
+            margin-right: 0px !important;
+            .btn-primary {
+              width: auto !important;
+              flex: 1;
+            }
+          }
           @include responsive-style(768px) {
             width: 100%;
           }
