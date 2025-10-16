@@ -7994,9 +7994,9 @@ html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-view div[role=main
 html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-complete div[role=main] .mod_questionnaire_viewpage .mod_questionnaire_flex-container > div .btn-primary,
 html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-myreport div[role=main] .mod_questionnaire_viewpage .mod_questionnaire_flex-container > div .btn-primary,
 html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-report div[role=main] .mod_questionnaire_viewpage .mod_questionnaire_flex-container > div .btn-primary {
-  color: #ee7a00 !important;
-  border: 2px solid #ee7a00;
-  background: white !important;
+  color: #005c3f !important;
+  border: 2px solid #005c3f;
+  background: #ffffff !important;
   /* 横幅はまちまちなので指定しない */
   height: 48px;
   border-radius: 4px;
@@ -8027,8 +8027,7 @@ html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-complete div[role=
 html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-myreport div[role=main] .mod_questionnaire_viewpage .mod_questionnaire_flex-container .complete .btn-primary,
 html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-report div[role=main] .mod_questionnaire_viewpage .mod_questionnaire_flex-container .complete .btn-primary {
   color: #ffffff !important;
-  background: #ee7a00 !important;
-  border: none !important;
+  background: #005c3f !important;
 }
 html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-view div[role=main] .mod_questionnaire_viewpage .mod_questionnaire_flex-container .complete .btn-primary::before,
 html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-complete div[role=main] .mod_questionnaire_viewpage .mod_questionnaire_flex-container .complete .btn-primary::before,
@@ -8204,7 +8203,7 @@ html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-report .mod-questi
       -ms-flex-align: center;
           align-items: center;
   height: 36px;
-  border: 1px solid #005c3f;
+  border: 1.5px solid #005c3f;
   border-radius: 4px;
   padding: 0 10px;
   cursor: pointer;

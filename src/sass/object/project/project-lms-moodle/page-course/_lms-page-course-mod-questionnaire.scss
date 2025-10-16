@@ -294,9 +294,17 @@ li[data-key="courseinfo"] {
             width: 100%;
           }
           .btn-primary {
-            color: $cl-main-orange !important;
-            border: 2px solid $cl-main-orange;
-            background: white !important;
+            color: $cl-waogreen !important;
+            border: 2px solid $cl-waogreen;
+            background: $cl-white !important;
+            // color: $cl-waogreen !important;
+            // border: 2px solid $cl-waogreen;
+
+            // color: $cl-black !important;
+            // border: 2px solid $cl-black;
+            // color: $cl-main-orange !important;
+            // border: 2px solid $cl-main-orange;
+            // background: white !important;
             @include button-size-middle;
             width: 240px;
             @include responsive-style(768px) {
@@ -304,26 +312,33 @@ li[data-key="courseinfo"] {
             }
           }
         }
-        .complete .btn-primary {
-          color: $cl-white !important;
-          background: $cl-main-orange !important;
-          border: none !important;
-          &::before {
-            font-family: "Material Symbols Outlined";
-            content: "edit_square"; /* アイコン名 */
-            font-size: $lms-material-icon-font-size-l;
-            vertical-align: middle;
-            padding: 0 7px 0 0;
+        .complete {
+          .btn-primary {
+            color: $cl-white !important;
+            background: $cl-waogreen !important;
+
+            // color: $cl-white !important;
+            // background: $cl-main-orange !important;
+            // border: none !important;
+            &::before {
+              font-family: "Material Symbols Outlined";
+              content: "edit_square"; /* アイコン名 */
+              font-size: 20px;
+              vertical-align: middle;
+              padding: 0 7px 0 0;
+            }
           }
         }
-        .lesson-summary .btn-primary {
-          &::before {
-            border: none !important;
-            font-family: "Material Symbols Outlined";
-            content: "description"; /* アイコン名 */
-            font-size: $lms-material-icon-font-size-l;
-            vertical-align: middle;
-            padding: 0 7px 0 0;
+        .lesson-summary {
+          .btn-primary {
+            &::before {
+              border: none !important;
+              font-family: "Material Symbols Outlined";
+              content: "description"; /* アイコン名 */
+              font-size: 20px;
+              vertical-align: middle;
+              padding: 0 7px 0 0;
+            }
           }
         }
       }
@@ -416,7 +431,7 @@ li[data-key="courseinfo"] {
       justify-content: center;
       align-items: center;
       height: 36px;
-      border: 1px solid $cl-waogreen;
+      border: 1.5px solid $cl-waogreen;
       border-radius: $border-radius-small;
       padding: 0 10px;
       cursor: pointer;
@@ -447,7 +462,7 @@ li[data-key="courseinfo"] {
         }
       }
       span {
-        font-size: $lms-material-icon-font-size-m;
+        font-size: 16px;
         margin: 3px 0 0 0;
         line-height: 1;
       }
