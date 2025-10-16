@@ -277,7 +277,7 @@ li[data-key="courseinfo"] {
 
         > div {
           width: 240px;
-          flex-grow: none !important;
+          flex-grow: 0 !important;
           @include min-responsive-style(768px) {
             margin-right: 20px !important;
           }
@@ -294,14 +294,17 @@ li[data-key="courseinfo"] {
             width: 100%;
           }
           .btn-primary {
+            color: $cl-waogreen !important;
+            border: 2px solid $cl-waogreen;
+            background: $cl-white !important;
             // color: $cl-waogreen !important;
-            // border: 1px solid $cl-waogreen;
+            // border: 2px solid $cl-waogreen;
 
             // color: $cl-black !important;
             // border: 2px solid $cl-black;
-            color: $cl-main-orange !important;
-            border: 2px solid $cl-main-orange;
-            background: white !important;
+            // color: $cl-main-orange !important;
+            // border: 2px solid $cl-main-orange;
+            // background: white !important;
             @include button-size-middle;
             width: 240px;
             @include responsive-style(768px) {
@@ -312,8 +315,11 @@ li[data-key="courseinfo"] {
         .complete {
           .btn-primary {
             color: $cl-white !important;
-            background: $cl-main-orange !important;
-            border: none !important;
+            background: $cl-waogreen !important;
+
+            // color: $cl-white !important;
+            // background: $cl-main-orange !important;
+            // border: none !important;
             &::before {
               font-family: "Material Symbols Outlined";
               content: "edit_square"; /* アイコン名 */
@@ -425,7 +431,7 @@ li[data-key="courseinfo"] {
       justify-content: center;
       align-items: center;
       height: 36px;
-      border: 1px solid $cl-waogreen;
+      border: 1.5px solid $cl-waogreen;
       border-radius: $border-radius-small;
       padding: 0 10px;
       cursor: pointer;
