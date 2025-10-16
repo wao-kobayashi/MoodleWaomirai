@@ -8044,10 +8044,9 @@ html[data-tenantidnumber=stg] #page-mod-questionnaire-complete div[role=main] .m
 html[data-tenantidnumber=stg] #page-mod-questionnaire-myreport div[role=main] .mod_questionnaire_viewpage .mod_questionnaire_flex-container .send-answer.btn-primary::before,
 html[data-tenantidnumber=stg] #page-mod-questionnaire-report div[role=main] .mod_questionnaire_viewpage .mod_questionnaire_flex-container .send-answer.btn-primary::before {
   font-family: "Material Symbols Outlined";
-  content: "edit_square"; /* アイコン名 */
+  content: "edit_square";
   font-size: 20px;
-  vertical-align: middle;
-  padding: 0 7px 0 0;
+  padding: 1px 7px 0 0px;
   font-weight: normal;
 }
 html[data-tenantidnumber=stg] #page-mod-questionnaire-view div[role=main] .mod_questionnaire_viewpage .mod_questionnaire_flex-container .send-answer-first.btn-primary,
@@ -8062,12 +8061,10 @@ html[data-tenantidnumber=stg] #page-mod-questionnaire-view div[role=main] .mod_q
 html[data-tenantidnumber=stg] #page-mod-questionnaire-complete div[role=main] .mod_questionnaire_viewpage .mod_questionnaire_flex-container .lesson-summary .btn-primary::before,
 html[data-tenantidnumber=stg] #page-mod-questionnaire-myreport div[role=main] .mod_questionnaire_viewpage .mod_questionnaire_flex-container .lesson-summary .btn-primary::before,
 html[data-tenantidnumber=stg] #page-mod-questionnaire-report div[role=main] .mod_questionnaire_viewpage .mod_questionnaire_flex-container .lesson-summary .btn-primary::before {
-  border: none !important;
   font-family: "Material Symbols Outlined";
-  content: "description"; /* アイコン名 */
+  content: "description";
   font-size: 20px;
-  vertical-align: middle;
-  padding: 0 7px 0 0;
+  padding: 1px 7px 0 0px;
   font-weight: normal;
 }
 html[data-tenantidnumber=stg] #page-mod-questionnaire-view .surveyTitle,
@@ -8144,10 +8141,10 @@ html[data-tenantidnumber=stg] #page-mod-questionnaire-report .control-button-sub
 html[data-tenantidnumber=stg] #page-mod-questionnaire-report .btn-secondary {
   float: none !important;
   margin: 0 0 30px 55px;
-  background: #ee7a00 !important;
-  border: none !important;
+  background: #ffffff !important;
+  border: 1.5px solid #ee7a00 !important;
   padding: 8px 20px;
-  color: white !important;
+  color: #ee7a00 !important;
 }
 html[data-tenantidnumber=stg] #page-mod-questionnaire-view .mod-questionnaire-worksheet,
 html[data-tenantidnumber=stg] #page-mod-questionnaire-complete .mod-questionnaire-worksheet,

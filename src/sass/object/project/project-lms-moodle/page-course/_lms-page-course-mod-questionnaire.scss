@@ -322,12 +322,7 @@ li[data-key="courseinfo"] {
 
         .send-answer.btn-primary {
           &::before {
-            font-family: "Material Symbols Outlined";
-            content: "edit_square"; /* アイコン名 */
-            font-size: 20px;
-            vertical-align: middle;
-            padding: 0 7px 0 0;
-            font-weight: normal;
+            @include material-icon-l("edit_square");
           }
         }
         .send-answer-first.btn-primary {
@@ -339,13 +334,7 @@ li[data-key="courseinfo"] {
         .lesson-summary {
           .btn-primary {
             &::before {
-              border: none !important;
-              font-family: "Material Symbols Outlined";
-              content: "description"; /* アイコン名 */
-              font-size: 20px;
-              vertical-align: middle;
-              padding: 0 7px 0 0;
-              font-weight: normal;
+              @include material-icon-l("description");
             }
           }
         }
@@ -397,10 +386,10 @@ li[data-key="courseinfo"] {
   .btn-secondary {
     float: none !important;
     margin: 0 0 30px 55px;
-    background: $cl-main-orange !important;
-    border: none !important;
+    background: $cl-white !important;
+    border: 1.5px solid $cl-main-orange !important;
     padding: 8px 20px;
-    color: white !important;
+    color: $cl-main-orange !important;
   }
   .mod-questionnaire-worksheet {
     margin: 12px 0 0;
