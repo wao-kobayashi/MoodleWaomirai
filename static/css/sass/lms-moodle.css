@@ -12,6 +12,7 @@ html[data-tenantidnumber=lmswaomirai] {
   @import url("https://fonts.googleapis.com/css?family=Noto+Sans+JP:400,500,700,900");
   /* 全体の幅 */
   /* フォント */
+  /* material iconのfont-size */
   /* border-radius */
   /* line-height */
   /* parts */
@@ -7948,9 +7949,9 @@ html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-complete div[role=
 html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-myreport div[role=main] .mod_questionnaire_viewpage .mod_questionnaire_flex-container > div,
 html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-report div[role=main] .mod_questionnaire_viewpage .mod_questionnaire_flex-container > div {
   width: 240px;
-  -webkit-box-flex: none !important;
-      -ms-flex-positive: none !important;
-          flex-grow: none !important;
+  -webkit-box-flex: 0 !important;
+      -ms-flex-positive: 0 !important;
+          flex-grow: 0 !important;
 }
 @media screen and (min-width: 768px) {
   html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-view div[role=main] .mod_questionnaire_viewpage .mod_questionnaire_flex-container > div,
