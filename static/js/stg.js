@@ -155,13 +155,11 @@ const memosheetEconomy = "https://waomirai.com/lp/assets/moodle/memosheet_econom
 // 画像
 // ==============================
 
-
-
 const ImgSubjectPhilosophy = "https://waomirai.com/lp/assets/moodle/images/icn_subject_philosophy.svg"; //アイコン：哲学
 const ImgSubjectScience = "https://waomirai.com/lp/assets/moodle/images/icn_subject_science.svg"; //アイコン：科学
 const ImgSubjectEconomy = "https://waomirai.com/lp/assets/moodle/images/icn_subject_economy.svg"; //アイコン：経済
-const ImgSubjectEnglish = "http://localhost:3000/static/images/icn_subject_english.svg"; //アイコン：英語
-const ImgSubjectOther = "http://localhost:3000/static/images/icn_subject_other.svg"; //アイコン：その他
+const ImgSubjectEnglish = "https://waomirai.com/lp/assets/moodle/images/icn_subject_english.svg"; //アイコン：英語
+const ImgSubjectOther = "https://waomirai.com/lp/assets/moodle/images/icn_subject_other.svg"; //アイコン：その他
 
 const ImgModalBadge = "https://waomirai.com/lp/assets/moodle/images/page_badge_sample.png"; //バッジの画像
 const ImgBannerAmazonGiftFreeCampaignPc = "https://go.waomirai.com/l/1026513/2025-10-05/hxdg4/1026513/1759719091RP5rm98W/banner_free_until_25nov_pc.png"; //バッジの画像
