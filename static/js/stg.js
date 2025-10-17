@@ -1327,6 +1327,8 @@ if (bodyId === "page-enrol-index") {
 // ==============================
 // 受講ページの表示ロジック
 // ==============================
+
+// 受講ページ（view, complete, report, myreport）の場合
 if (bodyId === "page-mod-questionnaire-view" || bodyId === "page-mod-questionnaire-complete" || bodyId === "page-mod-questionnaire-report"|| bodyId === "page-mod-questionnaire-myreport")  {
   
 
@@ -1385,8 +1387,13 @@ if (bodyId === "page-mod-questionnaire-view" || bodyId === "page-mod-questionnai
   }
 }
 
+//受講ページの最初の画面のみ(page-mod-questionnaire-view)
 if (bodyId === "page-mod-questionnaire-view")  {
 
+  //////////////////////////////////////
+  // 授業のメモシートのブロックを入れる
+  //////////////////////////////////////
+  
   // メモシートのURLを格納する変数を用意
   // 最初は空文字で初期化しておく
   let memosheet = "";
@@ -1431,10 +1438,58 @@ if (bodyId === "page-mod-questionnaire-view")  {
           </div>
         </div>
       `);
+       // 授業ページの「main」要素の手前にメモシートのUIを追加
+  
     }
   });
 
-  
+  // 「レベル」リンクのhrefを格納する変数（最初はnull）
+  let levelLink = null;
+
+  // 「3週目」が ol.breadcrumb li のどこかに含まれているか確認
+  let hasWeek3 = false;
+
+  $('ol.breadcrumb li').each(function() {
+    const $li = $(this);
+    if ($li.text().includes('3週目')||$li.text().includes('３週目') ) {
+      hasWeek3 = true;
+      return false; // 見つかったらループ終了
+    }
+  });
+
+  // 「3週目」が存在する場合のみ処理を実行
+  if (hasWeek3) {
+    // <ol class="breadcrumb"> 内のすべての <li> 要素を順に処理
+    $('ol.breadcrumb li').each(function() {
+      const $li = $(this);
+    
+      // <li> 内のテキストに「レベル」という文字が含まれているかチェック
+      if ($li.text().includes('レベル')) {
+        const $link = $li.find('a');
+        if ($link.length > 0) {
+          levelLink = $link.attr('href');
+        }
+        return false; // 最初に見つかったら終了
+      }
+    });
+
+    // 🔹 levelLink が取得できた場合のみ処理を実行
+    if (levelLink) {
+      $('.mod_questionnaire_viewpage .complete').after(`
+        <div class="lesson-summary">
+          <a href="${levelLink}" target="_blank" class="btn btn-primary">
+            授業のまとめシート
+          </a>
+        </div>
+      `);
+    }
+  }
+  //提出ボタンをわかりやすくするためにcss装飾用のclassを追加
+  $('.mod_questionnaire_flex-container .complete .btn-primary').addClass('send-answer');
+  //最初の提出ボタンをわかりやすくするためにcss装飾用のclassを追加
+  if ($('.mod_questionnaire_flex-container .complete .btn-primary').text().includes('課題を提出する')){
+    $('.mod_questionnaire_flex-container .complete .btn-primary').addClass('send-answer-first');
+  }
 }
 
 $(".open-modal-badge").click(function() {

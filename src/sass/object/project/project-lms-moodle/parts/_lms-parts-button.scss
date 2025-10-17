@@ -28,7 +28,7 @@
 @mixin button-size-big {
   /* 横幅はまちまちなので指定しない */
   height: 60px;
-  border-radius: $border-radius-small;
+  border-radius: $border-radius-middle;
   display: flex;
   justify-content: center;
   align-items: center;

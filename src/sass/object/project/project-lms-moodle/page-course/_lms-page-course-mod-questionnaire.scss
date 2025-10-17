@@ -3,7 +3,9 @@ body {
 
 #page-mod-questionnaire-complete {
   .mod_questionnaire_flex-container {
-    gap: 20px;
+    @include responsive-style(768px) {
+      gap: 20px;
+    }
   }
 }
 
@@ -200,6 +202,7 @@ li[data-key="courseinfo"] {
         border: none;
         width: 360px;
         margin: 0 auto 16px;
+        font-weight: bold;
         @include responsive-style(768px) {
           width: 220px;
           @include button-size-middle;
@@ -229,7 +232,7 @@ li[data-key="courseinfo"] {
   div[role="main"] {
     width: 100%;
     // background: $cl-graylightest !important;
-    padding: 20px 10px 20px;
+    padding: 30px 10px 0px;
     border: 4px solid $cl-graylightest !important;
     border-radius: $border-radius-middle;
     margin: 20px 0 0;
@@ -256,34 +259,83 @@ li[data-key="courseinfo"] {
       }
       p {
         padding: 0 16px;
+        line-height: $lineheight-relaxed !important;
         @include text-m-black;
       }
       .mod_questionnaire_flex-container {
         padding: 30px 20px 20px;
         width: 100%;
         justify-content: flex-start;
+        flex-wrap: wrap;
 
         .allresponses {
           margin: 0 !important;
+        }
+        @include responsive-style(960px) {
+          gap: 0px;
         }
         @include responsive-style(768px) {
           flex-direction: column;
           gap: 20px;
         }
+
         > div {
           width: 240px;
-          flex-grow: none !important;
+          flex-grow: 0 !important;
+          @include min-responsive-style(768px) {
+            &:nth-child(3n + 1),
+            &:nth-child(3n + 2) {
+              margin-right: 20px !important;
+              margin-bottom: 20px;
+            }
+
+            &:nth-child(3n + 3) {
+              margin-right: 0px !important;
+              margin-bottom: 20px;
+            }
+          }
+
+          @include responsive-style(960px) {
+            width: auto !important;
+            flex: 1;
+            margin-right: 0px !important;
+            margin-bottom: 0px;
+            .btn-primary {
+              width: auto !important;
+              flex: 1;
+            }
+          }
           @include responsive-style(768px) {
             width: 100%;
           }
           .btn-primary {
+            font-weight: bold;
             color: $cl-main-orange !important;
-            border: 1px solid $cl-main-orange;
-            background: white !important;
+            border: 2px solid $cl-main-orange;
+            background: $cl-white !important;
             @include button-size-middle;
             width: 240px;
             @include responsive-style(768px) {
               width: 100%;
+            }
+          }
+        }
+
+        .send-answer.btn-primary {
+          &::before {
+            @include material-icon-l("edit_square");
+          }
+        }
+        .send-answer-first.btn-primary {
+          color: $cl-white !important;
+          background: $cl-main-orange !important;
+          border: none !important;
+        }
+
+        .lesson-summary {
+          .btn-primary {
+            &::before {
+              @include material-icon-l("description");
             }
           }
         }
@@ -335,10 +387,10 @@ li[data-key="courseinfo"] {
   .btn-secondary {
     float: none !important;
     margin: 0 0 30px 55px;
-    background: $cl-waogreen;
-    border: none !important;
+    background: $cl-white !important;
+    border: 1.5px solid $cl-main-orange !important;
     padding: 8px 20px;
-    color: white !important;
+    color: $cl-main-orange !important;
   }
   .mod-questionnaire-worksheet {
     margin: 12px 0 0;
@@ -377,7 +429,7 @@ li[data-key="courseinfo"] {
       justify-content: center;
       align-items: center;
       height: 36px;
-      border: 1px solid $cl-waogreen;
+      border: 1.5px solid $cl-waogreen;
       border-radius: $border-radius-small;
       padding: 0 10px;
       cursor: pointer;
@@ -414,4 +466,7 @@ li[data-key="courseinfo"] {
       }
     }
   }
+}
+
+#page-mod-questionnaire-view {
 }
