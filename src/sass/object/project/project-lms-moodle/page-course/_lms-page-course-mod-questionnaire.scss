@@ -310,11 +310,14 @@ li[data-key="courseinfo"] {
           }
           .btn-primary {
             font-weight: bold;
-            color: $cl-main-orange !important;
-            border: 2px solid $cl-main-orange;
+            // color: $cl-main-orange !important;
+            // border: 2px solid $cl-main-orange;
+            color: $cl-waogreen !important;
+            border: 2px solid $cl-waogreen;
             background: $cl-white !important;
             @include button-size-middle;
             width: 240px;
+            position: relative;
             @include responsive-style(768px) {
               width: 100%;
             }
@@ -324,11 +327,14 @@ li[data-key="courseinfo"] {
         .send-answer.btn-primary {
           &::before {
             @include material-icon-l("edit_square");
+            position: absolute;
+            right: 12px;
           }
         }
         .send-answer-first.btn-primary {
           color: $cl-white !important;
-          background: $cl-main-orange !important;
+          background: $cl-waogreen !important;
+          // background: $cl-main-orange !important;
           border: none !important;
         }
 
@@ -336,6 +342,8 @@ li[data-key="courseinfo"] {
           .btn-primary {
             &::before {
               @include material-icon-l("description");
+              position: absolute;
+              right: 12px;
             }
           }
         }
@@ -431,7 +439,7 @@ li[data-key="courseinfo"] {
       height: 36px;
       border: 1.5px solid $cl-waogreen;
       border-radius: $border-radius-small;
-      padding: 0 10px;
+      padding: 0 12px 0 15px;
       cursor: pointer;
       @include responsive-style(768px) {
         grid-column: span 2 / span 2;
