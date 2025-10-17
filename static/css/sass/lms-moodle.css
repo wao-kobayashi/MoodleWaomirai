@@ -1649,6 +1649,9 @@ html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-myreport .completi
 html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-report .completion-info {
   display: none;
 }
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-complete .mod_questionnaire_completepage button[type=submit] {
+  display: none;
+}
 html[data-tenantidnumber=lmswaomirai] #page-admin-tool-catalogue-courseinfo .customfield,
 html[data-tenantidnumber=lmswaomirai] #page-admin-tool-catalogue-courseinfo .customfield_is_payment,
 html[data-tenantidnumber=lmswaomirai] #page-enrol-index .customfield,
@@ -8149,9 +8152,9 @@ html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-report .btn-second
   float: none !important;
   margin: 0 0 30px 55px;
   background: #ffffff !important;
-  border: 1.5px solid #ee7a00 !important;
+  border: 1.5px solid #005c3f !important;
   padding: 8px 20px;
-  color: #ee7a00 !important;
+  color: #005c3f !important;
 }
 html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-view .mod-questionnaire-worksheet,
 html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-complete .mod-questionnaire-worksheet,
