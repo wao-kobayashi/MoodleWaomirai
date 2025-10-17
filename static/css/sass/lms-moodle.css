@@ -32,6 +32,22 @@ html[data-tenantidnumber=lmswaomirai] {
   /* 授業購入画面(まだ買っていない) */
   /* ここから英語 ------------------------------------------------ */
 }
+@media screen and (max-width: 3000px) and (min-width: 768px) {
+  html[data-tenantidnumber=lmswaomirai] .spimage {
+    display: none !important;
+  }
+  html[data-tenantidnumber=lmswaomirai] .pcimage {
+    display: inherit;
+  }
+}
+@media screen and (max-width: 767px) {
+  html[data-tenantidnumber=lmswaomirai] .spimage {
+    display: inherit;
+  }
+  html[data-tenantidnumber=lmswaomirai] .pcimage {
+    display: none !important;
+  }
+}
 @-webkit-keyframes fuwafuwa {
   0% {
     -webkit-transform: translate(0, 0);
@@ -5474,15 +5490,15 @@ html[data-tenantidnumber=lmswaomirai] .pagelayout-frontpage .lms-index-contents-
   }
 }
 html[data-tenantidnumber=lmswaomirai] .pagelayout-frontpage .lms-index-contents-block-step > .lms-index-contents-block-step-child:first-child img {
-  height: 50px !important;
+  height: 65px !important;
 }
 @media screen and (max-width: 768px) {
   html[data-tenantidnumber=lmswaomirai] .pagelayout-frontpage .lms-index-contents-block-step > .lms-index-contents-block-step-child:first-child img {
-    height: 40px !important;
+    height: 50px !important;
   }
 }
 html[data-tenantidnumber=lmswaomirai] .pagelayout-frontpage .lms-index-contents-block-step > .lms-index-contents-block-step-child:last-child img {
-  height: 65px !important;
+  height: 80px !important;
 }
 @media screen and (max-width: 768px) {
   html[data-tenantidnumber=lmswaomirai] .pagelayout-frontpage .lms-index-contents-block-step > .lms-index-contents-block-step-child:last-child img {

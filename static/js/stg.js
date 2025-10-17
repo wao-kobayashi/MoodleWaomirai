@@ -131,7 +131,7 @@ const AmazonGiftFreeCampaignEnd = new Date(2025, 9, 5, 23, 59, 59); // キャン
 
 //moodleで友だち追加
 const UrlLiffMoodle = "https://liff.line.me/2006716288-lL7QzGA3?loycus_urlc=y7vy" 
-const ImgLiffMoodle = "https://go.waomirai.com/l/1026513/2025-04-04/hk1f8/1026513/1743763011hBkCW5F9/ImgLiffMoodlefix.png" 
+const ImgLiffMoodle = "https://waomirai.com/lp/assets/moodle/images/qr_line_bymoodle.png" 
 
 // ==============================
 // googleCalender系

@@ -167,14 +167,14 @@
     }
     > .lms-index-contents-block-step-child:first-child img {
       // width: 100px !important;
-      height: 50px !important;
+      height: 65px !important;
       @include responsive-style(768px) {
-        height: 40px !important;
+        height: 50px !important;
       }
     }
     > .lms-index-contents-block-step-child:last-child img {
       // width: 100px !important;
-      height: 65px !important;
+      height: 80px !important;
       @include responsive-style(768px) {
         height: 50px !important;
       }
