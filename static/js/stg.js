@@ -150,6 +150,15 @@ const memosheetPhilosophy = "https://waomirai.com/lp/assets/moodle/memosheet_phi
 const memosheetScience = "https://waomirai.com/lp/assets/moodle/memosheet_science.pdf" //科学
 const memosheetEconomy = "https://waomirai.com/lp/assets/moodle/memosheet_economy.pdf" //経済
 
+
+// ==============================
+// 画像
+// ==============================
+
+const ImgModalBadge = "https://waomirai.com/lp/assets/moodle/images/page_badge_sample.png"; //バッジの画像
+const ImgBannerAmazonGiftFreeCampaignPc = "https://go.waomirai.com/l/1026513/2025-10-05/hxdg4/1026513/1759719091RP5rm98W/banner_free_until_25nov_pc.png"; //バッジの画像
+const ImgBannerAmazonGiftFreeCampaignSp = "https://go.waomirai.com/l/1026513/2025-10-05/hxdg1/1026513/1759719091aqmrlvsz/banner_free_until_25nov_sp.png"; //バッジの画像
+
 // ==============================
 // ページ判定とコースIDの取得
 // ==============================
@@ -1496,7 +1505,7 @@ if (bodyId === "page-mod-questionnaire-view")  {
 $(".open-modal-badge").click(function() {
   // 確認モーダルを作成
   createModal({
-    image: "https://go.waomirai.com/l/1026513/2025-04-01/hjs1g/1026513/17434933816M8hgzmi/modal_badge_sample.png",
+    image: ImgModalBadge,
     close: true,  // モーダルを閉じるボタンを表示するオプション
     closetxt: "閉じる", // 閉じるボタンのテキスト
   });
