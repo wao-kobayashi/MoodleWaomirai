@@ -375,23 +375,35 @@ $default-max-width: 1170px; // 最大幅
         text-decoration: none !important;
       }
       .dashboard-left-block-subject-child-icon {
+        img {
+          width: 42px;
+        }
       }
       &.philosophy {
         @include dashboard-left-block-subject-child-card;
         .dashboard-left-block-subject-child-icon {
-          background: #ffdb96;
+          background: $cl-philosophy-pale-light;
+          img {
+            width: 36px;
+          }
         }
       }
       &.science {
         @include dashboard-left-block-subject-child-card;
         .dashboard-left-block-subject-child-icon {
-          background: #eefabf;
+          background: $cl-science-pale-light;
+          img {
+            width: 36px;
+          }
         }
       }
       &.economy {
         @include dashboard-left-block-subject-child-card;
         .dashboard-left-block-subject-child-icon {
-          background: #c1edff;
+          background: $cl-economy-pale-light;
+          img {
+            width: 36px;
+          }
         }
       }
       &.globalenglish {
@@ -414,8 +426,8 @@ $default-max-width: 1170px; // 最大幅
         }
       }
       .dashboard-left-block-subject-child-icon {
-        width: 60px;
-        height: 60px;
+        width: 64px;
+        height: 64px;
         border-radius: 100px;
         margin: 0 0px 10px;
         display: flex;

@@ -6124,6 +6124,9 @@ html[data-tenantidnumber=lmswaomirai] .pagelayout-mydashboard .dashboard-left .d
 html[data-tenantidnumber=lmswaomirai] .pagelayout-mydashboard .dashboard-left .dashboard-left-block-subject-child:hover {
   text-decoration: none !important;
 }
+html[data-tenantidnumber=lmswaomirai] .pagelayout-mydashboard .dashboard-left .dashboard-left-block-subject-child .dashboard-left-block-subject-child-icon img {
+  width: 42px;
+}
 html[data-tenantidnumber=lmswaomirai] .pagelayout-mydashboard .dashboard-left .dashboard-left-block-subject-child.philosophy {
   padding: 0px 0px 10px;
   display: -webkit-box;
@@ -6151,7 +6154,10 @@ html[data-tenantidnumber=lmswaomirai] .pagelayout-mydashboard .dashboard-left .d
   }
 }
 html[data-tenantidnumber=lmswaomirai] .pagelayout-mydashboard .dashboard-left .dashboard-left-block-subject-child.philosophy .dashboard-left-block-subject-child-icon {
-  background: #ffdb96;
+  background: #ffe3ad;
+}
+html[data-tenantidnumber=lmswaomirai] .pagelayout-mydashboard .dashboard-left .dashboard-left-block-subject-child.philosophy .dashboard-left-block-subject-child-icon img {
+  width: 36px;
 }
 html[data-tenantidnumber=lmswaomirai] .pagelayout-mydashboard .dashboard-left .dashboard-left-block-subject-child.science {
   padding: 0px 0px 10px;
@@ -6180,7 +6186,10 @@ html[data-tenantidnumber=lmswaomirai] .pagelayout-mydashboard .dashboard-left .d
   }
 }
 html[data-tenantidnumber=lmswaomirai] .pagelayout-mydashboard .dashboard-left .dashboard-left-block-subject-child.science .dashboard-left-block-subject-child-icon {
-  background: #eefabf;
+  background: #f1ffbd;
+}
+html[data-tenantidnumber=lmswaomirai] .pagelayout-mydashboard .dashboard-left .dashboard-left-block-subject-child.science .dashboard-left-block-subject-child-icon img {
+  width: 36px;
 }
 html[data-tenantidnumber=lmswaomirai] .pagelayout-mydashboard .dashboard-left .dashboard-left-block-subject-child.economy {
   padding: 0px 0px 10px;
@@ -6209,7 +6218,10 @@ html[data-tenantidnumber=lmswaomirai] .pagelayout-mydashboard .dashboard-left .d
   }
 }
 html[data-tenantidnumber=lmswaomirai] .pagelayout-mydashboard .dashboard-left .dashboard-left-block-subject-child.economy .dashboard-left-block-subject-child-icon {
-  background: #c1edff;
+  background: #dcf5ff;
+}
+html[data-tenantidnumber=lmswaomirai] .pagelayout-mydashboard .dashboard-left .dashboard-left-block-subject-child.economy .dashboard-left-block-subject-child-icon img {
+  width: 36px;
 }
 html[data-tenantidnumber=lmswaomirai] .pagelayout-mydashboard .dashboard-left .dashboard-left-block-subject-child.globalenglish {
   padding: 0px 0px 10px;
@@ -6299,8 +6311,8 @@ html[data-tenantidnumber=lmswaomirai] .pagelayout-mydashboard .dashboard-left .d
   background: #efefef;
 }
 html[data-tenantidnumber=lmswaomirai] .pagelayout-mydashboard .dashboard-left .dashboard-left-block-subject-child .dashboard-left-block-subject-child-icon {
-  width: 60px;
-  height: 60px;
+  width: 64px;
+  height: 64px;
   border-radius: 100px;
   margin: 0 0px 10px;
   display: -webkit-box;
@@ -13360,7 +13372,7 @@ html[data-tenantidnumber=lmswaomirai] .category-53 .subject-page-added-note-head
   display: inline-block;
 }
 html[data-tenantidnumber=lmswaomirai] .category-53 .published {
-  background-color: #def7ff !important;
+  background-color: #dcf5ff !important;
 }
 html[data-tenantidnumber=lmswaomirai] .category-48 .subject-page-added-note-content-download {
   color: #28afe7 !important;
@@ -13384,7 +13396,7 @@ html[data-tenantidnumber=lmswaomirai] .category-48 .subject-page-added-note-head
   display: inline-block;
 }
 html[data-tenantidnumber=lmswaomirai] .category-48 .published {
-  background-color: #def7ff !important;
+  background-color: #dcf5ff !important;
 }
 html[data-tenantidnumber=lmswaomirai] .category-52 .subject-page-added-note-content-download {
   color: #b6d43e !important;

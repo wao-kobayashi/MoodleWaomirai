@@ -139,6 +139,14 @@ const memosheetEconomy = "https://waomirai.com/lp/assets/moodle/memosheet_econom
 // 画像
 // ==============================
 
+
+
+const ImgSubjectPhilosophy = "https://waomirai.com/lp/assets/moodle/images/icn_subject_philosophy.svg"; //アイコン：哲学
+const ImgSubjectScience = "https://waomirai.com/lp/assets/moodle/images/icn_subject_science.svg"; //アイコン：科学
+const ImgSubjectEconomy = "https://waomirai.com/lp/assets/moodle/images/icn_subject_economy.svg"; //アイコン：経済
+const ImgSubjectEnglish = "http://localhost:3000/static/images/icn_subject_english.svg"; //アイコン：英語
+const ImgSubjectOther = "http://localhost:3000/static/images/icn_subject_other.svg"; //アイコン：その他
+
 const ImgModalBadge = "https://waomirai.com/lp/assets/moodle/images/page_badge_sample.png"; //バッジの画像
 const ImgBannerAmazonGiftFreeCampaignPc = "https://go.waomirai.com/l/1026513/2025-10-05/hxdg4/1026513/1759719091RP5rm98W/banner_free_until_25nov_pc.png"; //バッジの画像
 const ImgBannerAmazonGiftFreeCampaignSp = "https://go.waomirai.com/l/1026513/2025-10-05/hxdg1/1026513/1759719091aqmrlvsz/banner_free_until_25nov_sp.png"; //バッジの画像
@@ -410,7 +418,7 @@ if (bodyId === "page-my-index") {
       // dashboard-left-block-subject-childクラスと科目固有のキーを持つ
       return `
           <a href="${courseLink}" class="dashboard-left-block-subject-child ${subject.key}">
-              <div class="dashboard-left-block-subject-child-icon">${icon}</div>
+              <div class="dashboard-left-block-subject-child-icon"><img src="${icon}"></div>
               <div class="dashboard-left-block-subject-child-text">
                   <div>${subject.name}</div>
               </div>
@@ -425,13 +433,11 @@ if (bodyId === "page-my-index") {
    */
   const getSubjectIcon = (subject) => {
       // 科目名に特定のキーワードが含まれる場合、対応するアイコンを返す
-      if (subject.name.includes("哲学")) return "&#x1f4D6;"; // 本のアイコン
-      if (subject.name.includes("科学")) return "&#x1f52C;"; // 顕微鏡のアイコン
-      if (subject.name.includes("経済")) return "&#x1f4B0;"; // お金のアイコン
-      if (subject.name.includes("英語")) return "&#x1f4AC;"; // 吹き出しのアイコン
-      if (subject.name.includes("プログラミング"))
-          return "&#x1f468;&#x200D;&#x1f4BB;"; // プログラマーのアイコン
-      return "&#x1f9ea;"; // デフォルトは試験管のアイコン
+      if (subject.name.includes("哲学")) return ImgSubjectPhilosophy; // 本のアイコン
+      if (subject.name.includes("科学")) return ImgSubjectScience; // 顕微鏡のアイコン
+      if (subject.name.includes("経済")) return ImgSubjectEconomy; // お金のアイコン
+      if (subject.name.includes("英語")) return ImgSubjectEnglish; // 吹き出しのアイコン
+      return ImgSubjectOther; // デフォルトは試験管のアイコン
   };
 
   /**
