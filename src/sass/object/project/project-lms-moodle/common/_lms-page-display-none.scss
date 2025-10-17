@@ -139,6 +139,13 @@ a[href="https://lms.waomirai.com/my/courses.php"]
     display: none;
   }
 }
+#page-mod-questionnaire-complete {
+  .mod_questionnaire_completepage {
+    button[type="submit"] {
+      display: none;
+    }
+  }
+}
 
 /* 授業購入画面(まだ買っていない) */
 
