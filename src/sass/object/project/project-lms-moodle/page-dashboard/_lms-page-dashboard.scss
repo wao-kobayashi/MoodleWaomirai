@@ -270,7 +270,7 @@ $default-max-width: 1170px; // 最大幅
           }
         }
         span {
-          font-size: 16px;
+          font-size: $lms-material-icon-font-size-m;
           margin: 3px 0 0 0;
           line-height: 1;
         }
