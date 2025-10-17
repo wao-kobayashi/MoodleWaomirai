@@ -69,6 +69,8 @@ async function splitJs(done) {
     }
 }
 
+
+
 // ローカルサーバーの起動と監視タスク
 function serve() {
     browserSync.init({
@@ -77,6 +79,11 @@ function serve() {
     });
 
     gulp.watch([srcpaths.scss], gulp.series(scss, (done) => {
+        browserSync.reload();
+        done();
+    }));
+    
+    gulp.watch(['src/pug/lms-moodle/**/_*.pug'], gulp.series(pugLms,  (done) => {
         browserSync.reload();
         done();
     }));
