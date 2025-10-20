@@ -6128,7 +6128,7 @@ html[data-tenantidnumber=stg] .pagelayout-mydashboard .dashboard-left .dashboard
   text-decoration: none !important;
 }
 html[data-tenantidnumber=stg] .pagelayout-mydashboard .dashboard-left .dashboard-left-block-subject-child .dashboard-left-block-subject-child-icon img {
-  width: 42px;
+  width: 37px;
 }
 html[data-tenantidnumber=stg] .pagelayout-mydashboard .dashboard-left .dashboard-left-block-subject-child.philosophy {
   padding: 0px 0px 10px;
@@ -6160,7 +6160,7 @@ html[data-tenantidnumber=stg] .pagelayout-mydashboard .dashboard-left .dashboard
   background: #fff0ba;
 }
 html[data-tenantidnumber=stg] .pagelayout-mydashboard .dashboard-left .dashboard-left-block-subject-child.philosophy .dashboard-left-block-subject-child-icon img {
-  width: 36px;
+  width: 34px;
 }
 html[data-tenantidnumber=stg] .pagelayout-mydashboard .dashboard-left .dashboard-left-block-subject-child.science {
   padding: 0px 0px 10px;
@@ -6192,7 +6192,8 @@ html[data-tenantidnumber=stg] .pagelayout-mydashboard .dashboard-left .dashboard
   background: #f1ffbd;
 }
 html[data-tenantidnumber=stg] .pagelayout-mydashboard .dashboard-left .dashboard-left-block-subject-child.science .dashboard-left-block-subject-child-icon img {
-  width: 36px;
+  width: 33px;
+  margin: 1px 0 0;
 }
 html[data-tenantidnumber=stg] .pagelayout-mydashboard .dashboard-left .dashboard-left-block-subject-child.economy {
   padding: 0px 0px 10px;
@@ -6254,6 +6255,10 @@ html[data-tenantidnumber=stg] .pagelayout-mydashboard .dashboard-left .dashboard
 }
 html[data-tenantidnumber=stg] .pagelayout-mydashboard .dashboard-left .dashboard-left-block-subject-child.globalenglish .dashboard-left-block-subject-child-icon {
   background: #f5dbff;
+}
+html[data-tenantidnumber=stg] .pagelayout-mydashboard .dashboard-left .dashboard-left-block-subject-child.globalenglish .dashboard-left-block-subject-child-icon img {
+  width: 36px;
+  margin: 2px 0 0;
 }
 html[data-tenantidnumber=stg] .pagelayout-mydashboard .dashboard-left .dashboard-left-block-subject-child.programming {
   padding: 0px 0px 10px;

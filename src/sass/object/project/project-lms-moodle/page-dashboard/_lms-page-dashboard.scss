@@ -376,7 +376,7 @@ $default-max-width: 1170px; // 最大幅
       }
       .dashboard-left-block-subject-child-icon {
         img {
-          width: 42px;
+          width: 37px;
         }
       }
       &.philosophy {
@@ -384,7 +384,7 @@ $default-max-width: 1170px; // 最大幅
         .dashboard-left-block-subject-child-icon {
           background: $cl-philosophy-pale-light;
           img {
-            width: 36px;
+            width: 34px;
           }
         }
       }
@@ -393,7 +393,8 @@ $default-max-width: 1170px; // 最大幅
         .dashboard-left-block-subject-child-icon {
           background: $cl-science-pale-light;
           img {
-            width: 36px;
+            width: 33px;
+            margin: 1px 0 0;
           }
         }
       }
@@ -410,6 +411,10 @@ $default-max-width: 1170px; // 最大幅
         @include dashboard-left-block-subject-child-card;
         .dashboard-left-block-subject-child-icon {
           background: #f5dbff;
+          img {
+            width: 36px;
+            margin: 2px 0 0;
+          }
         }
       }
       &.programming {
