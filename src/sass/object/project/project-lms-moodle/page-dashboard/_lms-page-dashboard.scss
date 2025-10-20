@@ -442,6 +442,7 @@ $default-max-width: 1170px; // 最大幅
       }
       .dashboard-left-block-subject-child-text {
         @include text-s-black;
+        text-align: center;
         @include responsive-style(768px) {
           font-size: $lms-font-size-m;
         }

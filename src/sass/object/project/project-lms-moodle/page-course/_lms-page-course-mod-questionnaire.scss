@@ -388,9 +388,7 @@ li[data-key="courseinfo"] {
       // display: none;
     }
   }
-  .mod_questionnaire_controlbuttons {
-    text-align: left !important;
-  }
+
   .control-button-submit,
   .btn-secondary {
     float: none !important;
@@ -399,6 +397,17 @@ li[data-key="courseinfo"] {
     border: 1.5px solid $cl-waogreen !important;
     padding: 8px 20px;
     color: $cl-waogreen !important;
+  }
+  .mod_questionnaire_controlbuttons {
+    text-align: left !important;
+    .control-button-submit {
+      float: none !important;
+      margin: 0 0 30px 55px;
+      background: $cl-waogreen !important;
+      padding: 8px 20px;
+      color: $cl-white !important;
+      font-weight: bold;
+    }
   }
   .mod-questionnaire-worksheet {
     margin: 12px 0 0;
@@ -473,6 +482,11 @@ li[data-key="courseinfo"] {
         line-height: 1;
       }
     }
+  }
+  .homelink {
+    background: $cl-white !important;
+    border: 1.5px solid $cl-waogreen !important;
+    color: $cl-waogreen !important;
   }
 }
 

@@ -13,7 +13,7 @@ const DayDisabledFee = 1; // 受講登録手続きを行えない日
 
 const NowDate = new Date(); // 現在の日時
 const DayOfMonth = parseInt(NowDate.toLocaleString('ja-JP', { timeZone: 'Asia/Tokyo', day: '2-digit' }).replace('日', '')); // 現在の日
-const AmazonGiftFreeCampaignEnd = new Date(2025, 9, 5, 23, 59, 59); // キャンペーン終了日時（2025年10月5日23:59:59）
+const AmazonGiftFreeCampaignEnd = new Date(2025, 11, 9, 23, 59, 59); // キャンペーン終了日時（2025年10月5日23:59:59）
 
 // ==============================
 // Liff系
@@ -52,8 +52,14 @@ const ImgSubjectEnglish = "https://waomirai.com/lp/assets/moodle/images/icn_subj
 const ImgSubjectOther = "https://waomirai.com/lp/assets/moodle/images/icn_subject_other.svg"; //アイコン：その他
 
 const ImgModalBadge = "https://waomirai.com/lp/assets/moodle/images/page_badge_sample.png"; //バッジの画像
-const ImgBannerAmazonGiftFreeCampaignPc = "https://go.waomirai.com/l/1026513/2025-10-05/hxdg4/1026513/1759719091RP5rm98W/banner_free_until_25nov_pc.png"; //バッジの画像
-const ImgBannerAmazonGiftFreeCampaignSp = "https://go.waomirai.com/l/1026513/2025-10-05/hxdg1/1026513/1759719091aqmrlvsz/banner_free_until_25nov_sp.png"; //バッジの画像
+const ImgBannerAmazonGiftFreeCampaignPc = "https://go.waomirai.com/l/1026513/2025-10-20/hy5w7/1026513/1760936849gjyGzZan/banner_free_until_25nov_pc.png"; //バッジの画像
+const ImgBannerAmazonGiftFreeCampaignSp = "https://go.waomirai.com/l/1026513/2025-10-20/hy5wj/1026513/1760936850D0Le0rpV/banner_free_until_25nov_sp.png"; //バッジの画像
+
+//次アップ
+//2025dec pc https://go.waomirai.com/l/1026513/2025-10-20/hy5wq/1026513/1760936850Q85jpiyV/banner_free_until_25dec_pc.png
+//2025dec sp https://go.waomirai.com/l/1026513/2025-10-20/hy5wb/1026513/1760936849yL4umnEM/banner_free_until_25dec_sp.png
+//2026jan pc https://go.waomirai.com/l/1026513/2025-10-20/hy5wm/1026513/1760936850Nh1zDBCZ/banner_free_until_26jan_pc.png
+//2026jan sp https://go.waomirai.com/l/1026513/2025-10-20/hy5wf/1026513/1760936849Fhrb3Ywf/banner_free_until_26jan_sp.png
 
 // ==============================
 // ページ判定とコースIDの取得
@@ -1013,10 +1019,10 @@ if (bodyId === "page-enrol-index") {
       $(function() {
         const CampaignBannerHtml = `
             <div class="c-pc-hidden">
-              <img src="https://go.waomirai.com/l/1026513/2025-10-05/hxdg1/1026513/1759719091aqmrlvsz/banner_free_until_25nov_sp.png">
+              <img src="${ImgBannerAmazonGiftFreeCampaignSp}">
             </div>
             <div class="c-sp-hidden">
-              <img src="https://go.waomirai.com/l/1026513/2025-10-05/hxdg4/1026513/1759719091RP5rm98W/banner_free_until_25nov_pc.png">
+              <img src="${ImgBannerAmazonGiftFreeCampaignPc}">
             </div>
         `;      
         $('.enrol-campaign-banner').append(CampaignBannerHtml);
