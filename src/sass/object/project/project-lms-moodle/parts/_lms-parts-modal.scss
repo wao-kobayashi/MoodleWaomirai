@@ -292,6 +292,12 @@ body.fixed {
       text-align: center;
     }
   }
+  //バッジ表示モーダルのclass
+  .c-modal-wrap-badge {
+    .c-modal-wrap-button-wrap {
+      padding: 5px 0 0;
+    }
+  }
 }
 
 .c-modal-bg {

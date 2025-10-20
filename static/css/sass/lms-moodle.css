@@ -1292,6 +1292,9 @@ html[data-tenantidnumber=lmswaomirai] .c-modal .c-modal-wrap-line-connection .c-
 html[data-tenantidnumber=lmswaomirai] .c-modal .c-modal-wrap-wrap-campaign .c-modal-wrap-text {
   text-align: center;
 }
+html[data-tenantidnumber=lmswaomirai] .c-modal .c-modal-wrap-badge .c-modal-wrap-button-wrap {
+  padding: 5px 0 0;
+}
 html[data-tenantidnumber=lmswaomirai] .c-modal-bg {
   position: fixed;
   width: 100%;

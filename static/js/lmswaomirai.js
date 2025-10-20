@@ -145,7 +145,9 @@ const ImgSubjectEconomy = "https://waomirai.com/lp/assets/moodle/images/icn_subj
 const ImgSubjectEnglish = "https://waomirai.com/lp/assets/moodle/images/icn_subject_english.svg"; //アイコン：英語
 const ImgSubjectOther = "https://waomirai.com/lp/assets/moodle/images/icn_subject_other.svg"; //アイコン：その他
 
-const ImgModalBadge = "https://waomirai.com/lp/assets/moodle/images/page_badge_sample.png"; //バッジの画像
+
+const ImgModalBadge = "http://localhost:3000/static/images/page_badge_sample.png"; //バッジの画像
+// const ImgModalBadge = "https://waomirai.com/lp/assets/moodle/images/page_badge_sample.png"; //バッジの画像
 const ImgBannerAmazonGiftFreeCampaignPc = "https://go.waomirai.com/l/1026513/2025-10-20/hy5w7/1026513/1760936849gjyGzZan/banner_free_until_25nov_pc.png"; //バッジの画像
 const ImgBannerAmazonGiftFreeCampaignSp = "https://go.waomirai.com/l/1026513/2025-10-20/hy5wj/1026513/1760936850D0Le0rpV/banner_free_until_25nov_sp.png"; //バッジの画像
 
@@ -1034,6 +1036,15 @@ if (bodyId === "page-login-signup" || bodyId === "page-login-forgot_password") {
       // コンソールに生成されたIDを出力（デバッグ目的）
       console.log('生成されたユーザID:', userId);
   });
+  
+  // 個人情報保護方針と利用規約のリンク設定
+  $('label[for="id_profile_field_kojin_check"]').on('click', function() {
+    window.open("https://www.wao-corp.com/privacy/", '_blank');
+  });
+
+  $('label[for="id_profile_field_termsofservice"]').on('click', function() {
+    window.open("https://go.waomirai.com/terms", '_blank');
+  });
 }
 
 // ログインインデックスページの処理
@@ -1499,6 +1510,7 @@ if (bodyId === "page-mod-questionnaire-view")  {
 $(".open-modal-badge").click(function() {
   // 確認モーダルを作成
   createModal({
+    wrapClass: "c-modal-wrap-badge",
     image: ImgModalBadge,
     close: true,  // モーダルを閉じるボタンを表示するオプション
     closetxt: "閉じる", // 閉じるボタンのテキスト
