@@ -1,0 +1,149 @@
+//==============================================================================
+// 環境設定
+//==============================================================================
+
+// サーバーパス設定
+//- - var pathServer = 'http://localhost:3000/static/images'
+//- - var pathServerThumbnail = 'http://localhost:3000/static/class-thumbnails'
+- var pathServer = 'https://waomirai.com/lp/assets/moodle/images'
+- var pathServerThumbnail = 'https://waomirai.com/lp/assets/class-thumbnails'
+- function img(filename) { return `${pathServer}/${filename}`; }
+- function imgThumb(filename) { return `${pathServerThumbnail}/${filename}`; }
+
+//==============================================================================
+// 画像
+//==============================================================================
+
+//-- ロゴ
+- var IogoWaomirai = img('logo_waomirai.svg');
+
+//-- バナー
+- var ImgBannerFrRef = img('banner_fr_ref.png');
+
+//-- アイコン
+- var IcnWorksheetEconomy    = img('icn-worksheet-economy.svg');
+- var IcnWorksheetPhilosophy = img('icn-worksheet-philosophy.svg');
+- var IcnWorksheetScience    = img('icn-worksheet-science.svg');
+- var IcnWorksheetWao        = img('icn-worksheet-wao.svg');
+- var IcnCalender            = img('icn_calender.svg');
+- var IcnGuide               = img('icn_guide.svg');
+- var IcnLine                = img('icn_line.svg');
+- var IcnLineWhite           = img('icn_linewhite.svg');
+- var IcnSubject             = img('icn_subject.svg');
+
+//-- モーダル
+- var ImgModalSubject = img('modal_subject.png');
+
+//-- FAQ関連
+- var ImgPageFaq01Attendclass01 = img('page_faq_attendclass_img_01.png');
+- var ImgPageFaq01Attendclass02 = img('page_faq_attendclass_img_02.png');
+- var ImgPageFaq01Attendclass03 = img('page_faq_attendclass_img_03.png');
+- var ImgPageFaq01Attendclass04 = img('page_faq_attendclass_img_04.png');
+- var ImgPageFaq02Changelevel01 = img('page_faq02_calender_empty_img_01.png');
+- var ImgPageFaq02Changelevel02 = img('page_faq02_calender_empty_img_02.png');
+- var ImgPageFaq02Changelevel03 = img('page_faq02_calender_empty_img_03.png');
+- var ImgPageFaq02Changelevel04 = img('page_faq02_calender_empty_img_04.png');
+- var ImgPageFaq03Changelevel01 = img('page_faq03_howtochangelevel_01.png');
+- var ImgPageFaq03Changelevel02 = img('page_faq03_howtochangelevel_02.png');
+- var ImgPageFaq03Changelevel03 = img('page_faq03_howtochangelevel_03.png');
+- var ImgPageFaq03Changelevel04 = img('page_faq03_howtochangelevel_04.png');
+- var ImgPageFaq03Changelevel05 = img('page_faq03_howtochangelevel_05.png');
+- var ImgPageFaqHowtochangelevel01 = img('page_faq_howtochangelevel_01.png');
+- var ImgPageFaq05Whichclass01       = img('page_faq05_whichclass_img_01.png');
+
+//-- FV（ファーストビュー）
+- var ImgPageTopFvPc        = img('page_top_fv_img_pc.png');
+- var ImgPageTopFvPcBg      = img('page_top_fv_bg.png');
+- var ImgPageTopFvSp        = img('page_top_fv_sp.png');
+- var ImgPageTopFvTextPc    = img('page_top_fv_text_pc.svg');
+- var ImgPageTopFvSubjectTwo   = img('page_fv_subject_two.png');
+- var ImgPageTopFvSubjectThree = img('page_fv_subject_three.png');
+- var ImgPageTopStep01      = img('page_top_step_01.svg');
+- var ImgPageTopStep02      = img('page_top_step_02.svg');
+- var ImgPageTopStep03      = img('page_top_step_03.svg');
+
+//-- 受講開始までの流れ
+- var ImgPageHowtoTake01 = img('page_icn_howto_take_01.svg');
+- var ImgPageHowtoTake02 = img('page_icn_howto_take_02.svg');
+- var ImgPageHowtoTake03 = img('page_icn_howto_take_03.svg');
+- var ImgPageHowtoTake04 = img('page_icn_howto_take_04.svg');
+- var ImgPageHowtoTake05 = img('page_icn_howto_take_05.svg');
+- var ImgPageHowtoTake06 = img('page_icn_howto_take_06.svg');
+
+//-- スケジュール
+- var ImgPageScheduleThree = img('page_threesubjectpack_schedule.svg');
+- var ImgPageScheduleTwo   = img('page_twosubjectpack_schedule.svg');
+
+//-- 各教科
+- var ImgSubjectPhilosophy   = img('subject_philosophy.jpg');
+- var ImgSubjectScience      = img('subject_science.jpg');
+- var ImgSubjectEconomy      = img('subject_economy.jpg');
+- var ImgSubjectEnglish      = img('subject_english.jpg');
+- var ImgSubjectProgramming  = img('subject_programming.jpg');
+- var ImgSubjectTwoSubjectPack      = img('subject_twosubjectpack.png');
+- var ImgSubjectThreeSubjectPack    = img('subject_threesubjectpack.png');
+
+//-- 英語
+- var ImgSubjectEnglishLesson01      = imgThumb('eng_lesson_01.png');
+- var ImgSubjectEnglishLesson02      = imgThumb('eng_lesson_02.png');
+- var ImgSubjectEnglishLesson03      = imgThumb('eng_lesson_03.png');
+- var ImgSubjectEnglishLesson04      = imgThumb('eng_lesson_04.png');
+- var ImgSubjectEnglishLesson05      = imgThumb('eng_lesson_05.png');
+- var ImgSubjectEnglishLesson06      = imgThumb('eng_lesson_06.png');
+
+//-- 教科別ヘッダー
+- var ImgPageFvTwoSubjectPack   = img('page_fv_twosubjectpack.png');
+- var ImgPageFvThreeSubjectPack = img('page_fv_threesubjectpack.png');
+
+
+//==============================================================================
+// リンク設定
+//==============================================================================
+
+// 英語（Zoom / Vimeo）
+- var link_english_zoom_level1     = "https://us02web.zoom.us/j/82682367575?pwd=Qqd5zmaCYXozBDoDecPcU8cuCMYT48.1"
+- var link_english_zoom_level2     = "https://us02web.zoom.us/j/88329544302?pwd=rjlz1KyE6feo8Mjl9clNWT8qZlzBzF.1"
+- var link_english_training_level1 = "https://vimeo.com/showcase/11296073"
+- var link_english_training_level2 = "https://vimeo.com/showcase/11296090"
+
+// Googleカレンダー（年間）
+- var iframeCalenderPhilosophy = "https://calendar.google.com/calendar/embed?src=c_57f70f2fb986aabbb85c2a71ed169e2624e902265abb6dffc1d993f2d781dd4b%40group.calendar.google.com&ctz=Asia%2FTokyo"
+- var iframeCalenderScience    = "https://calendar.google.com/calendar/embed?src=c_9d34850398ee79fea558cb874c3bebe48860ce3d5fcff5c80f91b203974af452%40group.calendar.google.com&ctz=Asia%2FTokyo"
+- var iframeCalendeEconomy     = "https://calendar.google.com/calendar/embed?src=c_9ee064fdb148232860ebd82900e5222d5060f6702f608257b9d9625d6bcd3a1c%40group.calendar.google.com&ctz=Asia%2FTokyo"
+- var iframeCalenderEnglish    = "https://calendar.google.com/calendar/embed?src=c_379c34d3c8e6716b3458dd339f4531bd8ce07f17c4f97d5fec4367888a692290%40group.calendar.google.com&ctz=Asia%2FTokyo"
+
+// 年間カリキュラム
+- var CurriculumYearPhilosohpy = "https://waomirai.com/lp/assets/moodle/document/curriculum_year_philosophy.pdf";
+- var CurriculumYearScience = "https://waomirai.com/lp/assets/moodle/document/curriculum_year_science.pdf";
+- var CurriculumYearEconomy = "https://waomirai.com/lp/assets/moodle/document/curriculum_year_economy.pdf";
+
+// LINE連携
+- var qrLineConnection   = 'https://loycus-prd.s3-ap-northeast-1.amazonaws.com/upload_media/235/img/MjAyNS0wMy0yNSAxMTowNjoxOQ==.png'
+- var linkLineConnection = 'https://liff.line.me/2006716288-lL7QzGA3?loycus_urlc=HvNn'
+
+
+-
+ // 科目ごとの環境別IDを定義
+ // stg環境とlmswaomirai環境それぞれの科目のIDを管理するオブジェクト
+ // stgの変数はlmswaomiraiと同じにした
+ // 別々にしていたが、リリース時にstgを参照して本番で事故ったのでローカルもlmswaomiraiと同じにした
+ var subjectPugIds = {
+    philosophy:      { stg: 255, lmswaomirai: 255 }, // 哲学
+    science:         { stg: 265, lmswaomirai: 265 }, // 理科
+    economy:         { stg: 260, lmswaomirai: 260 }, // 経済
+    english:         { stg: 135, lmswaomirai: 135 }, // 英語
+    programming:     { stg: 999, lmswaomirai: 999 }, // プログラミング
+    twosubjectpack:  { stg: 270, lmswaomirai: 270 }, // ２科目セット
+    threesubjectpack:{ stg: 271, lmswaomirai: 271 }  // ３科目セット
+  }
+
+// 各科目の登録ページへのリンクを生成
+// 環境がstgまたはlmswaomiraiの場合は、その環境に対応するIDを使ってURLを生成
+// それ以外の環境の場合はundefinedを返す
+- var link_philosophy = (env === 'stg' || env === 'lmswaomirai') ? `https://lms.waomirai.com/enrol/index.php?id=${subjectPugIds.philosophy[env]}` : undefined
+- var link_science = (env === 'stg' || env === 'lmswaomirai') ? `https://lms.waomirai.com/enrol/index.php?id=${subjectPugIds.science[env]}` : undefined
+- var link_economy = (env === 'stg' || env === 'lmswaomirai') ? `https://lms.waomirai.com/enrol/index.php?id=${subjectPugIds.economy[env]}` : undefined
+- var link_english = (env === 'stg' || env === 'lmswaomirai') ? `https://lms.waomirai.com/enrol/index.php?id=${subjectPugIds.english[env]}` : undefined
+- var link_programming = (env === 'stg' || env === 'lmswaomirai') ? `https://lms.waomirai.com/enrol/index.php?id=${subjectPugIds.programming[env]}` : undefined
+- var link_twosubjectpack = (env === 'stg' || env === 'lmswaomirai') ? `https://lms.waomirai.com/enrol/index.php?id=${subjectPugIds.twosubjectpack[env]}` : undefined
+- var link_threesubjectpack = (env === 'stg' || env === 'lmswaomirai') ? `https://lms.waomirai.com/enrol/index.php?id=${subjectPugIds.threesubjectpack[env]}` : undefined

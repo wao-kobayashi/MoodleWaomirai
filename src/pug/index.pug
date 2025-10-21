@@ -257,15 +257,15 @@ html(lang="jp")
                 |講座の受講ヘルプページ
                 ul
                   li
-                    a(href=`${environment}/page-mod-page-view/page-help-change-levels.html`)  授業レベルの変更方法
+                    a(href=`${environment}/page-mod-page-view/page-help-01-how-to-attend-class.html`)  01_授業の参加方法
                   li
-                    a(href=`${environment}/page-mod-page-view/page-help-how-to-buy-subject.html`)  科目を購入しましたがカレンダーに授業予定が表示されません
+                    a(href=`${environment}/page-mod-page-view/page-help-02-course-calendar-empty.html`)  02_科目を購入しましたがカレンダーに授業予定が表示されません
                   li
-                    a(href=`${environment}/page-mod-page-view/page-help-how-to-attend-class.html`)  授業の参加方法
+                    a(href=`${environment}/page-mod-page-view/page-help-03-change-levels.html`)  03_授業レベルの変更方法
                   li
-                    a(href=`${environment}/page-mod-page-view/page-help-which-class-to-attend.html`)  １週間に同じ授業が２つあります。どれに参加すればいいですか？
+                    a(href=`${environment}/page-mod-page-view/page-help-04-watch-archive-class.html`)  04_アーカイブ動画の見方(使っていない)
                   li
-                    a(href=`${environment}/page-mod-page-view/page-help-watch-archive-class.html`)  アーカイブ動画の見方
+                    a(href=`${environment}/page-mod-page-view/page-help-05-which-class-to-attend.html`)  05_１週間に同じ授業が２つあります。どれに参加すればいいですか？
               li
                 h3|授業レベル設定ロジック
                 .moodle-list-category|#page-user-edit
@@ -322,21 +322,23 @@ html(lang="jp")
                     a(href=`${environment}/mypage/page-mypage.html`) マイページ
                   li 
                     a(href=`${environment}/setting/page-user-setting.html`) ユーザ設定
-    div(style="display:flex;width:calc(70% + 40px); margin:0 auto;")
-      div(style="padding:10px 20px 30px; margin:45px auto 45px; box-shadow:0 5px 10px #ccc; width:100%;")
-        h2 defalut-tenant(テスト)
-        ul.moodle-list
-              li
-                h3|moodleログイン
-                .moodle-list-category|
-                ul
-                  li
-                    a(href=`moodle-defaluttenant/index.html`) ログイン
+
     div(style="display:flex;width:calc(70% + 40px); margin:0 auto;display: grid;grid-template-columns: repeat(2, 1fr);grid-template-rows: 1fr;grid-column-gap: 30px;")
-      div(style="padding:10px 20px 30px; box-shadow:0 5px 10px #ccc;")
-        block content
-          +moodleList('moodle-stg')
+
       div(style="padding:10px 20px 30px; box-shadow:0 5px 10px #ccc;")
         block content
           +moodleList('moodle-lms')
-  
+      div(style="padding:10px 20px 30px; box-shadow:0 5px 10px #ccc; position:relative;")
+        div(style="position:absolute; width:100%; height:100%; font-size:16px; color:#fff; background:rgba(0,0,0,0.7); left:0; top:0; text-align:center;") <p style="margin:45px 0 0;">今は使わなさそう</p>
+        block content
+          +moodleList('moodle-stg')
+    div(style="display:flex;width:calc(70% + 40px); margin:0 auto;")
+          div(style="padding:10px 20px 30px; margin:45px auto 45px; box-shadow:0 5px 10px #ccc; width:100%;")
+              h2 defalut-tenant(テスト)
+              ul.moodle-list
+                    li
+                      h3|moodleログイン
+                      .moodle-list-category|
+                      ul
+                        li
+                          a(href=`moodle-defaluttenant/index.html`) ログイン

@@ -388,17 +388,40 @@ li[data-key="courseinfo"] {
       // display: none;
     }
   }
-  .mod_questionnaire_controlbuttons {
-    text-align: left !important;
-  }
+
   .control-button-submit,
   .btn-secondary {
     float: none !important;
-    margin: 0 0 30px 55px;
+    margin: 0 0 30px 25px;
     background: $cl-white !important;
     border: 1.5px solid $cl-waogreen !important;
     padding: 8px 20px;
     color: $cl-waogreen !important;
+    @include responsive-style(768px) {
+      width: calc(100% - 32px);
+      margin: 0 auto 20px;
+    }
+  }
+  .mod_questionnaire_controlbuttons {
+    text-align: left !important;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+    @include responsive-style(768px) {
+      flex-direction: column-reverse;
+    }
+    .control-button-submit {
+      float: none !important;
+      margin: 0 0 30px 55px;
+      background: $cl-waogreen !important;
+      padding: 8px 20px;
+      color: $cl-white !important;
+      font-weight: bold;
+      @include responsive-style(768px) {
+        width: calc(100% - 32px);
+        margin: 0 auto 20px;
+      }
+    }
   }
   .mod-questionnaire-worksheet {
     margin: 12px 0 0;
@@ -473,6 +496,11 @@ li[data-key="courseinfo"] {
         line-height: 1;
       }
     }
+  }
+  .homelink a {
+    background: $cl-white !important;
+    border: 1.5px solid $cl-waogreen !important;
+    color: $cl-waogreen !important;
   }
 }
 

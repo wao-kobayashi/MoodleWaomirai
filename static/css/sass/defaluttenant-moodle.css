@@ -1,6 +1,8 @@
 @charset "UTF-8";
 @import url("https://fonts.googleapis.com/css?family=Noto+Sans+JP:400,500,700,900");
 html[data-tenantid="1"] {
+  /*  固定パス */
+  /*  画像URL生成関数 */
   /* 全体の幅 */
   /* フォント */
   /* material iconのfont-size */
@@ -1258,6 +1260,9 @@ html[data-tenantid="1"] .c-modal .c-modal-wrap-line-connection .c-modal-button-l
 }
 html[data-tenantid="1"] .c-modal .c-modal-wrap-wrap-campaign .c-modal-wrap-text {
   text-align: center;
+}
+html[data-tenantid="1"] .c-modal .c-modal-wrap-badge .c-modal-wrap-button-wrap {
+  padding: 5px 0 0;
 }
 html[data-tenantid="1"] .c-modal-bg {
   position: fixed;

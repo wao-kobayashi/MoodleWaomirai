@@ -375,29 +375,46 @@ $default-max-width: 1170px; // 最大幅
         text-decoration: none !important;
       }
       .dashboard-left-block-subject-child-icon {
+        img {
+          width: 37px;
+        }
       }
       &.philosophy {
         @include dashboard-left-block-subject-child-card;
         .dashboard-left-block-subject-child-icon {
-          background: #ffdb96;
+          background: $cl-philosophy-pale-light;
+          img {
+            width: 34px;
+          }
         }
       }
       &.science {
         @include dashboard-left-block-subject-child-card;
         .dashboard-left-block-subject-child-icon {
-          background: #eefabf;
+          background: $cl-science-pale-light;
+          img {
+            width: 33px;
+            margin: 1px 0 0;
+          }
         }
       }
       &.economy {
         @include dashboard-left-block-subject-child-card;
         .dashboard-left-block-subject-child-icon {
-          background: #c1edff;
+          background: $cl-economy-pale-light;
+          img {
+            width: 36px;
+          }
         }
       }
       &.globalenglish {
         @include dashboard-left-block-subject-child-card;
         .dashboard-left-block-subject-child-icon {
           background: #f5dbff;
+          img {
+            width: 36px;
+            margin: 2px 0 0;
+          }
         }
       }
       &.programming {
@@ -414,8 +431,8 @@ $default-max-width: 1170px; // 最大幅
         }
       }
       .dashboard-left-block-subject-child-icon {
-        width: 60px;
-        height: 60px;
+        width: 64px;
+        height: 64px;
         border-radius: 100px;
         margin: 0 0px 10px;
         display: flex;
@@ -430,6 +447,7 @@ $default-max-width: 1170px; // 最大幅
       }
       .dashboard-left-block-subject-child-text {
         @include text-s-black;
+        text-align: center;
         @include responsive-style(768px) {
           font-size: $lms-font-size-m;
         }
@@ -857,7 +875,7 @@ $modal-button-height: 55px;
         justify-content: center;
         display: flex;
         align-items: center;
-        gap: 10px;
+        gap: 13px;
         &:hover {
           text-decoration: none !important;
           opacity: 0.7;
@@ -867,16 +885,6 @@ $modal-button-height: 55px;
         background: $cl-waogreen;
         a {
           color: $cl-white;
-
-          // &:before {
-          //   content: "";
-          //   display: inline-block;
-          //   width: 25px; /* アイコンの幅 */
-          //   height: 25px; /* アイコンの高さ */
-          //   background-image: url("https://go.waomirai.com/l/1026513/2025-03-19/hj31q/1026513/17423770567ZdVOJwz/icn_zoom.svg"); /* アイコン画像 */
-          //   background-size: contain; /* 画像をボックス内に収める */
-          //   background-repeat: no-repeat;
-          // }
         }
       }
       &.secondly {
@@ -895,27 +903,15 @@ $modal-button-height: 55px;
           &:before {
             content: "";
             display: inline-block;
-            width: 25px; /* アイコンの幅 */
-            height: 25px; /* アイコンの高さ */
-            background-image: url("https://go.waomirai.com/l/1026513/2025-03-19/hj31q/1026513/17423770567ZdVOJwz/icn_zoom.svg"); /* アイコン画像 */
+            width: 16px; /* アイコンの幅 */
+            height: 16px; /* アイコンの高さ */
+            background-image: url("https://waomirai.com/lp/assets/moodle/images/icn_zoom.svg"); /* アイコン画像 */
             background-size: contain; /* 画像をボックス内に収める */
             background-repeat: no-repeat;
+            margin: 2px 0 0;
           }
         }
       }
-      // &.movie {
-      //   a {
-      //     &:before {
-      //       content: "";
-      //       display: inline-block;
-      //       width: 25px; /* アイコンの幅 */
-      //       height: 25px; /* アイコンの高さ */
-      //       background-image: url("https://go.waomirai.com/l/1026513/2025-03-19/hj31t/1026513/1742377056S4g1Q8Gl/icn_movie.svg"); /* アイコン画像 */
-      //       background-size: contain; /* 画像をボックス内に収める */
-      //       background-repeat: no-repeat;
-      //     }
-      //   }
-      // }
     }
   }
 }

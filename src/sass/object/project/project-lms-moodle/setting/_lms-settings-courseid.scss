@@ -18,8 +18,7 @@ $common-course-styles: (
     button-textcolor-worksheet: $cl-economy,
     img-worksheet:
       url("https://waomirai.com/lp/assets/moodle/icn-worksheet-economy.svg"),
-    background-image:
-      url("https://go.waomirai.com/l/1026513/2024-08-08/gzqbt/1026513/1723092445zMMVlFVz/subject_03.jpg"),
+    background-image: asset-url("subject_economy.jpg"),
   ),
   "science": (
     // 科学カテゴリのスタイル
@@ -31,8 +30,7 @@ $common-course-styles: (
     //既存ルールだと色が微妙に合わないので微調整している
     img-worksheet:
       url("https://waomirai.com/lp/assets/moodle/icn-worksheet-science.svg"),
-    background-image:
-      url("https://go.waomirai.com/l/1026513/2024-08-08/gzqbx/1026513/1723092445qaV639ZU/subject_02.jpg"),
+    background-image: asset-url("subject_science.jpg"),
   ),
   "philosophy": (
     // 哲学カテゴリのスタイル
@@ -43,8 +41,7 @@ $common-course-styles: (
     button-textcolor-worksheet: $cl-english,
     img-worksheet:
       url("https://waomirai.com/lp/assets/moodle/icn-worksheet-philosophy.svg"),
-    background-image:
-      url("https://waomirai.com/wp-content/uploads/2024/07/phi_main.jpg"),
+    background-image: asset-url("subject_philosophy.jpg"),
   ),
   "english": (
     // 英語カテゴリのスタイル
@@ -53,8 +50,7 @@ $common-course-styles: (
     pale-light-color: $cl-english-pale,
     button-textcolor-worksheet: $cl-english,
     img-worksheet: url(""),
-    background-image:
-      url("https://go.waomirai.com/l/1026513/2024-08-08/gzqbq/1026513/1723092445NpS1HkfH/subject_04.jpg"),
+    background-image: asset-url("subject_english.jpg"),
   ),
   "programming": (
     // プログラミングカテゴリのスタイル
@@ -62,8 +58,7 @@ $common-course-styles: (
     pale-color: $cl-programming,
     pale-light-color: $cl-programming,
     img-worksheet: url(""),
-    background-image:
-      url("https://go.waomirai.com/l/1026513/2024-08-08/gzqbm/1026513/1723092444UDZaTUyz/subject_05.jpg"),
+    background-image: asset-url("subject_programming.jpg"),
   ),
 );
 

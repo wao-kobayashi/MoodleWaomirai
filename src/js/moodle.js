@@ -1,3 +1,4 @@
+
 // ==============================
 // 各種変数
 // ==============================
@@ -12,7 +13,7 @@ const DayDisabledFee = 1; // 受講登録手続きを行えない日
 
 const NowDate = new Date(); // 現在の日時
 const DayOfMonth = parseInt(NowDate.toLocaleString('ja-JP', { timeZone: 'Asia/Tokyo', day: '2-digit' }).replace('日', '')); // 現在の日
-const AmazonGiftFreeCampaignEnd = new Date(2025, 9, 5, 23, 59, 59); // キャンペーン終了日時（2025年10月5日23:59:59）
+const AmazonGiftFreeCampaignEnd = new Date(2025, 11, 9, 23, 59, 59); // キャンペーン終了日時（2025年10月5日23:59:59）
 
 // ==============================
 // Liff系
@@ -20,7 +21,7 @@ const AmazonGiftFreeCampaignEnd = new Date(2025, 9, 5, 23, 59, 59); // キャン
 
 //moodleで友だち追加
 const UrlLiffMoodle = "https://liff.line.me/2006716288-lL7QzGA3?loycus_urlc=y7vy" 
-const ImgLiffMoodle = "https://go.waomirai.com/l/1026513/2025-04-04/hk1f8/1026513/1743763011hBkCW5F9/ImgLiffMoodlefix.png" 
+const ImgLiffMoodle = "https://waomirai.com/lp/assets/moodle/images/qr_line_bymoodle.png" 
 
 // ==============================
 // googleCalender系
@@ -38,6 +39,27 @@ const iframeCalenderEnglish = "https://calendar.google.com/calendar/embed?src=c_
 const memosheetPhilosophy = "https://waomirai.com/lp/assets/moodle/memosheet_philosphy.pdf" //哲学
 const memosheetScience = "https://waomirai.com/lp/assets/moodle/memosheet_science.pdf" //科学
 const memosheetEconomy = "https://waomirai.com/lp/assets/moodle/memosheet_economy.pdf" //経済
+
+
+// ==============================
+// 画像
+// ==============================
+
+const ImgSubjectPhilosophy = "https://waomirai.com/lp/assets/moodle/images/icn_subject_philosophy.svg"; //アイコン：哲学
+const ImgSubjectScience = "https://waomirai.com/lp/assets/moodle/images/icn_subject_science.svg"; //アイコン：科学
+const ImgSubjectEconomy = "https://waomirai.com/lp/assets/moodle/images/icn_subject_economy.svg"; //アイコン：経済
+const ImgSubjectEnglish = "https://waomirai.com/lp/assets/moodle/images/icn_subject_english.svg"; //アイコン：英語
+const ImgSubjectOther = "https://waomirai.com/lp/assets/moodle/images/icn_subject_other.svg"; //アイコン：その他
+ 
+const ImgModalBadge = "https://waomirai.com/lp/assets/moodle/images/page_badge_sample.png"; //バッジの画像
+const ImgBannerAmazonGiftFreeCampaignPc = "https://go.waomirai.com/l/1026513/2025-10-20/hy5w7/1026513/1760936849gjyGzZan/banner_free_until_25nov_pc.png"; //バッジの画像
+const ImgBannerAmazonGiftFreeCampaignSp = "https://go.waomirai.com/l/1026513/2025-10-20/hy5wj/1026513/1760936850D0Le0rpV/banner_free_until_25nov_sp.png"; //バッジの画像
+
+//次アップ
+//2025dec pc https://go.waomirai.com/l/1026513/2025-10-20/hy5wq/1026513/1760936850Q85jpiyV/banner_free_until_25dec_pc.png
+//2025dec sp https://go.waomirai.com/l/1026513/2025-10-20/hy5wb/1026513/1760936849yL4umnEM/banner_free_until_25dec_sp.png
+//2026jan pc https://go.waomirai.com/l/1026513/2025-10-20/hy5wm/1026513/1760936850Nh1zDBCZ/banner_free_until_26jan_pc.png
+//2026jan sp https://go.waomirai.com/l/1026513/2025-10-20/hy5wf/1026513/1760936849Fhrb3Ywf/banner_free_until_26jan_sp.png
 
 // ==============================
 // ページ判定とコースIDの取得
@@ -306,7 +328,7 @@ if (bodyId === "page-my-index") {
       // dashboard-left-block-subject-childクラスと科目固有のキーを持つ
       return `
           <a href="${courseLink}" class="dashboard-left-block-subject-child ${subject.key}">
-              <div class="dashboard-left-block-subject-child-icon">${icon}</div>
+              <div class="dashboard-left-block-subject-child-icon"><img src="${icon}"></div>
               <div class="dashboard-left-block-subject-child-text">
                   <div>${subject.name}</div>
               </div>
@@ -321,13 +343,11 @@ if (bodyId === "page-my-index") {
    */
   const getSubjectIcon = (subject) => {
       // 科目名に特定のキーワードが含まれる場合、対応するアイコンを返す
-      if (subject.name.includes("哲学")) return "&#x1f4D6;"; // 本のアイコン
-      if (subject.name.includes("科学")) return "&#x1f52C;"; // 顕微鏡のアイコン
-      if (subject.name.includes("経済")) return "&#x1f4B0;"; // お金のアイコン
-      if (subject.name.includes("英語")) return "&#x1f4AC;"; // 吹き出しのアイコン
-      if (subject.name.includes("プログラミング"))
-          return "&#x1f468;&#x200D;&#x1f4BB;"; // プログラマーのアイコン
-      return "&#x1f9ea;"; // デフォルトは試験管のアイコン
+      if (subject.name.includes("哲学")) return ImgSubjectPhilosophy; // 本のアイコン
+      if (subject.name.includes("科学")) return ImgSubjectScience; // 顕微鏡のアイコン
+      if (subject.name.includes("経済")) return ImgSubjectEconomy; // お金のアイコン
+      if (subject.name.includes("英語")) return ImgSubjectEnglish; // 吹き出しのアイコン
+      return ImgSubjectOther; // デフォルトは試験管のアイコン
   };
 
   /**
@@ -851,7 +871,7 @@ if (bodyId === "page-login-signup" || bodyId === "page-login-forgot_password") {
   if ($loginWrapper.length) {
     const signupLogoHtml = `
                 <div class="signup-logo">
-                    <img src="https://go.waomirai.com/l/1026513/2023-11-16/gddzt/1026513/1700192228BDlbz92f/logo_basic_white.png" style="width: 100%;">
+                    <img src="https://waomirai.com/lp/assets/moodle/images/logo_waomirai.svg" style="width: 100%;">
                 </div>`;
     $loginWrapper.before(signupLogoHtml);
   }
@@ -920,6 +940,15 @@ if (bodyId === "page-login-signup" || bodyId === "page-login-forgot_password") {
       // コンソールに生成されたIDを出力（デバッグ目的）
       console.log('生成されたユーザID:', userId);
   });
+
+  // 個人情報保護方針と利用規約のリンク設定
+  $('label[for="id_profile_field_kojin_check"]').on('click', function() {
+    window.open("https://www.wao-corp.com/privacy/", '_blank');
+  });
+
+  $('label[for="id_profile_field_termsofservice"]').on('click', function() {
+    window.open("https://go.waomirai.com/terms", '_blank');
+  });
 }
 
 // ログインインデックスページの処理
@@ -971,7 +1000,7 @@ if (bodyId === "page-login-confirm") {
     </div>
     <div class="c-modal-button-line c-pc-hidden">
       <a href="${UrlLiffMoodle}">
-        <img src="https://go.waomirai.com/l/1026513/2025-02-20/hg5bg/1026513/17401067674FE8qn1T/btn_lineadd.svg">
+        <img src="https://waomirai.com/lp/assets/moodle/images/icn_linewhite.svg">
       </a>
     </div>
     <button class="c-modal-wrap-button c-modal-wrap-button-close c-modal-wrap-close-tag">閉じる</button>
@@ -996,7 +1025,18 @@ if (bodyId === "page-enrol-index") {
     const isHtmlCopy = searchParams.has("htmlCopy") || searchParams.get("params") === "htmlCopy";
 
     if (!isHtmlCopy && today <= AmazonGiftFreeCampaignEnd) {
-      $(".enrol-campaign-banner").show(); // キャンペーンバナーを表示
+      $(function() {
+        const CampaignBannerHtml = `
+            <div class="c-pc-hidden">
+              <img src="${ImgBannerAmazonGiftFreeCampaignSp}">
+            </div>
+            <div class="c-sp-hidden">
+              <img src="${ImgBannerAmazonGiftFreeCampaignPc}">
+            </div>
+        `;      
+        $('.enrol-campaign-banner').append(CampaignBannerHtml);
+        $('.enrol-campaign-banner').show();
+      });
     }
 
     const subjectCategory = currentViewCourseData.key;  // 現在選択されている科目カテゴリーを取得
@@ -1374,7 +1414,8 @@ if (bodyId === "page-mod-questionnaire-view")  {
 $(".open-modal-badge").click(function() {
   // 確認モーダルを作成
   createModal({
-    image: "https://go.waomirai.com/l/1026513/2025-04-01/hjs1g/1026513/17434933816M8hgzmi/modal_badge_sample.png",
+    wrapClass: "c-modal-wrap-badge",
+    image: ImgModalBadge,
     close: true,  // モーダルを閉じるボタンを表示するオプション
     closetxt: "閉じる", // 閉じるボタンのテキスト
   });
@@ -1586,7 +1627,7 @@ function showCampaignModal() {
 // レベル変更のモーダル関数
 function showLevelSettingModal() {
   createModal({
-    image: "https://go.waomirai.com/l/1026513/2025-07-29/hs5b6/1026513/1753842412LvICKN8s/img_modal_subject.png",
+    image: "https://waomirai.com/lp/assets/moodle/images/modal_subject.png",
     imageClass: "c-modal-wrap-subject-img",
     wrapClass: "c-modal-wrap-subject",
     buttons: [
@@ -1911,7 +1952,7 @@ if (bodyId === "page-user-profile") {
         const lineConnectHTML = `
         <section class="node_category card d-inline-block w-100 mb-3 line-connection-seciton">
           <div class="card-lineimg">
-            <img src="https://go.waomirai.com/l/1026513/2025-03-23/hjb9q/1026513/1742784605ULZBDj1J/head_line.png">
+            <img src="https://waomirai.com/lp/assets/moodle/images/page_mypage_line.png">
           </div>
           <div class="card-body">
               <a class="line-button triger-line-integration-modal">いますぐLINE連携する</a>
@@ -1938,7 +1979,7 @@ if (bodyId === "page-user-profile") {
 $(".triger-line-integration-modal").on("click", function (e) {
   createModal({
     wrapClass: "c-modal-wrap-line-connection",
-    customModalHtml: `<div class="c-modal-wrap-close"></div><div class="c-modal-wrap-linetitle"> <div class="c-modal-wrap-linetitle-img"><img src="https://go.waomirai.com/l/1026513/2025-03-23/hjb9m/1026513/17427846057nCvC4dV/icn_LINE_LOGO.svg"></div><div class="c-modal-wrap-linetitle-text">LINEで受講サポートの<br>通知を受け取る</div></div><div class="c-modal-wrap-qr c-sp-hidden"><img src="${ImgLiffMoodle}"></div><div class="c-modal-wrap-text">すでに友だち追加済の方も<br>会員連携のために<span class="c-sp-hidden">必ずQRを読み取って下さい</span><span class="c-pc-hidden">必ずボタンを押してください</span><br />※既にLINE連携済みの方は不要です</div><div class="c-modal-button-line c-pc-hidden"><a href="https://liff.line.me/2006716288-lL7QzGA3?loycus_urlc=NN3v"><img src="https://go.waomirai.com/l/1026513/2025-02-20/hg5bg/1026513/17401067674FE8qn1T/btn_lineadd.svg"></a></div><button class="c-modal-wrap-button c-modal-wrap-button-close c-modal-wrap-close-tag">閉じる</button>`
+    customModalHtml: `<div class="c-modal-wrap-close"></div><div class="c-modal-wrap-linetitle"> <div class="c-modal-wrap-linetitle-img"><img src="https://waomirai.com/lp/assets/moodle/images/icn_line.svg"></div><div class="c-modal-wrap-linetitle-text">LINEで受講サポートの<br>通知を受け取る</div></div><div class="c-modal-wrap-qr c-sp-hidden"><img src="${ImgLiffMoodle}"></div><div class="c-modal-wrap-text">すでに友だち追加済の方も<br>会員連携のために<span class="c-sp-hidden">必ずQRを読み取って下さい</span><span class="c-pc-hidden">必ずボタンを押してください</span><br />※既にLINE連携済みの方は不要です</div><div class="c-modal-button-line c-pc-hidden"><a href="https://liff.line.me/2006716288-lL7QzGA3?loycus_urlc=NN3v"><img src="https://waomirai.com/lp/assets/moodle/images/icn_linewhite.svg"></a></div><button class="c-modal-wrap-button c-modal-wrap-button-close c-modal-wrap-close-tag">閉じる</button>`
   });
 });
 
