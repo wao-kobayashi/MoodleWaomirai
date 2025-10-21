@@ -295,8 +295,10 @@ block contents
                         // End fieldset generated from question_container template.
                         .notice
                           div(class="buttons mod_questionnaire_controlbuttons")
+                            input.btn.btn-secondary.control-button-save(name="resume", type="submit", value="保存して終了する")
                             input(name="submittype", type="hidden", value="Submit Survey")
-                            input.btn.btn-primary.control-button-submit(name="submit", type="submit", value="回答を提出する")
+                            input.btn.btn-primary.control-button-submit(name="submit", type="submit", value="回答を提出する", data-initial-value="回答を提出する")
+
                   #wp-site-status-disclaimer
                     | あなたのサイトはまだ登録されていません。
                     a(href="https://lms.waomirai.com/admin/registration/index.php") あなたのサイトを登録する

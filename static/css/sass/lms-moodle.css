@@ -8181,17 +8181,51 @@ html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-myreport .btn-seco
 html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-report .control-button-submit,
 html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-report .btn-secondary {
   float: none !important;
-  margin: 0 0 30px 55px;
+  margin: 0 0 30px 25px;
   background: #ffffff !important;
   border: 1.5px solid #005c3f !important;
   padding: 8px 20px;
   color: #005c3f !important;
+}
+@media screen and (max-width: 768px) {
+  html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-view .control-button-submit,
+  html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-view .btn-secondary,
+  html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-complete .control-button-submit,
+  html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-complete .btn-secondary,
+  html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-myreport .control-button-submit,
+  html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-myreport .btn-secondary,
+  html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-report .control-button-submit,
+  html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-report .btn-secondary {
+    width: calc(100% - 32px);
+    margin: 0 auto 20px;
+  }
 }
 html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-view .mod_questionnaire_controlbuttons,
 html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-complete .mod_questionnaire_controlbuttons,
 html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-myreport .mod_questionnaire_controlbuttons,
 html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-report .mod_questionnaire_controlbuttons {
   text-align: left !important;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: reverse;
+      -ms-flex-direction: row-reverse;
+          flex-direction: row-reverse;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+@media screen and (max-width: 768px) {
+  html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-view .mod_questionnaire_controlbuttons,
+  html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-complete .mod_questionnaire_controlbuttons,
+  html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-myreport .mod_questionnaire_controlbuttons,
+  html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-report .mod_questionnaire_controlbuttons {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: reverse;
+        -ms-flex-direction: column-reverse;
+            flex-direction: column-reverse;
+  }
 }
 html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-view .mod_questionnaire_controlbuttons .control-button-submit,
 html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-complete .mod_questionnaire_controlbuttons .control-button-submit,
@@ -8203,6 +8237,15 @@ html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-report .mod_questi
   padding: 8px 20px;
   color: #ffffff !important;
   font-weight: bold;
+}
+@media screen and (max-width: 768px) {
+  html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-view .mod_questionnaire_controlbuttons .control-button-submit,
+  html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-complete .mod_questionnaire_controlbuttons .control-button-submit,
+  html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-myreport .mod_questionnaire_controlbuttons .control-button-submit,
+  html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-report .mod_questionnaire_controlbuttons .control-button-submit {
+    width: calc(100% - 32px);
+    margin: 0 auto 20px;
+  }
 }
 html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-view .mod-questionnaire-worksheet,
 html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-complete .mod-questionnaire-worksheet,
@@ -8338,10 +8381,10 @@ html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-report .mod-questi
   margin: 3px 0 0 0;
   line-height: 1;
 }
-html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-view .homelink,
-html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-complete .homelink,
-html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-myreport .homelink,
-html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-report .homelink {
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-view .homelink a,
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-complete .homelink a,
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-myreport .homelink a,
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-report .homelink a {
   background: #ffffff !important;
   border: 1.5px solid #005c3f !important;
   color: #005c3f !important;
