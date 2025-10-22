@@ -57,7 +57,7 @@ async function splitJs(done) {
         const lmsVariableJsContent = await fs.readFile(path.resolve('src/js/00_lms-variable.js'), 'utf8');
 
         // stg.js 用
-        gulp.src(JS_FILES)  // ← 共通の配列を使用
+        gulp.src(JS_FILES) 
         .pipe(concat('moodle-combined.js'))
         .pipe(replace(/^/, `${stgVariableJsContent}\n`))
         .pipe(replace(/$/,
@@ -67,7 +67,7 @@ async function splitJs(done) {
         .pipe(gulp.dest(dstpaths.js));
 
         // lms.js作成
-        gulp.src(JS_FILES)  // ← 共通の配列を使用
+        gulp.src(JS_FILES)  
             .pipe(concat('moodle-combined.js'))
             .pipe(replace(/^/, `${lmsVariableJsContent}\n`))
             .pipe(replace(/$/,
