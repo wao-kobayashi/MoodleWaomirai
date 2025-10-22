@@ -34,20 +34,26 @@ const dstpaths = {
 // stg.js と lms.js を分割するタスク（非同期処理を減らし、gulpで同期的に処理）
 
 // 結合するファイルリストを定数で定義（1箇所管理）
+
 const JS_FILES = [
-    'src/js/01_config.js',                     // config
-    'src/js/02_pages/01_page-my-index.js',    // my-index
-    'src/js/02_pages/02_page-login-signup.js', // login-signup
-    'src/js/02_pages/03_page-login-index.js',  // login-index
-    'src/js/02_pages/04_page-login-confirm.js', // login-confirm
-    'src/js/02_pages/05_page-enrol-index.js',  // enrol-index
-    'src/js/02_pages/06_page-mod-questionnaire.js', // mod-questionnaire
-    'src/js/02_pages/07_page-course-index-category.js', // course-index-category
-    'src/js/02_pages/08_page-course-view.js', // course-view
-    'src/js/02_pages/09_page-user-edit.js',   // user-edit
-    'src/js/02_pages/10_page-user-profile.js',// user-profile
-    'src/js/02_pages/99_page-common.js'       // 汎用的なページ関数（どのページでも使うもの）
-];
+        'src/js/01_config.js',                     // config
+        'src/js/02_pages/00_pages.js',    // my-index
+    ];
+    
+// const JS_FILES = [
+//     'src/js/01_config.js',                     // config
+//     'src/js/02_pages/01_page-my-index.js',    // my-index
+//     'src/js/02_pages/02_page-login-signup.js', // login-signup
+//     'src/js/02_pages/03_page-login-index.js',  // login-index
+//     'src/js/02_pages/04_page-login-confirm.js', // login-confirm
+//     'src/js/02_pages/05_page-enrol-index.js',  // enrol-index
+//     'src/js/02_pages/06_page-mod-questionnaire.js', // mod-questionnaire
+//     'src/js/02_pages/07_page-course-index-category.js', // course-index-category
+//     'src/js/02_pages/08_page-course-view.js', // course-view
+//     'src/js/02_pages/09_page-user-edit.js',   // user-edit
+//     'src/js/02_pages/10_page-user-profile.js',// user-profile
+//     'src/js/02_pages/99_page-common.js'       // 汎用的なページ関数（どのページでも使うもの）
+// ];
 
 async function splitJs(done) {
     try {
