@@ -41,7 +41,8 @@ const dstpaths = {
 
 const JS_FILES = [
         'src/js/01_config.js',                     // config
-        'src/js/02_pages/00_pages.js',    // my-index
+        'src/js/02_pages/01_page-my-index.js',    // my-index
+        'src/js/02_pages/02_page-login-signup.js', // login-signup
     ];
     
 // const JS_FILES = [
