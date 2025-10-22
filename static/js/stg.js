@@ -1086,6 +1086,7 @@ if (bodyId === "page-login-index") {
       .css("display", "none");
   });
 }
+// ==============================
 // ログイン確認ページの処理
 // ==============================
 if (bodyId === "page-login-confirm") {
@@ -1117,6 +1118,7 @@ if (bodyId === "page-login-confirm") {
   $(".singlebutton button").text("ワオ未来塾TOPへ");
 }
 
+// ==============================
 // 購入処理：ページ内の購入ボタンやセット割引の表示、購入関連のモーダル処理
 // ==============================
 if (bodyId === "page-enrol-index") {
