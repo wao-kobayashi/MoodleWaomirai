@@ -15,6 +15,7 @@ const replace = require('gulp-replace');
 const data = require('gulp-data');
 const path = require('path');
 const newer = require('gulp-newer');
+const concat = require('gulp-concat');  
 
 // パスの設定
 const srcpaths = {
@@ -31,31 +32,32 @@ const dstpaths = {
 };
 
 // stg.js と lms.js を分割するタスク（非同期処理を減らし、gulpで同期的に処理）
+
+// 結合するファイルリストを定数で定義（1箇所管理）
+const JS_FILES = [
+    'src/js/01_config.js',      // config
+    'src/js/02_pages/0201_pages.js',      // pages
+];
+
 async function splitJs(done) {
     try {
-        const stgVariableJsContent = await fs.readFile(path.resolve('src/js/stg-variable.js'), 'utf8');
-        const lmsVariableJsContent = await fs.readFile(path.resolve('src/js/lms-variable.js'), 'utf8');
+        const stgVariableJsContent = await fs.readFile(path.resolve('src/js/00_stg-variable.js'), 'utf8');
+        const lmsVariableJsContent = await fs.readFile(path.resolve('src/js/00_lms-variable.js'), 'utf8');
 
         // stg.js 用
-        gulp.src('src/js/moodle.js')
-            .pipe(replace(/^/,
-                `${stgVariableJsContent}\n` +
-                `` +
-                `` +
-                ``))
-            .pipe(replace(/$/,
-                `   }\n` +
-                `});`))
-            .pipe(rename('stg.js'))
-            .pipe(gulp.dest(dstpaths.js));
+        gulp.src(JS_FILES)  // ← 共通の配列を使用
+        .pipe(concat('moodle-combined.js'))
+        .pipe(replace(/^/, `${stgVariableJsContent}\n`))
+        .pipe(replace(/$/,
+            `   }\n` +
+            `});`))
+        .pipe(rename('stg.js'))
+        .pipe(gulp.dest(dstpaths.js));
 
-        // lms.js 用
-        gulp.src('src/js/moodle.js')
-            .pipe(replace(/^/,
-                `${lmsVariableJsContent}\n` +
-                `` +
-                `` +
-                ``))
+        // lms.js作成
+        gulp.src(JS_FILES)  // ← 共通の配列を使用
+            .pipe(concat('moodle-combined.js'))
+            .pipe(replace(/^/, `${lmsVariableJsContent}\n`))
             .pipe(replace(/$/,
                 `   }\n` +
                 `});`))
