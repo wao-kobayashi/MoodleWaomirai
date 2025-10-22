@@ -176,3 +176,4 @@ $(".open-modal-badge").click(function() {
     closetxt: "閉じる", // 閉じるボタンのテキスト
   });
 });
+
