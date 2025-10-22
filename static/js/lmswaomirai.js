@@ -922,185 +922,188 @@ if (bodyId === "page-my-index") {
 
 }
 
+
 // ==============================
 // ログイン・サインアップページの処理
 // ==============================
 if (bodyId === "page-login-signup" || bodyId === "page-login-forgot_password") {
-    // ログインページのタイトルを「新規会員登録」に変更
-    $(".login-heading").text("新規会員登録");
-    $("#id_username_label").append("※好きな文字列で作成いただけます");
-    // フォームの各入力フィールドにプレースホルダーを設定
-    const placeholders = {
-      id_username: "例）waomirai", // ユーザー名のプレースホルダー
-      id_email: "例）sample@gmail.com", // メールアドレスのプレースホルダー
-      id_email2: "例）sample@gmail.com", // メールアドレス確認のプレースホルダー
-      id_lastname: "例）鈴木", // 姓のプレースホルダー
-      id_firstname: "例）太郎", // 名のプレースホルダー
-      id_profile_field_furigana: "例）スズキタロウ", // フリガナのプレースホルダー
-      id_profile_field_postnumber: "例）0000000", // 郵便番号のプレースホルダー
-      id_profile_field_wao_membersid: "こちらに会員番号を入れてください", // ワオ未来塾会員番号のプレースホルダー
-      id_profile_field_wao_schoolname:  "例）能開⚪︎⚪︎校、Axis⚪︎⚪︎校、オンライン家庭教師", // ワオ未来塾校名のプレースホルダー
-    };
-  
-    // 各入力フィールドにプレースホルダーを設定
-    $.each(placeholders, function (id, placeholder) {
-      $("#" + id).attr("placeholder", placeholder);
-    });
-  
-    // パスワードポリシーの説明をパスワードラベルの下に移動
-    const $sourceElement = $("#fitem_id_passwordpolicyinfo .form-control-static");
-    const $targetParent = $("label#id_password_label");
-    if ($sourceElement.length && $targetParent.length) {
-      $targetParent.append($sourceElement);
-    }
-  
-    // アイコン（!）を "*" に置き換え
-    $(".fa-exclamation-circle").each(function () {
-      $(this).replaceWith("*");
-    });
-  
-    // ログインラッパーの前にロゴを挿入
-    const $loginWrapper = $("#page-login-signup .login-wrapper");
-    if ($loginWrapper.length) {
-      const signupLogoHtml = `
-                  <div class="signup-logo">
-                      <img src="https://waomirai.com/lp/assets/moodle/images/logo_waomirai.svg" style="width: 100%;">
-                  </div>`;
-      $loginWrapper.before(signupLogoHtml);
-    }
-    //////////////////////////////
-    // ID生成ボタンをDOMに追加
-    //////////////////////////////
-    // 【目的】
-    // ユーザ登録フォームなどで、ユーザ名（ID）を自動生成するボタンを追加し、
-    // ユーザがワンクリックで一意性の高いIDを入力できるようにする。
-  
-    // 1. ユーザ名入力欄（#id_username）の直後に、自動生成ボタンを追加
-    $('#id_username').after(
-      $('<button/>', {
-          type: 'button', // フォーム送信を防ぐための button タイプ
-          id: 'generateUserIdBtn', // ボタンのID（イベントバインド用）
-          class: 'btn-generate-userid', // 任意のクラス（スタイリング用）
-          text: 'ユーザIDを自動生成' // ボタンに表示するテキスト
-      })
-    );
-  
-    // 2. ランダムな英小文字の文字列を生成する関数
-    // 【目的】ユーザIDの末尾にユニーク性を出すためのランダム文字列を付加する。
-    function getRandomLetters(length) {
-        const letters = 'abcdefghijklmnopqrstuvwxyz'; // 使用する文字のセット（英小文字のみ）
-        let result = '';
-        for (let i = 0; i < length; i++) {
-            // 文字セットの中からランダムに1文字選び、結果に追加
-            result += letters.charAt(Math.floor(Math.random() * letters.length));
-        }
-        return result;
-    }
-  
-    // 3. ユーザIDを生成する関数
-    // 【目的】日付・時刻・ランダム文字を組み合わせて一意性の高いユーザIDを生成する。
-    function generateUserId() {
-        const now = new Date(); // 現在日時を取得
-  
-        // 日付部分をYYMMDD形式で生成（例: 25年3月28日 → "250328"）
-        const year = now.getFullYear().toString().slice(-2);
-        const month = (now.getMonth() + 1).toString().padStart(2, '0');
-        const day = now.getDate().toString().padStart(2, '0');
-  
-        // 時間部分をHHmm形式で生成（例: 15時7分 → "1507"）
-        const hours = now.getHours().toString().padStart(2, '0');
-        const minutes = now.getMinutes().toString().padStart(2, '0');
-  
-        // ランダムな3文字の英小文字を生成（例: "xwe"）
-        const randomLetters = getRandomLetters(3);
-  
-        // すべてを結合してIDにする（例: "2503281507xwe"）
-        return year + month + day + hours + minutes + randomLetters;
-    }
-  
-    // 4. ボタンクリック時の処理を定義
-    // 【目的】ユーザがボタンをクリックすると、自動的にIDが生成され、入力欄に反映されるようにする。
-    $(document).on('click', '#generateUserIdBtn', function() {
-        // ユーザIDを生成
-        const userId = generateUserId();
-  
-        // 生成したIDを #id_username の入力欄にセット
-        $('#id_username')
-            .val(userId)         // 値をセット
-            .trigger('change')   // 入力変更イベントを発火（他の処理と連携するため）
-            .focus();            // 入力欄にフォーカス（視認性向上）
-  
-        // コンソールに生成されたIDを出力（デバッグ目的）
-        console.log('生成されたユーザID:', userId);
-    });
-  
-    // 個人情報保護方針と利用規約のリンク設定
-    $('label[for="id_profile_field_kojin_check"]').on('click', function() {
-      window.open("https://www.wao-corp.com/privacy/", '_blank');
-    });
-  
-    $('label[for="id_profile_field_termsofservice"]').on('click', function() {
-      window.open("https://go.waomirai.com/terms", '_blank');
-    });
+  // ログインページのタイトルを「新規会員登録」に変更
+  $(".login-heading").text("新規会員登録");
+  $("#id_username_label").append("※好きな文字列で作成いただけます");
+  // フォームの各入力フィールドにプレースホルダーを設定
+  const placeholders = {
+    id_username: "例）waomirai", // ユーザー名のプレースホルダー
+    id_email: "例）sample@gmail.com", // メールアドレスのプレースホルダー
+    id_email2: "例）sample@gmail.com", // メールアドレス確認のプレースホルダー
+    id_lastname: "例）鈴木", // 姓のプレースホルダー
+    id_firstname: "例）太郎", // 名のプレースホルダー
+    id_profile_field_furigana: "例）スズキタロウ", // フリガナのプレースホルダー
+    id_profile_field_postnumber: "例）0000000", // 郵便番号のプレースホルダー
+    id_profile_field_wao_membersid: "こちらに会員番号を入れてください", // ワオ未来塾会員番号のプレースホルダー
+    id_profile_field_wao_schoolname:  "例）能開⚪︎⚪︎校、Axis⚪︎⚪︎校、オンライン家庭教師", // ワオ未来塾校名のプレースホルダー
+  };
+
+  // 各入力フィールドにプレースホルダーを設定
+  $.each(placeholders, function (id, placeholder) {
+    $("#" + id).attr("placeholder", placeholder);
+  });
+
+  // パスワードポリシーの説明をパスワードラベルの下に移動
+  const $sourceElement = $("#fitem_id_passwordpolicyinfo .form-control-static");
+  const $targetParent = $("label#id_password_label");
+  if ($sourceElement.length && $targetParent.length) {
+    $targetParent.append($sourceElement);
   }
-  
+
+  // アイコン（!）を "*" に置き換え
+  $(".fa-exclamation-circle").each(function () {
+    $(this).replaceWith("*");
+  });
+
+  // ログインラッパーの前にロゴを挿入
+  const $loginWrapper = $("#page-login-signup .login-wrapper");
+  if ($loginWrapper.length) {
+    const signupLogoHtml = `
+                <div class="signup-logo">
+                    <img src="https://waomirai.com/lp/assets/moodle/images/logo_waomirai.svg" style="width: 100%;">
+                </div>`;
+    $loginWrapper.before(signupLogoHtml);
+  }
+  //////////////////////////////
+  // ID生成ボタンをDOMに追加
+  //////////////////////////////
+  // 【目的】
+  // ユーザ登録フォームなどで、ユーザ名（ID）を自動生成するボタンを追加し、
+  // ユーザがワンクリックで一意性の高いIDを入力できるようにする。
+
+  // 1. ユーザ名入力欄（#id_username）の直後に、自動生成ボタンを追加
+  $('#id_username').after(
+    $('<button/>', {
+        type: 'button', // フォーム送信を防ぐための button タイプ
+        id: 'generateUserIdBtn', // ボタンのID（イベントバインド用）
+        class: 'btn-generate-userid', // 任意のクラス（スタイリング用）
+        text: 'ユーザIDを自動生成' // ボタンに表示するテキスト
+    })
+  );
+
+  // 2. ランダムな英小文字の文字列を生成する関数
+  // 【目的】ユーザIDの末尾にユニーク性を出すためのランダム文字列を付加する。
+  function getRandomLetters(length) {
+      const letters = 'abcdefghijklmnopqrstuvwxyz'; // 使用する文字のセット（英小文字のみ）
+      let result = '';
+      for (let i = 0; i < length; i++) {
+          // 文字セットの中からランダムに1文字選び、結果に追加
+          result += letters.charAt(Math.floor(Math.random() * letters.length));
+      }
+      return result;
+  }
+
+  // 3. ユーザIDを生成する関数
+  // 【目的】日付・時刻・ランダム文字を組み合わせて一意性の高いユーザIDを生成する。
+  function generateUserId() {
+      const now = new Date(); // 現在日時を取得
+
+      // 日付部分をYYMMDD形式で生成（例: 25年3月28日 → "250328"）
+      const year = now.getFullYear().toString().slice(-2);
+      const month = (now.getMonth() + 1).toString().padStart(2, '0');
+      const day = now.getDate().toString().padStart(2, '0');
+
+      // 時間部分をHHmm形式で生成（例: 15時7分 → "1507"）
+      const hours = now.getHours().toString().padStart(2, '0');
+      const minutes = now.getMinutes().toString().padStart(2, '0');
+
+      // ランダムな3文字の英小文字を生成（例: "xwe"）
+      const randomLetters = getRandomLetters(3);
+
+      // すべてを結合してIDにする（例: "2503281507xwe"）
+      return year + month + day + hours + minutes + randomLetters;
+  }
+
+  // 4. ボタンクリック時の処理を定義
+  // 【目的】ユーザがボタンをクリックすると、自動的にIDが生成され、入力欄に反映されるようにする。
+  $(document).on('click', '#generateUserIdBtn', function() {
+      // ユーザIDを生成
+      const userId = generateUserId();
+
+      // 生成したIDを #id_username の入力欄にセット
+      $('#id_username')
+          .val(userId)         // 値をセット
+          .trigger('change')   // 入力変更イベントを発火（他の処理と連携するため）
+          .focus();            // 入力欄にフォーカス（視認性向上）
+
+      // コンソールに生成されたIDを出力（デバッグ目的）
+      console.log('生成されたユーザID:', userId);
+  });
+
+  // 個人情報保護方針と利用規約のリンク設定
+  $('label[for="id_profile_field_kojin_check"]').on('click', function() {
+    window.open("https://www.wao-corp.com/privacy/", '_blank');
+  });
+
+  $('label[for="id_profile_field_termsofservice"]').on('click', function() {
+    window.open("https://go.waomirai.com/terms", '_blank');
+  });
+}
+
 // ログインインデックスページの処理
 if (bodyId === "page-login-index") {
-    // 「ブラウザのクッキーを」含むテキストを持つ要素を非表示にする
-    const cookiekeywords = ["ブラウザのクッキーを"];
-  
-    cookiekeywords.forEach((keyword) => {
-      $("*:contains('" + keyword + "')")
-        .filter(function () {
-          return $(this).children().length === 0; // 子要素を持たないテキストノードだけ対象
-        })
-        .closest("div")
-        .css("display", "none");
-    });
-  
-    // 「Moodle」または「Powered by」を含むテキストを持つ要素を非表示にする
-    const moodlekeywords = ["Moodle", "Powered by"];
-  
-    moodlekeywords.forEach((keyword) => {
-      $("*:contains('" + keyword + "')")
-        .filter(function () {
-          return $(this).children().length === 0; // 子要素を持たないテキストノードだけ対象
-        })
-        .closest("*")
-        .css("display", "none");
-    });
-  }
+  // 「ブラウザのクッキーを」含むテキストを持つ要素を非表示にする
+  const cookiekeywords = ["ブラウザのクッキーを"];
+
+  cookiekeywords.forEach((keyword) => {
+    $("*:contains('" + keyword + "')")
+      .filter(function () {
+        return $(this).children().length === 0; // 子要素を持たないテキストノードだけ対象
+      })
+      .closest("div")
+      .css("display", "none");
+  });
+
+  // 「Moodle」または「Powered by」を含むテキストを持つ要素を非表示にする
+  const moodlekeywords = ["Moodle", "Powered by"];
+
+  moodlekeywords.forEach((keyword) => {
+    $("*:contains('" + keyword + "')")
+      .filter(function () {
+        return $(this).children().length === 0; // 子要素を持たないテキストノードだけ対象
+      })
+      .closest("*")
+      .css("display", "none");
+  });
+}
+
 // ==============================
 // ログイン確認ページの処理
 // ==============================
 if (bodyId === "page-login-confirm") {
-    createModal({
-      wrapClass: "c-modal-wrap-wrapline",
-      customModalHtml: `
-      <div class="c-modal-wrap-close"></div>
-      <div class="c-modal-wrap-title">会員登録ありがとうございます！</div>
-      <div class="c-modal-wrap-text">
-        <span>ワオ未来塾の公式LINEを</span>登録しましょう!<br>
-        授業サポートのお知らせをこちらの<br>公式LINEから配信します。
-      </div>
-      <div class="c-modal-wrap-qr c-sp-hidden">
-        <img src="${ImgLiffMoodle}">
-      </div>
-      <div class="c-modal-wrap-text c-modal-wrap-text-notice">
-        ※すでに友だち追加済の方も、<br>
-        会員連携のために必ずQRを読み取ってください。
-      </div>
-      <div class="c-modal-button-line c-pc-hidden">
-        <a href="${UrlLiffMoodle}">
-          <img src="https://waomirai.com/lp/assets/moodle/images/icn_linewhite.svg">
-        </a>
-      </div>
-      <button class="c-modal-wrap-button c-modal-wrap-button-close c-modal-wrap-close-tag">閉じる</button>
-    `
-    });
-    $(".boxaligncenter h3").text("ご登録ありがとうございます。");
-    $(".singlebutton button").text("ワオ未来塾TOPへ");
-  }
+  createModal({
+    wrapClass: "c-modal-wrap-wrapline",
+    customModalHtml: `
+    <div class="c-modal-wrap-close"></div>
+    <div class="c-modal-wrap-title">会員登録ありがとうございます！</div>
+    <div class="c-modal-wrap-text">
+      <span>ワオ未来塾の公式LINEを</span>登録しましょう!<br>
+      授業サポートのお知らせをこちらの<br>公式LINEから配信します。
+    </div>
+    <div class="c-modal-wrap-qr c-sp-hidden">
+      <img src="${ImgLiffMoodle}">
+    </div>
+    <div class="c-modal-wrap-text c-modal-wrap-text-notice">
+      ※すでに友だち追加済の方も、<br>
+      会員連携のために必ずQRを読み取ってください。
+    </div>
+    <div class="c-modal-button-line c-pc-hidden">
+      <a href="${UrlLiffMoodle}">
+        <img src="https://waomirai.com/lp/assets/moodle/images/icn_linewhite.svg">
+      </a>
+    </div>
+    <button class="c-modal-wrap-button c-modal-wrap-button-close c-modal-wrap-close-tag">閉じる</button>
+  `
+  });
+  $(".boxaligncenter h3").text("ご登録ありがとうございます。");
+  $(".singlebutton button").text("ワオ未来塾TOPへ");
+}
+
 // ==============================
 // 購入処理：ページ内の購入ボタンやセット割引の表示、購入関連のモーダル処理
 // ==============================
@@ -1331,6 +1334,8 @@ if (bodyId === "page-enrol-index") {
       }
   });
 }
+
+
 // ==============================
 // 受講ページの表示ロジック
 // ==============================
@@ -1339,182 +1344,183 @@ if (bodyId === "page-enrol-index") {
 if (bodyId === "page-mod-questionnaire-view" || bodyId === "page-mod-questionnaire-complete" || bodyId === "page-mod-questionnaire-report"|| bodyId === "page-mod-questionnaire-myreport")  {
   
 
-    // スマートフォン版で、ページタイトルを動画の下に表示するためのロジック
-    // ページヘッダー（#page-header）を複製して、スマホ用のコンテンツを作成
-    const urlQuestionnaire = $('li[data-key="modulepage"] a').attr('href');
-    const clonedPageHeader = $("#page-header").clone();
-    const clonedCourseLessonDate = $(".course-lesson-date").clone();
+  // スマートフォン版で、ページタイトルを動画の下に表示するためのロジック
+  // ページヘッダー（#page-header）を複製して、スマホ用のコンテンツを作成
+  const urlQuestionnaire = $('li[data-key="modulepage"] a').attr('href');
+  const clonedPageHeader = $("#page-header").clone();
+  const clonedCourseLessonDate = $(".course-lesson-date").clone();
+
+  // 複製したコンテンツをラップするためのdiv要素を作成
+  const spPageHeader = $("<div>", {
+    id: "sp-page-header",   // 新しいdivにIDを設定（スマホ版のページヘッダー）
+    class: "c-pc-hidden",   // デスクトップ版では非表示にするためのクラス（PC版では隠す）
+  }).append(clonedPageHeader);  // 複製したヘッダーを新しいdivに追加
+
+  const spCourseLessonDate = $("<div>", {  // 新しいdivにIDを設定（スマホ版のページヘッダー）
+    class: "c-pc-hidden",   // デスクトップ版では非表示にするためのクラス（PC版では隠す）
+  }).append(clonedCourseLessonDate);  // 複製したヘッダーを新しいdivに追加
+
+  // スマホ版のヘッダーを#page-contentの直下に配置（コンテンツの一部として追加）
+  $(".activity-description").append(spPageHeader);
+  $(".page-context-header").after(spCourseLessonDate);
+
+
+  // 課題提出セクションの下にリード文を挿入
+  // 「授業の視聴が終わったら課題を提出しましょう」という文を、h2タグの後に追加
+  const textQuestionnaireNotAnswered = "<p>授業の視聴が終わったら課題を提出しましょう<br />毎月の課題を全部提出すると、<span class='open-modal-badge'>スペシャルなバッジ</span>がゲットできます！<br /><br />今月のバッジ、ゲットできるかな？さあ、課題を提出してみましょう！</p>";
+  const textQuestionnaireAnswered = "<p>課題を提出済みです。</p>";
+  const textQuestionnaireButtonAnswered = "課題を再提出する";
+  const textQuestionnaireTextareaPlaceholder = "ここに回答を入力してください";
+  const textQuestionnaireAnswerAll = "他の人の回答を見る";
+  const ButtonQuestionnaireBacktoCalender = `
+   <div class="mod_questionnaire_viewpage"><div class="mod_questionnaire_flex-container">
+        <div class="complete"><a href=${urlQuestionnaire} class="btn btn-primary">授業ページに戻る</a></div>
+        <div class="complete"><a href="https://lms.waomirai.com/my/" class="btn btn-primary">受講カレンダーに戻る</a></div>
+    </div></div>
+  `;
   
-    // 複製したコンテンツをラップするためのdiv要素を作成
-    const spPageHeader = $("<div>", {
-      id: "sp-page-header",   // 新しいdivにIDを設定（スマホ版のページヘッダー）
-      class: "c-pc-hidden",   // デスクトップ版では非表示にするためのクラス（PC版では隠す）
-    }).append(clonedPageHeader);  // 複製したヘッダーを新しいdivに追加
+
+
+  $('.allresponses a,li[data-key="vall"] a').text(textQuestionnaireAnswerAll);
+  $(".qn-answer textarea").attr("placeholder", textQuestionnaireTextareaPlaceholder); 
   
-    const spCourseLessonDate = $("<div>", {  // 新しいdivにIDを設定（スマホ版のページヘッダー）
-      class: "c-pc-hidden",   // デスクトップ版では非表示にするためのクラス（PC版では隠す）
-    }).append(clonedCourseLessonDate);  // 複製したヘッダーを新しいdivに追加
-  
-    // スマホ版のヘッダーを#page-contentの直下に配置（コンテンツの一部として追加）
-    $(".activity-description").append(spPageHeader);
-    $(".page-context-header").after(spCourseLessonDate);
-  
-  
-    // 課題提出セクションの下にリード文を挿入
-    // 「授業の視聴が終わったら課題を提出しましょう」という文を、h2タグの後に追加
-    const textQuestionnaireNotAnswered = "<p>授業の視聴が終わったら課題を提出しましょう<br />毎月の課題を全部提出すると、<span class='open-modal-badge'>スペシャルなバッジ</span>がゲットできます！<br /><br />今月のバッジ、ゲットできるかな？さあ、課題を提出してみましょう！</p>";
-    const textQuestionnaireAnswered = "<p>課題を提出済みです。</p>";
-    const textQuestionnaireButtonAnswered = "課題を再提出する";
-    const textQuestionnaireTextareaPlaceholder = "ここに回答を入力してください";
-    const textQuestionnaireAnswerAll = "他の人の回答を見る";
-    const ButtonQuestionnaireBacktoCalender = `
-     <div class="mod_questionnaire_viewpage"><div class="mod_questionnaire_flex-container">
-          <div class="complete"><a href=${urlQuestionnaire} class="btn btn-primary">授業ページに戻る</a></div>
-          <div class="complete"><a href="https://lms.waomirai.com/my/" class="btn btn-primary">受講カレンダーに戻る</a></div>
-      </div></div>
-    `;
-    
-  
-  
-    $('.allresponses a,li[data-key="vall"] a').text(textQuestionnaireAnswerAll);
-    $(".qn-answer textarea").attr("placeholder", textQuestionnaireTextareaPlaceholder); 
-    
-    //li[data-key="yourresponse"]のある場合は回答済みとして扱う
-    //li[data-key="yourresponse"]は回答済みの場合、授業ページにdomとして要素が存在する
-    if ($('li[data-key="yourresponse"]').length > 0) {
-      $(".mod_questionnaire_viewpage h2").after(textQuestionnaireAnswered);
-      $(".complete .btn-primary").text(textQuestionnaireButtonAnswered);
-    } else {
-      $(".mod_questionnaire_viewpage h2").after(textQuestionnaireNotAnswered);
-    }
-  
-    //完了ページには提出済みの文言を追加
-    if ($(".surveyTitle").text().includes("ありがとう")) {
-      $(".mod_questionnaire_completepage h3").after(ButtonQuestionnaireBacktoCalender);
-    }
+  //li[data-key="yourresponse"]のある場合は回答済みとして扱う
+  //li[data-key="yourresponse"]は回答済みの場合、授業ページにdomとして要素が存在する
+  if ($('li[data-key="yourresponse"]').length > 0) {
+    $(".mod_questionnaire_viewpage h2").after(textQuestionnaireAnswered);
+    $(".complete .btn-primary").text(textQuestionnaireButtonAnswered);
+  } else {
+    $(".mod_questionnaire_viewpage h2").after(textQuestionnaireNotAnswered);
   }
+
+  //完了ページには提出済みの文言を追加
+  if ($(".surveyTitle").text().includes("ありがとう")) {
+    $(".mod_questionnaire_completepage h3").after(ButtonQuestionnaireBacktoCalender);
+  }
+}
+
+//受講ページの最初の画面のみ(page-mod-questionnaire-view)
+if (bodyId === "page-mod-questionnaire-view")  {
+
+  //////////////////////////////////////
+  // 授業のメモシートのブロックを入れる
+  //////////////////////////////////////
   
-  //受講ページの最初の画面のみ(page-mod-questionnaire-view)
-  if (bodyId === "page-mod-questionnaire-view")  {
-  
-    //////////////////////////////////////
-    // 授業のメモシートのブロックを入れる
-    //////////////////////////////////////
-    
-    // メモシートのURLを格納する変数を用意
-    // 最初は空文字で初期化しておく
-    let memosheet = "";
-  
-    // 現在表示している授業データ(currentViewCourseData)のキーに応じて
-    // それぞれの専用メモシートURLを代入する
-    if (currentViewCourseData?.key === "philosophy") {
-      memosheet = memosheetPhilosophy; // 哲学用のメモシート
-    } else if (currentViewCourseData?.key === "science") {
-      memosheet = memosheetScience; // 科学用のメモシート
-    } else if (currentViewCourseData?.key === "economy") {
-      memosheet = memosheetEconomy; // 経済用のメモシート
-    }
-  
-    // jQueryのDOM読み込み完了処理
-    $(function() {
-      // 授業ページに動画がある場合のみ処理を実行
-      // （アーカイブ時には意味が薄いため表示しない）
-      if ($('.course-lesson').length) {
-  
-        // 授業ページの「main」要素の手前にメモシートのUIを追加
-        $('div[role="main"]').before(`
-          <div class="mod-questionnaire-worksheet">
-            <!-- アイコン表示 -->
-            <div class="mod-questionnaire-worksheet-icon">
-              <img src="https://waomirai.com/lp/assets/moodle/icn-worksheet-wao.svg">
-            </div>
-  
-            <!-- 説明テキスト -->
-            <div class="mod-questionnaire-worksheet-text">
-              授業中の学びを記録できる印刷用シートです。<br>
-              メモがわりにご利用いただけます。
-            </div>
-  
-            <!-- ダウンロードリンク部分 -->
-            <div class="mod-questionnaire-worksheet-download">
-             
-              <div class="mod-questionnaire-worksheet-download-text">
-                <!-- ここでテンプレートリテラルを使って変数を埋め込む -->
-                <a href="${memosheet}" target="_blank" class="mod-questionnaire-worksheet-download-text-link">メモシートをダウンロード</a>
-              </div>
-               <span class="material-symbols-outlined">download</span>
-            </div>
+  // メモシートのURLを格納する変数を用意
+  // 最初は空文字で初期化しておく
+  let memosheet = "";
+
+  // 現在表示している授業データ(currentViewCourseData)のキーに応じて
+  // それぞれの専用メモシートURLを代入する
+  if (currentViewCourseData?.key === "philosophy") {
+    memosheet = memosheetPhilosophy; // 哲学用のメモシート
+  } else if (currentViewCourseData?.key === "science") {
+    memosheet = memosheetScience; // 科学用のメモシート
+  } else if (currentViewCourseData?.key === "economy") {
+    memosheet = memosheetEconomy; // 経済用のメモシート
+  }
+
+  // jQueryのDOM読み込み完了処理
+  $(function() {
+    // 授業ページに動画がある場合のみ処理を実行
+    // （アーカイブ時には意味が薄いため表示しない）
+    if ($('.course-lesson').length) {
+
+      // 授業ページの「main」要素の手前にメモシートのUIを追加
+      $('div[role="main"]').before(`
+        <div class="mod-questionnaire-worksheet">
+          <!-- アイコン表示 -->
+          <div class="mod-questionnaire-worksheet-icon">
+            <img src="https://waomirai.com/lp/assets/moodle/icn-worksheet-wao.svg">
           </div>
-        `);
-         // 授業ページの「main」要素の手前にメモシートのUIを追加
-    
-      }
-    });
+
+          <!-- 説明テキスト -->
+          <div class="mod-questionnaire-worksheet-text">
+            授業中の学びを記録できる印刷用シートです。<br>
+            メモがわりにご利用いただけます。
+          </div>
+
+          <!-- ダウンロードリンク部分 -->
+          <div class="mod-questionnaire-worksheet-download">
+           
+            <div class="mod-questionnaire-worksheet-download-text">
+              <!-- ここでテンプレートリテラルを使って変数を埋め込む -->
+              <a href="${memosheet}" target="_blank" class="mod-questionnaire-worksheet-download-text-link">メモシートをダウンロード</a>
+            </div>
+             <span class="material-symbols-outlined">download</span>
+          </div>
+        </div>
+      `);
+       // 授業ページの「main」要素の手前にメモシートのUIを追加
   
-    // 「レベル」リンクのhrefを格納する変数（最初はnull）
-    let levelLink = null;
-  
-    // 「3週目」が ol.breadcrumb li のどこかに含まれているか確認
-    let hasWeek3 = false;
-  
+    }
+  });
+
+  // 「レベル」リンクのhrefを格納する変数（最初はnull）
+  let levelLink = null;
+
+  // 「3週目」が ol.breadcrumb li のどこかに含まれているか確認
+  let hasWeek3 = false;
+
+  $('ol.breadcrumb li').each(function() {
+    const $li = $(this);
+    if ($li.text().includes('3週目')||$li.text().includes('３週目') ) {
+      hasWeek3 = true;
+      return false; // 見つかったらループ終了
+    }
+  });
+
+  // 「3週目」が存在する場合のみ処理を実行
+  if (hasWeek3) {
+    // <ol class="breadcrumb"> 内のすべての <li> 要素を順に処理
     $('ol.breadcrumb li').each(function() {
       const $li = $(this);
-      if ($li.text().includes('3週目')||$li.text().includes('３週目') ) {
-        hasWeek3 = true;
-        return false; // 見つかったらループ終了
+    
+      // <li> 内のテキストに「レベル」という文字が含まれているかチェック
+      if ($li.text().includes('レベル')) {
+        const $link = $li.find('a');
+        if ($link.length > 0) {
+          levelLink = $link.attr('href');
+        }
+        return false; // 最初に見つかったら終了
       }
     });
-  
-    // 「3週目」が存在する場合のみ処理を実行
-    if (hasWeek3) {
-      // <ol class="breadcrumb"> 内のすべての <li> 要素を順に処理
-      $('ol.breadcrumb li').each(function() {
-        const $li = $(this);
-      
-        // <li> 内のテキストに「レベル」という文字が含まれているかチェック
-        if ($li.text().includes('レベル')) {
-          const $link = $li.find('a');
-          if ($link.length > 0) {
-            levelLink = $link.attr('href');
-          }
-          return false; // 最初に見つかったら終了
-        }
-      });
-  
-      // 🔹 levelLink が取得できた場合のみ処理を実行
-      if (levelLink) {
-        $('.mod_questionnaire_viewpage .complete').after(`
-          <div class="lesson-summary">
-            <a href="${levelLink}" target="_blank" class="btn btn-primary">
-              授業のまとめシート
-            </a>
-          </div>
-        `);
-      }
-    }
-    //提出ボタンをわかりやすくするためにcss装飾用のclassを追加
-    $('.mod_questionnaire_flex-container .complete .btn-primary').addClass('send-answer');
-    //最初の提出ボタンをわかりやすくするためにcss装飾用のclassを追加
-    if ($('.mod_questionnaire_flex-container .complete .btn-primary').text().includes('課題を提出する')){
-      $('.mod_questionnaire_flex-container .complete .btn-primary').addClass('send-answer-first');
+
+    // 🔹 levelLink が取得できた場合のみ処理を実行
+    if (levelLink) {
+      $('.mod_questionnaire_viewpage .complete').after(`
+        <div class="lesson-summary">
+          <a href="${levelLink}" target="_blank" class="btn btn-primary">
+            授業のまとめシート
+          </a>
+        </div>
+      `);
     }
   }
-  
-  $(".open-modal-badge").click(function() {
-    // 確認モーダルを作成
-    createModal({
-      wrapClass: "c-modal-wrap-badge",
-      image: ImgModalBadge,
-      close: true,  // モーダルを閉じるボタンを表示するオプション
-      closetxt: "閉じる", // 閉じるボタンのテキスト
-    });
+  //提出ボタンをわかりやすくするためにcss装飾用のclassを追加
+  $('.mod_questionnaire_flex-container .complete .btn-primary').addClass('send-answer');
+  //最初の提出ボタンをわかりやすくするためにcss装飾用のclassを追加
+  if ($('.mod_questionnaire_flex-container .complete .btn-primary').text().includes('課題を提出する')){
+    $('.mod_questionnaire_flex-container .complete .btn-primary').addClass('send-answer-first');
+  }
+}
+
+$(".open-modal-badge").click(function() {
+  // 確認モーダルを作成
+  createModal({
+    wrapClass: "c-modal-wrap-badge",
+    image: ImgModalBadge,
+    close: true,  // モーダルを閉じるボタンを表示するオプション
+    closetxt: "閉じる", // 閉じるボタンのテキスト
   });
+});
+
 // // ==============================
 // // カテゴリページの処理
 // // ==============================
 if (bodyId === "page-course-index-category") {
-    window.location.href = "https://lms.waomirai.com/";
-  }
+  window.location.href = "https://lms.waomirai.com/";
+}
 
 // ==============================
 // 科目ページの処理
@@ -1723,336 +1729,339 @@ function showLevelSettingModal() {
     ]
   });
 }
+
+
 // ==============================
 // マイページの処理
 // ==============================
 if (bodyId === "page-user-edit") { // ページIDが「page-user-edit」の場合に処理を実行
-    // 各科目の入力エリアを取得
-    var AreaPhilosophy = $("#fitem_id_profile_field_Philosophy_Level"); // 哲学の入力エリア
-    var AreaScience = $("#fitem_id_profile_field_Science_Level"); // 科学の入力エリア
-    var AreaEconomy = $("#fitem_id_profile_field_Economy_Level"); // 経済の入力エリア
-    var AreaEnglish = $("#fitem_id_profile_field_English_Level"); // 英語の入力エリア
-    var AreaSingleCourse = $("#fitem_id_profile_field_1cource_Subject"); // １科目受講の入力エリア
-    var AreaTwoCourse = $("#fitem_id_profile_field_2cources_subject"); // ２科目受講の入力エリア
-  
-    // 各科目のエリアを配列にまとめて、後で一括で非表示にする
-    var AreaElements = [
-      AreaPhilosophy,
-      AreaScience,
-      AreaEconomy,
-      AreaEnglish,
-      AreaSingleCourse,
-      AreaTwoCourse,
-    ];
-    // 配列内の各エリアを非表示にする
-    AreaElements.forEach(function (AreaElement) {
-      AreaElement.hide();
+  // 各科目の入力エリアを取得
+  var AreaPhilosophy = $("#fitem_id_profile_field_Philosophy_Level"); // 哲学の入力エリア
+  var AreaScience = $("#fitem_id_profile_field_Science_Level"); // 科学の入力エリア
+  var AreaEconomy = $("#fitem_id_profile_field_Economy_Level"); // 経済の入力エリア
+  var AreaEnglish = $("#fitem_id_profile_field_English_Level"); // 英語の入力エリア
+  var AreaSingleCourse = $("#fitem_id_profile_field_1cource_Subject"); // １科目受講の入力エリア
+  var AreaTwoCourse = $("#fitem_id_profile_field_2cources_subject"); // ２科目受講の入力エリア
+
+  // 各科目のエリアを配列にまとめて、後で一括で非表示にする
+  var AreaElements = [
+    AreaPhilosophy,
+    AreaScience,
+    AreaEconomy,
+    AreaEnglish,
+    AreaSingleCourse,
+    AreaTwoCourse,
+  ];
+  // 配列内の各エリアを非表示にする
+  AreaElements.forEach(function (AreaElement) {
+    AreaElement.hide();
+  });
+
+  // 初回受講レベル登録時、submit直前に注意文言を表示する関数
+  let isAlertSubjectSettingFirstShown = false; // フラグを追加
+
+  function AlertSubjectSettingFirst() {
+    if (!isAlertSubjectSettingFirstShown) { // フラグがfalseの場合のみ実行
+      $("#fgroup_id_buttonar").before(
+        `<div id="id_submitbutton-subject">一度受講レベルを設定すると、2回目以降のレベル変更時の反映は当月末になりますのでご注意くださいませ。</div>`
+      );
+      //英語と他科目を受講する場合、複数回発火することを防ぐためにフラグをtrueに設定
+      isAlertSubjectSettingFirstShown = true; // フラグをtrueに設定
+    }
+  }
+
+  // サブレベル（子科目）の自動取得を行う関数
+  function getOwnedSubLevels(subjectKey, levels) {
+    // subjects 配列から、指定された科目キーとレベルに一致する子科目を抽出
+    return subjects
+      .filter(
+        (subject) =>
+          subject.type === "child" && // 子科目を対象
+          subject.key === subjectKey && // 指定された科目キーに一致
+          levels.includes(subject.level) && // 指定されたレベルの中に該当する
+          bodyClasses.includes(subject.id) // 現在のページに関連付けられた科目IDか確認
+      )
+      .map((subject) => subject.level); // 該当するレベルを配列で返す
+  }
+
+  // 1科目選択のセレクトボックスを取得する関数
+  function getSelectElement(Area) {
+    return Area.find("select"); // 引数で渡されたエリア内のselect要素を取得
+  }
+
+  // 2科目以上選択する場合の処理（必要な場合、変更を監視）
+  function handleMultipleSelectChange(selectors, callback) {
+    var selectedIndexes = []; // インデックスを格納する配列
+
+    // 各select要素から選択されたインデックスを取得して配列に格納
+    $(selectors).each(function () {
+      var selectedIndex = $(this).prop("selectedIndex");
+      selectedIndexes.push(selectedIndex);
     });
-  
-    // 初回受講レベル登録時、submit直前に注意文言を表示する関数
-    let isAlertSubjectSettingFirstShown = false; // フラグを追加
-  
-    function AlertSubjectSettingFirst() {
-      if (!isAlertSubjectSettingFirstShown) { // フラグがfalseの場合のみ実行
-        $("#fgroup_id_buttonar").before(
-          `<div id="id_submitbutton-subject">一度受講レベルを設定すると、2回目以降のレベル変更時の反映は当月末になりますのでご注意くださいませ。</div>`
-        );
-        //英語と他科目を受講する場合、複数回発火することを防ぐためにフラグをtrueに設定
-        isAlertSubjectSettingFirstShown = true; // フラグをtrueに設定
-      }
-    }
-  
-    // サブレベル（子科目）の自動取得を行う関数
-    function getOwnedSubLevels(subjectKey, levels) {
-      // subjects 配列から、指定された科目キーとレベルに一致する子科目を抽出
-      return subjects
-        .filter(
-          (subject) =>
-            subject.type === "child" && // 子科目を対象
-            subject.key === subjectKey && // 指定された科目キーに一致
-            levels.includes(subject.level) && // 指定されたレベルの中に該当する
-            bodyClasses.includes(subject.id) // 現在のページに関連付けられた科目IDか確認
-        )
-        .map((subject) => subject.level); // 該当するレベルを配列で返す
-    }
-  
-    // 1科目選択のセレクトボックスを取得する関数
-    function getSelectElement(Area) {
-      return Area.find("select"); // 引数で渡されたエリア内のselect要素を取得
-    }
-  
-    // 2科目以上選択する場合の処理（必要な場合、変更を監視）
-    function handleMultipleSelectChange(selectors, callback) {
-      var selectedIndexes = []; // インデックスを格納する配列
-  
-      // 各select要素から選択されたインデックスを取得して配列に格納
+
+    // コールバック関数に選ばれたインデックスを渡して実行
+    callback(selectedIndexes);
+
+    // 各select要素にchangeイベントを再設定（選択肢が変更された時にインデックスを更新）
+    $(selectors).on("change", function () {
+      selectedIndexes = []; // インデックス配列を初期化
+
+      // 再度インデックスを取得し、配列に格納
       $(selectors).each(function () {
         var selectedIndex = $(this).prop("selectedIndex");
         selectedIndexes.push(selectedIndex);
       });
-  
-      // コールバック関数に選ばれたインデックスを渡して実行
+
+      // コールバック関数に更新されたインデックスを渡して実行
       callback(selectedIndexes);
-  
-      // 各select要素にchangeイベントを再設定（選択肢が変更された時にインデックスを更新）
-      $(selectors).on("change", function () {
-        selectedIndexes = []; // インデックス配列を初期化
-  
-        // 再度インデックスを取得し、配列に格納
-        $(selectors).each(function () {
-          var selectedIndex = $(this).prop("selectedIndex");
-          selectedIndexes.push(selectedIndex);
-        });
-  
-        // コールバック関数に更新されたインデックスを渡して実行
-        callback(selectedIndexes);
-      });
-    }
-  
-    // 【1科目受講】のケース
-  
-    // 1科目「哲学」のみ購入した場合
-    if (
-      checkBoughtMainSubject(["philosophy"]) && // 購入した主科目が「哲学」か確認
-      !checkBoughtMainSubject(["science", "economy"]) // 購入した主科目が「科学」や「経済」でないことを確認
-    ) {
-      AreaPhilosophy.show(); // 哲学の入力エリアを表示
-      // 初回受講レベル登録時、注意文言を表示
-      if (!checkBoughtChildSubject("philosophy", ["L1", "L2", "L3", "L4"])) {
-        AlertSubjectSettingFirst(); // 初回レベル設定の警告
-      }
-    }
-  
-    // 1科目「科学」のみ購入した場合
-    if (
-      checkBoughtMainSubject(["science"]) && // 購入した主科目が「科学」か確認
-      !checkBoughtMainSubject(["philosophy", "economy"]) // 購入した主科目が「哲学」や「経済」でないことを確認
-    ) {
-      AreaScience.show(); // 科学の入力エリアを表示
-      // 初回受講レベル登録時、注意文言を表示
-      if (!checkBoughtChildSubject("science", ["L1", "L2", "L3", "L4"])) {
-        AlertSubjectSettingFirst(); // 初回レベル設定の警告
-      }
-    }
-  
-    // 1科目「経済」のみ購入した場合
-    if (
-      checkBoughtMainSubject(["economy"]) && // 購入した主科目が「経済」か確認
-      !checkBoughtMainSubject(["philosophy", "science"]) // 購入した主科目が「哲学」や「科学」でないことを確認
-    ) {
-      AreaEconomy.show(); // 経済の入力エリアを表示
-      // 初回受講レベル登録時、注意文言を表示
-      if (!checkBoughtChildSubject("economy", ["L1", "L2", "L3", "L4"])) {
-        AlertSubjectSettingFirst(); // 初回レベル設定の警告
-      }
-    }
-  
-    // 英語購入の場合
-    if (checkBoughtMainSubject(["globalenglish"])) { // 購入した主科目が「英語」か確認
-      AreaEnglish.show(); // 英語の入力エリアを表示
-      // 初回受講レベル登録時、注意文言を表示
-      if (!checkBoughtChildSubject("globalenglish", ["L1", "L2"])) {
-        AlertSubjectSettingFirst(); // 初回レベル設定の警告
-      }
-    }
-  
-    // 【2科目セット購入】の場合
-    if (checkBoughtMainSubject(["twosubjectpack"], true)) { // 2科目セットを購入している場合
-      AreaTwoCourse.show(); // 2科目選択のプルダウンを表示
-  
-      // プルダウン変更時に呼ばれる関数
-      function updateAreaOnSelection() {
-        var selectedIndex = getSelectElement(AreaTwoCourse).prop("selectedIndex"); // 選択されたインデックスを取得
-  
-        // 2科目の選択に応じて表示する科目エリアを更新
-        switch (selectedIndex) {
-          case 1: // 哲学 + 科学
-            AreaPhilosophy.show();
-            AreaScience.show();
-            AreaEconomy.hide();
-            break;
-  
-          case 2: // 科学 + 経済
-            AreaPhilosophy.show();
-            AreaScience.hide();
-            AreaEconomy.show();
-            break;
-  
-          case 3: // 科学 + 経済（逆の場合）
-            AreaPhilosophy.hide();
-            AreaScience.show();
-            AreaEconomy.show();
-            break;
-          default: // それ以外の選択肢
-            AreaPhilosophy.hide();
-            AreaScience.hide();
-            AreaEconomy.hide();
-        }
-      }
-  
-      // ページロード時に実行
-      updateAreaOnSelection();
-  
-      // プルダウン変更時に再度実行
-      getSelectElement(AreaTwoCourse).on("change", updateAreaOnSelection);
-  
-      // 初回受講レベル登録時、注意文言を表示
-      if (
-        !checkBoughtChildSubject("economy", ["L1", "L2", "L3", "L4"]) &&
-        !checkBoughtChildSubject("philosophy", ["L1", "L2", "L3", "L4"]) &&
-        !checkBoughtChildSubject("science", ["L1", "L2", "L3", "L4"])
-      ) {
-        getSelectElement(AreaTwoCourse).after(
-          "<div class='subject-select-levelnotset'>科目を選択してください</div>"
-        );
-        AlertSubjectSettingFirst(); // 初回レベル設定の警告
-      }
-    }
-  
-    // 【3科目セット購入】の場合
-    if (checkBoughtMainSubject(["threesubjectpack"], true)) { // 3科目セットを購入している場合
-      AreaPhilosophy.show(); // 哲学を表示
-      AreaScience.show(); // 科学を表示
-      AreaEconomy.show(); // 経済を表示
-      // 初回受講レベル登録時、注意文言を表示
-      if (
-        !checkBoughtChildSubject("economy", ["L1", "L2", "L3", "L4"]) &&
-        !checkBoughtChildSubject("philosophy", ["L1", "L2", "L3", "L4"]) &&
-        !checkBoughtChildSubject("science", ["L1", "L2", "L3", "L4"])
-      ) {
-        AlertSubjectSettingFirst(); // 初回レベル設定の警告
-      }
-    }
-  
-    // 各科目の設定を配列で定義
-    const subjectConfigs = [
-      {
-        subject: "philosophy",
-        area: AreaPhilosophy,
-        levels: ["L1", "L2", "L3", "L4"],
-      },
-      {
-        subject: "science",
-        area: AreaScience,
-        levels: ["L1", "L2", "L3", "L4"],
-      },
-      {
-        subject: "economy",
-        area: AreaEconomy,
-        levels: ["L1", "L2", "L3", "L4"],
-      },
-      {
-        subject: "globalenglish",
-        area: AreaEnglish,
-        levels: ["L1", "L2"],
-      },
-    ];
-  
-    // メッセージを表示するための定義
-    const messages = {
-      levelSet: (ownedLevels) =>
-        `<div class="subject-select-levelset">
-           現在受講中のレベルは ${ownedLevels}です<br>
-           レベルの変更は月末反映となります。即時反映されませんのでご注意ください。
-         </div>`,
-      levelNotSet:
-        '<div class="subject-select-levelnotset">受講レベルを設定してください。</div>',
-    };
-  
-    // 各科目の設定を一括で処理
-    subjectConfigs.forEach(({ subject, area, levels }) => {
-      const ownedLevels = getOwnedSubLevels(subject, levels); // 所有しているレベルを取得
-  
-      const message =
-        ownedLevels.length > 0
-          ? messages.levelSet(ownedLevels) // 所有しているレベルがあればレベル設定メッセージを表示
-          : messages.levelNotSet; // レベルが設定されていなければレベル設定を促すメッセージ
-  
-      getSelectElement(area).after(message); // エリアの後にメッセージを追加
     });
-  
-    //見出し直下にテキストを表示。
-    if (hasBoughtMainSubject) {
-      //メイン科目持っている時
-      $("#id_category_10 > .d-flex").after(`
-        <p class="subject-level-note">
-          受講科目のレベルを選択してください。<br />
-          選択した科目のレベルを設定しないと授業を受けることができません。<br />
-          一度受講レベルを設定すると、2回目以降のレベル変更時の反映は当月末になりますのでご注意ください。
-        </p>
-      `);
-      
-    } else {
-      //メイン科目がない時
-      $("#id_category_10 > .d-flex").after(`
-        <p class="subject-level-note">
-          科目を購入した後に受講科目レベルを設定することができます。<br />
-          科目の一覧は<a href="${UrlHome}" style="text-decoration:underline !important;">コチラ</a>からご確認いただけます。
-        </p>
-      `);
+  }
+
+  // 【1科目受講】のケース
+
+  // 1科目「哲学」のみ購入した場合
+  if (
+    checkBoughtMainSubject(["philosophy"]) && // 購入した主科目が「哲学」か確認
+    !checkBoughtMainSubject(["science", "economy"]) // 購入した主科目が「科学」や「経済」でないことを確認
+  ) {
+    AreaPhilosophy.show(); // 哲学の入力エリアを表示
+    // 初回受講レベル登録時、注意文言を表示
+    if (!checkBoughtChildSubject("philosophy", ["L1", "L2", "L3", "L4"])) {
+      AlertSubjectSettingFirst(); // 初回レベル設定の警告
     }
   }
-  
+
+  // 1科目「科学」のみ購入した場合
+  if (
+    checkBoughtMainSubject(["science"]) && // 購入した主科目が「科学」か確認
+    !checkBoughtMainSubject(["philosophy", "economy"]) // 購入した主科目が「哲学」や「経済」でないことを確認
+  ) {
+    AreaScience.show(); // 科学の入力エリアを表示
+    // 初回受講レベル登録時、注意文言を表示
+    if (!checkBoughtChildSubject("science", ["L1", "L2", "L3", "L4"])) {
+      AlertSubjectSettingFirst(); // 初回レベル設定の警告
+    }
+  }
+
+  // 1科目「経済」のみ購入した場合
+  if (
+    checkBoughtMainSubject(["economy"]) && // 購入した主科目が「経済」か確認
+    !checkBoughtMainSubject(["philosophy", "science"]) // 購入した主科目が「哲学」や「科学」でないことを確認
+  ) {
+    AreaEconomy.show(); // 経済の入力エリアを表示
+    // 初回受講レベル登録時、注意文言を表示
+    if (!checkBoughtChildSubject("economy", ["L1", "L2", "L3", "L4"])) {
+      AlertSubjectSettingFirst(); // 初回レベル設定の警告
+    }
+  }
+
+  // 英語購入の場合
+  if (checkBoughtMainSubject(["globalenglish"])) { // 購入した主科目が「英語」か確認
+    AreaEnglish.show(); // 英語の入力エリアを表示
+    // 初回受講レベル登録時、注意文言を表示
+    if (!checkBoughtChildSubject("globalenglish", ["L1", "L2"])) {
+      AlertSubjectSettingFirst(); // 初回レベル設定の警告
+    }
+  }
+
+  // 【2科目セット購入】の場合
+  if (checkBoughtMainSubject(["twosubjectpack"], true)) { // 2科目セットを購入している場合
+    AreaTwoCourse.show(); // 2科目選択のプルダウンを表示
+
+    // プルダウン変更時に呼ばれる関数
+    function updateAreaOnSelection() {
+      var selectedIndex = getSelectElement(AreaTwoCourse).prop("selectedIndex"); // 選択されたインデックスを取得
+
+      // 2科目の選択に応じて表示する科目エリアを更新
+      switch (selectedIndex) {
+        case 1: // 哲学 + 科学
+          AreaPhilosophy.show();
+          AreaScience.show();
+          AreaEconomy.hide();
+          break;
+
+        case 2: // 科学 + 経済
+          AreaPhilosophy.show();
+          AreaScience.hide();
+          AreaEconomy.show();
+          break;
+
+        case 3: // 科学 + 経済（逆の場合）
+          AreaPhilosophy.hide();
+          AreaScience.show();
+          AreaEconomy.show();
+          break;
+        default: // それ以外の選択肢
+          AreaPhilosophy.hide();
+          AreaScience.hide();
+          AreaEconomy.hide();
+      }
+    }
+
+    // ページロード時に実行
+    updateAreaOnSelection();
+
+    // プルダウン変更時に再度実行
+    getSelectElement(AreaTwoCourse).on("change", updateAreaOnSelection);
+
+    // 初回受講レベル登録時、注意文言を表示
+    if (
+      !checkBoughtChildSubject("economy", ["L1", "L2", "L3", "L4"]) &&
+      !checkBoughtChildSubject("philosophy", ["L1", "L2", "L3", "L4"]) &&
+      !checkBoughtChildSubject("science", ["L1", "L2", "L3", "L4"])
+    ) {
+      getSelectElement(AreaTwoCourse).after(
+        "<div class='subject-select-levelnotset'>科目を選択してください</div>"
+      );
+      AlertSubjectSettingFirst(); // 初回レベル設定の警告
+    }
+  }
+
+  // 【3科目セット購入】の場合
+  if (checkBoughtMainSubject(["threesubjectpack"], true)) { // 3科目セットを購入している場合
+    AreaPhilosophy.show(); // 哲学を表示
+    AreaScience.show(); // 科学を表示
+    AreaEconomy.show(); // 経済を表示
+    // 初回受講レベル登録時、注意文言を表示
+    if (
+      !checkBoughtChildSubject("economy", ["L1", "L2", "L3", "L4"]) &&
+      !checkBoughtChildSubject("philosophy", ["L1", "L2", "L3", "L4"]) &&
+      !checkBoughtChildSubject("science", ["L1", "L2", "L3", "L4"])
+    ) {
+      AlertSubjectSettingFirst(); // 初回レベル設定の警告
+    }
+  }
+
+  // 各科目の設定を配列で定義
+  const subjectConfigs = [
+    {
+      subject: "philosophy",
+      area: AreaPhilosophy,
+      levels: ["L1", "L2", "L3", "L4"],
+    },
+    {
+      subject: "science",
+      area: AreaScience,
+      levels: ["L1", "L2", "L3", "L4"],
+    },
+    {
+      subject: "economy",
+      area: AreaEconomy,
+      levels: ["L1", "L2", "L3", "L4"],
+    },
+    {
+      subject: "globalenglish",
+      area: AreaEnglish,
+      levels: ["L1", "L2"],
+    },
+  ];
+
+  // メッセージを表示するための定義
+  const messages = {
+    levelSet: (ownedLevels) =>
+      `<div class="subject-select-levelset">
+         現在受講中のレベルは ${ownedLevels}です<br>
+         レベルの変更は月末反映となります。即時反映されませんのでご注意ください。
+       </div>`,
+    levelNotSet:
+      '<div class="subject-select-levelnotset">受講レベルを設定してください。</div>',
+  };
+
+  // 各科目の設定を一括で処理
+  subjectConfigs.forEach(({ subject, area, levels }) => {
+    const ownedLevels = getOwnedSubLevels(subject, levels); // 所有しているレベルを取得
+
+    const message =
+      ownedLevels.length > 0
+        ? messages.levelSet(ownedLevels) // 所有しているレベルがあればレベル設定メッセージを表示
+        : messages.levelNotSet; // レベルが設定されていなければレベル設定を促すメッセージ
+
+    getSelectElement(area).after(message); // エリアの後にメッセージを追加
+  });
+
+  //見出し直下にテキストを表示。
+  if (hasBoughtMainSubject) {
+    //メイン科目持っている時
+    $("#id_category_10 > .d-flex").after(`
+      <p class="subject-level-note">
+        受講科目のレベルを選択してください。<br />
+        選択した科目のレベルを設定しないと授業を受けることができません。<br />
+        一度受講レベルを設定すると、2回目以降のレベル変更時の反映は当月末になりますのでご注意ください。
+      </p>
+    `);
+    
+  } else {
+    //メイン科目がない時
+    $("#id_category_10 > .d-flex").after(`
+      <p class="subject-level-note">
+        科目を購入した後に受講科目レベルを設定することができます。<br />
+        科目の一覧は<a href="${UrlHome}" style="text-decoration:underline !important;">コチラ</a>からご確認いただけます。
+      </p>
+    `);
+  }
+}
+
+
 // ==============================
 // カテゴリページの処理
 // ==============================
 if (bodyId === "page-user-profile") {
     
-  $('.alert-success').html('変更が保存されました。科目レベルを設定した場合、<a href="https://lms.waomirai.com/my/">受講カレンダー</a>で確認ができます');  
- 
-  // 非表示にしたいキーワードの配列（OR条件）
-  // ここで非表示にしている項目
-  // ログイン活動：ログイン履歴（これはユーザーにとっては不要な情報）
-  // レポート：意味のないレポート（これはユーザーにとっては不要な情報）
-  // ジョブ：ジョブ情報（これはユーザーにとっては不要な情報）
-  // Stripe退会するための情報（これはユーザーにとっては不要な情報）
-  // 補足：stripeは金額は確認できるようにして、退会するための情報は非表示にしたほうがいいかも
-  const hideKeywords = ['レポート', 'ジョブ', 'Stripe'];
+    $('.alert-success').html('変更が保存されました。科目レベルを設定した場合、<a href="https://lms.waomirai.com/my/">受講カレンダー</a>で確認ができます');  
+   
+    // 非表示にしたいキーワードの配列（OR条件）
+    // ここで非表示にしている項目
+    // ログイン活動：ログイン履歴（これはユーザーにとっては不要な情報）
+    // レポート：意味のないレポート（これはユーザーにとっては不要な情報）
+    // ジョブ：ジョブ情報（これはユーザーにとっては不要な情報）
+    // Stripe退会するための情報（これはユーザーにとっては不要な情報）
+    // 補足：stripeは金額は確認できるようにして、退会するための情報は非表示にしたほうがいいかも
+    const hideKeywords = ['レポート', 'ジョブ', 'Stripe'];
 
-  // すべてのsectionに対してループ処理
-  $('.card').each(function() {
-      // 現在のセクション内のh3テキストを取得
-      // alert('a');
-      const h3Text = $(this).find('h3.lead').text();
-      console.log(h3Text);
-      // キーワードのいずれかが含まれているかチェック（OR条件）
-      const shouldHide = hideKeywords.some(keyword => h3Text.includes(keyword));
+    // すべてのsectionに対してループ処理
+    $('.card').each(function() {
+        // 現在のセクション内のh3テキストを取得
+        // alert('a');
+        const h3Text = $(this).find('h3.lead').text();
+        console.log(h3Text);
+        // キーワードのいずれかが含まれているかチェック（OR条件）
+        const shouldHide = hideKeywords.some(keyword => h3Text.includes(keyword));
 
-      // キーワードが含まれていたら、そのセクション全体を非表示にする
-      if (shouldHide) {
-        this.setAttribute("style", "display: none !important;");
-      }
-  });
-  // ステップ1: profile_treeクラス内のnode_categoryクラスを持つすべてのセクションを取得
-  const $sections = $('.profile_tree .node_category');
-  
-  // ステップ2: 各セクションを順番にチェック
-  $sections.each(function() {
-    // ステップ3: 現在のセクション内からh3要素を検索
-    const $h3 = $(this).find('h3');
+        // キーワードが含まれていたら、そのセクション全体を非表示にする
+        if (shouldHide) {
+          this.setAttribute("style", "display: none !important;");
+        }
+    });
+    // ステップ1: profile_treeクラス内のnode_categoryクラスを持つすべてのセクションを取得
+    const $sections = $('.profile_tree .node_category');
     
-    // ステップ4: h3要素が存在し、そのテキストに「その他」が含まれているかを確認
-    if ($h3.length > 0 && $h3.text().includes('その他')) {
-      // ステップ5: 挿入するカスタムHTMLを作成
-      const lineConnectHTML = `
-      <section class="node_category card d-inline-block w-100 mb-3 line-connection-seciton">
-        <div class="card-lineimg">
-          <img src="https://waomirai.com/lp/assets/moodle/images/page_mypage_line.png">
-        </div>
-        <div class="card-body">
-            <a class="line-button triger-line-integration-modal">いますぐLINE連携する</a>
-        </div>
-      </section>`;
-            
-      // 「その他」を含むセクションの直後にLINE連携セクションを挿入
-      $(this).after(lineConnectHTML);
-            
+    // ステップ2: 各セクションを順番にチェック
+    $sections.each(function() {
+      // ステップ3: 現在のセクション内からh3要素を検索
+      const $h3 = $(this).find('h3');
       
-      // ステップ7: 最初に見つかった「その他」セクションの後に挿入したら処理を終了
-      // (複数の「その他」セクションがある場合は最初の1つだけに対応)
-      return false; // eachループを終了（jQueryのeachでは、falseを返すとループが中断される）
-    }
-  });
+      // ステップ4: h3要素が存在し、そのテキストに「その他」が含まれているかを確認
+      if ($h3.length > 0 && $h3.text().includes('その他')) {
+        // ステップ5: 挿入するカスタムHTMLを作成
+        const lineConnectHTML = `
+        <section class="node_category card d-inline-block w-100 mb-3 line-connection-seciton">
+          <div class="card-lineimg">
+            <img src="https://waomirai.com/lp/assets/moodle/images/page_mypage_line.png">
+          </div>
+          <div class="card-body">
+              <a class="line-button triger-line-integration-modal">いますぐLINE連携する</a>
+          </div>
+        </section>`;
+              
+        // 「その他」を含むセクションの直後にLINE連携セクションを挿入
+        $(this).after(lineConnectHTML);
+              
+        
+        // ステップ7: 最初に見つかった「その他」セクションの後に挿入したら処理を終了
+        // (複数の「その他」セクションがある場合は最初の1つだけに対応)
+        return false; // eachループを終了（jQueryのeachでは、falseを返すとループが中断される）
+      }
+    });
 }
 
 
