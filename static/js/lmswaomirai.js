@@ -2149,5 +2149,6 @@ $('.enrol-section-basesubject-year-lesson-tab-child').click(function() {
   // コンテンツの表示切り替え
   $('.enrol-section-basesubject-year-lesson-content-child').hide();
   $('.content-level' + level).css('display', 'grid');
-});   }
+});
+   }
 });

@@ -35,14 +35,14 @@ const dstpaths = {
 
 // 結合するファイルリストを定数で定義（1箇所管理）
 
-const JS_FILES = [
-            'src/js/moodle.js'
-        ];
-
 // const JS_FILES = [
-//         'src/js/01_config.js',                     // config
-//         'src/js/02_pages/00_pages.js',    // my-index
-//     ];
+//             'src/js/moodle.js'
+//         ];
+
+const JS_FILES = [
+        'src/js/01_config.js',                     // config
+        'src/js/02_pages/00_pages.js',    // my-index
+    ];
     
 // const JS_FILES = [
 //     'src/js/01_config.js',                     // config
