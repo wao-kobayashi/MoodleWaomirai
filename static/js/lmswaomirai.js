@@ -923,6 +923,148 @@ if (bodyId === "page-my-index") {
 }
 
 
+/** "YYYY年M月：タイトル" を解析（全角/半角コロン対応） */
+function parseBadgeTitle(raw) {
+  const m = String(raw).trim().match(/^(\d{4})年\s*(\d{1,2})月\s*[:：]\s*(.+)$/);
+  if (!m) return null;
+  const year  = parseInt(m[1], 10);
+  const month = parseInt(m[2], 10);
+  const title = m[3].trim();
+  const start = new Date(year, month - 1, 1, 0, 0, 0); // 獲得月1日
+  const end   = new Date(year, month, 16, 0, 0, 0);    // 翌月16日(未満)
+  return { year, month, title, start, end, dateLabel: `${year}年${month}月` };
+}
+
+/** 画像の取得（なければ空文字） */
+function resolveImageSrc($li) {
+  const $img = $li.find('img.badge-image').first();
+  return ($img.length && $img.attr('src')) ? $img.attr('src') : '';
+}
+
+/** .badges の <li> を “出現順” のまま配列化 */
+function collectBadges() {  
+  const list = [];
+  const $lis = $('ul.badges li');
+  console.log('[DEBUG] .badges li count =', $lis.length);
+
+  $lis.each(function (idx) {
+    const $li = $(this);
+    const $a  = $li.find('> a').first();
+
+    const rawTitle = $a.attr('title') || $li.find('.badge-name').first().text() || '';
+    const parsed   = parseBadgeTitle(rawTitle);
+    if (!parsed) {
+      console.warn('[WARN] タイトル形式不正のためスキップ:', rawTitle);
+      return;
+    }
+
+    list.push({
+      index: idx,                 // <li> の並び順（そのまま使える）
+      raw: rawTitle,
+      title: parsed.title,
+      dateLabel: parsed.dateLabel,
+      year: parsed.year,
+      month: parsed.month,
+      start: parsed.start,
+      end: parsed.end,
+      img: resolveImageSrc($li),
+      href: $a.attr('href') || '#',
+    });
+  });
+
+  // 並び替え無し（<li> の順番のまま）
+  const dates  = list.map(b => b.dateLabel);
+  const titles = list.map(b => b.title);
+  return { list, dates, titles };
+}
+
+/** NEW期間（獲得月1日〜翌月15日まで）判定 */
+function isInNewWindow(start, end, now = new Date()) {
+  return now >= start && now < end;
+}
+
+/** 02_バッジ一覧ブロック（最大6件＋ダミー補完） */
+function renderBadgeBlock({ max = 6 } = {}) {
+  // 出力先の用意
+  let $out = $('.dashboard-left-block-wrap-badge');
+  if ($out.length === 0) {
+    console.log('[DEBUG] 出力先 .dashboard-left-block-wrap-badge が無いので生成します');
+    $out = $('<div class="dashboard-left-block-wrap-badge"></div>');
+    if ($('ul.badges').length) {
+      $('ul.badges').after($out);
+    } else {
+      $('body').append($out);
+    }
+  }
+
+  const { list } = collectBadges();
+  console.log('[DEBUG] badgeList (li順):', list);
+
+  const now = new Date();
+  const items = list.slice(0, max);
+
+  $out.empty(); // いったんクリア
+
+  // 画像が空のときの簡易ダミーSVG
+  const dummySVG = () => {
+    const svg = encodeURIComponent(
+      `<svg xmlns="http://www.w3.org/2000/svg" width="160" height="160" viewBox="0 0 160 160">
+        <rect width="160" height="160" rx="16" fill="#EEE"/>
+        <circle cx="80" cy="64" r="28" fill="#CCC"/>
+        <rect x="32" y="104" width="96" height="32" rx="8" fill="#DDD"/>
+      </svg>`
+    );
+    return `data:image/svg+xml;charset=UTF-8,${svg}`;
+  };
+
+  // 実バッジ
+  items.forEach(function (b, i) {
+    const showNew = isInNewWindow(b.start, b.end, now);
+    const imgSrc = b.img || dummySVG();
+
+    // まずはデバッグ表示優先の素朴なカード
+    const $card = $(`
+      <div class="dashboard-left-block-wrap-badge-block" data-badge-index="${b.index}"
+           style="border:1px solid #ccc; padding:8px; margin:6px 0;">
+        <div><strong>[${i+1}] ${b.dateLabel}</strong>${showNew ? '  ← NEW' : ''}</div>
+        <div>タイトル：${b.title}</div>
+        <div>画像URL：${b.img ? b.img : '(なし→ダミー表示)'}</div>
+        <div style="margin-top:6px;">
+          <img src="${imgSrc}" alt="${b.raw}" style="width:80px;height:80px;object-fit:cover;border:1px solid #ddd;">
+        </div>
+      </div>
+    `);
+    $out.append($card);
+  });
+
+  // ダミー補完
+  const needDummies = Math.max(0, max - items.length);
+  console.log('[DEBUG] dummy count =', needDummies);
+  for (let i = 0; i < needDummies; i++) {
+    $out.append(`
+      <div class="dashboard-left-block-wrap-badge-block dummy"
+           style="border:1px dashed #bbb; padding:8px; margin:6px 0; color:#666;">
+        <div><strong>[${items.length + i + 1}] ダミー</strong></div>
+        <div>バッジがありません</div>
+      </div>
+    `);
+  }
+
+  console.log('[DEBUG] render done.');
+}
+
+/* 起動＆ログ */
+$(function () {
+  const { list, dates, titles } = collectBadges();
+  console.log('list (li順):', list);
+  console.log('dates:', dates);
+  console.log('titles:', titles);
+
+  // 02_バッジ一覧ブロック描画
+  renderBadgeBlock({ max: 6 });
+});
+
+
 // ==============================
 // ログイン・サインアップページの処理
 // ==============================

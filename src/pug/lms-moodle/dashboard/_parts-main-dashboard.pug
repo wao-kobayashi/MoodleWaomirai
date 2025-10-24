@@ -70,10 +70,16 @@ body#page-my-index(class=existingClasses + ' ' + additionalClasses)
                                 include parts-dashboard-textblock.pug
                               .footer
                         a.sr-only.sr-only-focusable(href='#sb-1') &#x30AB;&#x30EC;&#x30F3;&#x30C0;&#x30FC; &#x3092;&#x30B9;&#x30AD;&#x30C3;&#x30D7;&#x3059;&#x308B;
+                        //受講カレンダー
                         section#inst255.block_calendar_month.block.card.mb-3(role='complementary' data-block='calendar_month' data-instance-id='255' aria-labelledby='instance-255-header')
                           #yui_3_18_1_1_1732844965795_23.card-body.p-3
                             h5#instance-255-header.card-title.d-inline &#x30AB;&#x30EC;&#x30F3;&#x30C0;&#x30FC;
                             include _parts-calender-include-event.pug
+                        //バッジ
+                        section#inst302.block_badges.block.card.mb-3(role='complementary' data-block='badges' data-instance-id='302' aria-labelledby='instance-302-header')
+                          include parts-badge.pug
+      .footer
+
           div 
             p|calender
             include ../common/_parts-modal.pug
