@@ -921,370 +921,279 @@ if (bodyId === "page-my-index") {
   }
 
 }
-
 // ==============================
 // ダッシュボードページでの処理
+// bodyId が "page-my-index" の時だけこのコードを実行
 // ==============================
-if (bodyId === "page-my-index") {
+if (bodyId === "page-my-index") {  // 他ページで実行されないようガード。想定外のDOM構造でエラーを出さないための安全装置。
 
-//cookie削除
-// すべてのバッジ系Cookie（獲得モーダル＆NEW非表示）をまとめて消す
-(function clearAllBadgeCookies(options){
-    options = options || {};
-    var path = options.path || '/';
-    var domain = options.domain; // 例: '.example.com' （不要なら未指定でOK）
-  
-    var cookies = document.cookie.split(';').map(function(s){return s.trim();}).filter(Boolean);
-  
-    // 対象: badge_modal_seen_* と badge_new_dismiss_*
-    var targets = cookies.filter(function(c){
-      return c.indexOf('badge_modal_seen_') === 0 || c.indexOf('badge_new_dismiss_') === 0;
-    });
-  
-    if (targets.length === 0) {
-      console.log('[RESET ALL] 対象Cookieなし');
-      return;
-    }
-  
-    targets.forEach(function(c){
-      var name = c.split('=')[0];
-  
-      // jquery.cookie があれば removeCookie（path/domain を合わせる）
-      if (typeof $.cookie === 'function') {
-        $.removeCookie(name, { path: path, ...(domain ? { domain: domain } : {}) });
-      }
-  
-      // 念のためネイティブでも削除（path/domain一致が重要）
-      var del = name + '=; Max-Age=0; path=' + path + ';';
-      if (domain) del += ' domain=' + domain + ';';
-      document.cookie = del;
-    });
-  
-    console.log('[RESET ALL] removed:',
-      targets.map(function(c){ return c.split('=')[0]; }),
-      'path=', path,
-      domain ? ('domain=' + domain) : ''
+    // ===== 定数・設定 =====
+    
+    // Cookieの有効期限とパスの設定（365日間有効、サイト全体で使える）
+    // - jQuery Cookie プラグイン($.cookie)の第3引数に渡すオプション。
+    // - expires: 日数指定。ここでは1年保持。
+    // - path: '/' にすることで、サイト全体どのパスでも同じCookieにアクセスできる。
+    const COOKIE_OPTS = { expires: 365, path: '/' };
+    
+    // 獲得モーダルを表示したかを記録するCookieの名前の先頭部分
+    // 例: badge_modal_seen_2024-01-some-title
+    // - 末尾に「年月+タイトル」から作るキー（makeBadgeKey）を連結してユニーク化する設計。
+    const MODAL_PREFIX = 'badge_modal_seen_';
+    
+    // NEWバッジを非表示にしたかを記録するCookieの名前の先頭部分
+    // 例: badge_new_dismiss_2024-01-some-title
+    // - 詳細モーダルを開いたタイミングで「NEW」を既読扱いにし、二度と表示しないためのフラグ保存に使う。
+    const NEW_PREFIX = 'badge_new_dismiss_';
+    
+    // バッジ画像が無い時に表示するダミー画像（SVG形式）
+    // グレーの四角に円と横棒を描いたシンプルなアイコン
+    // encodeURIComponentでURL埋め込み可能な形式に変換
+    // - <img src="data:image/svg+xml,..."> として埋め込めるよう、SVG文字列をURLエンコードしておく。
+    const DUMMY_SVG = encodeURIComponent(
+      `<svg xmlns="http://www.w3.org/2000/svg" width="160" height="160" viewBox="0 0 160 160">
+        <rect width="160" height="160" rx="16" fill="#EEE"/>
+        <circle cx="80" cy="64" r="28" fill="#CCC"/>
+        <rect x="32" y="104" width="96" height="32" rx="8" fill="#DDD"/>
+      </svg>`
     );
-  })({ path: '/' /*, domain: '.example.com' */ });
   
-  /** "YYYY年M月：タイトル" を解析（全角/半角コロン対応） */
-  function parseBadgeTitle(raw) {
-    const m = String(raw).trim().match(/^(\d{4})年\s*(\d{1,2})月\s*[:：]\s*(.+)$/);
-    if (!m) return null;
-    const year  = parseInt(m[1], 10);
-    const month = parseInt(m[2], 10);
-    const title = m[3].trim();
-    const start = new Date(year, month - 1, 1, 0, 0, 0); // 獲得月1日
-    const end   = new Date(year, month, 16, 0, 0, 0);    // 翌月16日(未満)
-    return { year, month, title, start, end, dateLabel: `${year}年${month}月` };
-  }
+    // ===== ユーティリティ関数 =====
+    // jQuery Cookieプラグインが読み込まれているかを確認。
+    // - ない環境でもコードが壊れないよう、以降のCookie操作はこの関数経由でガードする。
+    const hasCookie = () => typeof $.cookie === 'function';
+    
+    // Cookieをセットするラッパー
+    // - プラグインが無い場合はfalseを返して無視（例外を起こさない）。
+    const setCookie = (key, val) => hasCookie() && $.cookie(key, val, COOKIE_OPTS);
+    
+    // Cookieを「存在チェック+値が'1'か」を返すラッパー
+    // - 無い/未対応なら false を返す（＝未設定扱い）。
+    const getCookie = (key) => hasCookie() ? $.cookie(key) === '1' : false;
+    
+    // バッジを一意に識別するためのキーを作る
+    // - 年(YYYY)・月(2桁)・タイトル(半角小文字・スペースはハイフン・和文は許容・その他記号除去)で統一フォーマット化。
+    // - Cookie名の一部として用いるため、同じラベルの衝突を避けられる。
+    const makeBadgeKey = (y, m, title) => 
+      `${y}-${String(m).padStart(2,'0')}-${title.toLowerCase().replace(/\s+/g,'-').replace(/[^\w\-ぁ-んァ-ヶ一-龠]/g,'')}`;
   
-  /** 画像の取得（なければ空文字） */
-  function resolveImageSrc($li) {
-    const $img = $li.find('img.badge-image').first();
-    return ($img.length && $img.attr('src')) ? $img.attr('src') : '';
-  }
-  
-  /** .badges の <li> を “出現順” のまま配列化 */
-  function collectBadges() {  
-    const list = [];
-    const $lis = $('ul.badges li');
-    console.log('[DEBUG] .badges li count =', $lis.length);
-  
-    $lis.each(function (idx) {
-      const $li = $(this);
-      const $a  = $li.find('> a').first();
-  
-      const rawTitle = $a.attr('title') || $li.find('.badge-name').first().text() || '';
-      const parsed   = parseBadgeTitle(rawTitle);
-      if (!parsed) {
-        console.warn('[WARN] タイトル形式不正のためスキップ:', rawTitle);
-        return;
-      }
-  
-      list.push({
-        index: idx,
-        raw: rawTitle,
-        title: parsed.title,
-        dateLabel: parsed.dateLabel,
-        year: parsed.year,
-        month: parsed.month,
-        start: parsed.start,
-        end: parsed.end,
-        img: resolveImageSrc($li),
-        href: $a.attr('href') || '#',
-      });
-    });
-  
-    const dates  = list.map(b => b.dateLabel);
-    const titles = list.map(b => b.title);
-    return { list, dates, titles };
-  }
-  
-  /** NEW期間（獲得月1日〜翌月15日まで）判定 */
-  function isInNewWindow(start, end, now = new Date()) {
-    return now >= start && now < end;
-  }
-  
-  /** 02_バッジ一覧ブロック（最大6件＋ダミー補完） */
-  function renderBadgeBlock({ max = 6 } = {}) {
-    let $out = $('.dashboard-left-block-wrap-badge');
-    if ($out.length === 0) {
-      console.log('[DEBUG] 出力先 .dashboard-left-block-wrap-badge が無いので生成します');
-      $out = $('<div class="dashboard-left-block-wrap-badge"></div>');
-      if ($('ul.badges').length) {
-        $('ul.badges').after($out);
-      } else {
-        $('body').append($out);
-      }
-    }
-  
-    const { list } = collectBadges();
-    console.log('[DEBUG] badgeList (li順):', list);
-  
-    const now = new Date();
-    const items = list.slice(0, max);
-  
-    $out.empty();
-  
-    const dummySVG = () => {
-      const svg = encodeURIComponent(
-        `<svg xmlns="http://www.w3.org/2000/svg" width="160" height="160" viewBox="0 0 160 160">
-          <rect width="160" height="160" rx="16" fill="#EEE"/>
-          <circle cx="80" cy="64" r="28" fill="#CCC"/>
-          <rect x="32" y="104" width="96" height="32" rx="8" fill="#DDD"/>
-        </svg>`
-      );
-      return `data:image/svg+xml;charset=UTF-8,${svg}`;
+    // バッジタイトル（例: "2024年 1月： 〇〇タイトル"）を構造化データに変換
+    // - 期待フォーマットに合わない場合は null を返してスキップ。
+    // - start: 月初日0:00、end: 翌月16日0:00（NEW表示の判定に使う期間窓）
+    const parseBadgeTitle = (raw) => {
+      const m = String(raw).trim().match(/^(\d{4})年\s*(\d{1,2})月\s*[:：]\s*(.+)$/);
+      if (!m) return null;
+      const [, year, month, title] = m;
+      const y = parseInt(year), mo = parseInt(month);
+      return {
+        year: y, month: mo, title: title.trim(),
+        dateLabel: `${y}年${mo}月`,
+        start: new Date(y, mo - 1, 1),
+        end: new Date(y, mo, 16)
+      };
     };
   
-    items.forEach(function (b, i) {
-      const showNew = isInNewWindow(b.start, b.end, now);
-      const imgSrc = b.img || dummySVG();
-      const $card = $(`
-        <div class="dashboard-left-block-wrap-badge-block" data-badge-index="${b.index}"
-             style="border:1px solid #ccc; padding:8px; margin:6px 0;">
-          <div><strong>[${i+1}] ${b.dateLabel}</strong>${showNew ? '  ← NEW' : ''}</div>
-          <div>タイトル：${b.title}</div>
-          <div>画像URL：${b.img ? b.img : '(なし→ダミー表示)'}</div>
-          <div style="margin-top:6px;">
-            <img src="${imgSrc}" alt="${b.raw}" style="width:80px;height:80px;object-fit:cover;border:1px solid #ddd;">
-          </div>
-        </div>
-      `);
-      $out.append($card);
-    });
+    // NEW表示やモーダル対象期間かどうかの判定
+    // - now はテスト容易性のため引数化（省略時は現在時刻）。
+    const isInNewWindow = (start, end, now = new Date()) => now >= start && now < end;
   
-    const needDummies = Math.max(0, max - items.length);
-    console.log('[DEBUG] dummy count =', needDummies);
-    for (let i = 0; i < needDummies; i++) {
-      $out.append(`
-        <div class="dashboard-left-block-wrap-badge-block dummy"
-             style="border:1px dashed #bbb; padding:8px; margin:6px 0; color:#666;">
-          <div><strong>[${items.length + i + 1}] ダミー</strong></div>
-          <div>バッジがありません</div>
-        </div>
-      `);
+    // ===== Cookie一括削除 =====
+    // 即時実行関数で、関連Cookie（MODAL_PREFIX/NEW_PREFIX で始まるもの）を全削除する初期化処理。
+    // - デバッグ/リセット用途。通常は開発時に役立つ。
+    // (function clearAllBadgeCookies() {
+    //   // document.cookie は "name=value; name2=value2; ..." 形式のため分割して走査。
+    //   const cookies = document.cookie.split(';').map(s => s.trim()).filter(Boolean);
+    //   // 対象となるプレフィックスのCookieのみ抽出。
+    //   const targets = cookies.filter(c => c.startsWith(MODAL_PREFIX) || c.startsWith(NEW_PREFIX));
+      
+    //   if (!targets.length) return console.log('[RESET] 対象Cookieなし');
+      
+    //   // jQuery Cookie があれば removeCookie、なければ生CookieでMax-Age=0を併用して確実に削除。
+    //   targets.forEach(c => {
+    //     const name = c.split('=')[0];
+    //     if (hasCookie()) $.removeCookie(name, COOKIE_OPTS);
+    //     document.cookie = `${name}=; Max-Age=0; path=/;`;
+    //   });
+    //   console.log('[RESET] removed:', targets.map(c => c.split('=')[0]));
+    // })();
+  
+    // ===== バッジデータ収集 =====
+    // DOMからバッジ一覧<ul class="badges">の各<li>を走査し、必要情報を配列で返す。
+    // - title属性 > .badge-name テキストの順でラベル取得
+    // - parseBadgeTitle で構造化（不正はスキップ＆warn）
+    // - img/src とリンクhref、元文字列(raw)、リストindexを保管
+    function collectBadges() {
+      const list = [];
+      $('ul.badges li').each(function(idx) {
+        const $li = $(this), $a = $li.find('> a').first();
+        const rawTitle = $a.attr('title') || $li.find('.badge-name').first().text() || '';
+        const parsed = parseBadgeTitle(rawTitle);
+        
+        if (!parsed) return console.warn('[WARN] 形式不正:', rawTitle);
+        
+        list.push({
+          ...parsed, index: idx, raw: rawTitle,
+          img: $li.find('img.badge-image').first().attr('src') || '',
+          href: $a.attr('href') || '#'
+        });
+      });
+      return list;
     }
   
-    console.log('[DEBUG] render done.');
-  }
-  
-  /* ====== 01_バッジ獲得モーダル（Cookie制御） ====== */
-  const BADGE_MODAL_COOKIE_PREFIX = 'badge_modal_seen_';
-  const COOKIE_OPTS = { expires: 365, path: '/' };
-  function makeBadgeKey(year, month, title) {
-    const slug = String(title).toLowerCase().replace(/\s+/g,'-').replace(/[^\w\-ぁ-んァ-ヶ一-龠]/g,'');
-    return `${year}-${String(month).padStart(2,'0')}-${slug}`;
-  }
-  function maybeShowAcquiredModal() {
-    const hasCookie = typeof $.cookie === 'function';
-    if (!hasCookie) {
-      console.warn('[WARN] jquery.cookie.min.js 未読込。モーダルの再表示抑止は無効になります。');
-    }
-  
-    const { list } = collectBadges();
+    // ===== 01_獲得モーダル =====
+    // 現在の期間窓に入っていて、かつ「まだモーダルを表示していない」最初のバッジがあればモーダル表示。
+    // - 1回だけ見せたいので、表示直後にCookie(MODAL_PREFIX+key)='1'をセットして再表示しない。
+
+    function maybeShowAcquiredModal() {
+    const list = collectBadges();
     const now = new Date();
   
-    // li順で、NEW期間中 かつ 未見の最初の1件
-    const target = list.find(b => {
-      const inWindow = isInNewWindow(b.start, b.end, now);
-      const key = BADGE_MODAL_COOKIE_PREFIX + makeBadgeKey(b.year, b.month, b.title);
-      const seen = hasCookie ? $.cookie(key) === '1' : false;
-      return inWindow && !seen;
-    });
+    // 期間内 && 未表示Cookie のものを全部採用（表示順は index 昇順）
+    const targets = list.filter(b => {
+      const key = MODAL_PREFIX + makeBadgeKey(b.year, b.month, b.title);
+      return isInNewWindow(b.start, b.end, now) && !getCookie(key);
+    }).sort((a, b) => a.index - b.index);
   
-    if (!target) {
+    if (!targets.length) {
       console.log('[DEBUG] 獲得モーダル対象なし');
       return;
     }
   
-    const imgSrc = target.img || (function(){ // 一覧と同じダミー
-      const svg = encodeURIComponent(
-        `<svg xmlns="http://www.w3.org/2000/svg" width="160" height="160" viewBox="0 0 160 160">
-          <rect width="160" height="160" rx="16" fill="#EEE"/>
-          <circle cx="80" cy="64" r="28" fill="#CCC"/>
-          <rect x="32" y="104" width="96" height="32" rx="8" fill="#DDD"/>
-        </svg>`
-      );
-      return `data:image/svg+xml;charset=UTF-8,${svg}`;
-    })();
-  
-    const html = `
-      <div class="badge-acquired-modal">
-        <h2 style="margin:0 0 12px;font-size:18px;">おめでとうございます！新しいバッジを獲得しました</h2>
-        <div style="display:flex;gap:16px;align-items:center;">
-          <img src="${imgSrc}" alt="${target.raw}" style="width:120px;height:120px;object-fit:cover;border-radius:12px;border:1px solid #eee;">
-          <div>
-            <div style="font-weight:bold;margin-bottom:6px;">${target.dateLabel}</div>
-            <div style="line-height:1.6;">${target.title}</div>
+    targets.forEach((badge, i) => {
+      const imgSrc = badge.img || `data:image/svg+xml;charset=UTF-8,${DUMMY_SVG}`;
+      const html = `
+        <div class="badge-acquired-modal">
+          <h2 style="margin:0 0 12px;font-size:18px;">おめでとうございます！新しいバッジを獲得しました</h2>
+          <div style="display:flex;gap:16px;align-items:center;">
+            <img src="${imgSrc}" alt="${badge.raw}" style="width:120px;height:120px;object-fit:cover;border-radius:12px;border:1px solid #eee;">
+            <div>
+              <div style="font-weight:bold;margin-bottom:6px;">${badge.dateLabel}</div>
+              <div style="line-height:1.6;">${badge.title}</div>
+            </div>
+          </div>
+          <div style="margin-top:16px;text-align:right;">
+            <button class="c-modal-wrap-close-tag cm-close-btn" style="padding:8px 14px;border-radius:8px;border:1px solid #ccc;background:#f8f8f8;cursor:pointer;">閉じる</button>
           </div>
         </div>
-        <div style="margin-top:16px;text-align:right;">
-          <button class="c-modal-wrap-close-tag cm-close-btn" style="padding:8px 14px;border-radius:8px;border:1px solid #ccc;background:#f8f8f8;cursor:pointer;">閉じる</button>
-        </div>
-      </div>
-    `;
-    const modal = createModal({ wrapClass: "badge-acquired", customModalHtml: html });
+      `;
   
-    // 表示した瞬間に既読Cookieを付与
-    const cookieKey = BADGE_MODAL_COOKIE_PREFIX + makeBadgeKey(target.year, target.month, target.title);
-    if (hasCookie) $.cookie(cookieKey, '1', COOKIE_OPTS);
+      // 表示済みフラグを先に立てて重複表示を防ぐ
+      setCookie(MODAL_PREFIX + makeBadgeKey(badge.year, badge.month, badge.title), '1');
   
-    $(document).off('click.badgeAcqClose').on('click.badgeAcqClose', '.badge-acquired-modal .cm-close-btn', function () {
-      if (modal && typeof modal.close === 'function') modal.close();
+      // 複数同時でもイベントが干渉しないよう、一意な wrapClass / 名前空間でバインド
+      const wrapClass = `badge-acquired badge-acquired-${i}`;
+      const modal = createModal({ wrapClass, customModalHtml: html });
+  
+      // このモーダルだけを閉じるハンドラ
+      $(document)
+        .off(`click.badgeAcqClose${i}`)
+        .on(`click.badgeAcqClose${i}`, `.${wrapClass} .cm-close-btn`, () => modal?.close());
+  
+      console.log('[DEBUG] 獲得モーダル表示:', badge.dateLabel, badge.title);
     });
+   }
   
-    console.log('[DEBUG] 獲得モーダル表示:', { title: target.title, date: target.dateLabel, cookieKey });
-  }
-  
-  /* ====== 起動 ====== */
-  $(function () {
-    const { list, dates, titles } = collectBadges();
-    console.log('list (li順):', list);
-    console.log('dates:', dates);
-    console.log('titles:', titles);
-  
-    renderBadgeBlock({ max: 6 });  // 02_一覧
-    maybeShowAcquiredModal();      // 01_獲得モーダル
-  });
-  
-  // ===== NEWの非表示用Cookie =====
-  const BADGE_NEW_DISMISS_COOKIE_PREFIX = 'badge_new_dismiss_';
-  
-  // ===== 詳細モーダルを開く（クリック時） =====
-  function openBadgeDetailModal(badge, { hadNew = false } = {}) {
-    // NEWが付いていたらCookieで以後出さない
-    if (hadNew && typeof $.cookie === 'function') {
-      const newKey = BADGE_NEW_DISMISS_COOKIE_PREFIX + makeBadgeKey(badge.year, badge.month, badge.title);
-      $.cookie(newKey, '1', COOKIE_OPTS);
-      // 一覧上のNEWバッジアイコンを即時消す
-      $(`.dashboard-left-block-wrap-badge-block[data-badge-index="${badge.index}"] .badge-new`).remove();
+    // ===== 詳細モーダル =====
+    // 個別バッジの詳細を表示するモーダル。
+    // - hadNew が true の場合、「NEW」既読扱いCookieを立て、カード上のNEWピルをDOMから除去。
+    function openBadgeDetailModal(badge, hadNew = false) {
+      if (hadNew) {
+        // NEWのDismissフラグをCookieに保存し、以降はNEWを出さない
+        setCookie(NEW_PREFIX + makeBadgeKey(badge.year, badge.month, badge.title), '1');
+        // 一覧側の該当カードから .badge-new 要素を取り除く（視覚的にも消す）
+        $(`.dashboard-left-block-wrap-badge-block[data-badge-index="${badge.index}"] .badge-new`).remove();
+      }
+      
+      // 画像ソース確定（なければダミー）
+      const imgSrc = badge.img || `data:image/svg+xml;charset=UTF-8,${DUMMY_SVG}`;
+      // モーダルHTML
+      const html = `
+        <div class="badge-detail-modal">
+          <div style="display:flex;gap:16px;align-items:flex-start;">
+            <img src="${imgSrc}" alt="${badge.raw}" style="width:160px;height:160px;object-fit:cover;border-radius:12px;border:1px solid #eee;">
+            <div>
+              <div style="font-weight:bold;margin:0 0 6px;">${badge.dateLabel}</div>
+              <div style="font-size:16px;line-height:1.6;">${badge.title}</div>
+            </div>
+          </div>
+          <div style="margin-top:16px;text-align:right;">
+            <button class="c-modal-wrap-close-tag cm-close-btn" style="padding:8px 14px;border-radius:8px;border:1px solid #ccc;background:#f8f8f8;cursor:pointer;">閉じる</button>
+          </div>
+        </div>
+      `;
+      
+      // 詳細モーダルを表示
+      const modal = createModal({ wrapClass: "badge-detail", customModalHtml: html });
+      // 閉じるボタンのイベント（多重登録防止のため名前空間付きで再バインド）
+      $(document).off('click.badgeDetailClose').on('click.badgeDetailClose', '.badge-detail-modal .cm-close-btn', () => modal?.close());
     }
   
-    const imgSrc = badge.img || (function(){ // ダミー
-      const svg = encodeURIComponent(
-        `<svg xmlns="http://www.w3.org/2000/svg" width="160" height="160" viewBox="0 0 160 160">
-          <rect width="160" height="160" rx="16" fill="#EEE"/>
-          <circle cx="80" cy="64" r="28" fill="#CCC"/>
-          <rect x="32" y="104" width="96" height="32" rx="8" fill="#DDD"/>
-        </svg>`
-      );
-      return `data:image/svg+xml;charset=UTF-8,${svg}`;
-    })();
-  
-    const html = `
-      <div class="badge-detail-modal">
-        <div style="display:flex;gap:16px;align-items:flex-start;">
-          <img src="${imgSrc}" alt="${badge.raw}" style="width:160px;height:160px;object-fit:cover;border-radius:12px;border:1px solid #eee;">
-          <div>
-            <div style="font-weight:bold;margin:0 0 6px;">${badge.dateLabel}</div>
-            <div style="font-size:16px;line-height:1.6;">${badge.title}</div>
+    // ===== 02_バッジ一覧ブロック =====
+    // 画面左側に表示するバッジカード群を組み立てる。
+    // - max 件（デフォ6）を表示し、足りない分は「ダミー」で穴埋め。
+    // - NEW表示ロジック：期間窓内 && NEW_PREFIX Cookie未設定 → NEWピルを出す。
+    // - カードクリックで詳細モーダルを開く（開いたらNEWを既読化）。
+    function renderBadgeBlock(max = 6) {
+      // 既存コンテナが無ければ生成する（柔軟に既存の<ul.badges>の直後に置く。なければbody末尾）
+      let $out = $('.dashboard-left-block-wrap-badge');
+      if (!$out.length) {
+        $out = $('<div class="dashboard-left-block-wrap-badge"></div>');
+        $('ul.badges').length ? $('ul.badges').after($out) : $('body').append($out);
+      }
+      
+      const list = collectBadges();   // DOMからの最新バッジ情報
+      const now = new Date();
+      const items = list.slice(0, max); // 表示件数に制限
+      $out.empty(); // 再描画のためクリア
+      
+      items.forEach((b, i) => {
+        // このバッジが「NEW期間内」かどうか
+        const inWindow = isInNewWindow(b.start, b.end, now);
+        // 既にNEWを消している（詳細を見た等）かどうかのCookie
+        const dismissed = getCookie(NEW_PREFIX + makeBadgeKey(b.year, b.month, b.title));
+        // 表示判定：期間内 && 未Dismiss
+        const showNew = inWindow && !dismissed;
+        // 画像が無ければダミー
+        const imgSrc = b.img || `data:image/svg+xml;charset=UTF-8,${DUMMY_SVG}`;
+        
+        // 1枚のカードDOM（インラインスタイルは簡便のため）
+        // - data-badge-index は後で該当カードを特定してNEWバッジを除去するための参照に使う
+        const $card = $(`
+          <div class="dashboard-left-block-wrap-badge-block" data-badge-index="${b.index}"
+               style="position:relative;border:1px solid #ccc;padding:8px;margin:6px 0;cursor:pointer;">
+            ${showNew ? '<span class="badge-new" style="position:absolute;top:8px;left:8px;background:#e60033;color:#fff;font-size:12px;font-weight:bold;padding:3px 6px;border-radius:6px;">NEW</span>' : ''}
+            <div><strong>[${i+1}] ${b.dateLabel}</strong>${showNew ? '  ← NEW' : ''}</div>
+            <div>タイトル：${b.title}</div>
+            <div style="margin-top:6px;">
+              <img src="${imgSrc}" alt="${b.raw}" style="width:80px;height:80px;object-fit:cover;border:1px solid #ddd;">
+            </div>
           </div>
-        </div>
-        <div style="margin-top:16px;text-align:right;">
-          <button class="c-modal-wrap-close-tag cm-close-btn" style="padding:8px 14px;border-radius:8px;border:1px solid #ccc;background:#f8f8f8;cursor:pointer;">閉じる</button>
-        </div>
-      </div>
-    `;
-    const modal = createModal({ wrapClass: "badge-detail", customModalHtml: html });
-  
-    $(document).off('click.badgeDetailClose').on('click.badgeDetailClose', '.badge-detail-modal .cm-close-btn', function () {
-      if (modal && typeof modal.close === 'function') modal.close();
-    });
-  }
-  
-  // ===== 02_バッジ一覧ブロック（クリック対応＆NEW Cookie制御込） =====
-  // 既存の renderBadgeBlock をこの実装に置き換えてください
-  function renderBadgeBlock({ max = 6 } = {}) {
-    let $out = $('.dashboard-left-block-wrap-badge');
-    if ($out.length === 0) {
-      console.log('[DEBUG] 出力先 .dashboard-left-block-wrap-badge が無いので生成します');
-      $out = $('<div class="dashboard-left-block-wrap-badge"></div>');
-      if ($('ul.badges').length) {
-        $('ul.badges').after($out);
-      } else {
-        $('body').append($out);
+        `).on('click', () => openBadgeDetailModal(b, showNew)); // クリックで詳細モーダル。showNewなら既読化も行う。
+        
+        $out.append($card);
+      });
+      
+      // 表示数がmaxに満たない場合、UIが詰まらないようダミーカードで穴埋め。
+      for (let i = items.length; i < max; i++) {
+        $out.append(`
+          <div class="dashboard-left-block-wrap-badge-block dummy"
+               style="border:1px dashed #bbb;padding:8px;margin:6px 0;color:#666;">
+            <div><strong>[${i+1}] ダミー</strong></div>
+            <div>バッジがありません</div>
+          </div>
+        `);
       }
     }
   
-    const { list } = collectBadges();
-    const now = new Date();
-    const items = list.slice(0, max);
-    $out.empty();
-  
-    const dummySVG = () => {
-      const svg = encodeURIComponent(
-        `<svg xmlns="http://www.w3.org/2000/svg" width="160" height="160" viewBox="0 0 160 160">
-          <rect width="160" height="160" rx="16" fill="#EEE"/>
-          <circle cx="80" cy="64" r="28" fill="#CCC"/>
-          <rect x="32" y="104" width="96" height="32" rx="8" fill="#DDD"/>
-        </svg>`
-      );
-      return `data:image/svg+xml;charset=UTF-8,${svg}`;
-    };
-  
-    items.forEach(function (b, i) {
-      // NEW表示: 期間内 かつ NEW非表示Cookieが未セット
-      const inWindow = isInNewWindow(b.start, b.end, now);
-      const newDismissed = (typeof $.cookie === 'function')
-        ? $.cookie(BADGE_NEW_DISMISS_COOKIE_PREFIX + makeBadgeKey(b.year, b.month, b.title)) === '1'
-        : false;
-      const showNew = inWindow && !newDismissed;
-  
-      const imgSrc = b.img || dummySVG();
-      const $card = $(`
-        <div class="dashboard-left-block-wrap-badge-block" data-badge-index="${b.index}"
-             style="position:relative;border:1px solid #ccc; padding:8px; margin:6px 0; cursor:pointer;">
-          ${showNew ? '<span class="badge-new" style="position:absolute;top:8px;left:8px;background:#e60033;color:#fff;font-size:12px;font-weight:bold;padding:3px 6px;border-radius:6px;">NEW</span>' : ''}
-          <div><strong>[${i+1}] ${b.dateLabel}</strong>${showNew ? '  ← NEW' : ''}</div>
-          <div>タイトル：${b.title}</div>
-          <div style="margin-top:6px;">
-            <img src="${imgSrc}" alt="${b.raw}" style="width:80px;height:80px;object-fit:cover;border:1px solid #ddd;">
-          </div>
-        </div>
-      `);
-  
-      // クリックで詳細モーダル
-      $card.on('click', function () {
-        openBadgeDetailModal(b, { hadNew: showNew });
-      });
-  
-      $out.append($card);
+    // ===== 起動 =====
+    // DOM準備完了後に初期描画＆必要なら獲得モーダルを表示。
+    // - renderBadgeBlock: 左ブロックのカード群を作る
+    // - maybeShowAcquiredModal: 今回が初見の獲得モーダル対象があれば表示
+    $(function() {
+      renderBadgeBlock(6);
+      maybeShowAcquiredModal();
     });
-  
-    const needDummies = Math.max(0, max - items.length);
-    for (let i = 0; i < needDummies; i++) {
-      $out.append(`
-        <div class="dashboard-left-block-wrap-badge-block dummy"
-             style="border:1px dashed #bbb; padding:8px; margin:6px 0; color:#666;">
-          <div><strong>[${items.length + i + 1}] ダミー</strong></div>
-          <div>バッジがありません</div>
-        </div>
-      `);
-    }
   }
-}
+  
 // ==============================
 // ログイン・サインアップページの処理
 // ==============================
