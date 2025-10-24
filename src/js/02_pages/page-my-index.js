@@ -546,7 +546,6 @@ if (bodyId === "page-my-index") {
 
 }
 
-
 /** "YYYY年M月：タイトル" を解析（全角/半角コロン対応） */
 function parseBadgeTitle(raw) {
   const m = String(raw).trim().match(/^(\d{4})年\s*(\d{1,2})月\s*[:：]\s*(.+)$/);
@@ -583,7 +582,7 @@ function collectBadges() {
     }
 
     list.push({
-      index: idx,                 // <li> の並び順（そのまま使える）
+      index: idx,
       raw: rawTitle,
       title: parsed.title,
       dateLabel: parsed.dateLabel,
@@ -596,7 +595,6 @@ function collectBadges() {
     });
   });
 
-  // 並び替え無し（<li> の順番のまま）
   const dates  = list.map(b => b.dateLabel);
   const titles = list.map(b => b.title);
   return { list, dates, titles };
@@ -609,7 +607,6 @@ function isInNewWindow(start, end, now = new Date()) {
 
 /** 02_バッジ一覧ブロック（最大6件＋ダミー補完） */
 function renderBadgeBlock({ max = 6 } = {}) {
-  // 出力先の用意
   let $out = $('.dashboard-left-block-wrap-badge');
   if ($out.length === 0) {
     console.log('[DEBUG] 出力先 .dashboard-left-block-wrap-badge が無いので生成します');
@@ -627,9 +624,8 @@ function renderBadgeBlock({ max = 6 } = {}) {
   const now = new Date();
   const items = list.slice(0, max);
 
-  $out.empty(); // いったんクリア
+  $out.empty();
 
-  // 画像が空のときの簡易ダミーSVG
   const dummySVG = () => {
     const svg = encodeURIComponent(
       `<svg xmlns="http://www.w3.org/2000/svg" width="160" height="160" viewBox="0 0 160 160">
@@ -641,12 +637,9 @@ function renderBadgeBlock({ max = 6 } = {}) {
     return `data:image/svg+xml;charset=UTF-8,${svg}`;
   };
 
-  // 実バッジ
   items.forEach(function (b, i) {
     const showNew = isInNewWindow(b.start, b.end, now);
     const imgSrc = b.img || dummySVG();
-
-    // まずはデバッグ表示優先の素朴なカード
     const $card = $(`
       <div class="dashboard-left-block-wrap-badge-block" data-badge-index="${b.index}"
            style="border:1px solid #ccc; padding:8px; margin:6px 0;">
@@ -661,7 +654,6 @@ function renderBadgeBlock({ max = 6 } = {}) {
     $out.append($card);
   });
 
-  // ダミー補完
   const needDummies = Math.max(0, max - items.length);
   console.log('[DEBUG] dummy count =', needDummies);
   for (let i = 0; i < needDummies; i++) {
@@ -677,14 +669,81 @@ function renderBadgeBlock({ max = 6 } = {}) {
   console.log('[DEBUG] render done.');
 }
 
-/* 起動＆ログ */
+/* ====== 01_バッジ獲得モーダル（Cookie制御） ====== */
+const BADGE_MODAL_COOKIE_PREFIX = 'badge_modal_seen_';
+const COOKIE_OPTS = { expires: 365, path: '/' };
+function makeBadgeKey(year, month, title) {
+  const slug = String(title).toLowerCase().replace(/\s+/g,'-').replace(/[^\w\-ぁ-んァ-ヶ一-龠]/g,'');
+  return `${year}-${String(month).padStart(2,'0')}-${slug}`;
+}
+function maybeShowAcquiredModal() {
+  const hasCookie = typeof $.cookie === 'function';
+  if (!hasCookie) {
+    console.warn('[WARN] jquery.cookie.min.js 未読込。モーダルの再表示抑止は無効になります。');
+  }
+
+  const { list } = collectBadges();
+  const now = new Date();
+
+  // li順で、NEW期間中 かつ 未見の最初の1件
+  const target = list.find(b => {
+    const inWindow = isInNewWindow(b.start, b.end, now);
+    const key = BADGE_MODAL_COOKIE_PREFIX + makeBadgeKey(b.year, b.month, b.title);
+    const seen = hasCookie ? $.cookie(key) === '1' : false;
+    return inWindow && !seen;
+  });
+
+  if (!target) {
+    console.log('[DEBUG] 獲得モーダル対象なし');
+    return;
+  }
+
+  const imgSrc = target.img || (function(){ // 一覧と同じダミー
+    const svg = encodeURIComponent(
+      `<svg xmlns="http://www.w3.org/2000/svg" width="160" height="160" viewBox="0 0 160 160">
+        <rect width="160" height="160" rx="16" fill="#EEE"/>
+        <circle cx="80" cy="64" r="28" fill="#CCC"/>
+        <rect x="32" y="104" width="96" height="32" rx="8" fill="#DDD"/>
+      </svg>`
+    );
+    return `data:image/svg+xml;charset=UTF-8,${svg}`;
+  })();
+
+  const html = `
+    <div class="badge-acquired-modal">
+      <h2 style="margin:0 0 12px;font-size:18px;">おめでとうございます！新しいバッジを獲得しました</h2>
+      <div style="display:flex;gap:16px;align-items:center;">
+        <img src="${imgSrc}" alt="${target.raw}" style="width:120px;height:120px;object-fit:cover;border-radius:12px;border:1px solid #eee;">
+        <div>
+          <div style="font-weight:bold;margin-bottom:6px;">${target.dateLabel}</div>
+          <div style="line-height:1.6;">${target.title}</div>
+        </div>
+      </div>
+      <div style="margin-top:16px;text-align:right;">
+        <button class="c-modal-wrap-close-tag cm-close-btn" style="padding:8px 14px;border-radius:8px;border:1px solid #ccc;background:#f8f8f8;cursor:pointer;">閉じる</button>
+      </div>
+    </div>
+  `;
+  const modal = createModal({ wrapClass: "badge-acquired", customModalHtml: html });
+
+  // 表示した瞬間に既読Cookieを付与
+  const cookieKey = BADGE_MODAL_COOKIE_PREFIX + makeBadgeKey(target.year, target.month, target.title);
+  if (hasCookie) $.cookie(cookieKey, '1', COOKIE_OPTS);
+
+  $(document).off('click.badgeAcqClose').on('click.badgeAcqClose', '.badge-acquired-modal .cm-close-btn', function () {
+    if (modal && typeof modal.close === 'function') modal.close();
+  });
+
+  console.log('[DEBUG] 獲得モーダル表示:', { title: target.title, date: target.dateLabel, cookieKey });
+}
+
+/* ====== 起動 ====== */
 $(function () {
   const { list, dates, titles } = collectBadges();
   console.log('list (li順):', list);
   console.log('dates:', dates);
   console.log('titles:', titles);
 
-  // 02_バッジ一覧ブロック描画
-  renderBadgeBlock({ max: 6 });
+  renderBadgeBlock({ max: 6 });  // 02_一覧
+  maybeShowAcquiredModal();      // 01_獲得モーダル
 });
-
