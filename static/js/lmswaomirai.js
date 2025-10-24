@@ -922,6 +922,18 @@ if (bodyId === "page-my-index") {
 
 }
 
+//cookie削除
+// (function clearAllBadgeModalCookies(){
+//   var cookies = document.cookie.split(';').map(function(s){return s.trim();});
+//   var targets = cookies.filter(function(c){ return c.indexOf('badge_modal_seen_') === 0; });
+//   targets.forEach(function(c){
+//     var name = c.split('=')[0];
+//     if (typeof $.cookie === 'function') $.removeCookie(name, { path: '/' });
+//     document.cookie = name + '=; Max-Age=0; path=/';
+//   });
+//   console.log('[RESET ALL] removed:', targets.map(function(c){return c.split('=')[0];}));
+// })();
+
 /** "YYYY年M月：タイトル" を解析（全角/半角コロン対応） */
 function parseBadgeTitle(raw) {
   const m = String(raw).trim().match(/^(\d{4})年\s*(\d{1,2})月\s*[:：]\s*(.+)$/);
