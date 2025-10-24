@@ -37,7 +37,7 @@ const JS_FILES = [
     'src/js/01_config/assets.js', // 各種変数や画像URL
     'src/js/01_config/checkers.js', // 各種チェック関数（現在のページや持っている教科）
     'src/js/01_config/modal.js', // モーダル作成の共通関数
-    'src/js/01_config/urlflag.js', // モーダル作成の共通関数
+    'src/js/01_config/urlflag.js', // URLフラグの取得関数
     'src/js/02_pages/page-my-index.js',    // my-index (受講カレンダー)
     'src/js/02_pages/page-login-signup.js', // login-signup (会員登録)
     'src/js/02_pages/page-login-index.js',  // login-index (ログイン画面)
@@ -48,7 +48,7 @@ const JS_FILES = [
     'src/js/02_pages/page-course-view.js', // course-view (コース一覧ページ)
     'src/js/02_pages/page-user-edit.js',   // user-edit (科目変更ページ)
     'src/js/02_pages/page-user-profile.js',// user-profile (プロフィールページ)
-    'src/js/02_pages/page-common.js' // 汎用的なページ関数（どのページでも使うもの）
+    'src/js/02_pages/page-common.js' // サイト共通のイベント登録
 ];
 
 async function splitJs(done) {
