@@ -15,6 +15,7 @@ const replace = require('gulp-replace');
 const data = require('gulp-data');
 const path = require('path');
 const newer = require('gulp-newer');
+const concat = require('gulp-concat');  
 
 // パスの設定
 const srcpaths = {
@@ -31,31 +32,44 @@ const dstpaths = {
 };
 
 // stg.js と lms.js を分割するタスク（非同期処理を減らし、gulpで同期的に処理）
+    
+const JS_FILES = [
+    'src/js/01_config/assets.js', // 各種変数や画像URL
+    'src/js/01_config/checkers.js', // 各種チェック関数（現在のページや持っている教科）
+    'src/js/01_config/modal.js', // モーダル作成の共通関数
+    'src/js/01_config/urlflag.js', // モーダル作成の共通関数
+    'src/js/02_pages/page-my-index.js',    // my-index (受講カレンダー)
+    'src/js/02_pages/page-login-signup.js', // login-signup (会員登録)
+    'src/js/02_pages/page-login-index.js',  // login-index (ログイン画面)
+    'src/js/02_pages/page-login-confirm.js', // login-confirm (ログイン画面)
+    'src/js/02_pages/page-enrol-index.js',  // enrol-index (購入画面)
+    'src/js/02_pages/page-mod-questionnaire.js', // mod-questionnaire (受講ページ)
+    'src/js/02_pages/page-course-index-category.js', // course-index-category （使われていないコース一覧ページ）
+    'src/js/02_pages/page-course-view.js', // course-view (コース一覧ページ)
+    'src/js/02_pages/page-user-edit.js',   // user-edit (科目変更ページ)
+    'src/js/02_pages/page-user-profile.js',// user-profile (プロフィールページ)
+    'src/js/02_pages/page-common.js' // 汎用的なページ関数（どのページでも使うもの）
+];
+
 async function splitJs(done) {
     try {
-        const stgVariableJsContent = await fs.readFile(path.resolve('src/js/stg-variable.js'), 'utf8');
-        const lmsVariableJsContent = await fs.readFile(path.resolve('src/js/lms-variable.js'), 'utf8');
+        const stgVariableJsContent = await fs.readFile(path.resolve('src/js/00_stg-variable.js'), 'utf8');
+        const lmsVariableJsContent = await fs.readFile(path.resolve('src/js/00_lms-variable.js'), 'utf8');
 
         // stg.js 用
-        gulp.src('src/js/moodle.js')
-            .pipe(replace(/^/,
-                `${stgVariableJsContent}\n` +
-                `` +
-                `` +
-                ``))
-            .pipe(replace(/$/,
-                `   }\n` +
-                `});`))
-            .pipe(rename('stg.js'))
-            .pipe(gulp.dest(dstpaths.js));
+        gulp.src(JS_FILES) 
+        .pipe(concat('moodle-combined.js'))
+        .pipe(replace(/^/, `${stgVariableJsContent}\n`))
+        .pipe(replace(/$/,
+            `   }\n` +
+            `});`))
+        .pipe(rename('stg.js'))
+        .pipe(gulp.dest(dstpaths.js));
 
-        // lms.js 用
-        gulp.src('src/js/moodle.js')
-            .pipe(replace(/^/,
-                `${lmsVariableJsContent}\n` +
-                `` +
-                `` +
-                ``))
+        // lms.js作成
+        gulp.src(JS_FILES)  
+            .pipe(concat('moodle-combined.js'))
+            .pipe(replace(/^/, `${lmsVariableJsContent}\n`))
             .pipe(replace(/$/,
                 `   }\n` +
                 `});`))
