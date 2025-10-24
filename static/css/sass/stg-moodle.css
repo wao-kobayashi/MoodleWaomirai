@@ -7118,6 +7118,43 @@ html[data-tenantidnumber=stg] #page-my-index .p-abroad-user-jst-label {
     padding: 6px 14px;
   }
 }
+html[data-tenantidnumber=stg] .pagelayout-mydashboard .dashboard-left-block-wrap-badge {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  padding: 0px 0px 0px;
+  margin: 0 auto 40px;
+  place-content: center;
+}
+html[data-tenantidnumber=stg] .pagelayout-mydashboard .dashboard-left-block-wrap-badge .dashboard-left-block-wrap-badge-block {
+  border-bottom: 1.5px dashed #ccc;
+  padding: 20px 0px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+html[data-tenantidnumber=stg] .pagelayout-mydashboard .dashboard-left-block-wrap-badge .dashboard-left-block-wrap-badge-block:nth-child(5), html[data-tenantidnumber=stg] .pagelayout-mydashboard .dashboard-left-block-wrap-badge .dashboard-left-block-wrap-badge-block:nth-child(6) {
+  border-bottom: none !important;
+}
+html[data-tenantidnumber=stg] .pagelayout-mydashboard .dashboard-left-block-wrap-badge .dashboard-left-block-wrap-badge-block:nth-child(2n+1) {
+  border-right: 1.5px dashed #ccc;
+}
+html[data-tenantidnumber=stg] .pagelayout-mydashboard .dashboard-left-block-wrap-badge .dashboard-left-block-wrap-badge-block .dashboard-left-block-wrap-badge-block-img {
+  position: relative;
+  width: 85px;
+  cursor: pointer;
+}
+html[data-tenantidnumber=stg] .pagelayout-mydashboard .dashboard-left-block-wrap-badge .dashboard-left-block-wrap-badge-block .dashboard-left-block-wrap-badge-block-img .newicon img {
+  position: absolute;
+  left: -8px;
+  top: -8px;
+  width: 34px;
+}
+html[data-tenantidnumber=stg] .pagelayout-mydashboard .dashboard-left-block-wrap-badge .dashboard-left-block-wrap-badge-block .dashboard-left-block-wrap-badge-block-img .badge-image {
+  width: 85px;
+}
 html[data-tenantidnumber=stg] #page-user-edit .collapse:not(.show) {
   display: block !important;
 }

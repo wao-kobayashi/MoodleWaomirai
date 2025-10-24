@@ -956,7 +956,12 @@ if (bodyId === "page-my-index") {  // 他ページで実行されないようガ
         <rect x="32" y="104" width="96" height="32" rx="8" fill="#DDD"/>
       </svg>`
     );
-  
+
+    // =====（追記）共通ユーティリティの小さな集約 =====
+    // ・分散していた共通処理（Cookieキーや画像フォールバック等）を集約して重複を削減。
+    const getImgSrc = (src) => src || `data:image/svg+xml;charset=UTF-8,${DUMMY_SVG}`;
+    const cookieKey = (prefix, b) => prefix + makeBadgeKey(b.year, b.month, b.title);
+
     // ===== ユーティリティ関数 =====
     // jQuery Cookieプラグインが読み込まれているかを確認。
     // - ない環境でもコードが壊れないよう、以降のCookie操作はこの関数経由でガードする。
@@ -1042,55 +1047,44 @@ if (bodyId === "page-my-index") {  // 他ページで実行されないようガ
     // ===== 01_獲得モーダル =====
     // 現在の期間窓に入っていて、かつ「まだモーダルを表示していない」最初のバッジがあればモーダル表示。
     // - 1回だけ見せたいので、表示直後にCookie(MODAL_PREFIX+key)='1'をセットして再表示しない。
+    function maybeShowAcquiredModal(now) { // （追記）nowを引数で受け取る
+      const list = collectBadges();
 
-    function maybeShowAcquiredModal() {
-    const list = collectBadges();
-    const now = new Date();
+      // 期間内 && 未表示Cookie のものを全部採用（表示順は index 昇順）
+      const targets = list
+        .filter(b => isInNewWindow(b.start, b.end, now) && !getCookie(cookieKey(MODAL_PREFIX, b)))
+        .sort((a, b) => a.index - b.index);
   
-    // 期間内 && 未表示Cookie のものを全部採用（表示順は index 昇順）
-    const targets = list.filter(b => {
-      const key = MODAL_PREFIX + makeBadgeKey(b.year, b.month, b.title);
-      return isInNewWindow(b.start, b.end, now) && !getCookie(key);
-    }).sort((a, b) => a.index - b.index);
+      if (!targets.length) {
+        console.log('[DEBUG] 獲得モーダル対象なし');
+        return;
+      }
   
-    if (!targets.length) {
-      console.log('[DEBUG] 獲得モーダル対象なし');
-      return;
-    }
-  
-    targets.forEach((badge, i) => {
-      const imgSrc = badge.img || `data:image/svg+xml;charset=UTF-8,${DUMMY_SVG}`;
-      const html = `
-        <div class="badge-acquired-modal">
-          <h2 style="margin:0 0 12px;font-size:18px;">おめでとうございます！新しいバッジを獲得しました</h2>
-          <div style="display:flex;gap:16px;align-items:center;">
-            <img src="${imgSrc}" alt="${badge.raw}" style="width:120px;height:120px;object-fit:cover;border-radius:12px;border:1px solid #eee;">
-            <div>
-              <div style="font-weight:bold;margin-bottom:6px;">${badge.dateLabel}</div>
-              <div style="line-height:1.6;">${badge.title}</div>
+      targets.forEach((badge, i) => {
+        const imgSrc = getImgSrc(badge.img);
+        const html = `
+          <div class="badge-acquired-modal">
+            <div style="display:flex;gap:16px;align-items:center;">
+              <img src="${imgSrc}" alt="${badge.raw}" style="width:150px;height:150px;object-fit:cover;border-radius:12px; margin:0 auto;">
+             </div>
+            <h2 style="margin:15px auto 15px;font-size:18px; text-align:center;">おめでとうございます！<br />新しいバッジを獲得しました</h2>
+
+            <div style="margin-top:16px;text-align:center;">
+              <button class="c-modal-wrap-close-tag cm-close-btn" style="padding:8px 14px;border-radius:8px;border:1px solid #ccc;background:#f8f8f8;cursor:pointer;">閉じる</button>
             </div>
           </div>
-          <div style="margin-top:16px;text-align:right;">
-            <button class="c-modal-wrap-close-tag cm-close-btn" style="padding:8px 14px;border-radius:8px;border:1px solid #ccc;background:#f8f8f8;cursor:pointer;">閉じる</button>
-          </div>
-        </div>
-      `;
+        `;
   
-      // 表示済みフラグを先に立てて重複表示を防ぐ
-      setCookie(MODAL_PREFIX + makeBadgeKey(badge.year, badge.month, badge.title), '1');
+        // 表示済みフラグを先に立てて重複表示を防ぐ
+        setCookie(cookieKey(MODAL_PREFIX, badge), '1');
   
-      // 複数同時でもイベントが干渉しないよう、一意な wrapClass / 名前空間でバインド
-      const wrapClass = `badge-acquired badge-acquired-${i}`;
-      const modal = createModal({ wrapClass, customModalHtml: html });
-  
-      // このモーダルだけを閉じるハンドラ
-      $(document)
-        .off(`click.badgeAcqClose${i}`)
-        .on(`click.badgeAcqClose${i}`, `.${wrapClass} .cm-close-btn`, () => modal?.close());
-  
-      console.log('[DEBUG] 獲得モーダル表示:', badge.dateLabel, badge.title);
-    });
-   }
+        // 複数同時でもイベントが干渉しないよう、一意な wrapClass / 名前空間でバインド
+        const wrapClass = `badge-acquired badge-acquired-${i}`;
+        const modal = createModal({ wrapClass, customModalHtml: html });
+    
+        console.log('[DEBUG] 獲得モーダル表示:', badge.dateLabel, badge.title);
+      });
+    }
   
     // ===== 詳細モーダル =====
     // 個別バッジの詳細を表示するモーダル。
@@ -1098,31 +1092,32 @@ if (bodyId === "page-my-index") {  // 他ページで実行されないようガ
     function openBadgeDetailModal(badge, hadNew = false) {
       if (hadNew) {
         // NEWのDismissフラグをCookieに保存し、以降はNEWを出さない
-        setCookie(NEW_PREFIX + makeBadgeKey(badge.year, badge.month, badge.title), '1');
+        setCookie(cookieKey(NEW_PREFIX, badge), '1');
         // 一覧側の該当カードから .badge-new 要素を取り除く（視覚的にも消す）
         $(`.dashboard-left-block-wrap-badge-block[data-badge-index="${badge.index}"] .badge-new`).remove();
       }
       
       // 画像ソース確定（なければダミー）
-      const imgSrc = badge.img || `data:image/svg+xml;charset=UTF-8,${DUMMY_SVG}`;
+      const imgSrc = getImgSrc(badge.img);
       // モーダルHTML
       const html = `
         <div class="badge-detail-modal">
-          <div style="display:flex;gap:16px;align-items:flex-start;">
-            <img src="${imgSrc}" alt="${badge.raw}" style="width:160px;height:160px;object-fit:cover;border-radius:12px;border:1px solid #eee;">
-            <div>
-              <div style="font-weight:bold;margin:0 0 6px;">${badge.dateLabel}</div>
-              <div style="font-size:16px;line-height:1.6;">${badge.title}</div>
-            </div>
-          </div>
-          <div style="margin-top:16px;text-align:right;">
+          <div style="text-align:center;">
+            <img src="${imgSrc}" alt="${badge.raw}" style="width:160px;height:160px;object-fit:cover; margin:0 auto;">
+         </div>
+         <div style="text-align:center; margin:20px 0 0;">
+            <div style="font-weight:bold;margin:0 0 6px;">${badge.dateLabel}</div>
+            <div style="font-size:16px;line-height:1.6;">${badge.title}</div>
+         </div>
+    
+          <div style="margin-top:16px;text-align:center;">
             <button class="c-modal-wrap-close-tag cm-close-btn" style="padding:8px 14px;border-radius:8px;border:1px solid #ccc;background:#f8f8f8;cursor:pointer;">閉じる</button>
           </div>
         </div>
       `;
       
       // 詳細モーダルを表示
-      const modal = createModal({ wrapClass: "badge-detail", customModalHtml: html });
+      const modal = createModal({ close: true, wrapClass: "badge-detail", customModalHtml: html });
       // 閉じるボタンのイベント（多重登録防止のため名前空間付きで再バインド）
       $(document).off('click.badgeDetailClose').on('click.badgeDetailClose', '.badge-detail-modal .cm-close-btn', () => modal?.close());
     }
@@ -1132,7 +1127,7 @@ if (bodyId === "page-my-index") {  // 他ページで実行されないようガ
     // - max 件（デフォ6）を表示し、足りない分は「ダミー」で穴埋め。
     // - NEW表示ロジック：期間窓内 && NEW_PREFIX Cookie未設定 → NEWピルを出す。
     // - カードクリックで詳細モーダルを開く（開いたらNEWを既読化）。
-    function renderBadgeBlock(max = 6) {
+    function renderBadgeBlock(max = 6, now) { // （追記）nowを引数で受け取る
       // 既存コンテナが無ければ生成する（柔軟に既存の<ul.badges>の直後に置く。なければbody末尾）
       let $out = $('.dashboard-left-block-wrap-badge');
       if (!$out.length) {
@@ -1141,7 +1136,6 @@ if (bodyId === "page-my-index") {  // 他ページで実行されないようガ
       }
       
       const list = collectBadges();   // DOMからの最新バッジ情報
-      const now = new Date();
       const items = list.slice(0, max); // 表示件数に制限
       $out.empty(); // 再描画のためクリア
       
@@ -1149,22 +1143,20 @@ if (bodyId === "page-my-index") {  // 他ページで実行されないようガ
         // このバッジが「NEW期間内」かどうか
         const inWindow = isInNewWindow(b.start, b.end, now);
         // 既にNEWを消している（詳細を見た等）かどうかのCookie
-        const dismissed = getCookie(NEW_PREFIX + makeBadgeKey(b.year, b.month, b.title));
+        const dismissed = getCookie(cookieKey(NEW_PREFIX, b));
         // 表示判定：期間内 && 未Dismiss
         const showNew = inWindow && !dismissed;
         // 画像が無ければダミー
-        const imgSrc = b.img || `data:image/svg+xml;charset=UTF-8,${DUMMY_SVG}`;
+        const imgSrc = getImgSrc(b.img);
         
         // 1枚のカードDOM（インラインスタイルは簡便のため）
         // - data-badge-index は後で該当カードを特定してNEWバッジを除去するための参照に使う
         const $card = $(`
-          <div class="dashboard-left-block-wrap-badge-block" data-badge-index="${b.index}"
-               style="position:relative;border:1px solid #ccc;padding:8px;margin:6px 0;cursor:pointer;">
-            ${showNew ? '<span class="badge-new" style="position:absolute;top:8px;left:8px;background:#e60033;color:#fff;font-size:12px;font-weight:bold;padding:3px 6px;border-radius:6px;">NEW</span>' : ''}
-            <div><strong>[${i+1}] ${b.dateLabel}</strong>${showNew ? '  ← NEW' : ''}</div>
-            <div>タイトル：${b.title}</div>
-            <div style="margin-top:6px;">
-              <img src="${imgSrc}" alt="${b.raw}" style="width:80px;height:80px;object-fit:cover;border:1px solid #ddd;">
+          <div class="dashboard-left-block-wrap-badge-block" data-badge-index="${b.index}">
+           
+            <div class="dashboard-left-block-wrap-badge-block-img">
+               ${showNew ? '<div class="newicon"><img src="http://localhost:3000/static/images/icon_badge_new.svg"></div>' : ''}
+              <img src="${imgSrc}" alt="${b.raw}" class="badge-image">
             </div>
           </div>
         `).on('click', () => openBadgeDetailModal(b, showNew)); // クリックで詳細モーダル。showNewなら既読化も行う。
@@ -1175,10 +1167,8 @@ if (bodyId === "page-my-index") {  // 他ページで実行されないようガ
       // 表示数がmaxに満たない場合、UIが詰まらないようダミーカードで穴埋め。
       for (let i = items.length; i < max; i++) {
         $out.append(`
-          <div class="dashboard-left-block-wrap-badge-block dummy"
-               style="border:1px dashed #bbb;padding:8px;margin:6px 0;color:#666;">
-            <div><strong>[${i+1}] ダミー</strong></div>
-            <div>バッジがありません</div>
+          <div class="dashboard-left-block-wrap-badge-block">
+            <div><img src="http://localhost:3000/static/images/badge_dummy.svg" class="badge-image"></div>
           </div>
         `);
       }
@@ -1189,11 +1179,13 @@ if (bodyId === "page-my-index") {  // 他ページで実行されないようガ
     // - renderBadgeBlock: 左ブロックのカード群を作る
     // - maybeShowAcquiredModal: 今回が初見の獲得モーダル対象があれば表示
     $(function() {
-      renderBadgeBlock(6);
-      maybeShowAcquiredModal();
+      // （追記）nowを1度だけ確定して両処理へ渡すことで、重複とタイミングずれを防ぐ
+      const now = new Date();
+      renderBadgeBlock(6, now);
+      maybeShowAcquiredModal(now);
     });
-  }
-  
+}
+
 // ==============================
 // ログイン・サインアップページの処理
 // ==============================

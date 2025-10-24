@@ -1,0 +1,45 @@
+.pagelayout-mydashboard {
+  //未来塾、4月6日に開校
+  .dashboard-left-block-wrap-badge {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    padding: 0px 0px 0px;
+    margin: 0 auto 40px;
+    place-content: center;
+    //1列目、2列目
+    // &:nth-child(3n + 1),
+    // &:nth-child(3n + 2) {
+    //   border-right: 2px dashed #ccc;
+    // }
+    // &:nth-last-child(-n + 3) {
+    //   border-bottom: none !important;
+    // }
+    .dashboard-left-block-wrap-badge-block {
+      border-bottom: 1.5px dashed #ccc;
+      padding: 20px 0px;
+      display: flex;
+      justify-content: center;
+      &:nth-child(5),
+      &:nth-child(6) {
+        border-bottom: none !important;
+      }
+      &:nth-child(2n + 1) {
+        border-right: 1.5px dashed #ccc;
+      }
+      .dashboard-left-block-wrap-badge-block-img {
+        position: relative;
+        width: 85px;
+        cursor: pointer;
+        .newicon img {
+          position: absolute;
+          left: -8px;
+          top: -8px;
+          width: 34px;
+        }
+        .badge-image {
+          width: 85px;
+        }
+      }
+    }
+  }
+}
