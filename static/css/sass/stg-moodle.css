@@ -7146,6 +7146,11 @@ html[data-tenantidnumber=stg] .pagelayout-mydashboard .dashboard-left-block-wrap
   width: 85px;
   cursor: pointer;
 }
+@media screen and (max-width: 768px) {
+  html[data-tenantidnumber=stg] .pagelayout-mydashboard .dashboard-left-block-wrap-badge .dashboard-left-block-wrap-badge-block .dashboard-left-block-wrap-badge-block-img {
+    width: 130px;
+  }
+}
 html[data-tenantidnumber=stg] .pagelayout-mydashboard .dashboard-left-block-wrap-badge .dashboard-left-block-wrap-badge-block .dashboard-left-block-wrap-badge-block-img .newicon img {
   position: absolute;
   left: -8px;
@@ -7154,6 +7159,18 @@ html[data-tenantidnumber=stg] .pagelayout-mydashboard .dashboard-left-block-wrap
 }
 html[data-tenantidnumber=stg] .pagelayout-mydashboard .dashboard-left-block-wrap-badge .dashboard-left-block-wrap-badge-block .dashboard-left-block-wrap-badge-block-img .badge-image {
   width: 85px;
+}
+@media screen and (max-width: 768px) {
+  html[data-tenantidnumber=stg] .pagelayout-mydashboard .dashboard-left-block-wrap-badge .dashboard-left-block-wrap-badge-block .dashboard-left-block-wrap-badge-block-img .badge-image {
+    width: 130px;
+  }
+}
+html[data-tenantidnumber=stg] .pagelayout-mydashboard .badge-acquired-event .badge-acquired-image img {
+  opacity: 0; /* 初期は透明 */
+  -webkit-transform: scale(0.7);
+          transform: scale(0.7); /* 小さくスタート */
+  -webkit-animation: fadeScale 0.6s ease forwards;
+          animation: fadeScale 0.6s ease forwards; /* アニメーション名、時間、イージング */
 }
 html[data-tenantidnumber=stg] .pagelayout-mydashboard .badge-acquired {
   position: relative;
@@ -7264,11 +7281,6 @@ html[data-tenantidnumber=stg] .pagelayout-mydashboard .badge-acquired .badge-acq
   width: 220px;
   z-index: 2;
   position: relative;
-  opacity: 0; /* 初期は透明 */
-  -webkit-transform: scale(0.7);
-          transform: scale(0.7); /* 小さくスタート */
-  -webkit-animation: fadeScale 0.6s ease forwards;
-          animation: fadeScale 0.6s ease forwards; /* アニメーション名、時間、イージング */
 }
 html[data-tenantidnumber=stg] .pagelayout-mydashboard .badge-acquired .badge-acquired-image::before {
   content: "";

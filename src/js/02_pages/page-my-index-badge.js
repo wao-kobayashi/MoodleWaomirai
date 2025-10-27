@@ -149,24 +149,42 @@ if (bodyId === "page-my-index") {
   // ===== 01_獲得モーダル =====
   // 現在の期間窓に入っていて、かつ「まだモーダルを表示していない」最初のバッジがあればモーダル表示。
   // - 1回だけ見せたいので、表示直後にCookie(MODAL_PREFIX+key)='1'をセットして再表示しない。
+  // - 複数ある場合は1つずつ順番に表示（閉じたら次を表示）
   function maybeShowAcquiredModal(now) {
     const list = collectBadges();
+    console.log("[DEBUG] 全バッジ数:", list.length);
 
     // 期間内 && 未表示Cookie のものを全部採用（表示順は index 昇順）
     const targets = list
-      .filter(
-        (b) =>
-          isInNewWindow(b.start, b.end, now) &&
-          !getCookie(cookieKey(MODAL_PREFIX, b))
-      )
+      .filter((b) => {
+        const inWindow = isInNewWindow(b.start, b.end, now);
+        const cookieName = cookieKey(MODAL_PREFIX, b);
+        const hasSeenCookie = getCookie(cookieName);
+        console.log(
+          `[DEBUG] バッジ: ${b.title} | 期間内: ${inWindow} | Cookie(${cookieName}): ${hasSeenCookie}`
+        );
+        return inWindow && !hasSeenCookie;
+      })
       .sort((a, b) => a.index - b.index);
+
+    console.log(
+      `[DEBUG] 獲得モーダル対象: ${targets.length}件`,
+      targets.map((t) => t.title)
+    );
 
     if (!targets.length) {
       console.log("[DEBUG] 獲得モーダル対象なし");
       return;
     }
 
-    targets.forEach((badge, i) => {
+    // 再帰的に1つずつ表示する関数
+    function showNextModal(index) {
+      if (index >= targets.length) {
+        console.log("[DEBUG] 全てのモーダル表示完了");
+        return;
+      }
+
+      const badge = targets[index];
       const imgSrc = getImgSrc(badge.img);
       const shineImageUrl =
         "http://localhost:3000/static/images/modal-shine.png";
@@ -174,8 +192,8 @@ if (bodyId === "page-my-index") {
       // shineエレメントを生成
       const shineElements = Array.from(
         { length: 8 },
-        (_, index) =>
-          `<div class="badge-acquired-head-shine shine0${index + 1}">
+        (_, idx) =>
+          `<div class="badge-acquired-head-shine shine0${idx + 1}">
           <img src="${shineImageUrl}" alt="">
         </div>`
       ).join("");
@@ -189,28 +207,57 @@ if (bodyId === "page-my-index") {
         <h2 class="c-modal-wrap-title">
           おめでとうございます！<br />新しいバッジを獲得しました
         </h2>
-        <a class="c-modal-wrap-button c-modal-wrap-close-tag">確認しました</a>
+        <a class="c-modal-wrap-button c-modal-wrap-close-tag badge-acquired-next-btn">確認しました</a>
       `;
 
       // 表示済みフラグを先に立てて重複表示を防ぐ
-      setCookie(cookieKey(MODAL_PREFIX, badge), "1");
+      const cookieName = cookieKey(MODAL_PREFIX, badge);
+      setCookie(cookieName, "1");
+      console.log(`[DEBUG] Cookie設定: ${cookieName} = 1`);
 
-      // 複数同時でもイベントが干渉しないよう、一意な wrapClass / 名前空間でバインド
-      const wrapClass = `badge-acquired badge-acquired-${i}`;
+      // 一意な wrapClass で生成
+      const wrapClass = `badge-acquired-event badge-acquired badge-acquired-${index}`;
       const modal = createModal({ wrapClass, customModalHtml: html });
 
-      console.log("[DEBUG] 獲得モーダル表示:", badge.dateLabel, badge.title);
-    });
+      console.log(
+        `[DEBUG] 獲得モーダル表示 (${index + 1}/${targets.length}):`,
+        badge.dateLabel,
+        badge.title
+      );
 
-    confetti({
-      colors: ["#FCAF17", "#B6D43E", "#28AFE7", "#AA68AA"],
-      particleCount: 200,
-      spread: 120,
-      origin: { y: 0.6 },
-      zIndex: 1000,
-      ticks: 50,
-      drift: 3,
-    });
+      // 紙吹雪エフェクト
+      confetti({
+        colors: ["#FCAF17", "#B6D43E", "#28AFE7", "#AA68AA"],
+        particleCount: 200,
+        spread: 120,
+        origin: { y: 0.6 },
+        zIndex: 1000,
+        ticks: 50,
+        drift: 3,
+      });
+
+      // 閉じるボタンがクリックされたら次のモーダルを表示
+      // このモーダル内のボタンだけに絞り込む
+      $(`.badge-acquired-next-btn`).one("click", function () {
+        console.log(
+          `[DEBUG] モーダル ${index + 1} のボタンがクリックされました`
+        );
+        if (modal && typeof modal.close === "function") {
+          modal.close();
+          console.log(`[DEBUG] モーダル ${index + 1} を閉じました`);
+        }
+        // 次のモーダルを表示
+        setTimeout(() => {
+          console.log(
+            `[DEBUG] 次のモーダル ${index + 2} を表示しようとしています`
+          );
+          showNextModal(index + 1);
+        }, 300);
+      });
+    }
+
+    // 最初のモーダルから表示開始
+    showNextModal(0);
   }
 
   // ===== 詳細モーダル =====
@@ -222,7 +269,7 @@ if (bodyId === "page-my-index") {
       setCookie(cookieKey(NEW_PREFIX, badge), "1");
       // 一覧側の該当カードから .badge-new 要素を取り除く（視覚的にも消す）
       $(
-        `.dashboard-left-block-wrap-badge-block[data-badge-index="${badge.index}"] .badge-new`
+        `.dashboard-left-block-wrap-badge-block[data-badge-index="${badge.index}"] .newicon`
       ).remove();
     }
 
@@ -230,25 +277,19 @@ if (bodyId === "page-my-index") {
     const imgSrc = getImgSrc(badge.img);
     // モーダルHTML
     const html = `
-        <div class="badge-detail-modal">
-          <div style="text-align:center;">
-            <img src="${imgSrc}" alt="${badge.raw}" style="width:160px;height:160px;object-fit:cover; margin:0 auto;">
-         </div>
-         <div style="text-align:center; margin:20px 0 0;">
-            <div style="font-weight:bold;margin:0 0 6px;">${badge.dateLabel}</div>
-            <div style="font-size:16px;line-height:1.6;">${badge.title}</div>
-         </div>
-    
-          <div style="margin-top:16px;text-align:center;">
-            <button class="c-modal-wrap-close-tag cm-close-btn" style="padding:8px 14px;border-radius:8px;border:1px solid #ccc;background:#f8f8f8;cursor:pointer;">閉じる</button>
-          </div>
+        <div class="badge-acquired-image">
+          <img src="${imgSrc}" alt="${badge.raw}">
         </div>
+        <h2 class="c-modal-wrap-title">
+          ${badge.dateLabel}<br />${badge.title}
+        </h2>
+        <a class="c-modal-wrap-button c-modal-wrap-close-tag badge-acquired-next-btn">閉じる</a>
       `;
 
     // 詳細モーダルを表示
     const modal = createModal({
       close: true,
-      wrapClass: "badge-detail",
+      wrapClass: "badge-acquired ",
       customModalHtml: html,
     });
     // 閉じるボタンのイベント（多重登録防止のため名前空間付きで再バインド）
@@ -314,7 +355,9 @@ if (bodyId === "page-my-index") {
     for (let i = items.length; i < max; i++) {
       $out.append(`
           <div class="dashboard-left-block-wrap-badge-block">
+            <div class="dashboard-left-block-wrap-badge-block-img">
             <div><img src="http://localhost:3000/static/images/badge_dummy.svg" class="badge-image"></div>
+            </div>
           </div>
         `);
     }
