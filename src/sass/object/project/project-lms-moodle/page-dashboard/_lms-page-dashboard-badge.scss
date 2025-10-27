@@ -39,6 +39,11 @@
           left: -8px;
           top: -8px;
           width: 34px;
+          @include responsive-style(768px) {
+            left: -6px;
+            top: -6px;
+            width: 48px;
+          }
         }
         .badge-image {
           width: 85px;
@@ -100,66 +105,69 @@
     .badge-acquired-head-shine {
       position: absolute;
       z-index: 99999;
-      opacity: 0;
+      opacity: 1;
     }
     .shine01,
     .shine07 {
-      animation: shineScale 6s ease-in-out 0s forwards infinite;
+      animation: shineScale 4s ease-in-out 0s forwards infinite;
     }
 
     .shine03,
     .shine05 {
-      animation: shineScale 5s ease-in-out 0s forwards infinite;
+      animation: shineScale 3.8s ease-in-out 0s forwards infinite;
     }
     .shine02,
     .shine06 {
-      animation: shineScale 5s ease-in-out 1s forwards infinite;
+      animation: shineScale 4.2s ease-in-out 1s forwards infinite;
     }
 
     .shine04,
     .shine08 {
-      animation: shineScale 4s ease-in-out 1s forwards infinite;
+      animation: shineScale 3.5s ease-in-out 1s forwards infinite;
     }
+    $minus: 3%;
     .badge-acquired-head-shine.shine01 {
-      top: 19%;
-      left: 22%;
+      top: 17%;
+      left: calc(22% - #{$minus});
       width: 22px;
     }
     .badge-acquired-head-shine.shine02 {
       top: 25%;
-      left: 15%;
+      left: calc(15% - #{$minus});
       width: 23px;
     }
     .badge-acquired-head-shine.shine03 {
       top: 64px;
-      left: 18%;
+      left: calc(18% - #{$minus});
+
       width: 21px;
     }
     .badge-acquired-head-shine.shine04 {
-      top: 39px;
-      left: 29%;
+      top: 24px;
+      left: calc(29% - #{$minus});
       width: 21px;
     }
     .badge-acquired-head-shine.shine05 {
-      top: 36px;
-      right: 22%;
+      top: 24px;
+      right: calc(22% - #{$minus});
       width: 32px;
     }
     .badge-acquired-head-shine.shine06 {
       top: 119px;
-      right: 14%;
+      right: calc(15% - #{$minus});
       width: 30px;
     }
 
     .badge-acquired-head-shine.shine07 {
       top: 74px;
-      right: 15%;
+      right: calc(18% - #{$minus});
       width: 22px;
     }
     .badge-acquired-head-shine.shine08 {
-      top: 85px;
-      right: 21%;
+      top: 52px;
+      right: calc(32% - #{$minus});
       width: 18px;
+      // display: none;
     }
 
     .badge-acquired-image {
@@ -175,12 +183,12 @@
       &::before {
         content: "";
         position: absolute;
-        top: -10px;
+        top: -20px;
         left: 0;
         right: 0;
         bottom: 0;
-        width: 250px;
-        height: 250px;
+        width: 260px;
+        height: 260px;
         background: $cl-white;
         border-radius: 8px;
         z-index: 1;
@@ -208,11 +216,11 @@
     }
     20% {
       transform: scale(0.85);
-      opacity: 0.8;
+      opacity: 0.6;
     }
     70% {
       transform: scale(0.85);
-      opacity: 0.8;
+      opacity: 0.6;
     }
     88% {
       transform: scale(0);
@@ -231,13 +239,10 @@
       transform: rotate(360deg);
     }
   }
-  .c-modal {
-    z-index: 10000 !important;
-  }
+  // .c-modal {
+  //   z-index: 10000 !important;
+  // }
   .c-modal-bg {
-    z-index: 100 !important;
-  }
-  .fixed-top {
     z-index: 100 !important;
   }
 }

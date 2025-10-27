@@ -7157,6 +7157,13 @@ html[data-tenantidnumber=stg] .pagelayout-mydashboard .dashboard-left-block-wrap
   top: -8px;
   width: 34px;
 }
+@media screen and (max-width: 768px) {
+  html[data-tenantidnumber=stg] .pagelayout-mydashboard .dashboard-left-block-wrap-badge .dashboard-left-block-wrap-badge-block .dashboard-left-block-wrap-badge-block-img .newicon img {
+    left: -6px;
+    top: -6px;
+    width: 48px;
+  }
+}
 html[data-tenantidnumber=stg] .pagelayout-mydashboard .dashboard-left-block-wrap-badge .dashboard-left-block-wrap-badge-block .dashboard-left-block-wrap-badge-block-img .badge-image {
   width: 85px;
 }
@@ -7210,56 +7217,56 @@ html[data-tenantidnumber=stg] .pagelayout-mydashboard .badge-acquired .badge-acq
 html[data-tenantidnumber=stg] .pagelayout-mydashboard .badge-acquired .badge-acquired-head-shine {
   position: absolute;
   z-index: 99999;
-  opacity: 0;
+  opacity: 1;
 }
 html[data-tenantidnumber=stg] .pagelayout-mydashboard .badge-acquired .shine01,
 html[data-tenantidnumber=stg] .pagelayout-mydashboard .badge-acquired .shine07 {
-  -webkit-animation: shineScale 6s ease-in-out 0s forwards infinite;
-          animation: shineScale 6s ease-in-out 0s forwards infinite;
+  -webkit-animation: shineScale 4s ease-in-out 0s forwards infinite;
+          animation: shineScale 4s ease-in-out 0s forwards infinite;
 }
 html[data-tenantidnumber=stg] .pagelayout-mydashboard .badge-acquired .shine03,
 html[data-tenantidnumber=stg] .pagelayout-mydashboard .badge-acquired .shine05 {
-  -webkit-animation: shineScale 5s ease-in-out 0s forwards infinite;
-          animation: shineScale 5s ease-in-out 0s forwards infinite;
+  -webkit-animation: shineScale 3.8s ease-in-out 0s forwards infinite;
+          animation: shineScale 3.8s ease-in-out 0s forwards infinite;
 }
 html[data-tenantidnumber=stg] .pagelayout-mydashboard .badge-acquired .shine02,
 html[data-tenantidnumber=stg] .pagelayout-mydashboard .badge-acquired .shine06 {
-  -webkit-animation: shineScale 5s ease-in-out 1s forwards infinite;
-          animation: shineScale 5s ease-in-out 1s forwards infinite;
+  -webkit-animation: shineScale 4.2s ease-in-out 1s forwards infinite;
+          animation: shineScale 4.2s ease-in-out 1s forwards infinite;
 }
 html[data-tenantidnumber=stg] .pagelayout-mydashboard .badge-acquired .shine04,
 html[data-tenantidnumber=stg] .pagelayout-mydashboard .badge-acquired .shine08 {
-  -webkit-animation: shineScale 4s ease-in-out 1s forwards infinite;
-          animation: shineScale 4s ease-in-out 1s forwards infinite;
+  -webkit-animation: shineScale 3.5s ease-in-out 1s forwards infinite;
+          animation: shineScale 3.5s ease-in-out 1s forwards infinite;
 }
 html[data-tenantidnumber=stg] .pagelayout-mydashboard .badge-acquired .badge-acquired-head-shine.shine01 {
-  top: 19%;
-  left: 22%;
+  top: 17%;
+  left: 19%;
   width: 22px;
 }
 html[data-tenantidnumber=stg] .pagelayout-mydashboard .badge-acquired .badge-acquired-head-shine.shine02 {
   top: 25%;
-  left: 15%;
+  left: 12%;
   width: 23px;
 }
 html[data-tenantidnumber=stg] .pagelayout-mydashboard .badge-acquired .badge-acquired-head-shine.shine03 {
   top: 64px;
-  left: 18%;
+  left: 15%;
   width: 21px;
 }
 html[data-tenantidnumber=stg] .pagelayout-mydashboard .badge-acquired .badge-acquired-head-shine.shine04 {
-  top: 39px;
-  left: 29%;
+  top: 24px;
+  left: 26%;
   width: 21px;
 }
 html[data-tenantidnumber=stg] .pagelayout-mydashboard .badge-acquired .badge-acquired-head-shine.shine05 {
-  top: 36px;
-  right: 22%;
+  top: 24px;
+  right: 19%;
   width: 32px;
 }
 html[data-tenantidnumber=stg] .pagelayout-mydashboard .badge-acquired .badge-acquired-head-shine.shine06 {
   top: 119px;
-  right: 14%;
+  right: 12%;
   width: 30px;
 }
 html[data-tenantidnumber=stg] .pagelayout-mydashboard .badge-acquired .badge-acquired-head-shine.shine07 {
@@ -7268,8 +7275,8 @@ html[data-tenantidnumber=stg] .pagelayout-mydashboard .badge-acquired .badge-acq
   width: 22px;
 }
 html[data-tenantidnumber=stg] .pagelayout-mydashboard .badge-acquired .badge-acquired-head-shine.shine08 {
-  top: 85px;
-  right: 21%;
+  top: 52px;
+  right: 29%;
   width: 18px;
 }
 html[data-tenantidnumber=stg] .pagelayout-mydashboard .badge-acquired .badge-acquired-image {
@@ -7285,12 +7292,12 @@ html[data-tenantidnumber=stg] .pagelayout-mydashboard .badge-acquired .badge-acq
 html[data-tenantidnumber=stg] .pagelayout-mydashboard .badge-acquired .badge-acquired-image::before {
   content: "";
   position: absolute;
-  top: -10px;
+  top: -20px;
   left: 0;
   right: 0;
   bottom: 0;
-  width: 250px;
-  height: 250px;
+  width: 260px;
+  height: 260px;
   background: #ffffff;
   border-radius: 8px;
   z-index: 1;
@@ -7320,12 +7327,12 @@ html[data-tenantidnumber=stg] .pagelayout-mydashboard .badge-acquired .c-modal-w
   20% {
     -webkit-transform: scale(0.85);
             transform: scale(0.85);
-    opacity: 0.8;
+    opacity: 0.6;
   }
   70% {
     -webkit-transform: scale(0.85);
             transform: scale(0.85);
-    opacity: 0.8;
+    opacity: 0.6;
   }
   88% {
     -webkit-transform: scale(0);
@@ -7347,12 +7354,12 @@ html[data-tenantidnumber=stg] .pagelayout-mydashboard .badge-acquired .c-modal-w
   20% {
     -webkit-transform: scale(0.85);
             transform: scale(0.85);
-    opacity: 0.8;
+    opacity: 0.6;
   }
   70% {
     -webkit-transform: scale(0.85);
             transform: scale(0.85);
-    opacity: 0.8;
+    opacity: 0.6;
   }
   88% {
     -webkit-transform: scale(0);
@@ -7385,13 +7392,7 @@ html[data-tenantidnumber=stg] .pagelayout-mydashboard .badge-acquired .c-modal-w
             transform: rotate(360deg);
   }
 }
-html[data-tenantidnumber=stg] .pagelayout-mydashboard .c-modal {
-  z-index: 10000 !important;
-}
 html[data-tenantidnumber=stg] .pagelayout-mydashboard .c-modal-bg {
-  z-index: 100 !important;
-}
-html[data-tenantidnumber=stg] .pagelayout-mydashboard .fixed-top {
   z-index: 100 !important;
 }
 @-webkit-keyframes fadeScale {
