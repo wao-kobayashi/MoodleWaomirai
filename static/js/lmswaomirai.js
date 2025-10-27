@@ -1005,7 +1005,7 @@ if (bodyId === "page-my-index") {
       title: title.trim(),
       dateLabel: `${y}年${mo}月`,
       start: new Date(y, mo - 1, 1),
-      end: new Date(y, mo, 16),
+      end: new Date(y, mo, 5), // 翌月5日の0:00
     };
   };
 
@@ -1017,30 +1017,30 @@ if (bodyId === "page-my-index") {
   // ===== Cookie一括削除 =====
   // 即時実行関数で、関連Cookie（MODAL_PREFIX/NEW_PREFIX で始まるもの）を全削除する初期化処理。
   // - デバッグ/リセット用途。通常は開発時に役立つ。
-  (function clearAllBadgeCookies() {
-    // document.cookie は "name=value; name2=value2; ..." 形式のため分割して走査。
-    const cookies = document.cookie
-      .split(";")
-      .map((s) => s.trim())
-      .filter(Boolean);
-    // 対象となるプレフィックスのCookieのみ抽出。
-    const targets = cookies.filter(
-      (c) => c.startsWith(MODAL_PREFIX) || c.startsWith(NEW_PREFIX)
-    );
+  // (function clearAllBadgeCookies() {
+  //   // document.cookie は "name=value; name2=value2; ..." 形式のため分割して走査。
+  //   const cookies = document.cookie
+  //     .split(";")
+  //     .map((s) => s.trim())
+  //     .filter(Boolean);
+  //   // 対象となるプレフィックスのCookieのみ抽出。
+  //   const targets = cookies.filter(
+  //     (c) => c.startsWith(MODAL_PREFIX) || c.startsWith(NEW_PREFIX)
+  //   );
 
-    if (!targets.length) return console.log("[RESET] 対象Cookieなし");
+  //   if (!targets.length) return console.log("[RESET] 対象Cookieなし");
 
-    // jQuery Cookie があれば removeCookie、なければ生CookieでMax-Age=0を併用して確実に削除。
-    targets.forEach((c) => {
-      const name = c.split("=")[0];
-      if (hasCookie()) $.removeCookie(name, COOKIE_OPTS);
-      document.cookie = `${name}=; Max-Age=0; path=/;`;
-    });
-    console.log(
-      "[RESET] removed:",
-      targets.map((c) => c.split("=")[0])
-    );
-  })();
+  //   // jQuery Cookie があれば removeCookie、なければ生CookieでMax-Age=0を併用して確実に削除。
+  //   targets.forEach((c) => {
+  //     const name = c.split("=")[0];
+  //     if (hasCookie()) $.removeCookie(name, COOKIE_OPTS);
+  //     document.cookie = `${name}=; Max-Age=0; path=/;`;
+  //   });
+  //   console.log(
+  //     "[RESET] removed:",
+  //     targets.map((c) => c.split("=")[0])
+  //   );
+  // })();
 
   // ===== バッジデータ収集 =====
   // DOMからバッジ一覧<ul class="badges">の各<li>を走査し、必要情報を配列で返す。
@@ -1231,9 +1231,9 @@ if (bodyId === "page-my-index") {
   function renderBadgeBlock(max = 6, now) {
     // （追記）nowを引数で受け取る
     // 既存コンテナが無ければ生成する（柔軟に既存の<ul.badges>の直後に置く。なければbody末尾）
-    let $out = $(".dashboard-left-block-wrap-badge");
+    let $out = $(".dashboard-left-block-wrap-badge-content");
     if (!$out.length) {
-      $out = $('<div class="dashboard-left-block-wrap-badge"></div>');
+      $out = $('<div class="dashboard-left-block-wrap-badge-content"></div>');
       $("ul.badges").length
         ? $("ul.badges").after($out)
         : $("body").append($out);
