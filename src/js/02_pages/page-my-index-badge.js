@@ -2,10 +2,10 @@
 // ダッシュボードページでの処理
 // bodyId が "page-my-index" の時だけこのコードを実行
 // ==============================
-if (bodyId === "page-my-index") {  // 他ページで実行されないようガード。想定外のDOM構造でエラーを出さないための安全装置。
 
+if (bodyId === "page-my-index") {  // 他ページで実行されないようガード。想定外のDOM構造でエラーを出さないための安全装置。
     // ===== 定数・設定 =====
-    
+
     // Cookieの有効期限とパスの設定（365日間有効、サイト全体で使える）
     // - jQuery Cookie プラグイン($.cookie)の第3引数に渡すオプション。
     // - expires: 日数指定。ここでは1年保持。
@@ -145,8 +145,6 @@ if (bodyId === "page-my-index") {  // 他ページで実行されないようガ
               <img src="${imgSrc}" alt="${badge.raw}">
              </div>
             <h2 class="c-modal-wrap-title">おめでとうございます！<br />新しいバッジを獲得しました</h2>
-
-
               <a class="c-modal-wrap-button c-modal-wrap-close-tag">確認しました</a>
             </div>
         `;
@@ -160,6 +158,16 @@ if (bodyId === "page-my-index") {  // 他ページで実行されないようガ
     
         console.log('[DEBUG] 獲得モーダル表示:', badge.dateLabel, badge.title);
       });
+      confetti({
+      colors: ['#FCAF17', '#B6D43E', '#28AFE7', '#AA68AA'],  // 赤、緑、青
+        // colors: ['#90D3EC', '#CB355A', '#F2A3B3', '#A6C211', '#FBCF01', '#EBECED'],  // 赤、緑、青
+      particleCount: 200,
+      spread: 120,
+      origin: { y: 0.6 },
+      zIndex: 1000, // 確実に上に来る値
+      ticks: 140,  // デフォルトは200。小さいほど早く消える
+      drift: 3
+    });
     }
   
     // ===== 詳細モーダル =====
@@ -250,6 +258,7 @@ if (bodyId === "page-my-index") {  // 他ページで実行されないようガ
       }
     }
   
+  
     // ===== 起動 =====
     // DOM準備完了後に初期描画＆必要なら獲得モーダルを表示。
     // - renderBadgeBlock: 左ブロックのカード群を作る
@@ -259,5 +268,8 @@ if (bodyId === "page-my-index") {  // 他ページで実行されないようガ
       const now = new Date();
       renderBadgeBlock(6, now);
       maybeShowAcquiredModal(now);
+
     });
+
 }
+

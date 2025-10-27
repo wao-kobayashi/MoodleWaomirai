@@ -7199,6 +7199,11 @@ html[data-tenantidnumber=stg] .pagelayout-mydashboard .badge-acquired .badge-acq
   width: 220px;
   z-index: 2;
   position: relative;
+  opacity: 0; /* 初期は透明 */
+  -webkit-transform: scale(0.7);
+          transform: scale(0.7); /* 小さくスタート */
+  -webkit-animation: fadeScale 0.6s ease forwards;
+          animation: fadeScale 0.6s ease forwards; /* アニメーション名、時間、イージング */
 }
 html[data-tenantidnumber=stg] .pagelayout-mydashboard .badge-acquired .badge-acquired-image::before {
   content: "";
@@ -7227,6 +7232,7 @@ html[data-tenantidnumber=stg] .pagelayout-mydashboard .badge-acquired .c-modal-w
   width: 70%;
   position: relative;
   z-index: 100;
+  cursor: pointer;
 }
 @-webkit-keyframes rotation {
   0% {
@@ -7246,6 +7252,39 @@ html[data-tenantidnumber=stg] .pagelayout-mydashboard .badge-acquired .c-modal-w
   100% {
     -webkit-transform: rotate(360deg);
             transform: rotate(360deg);
+  }
+}
+html[data-tenantidnumber=stg] .pagelayout-mydashboard .c-modal {
+  z-index: 10000 !important;
+}
+html[data-tenantidnumber=stg] .pagelayout-mydashboard .c-modal-bg {
+  z-index: 100 !important;
+}
+html[data-tenantidnumber=stg] .pagelayout-mydashboard .fixed-top {
+  z-index: 100 !important;
+}
+@-webkit-keyframes fadeScale {
+  0% {
+    opacity: 0;
+    -webkit-transform: scale(0.5);
+            transform: scale(0.5);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+@keyframes fadeScale {
+  0% {
+    opacity: 0;
+    -webkit-transform: scale(0.5);
+            transform: scale(0.5);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: scale(1);
+            transform: scale(1);
   }
 }
 html[data-tenantidnumber=stg] #page-user-edit .collapse:not(.show) {
