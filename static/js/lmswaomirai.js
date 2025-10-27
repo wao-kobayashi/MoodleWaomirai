@@ -1004,22 +1004,22 @@ if (bodyId === "page-my-index") {  // 他ページで実行されないようガ
     // ===== Cookie一括削除 =====
     // 即時実行関数で、関連Cookie（MODAL_PREFIX/NEW_PREFIX で始まるもの）を全削除する初期化処理。
     // - デバッグ/リセット用途。通常は開発時に役立つ。
-    // (function clearAllBadgeCookies() {
-    //   // document.cookie は "name=value; name2=value2; ..." 形式のため分割して走査。
-    //   const cookies = document.cookie.split(';').map(s => s.trim()).filter(Boolean);
-    //   // 対象となるプレフィックスのCookieのみ抽出。
-    //   const targets = cookies.filter(c => c.startsWith(MODAL_PREFIX) || c.startsWith(NEW_PREFIX));
+    (function clearAllBadgeCookies() {
+      // document.cookie は "name=value; name2=value2; ..." 形式のため分割して走査。
+      const cookies = document.cookie.split(';').map(s => s.trim()).filter(Boolean);
+      // 対象となるプレフィックスのCookieのみ抽出。
+      const targets = cookies.filter(c => c.startsWith(MODAL_PREFIX) || c.startsWith(NEW_PREFIX));
       
-    //   if (!targets.length) return console.log('[RESET] 対象Cookieなし');
+      if (!targets.length) return console.log('[RESET] 対象Cookieなし');
       
-    //   // jQuery Cookie があれば removeCookie、なければ生CookieでMax-Age=0を併用して確実に削除。
-    //   targets.forEach(c => {
-    //     const name = c.split('=')[0];
-    //     if (hasCookie()) $.removeCookie(name, COOKIE_OPTS);
-    //     document.cookie = `${name}=; Max-Age=0; path=/;`;
-    //   });
-    //   console.log('[RESET] removed:', targets.map(c => c.split('=')[0]));
-    // })();
+      // jQuery Cookie があれば removeCookie、なければ生CookieでMax-Age=0を併用して確実に削除。
+      targets.forEach(c => {
+        const name = c.split('=')[0];
+        if (hasCookie()) $.removeCookie(name, COOKIE_OPTS);
+        document.cookie = `${name}=; Max-Age=0; path=/;`;
+      });
+      console.log('[RESET] removed:', targets.map(c => c.split('=')[0]));
+    })();
   
     // ===== バッジデータ収集 =====
     // DOMからバッジ一覧<ul class="badges">の各<li>を走査し、必要情報を配列で返す。
@@ -1063,16 +1063,15 @@ if (bodyId === "page-my-index") {  // 他ページで実行されないようガ
       targets.forEach((badge, i) => {
         const imgSrc = getImgSrc(badge.img);
         const html = `
-          <div class="badge-acquired-modal">
-            <div style="display:flex;gap:16px;align-items:center;">
-              <img src="${imgSrc}" alt="${badge.raw}" style="width:150px;height:150px;object-fit:cover;border-radius:12px; margin:0 auto;">
+            <div class="badge-acquired-head"></div>
+            <div class="badge-acquired-image">
+              <img src="${imgSrc}" alt="${badge.raw}">
              </div>
-            <h2 style="margin:15px auto 15px;font-size:18px; text-align:center;">おめでとうございます！<br />新しいバッジを獲得しました</h2>
+            <h2 class="c-modal-wrap-title">おめでとうございます！<br />新しいバッジを獲得しました</h2>
 
-            <div style="margin-top:16px;text-align:center;">
-              <button class="c-modal-wrap-close-tag cm-close-btn" style="padding:8px 14px;border-radius:8px;border:1px solid #ccc;background:#f8f8f8;cursor:pointer;">閉じる</button>
+
+              <a class="c-modal-wrap-button c-modal-wrap-close-tag">確認しました</a>
             </div>
-          </div>
         `;
   
         // 表示済みフラグを先に立てて重複表示を防ぐ
