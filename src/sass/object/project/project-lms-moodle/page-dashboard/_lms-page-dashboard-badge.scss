@@ -1,5 +1,6 @@
 .pagelayout-mydashboard {
   //未来塾、4月6日に開校
+
   .dashboard-left-block-wrap-badge {
     margin: 0 auto 40px;
   }
@@ -23,7 +24,7 @@
       display: flex;
       justify-content: center;
       &:nth-last-child(-n + 2) {
-        border-bottom: none !important;
+        border-bottom: none;
       }
       &:nth-child(2n + 1) {
         border-right: 1.5px dashed #ccc;
@@ -57,13 +58,14 @@
     }
   }
   .dashboard-left-block-wrap-badge-readmore a {
-    padding: 10px 0;
-    text-align: center;
+    padding: 10px 15px;
+    text-align: left;
     color: $cl-waogreen !important;
     text-decoration: underline !important;
     font-size: $lms-font-size-m;
     display: block;
     border-top: 1.5px dashed #ccc;
+    cursor: pointer;
   }
   .badge-acquired-event {
     .badge-acquired-image {
@@ -255,6 +257,11 @@
   }
   .fixed-top {
     z-index: 100 !important;
+  }
+  .dashboard-left-block-wrap-badge-content-more {
+    .dashboard-left-block-wrap-badge-block:nth-last-child(-n + 2) {
+      border-bottom: 1.5px dashed #ccc !important;
+    }
   }
 }
 

@@ -40,12 +40,13 @@
       ///////////////////////
       // バッジ
       ///////////////////////
-      .dashboard-left-block-title
-        |獲得したバッジ
-      .dashboard-left-block-wrap.dashboard-left-block-wrap-badge
-         .dashboard-left-block-wrap-badge-content|aa
-         .dashboard-left-block-wrap-badge-readmore
-           a.triger|全てのバッジを見る
+      .display-badge(style='display:none;')
+        .dashboard-left-block-title
+          |獲得したバッジ
+        .dashboard-left-block-wrap.dashboard-left-block-wrap-badge
+          .dashboard-left-block-wrap-badge-content|
+          .dashboard-left-block-wrap-badge-readmore(style='display:none;')
+            a.triger|全てのバッジを見る
       ///////////////////////
       // LINE連携
       ///////////////////////

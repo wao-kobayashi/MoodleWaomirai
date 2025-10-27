@@ -7139,7 +7139,7 @@ html[data-tenantidnumber=lmswaomirai] .pagelayout-mydashboard .dashboard-left-bl
           justify-content: center;
 }
 html[data-tenantidnumber=lmswaomirai] .pagelayout-mydashboard .dashboard-left-block-wrap-badge-content .dashboard-left-block-wrap-badge-block:nth-last-child(-n+2) {
-  border-bottom: none !important;
+  border-bottom: none;
 }
 html[data-tenantidnumber=lmswaomirai] .pagelayout-mydashboard .dashboard-left-block-wrap-badge-content .dashboard-left-block-wrap-badge-block:nth-child(2n+1) {
   border-right: 1.5px dashed #ccc;
@@ -7176,13 +7176,14 @@ html[data-tenantidnumber=lmswaomirai] .pagelayout-mydashboard .dashboard-left-bl
   }
 }
 html[data-tenantidnumber=lmswaomirai] .pagelayout-mydashboard .dashboard-left-block-wrap-badge-readmore a {
-  padding: 10px 0;
-  text-align: center;
+  padding: 10px 15px;
+  text-align: left;
   color: #005c3f !important;
   text-decoration: underline !important;
   font-size: 14px;
   display: block;
   border-top: 1.5px dashed #ccc;
+  cursor: pointer;
 }
 html[data-tenantidnumber=lmswaomirai] .pagelayout-mydashboard .badge-acquired-event .badge-acquired-image img {
   opacity: 0; /* 初期は透明 */
@@ -7409,6 +7410,9 @@ html[data-tenantidnumber=lmswaomirai] .pagelayout-mydashboard .c-modal-bg {
 }
 html[data-tenantidnumber=lmswaomirai] .pagelayout-mydashboard .fixed-top {
   z-index: 100 !important;
+}
+html[data-tenantidnumber=lmswaomirai] .pagelayout-mydashboard .dashboard-left-block-wrap-badge-content-more .dashboard-left-block-wrap-badge-block:nth-last-child(-n+2) {
+  border-bottom: 1.5px dashed #ccc !important;
 }
 @-webkit-keyframes fadeScale {
   0% {
