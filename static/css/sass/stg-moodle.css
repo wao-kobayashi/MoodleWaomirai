@@ -7193,26 +7193,27 @@ html[data-tenantidnumber=stg] .pagelayout-mydashboard .badge-acquired .badge-acq
 html[data-tenantidnumber=stg] .pagelayout-mydashboard .badge-acquired .badge-acquired-head-shine {
   position: absolute;
   z-index: 99999;
+  opacity: 0;
 }
 html[data-tenantidnumber=stg] .pagelayout-mydashboard .badge-acquired .shine01,
 html[data-tenantidnumber=stg] .pagelayout-mydashboard .badge-acquired .shine07 {
-  -webkit-animation: shineScale 3s ease-in-out 0s forwards infinite;
-          animation: shineScale 3s ease-in-out 0s forwards infinite;
+  -webkit-animation: shineScale 6s ease-in-out 0s forwards infinite;
+          animation: shineScale 6s ease-in-out 0s forwards infinite;
 }
 html[data-tenantidnumber=stg] .pagelayout-mydashboard .badge-acquired .shine03,
 html[data-tenantidnumber=stg] .pagelayout-mydashboard .badge-acquired .shine05 {
-  -webkit-animation: shineScale 2s ease-in-out 0s forwards infinite;
-          animation: shineScale 2s ease-in-out 0s forwards infinite;
+  -webkit-animation: shineScale 5s ease-in-out 0s forwards infinite;
+          animation: shineScale 5s ease-in-out 0s forwards infinite;
 }
 html[data-tenantidnumber=stg] .pagelayout-mydashboard .badge-acquired .shine02,
 html[data-tenantidnumber=stg] .pagelayout-mydashboard .badge-acquired .shine06 {
-  -webkit-animation: shineScale 3s ease-in-out 1s forwards infinite;
-          animation: shineScale 3s ease-in-out 1s forwards infinite;
+  -webkit-animation: shineScale 5s ease-in-out 1s forwards infinite;
+          animation: shineScale 5s ease-in-out 1s forwards infinite;
 }
 html[data-tenantidnumber=stg] .pagelayout-mydashboard .badge-acquired .shine04,
 html[data-tenantidnumber=stg] .pagelayout-mydashboard .badge-acquired .shine08 {
-  -webkit-animation: shineScale 2s ease-in-out 1s forwards infinite;
-          animation: shineScale 2s ease-in-out 1s forwards infinite;
+  -webkit-animation: shineScale 4s ease-in-out 1s forwards infinite;
+          animation: shineScale 4s ease-in-out 1s forwards infinite;
 }
 html[data-tenantidnumber=stg] .pagelayout-mydashboard .badge-acquired .badge-acquired-head-shine.shine01 {
   top: 19%;
@@ -7305,14 +7306,14 @@ html[data-tenantidnumber=stg] .pagelayout-mydashboard .badge-acquired .c-modal-w
     opacity: 0;
   }
   20% {
-    -webkit-transform: scale(1);
-            transform: scale(1);
-    opacity: 0.65;
+    -webkit-transform: scale(0.85);
+            transform: scale(0.85);
+    opacity: 0.8;
   }
   70% {
-    -webkit-transform: scale(1);
-            transform: scale(1);
-    opacity: 0.65;
+    -webkit-transform: scale(0.85);
+            transform: scale(0.85);
+    opacity: 0.8;
   }
   88% {
     -webkit-transform: scale(0);
@@ -7332,14 +7333,14 @@ html[data-tenantidnumber=stg] .pagelayout-mydashboard .badge-acquired .c-modal-w
     opacity: 0;
   }
   20% {
-    -webkit-transform: scale(1);
-            transform: scale(1);
-    opacity: 0.65;
+    -webkit-transform: scale(0.85);
+            transform: scale(0.85);
+    opacity: 0.8;
   }
   70% {
-    -webkit-transform: scale(1);
-            transform: scale(1);
-    opacity: 0.65;
+    -webkit-transform: scale(0.85);
+            transform: scale(0.85);
+    opacity: 0.8;
   }
   88% {
     -webkit-transform: scale(0);

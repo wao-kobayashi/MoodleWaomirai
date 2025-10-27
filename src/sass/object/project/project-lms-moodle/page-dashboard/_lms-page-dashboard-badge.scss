@@ -84,24 +84,25 @@
     .badge-acquired-head-shine {
       position: absolute;
       z-index: 99999;
+      opacity: 0;
     }
     .shine01,
     .shine07 {
-      animation: shineScale 3s ease-in-out 0s forwards infinite;
+      animation: shineScale 6s ease-in-out 0s forwards infinite;
     }
 
     .shine03,
     .shine05 {
-      animation: shineScale 2s ease-in-out 0s forwards infinite;
+      animation: shineScale 5s ease-in-out 0s forwards infinite;
     }
     .shine02,
     .shine06 {
-      animation: shineScale 3s ease-in-out 1s forwards infinite;
+      animation: shineScale 5s ease-in-out 1s forwards infinite;
     }
 
     .shine04,
     .shine08 {
-      animation: shineScale 2s ease-in-out 1s forwards infinite;
+      animation: shineScale 4s ease-in-out 1s forwards infinite;
     }
     .badge-acquired-head-shine.shine01 {
       top: 19%;
@@ -193,12 +194,12 @@
       opacity: 0;
     }
     20% {
-      transform: scale(1);
-      opacity: 0.65;
+      transform: scale(0.85);
+      opacity: 0.8;
     }
     70% {
-      transform: scale(1);
-      opacity: 0.65;
+      transform: scale(0.85);
+      opacity: 0.8;
     }
     88% {
       transform: scale(0);

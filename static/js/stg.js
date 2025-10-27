@@ -1089,7 +1089,6 @@ if (bodyId === "page-my-index") {
   // 現在の期間窓に入っていて、かつ「まだモーダルを表示していない」最初のバッジがあればモーダル表示。
   // - 1回だけ見せたいので、表示直後にCookie(MODAL_PREFIX+key)='1'をセットして再表示しない。
   function maybeShowAcquiredModal(now) {
-    // （追記）nowを引数で受け取る
     const list = collectBadges();
 
     // 期間内 && 未表示Cookie のものを全部採用（表示順は index 昇順）
@@ -1141,14 +1140,14 @@ if (bodyId === "page-my-index") {
 
       console.log("[DEBUG] 獲得モーダル表示:", badge.dateLabel, badge.title);
     });
+
     confetti({
-      colors: ["#FCAF17", "#B6D43E", "#28AFE7", "#AA68AA"], // 赤、緑、青
-      // colors: ['#90D3EC', '#CB355A', '#F2A3B3', '#A6C211', '#FBCF01', '#EBECED'],  // 赤、緑、青
+      colors: ["#FCAF17", "#B6D43E", "#28AFE7", "#AA68AA"],
       particleCount: 200,
       spread: 120,
       origin: { y: 0.6 },
-      zIndex: 1000, // 確実に上に来る値
-      ticks: 50, // デフォルトは200。小さいほど早く消える
+      zIndex: 1000,
+      ticks: 50,
       drift: 3,
     });
   }
