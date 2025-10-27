@@ -7190,6 +7190,70 @@ html[data-tenantidnumber=stg] .pagelayout-mydashboard .badge-acquired .badge-acq
   z-index: 99;
   background: repeating-conic-gradient(transparent, transparent 15deg, #ffffff 15deg 30deg);
 }
+html[data-tenantidnumber=stg] .pagelayout-mydashboard .badge-acquired .badge-acquired-head-shine {
+  position: absolute;
+  z-index: 99999;
+}
+html[data-tenantidnumber=stg] .pagelayout-mydashboard .badge-acquired .shine01,
+html[data-tenantidnumber=stg] .pagelayout-mydashboard .badge-acquired .shine07 {
+  -webkit-animation: shineScale 3s ease-in-out 0s forwards infinite;
+          animation: shineScale 3s ease-in-out 0s forwards infinite;
+}
+html[data-tenantidnumber=stg] .pagelayout-mydashboard .badge-acquired .shine03,
+html[data-tenantidnumber=stg] .pagelayout-mydashboard .badge-acquired .shine05 {
+  -webkit-animation: shineScale 2s ease-in-out 0s forwards infinite;
+          animation: shineScale 2s ease-in-out 0s forwards infinite;
+}
+html[data-tenantidnumber=stg] .pagelayout-mydashboard .badge-acquired .shine02,
+html[data-tenantidnumber=stg] .pagelayout-mydashboard .badge-acquired .shine06 {
+  -webkit-animation: shineScale 3s ease-in-out 1s forwards infinite;
+          animation: shineScale 3s ease-in-out 1s forwards infinite;
+}
+html[data-tenantidnumber=stg] .pagelayout-mydashboard .badge-acquired .shine04,
+html[data-tenantidnumber=stg] .pagelayout-mydashboard .badge-acquired .shine08 {
+  -webkit-animation: shineScale 2s ease-in-out 1s forwards infinite;
+          animation: shineScale 2s ease-in-out 1s forwards infinite;
+}
+html[data-tenantidnumber=stg] .pagelayout-mydashboard .badge-acquired .badge-acquired-head-shine.shine01 {
+  top: 19%;
+  left: 22%;
+  width: 22px;
+}
+html[data-tenantidnumber=stg] .pagelayout-mydashboard .badge-acquired .badge-acquired-head-shine.shine02 {
+  top: 25%;
+  left: 15%;
+  width: 23px;
+}
+html[data-tenantidnumber=stg] .pagelayout-mydashboard .badge-acquired .badge-acquired-head-shine.shine03 {
+  top: 64px;
+  left: 18%;
+  width: 21px;
+}
+html[data-tenantidnumber=stg] .pagelayout-mydashboard .badge-acquired .badge-acquired-head-shine.shine04 {
+  top: 39px;
+  left: 29%;
+  width: 21px;
+}
+html[data-tenantidnumber=stg] .pagelayout-mydashboard .badge-acquired .badge-acquired-head-shine.shine05 {
+  top: 36px;
+  right: 22%;
+  width: 32px;
+}
+html[data-tenantidnumber=stg] .pagelayout-mydashboard .badge-acquired .badge-acquired-head-shine.shine06 {
+  top: 119px;
+  right: 14%;
+  width: 30px;
+}
+html[data-tenantidnumber=stg] .pagelayout-mydashboard .badge-acquired .badge-acquired-head-shine.shine07 {
+  top: 74px;
+  right: 15%;
+  width: 22px;
+}
+html[data-tenantidnumber=stg] .pagelayout-mydashboard .badge-acquired .badge-acquired-head-shine.shine08 {
+  top: 85px;
+  right: 21%;
+  width: 18px;
+}
 html[data-tenantidnumber=stg] .pagelayout-mydashboard .badge-acquired .badge-acquired-image {
   position: relative;
   z-index: 99;
@@ -7233,6 +7297,60 @@ html[data-tenantidnumber=stg] .pagelayout-mydashboard .badge-acquired .c-modal-w
   position: relative;
   z-index: 100;
   cursor: pointer;
+}
+@-webkit-keyframes shineScale {
+  0% {
+    -webkit-transform: scale(0);
+            transform: scale(0);
+    opacity: 0;
+  }
+  20% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+    opacity: 0.65;
+  }
+  70% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+    opacity: 0.65;
+  }
+  88% {
+    -webkit-transform: scale(0);
+            transform: scale(0);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: scale(0);
+            transform: scale(0);
+    opacity: 0;
+  }
+}
+@keyframes shineScale {
+  0% {
+    -webkit-transform: scale(0);
+            transform: scale(0);
+    opacity: 0;
+  }
+  20% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+    opacity: 0.65;
+  }
+  70% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+    opacity: 0.65;
+  }
+  88% {
+    -webkit-transform: scale(0);
+            transform: scale(0);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: scale(0);
+            transform: scale(0);
+    opacity: 0;
+  }
 }
 @-webkit-keyframes rotation {
   0% {
