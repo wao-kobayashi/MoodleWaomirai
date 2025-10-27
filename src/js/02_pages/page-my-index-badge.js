@@ -94,30 +94,30 @@ if (bodyId === "page-my-index") {
   // ===== Cookie一括削除 =====
   // 即時実行関数で、関連Cookie（MODAL_PREFIX/NEW_PREFIX で始まるもの）を全削除する初期化処理。
   // - デバッグ/リセット用途。通常は開発時に役立つ。
-  // (function clearAllBadgeCookies() {
-  //   // document.cookie は "name=value; name2=value2; ..." 形式のため分割して走査。
-  //   const cookies = document.cookie
-  //     .split(";")
-  //     .map((s) => s.trim())
-  //     .filter(Boolean);
-  //   // 対象となるプレフィックスのCookieのみ抽出。
-  //   const targets = cookies.filter(
-  //     (c) => c.startsWith(MODAL_PREFIX) || c.startsWith(NEW_PREFIX)
-  //   );
+  (function clearAllBadgeCookies() {
+    // document.cookie は "name=value; name2=value2; ..." 形式のため分割して走査。
+    const cookies = document.cookie
+      .split(";")
+      .map((s) => s.trim())
+      .filter(Boolean);
+    // 対象となるプレフィックスのCookieのみ抽出。
+    const targets = cookies.filter(
+      (c) => c.startsWith(MODAL_PREFIX) || c.startsWith(NEW_PREFIX)
+    );
 
-  //   if (!targets.length) return console.log("[RESET] 対象Cookieなし");
+    if (!targets.length) return console.log("[RESET] 対象Cookieなし");
 
-  //   // jQuery Cookie があれば removeCookie、なければ生CookieでMax-Age=0を併用して確実に削除。
-  //   targets.forEach((c) => {
-  //     const name = c.split("=")[0];
-  //     if (hasCookie()) $.removeCookie(name, COOKIE_OPTS);
-  //     document.cookie = `${name}=; Max-Age=0; path=/;`;
-  //   });
-  //   console.log(
-  //     "[RESET] removed:",
-  //     targets.map((c) => c.split("=")[0])
-  //   );
-  // })();
+    // jQuery Cookie があれば removeCookie、なければ生CookieでMax-Age=0を併用して確実に削除。
+    targets.forEach((c) => {
+      const name = c.split("=")[0];
+      if (hasCookie()) $.removeCookie(name, COOKIE_OPTS);
+      document.cookie = `${name}=; Max-Age=0; path=/;`;
+    });
+    console.log(
+      "[RESET] removed:",
+      targets.map((c) => c.split("=")[0])
+    );
+  })();
 
   // ===== バッジデータ収集 =====
   // DOMからバッジ一覧<ul class="badges">の各<li>を走査し、必要情報を配列で返す。
@@ -361,7 +361,49 @@ if (bodyId === "page-my-index") {
           </div>
         `);
     }
+
+    // ===== 【追加】バッジ表示制御処理 =====
+    // バッジが1個以上あったら .display-badge を表示
+    if (list.length >= 1) {
+      $(".display-badge").show();
+    } else {
+      $(".display-badge").hide();
+    }
+
+    // バッジが7個以上あったら .dashboard-left-block-wrap-badge-readmore を表示
+    if (list.length >= 7) {
+      $(".dashboard-left-block-wrap-badge-readmore").show();
+    } else {
+      $(".dashboard-left-block-wrap-badge-readmore").hide();
+    }
   }
+
+  // ===== 【追加】もっと見る/閉じる の切り替え処理 =====
+  let isExpanded = false; // 展開状態を管理
+  const originalText = "もっと見る"; // 元のテキスト（適宜変更してください）
+  const collapsedText = "表示を元に戻す"; // 展開後のテキスト（適宜変更してください）
+
+  $(document).on(
+    "click",
+    ".dashboard-left-block-wrap-badge-readmore a",
+    function (e) {
+      e.preventDefault();
+      const now = new Date();
+      const list = collectBadges();
+
+      if (!isExpanded) {
+        // 全件表示
+        renderBadgeBlock(list.length, now);
+        $(this).text(collapsedText);
+        isExpanded = true;
+      } else {
+        // 6件表示に戻す
+        renderBadgeBlock(6, now);
+        $(this).text(originalText);
+        isExpanded = false;
+      }
+    }
+  );
 
   // ===== 起動 =====
   // DOM準備完了後に初期描画＆必要なら獲得モーダルを表示。

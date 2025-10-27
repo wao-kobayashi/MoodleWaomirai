@@ -7138,7 +7138,7 @@ html[data-tenantidnumber=stg] .pagelayout-mydashboard .dashboard-left-block-wrap
       -ms-flex-pack: center;
           justify-content: center;
 }
-html[data-tenantidnumber=stg] .pagelayout-mydashboard .dashboard-left-block-wrap-badge-content .dashboard-left-block-wrap-badge-block:nth-child(5), html[data-tenantidnumber=stg] .pagelayout-mydashboard .dashboard-left-block-wrap-badge-content .dashboard-left-block-wrap-badge-block:nth-child(6) {
+html[data-tenantidnumber=stg] .pagelayout-mydashboard .dashboard-left-block-wrap-badge-content .dashboard-left-block-wrap-badge-block:nth-last-child(-n+2) {
   border-bottom: none !important;
 }
 html[data-tenantidnumber=stg] .pagelayout-mydashboard .dashboard-left-block-wrap-badge-content .dashboard-left-block-wrap-badge-block:nth-child(2n+1) {

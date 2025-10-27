@@ -22,8 +22,7 @@
       padding: 20px 0px;
       display: flex;
       justify-content: center;
-      &:nth-child(5),
-      &:nth-child(6) {
+      &:nth-last-child(-n + 2) {
         border-bottom: none !important;
       }
       &:nth-child(2n + 1) {
