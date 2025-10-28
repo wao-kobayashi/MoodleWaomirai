@@ -28,6 +28,13 @@ a:active {
   width: auto !important;
 }
 
+.mr-auto,
+.me-auto,
+.mx-auto {
+  margin-right: 0 !important;
+  width: 100%;
+}
+
 .footer-section {
   padding: 60px 0 0;
   display: flex;
@@ -263,6 +270,16 @@ footer.footer-popover {
 
 // メッセージボタンを管理者ユーザー以外で表示しない
 body:not(.is-admin-user) div[data-region="popover-region-messages"],
-body:not(.is-admin-user) #message-user-button{
+body:not(.is-admin-user) #message-user-button {
   display: none;
+}
+
+/* コースアイコンを4.4に変更 */
+.courseicon.communication {
+  background-color: #11a676 !important;
+}
+.activityiconcontainer.communication:not(.isbranded)
+  .activityicon:not(.nofilter),
+.activityiconcontainer.communication:not(.isbranded) .icon:not(.nofilter) {
+  filter: invert(100%) brightness(200%);
 }

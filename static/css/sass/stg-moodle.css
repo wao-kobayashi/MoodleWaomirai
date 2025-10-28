@@ -26,6 +26,7 @@ html[data-tenantidnumber=stg] {
   /* 基本的にはsizeとstyleセットで使う
   ******************/
   /* footer */
+  /* コースアイコンを4.4に変更 */
   /* 共通追従フッター削除 */
   /* マイページ */
   /* 授業詳細 */
@@ -1322,6 +1323,12 @@ html[data-tenantidnumber=stg] .border-bottom {
 html[data-tenantidnumber=stg] .navbar-brand img {
   width: auto !important;
 }
+html[data-tenantidnumber=stg] .mr-auto,
+html[data-tenantidnumber=stg] .me-auto,
+html[data-tenantidnumber=stg] .mx-auto {
+  margin-right: 0 !important;
+  width: 100%;
+}
 html[data-tenantidnumber=stg] .footer-section {
   padding: 60px 0 0;
   display: -webkit-box;
@@ -1564,11 +1571,23 @@ html[data-tenantidnumber=stg] body:not(.is-admin-user) div[data-region=popover-r
 html[data-tenantidnumber=stg] body:not(.is-admin-user) #message-user-button {
   display: none;
 }
+html[data-tenantidnumber=stg] .courseicon.communication {
+  background-color: #11a676 !important;
+}
+html[data-tenantidnumber=stg] .activityiconcontainer.communication:not(.isbranded) .activityicon:not(.nofilter),
+html[data-tenantidnumber=stg] .activityiconcontainer.communication:not(.isbranded) .icon:not(.nofilter) {
+  filter: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg"><filter id="filter"><feComponentTransfer color-interpolation-filters="sRGB"><feFuncR type="table" tableValues="1 0" /><feFuncG type="table" tableValues="1 0" /><feFuncB type="table" tableValues="1 0" /></feComponentTransfer><feComponentTransfer color-interpolation-filters="sRGB"><feFuncR type="linear" slope="2" /><feFuncG type="linear" slope="2" /><feFuncB type="linear" slope="2" /></feComponentTransfer></filter></svg>#filter');
+  -webkit-filter: invert(100%) brightness(200%);
+          filter: invert(100%) brightness(200%);
+}
 @media screen and (max-width: 768px) {
   html[data-tenantidnumber=stg] #usernavigation .editmode-switch-form,
   html[data-tenantidnumber=stg] #usernavigation .divider {
     display: none !important;
   }
+}
+html[data-tenantidnumber=stg] .block_html h3.card-title, html[data-tenantidnumber=stg] .block_html .pagelayout-mydashboard #dashboard-sp-content .dashboard-left-block h3.dashboard-left-block-title, html[data-tenantidnumber=stg] .pagelayout-mydashboard #dashboard-sp-content .dashboard-left-block .block_html h3.dashboard-left-block-title {
+  display: none !important;
 }
 html[data-tenantidnumber=stg] .drawer-toggles .drawer-toggler {
   display: none !important;
@@ -7438,6 +7457,15 @@ html[data-tenantidnumber=stg] .pagelayout-mydashboard .dashboard-left-block-wrap
             transform: scale(1);
   }
 }
+html[data-tenantidnumber=stg] #page-user-edit .align-items-start {
+  -webkit-box-align: start !important;
+      -ms-flex-align: start !important;
+          align-items: flex-start !important;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
 html[data-tenantidnumber=stg] #page-user-edit .collapse:not(.show) {
   display: block !important;
 }
@@ -13181,6 +13209,10 @@ html[data-tenantidnumber=stg] #page-enrol-index table td.has-text-align-center {
 html[data-tenantidnumber=stg] #page-enrol-index .wp-block-spacer {
   height: 16px;
 }
+html[data-tenantidnumber=stg] .course-270 .page-header-headings, html[data-tenantidnumber=stg] .course-228 .page-header-headings,
+html[data-tenantidnumber=stg] .course-271 .page-header-headings, html[data-tenantidnumber=stg] .course-229 .page-header-headings {
+  display: none;
+}
 html[data-tenantidnumber=stg] .course-270 .page-context-header, html[data-tenantidnumber=stg] .course-228 .page-context-header,
 html[data-tenantidnumber=stg] .course-271 .page-context-header, html[data-tenantidnumber=stg] .course-229 .page-context-header {
   display: none;
@@ -13386,6 +13418,17 @@ html[data-tenantidnumber=stg] .enrol-header {
     text-align: center;
   }
 }
+html[data-tenantidnumber=stg] #page-course-view-flexsections .activity-item.hiddenactivity,
+html[data-tenantidnumber=stg] #page-course-view-topics .activity-item.hiddenactivity {
+  background: #ffffff !important;
+}
+html[data-tenantidnumber=stg] #page-course-view-flexsections .activity-completion.align-self-start,
+html[data-tenantidnumber=stg] #page-course-view-flexsections .activity-item .activity-icon,
+html[data-tenantidnumber=stg] #page-course-view-topics .activity-completion.align-self-start,
+html[data-tenantidnumber=stg] #page-course-view-topics .activity-item .activity-icon {
+  -ms-flex-item-align: center !important;
+      align-self: center !important;
+}
 html[data-tenantidnumber=stg] #page-course-view-flexsections .activityiconcontainer.smaller .activityicon,
 html[data-tenantidnumber=stg] #page-course-view-topics .activityiconcontainer.smaller .activityicon {
   width: 24px !important;
@@ -13498,6 +13541,7 @@ html[data-tenantidnumber=stg] #page-course-view-topics .course-section.main {
   border-radius: 10px;
   padding: 0 0px !important;
   margin: 0 auto 40px !important;
+  overflow: hidden !important;
   /* Item */
 }
 html[data-tenantidnumber=stg] #page-course-view-flexsections .course-section.main .btn.btn-icon,
@@ -13505,6 +13549,7 @@ html[data-tenantidnumber=stg] #page-course-view-topics .course-section.main .btn
   background: white !important;
   margin-right: 0px !important;
   margin-right: 0rem !important;
+  color: #4d4d4d !important;
 }
 html[data-tenantidnumber=stg] #page-course-view-flexsections .course-section.main .mb-3,
 html[data-tenantidnumber=stg] #page-course-view-flexsections .course-section.main .my-3,
@@ -13517,12 +13562,23 @@ html[data-tenantidnumber=stg] #page-course-view-flexsections .course-section.mai
 html[data-tenantidnumber=stg] #page-course-view-topics .course-section.main .d-block {
   padding: 0px 25px 30px !important;
   border: none !important;
+  display: -webkit-box !important;
+  display: -ms-flexbox !important;
+  display: flex !important;
+  -webkit-box-orient: vertical !important;
+  -webkit-box-direction: normal !important;
+      -ms-flex-direction: column !important;
+          flex-direction: column !important;
+  gap: 20px;
+  margin: 30px 0 0 !important;
 }
 html[data-tenantidnumber=stg] #page-course-view-flexsections .course-section.main .section .activity,
 html[data-tenantidnumber=stg] #page-course-view-topics .course-section.main .section .activity {
   list-style: none;
-  padding: 4px 0 8px;
-  padding: 0.25rem 0 0.5rem;
+  padding: 4px 0 4px;
+  padding: 0.25rem 0 0.25rem;
+  border: 1px solid #dee2e6;
+  border-radius: 12px;
 }
 html[data-tenantidnumber=stg] #page-course-view-flexsections .course-section.main > .course-section-header,
 html[data-tenantidnumber=stg] #page-course-view-topics .course-section.main > .course-section-header {
@@ -13541,7 +13597,9 @@ html[data-tenantidnumber=stg] #page-course-view-topics .course-section.main h3 {
 }
 html[data-tenantidnumber=stg] #page-course-view-flexsections .course-section.main .course-section-header,
 html[data-tenantidnumber=stg] #page-course-view-topics .course-section.main .course-section-header {
-  padding: 0px 15px;
+  padding: 15px 15px 15px;
+  border-bottom: 1px solid #dee2e6;
+  background: #f8f8f8 !important;
 }
 html[data-tenantidnumber=stg] #page-course-view-flexsections .course-section.main .bulkselect + .d-flex,
 html[data-tenantidnumber=stg] #page-course-view-topics .course-section.main .bulkselect + .d-flex {
@@ -13561,16 +13619,21 @@ html[data-tenantidnumber=stg] #page-course-view-flexsections .course-section.mai
 html[data-tenantidnumber=stg] #page-course-view-topics .course-section.main .course-section {
   border: none !important;
 }
-html[data-tenantidnumber=stg] #page-course-view-flexsections .subject-page-added .course-content-item-content ul,
-html[data-tenantidnumber=stg] #page-course-view-topics .subject-page-added .course-content-item-content ul {
+html[data-tenantidnumber=stg] #page-course-view-flexsections .course-section.main .course-section .section-item,
+html[data-tenantidnumber=stg] #page-course-view-topics .course-section.main .course-section .section-item {
+  border: none !important;
+  padding: 0 !important;
+}
+html[data-tenantidnumber=stg] #page-course-view-flexsections .subject-page-added .course-content-item-content ul.d-block,
+html[data-tenantidnumber=stg] #page-course-view-topics .subject-page-added .course-content-item-content ul.d-block {
   display: grid !important;
   grid-template-columns: 1fr 220px;
   grid-template-rows: repeat(3, 1fr);
   gap: 20px 25px;
 }
 @media screen and (max-width: 768px) {
-  html[data-tenantidnumber=stg] #page-course-view-flexsections .subject-page-added .course-content-item-content ul,
-  html[data-tenantidnumber=stg] #page-course-view-topics .subject-page-added .course-content-item-content ul {
+  html[data-tenantidnumber=stg] #page-course-view-flexsections .subject-page-added .course-content-item-content ul.d-block,
+  html[data-tenantidnumber=stg] #page-course-view-topics .subject-page-added .course-content-item-content ul.d-block {
     display: -webkit-box !important;
     display: -ms-flexbox !important;
     display: flex !important;
@@ -13580,18 +13643,18 @@ html[data-tenantidnumber=stg] #page-course-view-topics .subject-page-added .cour
             flex-direction: column;
   }
 }
-html[data-tenantidnumber=stg] #page-course-view-flexsections .subject-page-added .course-content-item-content ul li.activity:nth-child(2),
-html[data-tenantidnumber=stg] #page-course-view-topics .subject-page-added .course-content-item-content ul li.activity:nth-child(2) {
+html[data-tenantidnumber=stg] #page-course-view-flexsections .subject-page-added .course-content-item-content ul.d-block li.activity:nth-child(2),
+html[data-tenantidnumber=stg] #page-course-view-topics .subject-page-added .course-content-item-content ul.d-block li.activity:nth-child(2) {
   grid-column-start: 1;
   grid-row-start: 2;
 }
-html[data-tenantidnumber=stg] #page-course-view-flexsections .subject-page-added .course-content-item-content ul li.activity:nth-child(3),
-html[data-tenantidnumber=stg] #page-course-view-topics .subject-page-added .course-content-item-content ul li.activity:nth-child(3) {
+html[data-tenantidnumber=stg] #page-course-view-flexsections .subject-page-added .course-content-item-content ul.d-block li.activity:nth-child(3),
+html[data-tenantidnumber=stg] #page-course-view-topics .subject-page-added .course-content-item-content ul.d-block li.activity:nth-child(3) {
   grid-column-start: 1;
   grid-row-start: 3;
 }
-html[data-tenantidnumber=stg] #page-course-view-flexsections .subject-page-added .course-content-item-content ul .subject-page-added-note,
-html[data-tenantidnumber=stg] #page-course-view-topics .subject-page-added .course-content-item-content ul .subject-page-added-note {
+html[data-tenantidnumber=stg] #page-course-view-flexsections .subject-page-added .course-content-item-content ul.d-block .subject-page-added-note,
+html[data-tenantidnumber=stg] #page-course-view-topics .subject-page-added .course-content-item-content ul.d-block .subject-page-added-note {
   grid-row: span 3/span 3;
   grid-column-start: 2;
   grid-row-start: 1;
@@ -13600,6 +13663,7 @@ html[data-tenantidnumber=stg] #page-course-view-topics .subject-page-added .cour
 html[data-tenantidnumber=stg] #page-course-view-flexsections .subject-page-added .activity,
 html[data-tenantidnumber=stg] #page-course-view-topics .subject-page-added .activity {
   padding: 0 !important;
+  border: none !important;
 }
 html[data-tenantidnumber=stg] #page-course-view-flexsections .subject-page-added .activity-item,
 html[data-tenantidnumber=stg] #page-course-view-topics .subject-page-added .activity-item {
@@ -13611,13 +13675,16 @@ html[data-tenantidnumber=stg] #page-course-view-topics .subject-page-added .acti
     height: auto !important;
   }
 }
-html[data-tenantidnumber=stg] #page-course-view-flexsections .subject-page-added .activity-grid,
-html[data-tenantidnumber=stg] #page-course-view-topics .subject-page-added .activity-grid {
+html[data-tenantidnumber=stg] #page-course-view-flexsections .subject-page-added .activity-name-area,
+html[data-tenantidnumber=stg] #page-course-view-topics .subject-page-added .activity-name-area {
   height: 48px;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 @media screen and (max-width: 768px) {
-  html[data-tenantidnumber=stg] #page-course-view-flexsections .subject-page-added .activity-grid,
-  html[data-tenantidnumber=stg] #page-course-view-topics .subject-page-added .activity-grid {
+  html[data-tenantidnumber=stg] #page-course-view-flexsections .subject-page-added .activity-name-area,
+  html[data-tenantidnumber=stg] #page-course-view-topics .subject-page-added .activity-name-area {
     height: auto !important;
   }
 }
@@ -13628,6 +13695,8 @@ html[data-tenantidnumber=stg] #page-course-view-topics .subject-page-added .acti
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  border: 1px solid #dee2e6;
+  border-radius: 8px;
 }
 @media screen and (max-width: 768px) {
   html[data-tenantidnumber=stg] #page-course-view-flexsections .subject-page-added .activity-item:not(.activityinline),
@@ -13737,6 +13806,16 @@ html[data-tenantidnumber=stg] #page-course-view-topics .subject-page-added .subj
 html[data-tenantidnumber=stg] #page-course-view-flexsections .subject-page-added .subject-page-added-note.not-published .subject-page-added-note-head-icon:before,
 html[data-tenantidnumber=stg] #page-course-view-topics .subject-page-added .subject-page-added-note.not-published .subject-page-added-note-head-icon:before {
   background-image: url("https://waomirai.com/lp/assets/moodle/icn-worksheet-not-published.svg") !important;
+}
+html[data-tenantidnumber=stg] .course-section {
+  padding: 16px 0px !important;
+  padding: 1rem 0rem !important;
+}
+html[data-tenantidnumber=stg] .course-section .section-item {
+  padding: 0px 0px !important;
+  padding: 0rem 0rem !important;
+  border: none !important;
+  border-radius: 0 !important;
 }
 html[data-tenantidnumber=stg] #page-course-view-topics .secondary-navigation {
   padding-bottom: 40px !important;

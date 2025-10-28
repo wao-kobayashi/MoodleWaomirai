@@ -7,6 +7,9 @@ $threesubjects: (".course-271", ".course-229");
 
 #{join($twosubjects, ", ")},
 #{join($threesubjects, ", ")} {
+  .page-header-headings {
+    display: none;
+  }
   .page-context-header {
     display: none; //２科と３科目ヘッダー見えなくする
   }

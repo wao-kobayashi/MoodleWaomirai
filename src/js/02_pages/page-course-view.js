@@ -7,6 +7,22 @@ if (
   (bodyId === "page-course-view-flexsections" || bodyId === "page-course-view-topics") 
   && !hasBoughtAdminSubject
 ) {
+  //moodle 4.5対応 クローズしているブロックをすべて開く
+  $('.course-content a[role="button"]').each(function(index) {
+    var $btn = $(this);
+    var targetId = $btn.attr('aria-controls');
+    var $target = $('#' + targetId);
+
+    // aria-expanded を true に変更
+    $btn.attr('aria-expanded', 'true');
+
+    // collapsed クラスを削除
+    $btn.removeClass('collapsed');
+
+    // 対応する collapse 要素を開く
+    $target.addClass('show');
+  });
+
 
   ////////////////////////////
   // 前々月以前のトピックを削除
@@ -47,7 +63,7 @@ if (
       // modtype_resource 内の activity-icon の href を取得して削除
       var hrefList = $courseSection.find('.modtype_resource').map(function() {
           // 各 .modtype_resource の中から .activity-icon 要素を探し、その href 属性（ダウンロード先URLなど）を取得
-          var href = $(this).find('.activity-icon').attr('href');
+          var href = $(this).find('.stretched-link').attr('href');
           // 取得した後、このリソース（.modtype_resource）自体をセクションから削除
           // 目的：標準のリソース表示を隠し、後段で用意するカスタムの「まとめシート」UIに置き換えるため
           $(this).remove();
