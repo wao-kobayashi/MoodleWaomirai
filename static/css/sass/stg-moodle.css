@@ -1571,7 +1571,7 @@ html[data-tenantidnumber=stg] body:not(.is-admin-user) div[data-region=popover-r
 html[data-tenantidnumber=stg] body:not(.is-admin-user) #message-user-button {
   display: none;
 }
-html[data-tenantidnumber=stg] .courseicon {
+html[data-tenantidnumber=stg] .courseicon.communication {
   background-color: #11a676 !important;
 }
 html[data-tenantidnumber=stg] .activityiconcontainer.communication:not(.isbranded) .activityicon:not(.nofilter),
@@ -1586,7 +1586,7 @@ html[data-tenantidnumber=stg] .activityiconcontainer.communication:not(.isbrande
     display: none !important;
   }
 }
-html[data-tenantidnumber=stg] #instance-301-header {
+html[data-tenantidnumber=stg] .block_html h3.card-title, html[data-tenantidnumber=stg] .block_html .pagelayout-mydashboard #dashboard-sp-content .dashboard-left-block h3.dashboard-left-block-title, html[data-tenantidnumber=stg] .pagelayout-mydashboard #dashboard-sp-content .dashboard-left-block .block_html h3.dashboard-left-block-title {
   display: none !important;
 }
 html[data-tenantidnumber=stg] .drawer-toggles .drawer-toggler {
@@ -13098,6 +13098,10 @@ html[data-tenantidnumber=stg] .enrol-header {
     text-align: center;
   }
 }
+html[data-tenantidnumber=stg] #page-course-view-flexsections .activity-item.hiddenactivity,
+html[data-tenantidnumber=stg] #page-course-view-topics .activity-item.hiddenactivity {
+  background: #ffffff !important;
+}
 html[data-tenantidnumber=stg] #page-course-view-flexsections .activity-completion.align-self-start,
 html[data-tenantidnumber=stg] #page-course-view-flexsections .activity-item .activity-icon,
 html[data-tenantidnumber=stg] #page-course-view-topics .activity-completion.align-self-start,
@@ -13217,6 +13221,7 @@ html[data-tenantidnumber=stg] #page-course-view-topics .course-section.main {
   border-radius: 10px;
   padding: 0 0px !important;
   margin: 0 auto 40px !important;
+  overflow: hidden !important;
   /* Item */
 }
 html[data-tenantidnumber=stg] #page-course-view-flexsections .course-section.main .btn.btn-icon,
@@ -13224,6 +13229,7 @@ html[data-tenantidnumber=stg] #page-course-view-topics .course-section.main .btn
   background: white !important;
   margin-right: 0px !important;
   margin-right: 0rem !important;
+  color: #4d4d4d !important;
 }
 html[data-tenantidnumber=stg] #page-course-view-flexsections .course-section.main .mb-3,
 html[data-tenantidnumber=stg] #page-course-view-flexsections .course-section.main .my-3,
@@ -13249,8 +13255,8 @@ html[data-tenantidnumber=stg] #page-course-view-topics .course-section.main .d-b
 html[data-tenantidnumber=stg] #page-course-view-flexsections .course-section.main .section .activity,
 html[data-tenantidnumber=stg] #page-course-view-topics .course-section.main .section .activity {
   list-style: none;
-  padding: 4px 0 8px;
-  padding: 0.25rem 0 0.5rem;
+  padding: 4px 0 4px;
+  padding: 0.25rem 0 0.25rem;
   border: 1px solid #dee2e6;
   border-radius: 12px;
 }
@@ -13271,8 +13277,9 @@ html[data-tenantidnumber=stg] #page-course-view-topics .course-section.main h3 {
 }
 html[data-tenantidnumber=stg] #page-course-view-flexsections .course-section.main .course-section-header,
 html[data-tenantidnumber=stg] #page-course-view-topics .course-section.main .course-section-header {
-  padding: 0px 15px 15px;
+  padding: 15px 15px 15px;
   border-bottom: 1px solid #dee2e6;
+  background: #f8f8f8 !important;
 }
 html[data-tenantidnumber=stg] #page-course-view-flexsections .course-section.main .bulkselect + .d-flex,
 html[data-tenantidnumber=stg] #page-course-view-topics .course-section.main .bulkselect + .d-flex {
@@ -13295,6 +13302,7 @@ html[data-tenantidnumber=stg] #page-course-view-topics .course-section.main .cou
 html[data-tenantidnumber=stg] #page-course-view-flexsections .course-section.main .course-section .section-item,
 html[data-tenantidnumber=stg] #page-course-view-topics .course-section.main .course-section .section-item {
   border: none !important;
+  padding: 0 !important;
 }
 html[data-tenantidnumber=stg] #page-course-view-flexsections .subject-page-added .course-content-item-content ul.d-block,
 html[data-tenantidnumber=stg] #page-course-view-topics .subject-page-added .course-content-item-content ul.d-block {
@@ -13484,7 +13492,10 @@ html[data-tenantidnumber=stg] .course-section {
   padding: 1rem 0rem !important;
 }
 html[data-tenantidnumber=stg] .course-section .section-item {
+  padding: 0px 0px !important;
+  padding: 0rem 0rem !important;
   border: none !important;
+  border-radius: 0 !important;
 }
 html[data-tenantidnumber=stg] #page-course-view-topics .secondary-navigation {
   padding-bottom: 40px !important;

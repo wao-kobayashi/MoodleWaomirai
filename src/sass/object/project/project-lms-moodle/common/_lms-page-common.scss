@@ -275,7 +275,7 @@ body:not(.is-admin-user) #message-user-button {
 }
 
 /* コースアイコンを4.4に変更 */
-.courseicon {
+.courseicon.communication {
   background-color: #11a676 !important;
 }
 .activityiconcontainer.communication:not(.isbranded)
