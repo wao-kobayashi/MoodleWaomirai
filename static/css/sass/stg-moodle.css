@@ -1572,7 +1572,7 @@ html[data-tenantidnumber=stg] body:not(.is-admin-user) #message-user-button {
   display: none;
 }
 html[data-tenantidnumber=stg] .courseicon {
-  background-color: #005c3f !important;
+  background-color: #11a676 !important;
 }
 html[data-tenantidnumber=stg] .activityiconcontainer.communication:not(.isbranded) .activityicon:not(.nofilter),
 html[data-tenantidnumber=stg] .activityiconcontainer.communication:not(.isbranded) .icon:not(.nofilter) {
@@ -7136,6 +7136,15 @@ html[data-tenantidnumber=stg] #page-my-index .p-abroad-user-jst-label {
     font-size: 14px;
     padding: 6px 14px;
   }
+}
+html[data-tenantidnumber=stg] #page-user-edit .align-items-start {
+  -webkit-box-align: start !important;
+      -ms-flex-align: start !important;
+          align-items: flex-start !important;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 html[data-tenantidnumber=stg] #page-user-edit .collapse:not(.show) {
   display: block !important;
@@ -13089,17 +13098,12 @@ html[data-tenantidnumber=stg] .enrol-header {
     text-align: center;
   }
 }
-html[data-tenantidnumber=stg] #page-course-view-flexsections .courseicon,
-html[data-tenantidnumber=stg] #page-course-view-topics .courseicon {
-  background-color: #005c3f !important;
-}
-html[data-tenantidnumber=stg] #page-course-view-flexsections .activityiconcontainer.communication:not(.isbranded) .activityicon:not(.nofilter),
-html[data-tenantidnumber=stg] #page-course-view-flexsections .activityiconcontainer.communication:not(.isbranded) .icon:not(.nofilter),
-html[data-tenantidnumber=stg] #page-course-view-topics .activityiconcontainer.communication:not(.isbranded) .activityicon:not(.nofilter),
-html[data-tenantidnumber=stg] #page-course-view-topics .activityiconcontainer.communication:not(.isbranded) .icon:not(.nofilter) {
-  filter: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg"><filter id="filter"><feComponentTransfer color-interpolation-filters="sRGB"><feFuncR type="table" tableValues="1 0" /><feFuncG type="table" tableValues="1 0" /><feFuncB type="table" tableValues="1 0" /></feComponentTransfer><feComponentTransfer color-interpolation-filters="sRGB"><feFuncR type="linear" slope="2" /><feFuncG type="linear" slope="2" /><feFuncB type="linear" slope="2" /></feComponentTransfer></filter></svg>#filter');
-  -webkit-filter: invert(100%) brightness(200%);
-          filter: invert(100%) brightness(200%);
+html[data-tenantidnumber=stg] #page-course-view-flexsections .activity-completion.align-self-start,
+html[data-tenantidnumber=stg] #page-course-view-flexsections .activity-item .activity-icon,
+html[data-tenantidnumber=stg] #page-course-view-topics .activity-completion.align-self-start,
+html[data-tenantidnumber=stg] #page-course-view-topics .activity-item .activity-icon {
+  -ms-flex-item-align: center !important;
+      align-self: center !important;
 }
 html[data-tenantidnumber=stg] #page-course-view-flexsections .activityiconcontainer.smaller .activityicon,
 html[data-tenantidnumber=stg] #page-course-view-topics .activityiconcontainer.smaller .activityicon {
@@ -13346,6 +13350,9 @@ html[data-tenantidnumber=stg] #page-course-view-topics .subject-page-added .acti
 html[data-tenantidnumber=stg] #page-course-view-flexsections .subject-page-added .activity-name-area,
 html[data-tenantidnumber=stg] #page-course-view-topics .subject-page-added .activity-name-area {
   height: 48px;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 @media screen and (max-width: 768px) {
   html[data-tenantidnumber=stg] #page-course-view-flexsections .subject-page-added .activity-name-area,

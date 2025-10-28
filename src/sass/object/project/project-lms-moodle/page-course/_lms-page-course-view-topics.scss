@@ -2,13 +2,9 @@
 //memo &をつけるとbodyにつく
 #page-course-view-flexsections,
 #page-course-view-topics {
-  .courseicon {
-    background-color: $cl-waogreen !important;
-  }
-  .activityiconcontainer.communication:not(.isbranded)
-    .activityicon:not(.nofilter),
-  .activityiconcontainer.communication:not(.isbranded) .icon:not(.nofilter) {
-    filter: invert(100%) brightness(200%);
+  .activity-completion.align-self-start,
+  .activity-item .activity-icon {
+    align-self: center !important;
   }
   .activityiconcontainer.smaller .activityicon {
     width: 24px !important;
@@ -204,7 +200,7 @@
 
     .activity-name-area {
       height: 48px;
-
+      justify-content: center;
       @include responsive-style(768px) {
         height: auto !important;
       }
