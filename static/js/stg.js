@@ -935,7 +935,6 @@ if (bodyId === "page-my-index") {
       // アラートバナーを表示
       $("#alert-change-course").show();
   }
-
 }
 
 
@@ -972,9 +971,7 @@ if (bodyId === "page-login-signup" || bodyId === "page-login-forgot_password") {
   }
 
   // アイコン（!）を "*" に置き換え
-  $(".fa-exclamation-circle").each(function () {
-    $(this).replaceWith("*");
-  });
+  $('i.text-danger').replaceWith('*');
 
   // ログインラッパーの前にロゴを挿入
   const $loginWrapper = $("#page-login-signup .login-wrapper");
@@ -1233,8 +1230,8 @@ if (bodyId === "page-enrol-index") {
     }}
 
     // 画面下部に料金を固定表示
-    const SubjectpPrice = $('.enrol_fee_payment_region b:contains("¥")'); // 価格情報を含む要素を取得
-    var SubjectPriceContent = `<div class="c-pc-hidden fixed-subject-price">${SubjectpPrice.text()} /月</div>`; // 固定表示用のHTMLを作成
+    const SubjectpPrice = $('.enrol_fee_payment_region b:contains("JPY")'); // 「JPY」を含む要素を取得
+    var SubjectPriceContent = `<div class="c-pc-hidden fixed-subject-price">${SubjectpPrice.text().replace('JPY', '¥')} /月</div>`; // JPY→¥に変換
     $("#page.drawers").after(SubjectPriceContent); // 画面下部に価格情報を追加
 
     // 科目（哲学/科学/経済/英語/2,3科目セット）の購入ボタンがクリックされたときの処理
@@ -1546,6 +1543,22 @@ if (
   (bodyId === "page-course-view-flexsections" || bodyId === "page-course-view-topics") 
   && !hasBoughtAdminSubject
 ) {
+  //moodle 4.5対応 クローズしているブロックをすべて開く
+  $('.course-content a[role="button"]').each(function(index) {
+    var $btn = $(this);
+    var targetId = $btn.attr('aria-controls');
+    var $target = $('#' + targetId);
+
+    // aria-expanded を true に変更
+    $btn.attr('aria-expanded', 'true');
+
+    // collapsed クラスを削除
+    $btn.removeClass('collapsed');
+
+    // 対応する collapse 要素を開く
+    $target.addClass('show');
+  });
+
 
   ////////////////////////////
   // 前々月以前のトピックを削除
@@ -1586,7 +1599,7 @@ if (
       // modtype_resource 内の activity-icon の href を取得して削除
       var hrefList = $courseSection.find('.modtype_resource').map(function() {
           // 各 .modtype_resource の中から .activity-icon 要素を探し、その href 属性（ダウンロード先URLなど）を取得
-          var href = $(this).find('.activity-icon').attr('href');
+          var href = $(this).find('.stretched-link').attr('href');
           // 取得した後、このリソース（.modtype_resource）自体をセクションから削除
           // 目的：標準のリソース表示を隠し、後段で用意するカスタムの「まとめシート」UIに置き換えるため
           $(this).remove();

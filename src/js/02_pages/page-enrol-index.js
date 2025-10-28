@@ -111,8 +111,8 @@ if (bodyId === "page-enrol-index") {
     }}
 
     // 画面下部に料金を固定表示
-    const SubjectpPrice = $('.enrol_fee_payment_region b:contains("¥")'); // 価格情報を含む要素を取得
-    var SubjectPriceContent = `<div class="c-pc-hidden fixed-subject-price">${SubjectpPrice.text()} /月</div>`; // 固定表示用のHTMLを作成
+    const SubjectpPrice = $('.enrol_fee_payment_region b:contains("JPY")'); // 「JPY」を含む要素を取得
+    var SubjectPriceContent = `<div class="c-pc-hidden fixed-subject-price">${SubjectpPrice.text().replace('JPY', '¥')} /月</div>`; // JPY→¥に変換
     $("#page.drawers").after(SubjectPriceContent); // 画面下部に価格情報を追加
 
     // 科目（哲学/科学/経済/英語/2,3科目セット）の購入ボタンがクリックされたときの処理

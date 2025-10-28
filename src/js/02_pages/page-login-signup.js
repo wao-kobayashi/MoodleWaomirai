@@ -31,9 +31,7 @@ if (bodyId === "page-login-signup" || bodyId === "page-login-forgot_password") {
   }
 
   // アイコン（!）を "*" に置き換え
-  $(".fa-exclamation-circle").each(function () {
-    $(this).replaceWith("*");
-  });
+  $('i.text-danger').replaceWith('*');
 
   // ログインラッパーの前にロゴを挿入
   const $loginWrapper = $("#page-login-signup .login-wrapper");

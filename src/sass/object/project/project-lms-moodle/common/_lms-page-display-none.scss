@@ -18,6 +18,11 @@
   }
 }
 
+//moodle 4.5対応 テキストブロックテキスト削除
+.block_html h3.card-title {
+  display: none !important;
+}
+
 // ドロワー撲滅
 .drawer-toggles .drawer-toggler {
   display: none !important;

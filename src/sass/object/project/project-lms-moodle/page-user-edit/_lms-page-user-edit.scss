@@ -1,5 +1,9 @@
 #page-user-edit {
   //   background: red;
+  .align-items-start {
+    align-items: flex-start !important;
+    flex-direction: column;
+  }
   .collapse:not(.show) {
     display: block !important;
   }
