@@ -1576,6 +1576,9 @@ html[data-tenantidnumber=lmswaomirai] body:not(.is-admin-user) #message-user-but
     display: none !important;
   }
 }
+html[data-tenantidnumber=lmswaomirai] #instance-301-header {
+  display: none !important;
+}
 html[data-tenantidnumber=lmswaomirai] .drawer-toggles .drawer-toggler {
   display: none !important;
 }
@@ -12866,6 +12869,10 @@ html[data-tenantidnumber=lmswaomirai] #page-enrol-index table td.has-text-align-
 }
 html[data-tenantidnumber=lmswaomirai] #page-enrol-index .wp-block-spacer {
   height: 16px;
+}
+html[data-tenantidnumber=lmswaomirai] .course-270 .page-header-headings, html[data-tenantidnumber=lmswaomirai] .course-228 .page-header-headings,
+html[data-tenantidnumber=lmswaomirai] .course-271 .page-header-headings, html[data-tenantidnumber=lmswaomirai] .course-229 .page-header-headings {
+  display: none;
 }
 html[data-tenantidnumber=lmswaomirai] .course-270 .page-context-header, html[data-tenantidnumber=lmswaomirai] .course-228 .page-context-header,
 html[data-tenantidnumber=lmswaomirai] .course-271 .page-context-header, html[data-tenantidnumber=lmswaomirai] .course-229 .page-context-header {

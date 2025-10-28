@@ -1576,6 +1576,9 @@ html[data-tenantidnumber=stg] body:not(.is-admin-user) #message-user-button {
     display: none !important;
   }
 }
+html[data-tenantidnumber=stg] #instance-301-header {
+  display: none !important;
+}
 html[data-tenantidnumber=stg] .drawer-toggles .drawer-toggler {
   display: none !important;
 }
@@ -12866,6 +12869,10 @@ html[data-tenantidnumber=stg] #page-enrol-index table td.has-text-align-center {
 }
 html[data-tenantidnumber=stg] #page-enrol-index .wp-block-spacer {
   height: 16px;
+}
+html[data-tenantidnumber=stg] .course-270 .page-header-headings, html[data-tenantidnumber=stg] .course-228 .page-header-headings,
+html[data-tenantidnumber=stg] .course-271 .page-header-headings, html[data-tenantidnumber=stg] .course-229 .page-header-headings {
+  display: none;
 }
 html[data-tenantidnumber=stg] .course-270 .page-context-header, html[data-tenantidnumber=stg] .course-228 .page-context-header,
 html[data-tenantidnumber=stg] .course-271 .page-context-header, html[data-tenantidnumber=stg] .course-229 .page-context-header {

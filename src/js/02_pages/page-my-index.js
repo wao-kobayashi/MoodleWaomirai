@@ -543,6 +543,7 @@ if (bodyId === "page-my-index") {
       // アラートバナーを表示
       $("#alert-change-course").show();
   }
-
+  //moodle4.5対応：お知らせ見出し削除
+  // $('h3:contains("テキストブロック")').remove();
 }
 

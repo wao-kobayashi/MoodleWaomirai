@@ -935,7 +935,8 @@ if (bodyId === "page-my-index") {
       // アラートバナーを表示
       $("#alert-change-course").show();
   }
-
+  //moodle4.5対応：お知らせ見出し削除
+  // $('h3:contains("テキストブロック")').remove();
 }
 
 
@@ -972,9 +973,7 @@ if (bodyId === "page-login-signup" || bodyId === "page-login-forgot_password") {
   }
 
   // アイコン（!）を "*" に置き換え
-  $(".fa-exclamation-circle").each(function () {
-    $(this).replaceWith("*");
-  });
+  $('i.text-danger').replaceWith('*');
 
   // ログインラッパーの前にロゴを挿入
   const $loginWrapper = $("#page-login-signup .login-wrapper");
@@ -1078,6 +1077,7 @@ if (bodyId === "page-login-index") {
   // 「Moodle」または「Powered by」を含むテキストを持つ要素を非表示にする
   const moodlekeywords = ["Moodle", "Powered by"];
 
+  $('i.text-danger').replaceWith('*');
   moodlekeywords.forEach((keyword) => {
     $("*:contains('" + keyword + "')")
       .filter(function () {
@@ -1546,6 +1546,22 @@ if (
   (bodyId === "page-course-view-flexsections" || bodyId === "page-course-view-topics") 
   && !hasBoughtAdminSubject
 ) {
+  //moodle 4.5対応 クローズしているブロックをすべて開く
+  $('a[role="button"]').each(function(index) {
+    var $btn = $(this);
+    var targetId = $btn.attr('aria-controls');
+    var $target = $('#' + targetId);
+
+    // aria-expanded を true に変更
+    $btn.attr('aria-expanded', 'true');
+
+    // collapsed クラスを削除
+    $btn.removeClass('collapsed');
+
+    // 対応する collapse 要素を開く
+    $target.addClass('show');
+  });
+
 
   ////////////////////////////
   // 前々月以前のトピックを削除

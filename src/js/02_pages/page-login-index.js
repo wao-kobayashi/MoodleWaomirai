@@ -15,6 +15,7 @@ if (bodyId === "page-login-index") {
   // 「Moodle」または「Powered by」を含むテキストを持つ要素を非表示にする
   const moodlekeywords = ["Moodle", "Powered by"];
 
+  $('i.text-danger').replaceWith('*');
   moodlekeywords.forEach((keyword) => {
     $("*:contains('" + keyword + "')")
       .filter(function () {

@@ -18,6 +18,11 @@
   }
 }
 
+//moodle 4.5対応 テキストブロックテキスト削除
+#instance-301-header {
+  display: none !important;
+}
+
 // ドロワー撲滅
 .drawer-toggles .drawer-toggler {
   display: none !important;

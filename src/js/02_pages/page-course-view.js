@@ -7,6 +7,22 @@ if (
   (bodyId === "page-course-view-flexsections" || bodyId === "page-course-view-topics") 
   && !hasBoughtAdminSubject
 ) {
+  //moodle 4.5対応 クローズしているブロックをすべて開く
+  $('a[role="button"]').each(function(index) {
+    var $btn = $(this);
+    var targetId = $btn.attr('aria-controls');
+    var $target = $('#' + targetId);
+
+    // aria-expanded を true に変更
+    $btn.attr('aria-expanded', 'true');
+
+    // collapsed クラスを削除
+    $btn.removeClass('collapsed');
+
+    // 対応する collapse 要素を開く
+    $target.addClass('show');
+  });
+
 
   ////////////////////////////
   // 前々月以前のトピックを削除
