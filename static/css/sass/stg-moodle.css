@@ -1322,6 +1322,12 @@ html[data-tenantidnumber=stg] .border-bottom {
 html[data-tenantidnumber=stg] .navbar-brand img {
   width: auto !important;
 }
+html[data-tenantidnumber=stg] .mr-auto,
+html[data-tenantidnumber=stg] .me-auto,
+html[data-tenantidnumber=stg] .mx-auto {
+  margin-right: 0 !important;
+  width: 100%;
+}
 html[data-tenantidnumber=stg] .footer-section {
   padding: 60px 0 0;
   display: -webkit-box;
@@ -13203,6 +13209,8 @@ html[data-tenantidnumber=stg] #page-course-view-topics .course-section.main .sec
   list-style: none;
   padding: 4px 0 8px;
   padding: 0.25rem 0 0.5rem;
+  border: 2px solid #dee2e6;
+  border-radius: 12px;
 }
 html[data-tenantidnumber=stg] #page-course-view-flexsections .course-section.main > .course-section-header,
 html[data-tenantidnumber=stg] #page-course-view-topics .course-section.main > .course-section-header {
@@ -13239,6 +13247,10 @@ html[data-tenantidnumber=stg] #page-course-view-topics .course-section.main .bul
 }
 html[data-tenantidnumber=stg] #page-course-view-flexsections .course-section.main .course-section,
 html[data-tenantidnumber=stg] #page-course-view-topics .course-section.main .course-section {
+  border: none !important;
+}
+html[data-tenantidnumber=stg] #page-course-view-flexsections .course-section.main .course-section .section-item,
+html[data-tenantidnumber=stg] #page-course-view-topics .course-section.main .course-section .section-item {
   border: none !important;
 }
 html[data-tenantidnumber=stg] #page-course-view-flexsections .subject-page-added .course-content-item-content ul,
@@ -13280,6 +13292,7 @@ html[data-tenantidnumber=stg] #page-course-view-topics .subject-page-added .cour
 html[data-tenantidnumber=stg] #page-course-view-flexsections .subject-page-added .activity,
 html[data-tenantidnumber=stg] #page-course-view-topics .subject-page-added .activity {
   padding: 0 !important;
+  border: none !important;
 }
 html[data-tenantidnumber=stg] #page-course-view-flexsections .subject-page-added .activity-item,
 html[data-tenantidnumber=stg] #page-course-view-topics .subject-page-added .activity-item {
@@ -13308,6 +13321,7 @@ html[data-tenantidnumber=stg] #page-course-view-topics .subject-page-added .acti
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  border: 2px solid #dee2e6;
 }
 @media screen and (max-width: 768px) {
   html[data-tenantidnumber=stg] #page-course-view-flexsections .subject-page-added .activity-item:not(.activityinline),
@@ -13417,6 +13431,9 @@ html[data-tenantidnumber=stg] #page-course-view-topics .subject-page-added .subj
 html[data-tenantidnumber=stg] #page-course-view-flexsections .subject-page-added .subject-page-added-note.not-published .subject-page-added-note-head-icon:before,
 html[data-tenantidnumber=stg] #page-course-view-topics .subject-page-added .subject-page-added-note.not-published .subject-page-added-note-head-icon:before {
   background-image: url("https://waomirai.com/lp/assets/moodle/icn-worksheet-not-published.svg") !important;
+}
+html[data-tenantidnumber=stg] .course-section .section-item {
+  border: none !important;
 }
 html[data-tenantidnumber=stg] #page-course-view-topics .secondary-navigation {
   padding-bottom: 40px !important;
