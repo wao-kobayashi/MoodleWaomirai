@@ -8,7 +8,7 @@ if (
   && !hasBoughtAdminSubject
 ) {
   //moodle 4.5対応 クローズしているブロックをすべて開く
-  $('a[role="button"]').each(function(index) {
+  $('.course-content a[role="button"]').each(function(index) {
     var $btn = $(this);
     var targetId = $btn.attr('aria-controls');
     var $target = $('#' + targetId);
