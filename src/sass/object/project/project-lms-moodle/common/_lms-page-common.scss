@@ -273,3 +273,13 @@ body:not(.is-admin-user) div[data-region="popover-region-messages"],
 body:not(.is-admin-user) #message-user-button {
   display: none;
 }
+
+/* コースアイコンを4.4に変更 */
+.courseicon {
+  background-color: $cl-waogreen !important;
+}
+.activityiconcontainer.communication:not(.isbranded)
+  .activityicon:not(.nofilter),
+.activityiconcontainer.communication:not(.isbranded) .icon:not(.nofilter) {
+  filter: invert(100%) brightness(200%);
+}
