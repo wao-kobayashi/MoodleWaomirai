@@ -1,6 +1,12 @@
 body {
 }
 
+.qn-container {
+  /* moodle4.5対応で画像大きくなったバグ対応 */
+  input[type="image"] {
+    width: 30px;
+  }
+}
 #page-mod-questionnaire-complete {
   .mod_questionnaire_flex-container {
     @include responsive-style(768px) {

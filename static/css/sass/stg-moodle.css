@@ -7704,6 +7704,12 @@ html[data-tenantidnumber=stg] #page-user-profile .node_category.line-connection-
   text-decoration: none;
   opacity: 0.7;
 }
+html[data-tenantidnumber=stg] .qn-container {
+  /* moodle4.5対応で画像大きくなったバグ対応 */
+}
+html[data-tenantidnumber=stg] .qn-container input[type=image] {
+  width: 30px;
+}
 @media screen and (max-width: 768px) {
   html[data-tenantidnumber=stg] #page-mod-questionnaire-complete .mod_questionnaire_flex-container {
     gap: 20px;
