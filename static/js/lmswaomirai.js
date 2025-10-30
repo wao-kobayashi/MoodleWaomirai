@@ -2665,5 +2665,20 @@ $('.enrol-section-basesubject-year-lesson-tab-child').click(function() {
   // コンテンツの表示切り替え
   $('.enrol-section-basesubject-year-lesson-content-child').hide();
   $('.content-level' + level).css('display', 'grid');
+});
+
+$(function() {
+  // ツールチップの開閉
+  $('.open-info').on('click', function(e) {
+      e.stopPropagation();
+      $('.open-info').not(this).removeClass('active').find('.tooltip').removeClass('show');
+      $(this).toggleClass('active').find('.tooltip').toggleClass('show');
+  });
+  
+  // 外側クリックで閉じる
+  $(document).on('click', function() {
+      $('.open-info').removeClass('active');
+      $('.tooltip').removeClass('show');
+  });
 });   }
 });

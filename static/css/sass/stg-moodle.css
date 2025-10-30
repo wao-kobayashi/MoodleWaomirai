@@ -27,6 +27,8 @@ html[data-tenantidnumber=stg] {
   ******************/
   /* footer */
   /* コースアイコンを4.4に変更 */
+  /* infoアイコンホバーした時のツールチップ表示 */
+  /* デスクトップ: ホバーで表示 */
   /* 共通追従フッター削除 */
   /* マイページ */
   /* 授業詳細 */
@@ -1579,6 +1581,53 @@ html[data-tenantidnumber=stg] .activityiconcontainer.communication:not(.isbrande
   filter: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg"><filter id="filter"><feComponentTransfer color-interpolation-filters="sRGB"><feFuncR type="table" tableValues="1 0" /><feFuncG type="table" tableValues="1 0" /><feFuncB type="table" tableValues="1 0" /></feComponentTransfer><feComponentTransfer color-interpolation-filters="sRGB"><feFuncR type="linear" slope="2" /><feFuncG type="linear" slope="2" /><feFuncB type="linear" slope="2" /></feComponentTransfer></filter></svg>#filter');
   -webkit-filter: invert(100%) brightness(200%);
           filter: invert(100%) brightness(200%);
+}
+html[data-tenantidnumber=stg] .tooltip {
+  position: absolute;
+  bottom: calc(100% + 12px);
+  left: 30%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  background: #333;
+  color: #ffffff;
+  padding: 12px 16px;
+  border-radius: 8px;
+  font-size: 14px;
+  white-space: nowrap;
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+  z-index: 1000;
+  -webkit-box-shadow: 0 4px 12px rgba(0, 0, 0, .2);
+          box-shadow: 0 4px 12px rgba(0, 0, 0, .2);
+  pointer-events: none;
+}
+html[data-tenantidnumber=stg] .tooltip.show {
+  pointer-events: auto;
+}
+html[data-tenantidnumber=stg] .tooltip::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  border: 6px solid transparent;
+  border-top-color: #333;
+}
+html[data-tenantidnumber=stg] .tooltip.show {
+  opacity: 1;
+  visibility: visible;
+  bottom: calc(100% + 15px);
+}
+@media (hover: hover) {
+  html[data-tenantidnumber=stg] .open-info:hover .tooltip {
+    opacity: 1;
+    visibility: visible;
+    bottom: calc(100% + 15px);
+    pointer-events: auto;
+  }
 }
 @media screen and (max-width: 768px) {
   html[data-tenantidnumber=stg] #usernavigation .editmode-switch-form,
@@ -5931,6 +5980,19 @@ html[data-tenantidnumber=stg] .pagelayout-mydashboard .dashboard-left .dashboard
   color: #4d4d4d;
   font-weight: 500;
   letter-spacing: 0.5px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 6px;
+}
+html[data-tenantidnumber=stg] .pagelayout-mydashboard .dashboard-left .info-badge {
+  position: relative;
+  font-size: 17px;
+  margin: 1px 0 0;
+  color: #999;
 }
 html[data-tenantidnumber=stg] .pagelayout-mydashboard .dashboard-left .dashboard-left-block-wrap {
   background: white;
@@ -7013,6 +7075,12 @@ html[data-tenantidnumber=stg] .pagelayout-mydashboard #dashboard-sp-content .das
   font-weight: bold;
   margin: 0 0px 0px !important;
   padding: 0px 35px 0px !important;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 html[data-tenantidnumber=stg] .pagelayout-mydashboard .dashboard-main-info {
   background: white;

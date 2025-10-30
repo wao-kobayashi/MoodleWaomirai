@@ -42,9 +42,16 @@
       ///////////////////////
       .display-badge(style='display:none;')
         .dashboard-left-block-title
-          |獲得したバッジ
+          .dashboard-left-block-title-text
+            |獲得したバッジ
+          .dashboard-left-block-title-icon.info-badge.open-info
+            i.icon.fa.fa-solid.fa-circle-exclamation(aria-hidden="true")
+              .tooltip
+                |当月の問いを全て提出すると
+                br
+                |もらえるバッジです。
         .dashboard-left-block-wrap.dashboard-left-block-wrap-badge
-          .dashboard-left-block-wrap-badge-content|
+          .dashboard-left-block-wrap-badge-content
           .dashboard-left-block-wrap-badge-readmore(style='display:none;')
             a.triger|全てのバッジを見る
       ///////////////////////
