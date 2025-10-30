@@ -10,27 +10,27 @@
 // - クリックで詳細モーダルを開く（開くとNEWが消える）
 // ==============================
 
-if (bodyId === "page-my-index") {
+if (bodyId === "page-my-index") { // ダッシュボード以外では一切動かさない
   // ===== 設定値 =====
   // 各種定数をCONFIGオブジェクトに集約
   // メンテナンス時はここを編集するだけで全体に反映される
   const CONFIG = {
     // Cookie設定: 365日間有効、サイト全体で共有
-    cookieOpts: { expires: 365, path: "/" },
+    cookieOpts: { expires: 365, path: "/" }, // jQuery Cookieのオプションを一元管理
 
     // 獲得モーダル表示済みフラグのCookie名プレフィックス
     // 例: "badge_modal_seen_2024-01-sample-title"
-    modalPrefix: "badge_modal_seen_",
+    modalPrefix: "badge_modal_seen_", // 獲得モーダル既読管理のキー接頭辞
 
     // NEWバッジ非表示フラグのCookie名プレフィックス
     // 例: "badge_new_dismiss_2024-01-sample-title"
-    newPrefix: "badge_new_dismiss_",
+    newPrefix: "badge_new_dismiss_", // NEWピルの既読管理のキー接頭辞
 
     // デフォルト表示件数（「もっと見る」クリック前）
-    defaultMaxBadges: 6,
+    defaultMaxBadges: 6, // 初期のカード表示上限
 
     // 獲得モーダルのキラキラエフェクト画像URL
-    shineImageUrl: "http://localhost:3000/static/images/modal-shine.png",
+    shineImageUrl: "http://localhost:3000/static/images/modal-shine.png", // 本番はCDN等に置き換え推奨
 
     // バッジ画像が無い時のダミーSVG（data URI化してサーバーリクエスト回避）
     dummySvg: encodeURIComponent(
@@ -39,7 +39,7 @@ if (bodyId === "page-my-index") {
         <circle cx="80" cy="64" r="28" fill="#CCC"/>
         <rect x="32" y="104" width="96" height="32" rx="8" fill="#DDD"/>
       </svg>`
-    ),
+    ), // 画像欠損時のフォールバック（通信不要）
   };
 
   // ===== Cookie操作 =====
@@ -47,23 +47,23 @@ if (bodyId === "page-my-index") {
   // プラグイン未ロード時もエラーを起こさないようガード処理を含む
   const Cookie = {
     // jQuery Cookieプラグインが利用可能かチェック
-    isAvailable: () => typeof $.cookie === "function",
+    isAvailable: () => typeof $.cookie === "function", // 依存を安全に確認
 
     // Cookieをセット（プラグイン利用可能な場合のみ）
     // @param {string} key - Cookie名
     // @param {string} val - 保存する値（通常 "1" をフラグとして使用）
     set: (key, val) =>
-      Cookie.isAvailable() && $.cookie(key, val, CONFIG.cookieOpts),
+      Cookie.isAvailable() && $.cookie(key, val, CONFIG.cookieOpts), // 利用可能時のみ実行
 
     // Cookieが "1" にセットされているかチェック
     // @param {string} key - Cookie名
     // @return {boolean} "1" なら true（フラグON）、それ以外は false
-    get: (key) => (Cookie.isAvailable() ? $.cookie(key) === "1" : false),
+    get: (key) => (Cookie.isAvailable() ? $.cookie(key) === "1" : false), // 未読= false の判定に使用
 
     // Cookieを削除
     // 注意: $.removeCookie() は path 指定が必要なため CONFIG.cookieOpts を渡す
     remove: (key) =>
-      Cookie.isAvailable() && $.removeCookie(key, CONFIG.cookieOpts),
+      Cookie.isAvailable() && $.removeCookie(key, CONFIG.cookieOpts), // パス一致必須
   };
 
   // ===== バッジ関連ユーティリティ =====
@@ -80,15 +80,15 @@ if (bodyId === "page-my-index") {
     // 目的: Cookie名やdata属性に使える安全な文字列を生成
     makeKey: (y, m, title) =>
       `${y}-${String(m).padStart(2, "0")}-${title
-        .toLowerCase()
-        .replace(/\s+/g, "-")
-        .replace(/[^\w\-ぁ-んァ-ヶ一-龠]/g, "")}`,
+        .toLowerCase() // 大文字小文字ゆらぎ排除
+        .replace(/\s+/g, "-") // 空白をハイフンに
+        .replace(/[^\w\-ぁ-んァ-ヶ一-龠]/g, "")}`, // 許可文字以外を除去（Cookie名安全化）
 
     // Cookie名を生成（プレフィックス + バッジキー）
     // @param {string} prefix - modalPrefix or newPrefix
     // @param {Object} badge - バッジオブジェクト
     cookieKey: (prefix, badge) =>
-      prefix + Badge.makeKey(badge.year, badge.month, badge.title),
+      prefix + Badge.makeKey(badge.year, badge.month, badge.title), // 一貫したキー生成
 
     // バッジタイトルをパースして構造化データに変換
     // 入力例: "2024年 1月： サンプルタイトル"
@@ -109,24 +109,24 @@ if (bodyId === "page-my-index") {
       // 正規表現で年・月・タイトルを抽出
       // パターン: "YYYY年 M月： タイトル"（空白は任意）
       const m = String(raw)
-        .trim()
-        .match(/^(\d{4})年\s*(\d{1,2})月\s*[:：]\s*(.+)$/);
+        .trim() // 前後空白除去
+        .match(/^(\d{4})年\s*(\d{1,2})月\s*[:：]\s*(.+)$/); // 年・月・タイトルをキャプチャ
 
-      if (!m) return null;
+      if (!m) return null; // 想定外フォーマットはスキップ対象
 
-      const [, year, month, title] = m;
-      const y = parseInt(year, 10);
+      const [, year, month, title] = m; // 正規表現のグループ展開
+      const y = parseInt(year, 10); // 数値化（安全のため基数10）
       const mo = parseInt(month, 10);
 
       return {
         year: y,
         month: mo,
-        title: title.trim(),
-        dateLabel: `${y}年${mo}月`,
+        title: title.trim(), // タイトル内の前後空白も除去
+        dateLabel: `${y}年${mo}月`, // UI表示用ラベル
         // NEW表示期間: 当月1日〜翌月5日
         // 注意: Dateコンストラクタの月は0始まりなので mo - 1
-        start: new Date(y, mo - 1, 1),
-        end: new Date(y, mo, 5),
+        start: new Date(y, mo - 1, 1), // NEW判定の下限
+        end: new Date(y, mo, 5), // NEW判定の上限（翌月5日 0:00）
       };
     },
 
@@ -134,13 +134,13 @@ if (bodyId === "page-my-index") {
     // @param {Date} start - 期間開始
     // @param {Date} end - 期間終了
     // @param {Date} [now] - 現在日時（省略時は実際の現在時刻）
-    isInNewWindow: (start, end, now = new Date()) => now >= start && now < end,
+    isInNewWindow: (start, end, now = new Date()) => now >= start && now < end, // 半開区間で比較
 
     // バッジ画像URLを取得（無い場合はダミーSVGを返す）
     // @param {string} src - 画像URL
     // @return {string} 有効な画像URL（data URI含む）
     getImgSrc: (src) =>
-      src || `data:image/svg+xml;charset=UTF-8,${CONFIG.dummySvg}`,
+      src || `data:image/svg+xml;charset=UTF-8,${CONFIG.dummySvg}`, // FOUC/404対策
 
     // DOM（ul.badges li）から全バッジ情報を収集
     // @return {Array<Object>} バッジオブジェクトの配列
@@ -154,34 +154,34 @@ if (bodyId === "page-my-index") {
     //   href: "#"        // リンク先URL
     // }
     collectAll: () => {
-      const list = [];
+      const list = []; // 結果の蓄積配列
 
-      $("ul.badges li").each(function (idx) {
+      $("ul.badges li").each(function (idx) { // 各<li>を順に処理（idxはDOM順）
         const $li = $(this);
-        const $a = $li.find("> a").first();
+        const $a = $li.find("> a").first(); // 直下の<a>を採用（ネスト対策）
 
         // タイトル取得（優先順位: a[title] > .badge-name のテキスト）
         const rawTitle =
-          $a.attr("title") || $li.find(".badge-name").first().text() || "";
+          $a.attr("title") || $li.find(".badge-name").first().text() || ""; // どれも無ければ空
 
-        const parsed = Badge.parseTitle(rawTitle);
+        const parsed = Badge.parseTitle(rawTitle); // タイトルを構造化
 
         // パース失敗時は警告を出してスキップ
         if (!parsed) {
-          console.warn("[WARN] バッジ形式不正（スキップ）:", rawTitle);
-          return;
+          console.warn("[WARN] バッジ形式不正（スキップ）:", rawTitle); // 運用時の検知用ログ
+          return; // この<li>は無視
         }
 
         list.push({
-          ...parsed,
-          index: idx,
-          raw: rawTitle,
-          img: $li.find("img.badge-image").first().attr("src") || "",
-          href: $a.attr("href") || "#",
+          ...parsed, // year/month/title等を展開
+          index: idx, // DOM順を保持（ソートやdata属性に使用） // ← 例の位置にコメント
+          raw: rawTitle, // 元文字列（デバッグやalt表示に使用） // ← 例の位置にコメント
+          img: $li.find("img.badge-image").first().attr("src") || "", // サムネURL。無ければ空文字 // ← 例の位置にコメント
+          href: $a.attr("href") || "#", // 詳細リンク。欠損時はダミー # // ← 例の位置にコメント
         });
       });
 
-      return list;
+      return list; // 収集結果を返す
     },
   };
 
@@ -197,25 +197,25 @@ if (bodyId === "page-my-index") {
     // 3. 1つずつモーダル表示（「確認」押下で次へ）
     // 4. 表示済みをCookieに記録
     showAcquired: (now = new Date()) => {
-      const list = Badge.collectAll();
+      const list = Badge.collectAll(); // 現在のDOMから一覧生成
 
       // 表示対象: NEW期間内 かつ モーダル未表示
       const targets = list
         .filter((b) => {
-          const inWindow = Badge.isInNewWindow(b.start, b.end, now);
-          const seen = Cookie.get(Badge.cookieKey(CONFIG.modalPrefix, b));
-          return inWindow && !seen;
+          const inWindow = Badge.isInNewWindow(b.start, b.end, now); // ← 例の位置にコメント（NEW期間判定）
+          const seen = Cookie.get(Badge.cookieKey(CONFIG.modalPrefix, b)); // すでに「獲得モーダル」出したか
+          return inWindow && !seen; // 条件を満たすものだけ残す
         })
-        .sort((a, b) => a.index - b.index); // DOM順にソート
+        .sort((a, b) => a.index - b.index); // DOM順にソート（表示順の安定化）
 
-      if (!targets.length) return;
+      if (!targets.length) return; // 対象なしなら何もしない
 
       // 再帰的に1つずつモーダルを表示
       const showNext = (index) => {
-        if (index >= targets.length) return;
+        if (index >= targets.length) return; // すべて表示済み
 
         const badge = targets[index];
-        const imgSrc = Badge.getImgSrc(badge.img);
+        const imgSrc = Badge.getImgSrc(badge.img); // 欠損時はダミーSVGにフォールバック
 
         // キラキラエフェクト用の要素を8個生成
         // CSSで shine01〜shine08 のアニメーションが定義されている前提
@@ -225,7 +225,7 @@ if (bodyId === "page-my-index") {
             `<div class="badge-acquired-head-shine shine0${i + 1}">
             <img src="${CONFIG.shineImageUrl}" alt="">
           </div>`
-        ).join("");
+        ).join(""); // 事前にHTML文字列をまとめて生成（DOM操作最小化）
 
         const html = `
           ${shineElements}
@@ -240,33 +240,33 @@ if (bodyId === "page-my-index") {
         `;
 
         // 表示済みフラグをCookieに記録（次回訪問時は表示されない）
-        Cookie.set(Badge.cookieKey(CONFIG.modalPrefix, badge), "1");
+        Cookie.set(Badge.cookieKey(CONFIG.modalPrefix, badge), "1"); // ここで即時既読化
 
         const modal = createModal({
-          wrapClass: `badge-acquired-event badge-acquired badge-acquired-${index}`,
-          customModalHtml: html,
+          wrapClass: `badge-acquired-event badge-acquired badge-acquired-${index}`, // 個別クラスでデバッグ容易化
+          customModalHtml: html, // 既存のモーダルユーティリティに委譲
         });
 
         // 紙吹雪エフェクト（canvas-confetti ライブラリ）
         confetti({
-          colors: ["#FCAF17", "#B6D43E", "#28AFE7", "#AA68AA"],
-          particleCount: 200,
-          spread: 120,
-          origin: { y: 0.6 },
-          zIndex: 1000,
-          ticks: 50,
-          drift: 3,
+          colors: ["#FCAF17", "#B6D43E", "#28AFE7", "#AA68AA"], // ブランドカラー想定
+          particleCount: 200, // 粒子数
+          spread: 120, // 拡がり
+          origin: { y: 0.6 }, // 発生位置（下寄り）
+          zIndex: 1000, // モーダルより前面に
+          ticks: 50, // 寿命
+          drift: 3, // 風のような流れ
         });
 
         // 「確認しました」押下で次のモーダルへ
         // .one() で1回だけ実行（多重クリック防止）
         $(".badge-acquired-next-btn").one("click", function () {
-          modal?.close();
-          setTimeout(() => showNext(index + 1), 300);
+          modal?.close(); // モーダルを閉じる（存在チェック込み）
+          setTimeout(() => showNext(index + 1), 300); // 次を短い間隔で表示（連打防止）
         });
       };
 
-      showNext(0);
+      showNext(0); // 先頭から開始
     },
 
     // バッジ詳細モーダルを表示
@@ -280,13 +280,13 @@ if (bodyId === "page-my-index") {
     showDetail: (badge, hadNew = false) => {
       if (hadNew) {
         // 既読化処理
-        Cookie.set(Badge.cookieKey(CONFIG.newPrefix, badge), "1");
+        Cookie.set(Badge.cookieKey(CONFIG.newPrefix, badge), "1"); // NEWピルの既読フラグを保存
         $(
           `.dashboard-left-block-wrap-badge-block[data-badge-index="${badge.index}"] .newicon`
-        ).remove();
+        ).remove(); // 画面上から即時削除（体験の一貫性）
       }
 
-      const imgSrc = Badge.getImgSrc(badge.img);
+      const imgSrc = Badge.getImgSrc(badge.img); // 画像URLの最終決定
 
       const html = `
         <div class="badge-acquired-image badge-acquired-image-shine">
@@ -299,19 +299,19 @@ if (bodyId === "page-my-index") {
       `;
 
       const modal = createModal({
-        close: true,
-        wrapClass: "badge-acquired",
-        customModalHtml: html,
+        close: true, // ×ボタン有効
+        wrapClass: "badge-acquired", // 既存スタイルを再利用
+        customModalHtml: html, // HTMLは外部CSS前提で最小限
       });
 
       // 閉じるボタンのイベント設定
       // 名前空間（.badgeDetailClose）で多重登録を防止
       $(document)
-        .off("click.badgeDetailClose")
+        .off("click.badgeDetailClose") // 既存ハンドラをクリア
         .on(
           "click.badgeDetailClose",
           ".badge-detail-modal .cm-close-btn",
-          () => modal?.close()
+          () => modal?.close() // 安全にクローズ
         );
     },
   };
@@ -329,31 +329,31 @@ if (bodyId === "page-my-index") {
     // 4. 不足分をダミーカードで埋める（レイアウト統一）
     // 5. 表示/非表示の制御
     renderBadges: (max = CONFIG.defaultMaxBadges, now = new Date()) => {
-      let $out = $(".dashboard-left-block-wrap-badge-content");
+      let $out = $(".dashboard-left-block-wrap-badge-content"); // 既存コンテナの取得
       
       // コンテナが無ければ生成して挿入
       if (!$out.length) {
-        $out = $('<div class="dashboard-left-block-wrap-badge-content"></div>');
+        $out = $('<div class="dashboard-left-block-wrap-badge-content"></div>'); // 動的生成
         const $badges = $("ul.badges");
         if ($badges.length) {
-          $badges.after($out);
+          $badges.after($out); // 既存リストの直後に配置
         } else {
-          $("body").append($out);
+          $("body").append($out); // 最低限のフォールバック
         }
       }
 
-      const list = Badge.collectAll();
-      const items = list.slice(0, max);
-      $out.empty();
+      const list = Badge.collectAll(); // 最新DOMからリスト化
+      const items = list.slice(0, max); // 表示件数に制限
+      $out.empty(); // 再描画のためクリア
 
       // バッジカードを生成
       items.forEach((b) => {
         // NEW表示判定: 期間内 かつ 未閲覧
-        const inWindow = Badge.isInNewWindow(b.start, b.end, now);
-        const dismissed = Cookie.get(Badge.cookieKey(CONFIG.newPrefix, b));
-        const showNew = inWindow && !dismissed;
+        const inWindow = Badge.isInNewWindow(b.start, b.end, now); // NEW期間内か
+        const dismissed = Cookie.get(Badge.cookieKey(CONFIG.newPrefix, b)); // 既にNEWを消しているか
+        const showNew = inWindow && !dismissed; // 表示条件を集約 // ← 例の位置にコメント
 
-        const imgSrc = Badge.getImgSrc(b.img);
+        const imgSrc = Badge.getImgSrc(b.img); // 画像URLの最終決定
 
         // カードDOM生成（data-badge-index で後から特定できるようにする）
         const $card = $(`
@@ -378,10 +378,10 @@ if (bodyId === "page-my-index") {
           </div>
         `).on("click", () => {
           // クリックで詳細モーダルを開く（NEWが付いていれば既読化される）
-          Modal.showDetail(b, showNew);
+          Modal.showDetail(b, showNew); // ここでhadNewを渡して既読化まで完結
         });
 
-        $out.append($card);
+        $out.append($card); // コンテナに追加
       });
 
       // ダミーカードで穴埋め（グリッドレイアウトを整える）
@@ -392,7 +392,7 @@ if (bodyId === "page-my-index") {
               <div><img src="http://localhost:3000/static/images/badge_dummy.svg" class="badge-image" alt=""></div>
             </div>
           </div>
-        `);
+        `); // 件数不足でも高さを維持
       }
 
       // 全件表示時の奇数調整（2列レイアウト対応）
@@ -402,12 +402,12 @@ if (bodyId === "page-my-index") {
             <div class="dashboard-left-block-wrap-badge-block-img">
             </div>
           </div>
-        `);
+        `); // 余白用ダミーで段落ち防止
       }
 
       // UI要素の表示/非表示制御
-      $(".display-badge").toggle(list.length >= 1);
-      $(".dashboard-left-block-wrap-badge-readmore").toggle(list.length >= 7);
+      $(".display-badge").toggle(list.length >= 1); // バッジセクションの可視化
+      $(".dashboard-left-block-wrap-badge-readmore").toggle(list.length >= 7); // 7件以上で「もっと見る」
     },
 
     // 「もっと見る」「表示を元に戻す」トグル機能
@@ -419,21 +419,21 @@ if (bodyId === "page-my-index") {
     // 
     // 注意: イベント委譲で動的DOM再生成に対応
     setupToggle: () => {
-      let isExpanded = false;
+      let isExpanded = false; // 現在の表示状態フラグ
 
       $(document).on(
         "click",
         ".dashboard-left-block-wrap-badge-readmore a",
         function (e) {
-          e.preventDefault();
+          e.preventDefault(); // aタグの遷移を抑止
 
-          const list = Badge.collectAll();
-          const max = isExpanded ? CONFIG.defaultMaxBadges : list.length;
+          const list = Badge.collectAll(); // 最新件数を都度取得（動的変化に強い）
+          const max = isExpanded ? CONFIG.defaultMaxBadges : list.length; // 状態で上限を切替
           
-          UI.renderBadges(max);
+          UI.renderBadges(max); // 再描画
 
-          $(this).text(isExpanded ? "もっと見る" : "表示を元に戻す");
-          isExpanded = !isExpanded;
+          $(this).text(isExpanded ? "もっと見る" : "表示を元に戻す"); // ラベル更新
+          isExpanded = !isExpanded; // 状態トグル
         }
       );
     },
@@ -448,33 +448,33 @@ if (bodyId === "page-my-index") {
       const cookies = document.cookie
         .split(";")
         .map((s) => s.trim())
-        .filter(Boolean);
+        .filter(Boolean); // 空要素を除去
 
       // バッジ関連Cookie（modalPrefix or newPrefix で始まるもの）を抽出
       const targets = cookies.filter(
         (c) =>
           c.startsWith(CONFIG.modalPrefix) || c.startsWith(CONFIG.newPrefix)
-      );
+      ); // 対象のみ抽出
 
       if (!targets.length) {
-        console.log("[DEBUG] 対象Cookieなし");
+        console.log("[DEBUG] 対象Cookieなし"); // 作業不要の通知
         return;
       }
 
       // 各Cookieを削除（jQuery Cookie + 生のCookie操作で確実に削除）
       targets.forEach((c) => {
-        const name = c.split("=")[0];
-        Cookie.remove(name);
+        const name = c.split("=")[0]; // キー名を抽出
+        Cookie.remove(name); // プラグイン側で削除
         // 念のため生の操作でも削除（Max-Age=0で即座に無効化）
-        document.cookie = `${name}=; Max-Age=0; path=/;`;
+        document.cookie = `${name}=; Max-Age=0; path=/;`; // ブラウザ実装差吸収
       });
 
       console.log(
         "[DEBUG] 削除:",
         targets.map((c) => c.split("=")[0])
       );
-      alert("バッジCookieをリセットしました");
-      location.reload();
+      alert("バッジCookieをリセットしました"); // 操作フィードバック
+      location.reload(); // 状態を反映
     },
 
     // デバッグボタンを画面左下に配置
@@ -494,25 +494,25 @@ if (bodyId === "page-my-index") {
           font-size: 12px;
           box-shadow: 0 2px 8px rgba(0,0,0,0.3);
         ">Cookie削除</button>
-      `).on("click", Debug.clearAllCookies);
+      `).on("click", Debug.clearAllCookies); // クリックで一括削除
 
-      $("body").append($btn);
+      $("body").append($btn); // DOMに追加
     },
   };
 
   // ===== 初期化 =====
   $(function () {
     try {
-      const now = new Date();
+      const now = new Date(); // NEW判定などの基準時刻
 
-      UI.renderBadges(CONFIG.defaultMaxBadges, now);
-      UI.setupToggle();
-      Modal.showAcquired(now);
+      UI.renderBadges(CONFIG.defaultMaxBadges, now); // 初期描画（6件）
+      UI.setupToggle(); // 「もっと見る」トグルを有効化
+      Modal.showAcquired(now); // まだ見ていない獲得モーダルを順番に表示
 
       // デバッグボタン有効化（本番では削除）
-      Debug.createButton();
+      Debug.createButton(); // 運用時はコメントアウト推奨
     } catch (error) {
-      console.error("[ERROR] バッジシステム初期化エラー:", error);
+      console.error("[ERROR] バッジシステム初期化エラー:", error); // 失敗時の一括ハンドリング
     }
   });
 }
