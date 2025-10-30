@@ -63,11 +63,32 @@ if (bodyId === "page-mod-questionnaire-view" || bodyId === "page-mod-questionnai
         <div class="complete"><a href="https://lms.waomirai.com/my/" class="btn btn-primary">受講カレンダーに戻る</a></div>
     </div></div>
   `;
-  
+
+  // 各質問コンテナごとに処理を実行
+  $('.qn-container').each(function() {
+    // 現在の質問コンテナ内でplaceholder-spanを検索
+    var $placeholderSpan = $(this).find('.placeholder-span');
+    
+    // placeholder-spanが存在するか確認
+    if ($placeholderSpan.length > 0) {
+      // placeholder-spanのテキストを取得(パイプ文字以降)
+      var placeholderText = $placeholderSpan.text().trim();
+      
+      // 同じコンテナ内のtextareaを検索
+      var $textarea = $(this).find('.qn-answer textarea');
+      
+      // textareaが存在する場合、placeholderを設定
+      if ($textarea.length > 0 && placeholderText) {
+        $textarea.attr('placeholder', placeholderText);
+      } 
+    } else {
+      $(".qn-answer textarea").attr("placeholder", textQuestionnaireTextareaPlaceholder); 
+    }
+  });
 
 
   $('.allresponses a,li[data-key="vall"] a').text(textQuestionnaireAnswerAll);
-  $(".qn-answer textarea").attr("placeholder", textQuestionnaireTextareaPlaceholder); 
+
   
   //li[data-key="yourresponse"]のある場合は回答済みとして扱う
   //li[data-key="yourresponse"]は回答済みの場合、授業ページにdomとして要素が存在する

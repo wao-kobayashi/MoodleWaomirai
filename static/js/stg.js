@@ -938,496 +938,6 @@ if (bodyId === "page-my-index") {
 
 }
 // ==============================
-// ダッシュボードページでのバッジ処理
-// bodyId が "page-my-index" の時だけ実行
-// ==============================
-// 【概要】
-// このコードは月次バッジの獲得・表示・管理を行います。
-// - 新規獲得バッジを「おめでとうモーダル」で通知（Cookie管理で1回のみ）
-// - ダッシュボードに最大6件のバッジカードを表示（7件以上で「もっと見る」）
-// - 各バッジに「NEW」ピルを表示（期間内 && 未閲覧の場合）
-// - クリックで詳細モーダルを開く（開くとNEWが消える）
-// ==============================
-
-if (bodyId === "page-my-index") {
-  // ===== 設定値の定義 =====
-  // 各種定数をCONFIGオブジェクトに集約して管理しやすくする
-  const CONFIG = {
-    // Cookie設定: 365日間有効、サイト全体（path: "/"）で共有
-    cookieOpts: { expires: 365, path: "/" },
-
-    // 獲得モーダルを表示済みか記録するCookie名のプレフィックス
-    // 例: badge_modal_seen_2024-01-sample-title
-    modalPrefix: "badge_modal_seen_",
-
-    // NEWバッジを非表示にしたか記録するCookie名のプレフィックス
-    // 例: badge_new_dismiss_2024-01-sample-title
-    newPrefix: "badge_new_dismiss_",
-
-    // デフォルトで表示するバッジの最大件数
-    defaultMaxBadges: 6,
-
-    // 獲得モーダルで使用するキラキラ画像のURL
-    shineImageUrl: "http://localhost:3000/static/images/modal-shine.png",
-
-    // バッジ画像が無い時に表示するダミーSVG（グレーの四角）
-    // encodeURIComponentでdata URI化して直接埋め込める形式にする
-    dummySvg: encodeURIComponent(
-      `<svg xmlns="http://www.w3.org/2000/svg" width="160" height="160" viewBox="0 0 160 160">
-        <rect width="160" height="160" rx="16" fill="#EEE"/>
-        <circle cx="80" cy="64" r="28" fill="#CCC"/>
-        <rect x="32" y="104" width="96" height="32" rx="8" fill="#DDD"/>
-      </svg>`
-    ),
-  };
-
-  // ===== Cookie操作のユーティリティ =====
-  // jQuery Cookieプラグインを使ったCookie操作を抽象化
-  // プラグインが無い環境でもエラーを起こさないようガード処理を含む
-  const Cookie = {
-    // jQuery Cookieプラグインが利用可能かチェック
-    // 戻り値: true = 利用可能, false = 未ロード
-    isAvailable: () => typeof $.cookie === "function",
-
-    // Cookieをセット（プラグイン利用可能な場合のみ）
-    // key: Cookie名, val: 保存する値（通常は "1"）
-    // 戻り値: 成功時はtrueish、失敗時はfalse
-    set: (key, val) =>
-      Cookie.isAvailable() && $.cookie(key, val, CONFIG.cookieOpts),
-
-    // Cookieが "1" にセットされているかチェック
-    // key: Cookie名
-    // 戻り値: true = "1"が保存されている, false = 未設定or別の値
-    get: (key) => (Cookie.isAvailable() ? $.cookie(key) === "1" : false),
-
-    // Cookieを削除
-    // key: Cookie名
-    remove: (key) =>
-      Cookie.isAvailable() && $.removeCookie(key, CONFIG.cookieOpts),
-  };
-
-  // ===== バッジ関連のユーティリティ =====
-  // バッジデータの解析・生成・取得を行う関数群
-  const Badge = {
-    // バッジを一意に識別するキーを生成
-    // フォーマット: YYYY-MM-normalized-title
-    // 例: 2024-01-sample-badge-title
-    // y: 年（4桁）, m: 月（1〜12）, title: バッジタイトル
-    // 戻り値: 正規化されたキー文字列
-    makeKey: (y, m, title) =>
-      `${y}-${String(m).padStart(2, "0")}-${
-        title
-          .toLowerCase() // 小文字化
-          .replace(/\s+/g, "-") // 空白をハイフンに
-          .replace(/[^\w\-ぁ-んァ-ヶ一-龠]/g, "") // 英数字・ハイフン・和文以外を除去
-      }`,
-
-    // Cookie名を生成（プレフィックス + バッジキー）
-    // prefix: "badge_modal_seen_" or "badge_new_dismiss_"
-    // badge: バッジオブジェクト（year, month, titleプロパティ必須）
-    // 戻り値: 完全なCookie名
-    cookieKey: (prefix, badge) =>
-      prefix + Badge.makeKey(badge.year, badge.month, badge.title),
-
-    // バッジタイトル文字列を構造化データにパース
-    // 期待フォーマット: "2024年 1月： サンプルタイトル"
-    // raw: 元のタイトル文字列
-    // 戻り値: パース成功時は { year, month, title, dateLabel, start, end }、失敗時はnull
-    parseTitle: (raw) => {
-      // 正規表現で年・月・タイトルを抽出
-      const m = String(raw)
-        .trim()
-        .match(/^(\d{4})年\s*(\d{1,2})月\s*[:：]\s*(.+)$/);
-      if (!m) return null; // フォーマット不正
-
-      const [, year, month, title] = m;
-      const y = parseInt(year),
-        mo = parseInt(month);
-
-      return {
-        year: y, // 年（数値）
-        month: mo, // 月（数値）
-        title: title.trim(), // タイトル（前後の空白除去）
-        dateLabel: `${y}年${mo}月`, // 表示用ラベル
-        start: new Date(y, mo - 1, 1), // 期間開始: 当月1日 0:00
-        end: new Date(y, mo, 5), // 期間終了: 翌月5日 0:00（NEW表示期間）
-      };
-    },
-
-    // NEW表示期間内かどうかをチェック
-    // start: 期間開始日時, end: 期間終了日時, now: 現在日時（省略時は実際の現在時刻）
-    // 戻り値: true = 期間内, false = 期間外
-    isInNewWindow: (start, end, now = new Date()) => now >= start && now < end,
-
-    // バッジ画像のソースURLを取得（無い場合はダミーSVGを返す）
-    // src: 画像URL（空の場合もある）
-    // 戻り値: 有効な画像URL（data URI含む）
-    getImgSrc: (src) =>
-      src || `data:image/svg+xml;charset=UTF-8,${CONFIG.dummySvg}`,
-
-    // DOM（ul.badges li）から全バッジ情報を収集
-    // 戻り値: バッジオブジェクトの配列 [{ year, month, title, index, raw, img, href, ... }, ...]
-    collectAll: () => {
-      const list = [];
-
-      // 各<li>要素を走査
-      $("ul.badges li").each(function (idx) {
-        const $li = $(this),
-          $a = $li.find("> a").first();
-
-        // タイトルを取得（<a title="..."> > .badge-name のテキスト の優先順）
-        const rawTitle =
-          $a.attr("title") || $li.find(".badge-name").first().text() || "";
-
-        // タイトルをパース
-        const parsed = Badge.parseTitle(rawTitle);
-
-        // パース失敗時は警告を出してスキップ
-        if (!parsed) {
-          console.warn("[WARN] バッジ形式不正:", rawTitle);
-          return; // このバッジは無視
-        }
-
-        // パース済みデータに追加情報を付与してリストに追加
-        list.push({
-          ...parsed, // year, month, title, dateLabel, start, end
-          index: idx, // DOMでの順序（0始まり）
-          raw: rawTitle, // 元のタイトル文字列
-          img: $li.find("img.badge-image").first().attr("src") || "", // 画像URL
-          href: $a.attr("href") || "#", // リンク先
-        });
-      });
-
-      return list;
-    },
-  };
-
-  // ===== モーダル表示処理 =====
-  // 獲得モーダルと詳細モーダルの表示ロジック
-  const Modal = {
-    // 獲得モーダルを表示（新規獲得バッジがあれば順次表示）
-    // now: 現在日時（省略時は実際の現在時刻）
-    showAcquired: (now = new Date()) => {
-      const list = Badge.collectAll(); // 全バッジ取得
-
-      // 表示対象バッジを抽出:
-      // 1. NEW期間内（翌月5日まで）
-      // 2. まだ獲得モーダルを表示していない（Cookie未設定）
-      const targets = list
-        .filter((b) => {
-          const inWindow = Badge.isInNewWindow(b.start, b.end, now); // 期間チェック
-          const seen = Cookie.get(Badge.cookieKey(CONFIG.modalPrefix, b)); // Cookie確認
-          return inWindow && !seen; // 両方満たすもののみ
-        })
-        .sort((a, b) => a.index - b.index); // DOM順にソート（古い順）
-
-      // 対象が無ければ何もしない
-      if (!targets.length) return;
-
-      // 再帰的に1つずつモーダルを表示する内部関数
-      // index: 現在表示中のターゲット配列のインデックス
-      const showNext = (index) => {
-        // 全て表示し終わったら終了
-        if (index >= targets.length) return;
-
-        const badge = targets[index];
-        const imgSrc = Badge.getImgSrc(badge.img); // 画像URL取得
-
-        // キラキラエフェクト用のShineエレメントを8個生成
-        // CSSで shine01〜shine08 のアニメーションが定義されている前提
-        const shineElements = Array.from(
-          { length: 8 },
-          (_, i) =>
-            `<div class="badge-acquired-head-shine shine0${i + 1}">
-            <img src="${CONFIG.shineImageUrl}" alt="">
-          </div>`
-        ).join("");
-
-        // モーダルのHTML構造を組み立て
-        const html = `
-          ${shineElements}
-          <div class="badge-acquired-head"></div>
-          <div class="badge-acquired-image">
-            <img src="${imgSrc}" alt="${badge.raw}">
-          </div>
-          <h2 class="c-modal-wrap-title">
-            おめでとうございます！<br />新しいバッジを獲得しました
-          </h2>
-          <a class="c-modal-wrap-button c-modal-wrap-close-tag badge-acquired-next-btn">確認しました</a>
-        `;
-
-        // このバッジの獲得モーダルを「表示済み」としてCookieに記録
-        // これにより、次回ページ訪問時には同じバッジで再度モーダルが出ない
-        Cookie.set(Badge.cookieKey(CONFIG.modalPrefix, badge), "1");
-
-        // createModal関数（グローバルで定義済み想定）を使ってモーダルを生成・表示
-        const modal = createModal({
-          wrapClass: `badge-acquired-event badge-acquired badge-acquired-${index}`, // ユニークなクラス
-          customModalHtml: html,
-        });
-
-        // 紙吹雪エフェクトを発動（canvas-confetti ライブラリ使用）
-        confetti({
-          colors: ["#FCAF17", "#B6D43E", "#28AFE7", "#AA68AA"], // 色の配列
-          particleCount: 200, // パーティクル数
-          spread: 120, // 広がり角度
-          origin: { y: 0.6 }, // 発生位置（画面の60%の高さ）
-          zIndex: 1000, // 重ね順
-          ticks: 50, // アニメーション時間
-          drift: 3, // 横方向のドリフト
-        });
-
-        // 「確認しました」ボタンをクリックしたら次のモーダルへ
-        // .one() で1回だけ実行されるよう制御
-        $(".badge-acquired-next-btn").one("click", function () {
-          modal?.close(); // 現在のモーダルを閉じる
-          setTimeout(() => showNext(index + 1), 300); // 0.3秒後に次を表示
-        });
-      };
-
-      // 最初のモーダルから表示開始
-      showNext(0);
-    },
-
-    // バッジ詳細モーダルを表示
-    // badge: 表示するバッジオブジェクト
-    // hadNew: このバッジにNEWが付いていたか（trueの場合、開くとNEWを既読化する）
-    showDetail: (badge, hadNew = false) => {
-      // NEWバッジが付いていた場合の処理
-      if (hadNew) {
-        // NEWを「非表示にした」フラグをCookieに保存
-        // これにより次回以降はこのバッジにNEWが表示されなくなる
-        Cookie.set(Badge.cookieKey(CONFIG.newPrefix, badge), "1");
-
-        // DOMからNEWアイコンを即座に削除（視覚的にも消す）
-        // data-badge-index でカードを特定
-        $(
-          `.dashboard-left-block-wrap-badge-block[data-badge-index="${badge.index}"] .newicon`
-        ).remove();
-      }
-
-      const imgSrc = Badge.getImgSrc(badge.img); // 画像URL取得
-
-      // 詳細モーダルのHTML構造
-      const html = `
-        <div class="badge-acquired-image badge-acquired-image-shine">
-          <img src="${imgSrc}" alt="${badge.raw}">
-        </div>
-        <h2 class="c-modal-wrap-title">
-          ${badge.dateLabel}<br />${badge.title}
-        </h2>
-        <a class="c-modal-wrap-button c-modal-wrap-close-tag badge-acquired-next-btn">閉じる</a>
-      `;
-
-      // モーダル生成・表示
-      const modal = createModal({
-        close: true, // 閉じるボタンを表示
-        wrapClass: "badge-acquired", // CSSクラス
-        customModalHtml: html,
-      });
-
-      // 閉じるボタンのイベント設定
-      // 名前空間（.badgeDetailClose）を使って多重登録を防止
-      $(document)
-        .off("click.badgeDetailClose") // 既存のイベントを削除
-        .on("click.badgeDetailClose", ".badge-detail-modal .cm-close-btn", () =>
-          modal?.close()
-        );
-    },
-  };
-
-  // ===== UI レンダリング処理 =====
-  // 画面上のバッジカード表示とインタラクションを管理
-  const UI = {
-    // バッジブロック（カード一覧）を描画
-    // max: 表示する最大件数（デフォルト6件）
-    // now: 現在日時（NEW判定に使用）
-    renderBadges: (max = CONFIG.defaultMaxBadges, now = new Date()) => {
-      // コンテナ要素を取得または生成
-      let $out = $(".dashboard-left-block-wrap-badge-content");
-      if (!$out.length) {
-        // 無ければ新規作成
-        $out = $('<div class="dashboard-left-block-wrap-badge-content"></div>');
-        // ul.badges の直後に挿入（無ければbody末尾）
-        $("ul.badges").length
-          ? $("ul.badges").after($out)
-          : $("body").append($out);
-      }
-
-      const list = Badge.collectAll(); // 全バッジ取得
-      const items = list.slice(0, max); // 指定件数に制限
-      $out.empty(); // 既存の内容をクリア（再描画）
-
-      // 実際のバッジカードを生成
-      items.forEach((b) => {
-        // NEW表示判定:
-        // 1. NEW期間内か
-        const inWindow = Badge.isInNewWindow(b.start, b.end, now);
-        // 2. まだ詳細を見ていない（NEW非表示Cookieが無い）
-        const dismissed = Cookie.get(Badge.cookieKey(CONFIG.newPrefix, b));
-        // 両方満たせばNEWを表示
-        const showNew = inWindow && !dismissed;
-
-        const imgSrc = Badge.getImgSrc(b.img); // 画像URL取得
-
-        // カードのDOM要素を生成
-        // data-badge-index: 後でこのカードを特定するための識別子
-        const $card = $(`
-          <div class="dashboard-left-block-wrap-badge-block" data-badge-index="${
-            b.index
-          }">
-            <div class="dashboard-left-block-wrap-badge-block-img">
-              ${
-                showNew
-                  ? '<div class="newicon"><div class="newicon-wrapper"><div class="newicon-type"><img src="http://localhost:3000/static/images/text_badge_typenew.svg"></div><div class="newicon-bg"><img src="http://localhost:3000/static/images/icon_badge_bgnew.svg"></div></div></div>'
-                  : ""
-              }
-              <img src="${imgSrc}" alt="${b.raw}" class="badge-image">
-            </div>
-          </div>
-        `).on("click", () => Modal.showDetail(b, showNew)); // クリックで詳細モーダルを開く
-        // showNew=true の場合、モーダルを開くとNEWが既読化される
-
-        $out.append($card); // カードを追加
-      });
-
-      // ダミーカードで穴埋め（表示枠を統一するため）
-      // 例: バッジが4件の場合、残り2件分のダミーを追加
-      for (let i = items.length; i < max; i++) {
-        $out.append(`
-          <div class="dashboard-left-block-wrap-badge-block">
-            <div class="dashboard-left-block-wrap-badge-block-img">
-              <div><img src="http://localhost:3000/static/images/badge_dummy.svg" class="badge-image"></div>
-            </div>
-          </div>
-        `);
-      }
-
-      // 全件表示時（max > CONFIG.defaultMaxBadges）で奇数の場合、空のダミーを1つ追加
-      // レイアウトを整えるため（2列表示の場合に1つだけ余るのを防ぐ）
-      if (max > CONFIG.defaultMaxBadges && items.length % 2 === 1) {
-        $out.append(`
-          <div class="dashboard-left-block-wrap-badge-block" data-badge-index="dummy">
-            <div class="dashboard-left-block-wrap-badge-block-img">
-            </div>
-          </div>
-        `);
-      }
-
-      // UI要素の表示/非表示制御
-      // .display-badge: バッジが1件以上あれば表示
-      $(".display-badge").toggle(list.length >= 1);
-      // .dashboard-left-block-wrap-badge-readmore: バッジが7件以上あれば「もっと見る」を表示
-      $(".dashboard-left-block-wrap-badge-readmore").toggle(list.length >= 7);
-    },
-
-    // 「もっと見る」「表示を元に戻す」トグル機能のセットアップ
-    setupToggle: () => {
-      let isExpanded = false; // 展開状態を管理するフラグ
-
-      // 「もっと見る」リンクのクリックイベント
-      $(document).on(
-        "click",
-        ".dashboard-left-block-wrap-badge-readmore a",
-        function (e) {
-          e.preventDefault(); // デフォルトのリンク動作を無効化
-
-          const list = Badge.collectAll(); // 現在のバッジ数を取得
-
-          // 展開状態に応じて表示件数を切り替え
-          const max = isExpanded ? CONFIG.defaultMaxBadges : list.length; // 閉じる: 6件、開く: 全件
-          UI.renderBadges(max); // 再描画
-
-          // リンクテキストを切り替え
-          $(this).text(isExpanded ? "もっと見る" : "表示を元に戻す");
-
-          // 状態を反転
-          isExpanded = !isExpanded;
-        }
-      );
-    },
-  };
-
-  // ===== デバッグ機能（本番では削除可能） =====
-  // 開発時のテスト・デバッグ用機能
-  // 本番リリース時は Debug.createButton() の呼び出しを削除すればOK
-  const Debug = {
-    // バッジ関連のCookieを全て削除
-    // 獲得モーダルやNEW表示のテストを何度も行いたい時に使用
-    clearAllCookies: () => {
-      // document.cookie から全てのCookieを取得
-      const cookies = document.cookie
-        .split(";")
-        .map((s) => s.trim())
-        .filter(Boolean);
-
-      // バッジ関連Cookie（MODAL_PREFIX or NEW_PREFIX で始まるもの）を抽出
-      const targets = cookies.filter(
-        (c) =>
-          c.startsWith(CONFIG.modalPrefix) || c.startsWith(CONFIG.newPrefix)
-      );
-
-      // 対象が無ければ終了
-      if (!targets.length) {
-        console.log("[DEBUG] 対象Cookieなし");
-        return;
-      }
-
-      // 各Cookieを削除
-      targets.forEach((c) => {
-        const name = c.split("=")[0]; // Cookie名を抽出
-        Cookie.remove(name); // jQuery Cookieで削除
-        // 念のため生のCookie操作でも削除（Max-Age=0で即座に無効化）
-        document.cookie = `${name}=; Max-Age=0; path=/;`;
-      });
-
-      console.log(
-        "[DEBUG] 削除:",
-        targets.map((c) => c.split("=")[0])
-      );
-      alert("バッジCookieをリセットしました"); // ユーザーへ通知
-      location.reload(); // ページをリロードして変更を反映
-    },
-
-    // デバッグボタンUIを画面左下に生成
-    // ボタンをクリックするとclearAllCookies()が実行される
-    createButton: () => {
-      const $btn = $(`
-        <button id="badge-debug-btn" style="
-          position: fixed;         /* 画面に固定 */
-          bottom: 20px;            /* 下から20px */
-          left: 20px;              /* 左から20px */
-          z-index: 9999;           /* 最前面に表示 */
-          padding: 10px 16px;      /* 内側の余白 */
-          background: #333;        /* 背景色（ダークグレー） */
-          color: #fff;             /* 文字色（白） */
-          border: none;            /* 枠線なし */
-          border-radius: 4px;      /* 角丸 */
-          cursor: pointer;         /* カーソルをポインターに */
-          font-size: 12px;         /* 文字サイズ */
-          box-shadow: 0 2px 8px rgba(0,0,0,0.3); /* 影を付けて浮かせる */
-        ">Cookie削除</button>
-      `).on("click", Debug.clearAllCookies); // クリックでCookie削除実行
-
-      $("body").append($btn); // bodyに追加
-    },
-  };
-
-  // ===== 初期化処理 =====
-  // DOMの準備が完了したら実行
-  $(function () {
-    const now = new Date(); // 現在日時を1回だけ取得（全処理で統一）
-
-    UI.renderBadges(CONFIG.defaultMaxBadges, now); // バッジカード一覧を描画
-    UI.setupToggle(); // 「もっと見る」機能をセットアップ
-    Modal.showAcquired(now); // 新規獲得バッジがあればモーダル表示
-
-    // ===== デバッグボタン有効化（本番では次の行をコメントアウトまたは削除） =====
-    Debug.createButton();
-  });
-}
-
-// ==============================
 // ログイン・サインアップページの処理
 // ==============================
 if (bodyId === "page-login-signup" || bodyId === "page-login-forgot_password") {
@@ -1903,11 +1413,32 @@ if (bodyId === "page-mod-questionnaire-view" || bodyId === "page-mod-questionnai
         <div class="complete"><a href="https://lms.waomirai.com/my/" class="btn btn-primary">受講カレンダーに戻る</a></div>
     </div></div>
   `;
-  
+
+  // 各質問コンテナごとに処理を実行
+  $('.qn-container').each(function() {
+    // 現在の質問コンテナ内でplaceholder-spanを検索
+    var $placeholderSpan = $(this).find('.placeholder-span');
+    
+    // placeholder-spanが存在するか確認
+    if ($placeholderSpan.length > 0) {
+      // placeholder-spanのテキストを取得(パイプ文字以降)
+      var placeholderText = $placeholderSpan.text().trim();
+      
+      // 同じコンテナ内のtextareaを検索
+      var $textarea = $(this).find('.qn-answer textarea');
+      
+      // textareaが存在する場合、placeholderを設定
+      if ($textarea.length > 0 && placeholderText) {
+        $textarea.attr('placeholder', placeholderText);
+      } 
+    } else {
+      $(".qn-answer textarea").attr("placeholder", textQuestionnaireTextareaPlaceholder); 
+    }
+  });
 
 
   $('.allresponses a,li[data-key="vall"] a').text(textQuestionnaireAnswerAll);
-  $(".qn-answer textarea").attr("placeholder", textQuestionnaireTextareaPlaceholder); 
+
   
   //li[data-key="yourresponse"]のある場合は回答済みとして扱う
   //li[data-key="yourresponse"]は回答済みの場合、授業ページにdomとして要素が存在する
@@ -2202,6 +1733,502 @@ if (
       //    → キャンペーンモーダルを表示（無料受講案内 + Amazonギフト券プレゼント案内）
       // 2. それ以外の場合
       //    → レベル設定モーダルを表示（科目のレベル設定ページへの誘導）
+      // 3. モーダル表示履歴はCookieに保存（365日有効）
+      showModalAfterCardRegistration();
+    }
+  }
+}
+
+
+
+
+
+// カード登録後にモーダルを表示する関数
+function showModalAfterCardRegistration() {
+  var now = new Date(); // 現在の日付を取得
+  var cookieValue = $.cookie("levelSettingModalShown"); // Cookieにモーダル表示の履歴があるか確認
+  var subjectCategory = currentViewCourseData.key;  // 現在選択されている科目カテゴリーを取得
+
+  // ".c-modal-level-setting"クラスの要素がクリックされた場合にレベル設定モーダルを表示
+  $(document).on("click", ".c-modal-level-setting", function () {
+    showLevelSettingModal();
+  });
+
+  // キャンペーン期間中かつモーダルが未表示の場合
+  if (now <= AmazonGiftFreeCampaignEnd && !cookieValue) {
+    // キャンペーンモーダルを表示
+    showCampaignModal();
+
+    // モーダルが表示されたことをCookieに記録（365日有効）
+    $.cookie("levelSettingModalShown", "true", { expires: 365, path: "/" });
+    return; // キャンペーンモーダルが表示された後は処理を終了
+  }
+
+  // それ以外の場合はレベル設定モーダルを表示
+  showLevelSettingModal();
+}
+
+
+// 2025年9月キャンペーンのモーダル関数
+function showCampaignModal() {
+  createModal({
+    title: "おめでとうございます！",
+    wrapClass: "c-modal-wrap-wrap-campaign",
+    text: "<b>キャンペーンを<br />適用させていただきます。</b><br /><br />2025年10・11月は無料で受講いただけます。<br />2025年11月も受講いただけたら<br />Amazonギフト券5000円プレゼントいたします。<br />",
+    buttons: [
+      { text: "OKです", class: "btn-primary c-modal-level-setting c-modal-wrap-close-tag" }
+    ]
+  });
+}
+
+// レベル変更のモーダル関数
+function showLevelSettingModal() {
+  createModal({
+    image: "https://waomirai.com/lp/assets/moodle/images/modal_subject.png",
+    imageClass: "c-modal-wrap-subject-img",
+    wrapClass: "c-modal-wrap-subject",
+    buttons: [
+      { text: "科目のレベルを設定する", url: UrlChangeSubject, class: "btn-primary" }
+    ]
+  });
+}
+
+
+// ==============================
+// マイページの処理
+// ==============================
+if (bodyId === "page-user-edit") { // ページIDが「page-user-edit」の場合に処理を実行
+  // 各科目の入力エリアを取得
+  var AreaPhilosophy = $("#fitem_id_profile_field_Philosophy_Level"); // 哲学の入力エリア
+  var AreaScience = $("#fitem_id_profile_field_Science_Level"); // 科学の入力エリア
+  var AreaEconomy = $("#fitem_id_profile_field_Economy_Level"); // 経済の入力エリア
+  var AreaEnglish = $("#fitem_id_profile_field_English_Level"); // 英語の入力エリア
+  var AreaSingleCourse = $("#fitem_id_profile_field_1cource_Subject"); // １科目受講の入力エリア
+  var AreaTwoCourse = $("#fitem_id_profile_field_2cources_subject"); // ２科目受講の入力エリア
+
+  // 各科目のエリアを配列にまとめて、後で一括で非表示にする
+  var AreaElements = [
+    AreaPhilosophy,
+    AreaScience,
+    AreaEconomy,
+    AreaEnglish,
+    AreaSingleCourse,
+    AreaTwoCourse,
+  ];
+  // 配列内の各エリアを非表示にする
+  AreaElements.forEach(function (AreaElement) {
+    AreaElement.hide();
+  });
+
+  // 初回受講レベル登録時、submit直前に注意文言を表示する関数
+  let isAlertSubjectSettingFirstShown = false; // フラグを追加
+
+  function AlertSubjectSettingFirst() {
+    if (!isAlertSubjectSettingFirstShown) { // フラグがfalseの場合のみ実行
+      $("#fgroup_id_buttonar").before(
+        `<div id="id_submitbutton-subject">一度受講レベルを設定すると、2回目以降のレベル変更時の反映は当月末になりますのでご注意くださいませ。</div>`
+      );
+      //英語と他科目を受講する場合、複数回発火することを防ぐためにフラグをtrueに設定
+      isAlertSubjectSettingFirstShown = true; // フラグをtrueに設定
+    }
+  }
+
+  // サブレベル（子科目）の自動取得を行う関数
+  function getOwnedSubLevels(subjectKey, levels) {
+    // subjects 配列から、指定された科目キーとレベルに一致する子科目を抽出
+    return subjects
+      .filter(
+        (subject) =>
+          subject.type === "child" && // 子科目を対象
+          subject.key === subjectKey && // 指定された科目キーに一致
+          levels.includes(subject.level) && // 指定されたレベルの中に該当する
+          bodyClasses.includes(subject.id) // 現在のページに関連付けられた科目IDか確認
+      )
+      .map((subject) => subject.level); // 該当するレベルを配列で返す
+  }
+
+  // 1科目選択のセレクトボックスを取得する関数
+  function getSelectElement(Area) {
+    return Area.find("select"); // 引数で渡されたエリア内のselect要素を取得
+  }
+
+  // 2科目以上選択する場合の処理（必要な場合、変更を監視）
+  function handleMultipleSelectChange(selectors, callback) {
+    var selectedIndexes = []; // インデックスを格納する配列
+
+    // 各select要素から選択されたインデックスを取得して配列に格納
+    $(selectors).each(function () {
+      var selectedIndex = $(this).prop("selectedIndex");
+      selectedIndexes.push(selectedIndex);
+    });
+
+    // コールバック関数に選ばれたインデックスを渡して実行
+    callback(selectedIndexes);
+
+    // 各select要素にchangeイベントを再設定（選択肢が変更された時にインデックスを更新）
+    $(selectors).on("change", function () {
+      selectedIndexes = []; // インデックス配列を初期化
+
+      // 再度インデックスを取得し、配列に格納
+      $(selectors).each(function () {
+        var selectedIndex = $(this).prop("selectedIndex");
+        selectedIndexes.push(selectedIndex);
+      });
+
+      // コールバック関数に更新されたインデックスを渡して実行
+      callback(selectedIndexes);
+    });
+  }
+
+  // 【1科目受講】のケース
+
+  // 1科目「哲学」のみ購入した場合
+  if (
+    checkBoughtMainSubject(["philosophy"]) && // 購入した主科目が「哲学」か確認
+    !checkBoughtMainSubject(["science", "economy"]) // 購入した主科目が「科学」や「経済」でないことを確認
+  ) {
+    AreaPhilosophy.show(); // 哲学の入力エリアを表示
+    // 初回受講レベル登録時、注意文言を表示
+    if (!checkBoughtChildSubject("philosophy", ["L1", "L2", "L3", "L4"])) {
+      AlertSubjectSettingFirst(); // 初回レベル設定の警告
+    }
+  }
+
+  // 1科目「科学」のみ購入した場合
+  if (
+    checkBoughtMainSubject(["science"]) && // 購入した主科目が「科学」か確認
+    !checkBoughtMainSubject(["philosophy", "economy"]) // 購入した主科目が「哲学」や「経済」でないことを確認
+  ) {
+    AreaScience.show(); // 科学の入力エリアを表示
+    // 初回受講レベル登録時、注意文言を表示
+    if (!checkBoughtChildSubject("science", ["L1", "L2", "L3", "L4"])) {
+      AlertSubjectSettingFirst(); // 初回レベル設定の警告
+    }
+  }
+
+  // 1科目「経済」のみ購入した場合
+  if (
+    checkBoughtMainSubject(["economy"]) && // 購入した主科目が「経済」か確認
+    !checkBoughtMainSubject(["philosophy", "science"]) // 購入した主科目が「哲学」や「科学」でないことを確認
+  ) {
+    AreaEconomy.show(); // 経済の入力エリアを表示
+    // 初回受講レベル登録時、注意文言を表示
+    if (!checkBoughtChildSubject("economy", ["L1", "L2", "L3", "L4"])) {
+      AlertSubjectSettingFirst(); // 初回レベル設定の警告
+    }
+  }
+
+  // 英語購入の場合
+  if (checkBoughtMainSubject(["globalenglish"])) { // 購入した主科目が「英語」か確認
+    AreaEnglish.show(); // 英語の入力エリアを表示
+    // 初回受講レベル登録時、注意文言を表示
+    if (!checkBoughtChildSubject("globalenglish", ["L1", "L2"])) {
+      AlertSubjectSettingFirst(); // 初回レベル設定の警告
+    }
+  }
+
+  // 【2科目セット購入】の場合
+  if (checkBoughtMainSubject(["twosubjectpack"], true)) { // 2科目セットを購入している場合
+    AreaTwoCourse.show(); // 2科目選択のプルダウンを表示
+
+    // プルダウン変更時に呼ばれる関数
+    function updateAreaOnSelection() {
+      var selectedIndex = getSelectElement(AreaTwoCourse).prop("selectedIndex"); // 選択されたインデックスを取得
+
+      // 2科目の選択に応じて表示する科目エリアを更新
+      switch (selectedIndex) {
+        case 1: // 哲学 + 科学
+          AreaPhilosophy.show();
+          AreaScience.show();
+          AreaEconomy.hide();
+          break;
+
+        case 2: // 科学 + 経済
+          AreaPhilosophy.show();
+          AreaScience.hide();
+          AreaEconomy.show();
+          break;
+
+        case 3: // 科学 + 経済（逆の場合）
+          AreaPhilosophy.hide();
+          AreaScience.show();
+          AreaEconomy.show();
+          break;
+        default: // それ以外の選択肢
+          AreaPhilosophy.hide();
+          AreaScience.hide();
+          AreaEconomy.hide();
+      }
+    }
+
+    // ページロード時に実行
+    updateAreaOnSelection();
+
+    // プルダウン変更時に再度実行
+    getSelectElement(AreaTwoCourse).on("change", updateAreaOnSelection);
+
+    // 初回受講レベル登録時、注意文言を表示
+    if (
+      !checkBoughtChildSubject("economy", ["L1", "L2", "L3", "L4"]) &&
+      !checkBoughtChildSubject("philosophy", ["L1", "L2", "L3", "L4"]) &&
+      !checkBoughtChildSubject("science", ["L1", "L2", "L3", "L4"])
+    ) {
+      getSelectElement(AreaTwoCourse).after(
+        "<div class='subject-select-levelnotset'>科目を選択してください</div>"
+      );
+      AlertSubjectSettingFirst(); // 初回レベル設定の警告
+    }
+  }
+
+  // 【3科目セット購入】の場合
+  if (checkBoughtMainSubject(["threesubjectpack"], true)) { // 3科目セットを購入している場合
+    AreaPhilosophy.show(); // 哲学を表示
+    AreaScience.show(); // 科学を表示
+    AreaEconomy.show(); // 経済を表示
+    // 初回受講レベル登録時、注意文言を表示
+    if (
+      !checkBoughtChildSubject("economy", ["L1", "L2", "L3", "L4"]) &&
+      !checkBoughtChildSubject("philosophy", ["L1", "L2", "L3", "L4"]) &&
+      !checkBoughtChildSubject("science", ["L1", "L2", "L3", "L4"])
+    ) {
+      AlertSubjectSettingFirst(); // 初回レベル設定の警告
+    }
+  }
+
+  // 各科目の設定を配列で定義
+  const subjectConfigs = [
+    {
+      subject: "philosophy",
+      area: AreaPhilosophy,
+      levels: ["L1", "L2", "L3", "L4"],
+    },
+    {
+      subject: "science",
+      area: AreaScience,
+      levels: ["L1", "L2", "L3", "L4"],
+    },
+    {
+      subject: "economy",
+      area: AreaEconomy,
+      levels: ["L1", "L2", "L3", "L4"],
+    },
+    {
+      subject: "globalenglish",
+      area: AreaEnglish,
+      levels: ["L1", "L2"],
+    },
+  ];
+
+  // メッセージを表示するための定義
+  const messages = {
+    levelSet: (ownedLevels) =>
+      `<div class="subject-select-levelset">
+         現在受講中のレベルは ${ownedLevels}です<br>
+         レベルの変更は月末反映となります。即時反映されませんのでご注意ください。
+       </div>`,
+    levelNotSet:
+      '<div class="subject-select-levelnotset">受講レベルを設定してください。</div>',
+  };
+
+  // 各科目の設定を一括で処理
+  subjectConfigs.forEach(({ subject, area, levels }) => {
+    const ownedLevels = getOwnedSubLevels(subject, levels); // 所有しているレベルを取得
+
+    const message =
+      ownedLevels.length > 0
+        ? messages.levelSet(ownedLevels) // 所有しているレベルがあればレベル設定メッセージを表示
+        : messages.levelNotSet; // レベルが設定されていなければレベル設定を促すメッセージ
+
+    getSelectElement(area).after(message); // エリアの後にメッセージを追加
+  });
+
+  //見出し直下にテキストを表示。
+  if (hasBoughtMainSubject) {
+    //メイン科目持っている時
+    $("#id_category_10 > .d-flex").after(`
+      <p class="subject-level-note">
+        受講科目のレベルを選択してください。<br />
+        選択した科目のレベルを設定しないと授業を受けることができません。<br />
+        一度受講レベルを設定すると、2回目以降のレベル変更時の反映は当月末になりますのでご注意ください。
+      </p>
+    `);
+    
+  } else {
+    //メイン科目がない時
+    $("#id_category_10 > .d-flex").after(`
+      <p class="subject-level-note">
+        科目を購入した後に受講科目レベルを設定することができます。<br />
+        科目の一覧は<a href="${UrlHome}" style="text-decoration:underline !important;">コチラ</a>からご確認いただけます。
+      </p>
+    `);
+  }
+}
+
+
+// ==============================
+// カテゴリページの処理
+// ==============================
+if (bodyId === "page-user-profile") {
+    
+    $('.alert-success').html('変更が保存されました。科目レベルを設定した場合、<a href="https://lms.waomirai.com/my/">受講カレンダー</a>で確認ができます');  
+   
+    // 非表示にしたいキーワードの配列（OR条件）
+    // ここで非表示にしている項目
+    // ログイン活動：ログイン履歴（これはユーザーにとっては不要な情報）
+    // レポート：意味のないレポート（これはユーザーにとっては不要な情報）
+    // ジョブ：ジョブ情報（これはユーザーにとっては不要な情報）
+    // Stripe退会するための情報（これはユーザーにとっては不要な情報）
+    // 補足：stripeは金額は確認できるようにして、退会するための情報は非表示にしたほうがいいかも
+    const hideKeywords = ['レポート', 'ジョブ', 'Stripe'];
+
+    // すべてのsectionに対してループ処理
+    $('.card').each(function() {
+        // 現在のセクション内のh3テキストを取得
+        // alert('a');
+        const h3Text = $(this).find('h3.lead').text();
+        console.log(h3Text);
+        // キーワードのいずれかが含まれているかチェック（OR条件）
+        const shouldHide = hideKeywords.some(keyword => h3Text.includes(keyword));
+
+        // キーワードが含まれていたら、そのセクション全体を非表示にする
+        if (shouldHide) {
+          this.setAttribute("style", "display: none !important;");
+        }
+    });
+    // ステップ1: profile_treeクラス内のnode_categoryクラスを持つすべてのセクションを取得
+    const $sections = $('.profile_tree .node_category');
+    
+    // ステップ2: 各セクションを順番にチェック
+    $sections.each(function() {
+      // ステップ3: 現在のセクション内からh3要素を検索
+      const $h3 = $(this).find('h3');
+      
+      // ステップ4: h3要素が存在し、そのテキストに「その他」が含まれているかを確認
+      if ($h3.length > 0 && $h3.text().includes('その他')) {
+        // ステップ5: 挿入するカスタムHTMLを作成
+        const lineConnectHTML = `
+        <section class="node_category card d-inline-block w-100 mb-3 line-connection-seciton">
+          <div class="card-lineimg">
+            <img src="https://waomirai.com/lp/assets/moodle/images/page_mypage_line.png">
+          </div>
+          <div class="card-body">
+              <a class="line-button triger-line-integration-modal">いますぐLINE連携する</a>
+          </div>
+        </section>`;
+              
+        // 「その他」を含むセクションの直後にLINE連携セクションを挿入
+        $(this).after(lineConnectHTML);
+              
+        
+        // ステップ7: 最初に見つかった「その他」セクションの後に挿入したら処理を終了
+        // (複数の「その他」セクションがある場合は最初の1つだけに対応)
+        return false; // eachループを終了（jQueryのeachでは、falseを返すとループが中断される）
+      }
+    });
+}
+
+
+// ==============================
+// サイト共通のイベント登録
+// ==============================
+
+// ID連携のモーダル
+$(".triger-line-integration-modal").on("click", function (e) {
+  createModal({
+    wrapClass: "c-modal-wrap-line-connection",
+    customModalHtml: `<div class="c-modal-wrap-close"></div><div class="c-modal-wrap-linetitle"> <div class="c-modal-wrap-linetitle-img"><img src="https://waomirai.com/lp/assets/moodle/images/icn_line.svg"></div><div class="c-modal-wrap-linetitle-text">LINEで受講サポートの<br>通知を受け取る</div></div><div class="c-modal-wrap-qr c-sp-hidden"><img src="${ImgLiffMoodle}"></div><div class="c-modal-wrap-text">すでに友だち追加済の方も<br>会員連携のために<span class="c-sp-hidden">必ずQRを読み取って下さい</span><span class="c-pc-hidden">必ずボタンを押してください</span><br />※既にLINE連携済みの方は不要です</div><div class="c-modal-button-line c-pc-hidden"><a href="https://liff.line.me/2006716288-lL7QzGA3?loycus_urlc=NN3v"><img src="https://waomirai.com/lp/assets/moodle/images/icn_linewhite.svg"></a></div><button class="c-modal-wrap-button c-modal-wrap-button-close c-modal-wrap-close-tag">閉じる</button>`
+  });
+});
+
+// メモシートのモーダル
+// ボタンがクリックされた時の処理
+// 3つの科目（哲学、科学リテラシー、経済）のメモシート選択モーダルを表示
+$(document).on("click", ".triger-download-memosheet-modal", function (e) {
+  createModal({
+    close: true,
+    title: "ダウンロードする<br />メモシートの種類を選択",
+    buttons: [
+      { text: "哲学（思考力）", url: memosheetPhilosophy, class: "btn-primary", blank: true },
+      { text: "科学リテラシー", url: memosheetScience, class: "btn-primary", blank: true },
+      { text: "経済（お金）", url: memosheetEconomy, class: "btn-primary", blank: true }
+    ]
+  });
+});
+
+// classを指定してスクロールできるように
+$(".click-event-subject-comingsoon").on("click", function (e) {
+  e.preventDefault(); // デフォルトの動作を防ぐ
+  // モーダルを表示：セット購入の詳細情報
+  createModal({
+    close: true,  // モーダルを閉じるボタンを表示
+    title: "この科目は開講準備中です", // モーダルのタイトル
+    closetxt: "閉じる", // 閉じるボタンのテキスト
+  });
+});
+
+
+// classを指定してスクロールできるように
+$("[class*='scroll-to-']").on("click", function (e) {
+  e.preventDefault();
+  console.log('1. Click event triggered');
+  
+  var allClasses = $(this).attr("class");
+  console.log('2. All classes on clicked element:', allClasses);
+  
+  var classArray = allClasses.split(" ");
+  var className = classArray.find(cls => cls.startsWith("scroll-to-"));
+  
+  if (className) {
+    var targetClass = className.replace("scroll-to-", "");
+    var $target = $("." + targetClass);
+    
+    if ($target.length) {
+      // DOM要素を直接取得してスクロール
+      var targetElement = $target[0];
+      targetElement.scrollIntoView({
+        behavior: 'auto', // 'smooth' でスムーズスクロール、'auto' で即時スクロール
+        block: 'start'    // 'start', 'center', 'end', 'nearest' から選択可能
+      });
+      
+      console.log('8. Scroll executed using scrollIntoView');
+    }
+  }
+});
+
+
+// 年間スケジュールのタブ切り替え
+$('.tab-level-1').addClass('active');
+//  1番目のタブを表示
+$('.content-level1').css('display', 'grid');
+
+
+$('.enrol-section-basesubject-year-lesson-tab-child').click(function() {
+  var level = $(this).index() + 1;
+  
+  // タブのアクティブ切り替え
+  $('.enrol-section-basesubject-year-lesson-tab-child').removeClass('active');
+  $(this).addClass('active');
+  
+  // コンテンツの表示切り替え
+  $('.enrol-section-basesubject-year-lesson-content-child').hide();
+  $('.content-level' + level).css('display', 'grid');
+});
+
+$(function() {
+  // ツールチップの開閉
+  $('.open-info').on('click', function(e) {
+      e.stopPropagation();
+      $('.open-info').not(this).removeClass('active').find('.tooltip').removeClass('show');
+      $(this).toggleClass('active').find('.tooltip').toggleClass('show');
+  });
+  
+  // 外側クリックで閉じる
+  $(document).on('click', function() {
+      $('.open-info').removeClass('active');
+      $('.tooltip').removeClass('show');
+  });
+});   }
+});ページへの誘導）
       // 3. モーダル表示履歴はCookieに保存（365日有効）
       showModalAfterCardRegistration();
     }
