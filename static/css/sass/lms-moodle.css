@@ -7173,17 +7173,54 @@ html[data-tenantidnumber=lmswaomirai] .pagelayout-mydashboard .dashboard-left-bl
     width: 130px;
   }
 }
-html[data-tenantidnumber=lmswaomirai] .pagelayout-mydashboard .dashboard-left-block-wrap-badge-content .dashboard-left-block-wrap-badge-block .dashboard-left-block-wrap-badge-block-img .newicon img {
+html[data-tenantidnumber=lmswaomirai] .pagelayout-mydashboard .dashboard-left-block-wrap-badge-content .dashboard-left-block-wrap-badge-block .dashboard-left-block-wrap-badge-block-img .newicon {
   position: absolute;
   left: -8px;
   top: -8px;
   width: 34px;
 }
 @media screen and (max-width: 768px) {
-  html[data-tenantidnumber=lmswaomirai] .pagelayout-mydashboard .dashboard-left-block-wrap-badge-content .dashboard-left-block-wrap-badge-block .dashboard-left-block-wrap-badge-block-img .newicon img {
+  html[data-tenantidnumber=lmswaomirai] .pagelayout-mydashboard .dashboard-left-block-wrap-badge-content .dashboard-left-block-wrap-badge-block .dashboard-left-block-wrap-badge-block-img .newicon {
     left: -6px;
     top: -6px;
     width: 48px;
+  }
+}
+html[data-tenantidnumber=lmswaomirai] .pagelayout-mydashboard .dashboard-left-block-wrap-badge-content .dashboard-left-block-wrap-badge-block .dashboard-left-block-wrap-badge-block-img .newicon .newicon-wrapper {
+  position: relative;
+}
+html[data-tenantidnumber=lmswaomirai] .pagelayout-mydashboard .dashboard-left-block-wrap-badge-content .dashboard-left-block-wrap-badge-block .dashboard-left-block-wrap-badge-block-img .newicon .newicon-wrapper .newicon-type img {
+  position: absolute;
+  left: 2px;
+  right: 0;
+  top: 2px;
+  bottom: 0;
+  margin: auto;
+  width: 22px;
+  z-index: 10;
+}
+html[data-tenantidnumber=lmswaomirai] .pagelayout-mydashboard .dashboard-left-block-wrap-badge-content .dashboard-left-block-wrap-badge-block .dashboard-left-block-wrap-badge-block-img .newicon .newicon-wrapper .newicon-bg {
+  -webkit-animation: spin 18s linear infinite;
+          animation: spin 18s linear infinite;
+}
+@-webkit-keyframes spin {
+  from {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+@keyframes spin {
+  from {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
   }
 }
 html[data-tenantidnumber=lmswaomirai] .pagelayout-mydashboard .dashboard-left-block-wrap-badge-content .dashboard-left-block-wrap-badge-block .dashboard-left-block-wrap-badge-block-img .badge-image {

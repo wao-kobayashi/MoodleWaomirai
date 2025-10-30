@@ -340,7 +340,7 @@ if (bodyId === "page-my-index") {
             <div class="dashboard-left-block-wrap-badge-block-img">
               ${
                 showNew
-                  ? '<div class="newicon"><img src="http://localhost:3000/static/images/icon_badge_new.svg"></div>'
+                  ? '<div class="newicon"><div class="newicon-wrapper"><div class="newicon-type"><img src="http://localhost:3000/static/images/text_badge_typenew.svg"></div><div class="newicon-bg"><img src="http://localhost:3000/static/images/icon_badge_bgnew.svg"></div></div></div>'
                   : ""
               }
               <img src="${imgSrc}" alt="${b.raw}" class="badge-image">

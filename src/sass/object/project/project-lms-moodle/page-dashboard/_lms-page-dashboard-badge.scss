@@ -37,7 +37,7 @@
           width: 130px;
         }
         cursor: pointer;
-        .newicon img {
+        .newicon {
           position: absolute;
           left: -8px;
           top: -8px;
@@ -46,6 +46,30 @@
             left: -6px;
             top: -6px;
             width: 48px;
+          }
+          .newicon-wrapper {
+            position: relative;
+            .newicon-type img {
+              position: absolute;
+              left: 2px;
+              right: 0;
+              top: 2px;
+              bottom: 0;
+              margin: auto;
+              width: 22px;
+              z-index: 10;
+            }
+            .newicon-bg {
+              animation: spin 18s linear infinite;
+            }
+            @keyframes spin {
+              from {
+                transform: rotate(0deg);
+              }
+              to {
+                transform: rotate(360deg);
+              }
+            }
           }
         }
         .badge-image {
