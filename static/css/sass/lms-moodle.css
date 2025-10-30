@@ -8545,6 +8545,12 @@ html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-myreport .surveyTi
 html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-report .surveyTitle {
   padding: 2px 12px 15px !important;
 }
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-view .surveyText,
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-complete .surveyText,
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-myreport .surveyText,
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-report .surveyText {
+  padding: 0px 12px 15px !important;
+}
 html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-view .qn-container,
 html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-complete .qn-container,
 html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-myreport .qn-container,
