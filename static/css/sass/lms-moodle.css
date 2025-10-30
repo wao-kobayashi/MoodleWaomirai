@@ -7248,6 +7248,46 @@ html[data-tenantidnumber=lmswaomirai] .pagelayout-mydashboard .badge-acquired-ev
   -webkit-animation: fadeScale 0.6s ease forwards;
           animation: fadeScale 0.6s ease forwards; /* アニメーション名、時間、イージング */
 }
+html[data-tenantidnumber=lmswaomirai] .pagelayout-mydashboard .badge-acquired-image-shine {
+  position: relative;
+}
+html[data-tenantidnumber=lmswaomirai] .pagelayout-mydashboard .badge-acquired-image-shine::after {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -100%;
+  width: 20%;
+  height: 200%;
+  background: -webkit-gradient(linear, left top, right top, from(rgba(255, 255, 255, 0)), color-stop(30%, rgba(255, 255, 255, .3)), color-stop(50%, rgba(255, 255, 255, .9)), color-stop(70%, rgba(255, 255, 255, .3)), to(rgba(255, 255, 255, 0)));
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, .3) 30%, rgba(255, 255, 255, .9) 50%, rgba(255, 255, 255, .3) 70%, rgba(255, 255, 255, 0) 100%);
+  -webkit-transform: rotate(30deg);
+          transform: rotate(30deg);
+  -webkit-animation: shine 5s ease-in-out infinite;
+          animation: shine 5s ease-in-out infinite;
+  z-index: 99;
+}
+@-webkit-keyframes shine {
+  0% {
+    left: -100%;
+  }
+  30% {
+    left: 150%;
+  }
+  100% {
+    left: 150%;
+  }
+}
+@keyframes shine {
+  0% {
+    left: -100%;
+  }
+  30% {
+    left: 150%;
+  }
+  100% {
+    left: 150%;
+  }
+}
 html[data-tenantidnumber=lmswaomirai] .pagelayout-mydashboard .badge-acquired {
   position: relative;
   overflow: hidden;

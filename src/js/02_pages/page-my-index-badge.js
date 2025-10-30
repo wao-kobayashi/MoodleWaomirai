@@ -271,7 +271,7 @@ if (bodyId === "page-my-index") {
 
       // 詳細モーダルのHTML構造
       const html = `
-        <div class="badge-acquired-image">
+        <div class="badge-acquired-image badge-acquired-image-shine">
           <img src="${imgSrc}" alt="${badge.raw}">
         </div>
         <h2 class="c-modal-wrap-title">

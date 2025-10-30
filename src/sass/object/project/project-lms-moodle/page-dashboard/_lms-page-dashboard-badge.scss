@@ -100,6 +100,39 @@
       }
     }
   }
+  .badge-acquired-image-shine {
+    position: relative;
+  }
+  .badge-acquired-image-shine::after {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -100%;
+    width: 20%;
+    height: 200%;
+    background: linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0) 0%,
+      rgba(255, 255, 255, 0.3) 30%,
+      rgba(255, 255, 255, 0.9) 50%,
+      rgba(255, 255, 255, 0.3) 70%,
+      rgba(255, 255, 255, 0) 100%
+    );
+    transform: rotate(30deg);
+    animation: shine 5s ease-in-out infinite;
+    z-index: 99;
+  }
+  @keyframes shine {
+    0% {
+      left: -100%;
+    }
+    30% {
+      left: 150%;
+    }
+    100% {
+      left: 150%;
+    }
+  }
   .badge-acquired {
     position: relative;
     overflow: hidden;
