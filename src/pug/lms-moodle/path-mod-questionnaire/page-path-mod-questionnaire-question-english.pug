@@ -242,7 +242,7 @@ block contents
                                 .no-overflow
                                   p(dir="ltr", style="text-align: left;") 今月「できるようになった」「よくできた」と思うことを教えてください。
                                   p
-                                   span.placeholder-span|
+                                    span.placeholder-span(style='display:none;')|AAAA
                             .qn-answer
                               textarea#q26(name="q26", rows="5", cols="80")
                         .alert.alert-danger.alert-block.fade.in.alert-dismissible(role="alert", data-aria-autofocus="true", style="display:none;")
@@ -264,7 +264,8 @@ block contents
                               label(for="q27")
                                 .no-overflow
                                   p(dir="ltr", style="text-align: left;") 今後もう少し頑張っていきたいことを教えてください。
-                                  p(dir="ltr", style="text-align: left;") ・問１を思い出して考えてみてね
+                                  p
+                                   span.placeholder-span(style='display:none;')|BBBB
                             .qn-answer
                               textarea#q27(name="q27", rows="5", cols="80")
                         .alert.alert-danger.alert-block.fade.in.alert-dismissible(role="alert", data-aria-autofocus="true", style="display:none;")
@@ -286,6 +287,7 @@ block contents
                               label(for="q28")
                                 .no-overflow
                                   p(dir="ltr", style="text-align: left;") 先生や授業内容についてのご要望や感想を教えてください。
+                                  span.placeholder-span(style='display:none;')|BBBB
                             .qn-answer
                               textarea#q28(name="q28", rows="5", cols="80")
                         .alert.alert-danger.alert-block.fade.in.alert-dismissible(role="alert", data-aria-autofocus="true", style="display:none;")

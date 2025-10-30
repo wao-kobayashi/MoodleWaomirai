@@ -9,10 +9,17 @@
   // 「3週目」が ol.breadcrumb li のどこかに含まれているか確認
   let hasWeek3 = false;
 
+  // 「3週目」が ol.breadcrumb li のどこかに含まれているか確認
+  let breadcrumbEnglish = false;
+
   $('ol.breadcrumb li').each(function() {
     const $li = $(this);
     if ($li.text().includes('3週目')||$li.text().includes('３週目') ) {
       hasWeek3 = true;
+      return false; // 見つかったらループ終了
+    }
+    if ($li.text().includes('英語') ) {
+      breadcrumbEnglish = true;
       return false; // 見つかったらループ終了
     }
   });
@@ -82,7 +89,7 @@ if (bodyId === "page-mod-questionnaire-view" || bodyId === "page-mod-questionnai
         $textarea.attr('placeholder', placeholderText);
       } 
     } else {
-      $(".qn-answer textarea").attr("placeholder", textQuestionnaireTextareaPlaceholder); 
+       $(".qn-answer textarea").attr("placeholder", textQuestionnaireTextareaPlaceholder); 
     }
   });
 
@@ -105,7 +112,10 @@ if (bodyId === "page-mod-questionnaire-view" || bodyId === "page-mod-questionnai
     $(".mod_questionnaire_completepage h3").after(ButtonQuestionnaireBacktoCalender);
     if (hasWeek3) {
       $(".surveyTitle").after('<p class="surveyText">今月の課題をすべて提出できているとバッジが手に入ります！受講カレンダーで確認してみましょう。</p>')
-      }
+    }
+    if (breadcrumbEnglish) {
+      $(".surveyTitle").after('<p class="surveyText">今月の課題を提出するとバッジが手に入ります！受講カレンダーで確認してみましょう。</p>')
+    }
   }
 }
 
