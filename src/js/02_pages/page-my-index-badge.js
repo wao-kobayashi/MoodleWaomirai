@@ -11,9 +11,17 @@
 // ==============================
 
 if (bodyId === "page-my-index") { // ダッシュボード以外では一切動かさない
+   // ===== 画像類 =====
+  const ImgBadgeNewBg = "https://waomirai.com/lp/assets/moodle/images/icon_badge_bgnew.svg"; // NEWピル背景 
+  const ImgBadgeNewType = "https://waomirai.com/lp/assets/moodle/images/text_badge_typenew.svg"; // NEWピル背景 
+  const ImgBadgeDummy = "https://waomirai.com/lp/assets/moodle/images/modal-shine.png"; // NEWピル背景 
+
   // ===== 設定値 =====
   // 各種定数をCONFIGオブジェクトに集約
   // メンテナンス時はここを編集するだけで全体に反映される
+
+
+
   const CONFIG = {
     // Cookie設定: 365日間有効、サイト全体で共有
     cookieOpts: { expires: 365, path: "/" }, // jQuery Cookieのオプションを一元管理
@@ -32,14 +40,6 @@ if (bodyId === "page-my-index") { // ダッシュボード以外では一切動�
     // 獲得モーダルのキラキラエフェクト画像URL
     shineImageUrl: "http://localhost:3000/static/images/modal-shine.png", // 本番はCDN等に置き換え推奨
 
-    // バッジ画像が無い時のダミーSVG（data URI化してサーバーリクエスト回避）
-    dummySvg: encodeURIComponent(
-      `<svg xmlns="http://www.w3.org/2000/svg" width="160" height="160" viewBox="0 0 160 160">
-        <rect width="160" height="160" rx="16" fill="#EEE"/>
-        <circle cx="80" cy="64" r="28" fill="#CCC"/>
-        <rect x="32" y="104" width="96" height="32" rx="8" fill="#DDD"/>
-      </svg>`
-    ), // 画像欠損時のフォールバック（通信不要）
   };
 
   // ===== Cookie操作 =====
@@ -140,7 +140,7 @@ if (bodyId === "page-my-index") { // ダッシュボード以外では一切動�
     // @param {string} src - 画像URL
     // @return {string} 有効な画像URL（data URI含む）
     getImgSrc: (src) =>
-      src || `data:image/svg+xml;charset=UTF-8,${CONFIG.dummySvg}`, // FOUC/404対策
+      src || CONFIG.shineImageUrl, // FOUC/404対策
 
     // DOM（ul.badges li）から全バッジ情報を収集
     // @return {Array<Object>} バッジオブジェクトの配列
@@ -364,10 +364,10 @@ if (bodyId === "page-my-index") { // ダッシュボード以外では一切動�
                   ? `<div class="newicon">
                       <div class="newicon-wrapper">
                         <div class="newicon-type">
-                          <img src="http://localhost:3000/static/images/text_badge_typenew.svg" alt="NEW">
+                          <img src=${ImgBadgeNewType} alt="NEW">
                         </div>
                         <div class="newicon-bg">
-                          <img src="http://localhost:3000/static/images/icon_badge_bgnew.svg" alt="">
+                          <img src=${ImgBadgeNewBg} alt="">
                         </div>
                       </div>
                     </div>`
@@ -389,7 +389,7 @@ if (bodyId === "page-my-index") { // ダッシュボード以外では一切動�
         $out.append(`
           <div class="dashboard-left-block-wrap-badge-block">
             <div class="dashboard-left-block-wrap-badge-block-img">
-              <div><img src="http://localhost:3000/static/images/badge_dummy.svg" class="badge-image" alt=""></div>
+              <div><img src=${ImgBadgeDummy} class="badge-image" alt=""></div>
             </div>
           </div>
         `); // 件数不足でも高さを維持
