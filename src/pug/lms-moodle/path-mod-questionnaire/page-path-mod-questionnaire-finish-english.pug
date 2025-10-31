@@ -1,0 +1,1697 @@
+extends ../_layout_moodle.pug
+block contents
+  - var title = '授業詳細 | stg'  // 変数の定義
+  body#page-mod-questionnaire-complete(class="format-topics  path-mod path-mod-questionnaire chrome dir-ltr lang-ja_wp yui-skin-sam yui3-skin-sam lms-waomirai-com pagelayout-incourse course-223 context-2590 cmid-1225 cm-type-questionnaire category-44 theme uses-drawers")
+  .toast-wrapper.mx-auto.py-0.fixed-top(role='status' aria-live='polite')
+  #page-wrapper.d-print-block
+    div
+      a.sr-only.sr-only-focusable(href='#maincontent') &#x30E1;&#x30A4;&#x30F3;&#x30B3;&#x30F3;&#x30C6;&#x30F3;&#x30C4;&#x3078;&#x30B9;&#x30AD;&#x30C3;&#x30D7;&#x3059;&#x308B;
+    script(src='https://lms.waomirai.com/lib/javascript.php/1761615808/lib/polyfills/polyfill.js')
+    script(src='https://lms.waomirai.com/theme/yui_combo.php?rollup/3.18.1/yui-moodlesimple-min.js')
+    script(src='https://lms.waomirai.com/lib/javascript.php/1761615808/lib/javascript-static.js')
+    script.
+      //<![CDATA[
+      document.body.className += ' jsenabled';
+      //]]>
+    // Google Tag Manager (noscript)
+    noscript
+      iframe(src='https://www.googletagmanager.com/ns.html?id=GTM-W3X8CG9C' height='0' width='0' style='display:none;visibility:hidden')
+    // End Google Tag Manager (noscript)
+    nav.navbar.fixed-top.navbar-light.bg-white.navbar-expand(aria-label='サイトナビゲーション')
+      button.navbar-toggler.aabtn.d-block.d-md-none.my-1.mr-2(data-toggler='drawers' data-action='toggle' data-target='theme_boost-drawers-primary' data-disabled-toggle='undefined')
+        span.navbar-toggler-icon
+        span.sr-only &#x30B5;&#x30A4;&#x30C9;&#x30D1;&#x30CD;&#x30EB;
+      a.navbar-brand.d-none.d-md-flex.align-items-center.m-0.mr-3.p-0.aabtn(href='https://lms.waomirai.com/my/')
+        img.logo.mr-1(src='https://lms.waomirai.com/pluginfile.php/1/tool_tenant/headerlogo/3/%E3%83%AF%E3%82%AA%E6%9C%AA%E6%9D%A5%E5%A1%BE%E3%83%AD%E3%82%B3%E3%82%99A%EF%BC%88%E5%9F%BA%E6%9C%AC%E5%BD%A2%EF%BC%89.png' alt='lmswaomirai')
+      ul.navbar-nav.d-none.d-md-flex.mr-3.tenantswitch
+      .primary-navigation
+        nav.moremenu.navigation.observed
+          ul#moremenu-6902f6e4648ca-navbar-nav.nav.more-nav.navbar-nav(role='menubar')
+            li.nav-item(data-key='home' role='none' data-forceintomoremenu='false')
+              a.nav-link(role='menuitem' href='https://lms.waomirai.com/?redirect=0' data-disableactive='true' tabindex='0' aria-current='true')
+                | &#x79D1;&#x76EE;&#x4E00;&#x89A7;
+            li.nav-item(data-key='myhome' role='none' data-forceintomoremenu='false')
+              a.nav-link(role='menuitem' href='https://lms.waomirai.com/my/' data-disableactive='true' tabindex='-1')
+                | &#x53D7;&#x8B1B;&#x30AB;&#x30EC;&#x30F3;&#x30C0;&#x30FC;
+            li.nav-item(data-key='mycourses' role='none' data-forceintomoremenu='false')
+              a.nav-link(role='menuitem' href='https://lms.waomirai.com/my/courses.php' data-disableactive='true' tabindex='-1')
+                | &#x767B;&#x9332;&#x6E08;&#x307F;&#x8B1B;&#x5EA7;
+            li.nav-item(data-key='' role='none' data-forceintomoremenu='false')
+              a.nav-link(role='menuitem' href='https://lms.waomirai.com/user/profile.php' data-disableactive='true' tabindex='-1')
+                | &#x30DE;&#x30A4;&#x30DA;&#x30FC;&#x30B8;
+            li.nav-item(data-key='' role='none' data-forceintomoremenu='false')
+              a.nav-link(role='menuitem' href='https://lms.waomirai.com/user/preferences.php' data-disableactive='true' tabindex='-1')
+                | &#x30E6;&#x30FC;&#x30B6;&#x8A2D;&#x5B9A;
+            li.nav-item.dropdown.dropdownmoremenu.d-none(role='none' data-region='morebutton')
+              a#moremenu-dropdown-6902f6e4648ca.dropdown-toggle.nav-link(href='#' role='menuitem' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false' tabindex='-1')
+                | &#x3055;&#x3089;&#x306B;
+              ul.dropdown-menu.dropdown-menu-left(data-region='moredropdown' aria-labelledby='moremenu-dropdown-6902f6e4648ca' role='menu')
+      ul.navbar-nav.d-none.d-md-flex.my-1.px-1
+        // page_heading_menu
+      #usernavigation.navbar-nav.ml-auto
+        #nav-notification-popover-container.popover-region.collapsed.popover-region-notifications(data-userid='937' data-region='popover-region')
+          .popover-region-toggle.nav-link.icon-no-margin(data-region='popover-region-toggle' role='button' aria-controls='popover-region-container-6902f6e46a80e6902f6e45aeb64' aria-haspopup='true' aria-label=' 新しい通知のない通知ウィンドウを表示する   ' tabindex='0')
+            i.icon.fa.fa-bell.fa-fw(title='通知メニューに切り替える' role='img' aria-label='通知メニューに切り替える' aria-hidden='true')
+            span.sr-only &#x901A;&#x77E5;&#x30E1;&#x30CB;&#x30E5;&#x30FC;&#x306B;&#x5207;&#x308A;&#x66FF;&#x3048;&#x308B;
+            .count-container.hidden(data-region='count-container' aria-hidden='true')
+              | 0
+          #popover-region-container-6902f6e46a80e6902f6e45aeb64.popover-region-container(data-region='popover-region-container' aria-expanded='false' aria-hidden='true' aria-label='通知ウィンドウ' role='region')
+            .popover-region-header-container
+              h3.popover-region-header-text(data-region='popover-region-header-text') &#x901A;&#x77E5;
+              .popover-region-header-actions(data-region='popover-region-header-actions')
+                a.mark-all-read-button(href='#' title='すべてを既読にする' data-action='mark-all-read' role='button' aria-label='すべてを既読にする')
+                  span.normal-icon
+                    i.icon.fa.fa-check.fa-fw(aria-hidden='true')
+                  span.loading-icon.icon-no-margin
+                    i.icon.fa.fa-spinner.fa-spin.fa-fw(title='読み込み中' role='img' aria-label='読み込み中' aria-hidden='true')
+                    span.sr-only &#x8AAD;&#x307F;&#x8FBC;&#x307F;&#x4E2D;
+            .popover-region-content-container(data-region='popover-region-content-container')
+              .popover-region-content(data-region='popover-region-content')
+                .all-notifications(data-region='all-notifications' role='log' aria-busy='false' aria-atomic='false' aria-relevant='additions')
+                .empty-message(tabindex='0' data-region='empty-message') &#x3042;&#x306A;&#x305F;&#x306B;&#x901A;&#x77E5;&#x306F;&#x3042;&#x308A;&#x307E;&#x305B;&#x3093;&#x3002;
+              span.loading-icon.icon-no-margin
+                i.icon.fa.fa-spinner.fa-spin.fa-fw(title='読み込み中' role='img' aria-label='読み込み中' aria-hidden='true')
+                span.sr-only &#x8AAD;&#x307F;&#x8FBC;&#x307F;&#x4E2D;
+            a.see-all-link(href='https://lms.waomirai.com/message/output/popup/notifications.php')
+              .popover-region-footer-container
+                .popover-region-seeall-text &#x3059;&#x3079;&#x3066;&#x3092;&#x8868;&#x793A;&#x3059;&#x308B;
+        .popover-region.collapsed(data-region='popover-region-messages')
+          a#message-drawer-toggle-6902f6e46b64d6902f6e45aeb65.nav-link.popover-region-toggle.position-relative.icon-no-margin(href='#' role='button')
+            i.icon.fa.fa-message.fa-fw(title='メッセージドロワに切り替える' role='img' aria-label='メッセージドロワに切り替える' aria-hidden='true')
+            span.sr-only &#x30E1;&#x30C3;&#x30BB;&#x30FC;&#x30B8;&#x30C9;&#x30ED;&#x30EF;&#x306B;&#x5207;&#x308A;&#x66FF;&#x3048;&#x308B;
+            .count-container.hidden(data-region='count-container')
+              span(aria-hidden='true') 0
+              span.sr-only 0 &#x4EF6;&#x306E;&#x672A;&#x8AAD;&#x4F1A;&#x8A71;&#x304C;&#x3042;&#x308A;&#x307E;&#x3059;&#x3002;
+          span.sr-only.sr-only-focusable(data-region='jumpto' tabindex='-1')
+        .d-flex.align-items-stretch.usermenu-container(data-region='usermenu')
+          .usermenu
+            .dropdown.show
+              a#user-menu-toggle.btn.dropdown-toggle(href='#' role='button' data-toggle='dropdown' aria-label='ユーザメニュー' aria-haspopup='true' aria-controls='user-action-menu')
+                span.userbutton
+                  span.avatars
+                    span.avatar.current
+                      span.userinitials.size-35(title='ワオ未来塾お客様検証アカウント ★' aria-label='ワオ未来塾お客様検証アカウント ★' role='img') &#x30EF;&starf;
+              #user-action-menu.dropdown-menu.dropdown-menu-right
+                #usermenu-carousel.carousel.slide(data-touch='false' data-interval='false' data-keyboard='false')
+                  .carousel-inner
+                    #carousel-item-main.carousel-item.active(role='menu' tabindex='-1' aria-label='ユーザ')
+                      a.dropdown-item(href='https://lms.waomirai.com/user/profile.php' role='menuitem' tabindex='-1')
+                        | &#x30DE;&#x30A4;&#x30DA;&#x30FC;&#x30B8;
+                      a.dropdown-item(href='https://lms.waomirai.com/grade/report/overview/index.php' role='menuitem' tabindex='-1')
+                        | &#x8A55;&#x5B9A;
+                      a.dropdown-item(href='https://lms.waomirai.com/calendar/view.php?view=month' role='menuitem' tabindex='-1')
+                        | &#x30AB;&#x30EC;&#x30F3;&#x30C0;&#x30FC;
+                      a.dropdown-item(href='https://lms.waomirai.com/user/files.php' role='menuitem' tabindex='-1')
+                        | &#x30D7;&#x30E9;&#x30A4;&#x30D9;&#x30FC;&#x30C8;&#x30D5;&#x30A1;&#x30A4;&#x30EB;
+                      a.dropdown-item(href='https://lms.waomirai.com/reportbuilder/index.php' role='menuitem' tabindex='-1')
+                        | &#x30EC;&#x30DD;&#x30FC;&#x30C8;
+                      .dropdown-divider
+                      a.dropdown-item(href='https://lms.waomirai.com/user/preferences.php' role='menuitem' tabindex='-1')
+                        | &#x30E6;&#x30FC;&#x30B6;&#x8A2D;&#x5B9A;
+                      .dropdown-divider
+                      a.dropdown-item(href='https://lms.waomirai.com/login/logout.php?sesskey=Kb8HC5vbMM' role='menuitem' tabindex='-1')
+                        | &#x30ED;&#x30B0;&#x30A2;&#x30A6;&#x30C8;
+    #theme_boost-drawers-primary.drawer.drawer-left.drawer-primary.d-print-none(data-region='fixed-drawer' data-preference='' data-state='show-drawer-primary' data-forceopen='0' data-close-on-resize='1' aria-hidden='true')
+      .drawerheader
+        button.btn.drawertoggle.icon-no-margin.hidden(data-toggler='drawers' data-action='closedrawer' data-target='theme_boost-drawers-primary' data-placement='right' title='ドロワを閉じる' data-aria-hidden-tab-index='' tabindex='-1' data-disabled-toggle='tooltip')
+          i.icon.fa.fa-xmark.fa-fw(aria-hidden='true')
+        a.aabtn.text-reset.d-flex.align-items-center.py-1.h-100.d-md-none(href='https://lms.waomirai.com/my/' title='lmswaomirai' data-region='site-home-link' data-aria-hidden-tab-index='' tabindex='-1')
+          img.logo.py-1.h-100(src='https://lms.waomirai.com/pluginfile.php/1/tool_tenant/headerlogo/3/%E3%83%AF%E3%82%AA%E6%9C%AA%E6%9D%A5%E5%A1%BE%E3%83%AD%E3%82%B3%E3%82%99A%EF%BC%88%E5%9F%BA%E6%9C%AC%E5%BD%A2%EF%BC%89.png' alt='lmswaomirai')
+        .drawerheadercontent.hidden
+      .drawercontent.drag-container(data-usertour='scroller')
+        .list-group
+          a.list-group-item.list-group-item-action(href='https://lms.waomirai.com/?redirect=0' data-aria-hidden-tab-index='' tabindex='-1')
+            | &#x79D1;&#x76EE;&#x4E00;&#x89A7;
+          a.list-group-item.list-group-item-action(href='https://lms.waomirai.com/my/' data-aria-hidden-tab-index='' tabindex='-1')
+            | &#x53D7;&#x8B1B;&#x30AB;&#x30EC;&#x30F3;&#x30C0;&#x30FC;
+          a.list-group-item.list-group-item-action(href='https://lms.waomirai.com/my/courses.php' data-aria-hidden-tab-index='' tabindex='-1')
+            | &#x767B;&#x9332;&#x6E08;&#x307F;&#x8B1B;&#x5EA7;
+          a.list-group-item.list-group-item-action(href='https://lms.waomirai.com/user/profile.php' data-aria-hidden-tab-index='' tabindex='-1')
+            | &#x30DE;&#x30A4;&#x30DA;&#x30FC;&#x30B8;
+          a.list-group-item.list-group-item-action(href='https://lms.waomirai.com/user/preferences.php' data-aria-hidden-tab-index='' tabindex='-1')
+            | &#x30E6;&#x30FC;&#x30B6;&#x8A2D;&#x5B9A;
+        ul.position-absolute.fixed-bottom.navbar-nav.ml-3.tenantswitch
+    #theme_boost-drawers-courseindex.drawer.drawer-left.show.d-print-none(data-region='fixed-drawer' data-preference='drawer-open-index' data-state='show-drawer-left' data-forceopen='0' data-close-on-resize='0')
+      .drawerheader
+        button.btn.drawertoggle.icon-no-margin(data-toggler='drawers' data-action='closedrawer' data-target='theme_boost-drawers-courseindex' data-placement='right' title='コースインデックスを閉じる' data-disabled-toggle='tooltip')
+          i.icon.fa.fa-xmark.fa-fw(aria-hidden='true')
+        a.aabtn.text-reset.d-flex.align-items-center.py-1.h-100.d-md-none(href='https://lms.waomirai.com/my/' title='lmswaomirai' data-region='site-home-link')
+        .drawerheadercontent
+          #courseindexdrawercontrols.dropdown
+            button.btn.btn-icon.rounded-circle.mx-2(type='button' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false' title='コースインデックスオプション')
+              i.icon.fa.fa-ellipsis-v.fa-fw.m-0(aria-hidden='true')
+            .dropdown-menu.dropdown-menu-right
+              a.dropdown-item(href='#' data-action='expandallcourseindexsections')
+                i.icon.fa.fa-angles-down.fa-fw(aria-hidden='true')
+                |                             &#x3059;&#x3079;&#x3066;&#x3092;&#x5C55;&#x958B;&#x3059;&#x308B;
+              a.dropdown-item(href='#' data-action='collapseallcourseindexsections')
+                span.dir-rtl-hide
+                  i.icon.fa.fa-angles-right.fa-fw(aria-hidden='true')
+                span.dir-ltr-hide
+                  i.icon.fa.fa-angles-left.fa-fw(aria-hidden='true')
+                |                             &#x3059;&#x3079;&#x3066;&#x3092;&#x6298;&#x308A;&#x305F;&#x305F;&#x3080;
+      .drawercontent.drag-container(data-usertour='scroller')
+        nav#courseindex.courseindex
+          #courseindex-content
+            #course-index.courseindex(role='tree')
+              #course-index-section-740.courseindex-section(data-for='section' data-id='740' data-number='0' role='treeitem' aria-owns='courseindexcollapse0' tabindex='0' aria-selected='true')
+                #courseindexsection0.courseindex-item.d-flex.courseindex-section-title(data-for='section_item' tabindex='-1')
+                  a.courseindex-chevron.icons-collapse-expand(data-toggle='collapse' href='#courseindexcollapse0' aria-expanded='true' aria-controls='courseindexcollapse0' tabindex='-1')
+                    span.collapsed-icon.icon-no-margin.me-1(title='展開する' tabindex='-1')
+                      span.dir-rtl-hide(tabindex='-1')
+                        i.icon.fa.fa-chevron-right.fa-fw(aria-hidden='true' tabindex='-1')
+                      span.dir-ltr-hide(tabindex='-1')
+                        i.icon.fa.fa-chevron-left.fa-fw(aria-hidden='true' tabindex='-1')
+                      span.sr-only(tabindex='-1') &#x5C55;&#x958B;&#x3059;&#x308B;
+                    span.expanded-icon.icon-no-margin.me-1(title='折りたたむ' tabindex='-1')
+                      i.icon.fa.fa-chevron-down.fa-fw(aria-hidden='true' tabindex='-1')
+                      span.sr-only(tabindex='-1') &#x6298;&#x308A;&#x305F;&#x305F;&#x3080;
+                  a.courseindex-link.text-truncate(href='https://lms.waomirai.com/course/section.php?id=740' data-action='togglecourseindexsection' data-for='section_title' tabindex='-1')
+                    | 2025&#x5E74;4&#x6708;&#xFF1A;&#x6050;&#x7ADC;&#x304C;&#x3044;&#x305F;&#x3089;&#x30DA;&#x30C3;&#x30C8;&#x306B;&#x3067;&#x304D;&#x308B;&#xFF1F;
+                  span.current-badge.badge.bg-primary.text-white.ms-2.px-2.rounded-pill(tabindex='-1')
+                    | &#x30CF;&#x30A4;&#x30E9;&#x30A4;&#x30C8;
+                  span.courseindex-locked.ms-1(data-for='cm_name' tabindex='-1')
+                    i.icon.fa.fa-lock.fa-fw(aria-hidden='true' tabindex='-1')
+                #courseindexcollapse0.courseindex-item-content.collapse.show(aria-labelledby='courseindexsection0' role='group' tabindex='-1')
+                  ul.courseindex-sectioncontent.unlist(data-for='cmlist' data-id='740' role='group' tabindex='-1')
+                    li#course-index-cm-1375.courseindex-item.d-flex(data-for='cm' data-id='1375' role='treeitem' tabindex='-1' aria-selected='false')
+                      span.completioninfo.completion_incomplete(data-for='cm_completion' data-value='0')
+                        i.icon.fa-regular.fa-circle.fa-fw(title='未提出' role='img' aria-label='未提出' aria-hidden='true')
+                        span.sr-only &#x672A;&#x63D0;&#x51FA;
+                      a.courseindex-link.text-truncate(href='https://lms.waomirai.com/mod/questionnaire/view.php?id=1375' data-for='cm_name' tabindex='-1')
+                        | 4&#x6708;1&#x9031;&#x76EE;&#xFF1A;&#x73FE;&#x4EE3;&#x79D1;&#x5B66;&#x3067;&#x308F;&#x304B;&#x3063;&#x305F;&#x6050;&#x7ADC;&#x306E;&#x751F;&#x614B;
+                      span.courseindex-locked.ms-1(data-for='cm_name' tabindex='-1')
+                        i.icon.fa.fa-lock.fa-fw(aria-hidden='true' tabindex='-1')
+                    li#course-index-cm-1379.courseindex-item.d-flex(data-for='cm' data-id='1379' role='treeitem' tabindex='-1' aria-selected='false')
+                      span.completioninfo.completion_incomplete(data-for='cm_completion' data-value='0')
+                        i.icon.fa-regular.fa-circle.fa-fw(title='未提出' role='img' aria-label='未提出' aria-hidden='true')
+                        span.sr-only &#x672A;&#x63D0;&#x51FA;
+                      a.courseindex-link.text-truncate(href='https://lms.waomirai.com/mod/questionnaire/view.php?id=1379' data-for='cm_name' tabindex='-1')
+                        | 4&#x6708;2&#x9031;&#x76EE;&#xFF1A;&#x5B9F;&#x969B;&#x306B;&#x30DA;&#x30C3;&#x30C8;&#x306B;&#x3059;&#x308B;&#x306A;&#x3089;&#x3069;&#x306E;&#x6050;&#x7ADC;
+                      span.courseindex-locked.ms-1(data-for='cm_name' tabindex='-1')
+                        i.icon.fa.fa-lock.fa-fw(aria-hidden='true' tabindex='-1')
+                    li#course-index-cm-1395.courseindex-item.d-flex(data-for='cm' data-id='1395' role='treeitem' tabindex='-1' aria-selected='false')
+                      span.completioninfo.completion_incomplete(data-for='cm_completion' data-value='0')
+                        i.icon.fa-regular.fa-circle.fa-fw(title='未提出' role='img' aria-label='未提出' aria-hidden='true')
+                        span.sr-only &#x672A;&#x63D0;&#x51FA;
+                      a.courseindex-link.text-truncate(href='https://lms.waomirai.com/mod/questionnaire/view.php?id=1395' data-for='cm_name' tabindex='-1')
+                        | 4&#x6708;3&#x9031;&#x76EE;&#xFF1A;&#x30D5;&#x30A3;&#x30FC;&#x30C9;&#x30D0;&#x30C3;&#x30AF;
+                      span.courseindex-locked.ms-1(data-for='cm_name' tabindex='-1')
+                        i.icon.fa.fa-lock.fa-fw(aria-hidden='true' tabindex='-1')
+              #course-index-section-805.courseindex-section(data-for='section' data-id='805' data-number='2' role='treeitem' aria-owns='courseindexcollapse2' tabindex='-1' aria-selected='false')
+                #courseindexsection2.courseindex-item.d-flex.courseindex-section-title(data-for='section_item' tabindex='-1')
+                  a.courseindex-chevron.icons-collapse-expand(data-toggle='collapse' href='#courseindexcollapse2' aria-expanded='true' aria-controls='courseindexcollapse2' tabindex='-1')
+                    span.collapsed-icon.icon-no-margin.me-1(title='展開する' tabindex='-1')
+                      span.dir-rtl-hide(tabindex='-1')
+                        i.icon.fa.fa-chevron-right.fa-fw(aria-hidden='true' tabindex='-1')
+                      span.dir-ltr-hide(tabindex='-1')
+                        i.icon.fa.fa-chevron-left.fa-fw(aria-hidden='true' tabindex='-1')
+                      span.sr-only(tabindex='-1') &#x5C55;&#x958B;&#x3059;&#x308B;
+                    span.expanded-icon.icon-no-margin.me-1(title='折りたたむ' tabindex='-1')
+                      i.icon.fa.fa-chevron-down.fa-fw(aria-hidden='true' tabindex='-1')
+                      span.sr-only(tabindex='-1') &#x6298;&#x308A;&#x305F;&#x305F;&#x3080;
+                  a.courseindex-link.text-truncate(href='https://lms.waomirai.com/course/section.php?id=805' data-action='togglecourseindexsection' data-for='section_title' tabindex='-1')
+                    | 2025&#x5E74;5&#x6708;&#xFF1A;10 &#x4E07;&#x30DC;&#x30EB;&#x30C8;&#x306E;&#x5F37;&#x3055;&#x306F;&#x3069;&#x306E;&#x304F;&#x3089;&#x3044;&#xFF1F;
+                  span.current-badge.badge.bg-primary.text-white.ms-2.px-2.rounded-pill(tabindex='-1')
+                    | &#x30CF;&#x30A4;&#x30E9;&#x30A4;&#x30C8;
+                  span.courseindex-locked.ms-1(data-for='cm_name' tabindex='-1')
+                    i.icon.fa.fa-lock.fa-fw(aria-hidden='true' tabindex='-1')
+                #courseindexcollapse2.courseindex-item-content.collapse.show(aria-labelledby='courseindexsection2' role='group' tabindex='-1')
+                  ul.courseindex-sectioncontent.unlist(data-for='cmlist' data-id='805' role='group' tabindex='-1')
+                    li#course-index-cm-1498.courseindex-item.d-flex(data-for='cm' data-id='1498' role='treeitem' tabindex='-1' aria-selected='false')
+                      span.completioninfo.completion_incomplete(data-for='cm_completion' data-value='0')
+                        i.icon.fa-regular.fa-circle.fa-fw(title='未提出' role='img' aria-label='未提出' aria-hidden='true')
+                        span.sr-only &#x672A;&#x63D0;&#x51FA;
+                      a.courseindex-link.text-truncate(href='https://lms.waomirai.com/mod/questionnaire/view.php?id=1498' data-for='cm_name' tabindex='-1')
+                        | 5&#x6708;1&#x9031;&#x76EE;&#xFF1A;&#x767A;&#x96FB;&#x3059;&#x308B;&#x52D5;&#x7269;&#x306F;&#x3069;&#x3046;&#x3057;&#x3066;&#x3044;&#x308B;&#x306E;&#xFF1F;
+                      span.courseindex-locked.ms-1(data-for='cm_name' tabindex='-1')
+                        i.icon.fa.fa-lock.fa-fw(aria-hidden='true' tabindex='-1')
+                    li#course-index-cm-1499.courseindex-item.d-flex(data-for='cm' data-id='1499' role='treeitem' tabindex='-1' aria-selected='false')
+                      span.completioninfo.completion_incomplete(data-for='cm_completion' data-value='0')
+                        i.icon.fa-regular.fa-circle.fa-fw(title='未提出' role='img' aria-label='未提出' aria-hidden='true')
+                        span.sr-only &#x672A;&#x63D0;&#x51FA;
+                      a.courseindex-link.text-truncate(href='https://lms.waomirai.com/mod/questionnaire/view.php?id=1499' data-for='cm_name' tabindex='-1')
+                        | 5&#x6708;2&#x9031;&#x76EE;&#xFF1A;10&#x4E07;&#x30DC;&#x30EB;&#x30C8;&#x96FB;&#x6483;&#x306E;&#x5A01;&#x529B;
+                      span.courseindex-locked.ms-1(data-for='cm_name' tabindex='-1')
+                        i.icon.fa.fa-lock.fa-fw(aria-hidden='true' tabindex='-1')
+                    li#course-index-cm-1496.courseindex-item.d-flex(data-for='cm' data-id='1496' role='treeitem' tabindex='-1' aria-selected='false')
+                      span.completioninfo.completion_incomplete(data-for='cm_completion' data-value='0')
+                        i.icon.fa-regular.fa-circle.fa-fw(title='未提出' role='img' aria-label='未提出' aria-hidden='true')
+                        span.sr-only &#x672A;&#x63D0;&#x51FA;
+                      a.courseindex-link.text-truncate(href='https://lms.waomirai.com/mod/questionnaire/view.php?id=1496' data-for='cm_name' tabindex='-1')
+                        | 5&#x6708;3&#x9031;&#x76EE;&#xFF1A;&#x30D5;&#x30A3;&#x30FC;&#x30C9;&#x30D0;&#x30C3;&#x30AF;
+                      span.courseindex-locked.ms-1(data-for='cm_name' tabindex='-1')
+                        i.icon.fa.fa-lock.fa-fw(aria-hidden='true' tabindex='-1')
+              #course-index-section-879.courseindex-section(data-for='section' data-id='879' data-number='3' role='treeitem' aria-owns='courseindexcollapse3' tabindex='-1' aria-selected='false')
+                #courseindexsection3.courseindex-item.d-flex.courseindex-section-title(data-for='section_item' tabindex='-1')
+                  a.courseindex-chevron.icons-collapse-expand(data-toggle='collapse' href='#courseindexcollapse3' aria-expanded='true' aria-controls='courseindexcollapse3' tabindex='-1')
+                    span.collapsed-icon.icon-no-margin.me-1(title='展開する' tabindex='-1')
+                      span.dir-rtl-hide(tabindex='-1')
+                        i.icon.fa.fa-chevron-right.fa-fw(aria-hidden='true' tabindex='-1')
+                      span.dir-ltr-hide(tabindex='-1')
+                        i.icon.fa.fa-chevron-left.fa-fw(aria-hidden='true' tabindex='-1')
+                      span.sr-only(tabindex='-1') &#x5C55;&#x958B;&#x3059;&#x308B;
+                    span.expanded-icon.icon-no-margin.me-1(title='折りたたむ' tabindex='-1')
+                      i.icon.fa.fa-chevron-down.fa-fw(aria-hidden='true' tabindex='-1')
+                      span.sr-only(tabindex='-1') &#x6298;&#x308A;&#x305F;&#x305F;&#x3080;
+                  a.courseindex-link.text-truncate(href='https://lms.waomirai.com/course/section.php?id=879' data-action='togglecourseindexsection' data-for='section_title' tabindex='-1')
+                    | 2025&#x5E74;6&#x6708;&#xFF1A;&#x4EBA;&#x304C;&#x660E;&#x304B;&#x308A;&#x3092;&#x624B;&#x306B;&#x5165;&#x308C;&#x308B;&#x307E;&#x3067;
+                  span.current-badge.badge.bg-primary.text-white.ms-2.px-2.rounded-pill(tabindex='-1')
+                    | &#x30CF;&#x30A4;&#x30E9;&#x30A4;&#x30C8;
+                  span.courseindex-locked.ms-1(data-for='cm_name' tabindex='-1')
+                    i.icon.fa.fa-lock.fa-fw(aria-hidden='true' tabindex='-1')
+                #courseindexcollapse3.courseindex-item-content.collapse.show(aria-labelledby='courseindexsection3' role='group' tabindex='-1')
+                  ul.courseindex-sectioncontent.unlist(data-for='cmlist' data-id='879' role='group' tabindex='-1')
+                    li#course-index-cm-1590.courseindex-item.d-flex(data-for='cm' data-id='1590' role='treeitem' tabindex='-1' aria-selected='false')
+                      span.completioninfo.completion_incomplete(data-for='cm_completion' data-value='0')
+                        i.icon.fa-regular.fa-circle.fa-fw(title='未提出' role='img' aria-label='未提出' aria-hidden='true')
+                        span.sr-only &#x672A;&#x63D0;&#x51FA;
+                      a.courseindex-link.text-truncate(href='https://lms.waomirai.com/mod/questionnaire/view.php?id=1590' data-for='cm_name' tabindex='-1')
+                        | 6&#x6708;1&#x9031;&#x76EE;&#xFF1A;&#x96FB;&#x7403;&#x306B;&#x3064;&#x3044;&#x3066;&#x77E5;&#x308D;&#x3046;
+                      span.courseindex-locked.ms-1(data-for='cm_name' tabindex='-1')
+                        i.icon.fa.fa-lock.fa-fw(aria-hidden='true' tabindex='-1')
+                    li#course-index-cm-1614.courseindex-item.d-flex(data-for='cm' data-id='1614' role='treeitem' tabindex='-1' aria-selected='false')
+                      span.completioninfo.completion_incomplete(data-for='cm_completion' data-value='0')
+                        i.icon.fa-regular.fa-circle.fa-fw(title='未提出' role='img' aria-label='未提出' aria-hidden='true')
+                        span.sr-only &#x672A;&#x63D0;&#x51FA;
+                      a.courseindex-link.text-truncate(href='https://lms.waomirai.com/mod/questionnaire/view.php?id=1614' data-for='cm_name' tabindex='-1')
+                        | 6&#x6708;2&#x9031;&#x76EE;&#xFF1A;LED&#x306E;&#x8A95;&#x751F;&#x79D8;&#x8A71;
+                      span.courseindex-locked.ms-1(data-for='cm_name' tabindex='-1')
+                        i.icon.fa.fa-lock.fa-fw(aria-hidden='true' tabindex='-1')
+                    li#course-index-cm-1591.courseindex-item.d-flex(data-for='cm' data-id='1591' role='treeitem' tabindex='-1' aria-selected='false')
+                      span.completioninfo.completion_incomplete(data-for='cm_completion' data-value='0')
+                        i.icon.fa-regular.fa-circle.fa-fw(title='未提出' role='img' aria-label='未提出' aria-hidden='true')
+                        span.sr-only &#x672A;&#x63D0;&#x51FA;
+                      a.courseindex-link.text-truncate(href='https://lms.waomirai.com/mod/questionnaire/view.php?id=1591' data-for='cm_name' tabindex='-1')
+                        | 6&#x6708;3&#x9031;&#x76EE;&#xFF1A;&#x30D5;&#x30A3;&#x30FC;&#x30C9;&#x30D0;&#x30C3;&#x30AF;
+                      span.courseindex-locked.ms-1(data-for='cm_name' tabindex='-1')
+                        i.icon.fa.fa-lock.fa-fw(aria-hidden='true' tabindex='-1')
+              #course-index-section-897.courseindex-section(data-for='section' data-id='897' data-number='4' role='treeitem' aria-owns='courseindexcollapse4' tabindex='-1' aria-selected='false')
+                #courseindexsection4.courseindex-item.d-flex.courseindex-section-title(data-for='section_item' tabindex='-1')
+                  a.courseindex-chevron.icons-collapse-expand(data-toggle='collapse' href='#courseindexcollapse4' aria-expanded='true' aria-controls='courseindexcollapse4' tabindex='-1')
+                    span.collapsed-icon.icon-no-margin.me-1(title='展開する' tabindex='-1')
+                      span.dir-rtl-hide(tabindex='-1')
+                        i.icon.fa.fa-chevron-right.fa-fw(aria-hidden='true' tabindex='-1')
+                      span.dir-ltr-hide(tabindex='-1')
+                        i.icon.fa.fa-chevron-left.fa-fw(aria-hidden='true' tabindex='-1')
+                      span.sr-only(tabindex='-1') &#x5C55;&#x958B;&#x3059;&#x308B;
+                    span.expanded-icon.icon-no-margin.me-1(title='折りたたむ' tabindex='-1')
+                      i.icon.fa.fa-chevron-down.fa-fw(aria-hidden='true' tabindex='-1')
+                      span.sr-only(tabindex='-1') &#x6298;&#x308A;&#x305F;&#x305F;&#x3080;
+                  a.courseindex-link.text-truncate(href='https://lms.waomirai.com/course/section.php?id=897' data-action='togglecourseindexsection' data-for='section_title' tabindex='-1')
+                    | 2025&#x5E74;7&#x6708;&#xFF1A;&#x5730;&#x7403;&#x4EE5;&#x5916;&#x306B;&#x4F4F;&#x3081;&#x308B;&#x60D1;&#x661F;&#x306F;&#x3042;&#x308B;&#x306E;&#xFF1F;
+                  span.current-badge.badge.bg-primary.text-white.ms-2.px-2.rounded-pill(tabindex='-1')
+                    | &#x30CF;&#x30A4;&#x30E9;&#x30A4;&#x30C8;
+                  span.courseindex-locked.ms-1(data-for='cm_name' tabindex='-1')
+                    i.icon.fa.fa-lock.fa-fw(aria-hidden='true' tabindex='-1')
+                #courseindexcollapse4.courseindex-item-content.collapse.show(aria-labelledby='courseindexsection4' role='group' tabindex='-1')
+                  ul.courseindex-sectioncontent.unlist(data-for='cmlist' data-id='897' role='group' tabindex='-1')
+                    li#course-index-cm-1634.courseindex-item.d-flex(data-for='cm' data-id='1634' role='treeitem' tabindex='-1' aria-selected='false')
+                      span.completioninfo.completion_incomplete(data-for='cm_completion' data-value='0')
+                        i.icon.fa-regular.fa-circle.fa-fw(title='未提出' role='img' aria-label='未提出' aria-hidden='true')
+                        span.sr-only &#x672A;&#x63D0;&#x51FA;
+                      a.courseindex-link.text-truncate(href='https://lms.waomirai.com/mod/questionnaire/view.php?id=1634' data-for='cm_name' tabindex='-1')
+                        | 7&#x6708;1&#x9031;&#x76EE;&#xFF1A;&#x5B87;&#x5B99;&#x306B;&#x884C;&#x304F;&#x306B;&#x306F;&#x3069;&#x3093;&#x306A;&#x6E96;&#x5099;&#x304C;&#x5FC5;&#x8981;&#xFF1F;
+                      span.courseindex-locked.ms-1(data-for='cm_name' tabindex='-1')
+                        i.icon.fa.fa-lock.fa-fw(aria-hidden='true' tabindex='-1')
+                    li#course-index-cm-1635.courseindex-item.d-flex(data-for='cm' data-id='1635' role='treeitem' tabindex='-1' aria-selected='false')
+                      span.completioninfo.completion_incomplete(data-for='cm_completion' data-value='0')
+                        i.icon.fa-regular.fa-circle.fa-fw(title='未提出' role='img' aria-label='未提出' aria-hidden='true')
+                        span.sr-only &#x672A;&#x63D0;&#x51FA;
+                      a.courseindex-link.text-truncate(href='https://lms.waomirai.com/mod/questionnaire/view.php?id=1635' data-for='cm_name' tabindex='-1')
+                        | 7&#x6708;2&#x9031;&#x76EE;&#xFF1A;&#x706B;&#x661F;&#x79FB;&#x4F4F;&#x8A08;&#x753B;&#x306B;&#x5FC5;&#x8981;&#x306A;&#x3053;&#x3068;
+                      span.courseindex-locked.ms-1(data-for='cm_name' tabindex='-1')
+                        i.icon.fa.fa-lock.fa-fw(aria-hidden='true' tabindex='-1')
+                    li#course-index-cm-1636.courseindex-item.d-flex(data-for='cm' data-id='1636' role='treeitem' tabindex='-1' aria-selected='false')
+                      span.completioninfo.completion_incomplete(data-for='cm_completion' data-value='0')
+                        i.icon.fa-regular.fa-circle.fa-fw(title='未提出' role='img' aria-label='未提出' aria-hidden='true')
+                        span.sr-only &#x672A;&#x63D0;&#x51FA;
+                      a.courseindex-link.text-truncate(href='https://lms.waomirai.com/mod/questionnaire/view.php?id=1636' data-for='cm_name' tabindex='-1')
+                        | 7&#x6708;3&#x9031;&#x76EE;&#xFF1A;&#x30D5;&#x30A3;&#x30FC;&#x30C9;&#x30D0;&#x30C3;&#x30AF;
+                      span.courseindex-locked.ms-1(data-for='cm_name' tabindex='-1')
+                        i.icon.fa.fa-lock.fa-fw(aria-hidden='true' tabindex='-1')
+              #course-index-section-909.courseindex-section(data-for='section' data-id='909' data-number='5' role='treeitem' aria-owns='courseindexcollapse5' tabindex='-1' aria-selected='false')
+                #courseindexsection5.courseindex-item.d-flex.courseindex-section-title(data-for='section_item' tabindex='-1')
+                  a.courseindex-chevron.icons-collapse-expand(data-toggle='collapse' href='#courseindexcollapse5' aria-expanded='true' aria-controls='courseindexcollapse5' tabindex='-1')
+                    span.collapsed-icon.icon-no-margin.me-1(title='展開する' tabindex='-1')
+                      span.dir-rtl-hide(tabindex='-1')
+                        i.icon.fa.fa-chevron-right.fa-fw(aria-hidden='true' tabindex='-1')
+                      span.dir-ltr-hide(tabindex='-1')
+                        i.icon.fa.fa-chevron-left.fa-fw(aria-hidden='true' tabindex='-1')
+                      span.sr-only(tabindex='-1') &#x5C55;&#x958B;&#x3059;&#x308B;
+                    span.expanded-icon.icon-no-margin.me-1(title='折りたたむ' tabindex='-1')
+                      i.icon.fa.fa-chevron-down.fa-fw(aria-hidden='true' tabindex='-1')
+                      span.sr-only(tabindex='-1') &#x6298;&#x308A;&#x305F;&#x305F;&#x3080;
+                  a.courseindex-link.text-truncate(href='https://lms.waomirai.com/course/section.php?id=909' data-action='togglecourseindexsection' data-for='section_title' tabindex='-1')
+                    | 2025&#x5E74;8&#x6708;&#xFF1A;&#x304A;&#x8089;&#x3092;&#x304A;&#x3044;&#x3057;&#x304F;&#x713C;&#x304F;&#x306B;&#x306F;&#x3069;&#x3046;&#x3059;&#x308C;&#x3070;&#x3044;&#x3044;&#xFF1F;
+                  span.current-badge.badge.bg-primary.text-white.ms-2.px-2.rounded-pill(tabindex='-1')
+                    | &#x30CF;&#x30A4;&#x30E9;&#x30A4;&#x30C8;
+                  span.courseindex-locked.ms-1(data-for='cm_name' tabindex='-1')
+                    i.icon.fa.fa-lock.fa-fw(aria-hidden='true' tabindex='-1')
+                #courseindexcollapse5.courseindex-item-content.collapse.show(aria-labelledby='courseindexsection5' role='group' tabindex='-1')
+                  ul.courseindex-sectioncontent.unlist(data-for='cmlist' data-id='909' role='group' tabindex='-1')
+                    li#course-index-cm-1670.courseindex-item.d-flex(data-for='cm' data-id='1670' role='treeitem' tabindex='-1' aria-selected='false')
+                      span.completioninfo.completion_incomplete(data-for='cm_completion' data-value='0')
+                        i.icon.fa-regular.fa-circle.fa-fw(title='未提出' role='img' aria-label='未提出' aria-hidden='true')
+                        span.sr-only &#x672A;&#x63D0;&#x51FA;
+                      a.courseindex-link.text-truncate(href='https://lms.waomirai.com/mod/questionnaire/view.php?id=1670' data-for='cm_name' tabindex='-1')
+                        | 8&#x6708;1&#x9031;&#x76EE;&#xFF1A;&#x30BF;&#x30F3;&#x30D1;&#x30AF;&#x8CEA;&#x306E;&#x4ED5;&#x7D44;&#x307F;&#x3068;&#x5909;&#x6027;
+                      span.courseindex-locked.ms-1(data-for='cm_name' tabindex='-1')
+                        i.icon.fa.fa-lock.fa-fw(aria-hidden='true' tabindex='-1')
+                    li#course-index-cm-1671.courseindex-item.d-flex(data-for='cm' data-id='1671' role='treeitem' tabindex='-1' aria-selected='false')
+                      span.completioninfo.completion_incomplete(data-for='cm_completion' data-value='0')
+                        i.icon.fa-regular.fa-circle.fa-fw(title='未提出' role='img' aria-label='未提出' aria-hidden='true')
+                        span.sr-only &#x672A;&#x63D0;&#x51FA;
+                      a.courseindex-link.text-truncate(href='https://lms.waomirai.com/mod/questionnaire/view.php?id=1671' data-for='cm_name' tabindex='-1')
+                        | 8&#x6708;2&#x9031;&#x76EE;&#xFF1A;&#x30B9;&#x30D1;&#x30A4;&#x30B9;&#x306E;&#x6B74;&#x53F2;
+                      span.courseindex-locked.ms-1(data-for='cm_name' tabindex='-1')
+                        i.icon.fa.fa-lock.fa-fw(aria-hidden='true' tabindex='-1')
+                    li#course-index-cm-1672.courseindex-item.d-flex(data-for='cm' data-id='1672' role='treeitem' tabindex='-1' aria-selected='false')
+                      span.completioninfo.completion_incomplete(data-for='cm_completion' data-value='0')
+                        i.icon.fa-regular.fa-circle.fa-fw(title='未提出' role='img' aria-label='未提出' aria-hidden='true')
+                        span.sr-only &#x672A;&#x63D0;&#x51FA;
+                      a.courseindex-link.text-truncate(href='https://lms.waomirai.com/mod/questionnaire/view.php?id=1672' data-for='cm_name' tabindex='-1')
+                        | 8&#x6708;3&#x9031;&#x76EE;&#xFF1A;&#x30D5;&#x30A3;&#x30FC;&#x30C9;&#x30D0;&#x30C3;&#x30AF;
+                      span.courseindex-locked.ms-1(data-for='cm_name' tabindex='-1')
+                        i.icon.fa.fa-lock.fa-fw(aria-hidden='true' tabindex='-1')
+              #course-index-section-921.courseindex-section(data-for='section' data-id='921' data-number='6' role='treeitem' aria-owns='courseindexcollapse6' tabindex='-1' aria-selected='false')
+                #courseindexsection6.courseindex-item.d-flex.courseindex-section-title(data-for='section_item' tabindex='-1')
+                  a.courseindex-chevron.icons-collapse-expand(data-toggle='collapse' href='#courseindexcollapse6' aria-expanded='true' aria-controls='courseindexcollapse6' tabindex='-1')
+                    span.collapsed-icon.icon-no-margin.me-1(title='展開する' tabindex='-1')
+                      span.dir-rtl-hide(tabindex='-1')
+                        i.icon.fa.fa-chevron-right.fa-fw(aria-hidden='true' tabindex='-1')
+                      span.dir-ltr-hide(tabindex='-1')
+                        i.icon.fa.fa-chevron-left.fa-fw(aria-hidden='true' tabindex='-1')
+                      span.sr-only(tabindex='-1') &#x5C55;&#x958B;&#x3059;&#x308B;
+                    span.expanded-icon.icon-no-margin.me-1(title='折りたたむ' tabindex='-1')
+                      i.icon.fa.fa-chevron-down.fa-fw(aria-hidden='true' tabindex='-1')
+                      span.sr-only(tabindex='-1') &#x6298;&#x308A;&#x305F;&#x305F;&#x3080;
+                  a.courseindex-link.text-truncate(href='https://lms.waomirai.com/course/section.php?id=921' data-action='togglecourseindexsection' data-for='section_title' tabindex='-1')
+                    | 2025&#x5E74;9&#x6708;&#xFF1A;&#x30C0;&#x30A4;&#x30CA;&#x30DE;&#x30A4;&#x30C8;&#x304C;&#x4E16;&#x754C;&#x306E;&#x79D1;&#x5B66;&#x3092;&#x5909;&#x3048;&#x305F;&#xFF01;
+                  span.current-badge.badge.bg-primary.text-white.ms-2.px-2.rounded-pill(tabindex='-1')
+                    | &#x30CF;&#x30A4;&#x30E9;&#x30A4;&#x30C8;
+                  span.courseindex-locked.ms-1(data-for='cm_name' tabindex='-1')
+                    i.icon.fa.fa-lock.fa-fw(aria-hidden='true' tabindex='-1')
+                #courseindexcollapse6.courseindex-item-content.collapse.show(aria-labelledby='courseindexsection6' role='group' tabindex='-1')
+                  ul.courseindex-sectioncontent.unlist(data-for='cmlist' data-id='921' role='group' tabindex='-1')
+                    li#course-index-cm-1706.courseindex-item.d-flex(data-for='cm' data-id='1706' role='treeitem' tabindex='-1' aria-selected='false')
+                      span.completioninfo.completion_complete(data-for='cm_completion' data-value='1')
+                        i.icon.fa.fa-circle.fa-fw(title='完了' role='img' aria-label='完了' aria-hidden='true')
+                        span.sr-only &#x5B8C;&#x4E86;
+                      a.courseindex-link.text-truncate(href='https://lms.waomirai.com/mod/questionnaire/view.php?id=1706' data-for='cm_name' tabindex='-1')
+                        | 9&#x6708;1&#x9031;&#x76EE;&#xFF1A;&#x5E73;&#x548C;&#x3068;&#x767A;&#x660E;&#x306E;&#x8C61;&#x5FB4;&#x3000;&#x30CE;&#x30FC;&#x30D9;&#x30EB;&#x8CDE;
+                      span.courseindex-locked.ms-1(data-for='cm_name' tabindex='-1')
+                        i.icon.fa.fa-lock.fa-fw(aria-hidden='true' tabindex='-1')
+                    li#course-index-cm-1707.courseindex-item.d-flex(data-for='cm' data-id='1707' role='treeitem' tabindex='-1' aria-selected='false')
+                      span.completioninfo.completion_incomplete(data-for='cm_completion' data-value='0')
+                        i.icon.fa-regular.fa-circle.fa-fw(title='未提出' role='img' aria-label='未提出' aria-hidden='true')
+                        span.sr-only &#x672A;&#x63D0;&#x51FA;
+                      a.courseindex-link.text-truncate(href='https://lms.waomirai.com/mod/questionnaire/view.php?id=1707' data-for='cm_name' tabindex='-1')
+                        | 9&#x6708;2&#x9031;&#x76EE;&#xFF1A;&#x30A2;&#x30EB;&#x30D5;&#x30EC;&#x30C3;&#x30C9;&#x30FB;&#x30CE;&#x30FC;&#x30D9;&#x30EB;&#x306E;&#x751F;&#x6DAF;&#x3068;&#x767A;&#x660E;
+                      span.courseindex-locked.ms-1(data-for='cm_name' tabindex='-1')
+                        i.icon.fa.fa-lock.fa-fw(aria-hidden='true' tabindex='-1')
+                    li#course-index-cm-1708.courseindex-item.d-flex(data-for='cm' data-id='1708' role='treeitem' tabindex='-1' aria-selected='false')
+                      span.completioninfo.completion_complete(data-for='cm_completion' data-value='1')
+                        i.icon.fa.fa-circle.fa-fw(title='完了' role='img' aria-label='完了' aria-hidden='true')
+                        span.sr-only &#x5B8C;&#x4E86;
+                      a.courseindex-link.text-truncate(href='https://lms.waomirai.com/mod/questionnaire/view.php?id=1708' data-for='cm_name' tabindex='-1')
+                        | 9&#x6708;3&#x9031;&#x76EE;&#xFF1A;&#x30D5;&#x30A3;&#x30FC;&#x30C9;&#x30D0;&#x30C3;&#x30AF;
+                      span.courseindex-locked.ms-1(data-for='cm_name' tabindex='-1')
+                        i.icon.fa.fa-lock.fa-fw(aria-hidden='true' tabindex='-1')
+                    li#course-index-cm-2092.courseindex-item.d-flex(data-for='cm' data-id='2092' role='treeitem' tabindex='-1' aria-selected='false')
+                      span.completioninfo.completion_none(data-for='cm_completion' data-value='NaN')
+                      a.courseindex-link.text-truncate(href='https://lms.waomirai.com/mod/resource/view.php?id=2092' data-for='cm_name' tabindex='-1')
+                        | &#x6388;&#x696D;&#x6982;&#x8981;
+                      span.courseindex-locked.ms-1(data-for='cm_name' tabindex='-1')
+                        i.icon.fa.fa-lock.fa-fw(aria-hidden='true' tabindex='-1')
+              #course-index-section-959.courseindex-section(data-for='section' data-id='959' data-number='7' role='treeitem' aria-owns='courseindexcollapse7' tabindex='-1' aria-selected='false')
+                #courseindexsection7.courseindex-item.d-flex.courseindex-section-title(data-for='section_item' tabindex='-1')
+                  a.courseindex-chevron.icons-collapse-expand(data-toggle='collapse' href='#courseindexcollapse7' aria-expanded='true' aria-controls='courseindexcollapse7' tabindex='-1')
+                    span.collapsed-icon.icon-no-margin.me-1(title='展開する' tabindex='-1')
+                      span.dir-rtl-hide(tabindex='-1')
+                        i.icon.fa.fa-chevron-right.fa-fw(aria-hidden='true' tabindex='-1')
+                      span.dir-ltr-hide(tabindex='-1')
+                        i.icon.fa.fa-chevron-left.fa-fw(aria-hidden='true' tabindex='-1')
+                      span.sr-only(tabindex='-1') &#x5C55;&#x958B;&#x3059;&#x308B;
+                    span.expanded-icon.icon-no-margin.me-1(title='折りたたむ' tabindex='-1')
+                      i.icon.fa.fa-chevron-down.fa-fw(aria-hidden='true' tabindex='-1')
+                      span.sr-only(tabindex='-1') &#x6298;&#x308A;&#x305F;&#x305F;&#x3080;
+                  a.courseindex-link.text-truncate(href='https://lms.waomirai.com/course/section.php?id=959' data-action='togglecourseindexsection' data-for='section_title' tabindex='-1')
+                    | 2025&#x5E74;10&#x6708;&#xFF1A;&#x30B2;&#x30FC;&#x30E0;&#x5BFE;&#x6226;&#x3059;&#x308B;CPU&#x3063;&#x3066;AI&#x306A;&#x306E;&#xFF1F;
+                  span.current-badge.badge.bg-primary.text-white.ms-2.px-2.rounded-pill(tabindex='-1')
+                    | &#x30CF;&#x30A4;&#x30E9;&#x30A4;&#x30C8;
+                  span.courseindex-locked.ms-1(data-for='cm_name' tabindex='-1')
+                    i.icon.fa.fa-lock.fa-fw(aria-hidden='true' tabindex='-1')
+                #courseindexcollapse7.courseindex-item-content.collapse.show(aria-labelledby='courseindexsection7' role='group' tabindex='-1')
+                  ul.courseindex-sectioncontent.unlist(data-for='cmlist' data-id='959' role='group' tabindex='-1')
+                    li#course-index-cm-1820.courseindex-item.d-flex(data-for='cm' data-id='1820' role='treeitem' tabindex='-1' aria-selected='false')
+                      span.completioninfo.completion_incomplete(data-for='cm_completion' data-value='0')
+                        i.icon.fa-regular.fa-circle.fa-fw(title='未提出' role='img' aria-label='未提出' aria-hidden='true')
+                        span.sr-only &#x672A;&#x63D0;&#x51FA;
+                      a.courseindex-link.text-truncate(href='https://lms.waomirai.com/mod/questionnaire/view.php?id=1820' data-for='cm_name' tabindex='-1')
+                        | 10&#x6708;1&#x9031;&#x76EE;&#xFF1A;AI &#x3063;&#x3066;&#x306A;&#x3093;&#x3060;&#x308D;&#x3046;
+                      span.courseindex-locked.ms-1(data-for='cm_name' tabindex='-1')
+                        i.icon.fa.fa-lock.fa-fw(aria-hidden='true' tabindex='-1')
+                    li#course-index-cm-1822.courseindex-item.d-flex(data-for='cm' data-id='1822' role='treeitem' tabindex='-1' aria-selected='false')
+                      span.completioninfo.completion_incomplete(data-for='cm_completion' data-value='0')
+                        i.icon.fa-regular.fa-circle.fa-fw(title='未提出' role='img' aria-label='未提出' aria-hidden='true')
+                        span.sr-only &#x672A;&#x63D0;&#x51FA;
+                      a.courseindex-link.text-truncate(href='https://lms.waomirai.com/mod/questionnaire/view.php?id=1822' data-for='cm_name' tabindex='-1')
+                        | 10&#x6708;2&#x9031;&#x76EE;&#xFF1A;&#x3044;&#x307E;&#x306E; AI &#x306F;&#x306A;&#x306B;&#x304C;&#x3067;&#x304D;&#x308B;&#x306E;&#xFF1F;
+                      span.courseindex-locked.ms-1(data-for='cm_name' tabindex='-1')
+                        i.icon.fa.fa-lock.fa-fw(aria-hidden='true' tabindex='-1')
+                    li#course-index-cm-1821.courseindex-item.d-flex.pageitem(data-for='cm' data-id='1821' role='treeitem' tabindex='-1' aria-selected='false')
+                      span.completioninfo.completion_complete(data-for='cm_completion' data-value='1')
+                        i.icon.fa.fa-circle.fa-fw(title='完了' role='img' aria-label='完了' aria-hidden='true')
+                        span.sr-only &#x5B8C;&#x4E86;
+                      a.courseindex-link.text-truncate(href='https://lms.waomirai.com/mod/questionnaire/view.php?id=1821' data-for='cm_name' tabindex='-1')
+                        | 10&#x6708;3&#x9031;&#x76EE;&#xFF1A;&#x30D5;&#x30A3;&#x30FC;&#x30C9;&#x30D0;&#x30C3;&#x30AF;
+                      span.courseindex-locked.ms-1(data-for='cm_name' tabindex='-1')
+                        i.icon.fa.fa-lock.fa-fw(aria-hidden='true' tabindex='-1')
+                    li#course-index-cm-2113.courseindex-item.d-flex(data-for='cm' data-id='2113' role='treeitem' tabindex='-1' aria-selected='false')
+                      span.completioninfo.completion_none(data-for='cm_completion' data-value='NaN')
+                      a.courseindex-link.text-truncate(href='https://lms.waomirai.com/mod/resource/view.php?id=2113' data-for='cm_name' tabindex='-1')
+                        | &#x6388;&#x696D;&#x6982;&#x8981;
+                      span.courseindex-locked.ms-1(data-for='cm_name' tabindex='-1')
+                        i.icon.fa.fa-lock.fa-fw(aria-hidden='true' tabindex='-1')
+              #course-index-section-961.courseindex-section(data-for='section' data-id='961' data-number='8' role='treeitem' aria-owns='courseindexcollapse8' tabindex='-1' aria-selected='false')
+                #courseindexsection8.courseindex-item.d-flex.courseindex-section-title(data-for='section_item' tabindex='-1')
+                  a.courseindex-chevron.icons-collapse-expand(data-toggle='collapse' href='#courseindexcollapse8' aria-expanded='true' aria-controls='courseindexcollapse8' tabindex='-1')
+                    span.collapsed-icon.icon-no-margin.me-1(title='展開する' tabindex='-1')
+                      span.dir-rtl-hide(tabindex='-1')
+                        i.icon.fa.fa-chevron-right.fa-fw(aria-hidden='true' tabindex='-1')
+                      span.dir-ltr-hide(tabindex='-1')
+                        i.icon.fa.fa-chevron-left.fa-fw(aria-hidden='true' tabindex='-1')
+                      span.sr-only(tabindex='-1') &#x5C55;&#x958B;&#x3059;&#x308B;
+                    span.expanded-icon.icon-no-margin.me-1(title='折りたたむ' tabindex='-1')
+                      i.icon.fa.fa-chevron-down.fa-fw(aria-hidden='true' tabindex='-1')
+                      span.sr-only(tabindex='-1') &#x6298;&#x308A;&#x305F;&#x305F;&#x3080;
+                  a.courseindex-link.text-truncate(href='https://lms.waomirai.com/course/section.php?id=961' data-action='togglecourseindexsection' data-for='section_title' tabindex='-1')
+                    | 2025&#x5E74;11&#x6708;&#xFF1A;&#x82E6;&#x3044;&#x91CE;&#x83DC;&#x3092;&#x304A;&#x3044;&#x3057;&#x304F;&#x98DF;&#x3079;&#x308B;&#x65B9;&#x6CD5;&#x306F;&#x3042;&#x308B;&#x306E;&#xFF1F;
+                  span.current-badge.badge.bg-primary.text-white.ms-2.px-2.rounded-pill(tabindex='-1')
+                    | &#x30CF;&#x30A4;&#x30E9;&#x30A4;&#x30C8;
+                  span.courseindex-locked.ms-1(data-for='cm_name' tabindex='-1')
+                    i.icon.fa.fa-lock.fa-fw(aria-hidden='true' tabindex='-1')
+                #courseindexcollapse8.courseindex-item-content.collapse.show(aria-labelledby='courseindexsection8' role='group' tabindex='-1')
+                  ul.courseindex-sectioncontent.unlist(data-for='cmlist' data-id='961' role='group' tabindex='-1')
+                    li#course-index-cm-1826.courseindex-item.d-flex(data-for='cm' data-id='1826' role='treeitem' tabindex='-1' aria-selected='false')
+                      span.completioninfo.completion_incomplete(data-for='cm_completion' data-value='0')
+                        i.icon.fa-regular.fa-circle.fa-fw(title='未提出' role='img' aria-label='未提出' aria-hidden='true')
+                        span.sr-only &#x672A;&#x63D0;&#x51FA;
+                      a.courseindex-link.text-truncate(href='https://lms.waomirai.com/mod/questionnaire/view.php?id=1826' data-for='cm_name' tabindex='-1')
+                        | 11&#x6708;1&#x9031;&#x76EE;&#xFF1A;&#x4EBA;&#x9593;&#x306E;&#x5473;&#x899A;&#x3063;&#x3066;&#x3069;&#x3093;&#x306A;&#x3082;&#x306E;&#xFF1F;
+                      span.courseindex-locked.ms-1(data-for='cm_name' tabindex='-1')
+                        i.icon.fa.fa-lock.fa-fw(aria-hidden='true' tabindex='-1')
+                    li#course-index-cm-1827.courseindex-item.d-flex(data-for='cm' data-id='1827' role='treeitem' tabindex='-1' aria-selected='false')
+                      span.completioninfo.completion_incomplete(data-for='cm_completion' data-value='0')
+                        i.icon.fa-regular.fa-circle.fa-fw(title='未提出' role='img' aria-label='未提出' aria-hidden='true')
+                        span.sr-only &#x672A;&#x63D0;&#x51FA;
+                      a.courseindex-link.text-truncate(href='https://lms.waomirai.com/mod/questionnaire/view.php?id=1827' data-for='cm_name' tabindex='-1')
+                        | 11&#x6708;2&#x9031;&#x76EE;&#xFF1A;&#x82E6;&#x307F;&#x3092;&#x5C11;&#x306A;&#x304F;&#x3059;&#x308B;&#x65B9;&#x6CD5;&#x3068;&#x306F;&#xFF1F;
+                      span.courseindex-locked.ms-1(data-for='cm_name' tabindex='-1')
+                        i.icon.fa.fa-lock.fa-fw(aria-hidden='true' tabindex='-1')
+                    li#course-index-cm-1828.courseindex-item.d-flex(data-for='cm' data-id='1828' role='treeitem' tabindex='-1' aria-selected='false')
+                      span.completioninfo.completion_incomplete(data-for='cm_completion' data-value='0')
+                        i.icon.fa-regular.fa-circle.fa-fw(title='未提出' role='img' aria-label='未提出' aria-hidden='true')
+                        span.sr-only &#x672A;&#x63D0;&#x51FA;
+                      a.courseindex-link.text-truncate(href='https://lms.waomirai.com/mod/questionnaire/view.php?id=1828' data-for='cm_name' tabindex='-1')
+                        | 11&#x6708;3&#x9031;&#x76EE;&#xFF1A;&#x30D5;&#x30A3;&#x30FC;&#x30C9;&#x30D0;&#x30C3;&#x30AF;
+                      span.courseindex-locked.ms-1(data-for='cm_name' tabindex='-1')
+                        i.icon.fa.fa-lock.fa-fw(aria-hidden='true' tabindex='-1')
+              #course-index-section-962.courseindex-section(data-for='section' data-id='962' data-number='9' role='treeitem' aria-owns='courseindexcollapse9' tabindex='-1' aria-selected='false')
+                #courseindexsection9.courseindex-item.d-flex.courseindex-section-title(data-for='section_item' tabindex='-1')
+                  a.courseindex-chevron.icons-collapse-expand(data-toggle='collapse' href='#courseindexcollapse9' aria-expanded='true' aria-controls='courseindexcollapse9' tabindex='-1')
+                    span.collapsed-icon.icon-no-margin.me-1(title='展開する' tabindex='-1')
+                      span.dir-rtl-hide(tabindex='-1')
+                        i.icon.fa.fa-chevron-right.fa-fw(aria-hidden='true' tabindex='-1')
+                      span.dir-ltr-hide(tabindex='-1')
+                        i.icon.fa.fa-chevron-left.fa-fw(aria-hidden='true' tabindex='-1')
+                      span.sr-only(tabindex='-1') &#x5C55;&#x958B;&#x3059;&#x308B;
+                    span.expanded-icon.icon-no-margin.me-1(title='折りたたむ' tabindex='-1')
+                      i.icon.fa.fa-chevron-down.fa-fw(aria-hidden='true' tabindex='-1')
+                      span.sr-only(tabindex='-1') &#x6298;&#x308A;&#x305F;&#x305F;&#x3080;
+                  a.courseindex-link.text-truncate(href='https://lms.waomirai.com/course/section.php?id=962' data-action='togglecourseindexsection' data-for='section_title' tabindex='-1')
+                    | 2025&#x5E74;12&#x6708;&#xFF1A;&#x7A7A;&#x98DB;&#x3076;&#x4E57;&#x308A;&#x7269;&#x304C;&#x547D;&#x3092;&#x6551;&#x3046;
+                  span.current-badge.badge.bg-primary.text-white.ms-2.px-2.rounded-pill(tabindex='-1')
+                    | &#x30CF;&#x30A4;&#x30E9;&#x30A4;&#x30C8;
+                  span.courseindex-locked.ms-1(data-for='cm_name' tabindex='-1')
+                    i.icon.fa.fa-lock.fa-fw(aria-hidden='true' tabindex='-1')
+                #courseindexcollapse9.courseindex-item-content.collapse.show(aria-labelledby='courseindexsection9' role='group' tabindex='-1')
+                  ul.courseindex-sectioncontent.unlist(data-for='cmlist' data-id='962' role='group' tabindex='-1')
+                    li#course-index-cm-1829.courseindex-item.d-flex(data-for='cm' data-id='1829' role='treeitem' tabindex='-1' aria-selected='false')
+                      span.completioninfo.completion_incomplete(data-for='cm_completion' data-value='0')
+                        i.icon.fa-regular.fa-circle.fa-fw(title='未提出' role='img' aria-label='未提出' aria-hidden='true')
+                        span.sr-only &#x672A;&#x63D0;&#x51FA;
+                      a.courseindex-link.text-truncate(href='https://lms.waomirai.com/mod/questionnaire/view.php?id=1829' data-for='cm_name' tabindex='-1')
+                        | 12&#x6708;1&#x9031;&#x76EE;&#xFF1A;&#x4EBA;&#x304C;&#x7A7A;&#x3092;&#x98DB;&#x3079;&#x308B;&#x3068;&#x3088;&#x3046;&#x306B;&#x306A;&#x308B;&#x307E;&#x3067;
+                      span.courseindex-locked.ms-1(data-for='cm_name' tabindex='-1')
+                        i.icon.fa.fa-lock.fa-fw(aria-hidden='true' tabindex='-1')
+                    li#course-index-cm-1830.courseindex-item.d-flex(data-for='cm' data-id='1830' role='treeitem' tabindex='-1' aria-selected='false')
+                      span.completioninfo.completion_incomplete(data-for='cm_completion' data-value='0')
+                        i.icon.fa-regular.fa-circle.fa-fw(title='未提出' role='img' aria-label='未提出' aria-hidden='true')
+                        span.sr-only &#x672A;&#x63D0;&#x51FA;
+                      a.courseindex-link.text-truncate(href='https://lms.waomirai.com/mod/questionnaire/view.php?id=1830' data-for='cm_name' tabindex='-1')
+                        | 12&#x6708;2&#x9031;&#x76EE;&#xFF1A;&#x7A7A;&#x306E;&#x9053;&#x304C;&#x4EBA;&#x3092;&#x52A9;&#x3051;&#x308B;
+                      span.courseindex-locked.ms-1(data-for='cm_name' tabindex='-1')
+                        i.icon.fa.fa-lock.fa-fw(aria-hidden='true' tabindex='-1')
+                    li#course-index-cm-1831.courseindex-item.d-flex(data-for='cm' data-id='1831' role='treeitem' tabindex='-1' aria-selected='false')
+                      span.completioninfo.completion_incomplete(data-for='cm_completion' data-value='0')
+                        i.icon.fa-regular.fa-circle.fa-fw(title='未提出' role='img' aria-label='未提出' aria-hidden='true')
+                        span.sr-only &#x672A;&#x63D0;&#x51FA;
+                      a.courseindex-link.text-truncate(href='https://lms.waomirai.com/mod/questionnaire/view.php?id=1831' data-for='cm_name' tabindex='-1')
+                        | 12&#x6708;3&#x9031;&#x76EE;&#xFF1A;&#x30D5;&#x30A3;&#x30FC;&#x30C9;&#x30D0;&#x30C3;&#x30AF;
+                      span.courseindex-locked.ms-1(data-for='cm_name' tabindex='-1')
+                        i.icon.fa.fa-lock.fa-fw(aria-hidden='true' tabindex='-1')
+              #course-index-section-963.courseindex-section(data-for='section' data-id='963' data-number='10' role='treeitem' aria-owns='courseindexcollapse10' tabindex='-1' aria-selected='false')
+                #courseindexsection10.courseindex-item.d-flex.courseindex-section-title(data-for='section_item' tabindex='-1')
+                  a.courseindex-chevron.icons-collapse-expand(data-toggle='collapse' href='#courseindexcollapse10' aria-expanded='true' aria-controls='courseindexcollapse10' tabindex='-1')
+                    span.collapsed-icon.icon-no-margin.me-1(title='展開する' tabindex='-1')
+                      span.dir-rtl-hide(tabindex='-1')
+                        i.icon.fa.fa-chevron-right.fa-fw(aria-hidden='true' tabindex='-1')
+                      span.dir-ltr-hide(tabindex='-1')
+                        i.icon.fa.fa-chevron-left.fa-fw(aria-hidden='true' tabindex='-1')
+                      span.sr-only(tabindex='-1') &#x5C55;&#x958B;&#x3059;&#x308B;
+                    span.expanded-icon.icon-no-margin.me-1(title='折りたたむ' tabindex='-1')
+                      i.icon.fa.fa-chevron-down.fa-fw(aria-hidden='true' tabindex='-1')
+                      span.sr-only(tabindex='-1') &#x6298;&#x308A;&#x305F;&#x305F;&#x3080;
+                  a.courseindex-link.text-truncate(href='https://lms.waomirai.com/course/section.php?id=963' data-action='togglecourseindexsection' data-for='section_title' tabindex='-1')
+                    | 2026&#x5E74;1&#x6708;&#xFF1A;&#x592A;&#x967D;&#x306F;&#x306A;&#x304F;&#x306A;&#x308B;&#x3068;&#x3069;&#x3046;&#x306A;&#x308B;&#xFF1F;
+                  span.current-badge.badge.bg-primary.text-white.ms-2.px-2.rounded-pill(tabindex='-1')
+                    | &#x30CF;&#x30A4;&#x30E9;&#x30A4;&#x30C8;
+                  span.courseindex-locked.ms-1(data-for='cm_name' tabindex='-1')
+                    i.icon.fa.fa-lock.fa-fw(aria-hidden='true' tabindex='-1')
+                #courseindexcollapse10.courseindex-item-content.collapse.show(aria-labelledby='courseindexsection10' role='group' tabindex='-1')
+                  ul.courseindex-sectioncontent.unlist(data-for='cmlist' data-id='963' role='group' tabindex='-1')
+                    li#course-index-cm-1832.courseindex-item.d-flex(data-for='cm' data-id='1832' role='treeitem' tabindex='-1' aria-selected='false')
+                      span.completioninfo.completion_incomplete(data-for='cm_completion' data-value='0')
+                        i.icon.fa-regular.fa-circle.fa-fw(title='未提出' role='img' aria-label='未提出' aria-hidden='true')
+                        span.sr-only &#x672A;&#x63D0;&#x51FA;
+                      a.courseindex-link.text-truncate(href='https://lms.waomirai.com/mod/questionnaire/view.php?id=1832' data-for='cm_name' tabindex='-1')
+                        | 1&#x6708;1&#x9031;&#x76EE;&#xFF1A;&#x592A;&#x967D;&#x306F;&#x306A;&#x306B;&#x304B;&#x3089;&#x3067;&#x304D;&#x3066;&#x3044;&#x308B;&#x306E;&#xFF1F;
+                      span.courseindex-locked.ms-1(data-for='cm_name' tabindex='-1')
+                        i.icon.fa.fa-lock.fa-fw(aria-hidden='true' tabindex='-1')
+                    li#course-index-cm-1833.courseindex-item.d-flex(data-for='cm' data-id='1833' role='treeitem' tabindex='-1' aria-selected='false')
+                      span.completioninfo.completion_incomplete(data-for='cm_completion' data-value='0')
+                        i.icon.fa-regular.fa-circle.fa-fw(title='未提出' role='img' aria-label='未提出' aria-hidden='true')
+                        span.sr-only &#x672A;&#x63D0;&#x51FA;
+                      a.courseindex-link.text-truncate(href='https://lms.waomirai.com/mod/questionnaire/view.php?id=1833' data-for='cm_name' tabindex='-1')
+                        | 1&#x6708;2&#x9031;&#x76EE;&#xFF1A;&#x592A;&#x967D;&#x306F;&#x71C3;&#x3048;&#x3066;&#x3044;&#x308B;&#x306E;&#x304B;
+                      span.courseindex-locked.ms-1(data-for='cm_name' tabindex='-1')
+                        i.icon.fa.fa-lock.fa-fw(aria-hidden='true' tabindex='-1')
+                    li#course-index-cm-1834.courseindex-item.d-flex(data-for='cm' data-id='1834' role='treeitem' tabindex='-1' aria-selected='false')
+                      span.completioninfo.completion_incomplete(data-for='cm_completion' data-value='0')
+                        i.icon.fa-regular.fa-circle.fa-fw(title='未提出' role='img' aria-label='未提出' aria-hidden='true')
+                        span.sr-only &#x672A;&#x63D0;&#x51FA;
+                      a.courseindex-link.text-truncate(href='https://lms.waomirai.com/mod/questionnaire/view.php?id=1834' data-for='cm_name' tabindex='-1')
+                        | 1&#x6708;3&#x9031;&#x76EE;&#xFF1A;&#x30D5;&#x30A3;&#x30FC;&#x30C9;&#x30D0;&#x30C3;&#x30AF;
+                      span.courseindex-locked.ms-1(data-for='cm_name' tabindex='-1')
+                        i.icon.fa.fa-lock.fa-fw(aria-hidden='true' tabindex='-1')
+              #course-index-section-964.courseindex-section(data-for='section' data-id='964' data-number='11' role='treeitem' aria-owns='courseindexcollapse11' tabindex='-1' aria-selected='false')
+                #courseindexsection11.courseindex-item.d-flex.courseindex-section-title(data-for='section_item' tabindex='-1')
+                  a.courseindex-chevron.icons-collapse-expand(data-toggle='collapse' href='#courseindexcollapse11' aria-expanded='true' aria-controls='courseindexcollapse11' tabindex='-1')
+                    span.collapsed-icon.icon-no-margin.me-1(title='展開する' tabindex='-1')
+                      span.dir-rtl-hide(tabindex='-1')
+                        i.icon.fa.fa-chevron-right.fa-fw(aria-hidden='true' tabindex='-1')
+                      span.dir-ltr-hide(tabindex='-1')
+                        i.icon.fa.fa-chevron-left.fa-fw(aria-hidden='true' tabindex='-1')
+                      span.sr-only(tabindex='-1') &#x5C55;&#x958B;&#x3059;&#x308B;
+                    span.expanded-icon.icon-no-margin.me-1(title='折りたたむ' tabindex='-1')
+                      i.icon.fa.fa-chevron-down.fa-fw(aria-hidden='true' tabindex='-1')
+                      span.sr-only(tabindex='-1') &#x6298;&#x308A;&#x305F;&#x305F;&#x3080;
+                  a.courseindex-link.text-truncate(href='https://lms.waomirai.com/course/section.php?id=964' data-action='togglecourseindexsection' data-for='section_title' tabindex='-1')
+                    | 2026&#x5E74;2&#x6708;&#xFF1A;&#x643A;&#x5E2F;&#x30B2;&#x30FC;&#x30E0;&#x6A5F;&#x306E;&#x5145;&#x96FB;&#x3092;&#x9577;&#x6301;&#x3061;&#x3055;&#x305B;&#x308B;&#x306B;&#x306F;&#xFF1F;
+                  span.current-badge.badge.bg-primary.text-white.ms-2.px-2.rounded-pill(tabindex='-1')
+                    | &#x30CF;&#x30A4;&#x30E9;&#x30A4;&#x30C8;
+                  span.courseindex-locked.ms-1(data-for='cm_name' tabindex='-1')
+                    i.icon.fa.fa-lock.fa-fw(aria-hidden='true' tabindex='-1')
+                #courseindexcollapse11.courseindex-item-content.collapse.show(aria-labelledby='courseindexsection11' role='group' tabindex='-1')
+                  ul.courseindex-sectioncontent.unlist(data-for='cmlist' data-id='964' role='group' tabindex='-1')
+                    li#course-index-cm-1835.courseindex-item.d-flex(data-for='cm' data-id='1835' role='treeitem' tabindex='-1' aria-selected='false')
+                      span.completioninfo.completion_incomplete(data-for='cm_completion' data-value='0')
+                        i.icon.fa-regular.fa-circle.fa-fw(title='未提出' role='img' aria-label='未提出' aria-hidden='true')
+                        span.sr-only &#x672A;&#x63D0;&#x51FA;
+                      a.courseindex-link.text-truncate(href='https://lms.waomirai.com/mod/questionnaire/view.php?id=1835' data-for='cm_name' tabindex='-1')
+                        | 2&#x6708;1&#x9031;&#x76EE;&#xFF1A;&#x6700;&#x521D;&#x306B;&#x96FB;&#x6C60;&#x3092;&#x4F5C;&#x3063;&#x305F;&#x306E;&#x306F;&#x3060;&#x308C;&#xFF1F;&#x96FB;&#x6C60;&#x306E;&#x6B74;&#x53F2;
+                      span.courseindex-locked.ms-1(data-for='cm_name' tabindex='-1')
+                        i.icon.fa.fa-lock.fa-fw(aria-hidden='true' tabindex='-1')
+                    li#course-index-cm-1836.courseindex-item.d-flex(data-for='cm' data-id='1836' role='treeitem' tabindex='-1' aria-selected='false')
+                      span.completioninfo.completion_incomplete(data-for='cm_completion' data-value='0')
+                        i.icon.fa-regular.fa-circle.fa-fw(title='未提出' role='img' aria-label='未提出' aria-hidden='true')
+                        span.sr-only &#x672A;&#x63D0;&#x51FA;
+                      a.courseindex-link.text-truncate(href='https://lms.waomirai.com/mod/questionnaire/view.php?id=1836' data-for='cm_name' tabindex='-1')
+                        | 2&#x6708;2&#x9031;&#x76EE;&#xFF1A;&#x7E70;&#x308A;&#x8FD4;&#x3057;&#x4F7F;&#x3048;&#x308B;&#x96FB;&#x6C60;&#x306E;&#x8A95;&#x751F;
+                      span.courseindex-locked.ms-1(data-for='cm_name' tabindex='-1')
+                        i.icon.fa.fa-lock.fa-fw(aria-hidden='true' tabindex='-1')
+                    li#course-index-cm-1837.courseindex-item.d-flex(data-for='cm' data-id='1837' role='treeitem' tabindex='-1' aria-selected='false')
+                      span.completioninfo.completion_incomplete(data-for='cm_completion' data-value='0')
+                        i.icon.fa-regular.fa-circle.fa-fw(title='未提出' role='img' aria-label='未提出' aria-hidden='true')
+                        span.sr-only &#x672A;&#x63D0;&#x51FA;
+                      a.courseindex-link.text-truncate(href='https://lms.waomirai.com/mod/questionnaire/view.php?id=1837' data-for='cm_name' tabindex='-1')
+                        | 2&#x6708;3&#x9031;&#x76EE;&#xFF1A;&#x30D5;&#x30A3;&#x30FC;&#x30C9;&#x30D0;&#x30C3;&#x30AF;
+                      span.courseindex-locked.ms-1(data-for='cm_name' tabindex='-1')
+                        i.icon.fa.fa-lock.fa-fw(aria-hidden='true' tabindex='-1')
+              #course-index-section-965.courseindex-section(data-for='section' data-id='965' data-number='12' role='treeitem' aria-owns='courseindexcollapse12' tabindex='-1' aria-selected='false')
+                #courseindexsection12.courseindex-item.d-flex.courseindex-section-title(data-for='section_item' tabindex='-1')
+                  a.courseindex-chevron.icons-collapse-expand(data-toggle='collapse' href='#courseindexcollapse12' aria-expanded='true' aria-controls='courseindexcollapse12' tabindex='-1')
+                    span.collapsed-icon.icon-no-margin.me-1(title='展開する' tabindex='-1')
+                      span.dir-rtl-hide(tabindex='-1')
+                        i.icon.fa.fa-chevron-right.fa-fw(aria-hidden='true' tabindex='-1')
+                      span.dir-ltr-hide(tabindex='-1')
+                        i.icon.fa.fa-chevron-left.fa-fw(aria-hidden='true' tabindex='-1')
+                      span.sr-only(tabindex='-1') &#x5C55;&#x958B;&#x3059;&#x308B;
+                    span.expanded-icon.icon-no-margin.me-1(title='折りたたむ' tabindex='-1')
+                      i.icon.fa.fa-chevron-down.fa-fw(aria-hidden='true' tabindex='-1')
+                      span.sr-only(tabindex='-1') &#x6298;&#x308A;&#x305F;&#x305F;&#x3080;
+                  a.courseindex-link.text-truncate(href='https://lms.waomirai.com/course/section.php?id=965' data-action='togglecourseindexsection' data-for='section_title' tabindex='-1')
+                    | 2026&#x5E74;3&#x6708;&#xFF1A;&#x30BC;&#x30ED;&#x304C;&#x306A;&#x304B;&#x3063;&#x305F;&#x6642;&#x4EE3;
+                  span.current-badge.badge.bg-primary.text-white.ms-2.px-2.rounded-pill(tabindex='-1')
+                    | &#x30CF;&#x30A4;&#x30E9;&#x30A4;&#x30C8;
+                  span.courseindex-locked.ms-1(data-for='cm_name' tabindex='-1')
+                    i.icon.fa.fa-lock.fa-fw(aria-hidden='true' tabindex='-1')
+                #courseindexcollapse12.courseindex-item-content.collapse.show(aria-labelledby='courseindexsection12' role='group' tabindex='-1')
+                  ul.courseindex-sectioncontent.unlist(data-for='cmlist' data-id='965' role='group' tabindex='-1')
+                    li#course-index-cm-1838.courseindex-item.d-flex(data-for='cm' data-id='1838' role='treeitem' tabindex='-1' aria-selected='false')
+                      span.completioninfo.completion_incomplete(data-for='cm_completion' data-value='0')
+                        i.icon.fa-regular.fa-circle.fa-fw(title='未提出' role='img' aria-label='未提出' aria-hidden='true')
+                        span.sr-only &#x672A;&#x63D0;&#x51FA;
+                      a.courseindex-link.text-truncate(href='https://lms.waomirai.com/mod/questionnaire/view.php?id=1838' data-for='cm_name' tabindex='-1')
+                        | 3&#x6708;1&#x9031;&#x76EE;&#xFF1A;&#x6570;&#x5B57;&#x306E;&#x8868;&#x3057;&#x65B9;
+                      span.courseindex-locked.ms-1(data-for='cm_name' tabindex='-1')
+                        i.icon.fa.fa-lock.fa-fw(aria-hidden='true' tabindex='-1')
+                    li#course-index-cm-1839.courseindex-item.d-flex(data-for='cm' data-id='1839' role='treeitem' tabindex='-1' aria-selected='false')
+                      span.completioninfo.completion_incomplete(data-for='cm_completion' data-value='0')
+                        i.icon.fa-regular.fa-circle.fa-fw(title='未提出' role='img' aria-label='未提出' aria-hidden='true')
+                        span.sr-only &#x672A;&#x63D0;&#x51FA;
+                      a.courseindex-link.text-truncate(href='https://lms.waomirai.com/mod/questionnaire/view.php?id=1839' data-for='cm_name' tabindex='-1')
+                        | 3&#x6708;2&#x9031;&#x76EE;&#xFF1A;&#x30BC;&#x30ED;&#xFF08;0&#xFF09;&#x306E;&#x767A;&#x898B;
+                      span.courseindex-locked.ms-1(data-for='cm_name' tabindex='-1')
+                        i.icon.fa.fa-lock.fa-fw(aria-hidden='true' tabindex='-1')
+                    li#course-index-cm-1840.courseindex-item.d-flex(data-for='cm' data-id='1840' role='treeitem' tabindex='-1' aria-selected='false')
+                      span.completioninfo.completion_incomplete(data-for='cm_completion' data-value='0')
+                        i.icon.fa-regular.fa-circle.fa-fw(title='未提出' role='img' aria-label='未提出' aria-hidden='true')
+                        span.sr-only &#x672A;&#x63D0;&#x51FA;
+                      a.courseindex-link.text-truncate(href='https://lms.waomirai.com/mod/questionnaire/view.php?id=1840' data-for='cm_name' tabindex='-1')
+                        | 3&#x6708;3&#x9031;&#x76EE;&#xFF1A;&#x30D5;&#x30A3;&#x30FC;&#x30C9;&#x30D0;&#x30C3;&#x30AF;
+                      span.courseindex-locked.ms-1(data-for='cm_name' tabindex='-1')
+                        i.icon.fa.fa-lock.fa-fw(aria-hidden='true' tabindex='-1')
+    #page.drawers.show-drawer-left.drag-container(data-region='mainpage' data-usertour='scroller')
+      #topofscroll.main-inner
+        .drawer-toggles.d-flex
+          .drawer-toggler.drawer-left-toggle.open-nav.d-print-none
+            button.btn.icon-no-margin(data-toggler='drawers' data-action='toggle' data-target='theme_boost-drawers-courseindex' data-placement='right' title='コースインデックスを開く' data-disabled-toggle='tooltip')
+              span.sr-only &#x30B3;&#x30FC;&#x30B9;&#x30A4;&#x30F3;&#x30C7;&#x30C3;&#x30AF;&#x30B9;&#x3092;&#x958B;&#x304F;
+              i.icon.fa.fa-list.fa-fw(aria-hidden='true')
+        header#page-header.header-maxwidth.d-print-none
+          .w-100
+            .d-flex.flex-wrap
+              #page-navbar
+                nav(aria-label='ナビゲーションバー')
+                  ol.breadcrumb
+                    li.breadcrumb-item
+                      a(href='https://lms.waomirai.com/course/index.php?categoryid=4')
+                        | &#x30EF;&#x30AA;&#x672A;&#x6765;&#x587E; &#x5B66;&#x7FD2;&#x30DD;&#x30FC;&#x30BF;&#x30EB;
+                    li.breadcrumb-item
+                      a(href='https://lms.waomirai.com/course/view.php?id=266' title='科学   レベル1')
+                        | &#x79D1;&#x5B66;   &#x30EC;&#x30D9;&#x30EB;1
+                    li.breadcrumb-item
+                      a(href='https://lms.waomirai.com/course/section.php?id=959' data-section-name-for='959')
+                        | 2025&#x5E74;10&#x6708;&#xFF1A;&#x30B2;&#x30FC;&#x30E0;&#x5BFE;&#x6226;&#x3059;&#x308B;CPU&#x3063;&#x3066;AI&#x306A;&#x306E;&#xFF1F;
+                    li.breadcrumb-item
+                      a(href='https://lms.waomirai.com/mod/questionnaire/view.php?id=1821' title='問い')
+                        | 10&#x6708;3&#x9031;&#x76EE;&#xFF1A;&#x30D5;&#x30A3;&#x30FC;&#x30C9;&#x30D0;&#x30C3;&#x30AF;
+                    li.breadcrumb-item
+                      span
+                        | &#x8AB2;&#x984C;&#x3092;&#x63D0;&#x51FA;&#x3059;&#x308B;
+              .ms-auto.d-flex
+              #course-header
+            .d-flex.align-items-center
+              .me-auto
+                .page-context-header.d-flex.align-items-center.mb-2
+                  .page-header-image
+                    .communication.activityiconcontainer.icon-size-6.modicon_questionnaire
+                      img.icon.activityicon(aria-hidden='true' src='https://lms.waomirai.com/theme/image.php/kenai/questionnaire/1761620633/monologo?filtericon=1' alt='')
+                  .page-header-headings
+                    h1.h2.mb-0 10&#x6708;3&#x9031;&#x76EE;&#xFF1A;&#x30D5;&#x30A3;&#x30FC;&#x30C9;&#x30D0;&#x30C3;&#x30AF;
+                .c-pc-hidden
+              .header-actions-container.ms-auto(data-region='header-actions-container')
+        .secondary-navigation.d-print-none
+          nav.moremenu.navigation.observed
+            ul#moremenu-6902f6e46473f-nav-tabs.nav.more-nav.nav-tabs(role='menubar')
+              li.nav-item(data-key='modulepage' role='none' data-forceintomoremenu='false')
+                a.nav-link(role='menuitem' href='https://lms.waomirai.com/mod/questionnaire/view.php?id=1821' data-disableactive='true' tabindex='-1')
+                  | &#x554F;&#x3044;
+              li.nav-item(data-key='' role='none' data-forceintomoremenu='false')
+                a.nav-link.active.active_tree_node(role='menuitem' href='https://lms.waomirai.com/mod/questionnaire/complete.php?id=1821' aria-current='true' data-disableactive='true')
+                  | &#x8AB2;&#x984C;&#x3092;&#x63D0;&#x51FA;&#x3059;&#x308B;
+              li.nav-item(data-key='yourresponse' role='none' data-forceintomoremenu='false')
+                a.nav-link(role='menuitem' href='https://lms.waomirai.com/mod/questionnaire/myreport.php?instance=453&userid=937&byresponse=1&action=vresp&group=0' data-disableactive='true' tabindex='-1')
+                  | &#x3042;&#x306A;&#x305F;&#x306E;&#x56DE;&#x7B54;&#x3092;&#x8868;&#x793A;&#x3059;&#x308B;
+              li.nav-item.dropdown.dropdownmoremenu.d-none(role='none' data-region='morebutton')
+                a#moremenu-dropdown-6902f6e46473f.dropdown-toggle.nav-link(href='#' role='menuitem' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false' tabindex='-1')
+                  | &#x3055;&#x3089;&#x306B;
+                ul.dropdown-menu.dropdown-menu-left(data-region='moredropdown' aria-labelledby='moremenu-dropdown-6902f6e46473f' role='menu')
+        #page-content.pb-3.d-print-block
+          #region-main-box
+            section#region-main(aria-label='コンテンツ')
+              span#user-notifications.notifications
+              span#maincontent
+              h2 10&#x6708;3&#x9031;&#x76EE;&#xFF1A;&#x30D5;&#x30A3;&#x30FC;&#x30C9;&#x30D0;&#x30C3;&#x30AF;
+              .activity-header(data-for='page-activity-header')
+                span.sr-only &#x5B8C;&#x4E86;&#x8981;&#x4EF6;
+                .activity-information(data-region='activity-information' data-activityname='10月3週目：フィードバック')
+                  .completion-info(data-region='completion-info')
+                    .automatic-completion-conditions(data-region='completionrequirements' role='list' aria-label='10月3週目：フィードバック の完了条件')
+                      .badge.rounded-pill.alert-success.icon-no-margin(role='listitem')
+                        i.icon.fa.fa-check.fa-fw(aria-hidden='true')
+                        strong &#x5B8C;&#x4E86;:
+                        span.font-weight-normal &#x5B66;&#x751F;&#x304C;&#x5B8C;&#x4E86;&#x3059;&#x308B;&#x305F;&#x3081;&#x306B;&#x306F;&#x3053;&#x306E;&#x30A2;&#x30F3;&#x30B1;&#x30FC;&#x30C8;&#x306B;&#x56DE;&#x7B54;&#x3057;&#x306A;&#x3051;&#x308C;&#x3070;&#x306A;&#x308A;&#x307E;&#x305B;&#x3093;
+                #intro.activity-description
+                  .no-overflow
+                    div(style='padding: 56.25% 0 0 0; position: relative;')
+                      iframe(style='position: absolute; top: 0; left: 0; width: 100%; height: 100%;' title='科学リテラシー レベル1' src='https://player.vimeo.com/video/1128163394?h=e7bd0b2da2&badge=0&autopause=0&player_id=0&app_id=58479' frameborder='0' allow='autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share' referrerpolicy='strict-origin-when-cross-origin' data-ready='true')
+                    script(src='https://player.vimeo.com/api/player.js')
+                  #sp-page-header.c-pc-hidden
+                    header#page-header.header-maxwidth.d-print-none
+                      .w-100
+                        .d-flex.flex-wrap
+                          #page-navbar
+                            nav(aria-label='ナビゲーションバー')
+                              ol.breadcrumb
+                                li.breadcrumb-item
+                                  a(href='https://lms.waomirai.com/course/index.php?categoryid=4')
+                                    | &#x30EF;&#x30AA;&#x672A;&#x6765;&#x587E; &#x5B66;&#x7FD2;&#x30DD;&#x30FC;&#x30BF;&#x30EB;
+                                li.breadcrumb-item
+                                  a(href='https://lms.waomirai.com/course/view.php?id=266' title='科学   レベル1')
+                                    | &#x79D1;&#x5B66;   &#x30EC;&#x30D9;&#x30EB;1
+                                li.breadcrumb-item
+                                  a(href='https://lms.waomirai.com/course/section.php?id=959' data-section-name-for='959')
+                                    | 2025&#x5E74;10&#x6708;&#xFF1A;&#x30B2;&#x30FC;&#x30E0;&#x5BFE;&#x6226;&#x3059;&#x308B;CPU&#x3063;&#x3066;AI&#x306A;&#x306E;&#xFF1F;
+                                li.breadcrumb-item
+                                  a(href='https://lms.waomirai.com/mod/questionnaire/view.php?id=1821' title='問い')
+                                    | 10&#x6708;3&#x9031;&#x76EE;&#xFF1A;&#x30D5;&#x30A3;&#x30FC;&#x30C9;&#x30D0;&#x30C3;&#x30AF;
+                                li.breadcrumb-item
+                                  span
+                                    | &#x8AB2;&#x984C;&#x3092;&#x63D0;&#x51FA;&#x3059;&#x308B;
+                          .ms-auto.d-flex
+                          #course-header
+                        .d-flex.align-items-center
+                          .me-auto
+                            .page-context-header.d-flex.align-items-center.mb-2
+                              .page-header-image
+                                .communication.activityiconcontainer.icon-size-6.modicon_questionnaire
+                                  img.icon.activityicon(aria-hidden='true' src='https://lms.waomirai.com/theme/image.php/kenai/questionnaire/1761620633/monologo?filtericon=1' alt='')
+                              .page-header-headings
+                                h1.h2.mb-0 10&#x6708;3&#x9031;&#x76EE;&#xFF1A;&#x30D5;&#x30A3;&#x30FC;&#x30C9;&#x30D0;&#x30C3;&#x30AF;
+                            .c-pc-hidden
+                          .header-actions-container.ms-auto(data-region='header-actions-container')
+              div(role='main')
+                .mod_questionnaire_completepage.generalbox
+                  h3.surveyTitle &#x8AB2;&#x984C;&#x306E;&#x63D0;&#x51FA;&#x304C;&#x5B8C;&#x4E86;&#x3057;&#x307E;&#x3057;&#x305F;&#x3002;&#x3042;&#x308A;&#x304C;&#x3068;&#x3046;&#x3054;&#x3056;&#x3044;&#x307E;&#x3057;&#x305F;&#x3002;
+                  .singlebutton
+                    form(method='post' action='myreport.php')
+                      input(type='hidden' name='id' value='1821')
+                      input(type='hidden' name='instance' value='453')
+                      input(type='hidden' name='user' value='937')
+                      input(type='hidden' name='byresponse' value='0')
+                      input(type='hidden' name='action' value='vresp')
+                      input(type='hidden' name='sesskey' value='Kb8HC5vbMM')
+                      button#single_button6902f6e45aeb61.btn.btn-secondary(type='submit') &#x7D9A;&#x3051;&#x308B;
+                  .generalbox
+                    .notice
+                      .buttons.mod_questionnaire_controlbuttons
+      #goto-top-link
+        a#backToTop.btn.btn-light(role='button' href='#' style='display:none')
+          i.icon.fa.fa-arrow-up.fa-fw(title='トップへ戻る' role='img' aria-label='トップへ戻る' aria-hidden='true')
+          span.sr-only &#x30C8;&#x30C3;&#x30D7;&#x3078;&#x623B;&#x308B;
+      footer#page-footer.footer-popover.bg-white
+        div(data-region='footer-container-popover')
+          button.btn.btn-icon.bg-secondary.icon-no-margin.btn-footer-popover(data-action='footer-popover' aria-label='フッタを表示する' data-original-title='' title='')
+            i.icon.fa.fa-question.fa-fw(aria-hidden='true')
+        .footer-content-popover.container(data-region='footer-content-popover')
+          .footer-section.p-3.border-bottom
+            div
+              a(href='https://go.waomirai.com/index-contact' target='blank')
+                i.icon.fa-regular.fa-envelope.fa-fw(aria-hidden='true')
+                | &#x304A;&#x554F;&#x3044;&#x5408;&#x308F;&#x305B;&#x30FB;&#x5404;&#x7A2E;&#x624B;&#x7D9A;&#x304D;
+                i.icon.fa.fa-arrow-up-right-from-square.fa-fw.ms-1(aria-hidden='true')
+          .footer-section.p-3.border-bottom
+            .logininfo
+              .logininfo
+                | &#x30ED;&#x30B0;&#x30A4;&#x30F3;&#x30E6;&#x30FC;&#x30B6;&#x30FC;&#x540D;&#xFF1A;
+                a(href='https://lms.waomirai.com/user/profile.php?id=937' title='プロファイルを表示する') &#x30EF;&#x30AA;&#x672A;&#x6765;&#x587E;&#x304A;&#x5BA2;&#x69D8;&#x691C;&#x8A3C;&#x30A2;&#x30AB;&#x30A6;&#x30F3;&#x30C8; &starf;
+                |  &#x3055;&#x3093; (
+                a(href='https://lms.waomirai.com/login/logout.php?sesskey=Kb8HC5vbMM') &#x30ED;&#x30B0;&#x30A2;&#x30A6;&#x30C8;
+                | )
+            .tool_usertours-resettourcontainer
+            br
+            p
+              a(href='https://lms.waomirai.com/course/view.php?id=112' target='_blank' style='text-decoration: revert-layer;') &#xFF1E;&#x3088;&#x304F;&#x3042;&#x308B;&#x3054;&#x8CEA;&#x554F;&#xFF08;&#x304A;&#x554F;&#x3044;&#x5408;&#x308F;&#x305B;&#xFF09;
+            p
+              a(href='https://waomirai.com/commerce_law' target='_blank' style='text-decoration: revert-layer;')
+                | &#xFF1E;&#x7279;&#x8A31;&#x5546;&#x53D6;&#x5F15;&#x6CD5;&#x306B;&#x57FA;&#x3065;&#x304F;&#x8868;&#x8A18;
+                i.fa-solid.fa-up-right-from-square(aria-hidden='true')
+            p
+              a(href='https://www.wao-corp.com/privacy/' target='_blank' style='text-decoration: revert-layer;')
+                | &#xFF1E;&#x30D7;&#x30E9;&#x30A4;&#x30D0;&#x30B7;&#x30FC;&#x30DD;&#x30EA;&#x30B7;&#x30FC;
+                i.fa-solid.fa-up-right-from-square(aria-hidden='true')
+            p
+              a(href='https://waomirai.com/terms/' target='_blank' style='text-decoration: revert-layer;')
+                | &#xFF1E;&#x5229;&#x7528;&#x898F;&#x7D04;
+                i.fa-solid.fa-up-right-from-square(aria-hidden='true')
+            a(href='https://lms.waomirai.com/?tenant=lmswaomirai')
+              img(src='https://go.waomirai.com/l/1026513/2023-11-16/gddzt/1026513/1700192228BDlbz92f/logo_basic_white.png' width='60%')
+            script.
+              //<![CDATA[
+              var require = {
+              baseUrl : 'https://lms.waomirai.com/lib/requirejs.php/1761615808/',
+              // We only support AMD modules with an explicit define() statement.
+              enforceDefine: true,
+              skipDataMain: true,
+              waitSeconds : 0,
+              paths: {
+              jquery: 'https://lms.waomirai.com/lib/javascript.php/1761615808/lib/jquery/jquery-3.7.1.min',
+              jqueryui: 'https://lms.waomirai.com/lib/javascript.php/1761615808/lib/jquery/ui-1.13.2/jquery-ui.min',
+              jqueryprivate: 'https://lms.waomirai.com/lib/javascript.php/1761615808/lib/requirejs/jquery-private'
+              },
+              // Custom jquery config map.
+              map: {
+              // '*' means all modules will get 'jqueryprivate'
+              // for their 'jquery' dependency.
+              '*': { jquery: 'jqueryprivate' },
+              // 'jquery-private' wants the real jQuery module
+              // though. If this line was not here, there would
+              // be an unresolvable cyclic dependency.
+              jqueryprivate: { jquery: 'jquery' }
+              }
+              };
+              //]]>
+            script(src='https://lms.waomirai.com/lib/javascript.php/1761615808/lib/requirejs/require.min.js')
+            script.
+              //<![CDATA[
+              M.util.js_pending("core/first");
+              require(['core/first'], function() {
+              require(['core/prefetch'])
+              ;
+              M.util.js_pending('filter_mathjaxloader/loader'); require(['filter_mathjaxloader/loader'], function(amd) {amd.configure({"mathjaxconfig":"\\nMathJax.Hub.Config({\n    config: [\"Accessible.js\", \"Safe.js\"],\n    errorSettings: { message: [\"!\"] },\n    skipStartupTypeset: true,\n    messageStyle: \"none\"\n});\n","lang":"ja"}); M.util.js_complete('filter_mathjaxloader/loader');});;
+              require(["media_videojs/loader"], function(loader) {
+              loader.setUp('ja');
+              });;
+              M.util.js_pending('filter_syntaxhighlighter/hljs'); require(['filter_syntaxhighlighter/hljs'], function(amd) {amd.initHighlighting(); M.util.js_complete('filter_syntaxhighlighter/hljs');});;
+              M.util.js_pending('core_courseformat/courseeditor'); require(['core_courseformat/courseeditor'], function(amd) {amd.setViewFormat("266", {"editing":false,"supportscomponents":true,"statekey":"1761681517_1761801956","overriddenStrings":[]}); M.util.js_complete('core_courseformat/courseeditor');});;
+              require(['core_courseformat/local/courseindex/placeholder'], function(component) {
+              component.init('course-index-placeholder');
+              });
+              ;
+              require(['core_courseformat/local/courseindex/drawer'], function(component) {
+              component.init('courseindex');
+              });
+              ;
+              M.util.js_pending('theme_kenai/gototop'); require(['theme_kenai/gototop'], function(amd) {amd.init(); M.util.js_complete('theme_kenai/gototop');});;
+              M.util.js_pending('filter_syntaxhighlighter/hljs'); require(['filter_syntaxhighlighter/hljs'], function(amd) {amd.initHighlighting(); M.util.js_complete('filter_syntaxhighlighter/hljs');});;
+              M.util.js_pending('core_courseformat/local/content/activity_header'); require(['core_courseformat/local/content/activity_header'], function(amd) {amd.init(); M.util.js_complete('core_courseformat/local/content/activity_header');});;
+              require(['core/moremenu'], function(moremenu) {
+              moremenu(document.querySelector('#moremenu-6902f6e4648ca-navbar-nav'));
+              });
+              ;
+              require(['jquery', 'message_popup/notification_popover_controller'], function($, Controller) {
+              var container = $('#nav-notification-popover-container');
+              var controller = new Controller(container);
+              controller.registerEventListeners();
+              controller.registerListNavigationEventListeners();
+              });
+              ;
+              require(
+              [
+              'jquery',
+              'core_message/message_popover'
+              ],
+              function(
+              $,
+              Popover
+              ) {
+              var toggle = $('#message-drawer-toggle-6902f6e46b64d6902f6e45aeb65');
+              Popover.init(toggle);
+              });
+              ;
+              require(['core/usermenu'], function(UserMenu) {
+              UserMenu.init();
+              });
+              ;
+              M.util.js_pending('theme_boost/drawers:load');
+              require(['theme_boost/drawers'], function() {
+              M.util.js_complete('theme_boost/drawers:load');
+              });
+              ;
+              require(['theme_boost/courseindexdrawercontrols'], function(component) {
+              component.init('courseindexdrawercontrols');
+              });
+              ;
+              M.util.js_pending('theme_boost/drawers:load');
+              require(['theme_boost/drawers'], function() {
+              M.util.js_complete('theme_boost/drawers:load');
+              });
+              ;
+              require(['core/moremenu'], function(moremenu) {
+              moremenu(document.querySelector('#moremenu-6902f6e46473f-nav-tabs'));
+              });
+              ;
+              require(['theme_boost/footer-popover'], function(FooterPopover) {
+              FooterPopover.init();
+              });
+              ;
+              require(['jquery', 'core_message/message_drawer'], function($, MessageDrawer) {
+              var root = $('#message-drawer-6902f6e46fc4c6902f6e45aeb66');
+              MessageDrawer.init(root, '6902f6e46fc4c6902f6e45aeb66', false);
+              });
+              ;
+              M.util.js_pending('theme_boost/loader');
+              require(['theme_boost/loader', 'theme_boost/drawer'], function(Loader, Drawer) {
+              Drawer.init();
+              M.util.js_complete('theme_boost/loader');
+              });
+              ;
+              M.util.js_pending('theme_kenai/forcedfooter'); require(['theme_kenai/forcedfooter'], function(amd) {amd.init("<div id=\\"forced-footer\">\n    \u00a9\ufe0fWAO CORPORATION\n<\/div>"); M.util.js_complete('theme_kenai/forcedfooter');});;
+              M.util.js_pending('core/notification'); require(['core/notification'], function(amd) {amd.init(3589, []); M.util.js_complete('core/notification');});;
+              M.util.js_pending('core/log'); require(['core/log'], function(amd) {amd.setConfig({"level":"warn"}); M.util.js_complete('core/log');});;
+              M.util.js_pending('core/page_global'); require(['core/page_global'], function(amd) {amd.init(); M.util.js_complete('core/page_global');});;
+              M.util.js_pending('core/utility'); require(['core/utility'], function(amd) {M.util.js_complete('core/utility');});;
+              M.util.js_pending('core/storage_validation'); require(['core/storage_validation'], function(amd) {amd.init(1761799088); M.util.js_complete('core/storage_validation');});
+              M.util.js_complete("core/first");
+              });
+              //]]>
+            script(src='https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js?delayStartupUntil=configured')
+            script.
+              //<![CDATA[
+              M.str = {"moodle":{"lastmodified":"\\u6700\u7d42\u66f4\u65b0\u65e5\u6642","name":"\u540d\u79f0","error":"\u30a8\u30e9\u30fc","info":"\u60c5\u5831","yes":"Yes","no":"No","cancel":"\u30ad\u30e3\u30f3\u30bb\u30eb","confirm":"\u78ba\u8a8d","areyousure":"\u672c\u5f53\u306b\u3088\u308d\u3057\u3044\u3067\u3059\u304b?","closebuttontitle":"\u9589\u3058\u308b","unknownerror":"\u4e0d\u660e\u306a\u30a8\u30e9\u30fc","file":"\u30d5\u30a1\u30a4\u30eb","url":"URL","collapseall":"\u3059\u3079\u3066\u3092\u6298\u308a\u305f\u305f\u3080","expandall":"\u3059\u3079\u3066\u3092\u5c55\u958b\u3059\u308b"},"repository":{"type":"\u30bf\u30a4\u30d7","size":"\u30b5\u30a4\u30ba","invalidjson":"\u7121\u52b9\u306aJSON\u30b9\u30c8\u30ea\u30f3\u30b0\u3067\u3059\u3002","nofilesattached":"\u6dfb\u4ed8\u3055\u308c\u3066\u3044\u308b\u30d5\u30a1\u30a4\u30eb\u306f\u3042\u308a\u307e\u305b\u3093\u3002","filepicker":"\u30d5\u30a1\u30a4\u30eb\u30d4\u30c3\u30ab","logout":"\u30ed\u30b0\u30a2\u30a6\u30c8","nofilesavailable":"\u5229\u7528\u3067\u304d\u308b\u30d5\u30a1\u30a4\u30eb\u306f\u3042\u308a\u307e\u305b\u3093\u3002","norepositoriesavailable":"\u7533\u3057\u8a33\u3054\u3056\u3044\u307e\u305b\u3093\u3001\u73fe\u5728\u306e\u3042\u306a\u305f\u306e\u30ea\u30dd\u30b8\u30c8\u30ea\u3067\u306f\u6240\u8981\u306e\u30d5\u30a9\u30fc\u30de\u30c3\u30c8\u306e\u30d5\u30a1\u30a4\u30eb\u3092\u8fd4\u3059\u3053\u3068\u304c\u3067\u304d\u307e\u305b\u3093\u3002","fileexistsdialogheader":"\u30d5\u30a1\u30a4\u30eb\u767b\u9332\u6e08\u307f","fileexistsdialog_editor":"\u305d\u306e\u30d5\u30a1\u30a4\u30eb\u540d\u306e\u30d5\u30a1\u30a4\u30eb\u306f\u3042\u306a\u305f\u304c\u7de8\u96c6\u3057\u3066\u3044\u308b\u30c6\u30ad\u30b9\u30c8\u306b\u3059\u3067\u306b\u6dfb\u4ed8\u3055\u308c\u3066\u3044\u307e\u3059\u3002","fileexistsdialog_filemanager":"\u540c\u4e00\u30d5\u30a1\u30a4\u30eb\u540d\u306e\u30d5\u30a1\u30a4\u30eb\u304c\u3059\u3067\u306b\u6dfb\u4ed8\u3055\u308c\u3066\u3044\u307e\u3059\u3002","renameto":"\u30ea\u30cd\u30fc\u30e0 -> {$a}","referencesexist":"\u3053\u306e\u30d5\u30a1\u30a4\u30eb\u306b\u306f {$a} \u4ef6\u306e\u30ea\u30f3\u30af\u304c\u3042\u308a\u307e\u3059\u3002","select":"\u9078\u629e"},"admin":{"confirmdeletecomments":"\u672c\u5f53\u306b\u9078\u629e\u3057\u305f\u30b3\u30e1\u30f3\u30c8\u3092\u524a\u9664\u3057\u3066\u3082\u3088\u308d\u3057\u3044\u3067\u3059\u304b?","confirmation":"\u78ba\u8a8d"},"debug":{"debuginfo":"\u30c7\u30d0\u30c3\u30b0\u60c5\u5831","line":"\u884c","stacktrace":"\u30b9\u30bf\u30c3\u30af\u30c8\u30ec\u30fc\u30b9"},"langconfig":{"labelsep":":"}};
+              //]]>
+            script.
+              //<![CDATA[
+              (function() {document.body.className += ' course-id-319 course-id-283 course-id-271 course-id-270 course-id-259 course-id-258 course-id-257 course-id-256 course-id-255 course-id-264 course-id-263 course-id-262 course-id-261 course-id-260 course-id-269 course-id-268 course-id-267 course-id-266 course-id-265 course-id-130 course-id-135 course-id-138 course-id-284 course-id-313 course-id-312 course-id-311 course-id-310 course-id-309 course-id-308 course-id-307 course-id-306 course-id-305 course-id-304 course-id-303 course-id-302 course-id-301 course-id-300 course-id-299 course-id-298 course-id-297 course-id-296 course-id-295 course-id-294 course-id-293 course-id-292 course-id-291 course-id-290 course-id-289 course-id-288 course-id-287 course-id-286 course-id-285';
+              M.util.help_popups.setup(Y);
+              M.util.js_pending('random6902f6e45aeb67'); Y.on('domready', function() { M.util.js_complete("init");  M.util.js_complete('random6902f6e45aeb67'); });
+              })();
+              //]]>
+          .footer-section.p-3
+            span Powered by
+            a(href='https://moodle.com/workplace/' target='_blank')
+              | Moodle Workplace
+        .footer-content-debugging.footer-dark.bg-dark.text-light
+          .container-fluid.footer-dark-inner
+    #drawer-6902f6e46fc4c6902f6e45aeb66.drawer.bg-white.hidden(aria-expanded='false' aria-hidden='true' data-region='right-hand-drawer' role='region' tabindex='0')
+      #message-drawer-6902f6e46fc4c6902f6e45aeb66.message-app(data-region='message-drawer' role='region')
+        h2.sr-only &#x30E1;&#x30C3;&#x30BB;&#x30FC;&#x30B8;&#x30F3;&#x30B0;
+        .closewidget.text-end.pe-2
+          a.text-dark.btn-link(data-action='closedrawer' href='#' title='閉じる' aria-label='閉じる')
+            i.icon.fa.fa-xmark.fa-fw(aria-hidden='true')
+        .header-container.position-relative(data-region='header-container')
+          .hidden.border-bottom.p-1.px-sm-2(aria-hidden='true' data-region='view-contacts')
+            .d-flex.align-items-center
+              .align-self-stretch
+                a.h-100.d-flex.align-items-center.me-2(href='#' data-route-back='' role='button')
+                  .icon-back-in-drawer
+                    span.dir-rtl-hide
+                      i.icon.fa.fa-chevron-left.fa-fw(aria-hidden='true')
+                    span.dir-ltr-hide
+                      i.icon.fa.fa-chevron-right.fa-fw(aria-hidden='true')
+                  .icon-back-in-app
+                    span.dir-rtl-hide
+                      i.icon.fa.fa-xmark.fa-fw(aria-hidden='true')
+              div
+                | &#x30B3;&#x30F3;&#x30BF;&#x30AF;&#x30C8;
+              .ms-auto
+                a(href='#' data-route='view-search' role='button' aria-label='検索')
+                  i.icon.fa.fa-magnifying-glass.fa-fw(aria-hidden='true')
+          .hidden.bg-white.position-relative.border-bottom.p-1.px-sm-2(aria-hidden='true' data-region='view-conversation')
+            .hidden(data-region='header-content')
+            .hidden(data-region='header-edit-mode')
+              .d-flex.p-2.align-items-center
+                | &#x9078;&#x629E;&#x6E08;&#x307F;&#x30E1;&#x30C3;&#x30BB;&#x30FC;&#x30B8;:
+                span.ms-1(data-region='message-selected-court') 1
+                button.ms-auto.btn-close(type='button' aria-label='メッセージ選択を解除する' data-action='cancel-edit-mode')
+                  span(aria-hidden='true') &times;
+            div(data-region='header-placeholder')
+              .d-flex
+                .ms-2.rounded-circle.bg-pulse-grey.align-self-center(style='height: 38px; width: 38px')
+                .ms-2(style='flex: 1')
+                  .mt-1.bg-pulse-grey.w-75(style='height: 16px;')
+                .ms-2.bg-pulse-grey.align-self-center(style='height: 16px; width: 20px')
+            .hidden.position-absolute.z-index-1(data-region='confirm-dialogue-container' style='top: 0; bottom: -1px; right: 0; left: 0; background: rgba(0,0,0,0.3);')
+          .border-bottom.p-1.px-sm-2(aria-hidden='false' data-region='view-overview')
+            .d-flex.align-items-center
+              .input-group.simplesearchform
+                input.form-control(type='text' placeholder='検索' aria-label='検索' data-region='view-overview-search-input')
+                .input-group-append
+                  span.icon-no-margin.btn.btn-submit
+                    i.icon.fa.fa-magnifying-glass.fa-fw(aria-hidden='true')
+            .text-end.mt-sm-3
+              a(href='#' data-route='view-contacts' role='button')
+                i.icon.fa.fa-user.fa-fw(aria-hidden='true')
+                |                             &#x30B3;&#x30F3;&#x30BF;&#x30AF;&#x30C8;
+                span.badge.bg-primary.text-white.ms-2.hidden(data-region='contact-request-count')
+                  span(aria-hidden='true') 0
+                  span.sr-only 0 &#x4EF6;&#x306E;&#x4FDD;&#x7559;&#x30B3;&#x30F3;&#x30BF;&#x30AF;&#x30C8;&#x30EA;&#x30AF;&#x30A8;&#x30B9;&#x30C8;&#x304C;&#x3042;&#x308A;&#x307E;&#x3059;&#x3002;
+          .hidden.border-bottom.p-1.px-sm-2.view-search(aria-hidden='true' data-region='view-search')
+            .d-flex.align-items-center
+              a.me-2.align-self-stretch.d-flex.align-items-center(href='#' data-route-back='' data-action='cancel-search' role='button')
+                .icon-back-in-drawer
+                  span.dir-rtl-hide
+                    i.icon.fa.fa-chevron-left.fa-fw(aria-hidden='true')
+                  span.dir-ltr-hide
+                    i.icon.fa.fa-chevron-right.fa-fw(aria-hidden='true')
+                .icon-back-in-app
+                  span.dir-rtl-hide
+                    i.icon.fa.fa-xmark.fa-fw(aria-hidden='true')
+              .input-group.simplesearchform
+                input.form-control(type='text' placeholder='検索' aria-label='検索' data-region='search-input')
+                .input-group-append
+                  button.btn.btn-submit.icon-no-margin(type='button' data-action='search' aria-label='検索')
+                    span(data-region='search-icon-container')
+                      i.icon.fa.fa-magnifying-glass.fa-fw(aria-hidden='true')
+                    span.hidden(data-region='loading-icon-container')
+                      span.loading-icon.icon-no-margin
+                        i.icon.fa.fa-spinner.fa-spin.fa-fw(title='読み込み中' role='img' aria-label='読み込み中' aria-hidden='true')
+                        span.sr-only &#x8AAD;&#x307F;&#x8FBC;&#x307F;&#x4E2D;
+          .hidden.border-bottom.p-1.px-sm-2.pb-sm-3(aria-hidden='true' data-region='view-settings')
+            .d-flex.align-items-center
+              .align-self-stretch
+                a.h-100.d-flex.me-2.align-items-center(href='#' data-route-back='' role='button')
+                  .icon-back-in-drawer
+                    span.dir-rtl-hide
+                      i.icon.fa.fa-chevron-left.fa-fw(aria-hidden='true')
+                    span.dir-ltr-hide
+                      i.icon.fa.fa-chevron-right.fa-fw(aria-hidden='true')
+                  .icon-back-in-app
+                    span.dir-rtl-hide
+                      i.icon.fa.fa-xmark.fa-fw(aria-hidden='true')
+              div
+                | &#x8A2D;&#x5B9A;
+        .body-container.position-relative(data-region='body-container')
+          .hidden(data-region='view-contact' aria-hidden='true')
+            .p-2.pt-3(data-region='content-container')
+          .hidden.h-100(data-region='view-contacts' aria-hidden='true' data-user-id='937')
+            .d-flex.flex-column.h-100
+              .p-3.border-bottom
+                ul.nav.nav-pills.nav-fill(role='tablist')
+                  li.nav-item
+                    a#contacts-tab-6902f6e46fc4c6902f6e45aeb66.nav-link.active(href='#contacts-tab-panel-6902f6e46fc4c6902f6e45aeb66' data-toggle='tab' data-action='show-contacts-section' role='tab' aria-controls='contacts-tab-panel-6902f6e46fc4c6902f6e45aeb66' aria-selected='true')
+                      | &#x30B3;&#x30F3;&#x30BF;&#x30AF;&#x30C8;
+                  li.nav-item
+                    a#requests-tab-6902f6e46fc4c6902f6e45aeb66.nav-link(href='#requests-tab-panel-6902f6e46fc4c6902f6e45aeb66' data-toggle='tab' data-action='show-requests-section' role='tab' aria-controls='requests-tab-panel-6902f6e46fc4c6902f6e45aeb66' aria-selected='false')
+                      | &#x30EA;&#x30AF;&#x30A8;&#x30B9;&#x30C8;
+                      span.badge.bg-primary.text-white.ms-2.hidden(data-region='contact-request-count')
+                        span(aria-hidden='true') 0
+                        span.sr-only 0 &#x4EF6;&#x306E;&#x4FDD;&#x7559;&#x30B3;&#x30F3;&#x30BF;&#x30AF;&#x30C8;&#x30EA;&#x30AF;&#x30A8;&#x30B9;&#x30C8;&#x304C;&#x3042;&#x308A;&#x307E;&#x3059;&#x3002;
+              .tab-content.d-flex.flex-column.h-100
+                #contacts-tab-panel-6902f6e46fc4c6902f6e45aeb66.tab-pane.fade.show.active.h-100.lazy-load-list(aria-live='polite' data-region='lazy-load-list' data-user-id='937' data-section='contacts' role='tabpanel' aria-labelledby='contacts-tab-6902f6e46fc4c6902f6e45aeb66')
+                  .hidden.text-center.p-2(data-region='empty-message-container')
+                    | &#x30B3;&#x30F3;&#x30BF;&#x30AF;&#x30C8;&#x306A;&#x3057;
+                  .hidden.list-group(data-region='content-container')
+                  .list-group(data-region='placeholder-container')
+                  .w-100.text-center.p-3.hidden(data-region='loading-icon-container')
+                    span.loading-icon.icon-no-margin
+                      i.icon.fa.fa-spinner.fa-spin.fa-fw(title='読み込み中' role='img' aria-label='読み込み中' aria-hidden='true')
+                      span.sr-only &#x8AAD;&#x307F;&#x8FBC;&#x307F;&#x4E2D;
+                #requests-tab-panel-6902f6e46fc4c6902f6e45aeb66.tab-pane.fade.h-100.lazy-load-list(aria-live='polite' data-region='lazy-load-list' data-user-id='937' data-section='requests' role='tabpanel' aria-labelledby='requests-tab-6902f6e46fc4c6902f6e45aeb66')
+                  .hidden.text-center.p-2(data-region='empty-message-container')
+                    | &#x30B3;&#x30F3;&#x30BF;&#x30AF;&#x30C8;&#x30EA;&#x30B9;&#x30C8;&#x306F;&#x3042;&#x308A;&#x307E;&#x305B;&#x3093;&#x3002;
+                  .hidden.list-group(data-region='content-container')
+                  .list-group(data-region='placeholder-container')
+                  .w-100.text-center.p-3.hidden(data-region='loading-icon-container')
+                    span.loading-icon.icon-no-margin
+                      i.icon.fa.fa-spinner.fa-spin.fa-fw(title='読み込み中' role='img' aria-label='読み込み中' aria-hidden='true')
+                      span.sr-only &#x8AAD;&#x307F;&#x8FBC;&#x307F;&#x4E2D;
+          .view-conversation.hidden.h-100(aria-hidden='true' data-region='view-conversation' data-user-id='937' data-midnight='1761750000' data-message-poll-min='10' data-message-poll-max='120' data-message-poll-after-max='300' style='overflow-y: auto; overflow-x: hidden')
+            .position-relative.h-100(data-region='content-container' style='overflow-y: auto; overflow-x: hidden')
+              .content-message-container.hidden.h-100.px-2.pt-0(data-region='content-message-container' role='log' style='overflow-y: auto; overflow-x: hidden')
+                .py-3.sticky-top.z-index-1.border-bottom.text-center.hidden(data-region='contact-request-sent-message-container')
+                  p.m-0 &#x30B3;&#x30F3;&#x30BF;&#x30AF;&#x30C8;&#x30EA;&#x30AF;&#x30A8;&#x30B9;&#x30C8;&#x304C;&#x9001;&#x4FE1;&#x3055;&#x308C;&#x307E;&#x3057;&#x305F;&#x3002;
+                  p.font-italic.font-weight-light(data-region='text')
+                .p-3.text-center.hidden(data-region='self-conversation-message-container')
+                  p.m-0 &#x30D1;&#x30FC;&#x30BD;&#x30CA;&#x30EB;&#x30B9;&#x30DA;&#x30FC;&#x30B9;
+                  p.font-italic.font-weight-light(data-region='text') &#x5F8C;&#x3067;&#x30A2;&#x30AF;&#x30BB;&#x30B9;&#x3059;&#x308B;&#x305F;&#x3081;&#x3001;&#x4E0B;&#x66F8;&#x304D;&#x30E1;&#x30C3;&#x30BB;&#x30FC;&#x30B8;&#x3001;&#x30EA;&#x30F3;&#x30AF;&#x3001;&#x30CE;&#x30FC;&#x30C8;&#x7B49;&#x3092;&#x4FDD;&#x5B58;&#x3057;&#x307E;&#x3059;&#x3002;
+                .hidden.text-center.p-3(data-region='more-messages-loading-icon-container')
+                  span.loading-icon.icon-no-margin
+                    i.icon.fa.fa-spinner.fa-spin.fa-fw(title='読み込み中' role='img' aria-label='読み込み中' aria-hidden='true')
+                    span.sr-only &#x8AAD;&#x307F;&#x8FBC;&#x307F;&#x4E2D;
+              .p-4.w-100.h-100.hidden.position-absolute.z-index-1(data-region='confirm-dialogue-container' style='top: 0; background: rgba(0,0,0,0.3);')
+                .p-3.bg-white(data-region='confirm-dialogue' role='alert')
+                  p.text-muted(data-region='dialogue-text')
+                  .mb-2.custom-control.custom-checkbox.hidden(data-region='delete-messages-for-all-users-toggle-container')
+                    input#delete-messages-for-all-users.custom-control-input(type='checkbox' data-region='delete-messages-for-all-users-toggle')
+                    label.custom-control-label.text-muted(for='delete-messages-for-all-users')
+                      | &#x79C1;&#x304A;&#x3088;&#x3073;&#x4ED6;&#x306E;&#x4EBA;&#x306E;&#x305F;&#x3081;&#x306B;&#x524A;&#x9664;&#x3059;&#x308B;
+                  button.btn.btn-primary.btn-block.hidden(type='button' data-action='confirm-block')
+                    span(data-region='dialogue-button-text') &#x30D6;&#x30ED;&#x30C3;&#x30AF;
+                    span.hidden(data-region='loading-icon-container')
+                      span.loading-icon.icon-no-margin
+                        i.icon.fa.fa-spinner.fa-spin.fa-fw(title='読み込み中' role='img' aria-label='読み込み中' aria-hidden='true')
+                        span.sr-only &#x8AAD;&#x307F;&#x8FBC;&#x307F;&#x4E2D;
+                  button.btn.btn-primary.btn-block.hidden(type='button' data-action='confirm-unblock')
+                    span(data-region='dialogue-button-text') &#x30D6;&#x30ED;&#x30C3;&#x30AF;&#x89E3;&#x9664;
+                    span.hidden(data-region='loading-icon-container')
+                      span.loading-icon.icon-no-margin
+                        i.icon.fa.fa-spinner.fa-spin.fa-fw(title='読み込み中' role='img' aria-label='読み込み中' aria-hidden='true')
+                        span.sr-only &#x8AAD;&#x307F;&#x8FBC;&#x307F;&#x4E2D;
+                  button.btn.btn-primary.btn-block.hidden(type='button' data-action='confirm-remove-contact')
+                    span(data-region='dialogue-button-text') &#x524A;&#x9664;
+                    span.hidden(data-region='loading-icon-container')
+                      span.loading-icon.icon-no-margin
+                        i.icon.fa.fa-spinner.fa-spin.fa-fw(title='読み込み中' role='img' aria-label='読み込み中' aria-hidden='true')
+                        span.sr-only &#x8AAD;&#x307F;&#x8FBC;&#x307F;&#x4E2D;
+                  button.btn.btn-primary.btn-block.hidden(type='button' data-action='confirm-add-contact')
+                    span(data-region='dialogue-button-text') &#x8FFD;&#x52A0;
+                    span.hidden(data-region='loading-icon-container')
+                      span.loading-icon.icon-no-margin
+                        i.icon.fa.fa-spinner.fa-spin.fa-fw(title='読み込み中' role='img' aria-label='読み込み中' aria-hidden='true')
+                        span.sr-only &#x8AAD;&#x307F;&#x8FBC;&#x307F;&#x4E2D;
+                  button.btn.btn-primary.btn-block.hidden(type='button' data-action='confirm-delete-selected-messages')
+                    span(data-region='dialogue-button-text') &#x524A;&#x9664;
+                    span.hidden(data-region='loading-icon-container')
+                      span.loading-icon.icon-no-margin
+                        i.icon.fa.fa-spinner.fa-spin.fa-fw(title='読み込み中' role='img' aria-label='読み込み中' aria-hidden='true')
+                        span.sr-only &#x8AAD;&#x307F;&#x8FBC;&#x307F;&#x4E2D;
+                  button.btn.btn-primary.btn-block.hidden(type='button' data-action='confirm-delete-conversation')
+                    span(data-region='dialogue-button-text') &#x524A;&#x9664;
+                    span.hidden(data-region='loading-icon-container')
+                      span.loading-icon.icon-no-margin
+                        i.icon.fa.fa-spinner.fa-spin.fa-fw(title='読み込み中' role='img' aria-label='読み込み中' aria-hidden='true')
+                        span.sr-only &#x8AAD;&#x307F;&#x8FBC;&#x307F;&#x4E2D;
+                  button.btn.btn-primary.btn-block.hidden(type='button' data-action='request-add-contact')
+                    span(data-region='dialogue-button-text') &#x30B3;&#x30F3;&#x30BF;&#x30AF;&#x30C8;&#x30EA;&#x30AF;&#x30A8;&#x30B9;&#x30C8;&#x3092;&#x9001;&#x4FE1;&#x3059;&#x308B;
+                    span.hidden(data-region='loading-icon-container')
+                      span.loading-icon.icon-no-margin
+                        i.icon.fa.fa-spinner.fa-spin.fa-fw(title='読み込み中' role='img' aria-label='読み込み中' aria-hidden='true')
+                        span.sr-only &#x8AAD;&#x307F;&#x8FBC;&#x307F;&#x4E2D;
+                  button.btn.btn-primary.btn-block.hidden(type='button' data-action='accept-contact-request')
+                    span(data-region='dialogue-button-text') &#x627F;&#x8A8D;&#x304A;&#x3088;&#x3073;&#x30B3;&#x30F3;&#x30BF;&#x30AF;&#x30C8;&#x306B;&#x8FFD;&#x52A0;&#x3059;&#x308B;
+                    span.hidden(data-region='loading-icon-container')
+                      span.loading-icon.icon-no-margin
+                        i.icon.fa.fa-spinner.fa-spin.fa-fw(title='読み込み中' role='img' aria-label='読み込み中' aria-hidden='true')
+                        span.sr-only &#x8AAD;&#x307F;&#x8FBC;&#x307F;&#x4E2D;
+                  button.btn.btn-secondary.btn-block.hidden(type='button' data-action='decline-contact-request')
+                    span(data-region='dialogue-button-text') &#x62D2;&#x5426;
+                    span.hidden(data-region='loading-icon-container')
+                      span.loading-icon.icon-no-margin
+                        i.icon.fa.fa-spinner.fa-spin.fa-fw(title='読み込み中' role='img' aria-label='読み込み中' aria-hidden='true')
+                        span.sr-only &#x8AAD;&#x307F;&#x8FBC;&#x307F;&#x4E2D;
+                  button.btn.btn-primary.btn-block(type='button' data-action='okay-confirm') OK
+                  button.btn.btn-secondary.btn-block(type='button' data-action='cancel-confirm') &#x30AD;&#x30E3;&#x30F3;&#x30BB;&#x30EB;
+              .px-2.pb-2.pt-0(data-region='content-placeholder')
+                .h-100.d-flex.flex-column
+                  .px-2.pb-2.pt-0.bg-light.h-100(style='overflow-y: auto')
+                    .mt-4
+                      .mb-4
+                        .mx-auto.bg-white(style='height: 25px; width: 100px')
+                      .d-flex.flex-column.p-2.bg-white.rounded.mb-2
+                        .d-flex.align-items-center.mb-2
+                          .me-2
+                            .rounded-circle.bg-pulse-grey(style='height: 35px; width: 35px')
+                          .me-4.w-75.bg-pulse-grey(style='height: 16px')
+                          .ms-auto.bg-pulse-grey(style='width: 35px; height: 16px')
+                        .bg-pulse-grey.w-100(style='height: 16px')
+                        .bg-pulse-grey.w-100.mt-2(style='height: 16px')
+                        .bg-pulse-grey.w-100.mt-2(style='height: 16px')
+                        .bg-pulse-grey.w-100.mt-2(style='height: 16px')
+                        .bg-pulse-grey.w-75.mt-2(style='height: 16px')
+                      .d-flex.flex-column.p-2.bg-white.rounded.mb-2
+                        .d-flex.align-items-center.mb-2
+                          .me-2
+                            .rounded-circle.bg-pulse-grey(style='height: 35px; width: 35px')
+                          .me-4.w-75.bg-pulse-grey(style='height: 16px')
+                          .ms-auto.bg-pulse-grey(style='width: 35px; height: 16px')
+                        .bg-pulse-grey.w-100(style='height: 16px')
+                        .bg-pulse-grey.w-100.mt-2(style='height: 16px')
+                        .bg-pulse-grey.w-100.mt-2(style='height: 16px')
+                        .bg-pulse-grey.w-100.mt-2(style='height: 16px')
+                        .bg-pulse-grey.w-75.mt-2(style='height: 16px')
+                      .d-flex.flex-column.p-2.bg-white.rounded.mb-2
+                        .d-flex.align-items-center.mb-2
+                          .me-2
+                            .rounded-circle.bg-pulse-grey(style='height: 35px; width: 35px')
+                          .me-4.w-75.bg-pulse-grey(style='height: 16px')
+                          .ms-auto.bg-pulse-grey(style='width: 35px; height: 16px')
+                        .bg-pulse-grey.w-100(style='height: 16px')
+                        .bg-pulse-grey.w-100.mt-2(style='height: 16px')
+                        .bg-pulse-grey.w-100.mt-2(style='height: 16px')
+                        .bg-pulse-grey.w-100.mt-2(style='height: 16px')
+                        .bg-pulse-grey.w-75.mt-2(style='height: 16px')
+                    .mt-4
+                      .mb-4
+                        .mx-auto.bg-white(style='height: 25px; width: 100px')
+                      .d-flex.flex-column.p-2.bg-white.rounded.mb-2
+                        .d-flex.align-items-center.mb-2
+                          .me-2
+                            .rounded-circle.bg-pulse-grey(style='height: 35px; width: 35px')
+                          .me-4.w-75.bg-pulse-grey(style='height: 16px')
+                          .ms-auto.bg-pulse-grey(style='width: 35px; height: 16px')
+                        .bg-pulse-grey.w-100(style='height: 16px')
+                        .bg-pulse-grey.w-100.mt-2(style='height: 16px')
+                        .bg-pulse-grey.w-100.mt-2(style='height: 16px')
+                        .bg-pulse-grey.w-100.mt-2(style='height: 16px')
+                        .bg-pulse-grey.w-75.mt-2(style='height: 16px')
+                      .d-flex.flex-column.p-2.bg-white.rounded.mb-2
+                        .d-flex.align-items-center.mb-2
+                          .me-2
+                            .rounded-circle.bg-pulse-grey(style='height: 35px; width: 35px')
+                          .me-4.w-75.bg-pulse-grey(style='height: 16px')
+                          .ms-auto.bg-pulse-grey(style='width: 35px; height: 16px')
+                        .bg-pulse-grey.w-100(style='height: 16px')
+                        .bg-pulse-grey.w-100.mt-2(style='height: 16px')
+                        .bg-pulse-grey.w-100.mt-2(style='height: 16px')
+                        .bg-pulse-grey.w-100.mt-2(style='height: 16px')
+                        .bg-pulse-grey.w-75.mt-2(style='height: 16px')
+                      .d-flex.flex-column.p-2.bg-white.rounded.mb-2
+                        .d-flex.align-items-center.mb-2
+                          .me-2
+                            .rounded-circle.bg-pulse-grey(style='height: 35px; width: 35px')
+                          .me-4.w-75.bg-pulse-grey(style='height: 16px')
+                          .ms-auto.bg-pulse-grey(style='width: 35px; height: 16px')
+                        .bg-pulse-grey.w-100(style='height: 16px')
+                        .bg-pulse-grey.w-100.mt-2(style='height: 16px')
+                        .bg-pulse-grey.w-100.mt-2(style='height: 16px')
+                        .bg-pulse-grey.w-100.mt-2(style='height: 16px')
+                        .bg-pulse-grey.w-75.mt-2(style='height: 16px')
+                    .mt-4
+                      .mb-4
+                        .mx-auto.bg-white(style='height: 25px; width: 100px')
+                      .d-flex.flex-column.p-2.bg-white.rounded.mb-2
+                        .d-flex.align-items-center.mb-2
+                          .me-2
+                            .rounded-circle.bg-pulse-grey(style='height: 35px; width: 35px')
+                          .me-4.w-75.bg-pulse-grey(style='height: 16px')
+                          .ms-auto.bg-pulse-grey(style='width: 35px; height: 16px')
+                        .bg-pulse-grey.w-100(style='height: 16px')
+                        .bg-pulse-grey.w-100.mt-2(style='height: 16px')
+                        .bg-pulse-grey.w-100.mt-2(style='height: 16px')
+                        .bg-pulse-grey.w-100.mt-2(style='height: 16px')
+                        .bg-pulse-grey.w-75.mt-2(style='height: 16px')
+                      .d-flex.flex-column.p-2.bg-white.rounded.mb-2
+                        .d-flex.align-items-center.mb-2
+                          .me-2
+                            .rounded-circle.bg-pulse-grey(style='height: 35px; width: 35px')
+                          .me-4.w-75.bg-pulse-grey(style='height: 16px')
+                          .ms-auto.bg-pulse-grey(style='width: 35px; height: 16px')
+                        .bg-pulse-grey.w-100(style='height: 16px')
+                        .bg-pulse-grey.w-100.mt-2(style='height: 16px')
+                        .bg-pulse-grey.w-100.mt-2(style='height: 16px')
+                        .bg-pulse-grey.w-100.mt-2(style='height: 16px')
+                        .bg-pulse-grey.w-75.mt-2(style='height: 16px')
+                      .d-flex.flex-column.p-2.bg-white.rounded.mb-2
+                        .d-flex.align-items-center.mb-2
+                          .me-2
+                            .rounded-circle.bg-pulse-grey(style='height: 35px; width: 35px')
+                          .me-4.w-75.bg-pulse-grey(style='height: 16px')
+                          .ms-auto.bg-pulse-grey(style='width: 35px; height: 16px')
+                        .bg-pulse-grey.w-100(style='height: 16px')
+                        .bg-pulse-grey.w-100.mt-2(style='height: 16px')
+                        .bg-pulse-grey.w-100.mt-2(style='height: 16px')
+                        .bg-pulse-grey.w-100.mt-2(style='height: 16px')
+                        .bg-pulse-grey.w-75.mt-2(style='height: 16px')
+                    .mt-4
+                      .mb-4
+                        .mx-auto.bg-white(style='height: 25px; width: 100px')
+                      .d-flex.flex-column.p-2.bg-white.rounded.mb-2
+                        .d-flex.align-items-center.mb-2
+                          .me-2
+                            .rounded-circle.bg-pulse-grey(style='height: 35px; width: 35px')
+                          .me-4.w-75.bg-pulse-grey(style='height: 16px')
+                          .ms-auto.bg-pulse-grey(style='width: 35px; height: 16px')
+                        .bg-pulse-grey.w-100(style='height: 16px')
+                        .bg-pulse-grey.w-100.mt-2(style='height: 16px')
+                        .bg-pulse-grey.w-100.mt-2(style='height: 16px')
+                        .bg-pulse-grey.w-100.mt-2(style='height: 16px')
+                        .bg-pulse-grey.w-75.mt-2(style='height: 16px')
+                      .d-flex.flex-column.p-2.bg-white.rounded.mb-2
+                        .d-flex.align-items-center.mb-2
+                          .me-2
+                            .rounded-circle.bg-pulse-grey(style='height: 35px; width: 35px')
+                          .me-4.w-75.bg-pulse-grey(style='height: 16px')
+                          .ms-auto.bg-pulse-grey(style='width: 35px; height: 16px')
+                        .bg-pulse-grey.w-100(style='height: 16px')
+                        .bg-pulse-grey.w-100.mt-2(style='height: 16px')
+                        .bg-pulse-grey.w-100.mt-2(style='height: 16px')
+                        .bg-pulse-grey.w-100.mt-2(style='height: 16px')
+                        .bg-pulse-grey.w-75.mt-2(style='height: 16px')
+                      .d-flex.flex-column.p-2.bg-white.rounded.mb-2
+                        .d-flex.align-items-center.mb-2
+                          .me-2
+                            .rounded-circle.bg-pulse-grey(style='height: 35px; width: 35px')
+                          .me-4.w-75.bg-pulse-grey(style='height: 16px')
+                          .ms-auto.bg-pulse-grey(style='width: 35px; height: 16px')
+                        .bg-pulse-grey.w-100(style='height: 16px')
+                        .bg-pulse-grey.w-100.mt-2(style='height: 16px')
+                        .bg-pulse-grey.w-100.mt-2(style='height: 16px')
+                        .bg-pulse-grey.w-100.mt-2(style='height: 16px')
+                        .bg-pulse-grey.w-75.mt-2(style='height: 16px')
+                    .mt-4
+                      .mb-4
+                        .mx-auto.bg-white(style='height: 25px; width: 100px')
+                      .d-flex.flex-column.p-2.bg-white.rounded.mb-2
+                        .d-flex.align-items-center.mb-2
+                          .me-2
+                            .rounded-circle.bg-pulse-grey(style='height: 35px; width: 35px')
+                          .me-4.w-75.bg-pulse-grey(style='height: 16px')
+                          .ms-auto.bg-pulse-grey(style='width: 35px; height: 16px')
+                        .bg-pulse-grey.w-100(style='height: 16px')
+                        .bg-pulse-grey.w-100.mt-2(style='height: 16px')
+                        .bg-pulse-grey.w-100.mt-2(style='height: 16px')
+                        .bg-pulse-grey.w-100.mt-2(style='height: 16px')
+                        .bg-pulse-grey.w-75.mt-2(style='height: 16px')
+                      .d-flex.flex-column.p-2.bg-white.rounded.mb-2
+                        .d-flex.align-items-center.mb-2
+                          .me-2
+                            .rounded-circle.bg-pulse-grey(style='height: 35px; width: 35px')
+                          .me-4.w-75.bg-pulse-grey(style='height: 16px')
+                          .ms-auto.bg-pulse-grey(style='width: 35px; height: 16px')
+                        .bg-pulse-grey.w-100(style='height: 16px')
+                        .bg-pulse-grey.w-100.mt-2(style='height: 16px')
+                        .bg-pulse-grey.w-100.mt-2(style='height: 16px')
+                        .bg-pulse-grey.w-100.mt-2(style='height: 16px')
+                        .bg-pulse-grey.w-75.mt-2(style='height: 16px')
+                      .d-flex.flex-column.p-2.bg-white.rounded.mb-2
+                        .d-flex.align-items-center.mb-2
+                          .me-2
+                            .rounded-circle.bg-pulse-grey(style='height: 35px; width: 35px')
+                          .me-4.w-75.bg-pulse-grey(style='height: 16px')
+                          .ms-auto.bg-pulse-grey(style='width: 35px; height: 16px')
+                        .bg-pulse-grey.w-100(style='height: 16px')
+                        .bg-pulse-grey.w-100.mt-2(style='height: 16px')
+                        .bg-pulse-grey.w-100.mt-2(style='height: 16px')
+                        .bg-pulse-grey.w-100.mt-2(style='height: 16px')
+                        .bg-pulse-grey.w-75.mt-2(style='height: 16px')
+          .hidden(aria-hidden='true' data-region='view-group-info')
+            .pt-3.h-100.d-flex.flex-column(data-region='group-info-content-container' style='overflow-y: auto')
+          .h-100.view-overview-body(aria-hidden='false' data-region='view-overview' data-user-id='937')
+            #message-drawer-view-overview-container-6902f6e46fc4c6902f6e45aeb66.d-flex.flex-column.h-100(style='overflow-y: auto')
+              .section.border-0.card.rounded-0(data-region='view-overview-favourites')
+                #view-overview-favourites-toggle.card-header.rounded-0(data-region='toggle')
+                  button.btn.btn-link.w-100.text-start.p-1.p-sm-2.d-flex.rounded-0.align-items-center.overview-section-toggle.collapsed(data-toggle='collapse' data-target='#view-overview-favourites-target-6902f6e46fc4c6902f6e45aeb66' aria-expanded='false' aria-controls='view-overview-favourites-target-6902f6e46fc4c6902f6e45aeb66')
+                    span.collapsed-icon-container
+                      span.dir-rtl-hide
+                        i.icon.fa.fa-chevron-right.fa-fw(aria-hidden='true')
+                      span.dir-ltr-hide
+                        i.icon.fa.fa-chevron-left.fa-fw(aria-hidden='true')
+                    span.expanded-icon-container
+                      i.icon.fa.fa-chevron-down.fa-fw(aria-hidden='true')
+                    span.font-weight-bold.ms-1 &#x661F;&#x4ED8;&#x304D;
+                    small.hidden.ms-1(data-region='section-total-count-container' aria-labelledby='view-overview-favourites-total-count-label')
+                      | (
+                      span(aria-hidden='true' data-region='section-total-count')
+                      | )
+                      span#view-overview-favourites-total-count-label.sr-only
+                        | &#x5408;&#x8A08;&#x4F1A;&#x8A71;&#x6570;
+                    span.hidden.ms-2(data-region='loading-icon-container')
+                      span.loading-icon.icon-no-margin
+                        i.icon.fa.fa-spinner.fa-spin.fa-fw(title='読み込み中' role='img' aria-label='読み込み中' aria-hidden='true')
+                        span.sr-only &#x8AAD;&#x307F;&#x8FBC;&#x307F;&#x4E2D;
+                    span.hidden.badge.rounded-pill.bg-primary.text-white.ms-auto(data-region='section-unread-count-container' aria-labelledby='view-overview-favourites-unread-count-label')
+                      span(aria-hidden='true' data-region='section-unread-count')
+                      span#view-overview-favourites-unread-count-label.sr-only
+                        | &#x4EF6;&#x306E;&#x672A;&#x8AAD;&#x4F1A;&#x8A71;&#x304C;&#x3042;&#x308A;&#x307E;&#x3059;&#x3002;
+                #view-overview-favourites-target-6902f6e46fc4c6902f6e45aeb66.collapse.border-bottom.lazy-load-list(aria-live='polite' data-region='lazy-load-list' data-user-id='937' aria-labelledby='view-overview-favourites-toggle' data-parent='#message-drawer-view-overview-container-6902f6e46fc4c6902f6e45aeb66')
+                  .hidden.text-center.p-2(data-region='empty-message-container')
+                    p.text-muted.mt-2 &#x661F;&#x4ED8;&#x304D;&#x306E;&#x4F1A;&#x8A71;&#x306F;&#x3042;&#x308A;&#x307E;&#x305B;&#x3093;&#x3002;
+                  .hidden.list-group(data-region='content-container')
+                  .list-group(data-region='placeholder-container')
+                    .text-center.py-2
+                      span.loading-icon.icon-no-margin
+                        i.icon.fa.fa-spinner.fa-spin.fa-fw(title='読み込み中' role='img' aria-label='読み込み中' aria-hidden='true')
+                        span.sr-only &#x8AAD;&#x307F;&#x8FBC;&#x307F;&#x4E2D;
+                  .w-100.text-center.p-3.hidden(data-region='loading-icon-container')
+                    span.loading-icon.icon-no-margin
+                      i.icon.fa.fa-spinner.fa-spin.fa-fw(title='読み込み中' role='img' aria-label='読み込み中' aria-hidden='true')
+                      span.sr-only &#x8AAD;&#x307F;&#x8FBC;&#x307F;&#x4E2D;
+              .section.border-0.card.rounded-0(data-region='view-overview-group-messages')
+                #view-overview-group-messages-toggle.card-header.rounded-0(data-region='toggle')
+                  button.btn.btn-link.w-100.text-start.p-1.p-sm-2.d-flex.rounded-0.align-items-center.overview-section-toggle.collapsed(data-toggle='collapse' data-target='#view-overview-group-messages-target-6902f6e46fc4c6902f6e45aeb66' aria-expanded='false' aria-controls='view-overview-group-messages-target-6902f6e46fc4c6902f6e45aeb66')
+                    span.collapsed-icon-container
+                      span.dir-rtl-hide
+                        i.icon.fa.fa-chevron-right.fa-fw(aria-hidden='true')
+                      span.dir-ltr-hide
+                        i.icon.fa.fa-chevron-left.fa-fw(aria-hidden='true')
+                    span.expanded-icon-container
+                      i.icon.fa.fa-chevron-down.fa-fw(aria-hidden='true')
+                    span.font-weight-bold.ms-1 &#x30B0;&#x30EB;&#x30FC;&#x30D7;
+                    small.hidden.ms-1(data-region='section-total-count-container' aria-labelledby='view-overview-group-messages-total-count-label')
+                      | (
+                      span(aria-hidden='true' data-region='section-total-count')
+                      | )
+                      span#view-overview-group-messages-total-count-label.sr-only
+                        | &#x5408;&#x8A08;&#x4F1A;&#x8A71;&#x6570;
+                    span.hidden.ms-2(data-region='loading-icon-container')
+                      span.loading-icon.icon-no-margin
+                        i.icon.fa.fa-spinner.fa-spin.fa-fw(title='読み込み中' role='img' aria-label='読み込み中' aria-hidden='true')
+                        span.sr-only &#x8AAD;&#x307F;&#x8FBC;&#x307F;&#x4E2D;
+                    span.hidden.badge.rounded-pill.bg-primary.text-white.ms-auto(data-region='section-unread-count-container' aria-labelledby='view-overview-group-messages-unread-count-label')
+                      span(aria-hidden='true' data-region='section-unread-count')
+                      span#view-overview-group-messages-unread-count-label.sr-only
+                        | &#x4EF6;&#x306E;&#x672A;&#x8AAD;&#x4F1A;&#x8A71;&#x304C;&#x3042;&#x308A;&#x307E;&#x3059;&#x3002;
+                #view-overview-group-messages-target-6902f6e46fc4c6902f6e45aeb66.collapse.border-bottom.lazy-load-list(aria-live='polite' data-region='lazy-load-list' data-user-id='937' aria-labelledby='view-overview-group-messages-toggle' data-parent='#message-drawer-view-overview-container-6902f6e46fc4c6902f6e45aeb66')
+                  .hidden.text-center.p-2(data-region='empty-message-container')
+                    p.text-muted.mt-2 &#x30B0;&#x30EB;&#x30FC;&#x30D7;&#x4F1A;&#x8A71;&#x306A;&#x3057;
+                  .hidden.list-group(data-region='content-container')
+                  .list-group(data-region='placeholder-container')
+                    .text-center.py-2
+                      span.loading-icon.icon-no-margin
+                        i.icon.fa.fa-spinner.fa-spin.fa-fw(title='読み込み中' role='img' aria-label='読み込み中' aria-hidden='true')
+                        span.sr-only &#x8AAD;&#x307F;&#x8FBC;&#x307F;&#x4E2D;
+                  .w-100.text-center.p-3.hidden(data-region='loading-icon-container')
+                    span.loading-icon.icon-no-margin
+                      i.icon.fa.fa-spinner.fa-spin.fa-fw(title='読み込み中' role='img' aria-label='読み込み中' aria-hidden='true')
+                      span.sr-only &#x8AAD;&#x307F;&#x8FBC;&#x307F;&#x4E2D;
+              .section.border-0.card.rounded-0(data-region='view-overview-messages')
+                #view-overview-messages-toggle.card-header.rounded-0(data-region='toggle')
+                  button.btn.btn-link.w-100.text-start.p-1.p-sm-2.d-flex.rounded-0.align-items-center.overview-section-toggle.collapsed(data-toggle='collapse' data-target='#view-overview-messages-target-6902f6e46fc4c6902f6e45aeb66' aria-expanded='false' aria-controls='view-overview-messages-target-6902f6e46fc4c6902f6e45aeb66')
+                    span.collapsed-icon-container
+                      span.dir-rtl-hide
+                        i.icon.fa.fa-chevron-right.fa-fw(aria-hidden='true')
+                      span.dir-ltr-hide
+                        i.icon.fa.fa-chevron-left.fa-fw(aria-hidden='true')
+                    span.expanded-icon-container
+                      i.icon.fa.fa-chevron-down.fa-fw(aria-hidden='true')
+                    span.font-weight-bold.ms-1 &#x30D7;&#x30E9;&#x30A4;&#x30D9;&#x30FC;&#x30C8;
+                    small.hidden.ms-1(data-region='section-total-count-container' aria-labelledby='view-overview-messages-total-count-label')
+                      | (
+                      span(aria-hidden='true' data-region='section-total-count')
+                      | )
+                      span#view-overview-messages-total-count-label.sr-only
+                        | &#x5408;&#x8A08;&#x4F1A;&#x8A71;&#x6570;
+                    span.hidden.ms-2(data-region='loading-icon-container')
+                      span.loading-icon.icon-no-margin
+                        i.icon.fa.fa-spinner.fa-spin.fa-fw(title='読み込み中' role='img' aria-label='読み込み中' aria-hidden='true')
+                        span.sr-only &#x8AAD;&#x307F;&#x8FBC;&#x307F;&#x4E2D;
+                    span.hidden.badge.rounded-pill.bg-primary.text-white.ms-auto(data-region='section-unread-count-container' aria-labelledby='view-overview-messages-unread-count-label')
+                      span(aria-hidden='true' data-region='section-unread-count')
+                      span#view-overview-messages-unread-count-label.sr-only
+                        | &#x4EF6;&#x306E;&#x672A;&#x8AAD;&#x4F1A;&#x8A71;&#x304C;&#x3042;&#x308A;&#x307E;&#x3059;&#x3002;
+                #view-overview-messages-target-6902f6e46fc4c6902f6e45aeb66.collapse.border-bottom.lazy-load-list(aria-live='polite' data-region='lazy-load-list' data-user-id='937' aria-labelledby='view-overview-messages-toggle' data-parent='#message-drawer-view-overview-container-6902f6e46fc4c6902f6e45aeb66')
+                  .hidden.text-center.p-2(data-region='empty-message-container')
+                    p.text-muted.mt-2 &#x30D7;&#x30E9;&#x30A4;&#x30D9;&#x30FC;&#x30C8;&#x4F1A;&#x8A71;&#x306A;&#x3057;
+                  .hidden.list-group(data-region='content-container')
+                  .list-group(data-region='placeholder-container')
+                    .text-center.py-2
+                      span.loading-icon.icon-no-margin
+                        i.icon.fa.fa-spinner.fa-spin.fa-fw(title='読み込み中' role='img' aria-label='読み込み中' aria-hidden='true')
+                        span.sr-only &#x8AAD;&#x307F;&#x8FBC;&#x307F;&#x4E2D;
+                  .w-100.text-center.p-3.hidden(data-region='loading-icon-container')
+                    span.loading-icon.icon-no-margin
+                      i.icon.fa.fa-spinner.fa-spin.fa-fw(title='読み込み中' role='img' aria-label='読み込み中' aria-hidden='true')
+                      span.sr-only &#x8AAD;&#x307F;&#x8FBC;&#x307F;&#x4E2D;
+          .h-100.hidden(data-region='view-search' aria-hidden='true' data-user-id='937' data-users-offset='0' data-messages-offset='0' style='overflow-y: auto')
+            .hidden(data-region='search-results-container' style='overflow-y: auto')
+              .d-flex.flex-column
+                .mb-3.bg-white(data-region='all-contacts-container')
+                  .pt-2(data-region='contacts-container')
+                    h3.h6.px-2 &#x30B3;&#x30F3;&#x30BF;&#x30AF;&#x30C8;
+                    .list-group(data-region='list')
+                  .pt-2.border-top(data-region='non-contacts-container')
+                    h3.h6.px-2 &#x975E;&#x30B3;&#x30F3;&#x30BF;&#x30AF;&#x30C8;
+                    .list-group(data-region='list')
+                  .text-end
+                    button.btn.btn-link.text-primary(data-action='load-more-users')
+                      span(data-region='button-text') &#x3055;&#x3089;&#x306B;&#x8AAD;&#x307F;&#x8FBC;&#x3080;
+                      span.hidden(data-region='loading-icon-container')
+                        span.loading-icon.icon-no-margin
+                          i.icon.fa.fa-spinner.fa-spin.fa-fw(title='読み込み中' role='img' aria-label='読み込み中' aria-hidden='true')
+                          span.sr-only &#x8AAD;&#x307F;&#x8FBC;&#x307F;&#x4E2D;
+                .bg-white(data-region='messages-container')
+                  h3.h6.px-2.pt-2 &#x30E1;&#x30C3;&#x30BB;&#x30FC;&#x30B8;
+                  .list-group(data-region='list')
+                  .text-end
+                    button.btn.btn-link.text-primary(data-action='load-more-messages')
+                      span(data-region='button-text') &#x3055;&#x3089;&#x306B;&#x8AAD;&#x307F;&#x8FBC;&#x3080;
+                      span.hidden(data-region='loading-icon-container')
+                        span.loading-icon.icon-no-margin
+                          i.icon.fa.fa-spinner.fa-spin.fa-fw(title='読み込み中' role='img' aria-label='読み込み中' aria-hidden='true')
+                          span.sr-only &#x8AAD;&#x307F;&#x8FBC;&#x307F;&#x4E2D;
+                p.hidden.p-3.text-center(data-region='no-results-container') &#x8A72;&#x5F53;&#x30C7;&#x30FC;&#x30BF;&#x306F;&#x3042;&#x308A;&#x307E;&#x305B;&#x3093;&#x3002;
+            .hidden(data-region='loading-placeholder')
+              .text-center.pt-3.icon-size-4
+                span.loading-icon.icon-no-margin
+                  i.icon.fa.fa-spinner.fa-spin.fa-fw(title='読み込み中' role='img' aria-label='読み込み中' aria-hidden='true')
+                  span.sr-only &#x8AAD;&#x307F;&#x8FBC;&#x307F;&#x4E2D;
+            .p-3.text-center(data-region='empty-message-container')
+              p &#x4EBA;&#x304A;&#x3088;&#x3073;&#x30E1;&#x30C3;&#x30BB;&#x30FC;&#x30B8;&#x3092;&#x691C;&#x7D22;&#x3059;&#x308B;
+          .h-100.hidden.bg-white(aria-hidden='true' data-region='view-settings')
+            .hidden(data-region='content-container')
+              .p-3(data-region='settings')
+                h3.h6.font-weight-bold &#x30D7;&#x30E9;&#x30A4;&#x30D0;&#x30B7;&#x30FC;
+                p &#x3042;&#x306A;&#x305F;&#x306B;&#x30E1;&#x30C3;&#x30BB;&#x30FC;&#x30B8;&#x3092;&#x9001;&#x4FE1;&#x3059;&#x308B;&#x4EBA;&#x3092;&#x5236;&#x9650;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;
+                .mb-3(data-preference='blocknoncontacts')
+                  fieldset
+                    legend.sr-only &#x53D7;&#x3051;&#x5165;&#x308C;&#x308B;&#x30E1;&#x30C3;&#x30BB;&#x30FC;&#x30B8;&#x306E;&#x9001;&#x4FE1;&#x5143;:
+                    .custom-control.custom-radio.mb-2
+                      input#block-noncontacts-6902f6e46fc4c6902f6e45aeb66-1.custom-control-input(type='radio' name='message_blocknoncontacts' value='1')
+                      label.custom-control-label.ms-2(for='block-noncontacts-6902f6e46fc4c6902f6e45aeb66-1')
+                        | &#x30DE;&#x30A4;&#x30B3;&#x30F3;&#x30BF;&#x30AF;&#x30C8;&#x306E;&#x307F;
+                    .custom-control.custom-radio.mb-2
+                      input#block-noncontacts-6902f6e46fc4c6902f6e45aeb66-0.custom-control-input(type='radio' name='message_blocknoncontacts' value='0')
+                      label.custom-control-label.ms-2(for='block-noncontacts-6902f6e46fc4c6902f6e45aeb66-0')
+                        | &#x30DE;&#x30A4;&#x30B3;&#x30F3;&#x30BF;&#x30AF;&#x30C8;&#x304A;&#x3088;&#x3073;&#x30DE;&#x30A4;&#x30B3;&#x30FC;&#x30B9;&#x306E;&#x8AB0;&#x3067;&#x3082;
+                .hidden(data-region='notification-preference-container')
+                  h3.mb-2.mt-4.h6.font-weight-bold &#x901A;&#x77E5;&#x30D7;&#x30EC;&#x30D5;&#x30A1;&#x30EC;&#x30F3;&#x30B9;
+                h3.mb-2.mt-4.h6.font-weight-bold &#x4E00;&#x822C;
+                div(data-preference='entertosend')
+                  .custom-control.custom-switch
+                    input#enter-to-send-6902f6e46fc4c6902f6e45aeb66.custom-control-input(type='checkbox')
+                    label.custom-control-label(for='enter-to-send-6902f6e46fc4c6902f6e45aeb66')
+                      | Enter&#x3067;&#x9001;&#x4FE1;&#x3059;&#x308B;
+            div(data-region='placeholder-container')
+              .d-flex.flex-column.p-3
+                .w-25.bg-pulse-grey.h6(style='height: 18px')
+                .w-75.bg-pulse-grey.mb-4(style='height: 18px')
+                .mb-3
+                  .w-100.d-flex.mb-3
+                    .bg-pulse-grey.rounded-circle(style='width: 18px; height: 18px')
+                    .bg-pulse-grey.w-50.ms-2(style='height: 18px')
+                  .w-100.d-flex.mb-3
+                    .bg-pulse-grey.rounded-circle(style='width: 18px; height: 18px')
+                    .bg-pulse-grey.w-50.ms-2(style='height: 18px')
+                  .w-100.d-flex.mb-3
+                    .bg-pulse-grey.rounded-circle(style='width: 18px; height: 18px')
+                    .bg-pulse-grey.w-50.ms-2(style='height: 18px')
+                .w-50.bg-pulse-grey.h6.mb-3.mt-2(style='height: 18px')
+                .mb-4
+                  .w-100.d-flex.mb-2.align-items-center
+                    .bg-pulse-grey.w-25(style='width: 18px; height: 27px')
+                    .bg-pulse-grey.w-25.ms-2(style='height: 18px')
+                  .w-100.d-flex.mb-2.align-items-center
+                    .bg-pulse-grey.w-25(style='width: 18px; height: 27px')
+                    .bg-pulse-grey.w-25.ms-2(style='height: 18px')
+                .w-25.bg-pulse-grey.h6.mb-3.mt-2(style='height: 18px')
+                .mb-3
+                  .w-100.d-flex.mb-2.align-items-center
+                    .bg-pulse-grey.w-25(style='width: 18px; height: 27px')
+                    .bg-pulse-grey.w-50.ms-2(style='height: 18px')
+        .footer-container.position-relative(data-region='footer-container')
+          .hidden.border-top.bg-white.position-relative(aria-hidden='true' data-region='view-conversation' data-enter-to-send='0')
+            .hidden.p-sm-2(data-region='content-messages-footer-container')
+              .emoji-auto-complete-container.w-100.hidden(data-region='emoji-auto-complete-container' aria-live='polite' aria-hidden='true')
+              .d-flex.mt-sm-1
+                textarea.form-control.bg-light(dir='auto' data-region='send-message-txt' rows='3' data-auto-rows='' data-min-rows='3' data-max-rows='5' aria-label='メッセージを書く ...' placeholder='メッセージを書く ...' style='resize: none' maxlength='4096')
+                .position-relative.d-flex.flex-column
+                  .emoji-picker-container.hidden(data-region='emoji-picker-container' aria-hidden='true')
+                    .card.shadow.emoji-picker(data-region='emoji-picker')
+                      .card-header.px-1.pt-1.pb-0.d-flex.justify-content-between.flex-shrink-0
+                        button.btn.btn-outline-secondary.icon-no-margin.category-button.rounded-0.selected(data-action='show-category' data-category='Recent' title='最近')
+                          i.icon.fa-regular.fa-clock.fa-fw(aria-hidden='true')
+                        button.btn.btn-outline-secondary.icon-no-margin.category-button.rounded-0(data-action='show-category' data-category='Smileys & Emotion' title='スマイリー & 感情')
+                          i.icon.fa-regular.fa-face-smile.fa-fw(aria-hidden='true')
+                        button.btn.btn-outline-secondary.icon-no-margin.category-button.rounded-0(data-action='show-category' data-category='People & Body' title='人 & 身体')
+                          i.icon.fa.fa-person.fa-fw(aria-hidden='true')
+                        button.btn.btn-outline-secondary.icon-no-margin.category-button.rounded-0(data-action='show-category' data-category='Animals & Nature' title='動物 & 自然')
+                          i.icon.fa.fa-leaf.fa-fw(aria-hidden='true')
+                        button.btn.btn-outline-secondary.icon-no-margin.category-button.rounded-0(data-action='show-category' data-category='Food & Drink' title='フード & ドリンク')
+                          i.icon.fa.fa-pizza-slice.fa-fw(aria-hidden='true')
+                        button.btn.btn-outline-secondary.icon-no-margin.category-button.rounded-0(data-action='show-category' data-category='Travel & Places' title='旅行 & 場所')
+                          i.icon.fa.fa-plane.fa-fw(aria-hidden='true')
+                        button.btn.btn-outline-secondary.icon-no-margin.category-button.rounded-0(data-action='show-category' data-category='Activities' title='活動')
+                          i.icon.fa.fa-futbol.fa-fw(aria-hidden='true')
+                        button.btn.btn-outline-secondary.icon-no-margin.category-button.rounded-0(data-action='show-category' data-category='Objects' title='物')
+                          i.icon.fa.fa-hammer.fa-fw(aria-hidden='true')
+                        button.btn.btn-outline-secondary.icon-no-margin.category-button.rounded-0(data-action='show-category' data-category='Symbols' title='記号')
+                          i.icon.fa.fa-peace.fa-fw(aria-hidden='true')
+                        button.btn.btn-outline-secondary.icon-no-margin.category-button.rounded-0(data-action='show-category' data-category='Flags' title='旗')
+                          i.icon.fa.fa-flag.fa-fw(aria-hidden='true')
+                      .card-body.p-2.d-flex.flex-column.overflow-hidden
+                        .input-group.mb-1.flex-shrink-0
+                          .input-group-prepend
+                            span.input-group-text.pe-0.bg-white.text-muted
+                              i.icon.fa.fa-magnifying-glass.fa-fw(aria-hidden='true')
+                          input.form-control.border-start-0(type='text' placeholder='検索' aria-label='検索' data-region='search-input')
+                        .flex-grow-1.overflow-auto.emojis-container.h-100(data-region='emojis-container')
+                          .position-relative(data-region='row-container')
+                        .flex-grow-1.overflow-auto.search-results-container.h-100.hidden(data-region='search-results-container')
+                          .position-relative(data-region='row-container')
+                      .card-footer.d-flex.flex-shrink-0(data-region='footer')
+                        .emoji-preview(data-region='emoji-preview')
+                        .emoji-short-name.text-muted.text-wrap.ms-2(data-region='emoji-short-name')
+                  button.btn.btn-link.btn-icon.icon-size-3.ms-1(aria-label='絵文字ピッカを切り替える' data-action='toggle-emoji-picker')
+                    i.icon.fa-regular.fa-face-smile.fa-fw(aria-hidden='true')
+                  button.btn.btn-link.btn-icon.icon-size-3.ms-1.mt-auto(aria-label='メッセージを送信する' data-action='send-message')
+                    span(data-region='send-icon-container')
+                      i.icon.fa-regular.fa-paper-plane.fa-fw(aria-hidden='true')
+                    span.hidden(data-region='loading-icon-container')
+                      span.loading-icon.icon-no-margin
+                        i.icon.fa.fa-spinner.fa-spin.fa-fw(title='読み込み中' role='img' aria-label='読み込み中' aria-hidden='true')
+                        span.sr-only &#x8AAD;&#x307F;&#x8FBC;&#x307F;&#x4E2D;
+            .hidden.p-sm-2(data-region='content-messages-footer-edit-mode-container')
+              .d-flex.p-3.justify-content-end
+                button.btn.btn-link.btn-icon.my-1.icon-size-4(data-action='delete-selected-messages' data-toggle='tooltip' data-placement='top' title='選択したメッセージを削除する')
+                  span(data-region='icon-container')
+                    i.icon.fa.fa-trash-can.fa-fw(aria-hidden='true')
+                  span.hidden(data-region='loading-icon-container')
+                    span.loading-icon.icon-no-margin
+                      i.icon.fa.fa-spinner.fa-spin.fa-fw(title='読み込み中' role='img' aria-label='読み込み中' aria-hidden='true')
+                      span.sr-only &#x8AAD;&#x307F;&#x8FBC;&#x307F;&#x4E2D;
+                  span.sr-only &#x9078;&#x629E;&#x3057;&#x305F;&#x30E1;&#x30C3;&#x30BB;&#x30FC;&#x30B8;&#x3092;&#x524A;&#x9664;&#x3059;&#x308B;
+            .hidden.bg-secondary.p-sm-3(data-region='content-messages-footer-require-contact-container')
+              .p-3.bg-white
+                p(data-region='title')
+                p.text-muted(data-region='text')
+                button.btn.btn-primary.btn-block(type='button' data-action='request-add-contact')
+                  span(data-region='dialogue-button-text') &#x30B3;&#x30F3;&#x30BF;&#x30AF;&#x30C8;&#x30EA;&#x30AF;&#x30A8;&#x30B9;&#x30C8;&#x3092;&#x9001;&#x4FE1;&#x3059;&#x308B;
+                  span.hidden(data-region='loading-icon-container')
+                    span.loading-icon.icon-no-margin
+                      i.icon.fa.fa-spinner.fa-spin.fa-fw(title='読み込み中' role='img' aria-label='読み込み中' aria-hidden='true')
+                      span.sr-only &#x8AAD;&#x307F;&#x8FBC;&#x307F;&#x4E2D;
+            .hidden.bg-secondary.p-sm-3(data-region='content-messages-footer-require-unblock-container')
+              .p-3.bg-white
+                p.text-muted(data-region='text') &#x3042;&#x306A;&#x305F;&#x306F;&#x3053;&#x306E;&#x30E6;&#x30FC;&#x30B6;&#x3092;&#x30D6;&#x30ED;&#x30C3;&#x30AF;&#x3057;&#x307E;&#x3057;&#x305F;&#x3002;
+                button.btn.btn-primary.btn-block(type='button' data-action='request-unblock')
+                  span(data-region='dialogue-button-text') &#x30E6;&#x30FC;&#x30B6;&#x306E;&#x30D6;&#x30ED;&#x30C3;&#x30AF;&#x3092;&#x89E3;&#x9664;&#x3059;&#x308B;
+                  span.hidden(data-region='loading-icon-container')
+                    span.loading-icon.icon-no-margin
+                      i.icon.fa.fa-spinner.fa-spin.fa-fw(title='読み込み中' role='img' aria-label='読み込み中' aria-hidden='true')
+                      span.sr-only &#x8AAD;&#x307F;&#x8FBC;&#x307F;&#x4E2D;
+            .hidden.bg-secondary.p-sm-3(data-region='content-messages-footer-unable-to-message')
+              .p-3.bg-white
+                p.text-muted(data-region='text') &#x3042;&#x306A;&#x305F;&#x306F;&#x3053;&#x306E;&#x30E6;&#x30FC;&#x30B6;&#x306B;&#x30E1;&#x30C3;&#x30BB;&#x30FC;&#x30B8;&#x3092;&#x9001;&#x4FE1;&#x3067;&#x304D;&#x307E;&#x305B;&#x3093;&#x3002;
+            .p-sm-2(data-region='placeholder-container')
+              .d-flex
+                .bg-pulse-grey.w-100(style='height: 80px')
+                .mx-2.mb-2.align-self-end.bg-pulse-grey(style='height: 20px; width: 20px')
+            .hidden.position-absolute.z-index-1(data-region='confirm-dialogue-container' style='top: -1px; bottom: 0; right: 0; left: 0; background: rgba(0,0,0,0.3);')
+          .text-center(data-region='view-overview')
+            a(href='https://lms.waomirai.com/message/index.php')
+              | &#x3059;&#x3079;&#x3066;&#x3092;&#x8868;&#x793A;&#x3059;&#x308B;
+    div
+      #forced-footer
+        | &copy;&#xFE0F;WAO CORPORATION
+  #yui3-css-stamp(style='position: absolute !important; visibility: hidden !important')
+  iframe(height='0' width='0' style='display: none; visibility: hidden;')
+  script(type='text/javascript' id='' charset='').
+    piAId="1027513";piCId="";piHostname="go.waomirai.com";(function(){function b(){var a=document.createElement("script");a.type="text/javascript";a.src=("https:"==document.location.protocol?"https://":"http://")+piHostname+"/pd.js";var c=document.getElementsByTagName("script")[0];c.parentNode.insertBefore(a,c)}window.attachEvent?window.attachEvent("onload",b):window.addEventListener("load",b,!1)})();
+  div(style='display: none; visibility: hidden;')
+    script(async='null' src='https://s.yimg.jp/images/listing/tool/cv/ytag.js')
+    script.
+      window.yjDataLayer=window.yjDataLayer||[];function ytag(){yjDataLayer.push(arguments)}ytag({type:"yss_retargeting",config:{yahoo_ss_retargeting_id:"1001324905",yahoo_sstag_custom_params:{}}});
+  div(style='display: none; visibility: hidden;')
+    script.
+      !function(b,e,f,g,a,c,d){b.fbq||(a=b.fbq=function(){a.callMethod?a.callMethod.apply(a,arguments):a.queue.push(arguments)},b._fbq||(b._fbq=a),a.push=a,a.loaded=!0,a.version="2.0",a.queue=[],c=e.createElement(f),c.async=!0,c.src=g,d=e.getElementsByTagName(f)[0],d.parentNode.insertBefore(c,d))}(window,document,"script","https://connect.facebook.net/en_US/fbevents.js");fbq("init","991613366033962");fbq("track","PageView");
+    noscript
+  div(style='display: none; visibility: hidden;')
+    script.
+      !function(d,g,e){d.TiktokAnalyticsObject=e;var a=d[e]=d[e]||[];a.methods="page track identify instances debug on off once ready alias group enableCookie disableCookie holdConsent revokeConsent grantConsent".split(" ");a.setAndDefer=function(b,c){b[c]=function(){b.push([c].concat(Array.prototype.slice.call(arguments,0)))}};for(d=0;d<a.methods.length;d++)a.setAndDefer(a,a.methods[d]);a.instance=function(b){b=a._i[b]||[];for(var c=0;c<a.methods.length;c++)a.setAndDefer(b,a.methods[c]);return b};a.load=
+      function(b,c){var f="https://analytics.tiktok.com/i18n/pixel/events.js";a._i=a._i||{};a._i[b]=[];a._i[b]._u=f;a._t=a._t||{};a._t[b]=+new Date;a._o=a._o||{};a._o[b]=c||{};c=document.createElement("script");c.type="text/javascript";c.async=!0;c.src=f+"?sdkid\\x3d"+b+"\x26lib\x3d"+e;b=document.getElementsByTagName("script")[0];b.parentNode.insertBefore(c,b)};a.load("CQUN883C77U0JHDT5O1G");a.page()}(window,document,"ttq");
+

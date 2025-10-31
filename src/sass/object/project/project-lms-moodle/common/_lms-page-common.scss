@@ -283,3 +283,53 @@ body:not(.is-admin-user) #message-user-button {
 .activityiconcontainer.communication:not(.isbranded) .icon:not(.nofilter) {
   filter: invert(100%) brightness(200%);
 }
+
+/* infoアイコンホバーした時のツールチップ表示 */
+.tooltip {
+  position: absolute;
+  bottom: calc(100% + 12px);
+  left: 30%;
+  transform: translateX(-50%);
+  background: #333;
+  color: $cl-white;
+  padding: 12px 16px;
+  border-radius: 8px;
+  font-size: $lms-font-size-m;
+  white-space: nowrap;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  z-index: 1000;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  pointer-events: none;
+}
+
+.tooltip.show {
+  pointer-events: auto;
+}
+
+.tooltip::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 6px solid transparent;
+  border-top-color: #333;
+}
+
+.tooltip.show {
+  opacity: 1;
+  visibility: visible;
+  bottom: calc(100% + 15px);
+}
+
+/* デスクトップ: ホバーで表示 */
+@media (hover: hover) {
+  .open-info:hover .tooltip {
+    opacity: 1;
+    visibility: visible;
+    bottom: calc(100% + 15px);
+    pointer-events: auto;
+  }
+}
