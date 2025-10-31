@@ -13,7 +13,7 @@ const DayDisabledFee = 1; // 受講登録手続きを行えない日
 
 const NowDate = new Date(); // 現在の日時
 const DayOfMonth = parseInt(NowDate.toLocaleString('ja-JP', { timeZone: 'Asia/Tokyo', day: '2-digit' }).replace('日', '')); // 現在の日
-const AmazonGiftFreeCampaignEnd = new Date(2025, 11, 9, 23, 59, 59); // キャンペーン終了日時（2025年10月5日23:59:59）
+const AmazonGiftFreeCampaignEnd = new Date('2025-11-03T23:59:59+09:00'); // 日本時間
 
 // ==============================
 // Liff系
