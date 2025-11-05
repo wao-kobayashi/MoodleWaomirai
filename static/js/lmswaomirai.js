@@ -1022,7 +1022,7 @@ if (bodyId === "page-my-index") { // ダッシュボード以外では一切動�
     //   title: "サンプルタイトル",
     //   dateLabel: "2024年1月",
     //   start: Date,  // NEW期間開始: 当月1日 0:00
-    //   end: Date     // NEW期間終了: 翌月5日 0:00
+    //   end: Date     // NEW期間終了: 翌月15日 0:00
     // }
     parseTitle: (raw) => {
       // 正規表現で年・月・タイトルを抽出
@@ -1045,7 +1045,7 @@ if (bodyId === "page-my-index") { // ダッシュボード以外では一切動�
         // NEW表示期間: 当月1日〜翌月5日
         // 注意: Dateコンストラクタの月は0始まりなので mo - 1
         start: new Date(y, mo - 1, 1), // NEW判定の下限
-        end: new Date(y, mo, 5), // NEW判定の上限（翌月5日 0:00）
+        end: new Date(y, mo, 15), // NEW判定の上限（翌月15日 0:00）
       };
     },
 
