@@ -963,7 +963,7 @@ if (bodyId === "page-my-index") { // ダッシュボード以外では一切動�
 
     // NEWバッジ非表示フラグのCookie名プレフィックス
     // 例: "badge_new_dismiss_2024-01-sample-title"
-    newPrefix: "badge_new_dismiss_", // NEWピルの既読管理のキー接頭辞
+    newPrefix: "badge_new_dismiss_", // NEWの既読管理のキー接頭辞
 
     // デフォルト表示件数（「もっと見る」クリック前）
     defaultMaxBadges: 6, // 初期のカード表示上限
@@ -974,7 +974,13 @@ if (bodyId === "page-my-index") { // ダッシュボード以外では一切動�
     // バッジ画像
     ImgbadgeNewBg: "https://waomirai.com/lp/assets/moodle/images/icon_badge_bgnew.svg",
     ImgbadgeNewType: "https://waomirai.com/lp/assets/moodle/images/text_badge_typenew.svg",
-    ImgbadgeDummy: "https://waomirai.com/lp/assets/moodle/images/badge_dummy.svg"
+    ImgbadgeDummy: "https://waomirai.com/lp/assets/moodle/images/badge_dummy.svg",
+
+    // トグルボタンのHTML（ここで直接編集可能）
+    toggleHtml: {
+      more: "<span class='material-symbols material-symbols-outlined'>keyboard_arrow_down</span><span class='text'>全て表示する</span>",
+      less: "<span class='material-symbols material-symbols-outlined'>keyboard_arrow_up</span><span class='text'>少なく表示する</span>"
+    }
   };
 
   // ===== Cookie操作 =====
@@ -1309,7 +1315,7 @@ if (bodyId === "page-my-index") { // ダッシュボード以外では一切動�
         // カードDOM生成（data-badge-index で後から特定できるようにする）
         const $card = $(`
           <div class="dashboard-left-block-wrap-badge-block" data-badge-index="${b.index}">
-            <div class="dashboard-left-block-wrap-badge-block-img">
+            <div class="dashboard-left-block-wrap-badge-block-img dashboard-left-block-wrap-badge-block-img-clickable">
               ${
                 showNew
                   ? `<div class="newicon">
@@ -1358,7 +1364,7 @@ if (bodyId === "page-my-index") { // ダッシュボード以外では一切動�
 
       // UI要素の表示/非表示制御
       $(".display-badge").toggle(list.length >= 1); // バッジセクションの可視化
-      $(".dashboard-left-block-wrap-badge-readmore").toggle(list.length >= 7); // 7件以上で「もっと見る」
+      $(".dashboard-left-block-wrap-badge-readmore").toggle(list.length >= 7); // 7件以上で「全て表示する」
     },
 
     // 「もっと見る」「表示を元に戻す」トグル機能
@@ -1383,7 +1389,7 @@ if (bodyId === "page-my-index") { // ダッシュボード以外では一切動�
           
           UI.renderBadges(max); // 再描画
 
-          $(this).text(isExpanded ? "もっと見る" : "表示を元に戻す"); // ラベル更新
+          $(this).html(isExpanded ? CONFIG.toggleHtml.more : CONFIG.toggleHtml.less); // HTML形式で更新
           isExpanded = !isExpanded; // 状態トグル
         }
       );

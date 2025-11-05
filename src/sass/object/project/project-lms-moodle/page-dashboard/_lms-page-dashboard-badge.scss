@@ -31,12 +31,10 @@
       }
       .dashboard-left-block-wrap-badge-block-img {
         position: relative;
-
         width: 85px;
         @include responsive-style(768px) {
           width: 130px;
         }
-        cursor: pointer;
         .newicon {
           position: absolute;
           left: -8px;
@@ -79,17 +77,37 @@
           }
         }
       }
+      .dashboard-left-block-wrap-badge-block-img-clickable {
+        cursor: pointer;
+      }
     }
   }
   .dashboard-left-block-wrap-badge-readmore a {
-    padding: 10px 15px;
+    padding: 10px 13px;
     text-align: left;
     color: $cl-waogreen !important;
-    text-decoration: underline !important;
     font-size: $lms-font-size-m;
     display: block;
     border-top: 1.5px dashed #ccc;
     cursor: pointer;
+    display: flex;
+    align-items: center;
+    &:hover,
+    &:focus {
+      text-decoration: none !important;
+    }
+    span.material-symbols {
+      font-size: 18px;
+      margin: 4px 0px 0 0;
+      text-decoration: none !important;
+      &:hover,
+      &:focus {
+        text-decoration: none !important;
+      }
+    }
+    span.text {
+      text-decoration: underline !important;
+    }
   }
   .badge-acquired-event {
     .badge-acquired-image {

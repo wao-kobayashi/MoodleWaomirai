@@ -7234,7 +7234,6 @@ html[data-tenantidnumber=lmswaomirai] .pagelayout-mydashboard .dashboard-left-bl
 html[data-tenantidnumber=lmswaomirai] .pagelayout-mydashboard .dashboard-left-block-wrap-badge-content .dashboard-left-block-wrap-badge-block .dashboard-left-block-wrap-badge-block-img {
   position: relative;
   width: 85px;
-  cursor: pointer;
 }
 @media screen and (max-width: 768px) {
   html[data-tenantidnumber=lmswaomirai] .pagelayout-mydashboard .dashboard-left-block-wrap-badge-content .dashboard-left-block-wrap-badge-block .dashboard-left-block-wrap-badge-block-img {
@@ -7299,15 +7298,37 @@ html[data-tenantidnumber=lmswaomirai] .pagelayout-mydashboard .dashboard-left-bl
     width: 130px;
   }
 }
+html[data-tenantidnumber=lmswaomirai] .pagelayout-mydashboard .dashboard-left-block-wrap-badge-content .dashboard-left-block-wrap-badge-block .dashboard-left-block-wrap-badge-block-img-clickable {
+  cursor: pointer;
+}
 html[data-tenantidnumber=lmswaomirai] .pagelayout-mydashboard .dashboard-left-block-wrap-badge-readmore a {
-  padding: 10px 15px;
+  padding: 10px 13px;
   text-align: left;
   color: #005c3f !important;
-  text-decoration: underline !important;
   font-size: 14px;
   display: block;
   border-top: 1.5px dashed #ccc;
   cursor: pointer;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+html[data-tenantidnumber=lmswaomirai] .pagelayout-mydashboard .dashboard-left-block-wrap-badge-readmore a:hover, html[data-tenantidnumber=lmswaomirai] .pagelayout-mydashboard .dashboard-left-block-wrap-badge-readmore a:focus {
+  text-decoration: none !important;
+}
+html[data-tenantidnumber=lmswaomirai] .pagelayout-mydashboard .dashboard-left-block-wrap-badge-readmore a span.material-symbols {
+  font-size: 18px;
+  margin: 4px 0px 0 0;
+  text-decoration: none !important;
+}
+html[data-tenantidnumber=lmswaomirai] .pagelayout-mydashboard .dashboard-left-block-wrap-badge-readmore a span.material-symbols:hover, html[data-tenantidnumber=lmswaomirai] .pagelayout-mydashboard .dashboard-left-block-wrap-badge-readmore a span.material-symbols:focus {
+  text-decoration: none !important;
+}
+html[data-tenantidnumber=lmswaomirai] .pagelayout-mydashboard .dashboard-left-block-wrap-badge-readmore a span.text {
+  text-decoration: underline !important;
 }
 html[data-tenantidnumber=lmswaomirai] .pagelayout-mydashboard .badge-acquired-event .badge-acquired-image img {
   opacity: 0; /* 初期は透明 */
