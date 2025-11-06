@@ -287,10 +287,9 @@ body:not(.is-admin-user) #message-user-button {
 /* infoアイコンホバーした時のツールチップ表示 */
 .tooltip {
   position: absolute;
-  bottom: calc(100% + 12px);
-  left: 30%;
+  left: 36%;
   transform: translateX(-50%);
-  background: #333;
+  background: $cl-blackgray;
   color: $cl-white;
   padding: 12px 16px;
   border-radius: 8px;
@@ -302,26 +301,41 @@ body:not(.is-admin-user) #message-user-button {
   z-index: 1000;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
   pointer-events: none;
+
+  // 矢印の共通スタイル
+  &::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%) rotate(180deg);
+    border: 6px solid transparent;
+  }
 }
 
-.tooltip.show {
-  pointer-events: auto;
+// 上に表示
+.tooltip-top {
+  bottom: calc(100% + 12px);
+
+  &::after {
+    top: 100%;
+    border-bottom-color: $cl-blackgray;
+  }
 }
 
-.tooltip::after {
-  content: "";
-  position: absolute;
-  top: 100%;
-  left: 50%;
-  transform: translateX(-50%);
-  border: 6px solid transparent;
-  border-top-color: #333;
+// 下に表示
+.tooltip-bottom {
+  top: calc(100% + 12px);
+
+  &::after {
+    bottom: 100%;
+    border-top-color: $cl-blackgray;
+  }
 }
 
 .tooltip.show {
   opacity: 1;
   visibility: visible;
-  bottom: calc(100% + 15px);
+  pointer-events: auto;
 }
 
 /* デスクトップ: ホバーで表示 */
@@ -329,7 +343,6 @@ body:not(.is-admin-user) #message-user-button {
   .open-info:hover .tooltip {
     opacity: 1;
     visibility: visible;
-    bottom: calc(100% + 15px);
     pointer-events: auto;
   }
 }

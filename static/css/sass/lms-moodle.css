@@ -1584,8 +1584,7 @@ html[data-tenantidnumber=lmswaomirai] .activityiconcontainer.communication:not(.
 }
 html[data-tenantidnumber=lmswaomirai] .tooltip {
   position: absolute;
-  bottom: calc(100% + 12px);
-  left: 30%;
+  left: 36%;
   -webkit-transform: translateX(-50%);
           transform: translateX(-50%);
   background: #333;
@@ -1603,29 +1602,37 @@ html[data-tenantidnumber=lmswaomirai] .tooltip {
           box-shadow: 0 4px 12px rgba(0, 0, 0, .2);
   pointer-events: none;
 }
-html[data-tenantidnumber=lmswaomirai] .tooltip.show {
-  pointer-events: auto;
-}
 html[data-tenantidnumber=lmswaomirai] .tooltip::after {
   content: "";
   position: absolute;
-  top: 100%;
   left: 50%;
-  -webkit-transform: translateX(-50%);
-          transform: translateX(-50%);
+  -webkit-transform: translateX(-50%) rotate(180deg);
+          transform: translateX(-50%) rotate(180deg);
   border: 6px solid transparent;
+}
+html[data-tenantidnumber=lmswaomirai] .tooltip-top {
+  bottom: calc(100% + 12px);
+}
+html[data-tenantidnumber=lmswaomirai] .tooltip-top::after {
+  top: 100%;
+  border-bottom-color: #333;
+}
+html[data-tenantidnumber=lmswaomirai] .tooltip-bottom {
+  top: calc(100% + 12px);
+}
+html[data-tenantidnumber=lmswaomirai] .tooltip-bottom::after {
+  bottom: 100%;
   border-top-color: #333;
 }
 html[data-tenantidnumber=lmswaomirai] .tooltip.show {
   opacity: 1;
   visibility: visible;
-  bottom: calc(100% + 15px);
+  pointer-events: auto;
 }
 @media (hover: hover) {
   html[data-tenantidnumber=lmswaomirai] .open-info:hover .tooltip {
     opacity: 1;
     visibility: visible;
-    bottom: calc(100% + 15px);
     pointer-events: auto;
   }
 }
