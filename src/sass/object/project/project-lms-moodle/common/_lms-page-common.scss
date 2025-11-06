@@ -285,38 +285,23 @@ body:not(.is-admin-user) #message-user-button {
 }
 
 /* infoアイコンホバーした時のツールチップ表示 */
-.tooltip.badge {
-  padding: 10px 12px 10px 16px;
-}
-
-.tooltip.badge .tooltip-badge-text {
-  // max-width: 170px;
-  // overflow: hidden;
-  // text-overflow: ellipsis;
-  // -webkit-text-overflow: ellipsis;
-  // -o-text-overflow: ellipsis;
-  font-size: $lms-font-size-s;
-}
-
 .tooltip {
   position: absolute;
-  top: calc(100% + 5px);
-  left: 50%;
+  bottom: calc(100% + 12px);
+  left: 30%;
   transform: translateX(-50%);
-  background: $cl-white;
-  color: $cl-black;
-  padding: 10px 16px;
+  background: #333;
+  color: $cl-white;
+  padding: 12px 16px;
   border-radius: 8px;
   font-size: $lms-font-size-m;
   white-space: nowrap;
   opacity: 0;
   visibility: hidden;
-  // transition: all 0.3s ease;
+  transition: all 0.3s ease;
   z-index: 1000;
-  box-shadow: 0 0px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
   pointer-events: none;
-  display: block;
-  text-align: center;
 }
 
 .tooltip.show {
@@ -326,19 +311,17 @@ body:not(.is-admin-user) #message-user-button {
 .tooltip::after {
   content: "";
   position: absolute;
-  bottom: 100%;
+  top: 100%;
   left: 50%;
-  transform: translateX(-50%) rotate(180deg);
-  // transform: translateX(-50%) rotate(180deg);
+  transform: translateX(-50%);
   border: 6px solid transparent;
-  border-top-color: $cl-white;
-  filter: drop-shadow(0px 3px 5px rgba(0, 0, 0, 0.2));
+  border-top-color: #333;
 }
 
 .tooltip.show {
   opacity: 1;
   visibility: visible;
-  // top: calc(100% + 12px);
+  bottom: calc(100% + 15px);
 }
 
 /* デスクトップ: ホバーで表示 */
@@ -346,7 +329,7 @@ body:not(.is-admin-user) #message-user-button {
   .open-info:hover .tooltip {
     opacity: 1;
     visibility: visible;
-    top: calc(100% + 15px);
+    bottom: calc(100% + 15px);
     pointer-events: auto;
   }
 }
