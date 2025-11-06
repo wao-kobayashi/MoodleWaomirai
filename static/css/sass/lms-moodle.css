@@ -1582,26 +1582,37 @@ html[data-tenantidnumber=lmswaomirai] .activityiconcontainer.communication:not(.
   -webkit-filter: invert(100%) brightness(200%);
           filter: invert(100%) brightness(200%);
 }
+html[data-tenantidnumber=lmswaomirai] .tooltip.badge {
+  padding: 10px 12px 10px 16px;
+}
+html[data-tenantidnumber=lmswaomirai] .tooltip.badge .tooltip-badge-text {
+  max-width: 170px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-text-overflow: ellipsis;
+  -o-text-overflow: ellipsis;
+  font-size: 12px;
+}
 html[data-tenantidnumber=lmswaomirai] .tooltip {
   position: absolute;
-  bottom: calc(100% + 12px);
-  left: 30%;
+  top: calc(100% + 10px);
+  left: 50%;
   -webkit-transform: translateX(-50%);
           transform: translateX(-50%);
-  background: #333;
-  color: #ffffff;
-  padding: 12px 16px;
+  background: #ffffff;
+  color: #262626;
+  padding: 10px 16px;
   border-radius: 8px;
   font-size: 14px;
   white-space: nowrap;
   opacity: 0;
   visibility: hidden;
-  -webkit-transition: all 0.3s ease;
-  transition: all 0.3s ease;
   z-index: 1000;
-  -webkit-box-shadow: 0 4px 12px rgba(0, 0, 0, .2);
-          box-shadow: 0 4px 12px rgba(0, 0, 0, .2);
+  -webkit-box-shadow: 0 0px 4px rgba(0, 0, 0, .1);
+          box-shadow: 0 0px 4px rgba(0, 0, 0, .1);
   pointer-events: none;
+  display: block;
+  text-align: center;
 }
 html[data-tenantidnumber=lmswaomirai] .tooltip.show {
   pointer-events: auto;
@@ -1609,23 +1620,25 @@ html[data-tenantidnumber=lmswaomirai] .tooltip.show {
 html[data-tenantidnumber=lmswaomirai] .tooltip::after {
   content: "";
   position: absolute;
-  top: 100%;
+  bottom: 100%;
   left: 50%;
-  -webkit-transform: translateX(-50%);
-          transform: translateX(-50%);
+  -webkit-transform: translateX(-50%) rotate(180deg);
+          transform: translateX(-50%) rotate(180deg);
   border: 6px solid transparent;
-  border-top-color: #333;
+  border-top-color: #ffffff;
+  filter: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg"><filter id="filter"><feGaussianBlur in="SourceAlpha" stdDeviation="5" /><feOffset dx="1" dy="4" result="offsetblur" /><feFlood flood-color="rgba(0,0,0,0.2)" /><feComposite in2="offsetblur" operator="in" /><feMerge><feMergeNode /><feMergeNode in="SourceGraphic" /></feMerge></filter></svg>#filter');
+  -webkit-filter: drop-shadow(0px 3px 5px rgba(0, 0, 0, .2));
+          filter: drop-shadow(0px 3px 5px rgba(0, 0, 0, .2));
 }
 html[data-tenantidnumber=lmswaomirai] .tooltip.show {
   opacity: 1;
   visibility: visible;
-  bottom: calc(100% + 15px);
 }
 @media (hover: hover) {
   html[data-tenantidnumber=lmswaomirai] .open-info:hover .tooltip {
     opacity: 1;
     visibility: visible;
-    bottom: calc(100% + 15px);
+    top: calc(100% + 15px);
     pointer-events: auto;
   }
 }
@@ -7215,6 +7228,18 @@ html[data-tenantidnumber=lmswaomirai] .pagelayout-mydashboard .dashboard-left-bl
   margin: 0 auto 0px;
   place-content: center;
 }
+html[data-tenantidnumber=lmswaomirai] .pagelayout-mydashboard .dashboard-left-block-wrap-badge-content .dashboard-left-block-wrap-badge-block-img-clickable {
+  cursor: pointer;
+}
+html[data-tenantidnumber=lmswaomirai] .pagelayout-mydashboard .dashboard-left-block-wrap-badge-content .dashboard-left-block-wrap-badge-block-img-clickable:hover {
+  background-color: #f9f9f9;
+}
+html[data-tenantidnumber=lmswaomirai] .pagelayout-mydashboard .dashboard-left-block-wrap-badge-content .dashboard-left-block-wrap-badge-block-img-clickable:hover .badge-image {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+}
 html[data-tenantidnumber=lmswaomirai] .pagelayout-mydashboard .dashboard-left-block-wrap-badge-content .dashboard-left-block-wrap-badge-block {
   border-bottom: 1.5px dashed #ccc;
   padding: 20px 0px;
@@ -7231,9 +7256,12 @@ html[data-tenantidnumber=lmswaomirai] .pagelayout-mydashboard .dashboard-left-bl
 html[data-tenantidnumber=lmswaomirai] .pagelayout-mydashboard .dashboard-left-block-wrap-badge-content .dashboard-left-block-wrap-badge-block:nth-child(2n+1) {
   border-right: 1.5px dashed #ccc;
 }
+html[data-tenantidnumber=lmswaomirai] .pagelayout-mydashboard .dashboard-left-block-wrap-badge-content .dashboard-left-block-wrap-badge-block .dashboard-left-block-wrap-badge-block-img-dummy img {
+  width: 74px !important;
+}
 html[data-tenantidnumber=lmswaomirai] .pagelayout-mydashboard .dashboard-left-block-wrap-badge-content .dashboard-left-block-wrap-badge-block .dashboard-left-block-wrap-badge-block-img {
   position: relative;
-  width: 85px;
+  width: 78px;
 }
 @media screen and (max-width: 768px) {
   html[data-tenantidnumber=lmswaomirai] .pagelayout-mydashboard .dashboard-left-block-wrap-badge-content .dashboard-left-block-wrap-badge-block .dashboard-left-block-wrap-badge-block-img {
@@ -7291,7 +7319,7 @@ html[data-tenantidnumber=lmswaomirai] .pagelayout-mydashboard .dashboard-left-bl
   }
 }
 html[data-tenantidnumber=lmswaomirai] .pagelayout-mydashboard .dashboard-left-block-wrap-badge-content .dashboard-left-block-wrap-badge-block .dashboard-left-block-wrap-badge-block-img .badge-image {
-  width: 85px;
+  width: 78px;
 }
 @media screen and (max-width: 768px) {
   html[data-tenantidnumber=lmswaomirai] .pagelayout-mydashboard .dashboard-left-block-wrap-badge-content .dashboard-left-block-wrap-badge-block .dashboard-left-block-wrap-badge-block-img .badge-image {

@@ -141,6 +141,7 @@ if (bodyId === "page-my-index") { // ダッシュボード以外では一切動�
           month: mo,
           title: title.trim(), // タイトル内の前後空白も除去
           dateLabel: `${y}年${mo}月`, // UI表示用ラベル
+          dateLabelShort: `${y}.${mo}`, // UI表示用ラベル
           // NEW表示期間: 当月1日〜翌月5日
           // 注意: Dateコンストラクタの月は0始まりなので mo - 1
           start: new Date(y, mo - 1, 1), // NEW判定の下限
@@ -375,8 +376,8 @@ if (bodyId === "page-my-index") { // ダッシュボード以外では一切動�
 
         // カードDOM生成（data-badge-index で後から特定できるようにする）
         const $card = $(`
-          <div class="dashboard-left-block-wrap-badge-block" data-badge-index="${b.index}">
-            <div class="dashboard-left-block-wrap-badge-block-img dashboard-left-block-wrap-badge-block-img-clickable">
+          <div class="dashboard-left-block-wrap-badge-block dashboard-left-block-wrap-badge-block-img-clickable" data-badge-index="${b.index}">
+            <div class="dashboard-left-block-wrap-badge-block-img">
               ${
                 showNew
                   ? `<div class="newicon">
@@ -391,10 +392,16 @@ if (bodyId === "page-my-index") { // ダッシュボード以外では一切動�
                     </div>`
                   : ""
               }
-              <img src="${imgSrc}" alt="${b.raw}" class="badge-image">
+              <div class="open-info">
+                <img src="${imgSrc}" alt="${b.raw}" class="badge-image ">
+                <div class="tooltip badge"><div class="tooltip-badge-text">${b.dateLabelShort} - ${b.title}</div></div>
+              </div>
             </div>
           </div>
         `).on("click", () => {
+          // ツールチップを強制的に閉じる
+          $('.open-info').removeClass('active');
+          $('.tooltip').removeClass('show');
           // クリックで詳細モーダルを開く（NEWが付いていれば既読化される）
           Modal.showDetail(b, showNew); // ここでhadNewを渡して既読化まで完結
         });
@@ -406,7 +413,7 @@ if (bodyId === "page-my-index") { // ダッシュボード以外では一切動�
       for (let i = items.length; i < max; i++) {
         $out.append(`
           <div class="dashboard-left-block-wrap-badge-block">
-            <div class="dashboard-left-block-wrap-badge-block-img">
+            <div class="dashboard-left-block-wrap-badge-block-img dashboard-left-block-wrap-badge-block-img-dummy">
               <div><img src="${CONFIG.ImgbadgeDummy}" class="badge-image" alt=""></div>
             </div>
           </div>

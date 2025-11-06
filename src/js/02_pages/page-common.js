@@ -87,14 +87,22 @@ $('.enrol-section-basesubject-year-lesson-tab-child').click(function() {
 $(function() {
   // ツールチップの開閉
   $('.open-info').on('click', function(e) {
-      e.stopPropagation();
-      $('.open-info').not(this).removeClass('active').find('.tooltip').removeClass('show');
-      $(this).toggleClass('active').find('.tooltip').toggleClass('show');
+      const $clicked = $(this);
+      
+      // 他のツールチップを閉じる
+      $('.open-info').not($clicked).removeClass('active').find('.tooltip').removeClass('show');
+      
+      // クリックしたものをトグル
+      $clicked.toggleClass('active').find('.tooltip').toggleClass('show');
   });
   
   // 外側クリックで閉じる
-  $(document).on('click', function() {
-      $('.open-info').removeClass('active');
-      $('.tooltip').removeClass('show');
+  $(document).on('click', function(e) {
+      // クリックされた要素が .open-info または .tooltip の中でない場合のみ閉じる
+      if (!$(e.target).closest('.open-info').length && 
+          !$(e.target).closest('.tooltip').length) {
+          $('.open-info').removeClass('active');
+          $('.tooltip').removeClass('show');
+      }
   });
 });
