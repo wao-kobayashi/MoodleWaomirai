@@ -1586,16 +1586,11 @@ html[data-tenantidnumber=stg] .tooltip.badge {
   padding: 10px 12px 10px 16px;
 }
 html[data-tenantidnumber=stg] .tooltip.badge .tooltip-badge-text {
-  max-width: 170px;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  -webkit-text-overflow: ellipsis;
-  -o-text-overflow: ellipsis;
   font-size: 12px;
 }
 html[data-tenantidnumber=stg] .tooltip {
   position: absolute;
-  top: calc(100% + 10px);
+  top: calc(100% + 5px);
   left: 50%;
   -webkit-transform: translateX(-50%);
           transform: translateX(-50%);

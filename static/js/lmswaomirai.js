@@ -1064,7 +1064,6 @@ if (bodyId === "page-my-index") { // ダッシュボード以外では一切動�
           month: mo,
           title: title.trim(), // タイトル内の前後空白も除去
           dateLabel: `${y}年${mo}月`, // UI表示用ラベル
-          dateLabelShort: `${y}.${mo}`, // UI表示用ラベル
           // NEW表示期間: 当月1日〜翌月5日
           // 注意: Dateコンストラクタの月は0始まりなので mo - 1
           start: new Date(y, mo - 1, 1), // NEW判定の下限
@@ -1315,10 +1314,8 @@ if (bodyId === "page-my-index") { // ダッシュボード以外では一切動�
                     </div>`
                   : ""
               }
-              <div class="open-info">
+             
                 <img src="${imgSrc}" alt="${b.raw}" class="badge-image ">
-                <div class="tooltip badge"><div class="tooltip-badge-text">${b.dateLabelShort} - ${b.title}</div></div>
-              </div>
             </div>
           </div>
         `).on("click", () => {
@@ -1337,8 +1334,10 @@ if (bodyId === "page-my-index") { // ダッシュボード以外では一切動�
         $out.append(`
           <div class="dashboard-left-block-wrap-badge-block">
             <div class="dashboard-left-block-wrap-badge-block-img dashboard-left-block-wrap-badge-block-img-dummy">
-              <div><img src="${CONFIG.ImgbadgeDummy}" class="badge-image" alt=""></div>
-            </div>
+               <div class="open-info">
+                <div><img src="${CONFIG.ImgbadgeDummy}" class="badge-image" alt=""></div>
+                 </div>
+               </div>
           </div>
         `); // 件数不足でも高さを維持
       }
