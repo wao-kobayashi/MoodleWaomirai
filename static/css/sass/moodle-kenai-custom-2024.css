@@ -1,0 +1,1265 @@
+@charset "UTF-8";
+/* 目次 */
+/* アカウント登録画面 */
+/* フッター */
+/* Kenaiトップページ */
+/* トップページ */
+/* コース説明ページ */
+/* 支払い時前モーダル（ポップアップ） */
+/* Kenai科目一覧 */
+/* コース説明支払いボタン */
+/* プロパティセット */
+/* 科目カラーセット */
+/* 受講科目を一番上に */
+.page-user-editadvanced form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column; /* デフォルトの縦方向に並べる */
+}
+.page-user-editadvanced form #id_category_10 {
+  -webkit-box-ordinal-group: 0;
+      -ms-flex-order: -1;
+          order: -1;
+  margin: 30px 0 0;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+/* アカウント登録画面start */
+#fitem_id_country,
+#fitem_id_city {
+  display: none;
+}
+
+#id_category_6 > .align-items-center {
+  display: none !important;
+}
+
+#id_moodle_additional_names,
+#id_moodle_interests,
+#id_moodle_optional {
+  display: none !important;
+}
+
+.watanabe-box-welcome {
+  -webkit-box-shadow: 0px 0px 0px 5px #065c40;
+          box-shadow: 0px 0px 0px 5px #065c40;
+  width: 40% !important;
+}
+
+@media screen and (max-width: 700px) {
+  .login-container {
+    width: 100% !important;
+  }
+  .watanabe-box-welcome {
+    width: 80% !important;
+    padding: 1rem !important;
+  }
+}
+#id_searchbyusername {
+  display: none;
+}
+
+/* アカウント登録画面end */
+/* フッターstart */
+.kenai-section-title {
+  text-align: center !important;
+}
+
+.footer-content-popover {
+  display: block !important;
+}
+
+.footer-section:has(a[href="https://moodle.com/workplace/"]) {
+  display: none;
+}
+
+#page-footer {
+  width: 50%;
+  padding: 0 10%;
+}
+
+#forced-footer {
+  background-color: #005c3f !important;
+  padding: 1%;
+}
+
+a[href="https://moodle.com/help/?utm_source=CTA-banner&utm_medium=platform&utm_campaign=name~Moodle4+cat~lms+mp~no"] {
+  display: none;
+}
+
+@media screen and (max-width: 499px) {
+  #page-footer {
+    width: 95%;
+    margin: 0 auto;
+    padding: 0 2%;
+  }
+  #forced-footer {
+    display: none;
+  }
+}
+/* フッターend */
+/* Kenaiトップページstart */
+.kenai-section-header {
+  -webkit-box-pack: center !important;
+      -ms-flex-pack: center !important;
+          justify-content: center !important;
+}
+
+.card-label {
+  background-color: #000000;
+  opacity: 0.7;
+}
+
+#explore-by-industry-content div {
+  max-width: unset;
+  -webkit-box-flex: unset;
+      -ms-flex: unset;
+          flex: unset;
+  width: 80%;
+  margin: 0 auto;
+}
+
+#module-1042 .activity-altcontent {
+  padding-right: 0;
+}
+
+.explore-by-industry:has(.kenai-section-header) {
+  background: powderblue;
+  border-radius: 10px;
+  -webkit-box-shadow: 0 0 10px 10px powderblue;
+          box-shadow: 0 0 10px 10px powderblue;
+  padding: 50px 0;
+  margin-bottom: 80px !important;
+}
+
+.kenai-section-title {
+  font-size: 30px;
+}
+
+@media screen and (max-width: 499px) {
+  #explore-by-industry-content div {
+    width: unset;
+  }
+}
+#frontpage-slider {
+  -webkit-box-shadow: none !important;
+          box-shadow: none !important;
+  border: none !important;
+}
+
+#page-site-index #frontpage-slider .carousel-item img {
+  -o-object-fit: contain !important;
+     object-fit: contain !important;
+  background-color: #f1f4f5 !important;
+}
+
+@media screen and (max-width: 428px) {
+  #page-site-index #frontpage-slider .carousel-item img {
+    height: unset !important;
+  }
+}
+/* Kenaiトップページend */
+/* トップページstart */
+.mainCourse img {
+  display: block;
+  margin: 0 auto;
+}
+
+.mainCourse {
+  width: 100%;
+  background-color: #ffffff;
+  padding: 50px;
+  border-radius: 20px;
+  -webkit-box-shadow: 0px 0px 30px 0px lightgray;
+          box-shadow: 0px 0px 30px 0px lightgray;
+}
+
+.titleBorder {
+  width: 70%;
+  margin: 20px auto;
+  border-bottom: 1px solid transparent;
+  -o-border-image: linear-gradient(to right, red, orange, gold, green, blue, indigo, violet) 1;
+     border-image: -webkit-gradient(linear, left top, right top, from(red), color-stop(orange), color-stop(gold), color-stop(green), color-stop(blue), color-stop(indigo), to(violet)) 1;
+     border-image: linear-gradient(to right, red, orange, gold, green, blue, indigo, violet) 1;
+  opacity: 0.7;
+  margin-bottom: 24px !important;
+}
+
+.scrollIcon {
+  display: none;
+}
+
+.explanationTab {
+  width: 20%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: #ffffff;
+  height: 50px;
+  position: relative;
+  bottom: -20px;
+  cursor: pointer;
+}
+
+.explanationTab:first-child {
+  border-radius: 10px 0 0 0;
+}
+
+.explanationTab:last-child {
+  border-radius: 0 10px 0 0;
+}
+
+.explanationTab.active {
+  height: 70px;
+  position: relative;
+  bottom: 0;
+}
+
+.topExplanation {
+  width: 100%;
+  border: 3px solid;
+  border-radius: 0 0 10px 10px;
+  padding: 20px;
+  margin-bottom: 48px;
+  display: none;
+}
+
+.topExplanation.active {
+  display: block;
+}
+
+.topExplanation .applyBtn {
+  background-color: #005c3f;
+  font-size: 24px;
+  font-size: 1.5rem;
+}
+
+.topExplanation .applyBtn:hover {
+  background-color: #00a26f;
+}
+
+.sampleVideo {
+  width: 50%;
+}
+
+.topSampleIframe {
+  height: 170px;
+  border: unset;
+  margin: 0 auto;
+  display: block;
+}
+
+.topSummary {
+  width: 45%;
+  margin: 0 2.5%;
+}
+
+.bottomBorder {
+  margin: 0 auto;
+  border-bottom: 2px solid;
+  margin-bottom: 48px;
+  width: 70%;
+}
+
+.topPoints {
+  width: 100%;
+  border: 3px solid;
+  border-radius: 10px;
+  padding: 20px;
+}
+
+.hexagon-img {
+  width: 25%;
+  display: block;
+  margin: 0 auto;
+}
+
+.textSideBorder {
+  position: relative;
+  padding: 0 65px;
+  text-align: center;
+}
+
+.textSideBorder:before {
+  position: absolute;
+  top: calc(50% - 1px);
+  left: 0;
+  width: 100%;
+  height: 2px;
+  content: "";
+  background: #000;
+}
+
+.textSideBorder span {
+  position: relative;
+  padding: 0 1em;
+  background: #f7f8f8;
+}
+
+.topExplanation .textSideBorder span {
+  background-color: #ffffff;
+  margin-bottom: 24px;
+}
+
+.english,
+.programming {
+  width: 40%;
+  margin: 0 auto;
+}
+
+a:has(.applyBtn) {
+  text-decoration: none;
+}
+
+.applyBtn {
+  background-color: #000000;
+  padding: 20px;
+  color: #ffffff;
+  width: 80%;
+  margin: 20px auto;
+  display: block;
+  border-radius: 50px;
+  cursor: pointer;
+  margin-top: 48px;
+}
+
+.applyBtn:hover {
+  background-color: #464646;
+}
+
+.applyBtn.closeSubject {
+  background-color: lightgray !important;
+}
+
+.applyBtn.applyBtn.closeSubject:hover {
+  background-color: gray !important;
+}
+
+.fa-circle-chevron-right {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  font-size: 30px;
+}
+
+.englishScheduleSP {
+  display: none;
+}
+
+.englishSchedule,
+.programmingSchedule {
+  width: 95%;
+  height: 95%;
+  background-color: #ffffff;
+  z-index: 300;
+  -webkit-box-shadow: 0 0 10px 1px lightgray;
+          box-shadow: 0 0 10px 1px lightgray;
+  border-radius: 10px;
+  padding: 30px;
+}
+
+.englishSchedule {
+  position: fixed;
+  left: 50%;
+  bottom: -100%;
+  -webkit-transform: translate(-50%, -5%);
+          transform: translate(-50%, -5%);
+}
+
+.englishSchedule.open {
+  -webkit-animation: scheduleOpener 1s forwards;
+          animation: scheduleOpener 1s forwards;
+}
+
+.englishSchedule.close {
+  -webkit-animation: scheduleCloser 1s forwards;
+          animation: scheduleCloser 1s forwards;
+}
+
+@-webkit-keyframes scheduleOpener {
+  0% {
+    bottom: -100%;
+  }
+  100% {
+    bottom: 0;
+  }
+}
+
+@keyframes scheduleOpener {
+  0% {
+    bottom: -100%;
+  }
+  100% {
+    bottom: 0;
+  }
+}
+@-webkit-keyframes scheduleCloser {
+  0% {
+    bottom: 0;
+  }
+  100% {
+    bottom: -100%;
+  }
+}
+@keyframes scheduleCloser {
+  0% {
+    bottom: 0;
+  }
+  100% {
+    bottom: -100%;
+  }
+}
+.englishScheduleBtn,
+.programmingScheduleBtn {
+  width: 80%;
+  margin: 0 auto;
+  display: block !important;
+  padding: 20px !important;
+  border-radius: 50px !important;
+}
+
+.englishSchedule p {
+  margin-bottom: 0;
+}
+
+.englishScheduleWeekday,
+.englishScheduleWeekend {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 45%;
+          flex: 0 0 45%;
+}
+
+.englishScheduleBox {
+  background-color: #aa68aa;
+  color: #ffffff;
+  padding: 15px 0;
+  border-radius: 20px;
+}
+
+.vertical {
+  -webkit-writing-mode: vertical-rl;
+      -ms-writing-mode: tb-rl;
+          writing-mode: vertical-rl;
+  text-orientation: upright;
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 10%;
+          flex: 0 0 10%;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.scheduleSaturday {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.threePoints {
+  margin-top: 48px;
+  margin-bottom: 24px;
+}
+
+.point {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 31%;
+          flex: 1 1 31%;
+  margin-right: 1%;
+  margin-left: 1%;
+  padding: 24px 10px;
+  border-radius: 5px;
+  background-color: #ffffff;
+  text-align: left;
+}
+
+.pointBox {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 30%;
+          flex: 1 1 30%;
+  padding: 6px 8px;
+  color: #ffffff;
+  width: 100%;
+  margin-right: 10%;
+  aspect-ratio: 1/1;
+}
+
+.pointTitle {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 60%;
+          flex: 1 1 60%;
+}
+
+.threePointsImg {
+  width: 100%;
+  margin: 12px auto !important;
+}
+
+.showMore {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  cursor: pointer;
+  background-color: #ffffff;
+  -webkit-box-shadow: 0 0 25px 60px #ffffff;
+          box-shadow: 0 0 25px 60px #ffffff;
+  text-wrap: nowrap;
+}
+
+.detail.open {
+  height: unset;
+}
+
+.pccal {
+  display: block;
+}
+
+.spcal {
+  display: none;
+}
+
+#mySelect {
+  padding: 10px 20px;
+  background-color: #f1f4f5;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+.mainCoursePC {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.mainCourseSP {
+  display: none;
+}
+
+@media screen and (max-width: 500px) {
+  .flex-fill:has(.topExplanations) {
+    width: 100%;
+  }
+  .flex {
+    display: block;
+  }
+  .english,
+  .programming {
+    width: 90%;
+  }
+  .titleBorder {
+    width: 100%;
+  }
+  .applyBtn {
+    width: 100%;
+    padding: 10px;
+  }
+  .detail {
+    display: none;
+  }
+  .contentwithoutlink {
+    padding-right: 0 !important;
+  }
+  #page-site-index .d-block {
+    width: unset !important;
+  }
+  #page-site-index #frontpage-slider .carousel-item img {
+    width: 100% !important;
+    height: -webkit-fit-content;
+    height: -moz-fit-content;
+    height: fit-content;
+  }
+  .pccal {
+    display: none;
+  }
+  .spcal {
+    display: block;
+  }
+  #page-site-index #region-main .btn-success,
+  #page-site-index #region-main .btn-primary {
+    width: 100%;
+    margin: 20px auto;
+  }
+  #page-site-index #region-main .btn-success {
+    padding: 17px 25px;
+    text-transform: uppercase;
+    font-size: 14px;
+  }
+  .openSchedule {
+    display: none;
+  }
+  #mySelect {
+    width: 100%;
+  }
+  .mainCourse {
+    -webkit-box-shadow: unset;
+            box-shadow: unset;
+    border-radius: unset;
+    padding: 10px !important;
+  }
+  .mainCoursePC {
+    display: none;
+  }
+  .mainCourseSP {
+    display: block;
+  }
+  .scrollIcon {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    width: 100%;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    position: relative;
+    font-size: 25px;
+  }
+  .scrollIcon .fa-angles-left,
+  .scrollIcon .fa-angles-right {
+    position: absolute;
+  }
+  .scrollIcon .fa-angles-left {
+    left: 30px;
+    -webkit-animation: scrollIconLeft 1.3s infinite;
+            animation: scrollIconLeft 1.3s infinite;
+  }
+  .scrollIcon .fa-angles-right {
+    right: 30px;
+    -webkit-animation: scrollIconRight 1.3s infinite;
+            animation: scrollIconRight 1.3s infinite;
+  }
+  @-webkit-keyframes scrollIconRight {
+    0% {
+      right: 30px;
+    }
+    50% {
+      right: 10px;
+    }
+    100% {
+      right: 30px;
+    }
+  }
+  @keyframes scrollIconRight {
+    0% {
+      right: 30px;
+    }
+    50% {
+      right: 10px;
+    }
+    100% {
+      right: 30px;
+    }
+  }
+  @-webkit-keyframes scrollIconLeft {
+    0% {
+      left: 30px;
+    }
+    50% {
+      left: 10px;
+    }
+    100% {
+      left: 30px;
+    }
+  }
+  @keyframes scrollIconLeft {
+    0% {
+      left: 30px;
+    }
+    50% {
+      left: 10px;
+    }
+    100% {
+      left: 30px;
+    }
+  }
+  .topExplanations {
+    position: relative;
+  }
+  .topExplanation {
+    width: 85%;
+    position: absolute;
+    left: 50%;
+    -webkit-transform: translate(-50%, 0%);
+            transform: translate(-50%, 0%);
+    margin-bottom: 150px;
+  }
+  .applyBtn {
+    margin: 24px auto;
+  }
+  .topPoints {
+    margin-top: 24px;
+  }
+  .topExplanation {
+    display: block;
+    position: unset !important;
+    -webkit-transform: unset !important;
+            transform: unset !important;
+    border-radius: 15px;
+    margin-right: 24px;
+    margin-bottom: 48px;
+  }
+  .topExplanation .sampleImage,
+  .topExplanation video {
+    width: 100%;
+  }
+  .topSummary {
+    width: 100%;
+    margin: unset !important;
+  }
+  .sampleVideo {
+    width: 100%;
+    margin-top: 24px;
+  }
+  .features {
+    background-color: #f5f5f5;
+    padding: 5px;
+    margin: 48px auto;
+  }
+  .point {
+    width: 100%;
+  }
+  .applyBtn {
+    font-size: 1rem !important;
+  }
+  .fa-circle-chevron-right {
+    font-size: 1rem;
+  }
+  /* 横スクロール */
+  .horizontal_scroll {
+    overflow-x: scroll;
+    -webkit-overflow-scrolling: touch;
+  }
+}
+/* トップページend */
+/* コース説明ページstart */
+.courseEnrol {
+  padding: 50px 5%;
+}
+
+.courseEnrol:nth-child(odd) {
+  background-color: #ffffff;
+}
+
+.courseEnrol:nth-child(even) {
+  background-color: #f7f8f8;
+}
+
+.courseTitleBorder {
+  border-bottom: 2px solid;
+  margin-bottom: 24px;
+}
+
+.Hiragana,
+.Katamarhythm,
+.HiraganaQuiz,
+.phraseChoice,
+.ChallengeOutput,
+.narikiri {
+  width: 50%;
+}
+
+.Hiragana img,
+.Katamarhythm img,
+.HiraganaQuiz img,
+.phraseChoice img,
+.ChallengeOutput img,
+.narikiri img {
+  width: 100%;
+}
+
+.englishCourseSchedule p {
+  margin-bottom: 0;
+}
+
+.englishCourseSchedulePC {
+  display: block;
+}
+
+.englishCourseScheduleSP {
+  display: none;
+}
+
+.courseEnrol .left,
+.courseEnrol .right {
+  width: 50%;
+}
+
+.spec {
+  padding: 25px;
+}
+
+.spec th,
+.spec td {
+  padding: 10px;
+}
+
+.programmingClosingVideo {
+  width: 100%;
+}
+
+.courseEnrolBtn {
+  width: 100%;
+  text-align: center;
+}
+
+.courseEnrolBtn button {
+  width: 100%;
+  padding: 20px 0;
+  font-weight: bold;
+}
+
+.paymentPopup {
+  width: 100vw;
+  height: 100vh;
+  background-color: lightgray;
+  color: white;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1053;
+}
+
+.paymentPopup.hidden {
+  display: none;
+}
+
+.paymentPopup.show {
+  display: block;
+}
+
+.paymentMove {
+  margin: 0 auto;
+  width: 30%;
+  padding: 20px;
+}
+
+@media screen and (max-width: 500px) {
+  .Hiragana,
+  .Katamarhythm,
+  .HiraganaQuiz,
+  .phraseChoice,
+  .ChallengeOutput,
+  .narikiri {
+    width: 100%;
+  }
+  .courseEnrol .flex {
+    display: block;
+  }
+  .englishCourseSchedulePC {
+    display: none;
+  }
+  .englishCourseScheduleSP {
+    display: block;
+  }
+  .courseEnrol .left,
+  .courseEnrol .right {
+    width: 100%;
+  }
+  .courseEnrolBtn {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+  }
+  .courseEnrolBtn button {
+    padding: 10px 0;
+  }
+}
+/* コース説明ページend */
+/* 支払い時前モーダル（ポップアップ）start */
+@media screen and (min-width: 500px) {
+  .selfModal {
+    -webkit-box-shadow: 0 0 10px 1px black;
+            box-shadow: 0 0 10px 1px black;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    background-color: #ffffff;
+    padding: 10%;
+    z-index: 1053;
+    width: 100%;
+    height: 100%;
+  }
+  .selfModal.hidden {
+    display: none !important;
+  }
+  .selfModal.show {
+    display: -webkit-box !important;
+    display: -ms-flexbox !important;
+    display: flex !important;
+  }
+  .selfModal img {
+    display: block;
+    margin: 0 auto;
+    width: 60%;
+  }
+  .modal.hiddenforce {
+    display: none !important;
+  }
+  .selfModal div {
+    width: 50%;
+  }
+  .selfProceed {
+    width: 100% !important;
+  }
+}
+@media screen and (max-width: 499px) {
+  .selfModal {
+    display: none !important;
+  }
+}
+/* 支払い時前モーダル（ポップアップ）end */
+/* Kenai科目一覧start */
+#featured-slider {
+  margin: 3% auto !important;
+  background-color: #f7f8f8 !important;
+  padding: 2% 5%;
+  border-radius: 20px 20px;
+}
+
+#featured-slider > .carousel-inner > .carousel-item > .featured-item > .card {
+  margin-bottom: 0 !important;
+  margin: 3% auto !important;
+}
+
+#featured-slider > .carousel-control-prev {
+  margin-left: 0 !important;
+  visibility: visible !important;
+}
+
+#featured-slider > .carousel-control-next {
+  margin-right: 0 !important;
+}
+
+/* Kenai科目一覧end */
+/* コース説明支払いボタンstart */
+@media screen and (min-width: 1150px) {
+  .enrol_fee_payment_region {
+    position: fixed;
+    right: 1rem;
+    top: 5rem;
+    padding: 5rem 1rem;
+    margin: 2em auto;
+    background: #f7f8f8;
+    font-weight: bold;
+    line-height: 2rem;
+    width: 18%;
+    height: -webkit-fit-content;
+    height: -moz-fit-content;
+    height: fit-content;
+  }
+  .enrol_fee_payment_region::before {
+    position: absolute;
+    content: "";
+    width: 95%;
+    height: 10px;
+    top: 0.5em;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: 0 auto;
+    border-top: dotted 10px #fff;
+  }
+  .enrol_fee_payment_region > .btn-secondary {
+    border: 1px solid;
+    padding: 1rem;
+    display: inline-block;
+    font-size: 1rem;
+    background-color: #357a32;
+    color: #ffffff;
+    width: 100%;
+    border-radius: 10px;
+  }
+}
+@media screen and (max-width: 1149px) and (min-width: 550px) {
+  .enrol_fee_payment_region > p {
+    display: none;
+  }
+  .enrol_fee_payment_region > .btn-secondary {
+    display: block !important;
+    padding: 1rem;
+    font-size: 1.4rem;
+    font-weight: bold;
+    background-color: #357a32;
+    color: #ffffff;
+    width: 100%;
+    border-radius: 10px;
+  }
+  .enrol_fee_payment_region {
+    position: fixed;
+    top: 5rem;
+    right: 1rem;
+    background-color: unset;
+    width: auto;
+  }
+  .enrol_fee_payment_region > .mdl-align > p {
+    display: none;
+  }
+  .enrol_fee_payment_region > .mdl-align > p:last-child {
+    display: block !important;
+  }
+  .enrol_fee_payment_region > .mdl-align > p > a {
+    width: -webkit-fit-content !important;
+    width: -moz-fit-content !important;
+    width: fit-content !important;
+  }
+}
+@media screen and (max-width: 549px) {
+  .enrol_fee_payment_region > .mdl-align > p {
+    display: none !important;
+  }
+  .enrol_fee_payment_region > .mdl-align > p:last-child {
+    display: block !important;
+  }
+  .enrol_fee_payment_region > p {
+    display: none !important;
+  }
+  .enrol_fee_payment_region > p:last-child {
+    display: block !important;
+  }
+  .enrol_fee_payment_region > .btn-secondary {
+    display: block !important;
+    margin-right: 1rem;
+    padding: 1rem;
+    font-weight: bold;
+    background-color: #357a32;
+    color: #ffffff;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+  }
+  .enrol_fee_payment_region {
+    position: fixed;
+    top: 5rem;
+    right: 1rem;
+    background-color: unset;
+    width: 15rem;
+  }
+}
+/* コース説明支払いボタンend */
+/* プロパティセットstart */
+.bold {
+  font-weight: 900;
+}
+
+.textMini {
+  font-size: 10px;
+}
+
+.textS {
+  font-size: 20px;
+}
+
+.textM {
+  font-size: 25px;
+}
+
+.textL {
+  font-size: 35px;
+}
+
+.inlineBlock {
+  display: inline-block;
+}
+
+.textCenter {
+  text-align: center;
+}
+
+.textLeft {
+  text-align: left;
+}
+
+.flex {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.relative {
+  position: relative;
+}
+
+.textUnder {
+  border-bottom: 1px solid;
+}
+
+.alignCenter {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.justifyCenter {
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.m0a {
+  margin: 0 auto;
+}
+
+p {
+  margin-bottom: 0 !important;
+}
+
+.sp {
+  display: none;
+}
+
+.pc {
+  display: block;
+}
+
+@media screen and (max-width: 500px) {
+  .sp {
+    display: block;
+  }
+  .pc {
+    display: none;
+  }
+}
+/* プロパティセットend */
+/* 科目カラーセットstart */
+.miraijukuText {
+  color: #005c3f;
+}
+
+.scienceText {
+  color: #b6d43e;
+}
+
+.economyText {
+  color: #28afe7;
+}
+
+.philosophyText {
+  color: #fcaf17;
+}
+
+.philosophyBack {
+  background-color: #fcaf17;
+}
+
+.scienceBack {
+  background-color: #b6d43e;
+}
+
+.economyBack {
+  background-color: #28afe7;
+}
+
+.englishBack {
+  background-color: #aa68a9;
+}
+
+.programmingBack {
+  background-color: #ee242c;
+}
+
+.scienceBorder {
+  border-color: #b6d43e;
+}
+
+.economyBorder {
+  border-color: #28afe7;
+}
+
+.philosophyBorder {
+  border-color: #fcaf17;
+}
+
+.englishBorder {
+  border-color: #aa68a9;
+}
+
+.programmingBorder {
+  border-color: #ee242c;
+}
+
+/* 科目カラーセットend */
+/* 一時イベント用 start*/
+.recycleBorder {
+  border-color: #3cc93a;
+}
+
+.threethema img {
+  width: 100%;
+  display: block;
+  margin: 24px auto;
+}
+
+.recyclePhiImg {
+  width: 50% !important;
+}
+
+.threethema .left,
+.threethema .right {
+  width: 49%;
+  margin: 0 auto;
+}
+
+.threethema .subjectTitle {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  display: block;
+}
+
+@media screen and (max-width: 499px) {
+  .threethema .left,
+  .threethema .right {
+    width: unset;
+  }
+  .recyclePhiImg {
+    width: 100% !important;
+  }
+  .ecoTextRecycle {
+    width: 95% !important;
+  }
+}
+/* 一時イベント用end*/
+/* Remove the left-side Course Index 
+.drawer-toggles .drawer-left-toggle .btn {
+display: none;
+}
+*/
