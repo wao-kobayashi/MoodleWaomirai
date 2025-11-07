@@ -1335,9 +1335,6 @@ if (bodyId === "page-my-index") { // ダッシュボード以外では一切動�
             </div>
           </div>
         `).on("click", () => {
-          // ツールチップを強制的に閉じる
-          $('.open-info').removeClass('active');
-          $('.tooltip').removeClass('show');
           // クリックで詳細モーダルを開く（NEWが付いていれば既読化される）
           Modal.showDetail(b, showNew); // ここでhadNewを渡して既読化まで完結
         });
