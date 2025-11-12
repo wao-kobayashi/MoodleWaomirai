@@ -1,6 +1,9 @@
-.pagelayout-mydashboard {
-  //未来塾、4月6日に開校
+//バッジは非表示
+.pagelayout-mydashboard .block_badges {
+  display: none !important;
+}
 
+.pagelayout-mydashboard {
   .dashboard-left-block-wrap-badge {
     margin: 0 auto 40px;
   }

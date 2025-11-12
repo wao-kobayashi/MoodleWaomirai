@@ -7217,6 +7217,9 @@ html[data-tenantidnumber=stg] #page-my-index .p-abroad-user-jst-label {
     padding: 6px 14px;
   }
 }
+html[data-tenantidnumber=stg] .pagelayout-mydashboard .block_badges {
+  display: none !important;
+}
 html[data-tenantidnumber=stg] .pagelayout-mydashboard .dashboard-left-block-wrap-badge {
   margin: 0 auto 40px;
 }
