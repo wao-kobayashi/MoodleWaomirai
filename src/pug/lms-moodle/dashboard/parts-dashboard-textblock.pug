@@ -2,6 +2,7 @@
 //trueの場合は表示、falseの場合は非表示
 - var infoOpeningVisible = false
 
+  
 
 //ダッシュボードにコピペするブロック
 .dashboard-textblock
@@ -16,6 +17,7 @@
       ///////////////////////
       // 授業のメモシート
       ///////////////////////
+
       .dashboard-left-block-worksheet 
         .dashboard-left-block-worksheet-title
           .dashboard-left-block-worksheet-title-text
@@ -35,6 +37,32 @@
               |download
             .subject-page-added-note-content-download-text
                 |ダウンロードする  
+      ///////////////////////
+      // バッジ
+      ///////////////////////
+      .display-badge(style='display:none;')
+        .dashboard-left-block-title
+          .dashboard-left-block-title-text
+            |獲得したバッジ
+          .dashboard-left-block-title-icon.info-badge.open-info
+            i.icon.fa.fa-solid.fa-circle-exclamation(aria-hidden="true")
+              .tooltip.tooltip-top
+                |当月の課題(問い)を全て
+                br
+                |提出するともらえるバッジです。
+            //- i.icon.fa.fa-solid.fa-circle-exclamation(aria-hidden="true")
+            //-   .tooltip.tooltip-top 
+            //-     |当月の問いを全て提出すると
+            //-     br
+            //-     |もらえるバッジです。
+        .dashboard-left-block-wrap.dashboard-left-block-wrap-badge
+          .dashboard-left-block-wrap-badge-content
+          .dashboard-left-block-wrap-badge-readmore(style='display:none;')
+            a.triger
+             span.material-symbols.material-symbols-outlined
+               |keyboard_arrow_down
+             span.text
+               |全て表示する
       ///////////////////////
       // LINE連携
       ///////////////////////

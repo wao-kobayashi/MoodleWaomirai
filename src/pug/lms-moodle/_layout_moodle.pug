@@ -35,19 +35,17 @@ html(dir="ltr", lang="ja", xml:lang="ja", data-tenantid=(env == 'stg' ? '2' : '3
     // FontAwesome end
     // material icon
     link(href='https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined' rel='stylesheet')
-
+    link(href='https://fonts.googleapis.com/icon?family=Material+Icons' rel='stylesheet')
     meta(property="og:image", content="https://go.waomirai.com/image/oggreen")
     // Font Awesome 6 Free
     link(href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet")
-    // トップページJS
-    script(src="https://go.waomirai.com/moodle/top3_1.js")
+
     // Vimeo埋め込みで必要？
     script(src="https://player.vimeo.com/api/player.js")
+
     //
       Vimeo end - ->
-      
-      <!-- SignUp
-    script(src="https://go.waomirai.com/moodle/signup.js")
+
     // SiguUp end
     meta(name="robots", content="noindex")
     meta(name="viewport", content="width=device-width, initial-scale=1.0")
@@ -59,6 +57,7 @@ html(dir="ltr", lang="ja", xml:lang="ja", data-tenantid=(env == 'stg' ? '2' : '3
           height: auto !important;
           overflow: scroll !important;
         }
+    script(src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.3.2/dist/confetti.browser.min.js")
   case template 
    when 'enrol'
     body#page-enrol-index(class=existingClasses + ' ' + allID)

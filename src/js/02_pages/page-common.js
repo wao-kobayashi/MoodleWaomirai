@@ -83,3 +83,26 @@ $('.enrol-section-basesubject-year-lesson-tab-child').click(function() {
   $('.enrol-section-basesubject-year-lesson-content-child').hide();
   $('.content-level' + level).css('display', 'grid');
 });
+
+$(function() {
+  // ツールチップの開閉
+  $('.open-info').on('click', function(e) {
+      const $clicked = $(this);
+      
+      // 他のツールチップを閉じる
+      $('.open-info').not($clicked).removeClass('active').find('.tooltip').removeClass('show');
+      
+      // クリックしたものをトグル
+      $clicked.toggleClass('active').find('.tooltip').toggleClass('show');
+  });
+  
+  // 外側クリックで閉じる
+  $(document).on('click', function(e) {
+      // クリックされた要素が .open-info または .tooltip の中でない場合のみ閉じる
+      if (!$(e.target).closest('.open-info').length && 
+          !$(e.target).closest('.tooltip').length) {
+          $('.open-info').removeClass('active');
+          $('.tooltip').removeClass('show');
+      }
+  });
+});

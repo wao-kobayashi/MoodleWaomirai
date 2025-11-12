@@ -543,5 +543,5 @@ if (bodyId === "page-my-index") {
       // アラートバナーを表示
       $("#alert-change-course").show();
   }
-}
 
+}

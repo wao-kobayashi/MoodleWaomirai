@@ -1,0 +1,373 @@
+.pagelayout-mydashboard {
+  //未来塾、4月6日に開校
+
+  .dashboard-left-block-wrap-badge {
+    margin: 0 auto 40px;
+  }
+  .dashboard-left-block-wrap-badge-content {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    padding: 0px 0px 0px;
+    margin: 0 auto 0px;
+    place-content: center;
+    @include responsive-style(768px) {
+      margin: 15px 15px 0px;
+      border: 1.5px dashed #ccc;
+      border-radius: $border-radius-middle;
+    }
+    .dashboard-left-block-wrap-badge-block-img-clickable {
+      cursor: pointer;
+      &:hover {
+        background-color: #f9f9f9;
+        .badge-image {
+          transform: scale(1.1);
+          transition: 0.2s;
+        }
+      }
+    }
+    .dashboard-left-block-wrap-badge-block {
+      border-bottom: 1.5px dashed #ccc;
+      padding: 20px 0px;
+      display: flex;
+      justify-content: center;
+      &:nth-last-child(-n + 2) {
+        border-bottom: none;
+      }
+      &:nth-child(2n + 1) {
+        border-right: 1.5px dashed #ccc;
+      }
+      .dashboard-left-block-wrap-badge-block-img-dummy img {
+        width: 74px;
+        @include responsive-style(768px) {
+          width: 100%;
+        }
+      }
+      .dashboard-left-block-wrap-badge-block-img {
+        position: relative;
+        width: 78px;
+        @include responsive-style(768px) {
+          width: 67%;
+        }
+        .newicon {
+          position: absolute;
+          left: -8px;
+          top: -8px;
+          width: 34px;
+          z-index: 10;
+          @include responsive-style(768px) {
+            left: -7.5%;
+            top: -7.5%;
+            width: 42%;
+          }
+          .newicon-wrapper {
+            position: relative;
+            .newicon-type img {
+              position: absolute;
+              left: 2px;
+              right: 0;
+              top: 2px;
+              bottom: 0;
+              margin: auto;
+              width: 22px;
+              z-index: 10;
+              @include responsive-style(768px) {
+                width: 50%;
+              }
+            }
+            .newicon-bg {
+              animation: spin 18s linear infinite;
+            }
+            @keyframes spin {
+              from {
+                transform: rotate(0deg);
+              }
+              to {
+                transform: rotate(360deg);
+              }
+            }
+          }
+        }
+        .badge-image {
+          width: 78px;
+          @include responsive-style(768px) {
+            width: 100%;
+          }
+        }
+      }
+
+      .dashboard-left-block-wrap-badge-block-img-clickable {
+        cursor: pointer;
+      }
+    }
+  }
+  .dashboard-left-block-wrap-badge-readmore a {
+    padding: 10px 13px;
+    text-align: left;
+    color: $cl-waogreen !important;
+    font-size: $lms-font-size-m;
+    display: block;
+    border-top: 1.5px dashed #ccc;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    @include responsive-style(768px) {
+      border-top: none;
+    }
+    &:hover,
+    &:focus {
+      text-decoration: none !important;
+    }
+    span.material-symbols {
+      font-size: 18px;
+      margin: 4px 0px 0 0;
+      text-decoration: none !important;
+      &:hover,
+      &:focus {
+        text-decoration: none !important;
+      }
+    }
+    span.text {
+      text-decoration: underline !important;
+    }
+  }
+  .badge-acquired-event {
+    .badge-acquired-image {
+      img {
+        opacity: 0; /* 初期は透明 */
+        transform: scale(0.7); /* 小さくスタート */
+        animation: fadeScale 0.6s ease forwards; /* アニメーション名、時間、イージング */
+      }
+    }
+  }
+  .badge-acquired-image-shine {
+    position: relative;
+  }
+  .badge-acquired-image-shine::after {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -100%;
+    width: 20%;
+    height: 200%;
+    background: linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0) 0%,
+      rgba(255, 255, 255, 0.3) 30%,
+      rgba(255, 255, 255, 0.9) 50%,
+      rgba(255, 255, 255, 0.3) 70%,
+      rgba(255, 255, 255, 0) 100%
+    );
+    transform: rotate(30deg);
+    animation: shine 5s ease-in-out infinite;
+    z-index: 99;
+  }
+  @keyframes shine {
+    0% {
+      left: -100%;
+    }
+    30% {
+      left: 150%;
+    }
+    100% {
+      left: 150%;
+    }
+  }
+  .badge-acquired {
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+    border-radius: 8px;
+    padding: 48px 20px 10px;
+
+    .badge-acquired-head {
+      position: absolute;
+      top: -608px; /* 丸の下半分だけ見せる */
+      left: 50%;
+      // right: 0%;
+      margin: auto;
+      width: 900px;
+      height: 800px;
+      background: #ffc34d;
+      border-radius: 50%;
+      transform: translateX(-50%);
+      &::before {
+        animation: 45s infinite rotation;
+        opacity: 0.3;
+        width: 800px;
+        height: 800px;
+        content: "";
+        position: absolute;
+        top: 680px;
+        left: 0%;
+        right: 0%;
+        bottom: 0%;
+        margin: auto;
+        z-index: 99;
+        background: repeating-conic-gradient(
+          transparent,
+          transparent 15deg,
+          $cl-white 15deg 30deg
+        );
+      }
+    }
+    .badge-acquired-head-shine {
+      position: absolute;
+      z-index: 99999;
+      opacity: 1;
+    }
+    .shine01,
+    .shine07 {
+      animation: shineScale 4s ease-in-out 0s forwards infinite;
+    }
+
+    .shine03,
+    .shine05 {
+      animation: shineScale 3.8s ease-in-out 0s forwards infinite;
+    }
+    .shine02,
+    .shine06 {
+      animation: shineScale 4.2s ease-in-out 1s forwards infinite;
+    }
+
+    .shine04,
+    .shine08 {
+      animation: shineScale 3.5s ease-in-out 1s forwards infinite;
+    }
+    $minus: 3%;
+    .badge-acquired-head-shine.shine01 {
+      top: 17%;
+      left: calc(22% - #{$minus});
+      width: 22px;
+    }
+    .badge-acquired-head-shine.shine02 {
+      top: 25%;
+      left: calc(15% - #{$minus});
+      width: 23px;
+    }
+    .badge-acquired-head-shine.shine03 {
+      top: 64px;
+      left: calc(18% - #{$minus});
+
+      width: 21px;
+    }
+    .badge-acquired-head-shine.shine04 {
+      top: 24px;
+      left: calc(29% - #{$minus});
+      width: 21px;
+    }
+    .badge-acquired-head-shine.shine05 {
+      top: 24px;
+      right: calc(22% - #{$minus});
+      width: 32px;
+    }
+    .badge-acquired-head-shine.shine06 {
+      top: 119px;
+      right: calc(15% - #{$minus});
+      width: 30px;
+    }
+
+    .badge-acquired-head-shine.shine07 {
+      top: 74px;
+      right: calc(18% - #{$minus});
+      width: 22px;
+    }
+    .badge-acquired-head-shine.shine08 {
+      top: 52px;
+      right: calc(32% - #{$minus});
+      width: 18px;
+      // display: none;
+    }
+
+    .badge-acquired-image {
+      position: relative;
+      z-index: 99;
+      margin: 0 auto 26px;
+      img {
+        width: 220px;
+        z-index: 2;
+        position: relative;
+      }
+      //背景の光
+      &::before {
+        content: "";
+        position: absolute;
+        top: -20px;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        width: 260px;
+        height: 260px;
+        background: $cl-white;
+        border-radius: 8px;
+        z-index: 1;
+        margin: auto;
+        filter: blur(25px);
+        border-radius: 10000px;
+      }
+    }
+    .c-modal-wrap-title {
+      position: relative;
+      margin: 0 auto 30px;
+      z-index: 100;
+    }
+    .c-modal-wrap-button {
+      width: 70%;
+      position: relative;
+      z-index: 100;
+      cursor: pointer;
+    }
+  }
+  @keyframes shineScale {
+    0% {
+      transform: scale(0);
+      opacity: 0;
+    }
+    20% {
+      transform: scale(0.85);
+      opacity: 0.6;
+    }
+    70% {
+      transform: scale(0.85);
+      opacity: 0.6;
+    }
+    88% {
+      transform: scale(0);
+      opacity: 0;
+    }
+    100% {
+      transform: scale(0);
+      opacity: 0;
+    }
+  }
+  @keyframes rotation {
+    0% {
+      transform: rotate(0);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
+  .c-modal-bg {
+    z-index: 100 !important;
+  }
+  .fixed-top {
+    z-index: 100 !important;
+  }
+  .dashboard-left-block-wrap-badge-content-more {
+    .dashboard-left-block-wrap-badge-block:nth-last-child(-n + 2) {
+      border-bottom: 1.5px dashed #ccc !important;
+    }
+  }
+}
+
+@keyframes fadeScale {
+  0% {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}

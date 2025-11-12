@@ -2,6 +2,29 @@
 // 受講ページの表示ロジック
 // ==============================
 
+
+  // 「レベル」リンクのhrefを格納する変数（最初はnull）
+  let levelLink = null;
+
+  // 「3週目」が ol.breadcrumb li のどこかに含まれているか確認
+  let hasWeek3 = false;
+
+  // 「3週目」が ol.breadcrumb li のどこかに含まれているか確認
+  let breadcrumbEnglish = false;
+
+  $('ol.breadcrumb li').each(function() {
+    const $li = $(this);
+    if ($li.text().includes('3週目')||$li.text().includes('３週目') ) {
+      hasWeek3 = true;
+      return false; // 見つかったらループ終了
+    }
+    if ($li.text().includes('英語') ) {
+      breadcrumbEnglish = true;
+      return false; // 見つかったらループ終了
+    }
+  });
+
+
 // 受講ページ（view, complete, report, myreport）の場合
 if (bodyId === "page-mod-questionnaire-view" || bodyId === "page-mod-questionnaire-complete" || bodyId === "page-mod-questionnaire-report"|| bodyId === "page-mod-questionnaire-myreport")  {
   
@@ -34,17 +57,45 @@ if (bodyId === "page-mod-questionnaire-view" || bodyId === "page-mod-questionnai
   const textQuestionnaireButtonAnswered = "課題を再提出する";
   const textQuestionnaireTextareaPlaceholder = "ここに回答を入力してください";
   const textQuestionnaireAnswerAll = "他の人の回答を見る";
-  const ButtonQuestionnaireBacktoCalender = `
+  const ButtonQuestionnaireBacktoCalender = hasWeek3 
+  ? `
+   <div class="mod_questionnaire_viewpage"><div class="mod_questionnaire_flex-container">
+        <div class="complete"><a href="https://lms.waomirai.com/my/" class="btn btn-primary">受講カレンダーに戻る</a></div>
+        <div class="complete"><a href=${urlQuestionnaire} class="btn btn-primary">授業ページに戻る</a></div>
+    </div></div>
+  `
+  : `
    <div class="mod_questionnaire_viewpage"><div class="mod_questionnaire_flex-container">
         <div class="complete"><a href=${urlQuestionnaire} class="btn btn-primary">授業ページに戻る</a></div>
         <div class="complete"><a href="https://lms.waomirai.com/my/" class="btn btn-primary">受講カレンダーに戻る</a></div>
     </div></div>
   `;
-  
+
+  // 各質問コンテナごとに処理を実行
+  $('.qn-container').each(function() {
+    // 現在の質問コンテナ内でplaceholder-spanを検索
+    var $placeholderSpan = $(this).find('.placeholder-span');
+    
+    // placeholder-spanが存在するか確認
+    if ($placeholderSpan.length > 0) {
+      // placeholder-spanのテキストを取得(パイプ文字以降)
+      var placeholderText = $placeholderSpan.text().trim();
+      
+      // 同じコンテナ内のtextareaを検索
+      var $textarea = $(this).find('.qn-answer textarea');
+      
+      // textareaが存在する場合、placeholderを設定
+      if ($textarea.length > 0 && placeholderText) {
+        $textarea.attr('placeholder', placeholderText);
+      } 
+    } else {
+       $(".qn-answer textarea").attr("placeholder", textQuestionnaireTextareaPlaceholder); 
+    }
+  });
 
 
   $('.allresponses a,li[data-key="vall"] a').text(textQuestionnaireAnswerAll);
-  $(".qn-answer textarea").attr("placeholder", textQuestionnaireTextareaPlaceholder); 
+
   
   //li[data-key="yourresponse"]のある場合は回答済みとして扱う
   //li[data-key="yourresponse"]は回答済みの場合、授業ページにdomとして要素が存在する
@@ -57,7 +108,14 @@ if (bodyId === "page-mod-questionnaire-view" || bodyId === "page-mod-questionnai
 
   //完了ページには提出済みの文言を追加
   if ($(".surveyTitle").text().includes("ありがとう")) {
+
     $(".mod_questionnaire_completepage h3").after(ButtonQuestionnaireBacktoCalender);
+    if (hasWeek3) {
+      $(".surveyTitle").after('<p class="surveyText">今月の課題をすべて提出できているとバッジが手に入ります！受講カレンダーで確認してみましょう。</p>')
+    }
+    if (breadcrumbEnglish) {
+      $(".surveyTitle").after('<p class="surveyText">今月の課題を提出するとバッジが手に入ります！受講カレンダーで確認してみましょう。</p>')
+    }
   }
 }
 
@@ -118,19 +176,6 @@ if (bodyId === "page-mod-questionnaire-view")  {
     }
   });
 
-  // 「レベル」リンクのhrefを格納する変数（最初はnull）
-  let levelLink = null;
-
-  // 「3週目」が ol.breadcrumb li のどこかに含まれているか確認
-  let hasWeek3 = false;
-
-  $('ol.breadcrumb li').each(function() {
-    const $li = $(this);
-    if ($li.text().includes('3週目')||$li.text().includes('３週目') ) {
-      hasWeek3 = true;
-      return false; // 見つかったらループ終了
-    }
-  });
 
   // 「3週目」が存在する場合のみ処理を実行
   if (hasWeek3) {
