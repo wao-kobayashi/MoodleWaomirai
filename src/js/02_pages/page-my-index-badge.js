@@ -531,7 +531,7 @@ if (bodyId === "page-my-index") { // ダッシュボード以外では一切動�
       Modal.showAcquired(now); // まだ見ていない獲得モーダルを順番に表示
 
       // デバッグボタン有効化（本番では削除）
-      Debug.createButton(); // 運用時はコメントアウト推奨
+      // Debug.createButton(); // 運用時はコメントアウト推奨
     } catch (error) {
       console.error("[ERROR] バッジシステム初期化エラー:", error); // 失敗時の一括ハンドリング
     }
