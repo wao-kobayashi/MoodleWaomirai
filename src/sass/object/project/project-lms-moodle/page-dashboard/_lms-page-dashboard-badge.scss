@@ -10,14 +10,11 @@
     padding: 0px 0px 0px;
     margin: 0 auto 0px;
     place-content: center;
-    //1列目、2列目
-    // &:nth-child(3n + 1),
-    // &:nth-child(3n + 2) {
-    //   border-right: 2px dashed #ccc;
-    // }
-    // &:nth-last-child(-n + 3) {
-    //   border-bottom: none !important;
-    // }
+    @include responsive-style(768px) {
+      margin: 15px 15px 0px;
+      border: 1.5px dashed #ccc;
+      border-radius: $border-radius-middle;
+    }
     .dashboard-left-block-wrap-badge-block-img-clickable {
       cursor: pointer;
       &:hover {
@@ -40,23 +37,27 @@
         border-right: 1.5px dashed #ccc;
       }
       .dashboard-left-block-wrap-badge-block-img-dummy img {
-        width: 74px !important;
+        width: 74px;
+        @include responsive-style(768px) {
+          width: 100%;
+        }
       }
       .dashboard-left-block-wrap-badge-block-img {
         position: relative;
         width: 78px;
         @include responsive-style(768px) {
-          width: 130px;
+          width: 67%;
         }
         .newicon {
           position: absolute;
           left: -8px;
           top: -8px;
           width: 34px;
+          z-index: 10;
           @include responsive-style(768px) {
-            left: -6px;
-            top: -6px;
-            width: 48px;
+            left: -7.5%;
+            top: -7.5%;
+            width: 42%;
           }
           .newicon-wrapper {
             position: relative;
@@ -69,6 +70,9 @@
               margin: auto;
               width: 22px;
               z-index: 10;
+              @include responsive-style(768px) {
+                width: 50%;
+              }
             }
             .newicon-bg {
               animation: spin 18s linear infinite;
@@ -86,7 +90,7 @@
         .badge-image {
           width: 78px;
           @include responsive-style(768px) {
-            width: 130px;
+            width: 100%;
           }
         }
       }
@@ -106,6 +110,9 @@
     cursor: pointer;
     display: flex;
     align-items: center;
+    @include responsive-style(768px) {
+      border-top: none;
+    }
     &:hover,
     &:focus {
       text-decoration: none !important;
