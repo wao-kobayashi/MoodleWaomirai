@@ -107,7 +107,7 @@ const DayDisabledFee = 1; // 受講登録手続きを行えない日
 
 const NowDate = new Date(); // 現在の日時
 const DayOfMonth = parseInt(NowDate.toLocaleString('ja-JP', { timeZone: 'Asia/Tokyo', day: '2-digit' }).replace('日', '')); // 現在の日
-const AmazonGiftFreeCampaignEnd = new Date('2025-11-03T23:59:59+09:00'); // 日本時間
+const AmazonGiftFreeCampaignEnd = new Date('2025-11-29T23:59:59+09:00'); // 日本時間
 
 // ==============================
 // Liff系
@@ -146,8 +146,8 @@ const ImgSubjectEnglish = "https://waomirai.com/lp/assets/moodle/images/icn_subj
 const ImgSubjectOther = "https://waomirai.com/lp/assets/moodle/images/icn_subject_other.svg"; //アイコン：その他
  
 const ImgModalBadge = "https://waomirai.com/lp/assets/moodle/images/page_badge_sample.png"; //バッジの画像
-const ImgBannerAmazonGiftFreeCampaignPc = "https://go.waomirai.com/l/1026513/2025-10-20/hy5w7/1026513/1760936849gjyGzZan/banner_free_until_25nov_pc.png"; //バッジの画像
-const ImgBannerAmazonGiftFreeCampaignSp = "https://go.waomirai.com/l/1026513/2025-10-20/hy5wj/1026513/1760936850D0Le0rpV/banner_free_until_25nov_sp.png"; //バッジの画像
+const ImgBannerAmazonGiftFreeCampaignPc = "https://go.waomirai.com/l/1026513/2025-10-20/hy5wq/1026513/1760936850Q85jpiyV/banner_free_until_25dec_pc.png"; //バッジの画像
+const ImgBannerAmazonGiftFreeCampaignSp = "https://go.waomirai.com/l/1026513/2025-10-20/hy5wb/1026513/1760936849yL4umnEM/banner_free_until_25dec_sp.png"; //バッジの画像
 
 //次アップ
 //2025dec pc https://go.waomirai.com/l/1026513/2025-10-20/hy5wq/1026513/1760936850Q85jpiyV/banner_free_until_25dec_pc.png
@@ -1454,7 +1454,7 @@ if (bodyId === "page-my-index") { // ダッシュボード以外では一切動�
       Modal.showAcquired(now); // まだ見ていない獲得モーダルを順番に表示
 
       // デバッグボタン有効化（本番では削除）
-      Debug.createButton(); // 運用時はコメントアウト推奨
+      // Debug.createButton(); // 運用時はコメントアウト推奨
     } catch (error) {
       console.error("[ERROR] バッジシステム初期化エラー:", error); // 失敗時の一括ハンドリング
     }
@@ -2303,12 +2303,12 @@ function showModalAfterCardRegistration() {
 }
 
 
-// 2025年9月キャンペーンのモーダル関数
+// キャンペーンのモーダル関数
 function showCampaignModal() {
   createModal({
     title: "おめでとうございます！",
     wrapClass: "c-modal-wrap-wrap-campaign",
-    text: "<b>キャンペーンを<br />適用させていただきます。</b><br /><br />2025年10・11月は無料で受講いただけます。<br />2025年11月も受講いただけたら<br />Amazonギフト券5000円プレゼントいたします。<br />",
+    text: "<b>キャンペーンを<br />適用させていただきます。</b><br /><br />2025年11・12月は無料で受講いただけます。<br />2025年12月も受講いただけたら<br />Amazonギフト券5000円プレゼントいたします。<br />",
     buttons: [
       { text: "OKです", class: "btn-primary c-modal-level-setting c-modal-wrap-close-tag" }
     ]
