@@ -128,11 +128,6 @@ if (bodyId === "page-enrol-index") {
   // 購入ボタンクリック時の処理
   // ============================
   $(".enrol_fee_payment_region button").on("click", function (event) {
-    // 初月無料フラグがある、または哲学、科学、経済を持っていて哲学、科学、経済のページにいる場合
-    if (hasBoughtTrialendSubject || (MAIN_SUBJECTS.includes(subjectCategory) && checkBoughtMainSubject(MAIN_SUBJECTS))) {
-      window.open(UrlSubjectChangeForm, '_blank');
-      return; // これ以降の処理は実行しない
-    }
 
     // メンテナンス日で既存購入がない場合
     // → 購入不可のモーダルを表示して処理を中断
@@ -144,6 +139,12 @@ if (bodyId === "page-enrol-index") {
       return; // これ以降の処理は実行しない
     }
     
+    // 初月無料フラグがある、または哲学、科学、経済を持っていて哲学、科学、経済のページにいる場合
+    if (hasBoughtTrialendSubject || (MAIN_SUBJECTS.includes(subjectCategory) && checkBoughtMainSubject(MAIN_SUBJECTS))) {
+      window.open(UrlSubjectChangeForm, '_blank');
+      return; // これ以降の処理は実行しない
+    }
+
     // 科目変更専用URLからのアクセスの場合
     // → 通常の科目変更抑制ロジックをスキップ
     if (getUrlFlag() === "flagChangeSubject") {
