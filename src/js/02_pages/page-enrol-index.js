@@ -158,7 +158,7 @@ if (bodyId === "page-enrol-index") {
               close: true,
               text: "「哲学・経済・化学」の教科で２科目以上受講する際はセット購入がお得です。セット購入の際はフォームより申し込みをお願いいたします。",
               buttons: [
-                { text: "変更フォームへ", url: UrlForm, class: "btn-primary" }, // セット購入フォームへのリンク
+                { text: "変更フォームへ", url: UrlForm, class: "btn-primary", blank: true }, // セット購入フォームへのリンク
               ]
             })
           );
@@ -206,7 +206,7 @@ if (bodyId === "page-enrol-index") {
               close: true,
               text: "「３科目セット」を購入済みです。２科目セットへ受講変更したい場合はフォームよりお問い合わせをお願いいたします。",
               buttons: [
-                { text: "受講変更フォームへ", url: UrlForm, class: "btn-primary" }, // 受講変更フォームへのリンク
+                { text: "受講変更フォームへ", url: UrlForm, class: "btn-primary", blank: true }, // 受講変更フォームへのリンク
               ]
             })
           );
@@ -220,7 +220,7 @@ if (bodyId === "page-enrol-index") {
               close: true,
               text: "「２科目セット」を購入済みです。３科目セットへ受講変更したい場合はフォームよりお問い合わせをお願いいたします。",
               buttons: [
-                { text: "受講変更フォームへ", url: UrlForm, class: "btn-primary" }, // 受講変更フォームへのリンク
+                { text: "受講変更フォームへ", url: UrlForm, class: "btn-primary", blank: true }, // 受講変更フォームへのリンク
               ]
             })
           );
