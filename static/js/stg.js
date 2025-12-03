@@ -1691,7 +1691,8 @@ if (bodyId === "page-enrol-index") {
     ////////////////////////////
     // DayDisabledFeeで定めた日は購入ができないことを示す追従を表示
     ////////////////////////////
-    if(DayDisabledFee == DayOfMonth){
+    //1日でも購入済みの科目を持っていないかどうか
+    if(DayDisabledFee == DayOfMonth && !hasBoughtMainSubject && !hasBoughtChildSubject) {
       // 追従のタグを追加
       $("#page-enrol-index").append('<div class="disabled-fee-fixed"><span class="icon-disabled-fee-fixed">&#x26a0;&#xfe0f;</span>毎月' + DayDisabledFee + '日はシステムメンテナンスのため、受講登録手続きができません。<br class="br-disabled-fee-fixed">お手数ですが、翌日以降に手続きをお願いします。</div>');
       // 追従が出ていることを示すクラスをbodyタグに追加
@@ -1777,8 +1778,13 @@ if (bodyId === "page-enrol-index") {
     // 科目（哲学/科学/経済/英語/2,3科目セット）の購入ボタンがクリックされたときの処理
     $(".enrol_fee_payment_region button").on("click", function (event) {
 
+      //何かしらの有料講座を持っている時、科目変更フォームへ
+      if(hasBoughtMainSubject||hasBoughtChildSubject){
+        window.open(UrlSubjectChanfeForm, '_blank');
+      }
+
       // DayDisabledFeeで定めた日は購入ができないことを示すモーダルを表示
-      if(DayDisabledFee == DayOfMonth){
+      if(DayDisabledFee == DayOfMonth && !hasBoughtMainSubject && !hasBoughtChildSubject){
         createModal({
           title: "️️毎月" + DayDisabledFee + "日はシステムメンテナンスのため<br />受講登録手続きができません。<br />お手数ですが、翌日以降に<br />手続きをお願いします。<br /><br />",
           buttons: [
@@ -1796,12 +1802,9 @@ if (bodyId === "page-enrol-index") {
       if (getUrlFlag() === "flagChangeSubject") {
         return; //抑制を止める
       }
-      //何かしらの有料講座を持っている時、科目変更フォームへ
-      if(hasBoughtMainSubject||hasBoughtChildSubject){
-        window.open(UrlSubjectChanfeForm, '_blank');
-      }
+    
   });
-  //何かしらの有料講座を持っている場合、科目変更フォームへ誘導する
+  //何かしらの有料講座を持っている場合、科目変更フォームへ誘導する文言へ変更
   if(hasBoughtMainSubject||hasBoughtChildSubject){
     $('p:contains("登録月は無料です。")').each(function() {
       $(this).text('科目の追加は科目変更フォームから申請をお願いいたします。');
