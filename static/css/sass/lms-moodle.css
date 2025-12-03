@@ -13446,7 +13446,7 @@ html[data-tenantidnumber=lmswaomirai] .course-271 .page-header-headings, html[da
 }
 html[data-tenantidnumber=lmswaomirai] .course-270 .page-context-header, html[data-tenantidnumber=lmswaomirai] .course-228 .page-context-header,
 html[data-tenantidnumber=lmswaomirai] .course-271 .page-context-header, html[data-tenantidnumber=lmswaomirai] .course-229 .page-context-header {
-  display: none;
+  display: none !important;
 }
 @media screen and (max-width: 768px) {
   html[data-tenantidnumber=lmswaomirai] .course-270 #page.drawers, html[data-tenantidnumber=lmswaomirai] .course-228 #page.drawers,

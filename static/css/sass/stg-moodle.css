@@ -13446,7 +13446,7 @@ html[data-tenantidnumber=stg] .course-271 .page-header-headings, html[data-tenan
 }
 html[data-tenantidnumber=stg] .course-270 .page-context-header, html[data-tenantidnumber=stg] .course-228 .page-context-header,
 html[data-tenantidnumber=stg] .course-271 .page-context-header, html[data-tenantidnumber=stg] .course-229 .page-context-header {
-  display: none;
+  display: none !important;
 }
 @media screen and (max-width: 768px) {
   html[data-tenantidnumber=stg] .course-270 #page.drawers, html[data-tenantidnumber=stg] .course-228 #page.drawers,

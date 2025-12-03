@@ -740,7 +740,8 @@ if (bodyId === "page-my-index") {
     // 次の月の数値をスパン要素に設定
     // todayMonth+1 により、現在の月の次の月の数値を挿入
     // 例: 現在の月が5月の場合、6を挿入
-    $(".c-alert-banner-text-title-nextmonth").text(todayMonth+1);
+    const nextMonth = todayMonth === 12 ? 1 : todayMonth + 1;
+    $(".c-alert-banner-text-title-nextmonth").text(nextMonth);
 
     // 現在の月の数値をスパン要素に設定
     // todayMonth をそのまま使用して現在の月の数値を挿入
