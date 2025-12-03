@@ -11,7 +11,7 @@ $threesubjects: (".course-271", ".course-229");
     display: none;
   }
   .page-context-header {
-    display: none; //２科と３科目ヘッダー見えなくする
+    display: none !important; //２科と３科目ヘッダー見えなくする
   }
   #page.drawers {
     @include responsive-style(768px) {

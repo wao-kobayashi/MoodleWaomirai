@@ -98,7 +98,7 @@ $(document).ready(function () {
 // ==============================
 
 const UrlHome = "https://lms.waomirai.com/?redirect=0" //トップページ（科目選択）
-const UrlForm = "https://go.waomirai.com/contact-change-subject"; // フォームURL 
+const UrlForm = "https://wao.ne.jp/forms/waomirai-changesubject/form.php"; // フォームURL 
 const UrlChangeSubject = "https://lms.waomirai.com/user/edit.php"; // 受講変更ページ
 const DayChangeCourseBannerStart = 13; // 受講レベル変更・科目変更・解約の締切日通知モーダルの表示開始日（月の前半）
 const DayChangeCourseDeadLine = 20; // 受講レベル変更・科目変更・解約の締切日（DayChangeCourseBannerStartより後の日の設定が必要）
@@ -740,7 +740,8 @@ if (bodyId === "page-my-index") {
     // 次の月の数値をスパン要素に設定
     // todayMonth+1 により、現在の月の次の月の数値を挿入
     // 例: 現在の月が5月の場合、6を挿入
-    $(".c-alert-banner-text-title-nextmonth").text(todayMonth+1);
+    const nextMonth = todayMonth === 12 ? 1 : todayMonth + 1;
+    $(".c-alert-banner-text-title-nextmonth").text(nextMonth);
 
     // 現在の月の数値をスパン要素に設定
     // todayMonth をそのまま使用して現在の月の数値を挿入
@@ -1800,7 +1801,7 @@ if (bodyId === "page-enrol-index") {
               close: true,
               text: "「哲学・経済・化学」の教科で２科目以上受講する際はセット購入がお得です。セット購入の際はフォームより申し込みをお願いいたします。",
               buttons: [
-                { text: "変更フォームへ", url: UrlForm, class: "btn-primary" }, // セット購入フォームへのリンク
+                { text: "変更フォームへ", url: UrlForm, class: "btn-primary", blank: true }, // セット購入フォームへのリンク
               ]
             })
           );
@@ -1848,7 +1849,7 @@ if (bodyId === "page-enrol-index") {
               close: true,
               text: "「３科目セット」を購入済みです。２科目セットへ受講変更したい場合はフォームよりお問い合わせをお願いいたします。",
               buttons: [
-                { text: "受講変更フォームへ", url: UrlForm, class: "btn-primary" }, // 受講変更フォームへのリンク
+                { text: "受講変更フォームへ", url: UrlForm, class: "btn-primary", blank: true }, // 受講変更フォームへのリンク
               ]
             })
           );
@@ -1862,7 +1863,7 @@ if (bodyId === "page-enrol-index") {
               close: true,
               text: "「２科目セット」を購入済みです。３科目セットへ受講変更したい場合はフォームよりお問い合わせをお願いいたします。",
               buttons: [
-                { text: "受講変更フォームへ", url: UrlForm, class: "btn-primary" }, // 受講変更フォームへのリンク
+                { text: "受講変更フォームへ", url: UrlForm, class: "btn-primary", blank: true }, // 受講変更フォームへのリンク
               ]
             })
           );

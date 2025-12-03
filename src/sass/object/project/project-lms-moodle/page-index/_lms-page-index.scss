@@ -21,7 +21,7 @@
       width: 100% !important;
     }
     // position: relative;
-    $lms-fv-height: 390px;
+    $lms-fv-height: 400px;
     height: $lms-fv-height;
     margin: 0px 0 0;
     .lms-index-main {
@@ -38,7 +38,7 @@
         left: 5%;
         top: -10px;
         z-index: 9;
-        max-width: 430px;
+        max-width: 460px;
         // top: 0;
         bottom: 0;
         margin: auto;
@@ -56,9 +56,9 @@
       .lms-index-main-right {
         position: absolute;
         right: 5%;
-        top: 0px;
+        top: 15px;
         z-index: 9;
-        max-width: 550px;
+        max-width: 515px;
         @include responsive-style(1100px) {
           max-width: 450px;
           top: 8%;

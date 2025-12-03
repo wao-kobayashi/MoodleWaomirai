@@ -5384,7 +5384,7 @@ html[data-tenantidnumber=stg] .pagelayout-frontpage .activity-grid {
 }
 html[data-tenantidnumber=stg] .pagelayout-frontpage .lms-index-fv {
   position: relative;
-  height: 390px;
+  height: 400px;
   margin: 0px 0 0;
 }
 html[data-tenantidnumber=stg] .pagelayout-frontpage .lms-index-fv img {
@@ -5393,7 +5393,7 @@ html[data-tenantidnumber=stg] .pagelayout-frontpage .lms-index-fv img {
 html[data-tenantidnumber=stg] .pagelayout-frontpage .lms-index-fv .lms-index-main {
   max-width: 1200px;
   width: 100%;
-  height: 390px;
+  height: 400px;
   margin: 0 auto;
   z-index: 9;
   position: relative;
@@ -5404,7 +5404,7 @@ html[data-tenantidnumber=stg] .pagelayout-frontpage .lms-index-fv .lms-index-mai
   left: 5%;
   top: -10px;
   z-index: 9;
-  max-width: 430px;
+  max-width: 460px;
   bottom: 0;
   margin: auto;
   width: 100%;
@@ -5427,9 +5427,9 @@ html[data-tenantidnumber=stg] .pagelayout-frontpage .lms-index-fv .lms-index-mai
 html[data-tenantidnumber=stg] .pagelayout-frontpage .lms-index-fv .lms-index-main .lms-index-main-right {
   position: absolute;
   right: 5%;
-  top: 0px;
+  top: 15px;
   z-index: 9;
-  max-width: 550px;
+  max-width: 515px;
 }
 @media screen and (max-width: 1100px) {
   html[data-tenantidnumber=stg] .pagelayout-frontpage .lms-index-fv .lms-index-main .lms-index-main-right {
@@ -5452,7 +5452,7 @@ html[data-tenantidnumber=stg] .pagelayout-frontpage .lms-index-fv .lms-index-mai
 html[data-tenantidnumber=stg] .pagelayout-frontpage .lms-index-fv .lms-index-bg img {
   position: absolute;
   z-index: 7;
-  height: 390px;
+  height: 400px;
   -o-object-fit: cover;
      object-fit: cover;
   width: 100%;
@@ -13446,7 +13446,7 @@ html[data-tenantidnumber=stg] .course-271 .page-header-headings, html[data-tenan
 }
 html[data-tenantidnumber=stg] .course-270 .page-context-header, html[data-tenantidnumber=stg] .course-228 .page-context-header,
 html[data-tenantidnumber=stg] .course-271 .page-context-header, html[data-tenantidnumber=stg] .course-229 .page-context-header {
-  display: none;
+  display: none !important;
 }
 @media screen and (max-width: 768px) {
   html[data-tenantidnumber=stg] .course-270 #page.drawers, html[data-tenantidnumber=stg] .course-228 #page.drawers,
