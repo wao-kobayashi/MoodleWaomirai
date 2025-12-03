@@ -1783,7 +1783,7 @@ if (bodyId === "page-enrol-index") {
       }
       //何かしらの有料講座を持っている時、科目変更フォームへ
       if(hasBoughtMainSubject||hasBoughtChildSubject){
-        window.open(UrlFormSubjectChange, '_blank');
+        window.open(UrlSubjectChanfeForm, '_blank');
       }
   });
   //何かしらの有料講座を持っている場合、科目変更フォームへ誘導する
@@ -1791,7 +1791,7 @@ if (bodyId === "page-enrol-index") {
     $('p:contains("登録月は無料です。")').each(function() {
       $(this).text('科目の追加は科目変更フォームから申請をお願いいたします。');
     });
-    $('.enrol_fee_payment_region button').text('科目変更フォームへ進む'); 
+    $('.enrol_fee_payment_region button strong').text('科目変更フォームへ進む'); 
   }
  
 }
