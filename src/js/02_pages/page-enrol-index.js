@@ -5,7 +5,6 @@ if (bodyId === "page-enrol-index") {
     ////////////////////////////
     // キャンペーンバナーの表示
     ////////////////////////////
- 
     const today = new Date(); // 現在の日付を取得
     const AmazonGiftFreeCampaignEndDate = new Date(AmazonGiftFreeCampaignEnd); // AmazonGiftFreeCampaignEndをDateオブジェクトに変換
 
