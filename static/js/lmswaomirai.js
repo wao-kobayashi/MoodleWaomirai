@@ -98,7 +98,7 @@ $(document).ready(function () {
 // ==============================
 
 const UrlHome = "https://lms.waomirai.com/?redirect=0" //トップページ（科目選択）
-const UrlForm = "https://wao.ne.jp/forms/waomirai-changesubject/form.php"; // フォームURL 
+const UrlFormSubjectChange = "https://wao.ne.jp/forms/waomirai-changesubject/form.php"; // フォームURL 
 const UrlChangeSubject = "https://lms.waomirai.com/user/edit.php"; // 受講変更ページ
 const DayChangeCourseBannerStart = 13; // 受講レベル変更・科目変更・解約の締切日通知モーダルの表示開始日（月の前半）
 const DayChangeCourseDeadLine = 20; // 受講レベル変更・科目変更・解約の締切日（DayChangeCourseBannerStartより後の日の設定が必要）
@@ -1648,6 +1648,7 @@ if (bodyId === "page-enrol-index") {
     ////////////////////////////
     // キャンペーンバナーの表示
     ////////////////////////////
+ 
     const today = new Date(); // 現在の日付を取得
     const AmazonGiftFreeCampaignEndDate = new Date(AmazonGiftFreeCampaignEnd); // AmazonGiftFreeCampaignEndをDateオブジェクトに変換
 
@@ -1780,96 +1781,19 @@ if (bodyId === "page-enrol-index") {
       if (getUrlFlag() === "flagChangeSubject") {
         return; //抑制を止める
       }
-      
-      // 科目が哲学、科学、経済のいずれかの場合
-      if (["philosophy", "science", "economy"].includes(subjectCategory)) {
-       
-
-        // 各科目に対応する他の科目を定義
-        const otherSubjects = {
-          philosophy: ["science", "economy"], // 哲学を選んだ場合、科学または経済のセットを提案
-          science: ["philosophy", "economy"], // 科学を選んだ場合、哲学または経済のセットを提案
-          economy: ["philosophy", "science"], // 経済を選んだ場合、哲学または科学のセットを提案
-        };
-
-        // 1科目を購入した状態で、別の1科目を購入しようとした場合
-        if (checkBoughtMainSubject(otherSubjects[subjectCategory])) {
-          // セット購入を提案するモーダルを表示
-          event.stopImmediatePropagation();
-          $("body").append(
-            createModal({
-              close: true,
-              text: "「哲学・経済・化学」の教科で２科目以上受講する際はセット購入がお得です。セット購入の際はフォームより申し込みをお願いいたします。",
-              buttons: [
-                { text: "変更フォームへ", url: UrlForm, class: "btn-primary", blank: true }, // セット購入フォームへのリンク
-              ]
-            })
-          );
-        } else if (
-          // 2科目または3科目セットを購入済みの場合、セット購入を防ぐ
-          checkBoughtMainSubject(["twosubjectpack", "threesubjectpack"])
-        ) {
-          // すでにセットを購入済みであることを通知するモーダルを表示
-          event.stopImmediatePropagation();
-          $("body").append(
-            createModal({
-              close: true,
-              text: "すでに複数受講できる科目セットを購入されています。受講科目の選択は「登録情報の変更ページ」で編集可能です。",
-              buttons: [
-                { text: "科目のレベルを設定する", url: UrlChangeSubject, class: "btn-primary" }, // 未定のリンク
-              ]
-            })
-          );
-        }
-      }
-
-      // 2科目セットまたは3科目セットを選択した場合
-      if (["twosubjectpack", "threesubjectpack"].includes(subjectCategory)) {
-        // 他の科目（哲学、科学、経済）を購入している場合、セット購入はできない
-        
-        if (checkBoughtMainSubject(["philosophy", "science", "economy"])) {
-          // セット購入不可の案内モーダルを表示
-          event.stopImmediatePropagation();
-          $("body").append(
-            createModal({
-              close: true,
-              text: "「哲学・化学・経済」の科目のいずれかを受講している場合、こちらのボタンからセット受講を購入することはできません。下記フォームより購入を申し込む必要がございます。",
-              buttons: [
-                { text: "複数科目セットの購入フォームへ", url: UrlForm, class: "btn-primary" }, // セット購入フォームへのリンク
-              ]
-            })
-          );
-        } else if (
-          // すでに3科目セットを購入している場合、2科目セットへの変更を促す
-          subjectCategory === "twosubjectpack" && checkBoughtMainSubject(["threesubjectpack"])
-        ) {
-          event.preventDefault(); // デフォルトの購入動作（フォーム送信）を防止
-          $("body").append(
-            createModal({
-              close: true,
-              text: "「３科目セット」を購入済みです。２科目セットへ受講変更したい場合はフォームよりお問い合わせをお願いいたします。",
-              buttons: [
-                { text: "受講変更フォームへ", url: UrlForm, class: "btn-primary", blank: true }, // 受講変更フォームへのリンク
-              ]
-            })
-          );
-        } else if (
-          // すでに2科目セットを購入している場合、3科目セットへの変更を促す
-          subjectCategory === "threesubjectpack" && checkBoughtMainSubject(["twosubjectpack"])
-        ) {
-          event.stopImmediatePropagation();
-          $("body").append(
-            createModal({
-              close: true,
-              text: "「２科目セット」を購入済みです。３科目セットへ受講変更したい場合はフォームよりお問い合わせをお願いいたします。",
-              buttons: [
-                { text: "受講変更フォームへ", url: UrlForm, class: "btn-primary", blank: true }, // 受講変更フォームへのリンク
-              ]
-            })
-          );
-        }
+      //何かしらの有料講座を持っている時、科目変更フォームへ
+      if(hasBoughtMainSubject||hasBoughtChildSubject){
+        window.open(UrlFormSubjectChange, '_blank');
       }
   });
+  //何かしらの有料講座を持っている場合、科目変更フォームへ誘導する
+  if(hasBoughtMainSubject||hasBoughtChildSubject){
+    $('p:contains("登録月は無料です。")').each(function() {
+      $(this).text('科目の追加は科目変更フォームから申請をお願いいたします。');
+    });
+    $('.enrol_fee_payment_region button').text('科目変更フォームへ進む'); 
+  }
+ 
 }
 
 
