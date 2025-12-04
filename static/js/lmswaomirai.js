@@ -98,7 +98,7 @@ $(document).ready(function () {
 // ==============================
 
 const UrlHome = "https://lms.waomirai.com/?redirect=0" //トップページ（科目選択）
-const UrlFormSubjectChange = "https://wao.ne.jp/forms/waomirai-changesubject/form.php"; // フォームURL 
+const UrlSubjectChanfeForm = "https://wao.ne.jp/forms/waomirai-changesubject/form.php"; // フォームURL 
 const UrlChangeSubject = "https://lms.waomirai.com/user/edit.php"; // 受講変更ページ
 const DayChangeCourseBannerStart = 13; // 受講レベル変更・科目変更・解約の締切日通知モーダルの表示開始日（月の前半）
 const DayChangeCourseDeadLine = 20; // 受講レベル変更・科目変更・解約の締切日（DayChangeCourseBannerStartより後の日の設定が必要）
