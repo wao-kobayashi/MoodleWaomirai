@@ -1811,6 +1811,18 @@ if (bodyId === "page-enrol-index") {
       $(this).text('科目の追加は科目変更フォームから申請をお願いいたします。');
     });
     $('.enrol_fee_payment_region button strong').text('科目変更フォームへ進む'); 
+
+    //スマホ対応
+    if ($(window).width() <= 768) {
+      $('.fixed-subject-price').hide(); // 画面下部の価格情報を非表示
+      $('.enrol_fee_payment_region .btn.btn-secondary').css({
+        width: '90%',
+        margin: 'auto',
+        left: '0',
+        right: '0',
+        bottom: '20px'
+      }); 
+    }
   }
  
 }
