@@ -67,6 +67,14 @@ $(document).ready(function () {
   { id: 138, name: "グローバル英語 レベル2", key: "globalenglish", parentKey: "globalenglish", type: "child", level: "L2" },
 
   // ==============================
+  // 初月無料終了後の科目
+  // ==============================
+
+  //用途
+  //初月無料期間が終了したことを示すフラグ用の科目。
+  { id: 323, name: "trialend", key: "trialend",  type: "flag"},
+
+  // ==============================
   // テスト専用科目（通常ユーザーは購入できない
   // ==============================
   
@@ -218,9 +226,13 @@ const hasBoughtMainSubject = checkGroup((subject) => subject.type === "main");
 const hasBoughtChildSubject = checkGroup((subject) => subject.type === "child");
 
 // adminグループに関連付けられているかを判定
- //受講者と管理者ユーザーで挙動を変えたい部分があるので、この講座を持っている人はadminの扱いにする。
-    //この講座は表に出ないので一般ユーザーは絶対に受講できない講座
+// 受講者と管理者ユーザーで挙動を変えたい部分があるので、この講座を持っている人はadminの扱いにする。
+// この講座は表に出ないので一般ユーザーは絶対に受講できない講座
 const hasBoughtAdminSubject= checkGroup((subject) => subject.key === "admin");
+
+// 初月無料になっているかどうかを判定
+// 条件は「typeが'trialend'」であること。
+const hasBoughtTrialendSubject = checkGroup((subject) => subject.key === "trialend");
 
 // 管理者ユーザーのみbodyにクラスを付ける
 if(hasBoughtAdminSubject){
