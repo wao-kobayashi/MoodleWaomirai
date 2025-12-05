@@ -121,7 +121,7 @@ if (bodyId === "page-enrol-index") {
 
       //何かしらの有料講座を持っている時、科目変更フォームへ
       if(hasBoughtMainSubject||hasBoughtChildSubject){
-        window.open(UrlSubjectChanfeForm, '_blank');
+        window.open(UrlSubjectChangeForm, '_blank');
       }
 
       // DayDisabledFeeで定めた日は購入ができないことを示すモーダルを表示
