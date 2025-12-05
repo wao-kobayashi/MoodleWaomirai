@@ -37,6 +37,15 @@
       paymentID: env === 'stg' ? [229] : env === 'lmswaomirai' ? [271] : [0],
       categoryID: env === 'stg' ? 'category-51' : env === 'lmswaomirai' ? 'category-47' : ''
     },
+      {
+      id: 'page-enrol-ph-trialend',
+      template: 'enrol',
+      category: 'philosophy',
+      SubjectPageTitle: '哲学｜初月無料終了',
+      courseID: env === 'stg' ? 212 : env === 'lmswaomirai' ? 255 : 0,
+      paymentID: env === 'stg' ? [324] : env === 'lmswaomirai' ? [323] : [0],
+      categoryID: env === 'stg' ? 'category-51' : env === 'lmswaomirai' ? 'category-47' : ''
+    },
     {
       id: 'page-enrol-sc-none',
       template: 'enrol',
@@ -62,6 +71,15 @@
       SubjectPageTitle: 'グローバル英語',
       courseID: env === 'stg' ? 236 : env === 'lmswaomirai' ? 135 : 0,
       paymentID: env === 'stg' ? [] : env === 'lmswaomirai' ? [] : [0],
+      categoryID: env === 'stg' ? 'category-54' : env === 'lmswaomirai' ? 'category-50' : ''
+    },
+    {
+      id: 'page-enrol-en-trialend',
+      template: 'enrol',
+      category: 'globalenglish',
+      SubjectPageTitle: 'グローバル英語｜初月無料終了',
+      courseID: env === 'stg' ? 236 : env === 'lmswaomirai' ? 135 : 0,
+      paymentID: env === 'stg' ? [236,324] : env === 'lmswaomirai' ? [255,323] : [0],
       categoryID: env === 'stg' ? 'category-54' : env === 'lmswaomirai' ? 'category-50' : ''
     },
     {
@@ -134,6 +152,16 @@
       SubjectPageTitle: '3科目セット(2科目セット購入済)',
       courseID: env === 'stg' ? 229 : env === 'lmswaomirai' ? 271 : 0,
       paymentID: env === 'stg' ? [228] : env === 'lmswaomirai' ? [270] : [0],
+      categoryID: env === 'stg' ? '' : env === 'lmswaomirai' ? '' : ''
+    }
+    ,
+    {
+      id: 'page-enrol-three-trialend',
+      template: 'enrol',
+      category: 'threesubjectpack',
+      SubjectPageTitle: '3科目セット(2科目セット購入済)',
+      courseID: env === 'stg' ? 229 : env === 'lmswaomirai' ? 271 : 0,
+      paymentID: env === 'stg' ? [324] : env === 'lmswaomirai' ? [323] : [0],
       categoryID: env === 'stg' ? '' : env === 'lmswaomirai' ? '' : ''
     }
   ]

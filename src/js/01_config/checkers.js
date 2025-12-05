@@ -62,9 +62,13 @@ const hasBoughtMainSubject = checkGroup((subject) => subject.type === "main");
 const hasBoughtChildSubject = checkGroup((subject) => subject.type === "child");
 
 // adminグループに関連付けられているかを判定
- //受講者と管理者ユーザーで挙動を変えたい部分があるので、この講座を持っている人はadminの扱いにする。
-    //この講座は表に出ないので一般ユーザーは絶対に受講できない講座
+// 受講者と管理者ユーザーで挙動を変えたい部分があるので、この講座を持っている人はadminの扱いにする。
+// この講座は表に出ないので一般ユーザーは絶対に受講できない講座
 const hasBoughtAdminSubject= checkGroup((subject) => subject.key === "admin");
+
+// 初月無料になっているかどうかを判定
+// 条件は「typeが'trialend'」であること。
+const hasBoughtTrialendSubject = checkGroup((subject) => subject.key === "trialend");
 
 // 管理者ユーザーのみbodyにクラスを付ける
 if(hasBoughtAdminSubject){
