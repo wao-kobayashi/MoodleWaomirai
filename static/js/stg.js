@@ -1678,12 +1678,9 @@ if (bodyId === "page-enrol-index") {
   // ============================
   // メイン科目（哲学/科学/経済/2科目セット/3科目セット）の配列
   const MAIN_SUBJECTS = ["philosophy", "science", "economy", "twosubjectpack", "threesubjectpack"];
-  // セット割引を表示する科目の配列（メイン科目と同じ）
-  const SET_DISCOUNT_SUBJECTS = ["philosophy", "science", "economy", "twosubjectpack", "threesubjectpack"];
   
   // 日付関連の変数
   const today = new Date(); // 現在の日付
-  const AmazonGiftFreeCampaignEndDate = new Date(AmazonGiftFreeCampaignEnd); // キャンペーン終了日
   const subjectCategory = currentViewCourseData.key; // 現在表示されている科目のカテゴリー
 
   // ============================
@@ -1694,7 +1691,7 @@ if (bodyId === "page-enrol-index") {
   const isHtmlCopy = searchParams.has("htmlCopy") || searchParams.get("params") === "htmlCopy";
 
   // htmlCopyパラメータがなく、かつキャンペーン期間中の場合、バナーを表示
-  if (!isHtmlCopy && today <= AmazonGiftFreeCampaignEndDate && !hasBoughtMainSubject) {
+  if (!isHtmlCopy && today <= AmazonGiftFreeCampaignEnd && !hasBoughtMainSubject) {
     $(function() {
       // SP用とPC用のバナー画像を含むHTML
       const CampaignBannerHtml = `
@@ -1755,7 +1752,7 @@ if (bodyId === "page-enrol-index") {
   // セット割引情報の表示
   // ============================
   // セット割引対象科目の場合、割引情報を表示
-  if (SET_DISCOUNT_SUBJECTS.includes(subjectCategory)) {
+  if (MAIN_SUBJECTS.includes(subjectCategory)) {
     const $buttonElement = $(".enrol_fee_payment_region button");
     if ($buttonElement.length) {
       // セット割引の案内HTMLを生成
@@ -1805,6 +1802,7 @@ if (bodyId === "page-enrol-index") {
     // 初月無料フラグがある、または哲学、科学、経済を持っていて哲学、科学、経済のページにいる場合
     if (hasBoughtTrialendSubject || (MAIN_SUBJECTS.includes(subjectCategory) && checkBoughtMainSubject(MAIN_SUBJECTS))) {
       window.open(UrlSubjectChangeForm, '_blank');
+      return; // これ以降の処理は実行しない
     }
 
     // メンテナンス日で既存購入がない場合
@@ -1846,7 +1844,7 @@ if (bodyId === "page-enrol-index") {
     $('.enrol_fee_payment_region button strong').text('科目変更フォームへ進む'); 
 
     // スマホ表示の場合のレイアウト調整
-    if ($(window).width() <= 768) {
+    if (window.matchMedia('(max-width: 767px)').matches) {
       $('.fixed-subject-price').hide(); // 画面下部の固定価格表示を非表示
       // ボタンのスタイルを調整（画面下部に固定、幅90%）
       $('.enrol_fee_payment_region .btn.btn-secondary').css({
