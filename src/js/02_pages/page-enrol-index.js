@@ -48,8 +48,8 @@ if (bodyId === "page-enrol-index") {
   const hasExistingPurchase = (MAIN_SUBJECTS.includes(subjectCategory) && checkBoughtMainSubject(MAIN_SUBJECTS)) || 
                               (subjectCategory === "globalenglish" && hasBoughtTrialendSubject);
   
-  // メンテナンス日で、かつ既存購入がない場合、購入制限を適用
-  if(isDisabledDay && !hasExistingPurchase) {
+  // メンテナンス日で既存購入がない場合の処理
+  if(isDisabledDay && !hasExistingPurchase && !hasBoughtTrialendSubject) {
     // ページ下部に固定の警告メッセージを追加
     $("#page-enrol-index").append('<div class="disabled-fee-fixed"><span class="icon-disabled-fee-fixed">&#x26a0;&#xfe0f;</span>毎月' + DayDisabledFee + '日はシステムメンテナンスのため、受講登録手続きができません。<br class="br-disabled-fee-fixed">お手数ですが、翌日以降に手続きをお願いします。</div>');
     // メンテナンス中を示すクラスを追加
@@ -131,7 +131,7 @@ if (bodyId === "page-enrol-index") {
 
     // メンテナンス日で既存購入がない場合
     // → 購入不可のモーダルを表示して処理を中断
-    if(isDisabledDay && !hasExistingPurchase){
+    if(isDisabledDay && !hasExistingPurchase && !hasBoughtTrialendSubject){
       createModal({
         title: "️️毎月" + DayDisabledFee + "日はシステムメンテナンスのため<br />受講登録手続きができません。<br />お手数ですが、翌日以降に<br />手続きをお願いします。<br /><br />",
         buttons: [{ text: "確認しました", class: "btn-primary c-modal-wrap-close-tag" }]
