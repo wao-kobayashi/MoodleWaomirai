@@ -7,8 +7,6 @@ if (bodyId === "page-enrol-index") {
   // ============================
   // メイン科目（哲学/科学/経済/2科目セット/3科目セット）の配列
   const MAIN_SUBJECTS = ["philosophy", "science", "economy", "twosubjectpack", "threesubjectpack"];
-  // セット割引を表示する科目の配列（メイン科目と同じ）
-  const SET_DISCOUNT_SUBJECTS = ["philosophy", "science", "economy", "twosubjectpack", "threesubjectpack"];
   
   // 日付関連の変数
   const today = new Date(); // 現在の日付
@@ -84,7 +82,7 @@ if (bodyId === "page-enrol-index") {
   // セット割引情報の表示
   // ============================
   // セット割引対象科目の場合、割引情報を表示
-  if (SET_DISCOUNT_SUBJECTS.includes(subjectCategory)) {
+  if (MAIN_SUBJECTS.includes(subjectCategory)) {
     const $buttonElement = $(".enrol_fee_payment_region button");
     if ($buttonElement.length) {
       // セット割引の案内HTMLを生成
