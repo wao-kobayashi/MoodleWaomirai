@@ -4,7 +4,7 @@
 // ==============================
 
 const UrlHome = "https://lms.waomirai.com/?redirect=0" //トップページ（科目選択）
-const UrlForm = "https://wao.ne.jp/forms/waomirai-changesubject/form.php"; // フォームURL 
+const UrlSubjectChangeForm = "https://wao.ne.jp/forms/waomirai-changesubject/form.php"; // フォームURL 
 const UrlChangeSubject = "https://lms.waomirai.com/user/edit.php"; // 受講変更ページ
 const DayChangeCourseBannerStart = 13; // 受講レベル変更・科目変更・解約の締切日通知モーダルの表示開始日（月の前半）
 const DayChangeCourseDeadLine = 20; // 受講レベル変更・科目変更・解約の締切日（DayChangeCourseBannerStartより後の日の設定が必要）
@@ -52,8 +52,8 @@ const ImgSubjectEnglish = "https://waomirai.com/lp/assets/moodle/images/icn_subj
 const ImgSubjectOther = "https://waomirai.com/lp/assets/moodle/images/icn_subject_other.svg"; //アイコン：その他
  
 const ImgModalBadge = "https://waomirai.com/lp/assets/moodle/images/page_badge_sample.png"; //バッジの画像
-const ImgBannerAmazonGiftFreeCampaignPc = "https://go.waomirai.com/l/1026513/2025-10-20/hy5wq/1026513/1760936850Q85jpiyV/banner_free_until_25dec_pc.png"; //バッジの画像
-const ImgBannerAmazonGiftFreeCampaignSp = "https://go.waomirai.com/l/1026513/2025-10-20/hy5wb/1026513/1760936849yL4umnEM/banner_free_until_25dec_sp.png"; //バッジの画像
+const ImgBannerAmazonGiftFreeCampaignPc = "https://go.waomirai.com/l/1026513/2025-10-20/hy5wm/1026513/1760936850Nh1zDBCZ/banner_free_until_26jan_pc.png"; //バッジの画像
+const ImgBannerAmazonGiftFreeCampaignSp = "https://go.waomirai.com/l/1026513/2025-10-20/hy5wf/1026513/1760936849Fhrb3Ywf/banner_free_until_26jan_sp.png"; //バッジの画像
 
 //次アップ
 //2025dec pc https://go.waomirai.com/l/1026513/2025-10-20/hy5wq/1026513/1760936850Q85jpiyV/banner_free_until_25dec_pc.png
