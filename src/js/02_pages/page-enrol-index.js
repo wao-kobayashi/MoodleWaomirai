@@ -71,7 +71,7 @@ if (bodyId === "page-enrol-index") {
       } 
       // タイプ2: 毎月定期メンテナンスの制限チェック
       else if (restriction.type === 'monthly') {
-        // 現在の日付が指定された日（例：28日）と一致するかチェック
+        // 現在の日付が指定された日（例：1日）と一致するかチェック
         if (now.getDate() === restriction.day) {
           // 該当日の場合、その制限情報を返却
           return {
