@@ -93,12 +93,12 @@ const PurchaseRestrictions = [
     periods: [
     // 制限期間1: 12/1 0:00 ～ 12/5 0:00
     { 
-        start: '2025-12-10T00:00:00', // 制限開始日時（この時刻から制限開始）
+        start: '2025-12-29T00:00:00', // 制限開始日時（この時刻から制限開始）
         end: '2025-12-31T23:59:00',   // 制限終了日時（この時刻になったら制限解除）
         // ページ下部に固定表示されるメッセージ（HTML可）
-        message: '<div class="disabled-fee-fixed"><span class="icon-disabled-fee-fixed">&#x26a0;&#xfe0f;</span>期間限定メンテナンス中です(12/29-1/1)<br class="br-disabled-fee-fixed">お手数ですが、メンテナンス終了後に手続きをお願いします。</div>',
+        message: '<div class="disabled-fee-fixed"><span class="icon-disabled-fee-fixed">&#x26a0;&#xfe0f;</span>システムメンテナンス中です(12/29-1/1)<br class="br-disabled-fee-fixed">お手数ですが、メンテナンス終了後に手続きをお願いします。</div>',
         // 購入ボタンクリック時にモーダルで表示されるタイトル（HTML可）
-        modalTitle: '期間限定メンテナンス中です(12/29-1/1)<br />お手数ですが、メンテナンス終了後に<br />手続きをお願いします。'
+        modalTitle: 'システムメンテナンス中です(12/29-1/1)<br />お手数ですが、メンテナンス終了後に<br />手続きをお願いします。'
     }
     // ★ 新しい期間を追加する場合は、ここにカンマ区切りで追加
     ]
