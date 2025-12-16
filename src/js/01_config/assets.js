@@ -60,3 +60,67 @@ const ImgBannerAmazonGiftFreeCampaignSp = "https://go.waomirai.com/l/1026513/202
 //2025dec sp https://go.waomirai.com/l/1026513/2025-10-20/hy5wb/1026513/1760936849yL4umnEM/banner_free_until_25dec_sp.png
 //2026jan pc https://go.waomirai.com/l/1026513/2025-10-20/hy5wm/1026513/1760936850Nh1zDBCZ/banner_free_until_26jan_pc.png
 //2026jan sp https://go.waomirai.com/l/1026513/2025-10-20/hy5wf/1026513/1760936849Fhrb3Ywf/banner_free_until_26jan_sp.png
+
+
+// ============================
+// 購入制限の統合管理
+// ============================
+/**
+ * 購入制限期間の設定
+ * 
+ * このオブジェクト配列で全ての購入制限を一元管理します。
+ * 配列の上から順にチェックされ、最初にマッチした制限が適用されます。
+ * 
+ * 【優先順位】
+ * 1. 特定期間の制限（type: 'period'）← 先に配置
+ * 2. 毎月定期メンテナンス（type: 'monthly'）← 後に配置
+ * 
+ * 【新しい制限期間の追加方法】
+ * periods配列に新しいオブジェクトを追加するだけです：
+ * { 
+ *   start: '開始日時(ISO8601形式)', 
+ *   end: '終了日時(ISO8601形式)', 
+ *   message: 'ページ下部に表示するHTML',
+ *   modalTitle: 'モーダルに表示するタイトル(HTMLタグ可)'
+ * }
+ */
+const PurchaseRestrictions = [
+// ----------------------------------------
+// 特定期間の制限(優先的にチェック)
+// ----------------------------------------
+{
+    type: 'period', // 制限タイプ：特定期間
+    periods: [
+        //配列テスト用データ
+        { 
+        start: '2025-12-10T00:00:00', // 制限開始日時（この時刻から制限開始）
+        end: '2025-12-11T11:00:00',   // 制限終了日時（この時刻になったら制限解除）
+        // ページ下部に固定表示されるメッセージ（HTML可）
+        message: '<div class="disabled-fee-fixed"><span class="icon-disabled-fee-fixed">&#x26a0;&#xfe0f;</span>テスト</div>',
+        // 購入ボタンクリック時にモーダルで表示されるタイトル（HTML可）
+        modalTitle: 'テスト<br />テストテスト'
+        },
+        //以下本番運用用データ
+        { 
+        start: '2025-12-29T00:00:00', // 制限開始日時（この時刻から制限開始）
+        end: '2025-12-31T23:59:00',   // 制限終了日時（この時刻になったら制限解除）
+        // ページ下部に固定表示されるメッセージ（HTML可）
+        message: '<div class="disabled-fee-fixed"><span class="icon-disabled-fee-fixed">&#x26a0;&#xfe0f;</span>システムメンテナンス中です(12/29-1/1)<br class="br-disabled-fee-fixed">お手数ですが、メンテナンス終了後に手続きをお願いします。</div>',
+        // 購入ボタンクリック時にモーダルで表示されるタイトル（HTML可）
+        modalTitle: 'システムメンテナンス中です(12/29-1/1)<br />お手数ですが、メンテナンス終了後に<br />手続きをお願いします。'
+    }
+    // ★ 新しい期間を追加する場合は、ここにカンマ区切りで追加
+    ]
+},
+// ----------------------------------------
+// 毎月定期メンテナンス(低優先)
+// ----------------------------------------
+{
+    type: 'monthly', // 制限タイプ：毎月X日
+    day: DayDisabledFee, // 制限する日（例：28なら毎月28日）
+    // 毎月X日に表示されるメッセージ
+    message: `<div class="disabled-fee-fixed"><span class="icon-disabled-fee-fixed">&#x26a0;&#xfe0f;</span>毎月${DayDisabledFee}日はシステムメンテナンスのため、受講登録手続きができません。<br class="br-disabled-fee-fixed">お手数ですが、翌日以降に手続きをお願いします。</div>`,
+    // 毎月X日のモーダルタイトル
+    modalTitle: `毎月${DayDisabledFee}日はシステムメンテナンスのため<br />受講登録手続きができません。<br />お手数ですが、翌日以降に<br />手続きをお願いします。`
+}
+];

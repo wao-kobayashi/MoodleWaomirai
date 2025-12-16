@@ -163,6 +163,70 @@ const ImgBannerAmazonGiftFreeCampaignSp = "https://go.waomirai.com/l/1026513/202
 //2026jan pc https://go.waomirai.com/l/1026513/2025-10-20/hy5wm/1026513/1760936850Nh1zDBCZ/banner_free_until_26jan_pc.png
 //2026jan sp https://go.waomirai.com/l/1026513/2025-10-20/hy5wf/1026513/1760936849Fhrb3Ywf/banner_free_until_26jan_sp.png
 
+
+// ============================
+// 購入制限の統合管理
+// ============================
+/**
+ * 購入制限期間の設定
+ * 
+ * このオブジェクト配列で全ての購入制限を一元管理します。
+ * 配列の上から順にチェックされ、最初にマッチした制限が適用されます。
+ * 
+ * 【優先順位】
+ * 1. 特定期間の制限（type: 'period'）← 先に配置
+ * 2. 毎月定期メンテナンス（type: 'monthly'）← 後に配置
+ * 
+ * 【新しい制限期間の追加方法】
+ * periods配列に新しいオブジェクトを追加するだけです：
+ * { 
+ *   start: '開始日時(ISO8601形式)', 
+ *   end: '終了日時(ISO8601形式)', 
+ *   message: 'ページ下部に表示するHTML',
+ *   modalTitle: 'モーダルに表示するタイトル(HTMLタグ可)'
+ * }
+ */
+const PurchaseRestrictions = [
+// ----------------------------------------
+// 特定期間の制限(優先的にチェック)
+// ----------------------------------------
+{
+    type: 'period', // 制限タイプ：特定期間
+    periods: [
+        //配列テスト用データ
+        { 
+        start: '2025-12-10T00:00:00', // 制限開始日時（この時刻から制限開始）
+        end: '2025-12-11T11:00:00',   // 制限終了日時（この時刻になったら制限解除）
+        // ページ下部に固定表示されるメッセージ（HTML可）
+        message: '<div class="disabled-fee-fixed"><span class="icon-disabled-fee-fixed">&#x26a0;&#xfe0f;</span>テスト</div>',
+        // 購入ボタンクリック時にモーダルで表示されるタイトル（HTML可）
+        modalTitle: 'テスト<br />テストテスト'
+        },
+        //以下本番運用用データ
+        { 
+        start: '2025-12-29T00:00:00', // 制限開始日時（この時刻から制限開始）
+        end: '2025-12-31T23:59:00',   // 制限終了日時（この時刻になったら制限解除）
+        // ページ下部に固定表示されるメッセージ（HTML可）
+        message: '<div class="disabled-fee-fixed"><span class="icon-disabled-fee-fixed">&#x26a0;&#xfe0f;</span>システムメンテナンス中です(12/29-1/1)<br class="br-disabled-fee-fixed">お手数ですが、メンテナンス終了後に手続きをお願いします。</div>',
+        // 購入ボタンクリック時にモーダルで表示されるタイトル（HTML可）
+        modalTitle: 'システムメンテナンス中です(12/29-1/1)<br />お手数ですが、メンテナンス終了後に<br />手続きをお願いします。'
+    }
+    // ★ 新しい期間を追加する場合は、ここにカンマ区切りで追加
+    ]
+},
+// ----------------------------------------
+// 毎月定期メンテナンス(低優先)
+// ----------------------------------------
+{
+    type: 'monthly', // 制限タイプ：毎月X日
+    day: DayDisabledFee, // 制限する日（例：28なら毎月28日）
+    // 毎月X日に表示されるメッセージ
+    message: `<div class="disabled-fee-fixed"><span class="icon-disabled-fee-fixed">&#x26a0;&#xfe0f;</span>毎月${DayDisabledFee}日はシステムメンテナンスのため、受講登録手続きができません。<br class="br-disabled-fee-fixed">お手数ですが、翌日以降に手続きをお願いします。</div>`,
+    // 毎月X日のモーダルタイトル
+    modalTitle: `毎月${DayDisabledFee}日はシステムメンテナンスのため<br />受講登録手続きができません。<br />お手数ですが、翌日以降に<br />手続きをお願いします。`
+}
+];
+
 // ==============================
 // ページ判定とコースIDの取得
 // ==============================
@@ -1667,6 +1731,103 @@ if (bodyId === "page-enrol-index") {
   const today = new Date(); // 現在の日付
   const subjectCategory = currentViewCourseData.key; // 現在表示されている科目のカテゴリー
 
+  /**
+   * 現在の購入制限状態を判定する関数
+   * 
+   * 【処理フロー】
+   * 1. 既存購入チェック → ある場合は制限なし（null返却）
+   * 2. PurchaseRestrictions配列を上から順にチェック
+   * 3. 最初にマッチした制限情報を返却
+   * 4. どの制限にもマッチしない場合はnull返却
+   * 
+   * 【既存購入者の除外ロジック】
+   * 以下のいずれかに該当する場合、制限は適用されません：
+   * - メイン科目を既に購入している
+   * - グローバル英語の体験終了講座を購入している
+   * - 初月無料フラグがある
+   * 
+   * @returns {Object|null} 制限情報 { message: string, modalTitle: string } 
+   *                        または制限なしの場合null
+   */
+  function getCurrentRestriction() {
+    const now = new Date(); // 現在日時を取得
+    
+    // ----------------------------------------
+    // 既存購入チェック：購入済みユーザーは制限対象外
+    // ----------------------------------------
+    const hasExistingPurchase = 
+      // メイン科目に存在していてメイン科目（哲学/科学/経済等）を購入済み
+      (MAIN_SUBJECTS.includes(subjectCategory) && checkBoughtMainSubject(MAIN_SUBJECTS)) || 
+      // 英語ページに存在してメイン科目（哲学/科学/経済等）を購入済み
+      (subjectCategory === "globalenglish" && hasBoughtTrialendSubject);
+    
+    // 既存購入がある、または初月無料フラグがある場合は制限なし
+    if (hasExistingPurchase || hasBoughtTrialendSubject) {
+      return null;
+    }
+    
+    // ----------------------------------------
+    // 制限設定を順にチェック（配列の上から順に確認）
+    // ----------------------------------------
+    for (const restriction of PurchaseRestrictions) {
+      
+      // タイプ1: 特定期間の制限チェック
+      if (restriction.type === 'period') {
+        // periods配列内の各期間をチェック
+        for (const period of restriction.periods) {
+          const start = new Date(period.start); // 制限開始日時
+          const end = new Date(period.end);     // 制限終了日時
+          
+          // 現在日時が制限期間内かチェック（start <= now < end）
+          if (now >= start && now < end) {
+            // 制限期間内の場合、その制限情報を返却
+            return {
+              message: period.message,       // ページ下部表示用メッセージ
+              modalTitle: period.modalTitle  // モーダル表示用タイトル
+            };
+          }
+        }
+      } 
+      // タイプ2: 毎月定期メンテナンスの制限チェック
+      else if (restriction.type === 'monthly') {
+        // 現在の日付が指定された日（例：1日）と一致するかチェック
+        if (now.getDate() === restriction.day) {
+          // 該当日の場合、その制限情報を返却
+          return {
+            message: restriction.message,       // ページ下部表示用メッセージ
+            modalTitle: restriction.modalTitle  // モーダル表示用タイトル
+          };
+        }
+      }
+    }
+    
+    // どの制限にもマッチしない場合はnullを返却（制限なし）
+    return null;
+  }
+
+  /**
+   * 購入制限のUI反映処理
+   * 
+   * 制限がある場合に以下の3つの処理を実行します：
+   * 1. ページ下部に警告メッセージを追加表示
+   * 2. ページ全体に制限中を示すCSSクラスを付与
+   * 3. 購入ボタンのStripe決済アクションを無効化
+   * 
+   * @param {Object} restriction - 制限情報オブジェクト
+   * @param {string} restriction.message - 表示するHTMLメッセージ
+   */
+  function applyPurchaseRestriction(restriction) {
+    // 1. ページ下部に警告メッセージを追加（HTMLとして挿入）
+    $("#page-enrol-index").append(restriction.message);
+    
+    // 2. ページ全体に制限中を示すクラスを付与（CSSで追加スタイル適用可能）
+    $('#page-enrol-index').addClass('is-disabled-fee-fixed');
+    
+    // 3. 購入ボタンのStripe決済アクションを削除（data-action属性を空にする）
+    //    → これによりボタンをクリックしても決済処理が実行されなくなる
+    $(".enrol_fee_payment_region button").attr('data-action', '');
+  }
+
   // ============================
   // キャンペーンバナーの表示
   // ============================
@@ -1692,25 +1853,17 @@ if (bodyId === "page-enrol-index") {
   }
 
   // ============================
-  // メンテナンス日の購入制限
+  // 購入制限の適用（初期化時）
   // ============================
-  // メンテナンス日かどうかをチェック
-  const isDisabledDay = DayDisabledFee == DayOfMonth;
-  
-  // 既存購入があるかをチェック
-  // - メイン科目で既に購入している場合
-  // - 英語科目で体験終了後の講座を購入している場合
-  const hasExistingPurchase = (MAIN_SUBJECTS.includes(subjectCategory) && checkBoughtMainSubject(MAIN_SUBJECTS)) || 
-                              (subjectCategory === "globalenglish" && hasBoughtTrialendSubject);
-  
-  // メンテナンス日で既存購入がない場合の処理
-  if(isDisabledDay && !hasExistingPurchase && !hasBoughtTrialendSubject) {
-    // ページ下部に固定の警告メッセージを追加
-    $("#page-enrol-index").append('<div class="disabled-fee-fixed"><span class="icon-disabled-fee-fixed">&#x26a0;&#xfe0f;</span>毎月' + DayDisabledFee + '日はシステムメンテナンスのため、受講登録手続きができません。<br class="br-disabled-fee-fixed">お手数ですが、翌日以降に手続きをお願いします。</div>');
-    // メンテナンス中を示すクラスを追加
-    $('#page-enrol-index').addClass('is-disabled-fee-fixed');
-    // 購入ボタンのStripe決済アクションを無効化
-    $(".enrol_fee_payment_region button").attr('data-action', '');
+  /**
+   * ページ読み込み時に購入制限をチェックし、該当する場合はUIに反映
+   * 
+   * getCurrentRestriction()で現在の制限状態を取得し、
+   * 制限がある場合（null以外）はapplyPurchaseRestriction()でUIを更新
+   */
+  const currentRestriction = getCurrentRestriction();
+  if (currentRestriction) {
+    applyPurchaseRestriction(currentRestriction);
   }
 
   // ============================
@@ -1784,27 +1937,32 @@ if (bodyId === "page-enrol-index") {
   // ============================
   $(".enrol_fee_payment_region button").on("click", function (event) {
 
-    // メンテナンス日で既存購入がない場合
-    // → 購入不可のモーダルを表示して処理を中断
-    if(isDisabledDay && !hasExistingPurchase && !hasBoughtTrialendSubject){
+    // ----------------------------------------
+    // 購入制限チェック（クリック時に最新状態で再確認）
+    // ----------------------------------------
+    /**
+     * ページ読み込み後に日付が変わった場合などを考慮し、
+     * ボタンクリック時に改めて制限状態をチェックします。
+     * 
+     * 制限がある場合：
+     * - モーダルで警告メッセージを表示
+     * - 処理を中断（return）
+     */
+    const restriction = getCurrentRestriction();
+    if (restriction) {
       createModal({
-        title: "️️毎月" + DayDisabledFee + "日はシステムメンテナンスのため<br />受講登録手続きができません。<br />お手数ですが、翌日以降に<br />手続きをお願いします。<br /><br />",
+        title: restriction.modalTitle, // 制限情報のモーダルタイトルを表示
         buttons: [{ text: "確認しました", class: "btn-primary c-modal-wrap-close-tag" }]
       });
       return; // これ以降の処理は実行しない
     }
     
-    // 初月無料フラグがある、または哲学、科学、経済を持っていて哲学、科学、経済のページにいる場合
+    // 既存購入者の科目変更誘導
     if (hasBoughtTrialendSubject || (MAIN_SUBJECTS.includes(subjectCategory) && checkBoughtMainSubject(MAIN_SUBJECTS))) {
       window.open(UrlSubjectChangeForm, '_blank');
-      return; // これ以降の処理は実行しない
-    }
-
-    // 科目変更専用URLからのアクセスの場合
-    // → 通常の科目変更抑制ロジックをスキップ
-    if (getUrlFlag() === "flagChangeSubject") {
       return;
     }
+
   });
 
   // ============================
@@ -1843,10 +2001,11 @@ if (bodyId === "page-enrol-index") {
   }
 
   // ============================
-  // 科目変更誘導
+  // 科目変更誘導の適用
   // ============================
-
-  // 初月無料フラグがある、または哲学、科学、経済を持っていて哲学、科学、経済のページにいる場合
+  // 以下の条件に該当の場合に場合科目変更誘導ロジックを適用
+  // -　初月無料終了
+  // -　メイン科目のページにいてメイン科目いずれかを購入済み
   if (hasBoughtTrialendSubject || (MAIN_SUBJECTS.includes(subjectCategory) && checkBoughtMainSubject(MAIN_SUBJECTS))) {
     setupSubjectChangeRedirect();
   }
