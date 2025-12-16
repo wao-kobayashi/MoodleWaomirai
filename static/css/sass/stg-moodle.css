@@ -8355,6 +8355,7 @@ html[data-tenantidnumber=stg] #page-mod-questionnaire-report .course-lesson .cou
   margin: 0 auto 16px;
   font-size: 20px;
   text-align: center !important;
+  line-height: 1.6;
 }
 @media screen and (max-width: 768px) {
   html[data-tenantidnumber=stg] #page-mod-questionnaire-view .course-lesson .course-lesson-wrap .course-lesson-wrap-title,
@@ -8362,7 +8363,52 @@ html[data-tenantidnumber=stg] #page-mod-questionnaire-report .course-lesson .cou
   html[data-tenantidnumber=stg] #page-mod-questionnaire-myreport .course-lesson .course-lesson-wrap .course-lesson-wrap-title,
   html[data-tenantidnumber=stg] #page-mod-questionnaire-report .course-lesson .course-lesson-wrap .course-lesson-wrap-title {
     font-size: 16px;
+    line-height: 1.5;
   }
+}
+html[data-tenantidnumber=stg] #page-mod-questionnaire-view .course-lesson .course-lesson-wrap strong,
+html[data-tenantidnumber=stg] #page-mod-questionnaire-complete .course-lesson .course-lesson-wrap strong,
+html[data-tenantidnumber=stg] #page-mod-questionnaire-myreport .course-lesson .course-lesson-wrap strong,
+html[data-tenantidnumber=stg] #page-mod-questionnaire-report .course-lesson .course-lesson-wrap strong {
+  font-size: 14px;
+  letter-spacing: 0.5px;
+  font-weight: 400;
+}
+@media screen and (max-width: 768px) {
+  html[data-tenantidnumber=stg] #page-mod-questionnaire-view .course-lesson .course-lesson-wrap strong,
+  html[data-tenantidnumber=stg] #page-mod-questionnaire-complete .course-lesson .course-lesson-wrap strong,
+  html[data-tenantidnumber=stg] #page-mod-questionnaire-myreport .course-lesson .course-lesson-wrap strong,
+  html[data-tenantidnumber=stg] #page-mod-questionnaire-report .course-lesson .course-lesson-wrap strong {
+    font-size: 12px;
+    display: block;
+    margin: 8px 0 0px;
+  }
+}
+html[data-tenantidnumber=stg] #page-mod-questionnaire-view .course-lesson .course-lesson-wrap strong a,
+html[data-tenantidnumber=stg] #page-mod-questionnaire-complete .course-lesson .course-lesson-wrap strong a,
+html[data-tenantidnumber=stg] #page-mod-questionnaire-myreport .course-lesson .course-lesson-wrap strong a,
+html[data-tenantidnumber=stg] #page-mod-questionnaire-report .course-lesson .course-lesson-wrap strong a {
+  color: #ffffff;
+  text-decoration: underline;
+}
+html[data-tenantidnumber=stg] #page-mod-questionnaire-view .course-lesson .course-lesson-wrap strong a:focus-within,
+html[data-tenantidnumber=stg] #page-mod-questionnaire-complete .course-lesson .course-lesson-wrap strong a:focus-within,
+html[data-tenantidnumber=stg] #page-mod-questionnaire-myreport .course-lesson .course-lesson-wrap strong a:focus-within,
+html[data-tenantidnumber=stg] #page-mod-questionnaire-report .course-lesson .course-lesson-wrap strong a:focus-within {
+  background: transparent;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+html[data-tenantidnumber=stg] #page-mod-questionnaire-view .course-lesson .course-lesson-wrap strong a:hover, html[data-tenantidnumber=stg] #page-mod-questionnaire-view .course-lesson .course-lesson-wrap strong a:focus,
+html[data-tenantidnumber=stg] #page-mod-questionnaire-complete .course-lesson .course-lesson-wrap strong a:hover,
+html[data-tenantidnumber=stg] #page-mod-questionnaire-complete .course-lesson .course-lesson-wrap strong a:focus,
+html[data-tenantidnumber=stg] #page-mod-questionnaire-myreport .course-lesson .course-lesson-wrap strong a:hover,
+html[data-tenantidnumber=stg] #page-mod-questionnaire-myreport .course-lesson .course-lesson-wrap strong a:focus,
+html[data-tenantidnumber=stg] #page-mod-questionnaire-report .course-lesson .course-lesson-wrap strong a:hover,
+html[data-tenantidnumber=stg] #page-mod-questionnaire-report .course-lesson .course-lesson-wrap strong a:focus {
+  outline: none;
+  text-decoration: none;
+  background-color: transparent;
 }
 html[data-tenantidnumber=stg] #page-mod-questionnaire-view .course-lesson .course-lesson-wrap .course-lesson-wrap-subtitle,
 html[data-tenantidnumber=stg] #page-mod-questionnaire-complete .course-lesson .course-lesson-wrap .course-lesson-wrap-subtitle,
@@ -8443,6 +8489,91 @@ html[data-tenantidnumber=stg] #page-mod-questionnaire-myreport .course-lesson .c
 html[data-tenantidnumber=stg] #page-mod-questionnaire-report .course-lesson .course-lesson-wrap button:hover {
   opacity: 0.7;
 }
+html[data-tenantidnumber=stg] #page-mod-questionnaire-view .course-lesson .course-lesson-wrap .course-lesson-wrap-btn a,
+html[data-tenantidnumber=stg] #page-mod-questionnaire-complete .course-lesson .course-lesson-wrap .course-lesson-wrap-btn a,
+html[data-tenantidnumber=stg] #page-mod-questionnaire-myreport .course-lesson .course-lesson-wrap .course-lesson-wrap-btn a,
+html[data-tenantidnumber=stg] #page-mod-questionnaire-report .course-lesson .course-lesson-wrap .course-lesson-wrap-btn a {
+  /* 横幅はまちまちなので指定しない */
+  height: 60px;
+  border-radius: 8px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 20px !important;
+  line-height: 1;
+  width: 360px;
+  padding: 0;
+  cursor: pointer;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  -webkit-box-shadow: none !important;
+          box-shadow: none !important;
+  outline: none;
+  border: none;
+}
+@media screen and (max-width: 768px) {
+  html[data-tenantidnumber=stg] #page-mod-questionnaire-view .course-lesson .course-lesson-wrap .course-lesson-wrap-btn a,
+  html[data-tenantidnumber=stg] #page-mod-questionnaire-complete .course-lesson .course-lesson-wrap .course-lesson-wrap-btn a,
+  html[data-tenantidnumber=stg] #page-mod-questionnaire-myreport .course-lesson .course-lesson-wrap .course-lesson-wrap-btn a,
+  html[data-tenantidnumber=stg] #page-mod-questionnaire-report .course-lesson .course-lesson-wrap .course-lesson-wrap-btn a {
+    width: 220px;
+    /* 横幅はまちまちなので指定しない */
+    height: 48px;
+    border-radius: 4px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    font-size: 16px !important;
+    border-radius: 8px;
+    line-height: 1;
+  }
+}
+html[data-tenantidnumber=stg] #page-mod-questionnaire-view .course-lesson .course-lesson-wrap .course-lesson-wrap-btn a.primary,
+html[data-tenantidnumber=stg] #page-mod-questionnaire-complete .course-lesson .course-lesson-wrap .course-lesson-wrap-btn a.primary,
+html[data-tenantidnumber=stg] #page-mod-questionnaire-myreport .course-lesson .course-lesson-wrap .course-lesson-wrap-btn a.primary,
+html[data-tenantidnumber=stg] #page-mod-questionnaire-report .course-lesson .course-lesson-wrap .course-lesson-wrap-btn a.primary {
+  background: #ee7a00 !important;
+  color: #ffffff !important;
+  margin: 8px auto 24px;
+  font-weight: bold;
+}
+@media screen and (max-width: 768px) {
+  html[data-tenantidnumber=stg] #page-mod-questionnaire-view .course-lesson .course-lesson-wrap .course-lesson-wrap-btn a.primary,
+  html[data-tenantidnumber=stg] #page-mod-questionnaire-complete .course-lesson .course-lesson-wrap .course-lesson-wrap-btn a.primary,
+  html[data-tenantidnumber=stg] #page-mod-questionnaire-myreport .course-lesson .course-lesson-wrap .course-lesson-wrap-btn a.primary,
+  html[data-tenantidnumber=stg] #page-mod-questionnaire-report .course-lesson .course-lesson-wrap .course-lesson-wrap-btn a.primary {
+    margin: 0px auto 16px;
+  }
+}
+html[data-tenantidnumber=stg] #page-mod-questionnaire-view .course-lesson .course-lesson-wrap .course-lesson-wrap-btn a.secondly,
+html[data-tenantidnumber=stg] #page-mod-questionnaire-complete .course-lesson .course-lesson-wrap .course-lesson-wrap-btn a.secondly,
+html[data-tenantidnumber=stg] #page-mod-questionnaire-myreport .course-lesson .course-lesson-wrap .course-lesson-wrap-btn a.secondly,
+html[data-tenantidnumber=stg] #page-mod-questionnaire-report .course-lesson .course-lesson-wrap .course-lesson-wrap-btn a.secondly {
+  border: 1.5px solid #ffffff !important;
+  background: transparent !important;
+  color: #ffffff !important;
+  margin: 0px auto 8px;
+}
+html[data-tenantidnumber=stg] #page-mod-questionnaire-view .course-lesson .course-lesson-wrap .course-lesson-wrap-btn a:hover,
+html[data-tenantidnumber=stg] #page-mod-questionnaire-complete .course-lesson .course-lesson-wrap .course-lesson-wrap-btn a:hover,
+html[data-tenantidnumber=stg] #page-mod-questionnaire-myreport .course-lesson .course-lesson-wrap .course-lesson-wrap-btn a:hover,
+html[data-tenantidnumber=stg] #page-mod-questionnaire-report .course-lesson .course-lesson-wrap .course-lesson-wrap-btn a:hover {
+  text-decoration: none;
+  opacity: 0.7;
+}
 html[data-tenantidnumber=stg] #page-mod-questionnaire-view .course-lesson:before,
 html[data-tenantidnumber=stg] #page-mod-questionnaire-complete .course-lesson:before,
 html[data-tenantidnumber=stg] #page-mod-questionnaire-myreport .course-lesson:before,
@@ -8463,6 +8594,16 @@ html[data-tenantidnumber=stg] #page-mod-questionnaire-complete .course-lesson im
 html[data-tenantidnumber=stg] #page-mod-questionnaire-myreport .course-lesson img,
 html[data-tenantidnumber=stg] #page-mod-questionnaire-report .course-lesson img {
   border-radius: 8px;
+}
+@media screen and (max-width: 768px) {
+  html[data-tenantidnumber=stg] #page-mod-questionnaire-view .course-lesson img,
+  html[data-tenantidnumber=stg] #page-mod-questionnaire-complete .course-lesson img,
+  html[data-tenantidnumber=stg] #page-mod-questionnaire-myreport .course-lesson img,
+  html[data-tenantidnumber=stg] #page-mod-questionnaire-report .course-lesson img {
+    height: 280px;
+    -o-object-fit: cover;
+       object-fit: cover;
+  }
 }
 html[data-tenantidnumber=stg] #page-mod-questionnaire-view div[role=main],
 html[data-tenantidnumber=stg] #page-mod-questionnaire-complete div[role=main],
