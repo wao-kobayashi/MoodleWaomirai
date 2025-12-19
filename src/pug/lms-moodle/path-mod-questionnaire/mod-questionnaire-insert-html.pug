@@ -1,0 +1,101 @@
+doctype html
+html(lang="ja")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport" content="width=device-width, initial-scale=1.0")
+    title コースHTML生成ツール
+    style.
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #fff; min-height: 100vh; padding: 20px; }
+      .container { max-width: 1200px; margin: 0 auto; }
+      h1 { color: #262626; text-align: center; margin-bottom: 40px; font-size: 2.5rem; }
+      .course-card { background: white; border-radius: 12px; margin-bottom: 30px; box-shadow: 0 10px 30px rgba(0,0,0,0.2); overflow: hidden; }
+      .course-header { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 20px; display: flex; justify-content: space-between; align-items: center; }
+      .course-name { font-size: 1.5rem; font-weight: bold; }
+      .copy-btn { background: white; color: #667eea; border: none; padding: 12px 24px; border-radius: 8px; cursor: pointer; font-weight: bold; font-size: 1rem; transition: all 0.3s; display: flex; align-items: center; gap: 8px; }
+      .copy-btn:hover { transform: translateY(-2px); box-shadow: 0 5px 15px rgba(0,0,0,0.2); }
+      .copy-btn.copied { background: #10b981; color: white; }
+      .code-container { padding: 20px; background: #f8f9fa; }
+      pre { background: #2d3748; color: #e2e8f0; padding: 20px; border-radius: 8px; overflow-x: auto; font-size: 0.9rem; line-height: 1.6; }
+      .icon { width: 20px; height: 20px; }
+
+  body
+    .container
+      h1 コースHTML生成ツール
+
+      -
+        var courses = [
+          { name: '哲学レベル1', date: '哲学レベル1の授業開催日:「火曜日 18:30〜19:15」または「金曜日 17:30〜18:15」', zoom: 'https://zoom.us/ja/test', vimeo: 'https://vimeo.com/event/4920629/embed/7f5f27273a/interaction' },
+          { name: '哲学レベル2', date: '哲学レベル2の授業開催日:「火曜日 17:30〜18:15」または「金曜日 18:30〜19:15」', zoom: 'https://zoom.us/ja/test', vimeo: 'https://vimeo.com/event/4920670/embed/c70000715a/interaction' },
+          { name: '哲学レベル3', date: '哲学レベル3の授業開催日:「火曜日 20:30〜21:15」または「金曜日 19:30〜20:15」', zoom: 'https://zoom.us/ja/test', vimeo: 'https://vimeo.com/event/4920676/embed/52c21ef6b0/interaction' },
+          { name: '哲学レベル4', date: '哲学レベル4の授業開催日:「火曜日 19:30〜20:15」または「金曜日 20:30〜21:15」', zoom: 'https://zoom.us/ja/test', vimeo: 'https://vimeo.com/event/4920679/embed/ab9c66199d/interaction' },
+          { name: '科学レベル1', date: '科学レベル1の授業開催日:「水曜日 17:30〜18:15」または「金曜日 18:30〜19:15」', zoom: 'https://zoom.us/ja/test', vimeo: 'https://vimeo.com/event/4920693/embed/1419b3b287/interaction' },
+          { name: '科学レベル2', date: '科学レベル2の授業開催日:「水曜日 18:30〜19:15」または「金曜日 17:30〜18:15」', zoom: 'https://zoom.us/ja/test', vimeo: 'https://vimeo.com/event/4920695/embed/022465a73c/interaction' },
+          { name: '科学レベル3', date: '科学レベル3の授業開催日:「水曜日 19:30〜20:15」または「金曜日 20:30〜21:15」', zoom: 'https://zoom.us/ja/test', vimeo: 'https://vimeo.com/event/4920700/embed/2352ff8d6a/interaction' },
+          { name: '科学レベル4', date: '科学レベル4の授業開催日:「水曜日 20:30〜21:15」または「金曜日 19:30〜20:15」', zoom: 'https://zoom.us/ja/test', vimeo: 'https://vimeo.com/event/4920706/embed/489dacd1a2/interaction' },
+          { name: '経済レベル1', date: '経済レベル1の授業開催日:「水曜日 18:30〜19:15」または「木曜日 17:30〜18:15」', zoom: 'https://zoom.us/ja/test', vimeo: 'https://vimeo.com/event/4920714/embed/3ca5539936/interaction' },
+          { name: '経済レベル2', date: '経済レベル2の授業開催日:「水曜日 17:30〜18:15」または「木曜日 18:30〜19:15」', zoom: 'https://zoom.us/ja/test', vimeo: 'https://vimeo.com/event/4920718/embed/84fcf75c13/interaction' },
+          { name: '経済レベル3', date: '経済レベル3の授業開催日:「水曜日 20:30〜21:15」または「木曜日 19:30〜20:15」', zoom: 'https://zoom.us/ja/test', vimeo: 'https://vimeo.com/event/4920725/embed/99a117fd01/interaction' },
+          { name: '経済レベル4', date: '経済レベル4の授業開催日:「水曜日 19:30〜20:15」または「木曜日 20:30〜21:15」', zoom: 'https://zoom.us/ja/test', vimeo: 'https://vimeo.com/event/4920727/embed/9058c274c5/interaction' }
+        ]
+
+      each course, index in courses
+        .course-card
+          .course-header
+            .course-name= course.name
+            button.copy-btn(onclick=`copyCode(${index})` data-index=index)
+              span 📋
+              span.btn-text HTMLをコピー
+          
+          .code-container
+            pre(id=`code-${index}`)
+              code.
+                &lt;div class="course-lesson-wrapper"&gt;
+                  &lt;div class="course-lesson-date"&gt;#{course.date}&lt;br&gt;※各授業は同じ内容を週に2回配信します。どちらかをご受講ください。&lt;/div&gt;
+                  &lt;div class="course-lesson"&gt;
+                    &lt;div class="course-lesson-wrap"&gt;
+                      &lt;div class="course-lesson-wrap-title"&gt;授業時間になったらボタンを&lt;br class="c-pc-hidden"&gt;押して受講してください&lt;br&gt;&lt;strong&gt;受講には「Zoom」のインストールが必要です。&lt;br class="c-pc-hidden"&gt;&lt;a href="https://zoom.us/ja/download" target="_blank" rel="noopener"&gt;コチラ&lt;/a&gt;からインストールしてください。&lt;/strong&gt;&lt;/div&gt;
+                      &lt;div class="course-lesson-wrap-btn"&gt;
+                        &lt;div&gt;&lt;a class="primary" href="#{course.zoom}" target="_blank" rel="noopener"&gt;授業を受講する(Zoom)&lt;/a&gt;&lt;/div&gt;
+                        &lt;div&gt;&lt;a id="openVimeoWindow" class="secondly" href="#"&gt;授業アーカイブを見る&lt;/a&gt;&lt;/div&gt;
+                      &lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;div class="course-lesson-bg"&gt;&lt;img src="https://go.waomirai.com/l/1026513/2024-12-03/h8zc7/1026513/1733275158u05sMlor/movie.svg"&gt;&lt;/div&gt;
+                    &lt;script&gt;
+                      document.getElementById('openVimeoWindow').addEventListener('click', function() {
+                        const screenWidth = window.screen.width;
+                        const screenHeight = window.screen.height;
+                        const newWindow = window.open('', '_blank', `width=${screenWidth},height=${screenHeight},top=0,left=0`);
+                        newWindow.document.open();
+                        newWindow.document.write(`
+                &lt;!DOCTYPE html&gt;
+                &lt;div style="padding:56.25% 0 0 0;position:relative;"&gt;&lt;iframe src="#{course.vimeo}" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;"&gt;&lt;/iframe&gt;&lt;/div&gt;
+                `);
+                        newWindow.document.close();
+                      });
+                    &lt;/script&gt;
+                  &lt;/div&gt;
+                &lt;/div&gt;
+
+    script.
+      function copyCode(index) {
+        const codeElement = document.getElementById(`code-${index}`);
+        const text = codeElement.textContent;
+        
+        // HTMLエンティティをデコード
+        const textarea = document.createElement('textarea');
+        textarea.innerHTML = text;
+        const decodedText = textarea.value;
+        
+        navigator.clipboard.writeText(decodedText).then(() => {
+          const btn = document.querySelector(`[data-index="${index}"]`);
+          const btnText = btn.querySelector('.btn-text');
+          btn.classList.add('copied');
+          btnText.textContent = 'コピー完了!';
+          
+          setTimeout(() => {
+            btn.classList.remove('copied');
+            btnText.textContent = 'HTMLをコピー';
+          }, 2000);
+        });
+      }
