@@ -14529,7 +14529,7 @@ html[data-tenantidnumber=lmswaomirai] #page-mod-page-view h2 {
   line-height: 1.5;
   padding: 0 0 10px;
   border-bottom: 1.5px dashed #999;
-  margin: 0 0 15px;
+  margin: 0 0 45px;
 }
 html[data-tenantidnumber=lmswaomirai] #page-mod-page-view h3 {
   font-size: 20px;
@@ -14563,7 +14563,7 @@ html[data-tenantidnumber=lmswaomirai] #page-mod-page-view .howto-table-contents 
   background: none;
 }
 html[data-tenantidnumber=lmswaomirai] #page-mod-page-view .howto-block {
-  padding: 0 0 60px;
+  padding: 0 0 75px;
 }
 html[data-tenantidnumber=lmswaomirai] #page-mod-page-view .howto-image img {
   max-width: 680px;
@@ -14573,4 +14573,40 @@ html[data-tenantidnumber=lmswaomirai] #page-mod-page-view .howto-image img {
 html[data-tenantidnumber=lmswaomirai] #page-mod-page-view .p-alert {
   color: #f35053 !important;
   font-weight: bold;
+}
+html[data-tenantidnumber=lmswaomirai] #page-mod-page-view .howto-button a {
+  /* 横幅はまちまちなので指定しない */
+  height: 60px;
+  border-radius: 8px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 20px !important;
+  line-height: 1;
+  background: #005c3f !important;
+  color: #ffffff !important;
+  border: none !important;
+  width: 85%;
+  margin: 0 auto 30px;
+}
+html[data-tenantidnumber=lmswaomirai] #page-mod-page-view .howto-button a .material-symbols-outlined {
+  font-size: 16px;
+  margin: 3px 0 0 6px;
+  line-height: 1;
+}
+html[data-tenantidnumber=lmswaomirai] #page-mod-page-view .howto-button a:focus-within {
+  background: transparent;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+html[data-tenantidnumber=lmswaomirai] #page-mod-page-view .howto-button a:hover {
+  text-decoration: none;
+  outline: none;
+  text-decoration: none;
 }

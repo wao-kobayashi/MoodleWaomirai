@@ -1,0 +1,70 @@
+extends ../_layout_moodle.pug
+block variables
+  - var title = '授業参加の流れとZoomの準備について'
+  - var template = 'help' //_layout_moodle.pugでhelpテンプレを指定
+block contents
+  //01 -- 授業参加の流れとZoomの準備について --
+  div
+    h2|【前日までの準備】Zoomをインストールする
+    //1-1
+    .howto-block
+      h3|①PCまたはタブレットでZoomのダウンロードページにアクセスし、ダウンロードボタンをクリックしてください。
+      div.howto-image 
+        img(src="https://lms.waomirai.com/draftfile.php/33/user/draft/859216411/img-howto-zoom-01.png")
+      br
+      .howto-button 
+        a(href='https://zoom.us/ja/download', target='_blank') 
+         div|Zoomダウンロードページへ
+         span.material-symbols-outlined
+          |open_in_new
+    //1-2
+    .howto-block
+      h3|②ダウンロードしたZoomをクリックしてインストールする
+      div.howto-image 
+        img(src='https://lms.waomirai.com/draftfile.php/33/user/draft/711289374/img-howto-zoom-02.png?time=1766111466746')
+    //1-3
+    .howto-block
+      h3|③Zoomアプリが開けましたら、 インストール完了です。
+      div.howto-image 
+        img(src='https://lms.waomirai.com/draftfile.php/33/user/draft/711289374/img-howto-zoom-03.png?time=1766111502360  ')
+    //1-4
+    .howto-block
+      h3|④受講システムの接続テストを行ってください。 下記ページに接続しミーティングが起動すれば 問題ございません。
+      br
+      .howto-button 
+        a(href='https://zoom.us/ja/test', target='_blank') 
+          |Zoom接続テストをする
+          span.material-symbols-outlined
+            |open_in_new
+    br
+    br
+    br
+  //02 -- Zoomで授業に参加する --
+  div
+    h2|【当日の流れ】Zoomで授業に参加する
+    .howto-block    
+      h3|①授業時間になったら受講カレンダーの授業をクリック
+      div.howto-image 
+        img(src='https://lms.waomirai.com/draftfile.php/33/user/draft/859216411/img-howto-lesson-01.png')
+    .howto-block   
+      h3|②授業詳細ページの授業ボタンをクリックすると、Zoomが起動して授業に参加できます
+      div.howto-image 
+        img(src='https://lms.waomirai.com/draftfile.php/33/user/draft/859216411/img-howto-lesson-02.png?time=1766110230675')
+    .howto-block   
+      h3|③Zoomでわかりやすいニックネームに変更します
+      br
+      p|「参加者」をクリック
+      div.howto-image 
+        img(src='https://lms.waomirai.com/draftfile.php/33/user/draft/859216411/img-howto-lesson-03-01.png')
+      br
+      br
+      p|「自分」→「詳細」→「名前を変更する」の順でクリック
+      div.howto-image 
+        img(src='https://lms.waomirai.com/draftfile.php/33/user/draft/859216411/img-howto-lesson-03-02.png')
+      br
+      br
+      p| わかりやすいニックネームに変更します
+      div.howto-image 
+        img(src='https://lms.waomirai.com/draftfile.php/33/user/draft/859216411/img-howto-lesson-03-03.png')
+      br
+      br      
