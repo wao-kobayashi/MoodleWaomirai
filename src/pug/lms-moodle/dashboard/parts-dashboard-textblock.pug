@@ -1,16 +1,25 @@
 //2025年4月開校のお知らせの表示フラグ
 //trueの場合は表示、falseの場合は非表示
 - var infoOpeningVisible = false
-
+- var linkHowtoJoin = 'https://lms.waomirai.com/mod/page/view.php?id=1351'
   
 
 //ダッシュボードにコピペするブロック
 .dashboard-textblock
   .dashboard-left
-    .dashboard-left-block.dashboard-left-block-subject
+    .dashboard-left-block
       ///////////////////////
       // 現在受講中の科目
       ///////////////////////
+      .dashboard-left-block-title
+        |お知らせ
+      .dashboard-left-block-wrap.dashboard-left-block-info 
+        a(href=linkHowtoJoin)
+          .dashboard-left-block-wrap.dashboard-left-block-info-img 
+            img(src='https://waomirai.com/lp/assets/moodle/images/img_news_2025dec.png')
+          .dashboard-left-block-wrap.dashboard-left-block-info-text 
+            |【お願い】ライブ授業の配信方法変更に伴いZoomのインストールをお願いします
+
       .dashboard-left-block-title
         |現在受講中の科目
       .dashboard-left-block-wrap.dashboard-left-block-wrap-subject
@@ -38,6 +47,34 @@
             .subject-page-added-note-content-download-text
                 |ダウンロードする  
       ///////////////////////
+      // 受講前のご準備
+      ///////////////////////
+      .dashboard-left-block.dashboard-left-block-subject
+        .dashboard-left-block-title
+          |受講前のご準備
+          .dashboard-left-block-title-icon.info-badge.open-info
+            i.icon.fa.fa-solid.fa-circle-exclamation(aria-hidden="true")
+              .tooltip.tooltip-top
+                |受講をスムーズに始めるための
+                br
+                |準備項目です。
+        .dashboard-left-block-wrap.dashboard-left-block-wrap-preparation
+          a(href=linkHowtoJoin target="_blank")
+            .dashboard-left-block-wrap.dashboard-left-block-wrap-line-img
+              img(src=IcnSidebarZoom)
+            .dashboard-left-block-wrap.dashboard-left-block-wrap-line-text
+              |オンライン授業用に
+              br
+              |Zoomを準備しましょう
+          .dashboard-left-block-wrap-preparation-divider
+          a.triger-line-integration-modal
+            .dashboard-left-block-wrap.dashboard-left-block-wrap-line-img
+              img(src=IcnSidebarLine)
+            .dashboard-left-block-wrap.dashboard-left-block-wrap-line-text
+              |LINEで受講サポートの
+              br
+              |通知を受け取る
+      ///////////////////////
       // バッジ
       ///////////////////////
       .display-badge(style='display:none;')
@@ -63,20 +100,7 @@
                |keyboard_arrow_down
              span.text
                |全て表示する
-      ///////////////////////
-      // LINE連携
-      ///////////////////////
-      .dashboard-left-block.dashboard-left-block-subject
-        .dashboard-left-block-title
-          |LINE連携
-        .dashboard-left-block-wrap.dashboard-left-block-wrap-line 
-          a.triger-line-integration-modal
-            .dashboard-left-block-wrap.dashboard-left-block-wrap-line-img
-              img(src=IcnLine alt="LINEアイコン")
-            .dashboard-left-block-wrap.dashboard-left-block-wrap-line-text
-              |LINEで受講サポートの
-              br
-              |通知を受け取る
+
     //infoHowtoVisibleがtrueの時に「開校のお知らせ」を表示
     .dashboard-left-block.dashboard-left-block-guide 
         .dashboard-left-block-title

@@ -208,6 +208,21 @@ $default-max-width: 1170px; // 最大幅
       background: white;
       border-radius: $border-radius-middle;
     }
+    .dashboard-left-block-wrap {
+    }
+    .dashboard-left-block-info {
+      padding: 20px 17px 20px !important;
+      background: white;
+      border-radius: $border-radius-middle;
+      margin: 0px 0 40px;
+      .dashboard-left-block-wrap.dashboard-left-block-info-text {
+        margin: 10px 0 0;
+        font-size: $lms-font-size-m;
+        line-height: $lineheight-normal;
+        color: $cl-waogreen;
+        text-decoration: underline;
+      }
+    }
     .dashboard-left-block-worksheet {
       padding: 20px 17px 20px !important;
       background: white;
@@ -283,6 +298,54 @@ $default-max-width: 1170px; // 最大幅
           margin: 3px 0 0 0;
           line-height: 1;
         }
+      }
+    }
+    .dashboard-left-block-wrap-preparation {
+      padding: 20px 17px 20px !important;
+      background: white;
+      border-radius: $border-radius-middle;
+      margin: 0px 0 40px;
+      a {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        cursor: pointer;
+
+        &:hover {
+          opacity: 0.7;
+        }
+        &:focus-within {
+          background: transparent;
+          box-shadow: none;
+        }
+        &:hover,
+        &:focus {
+          outline: none;
+          text-decoration: none;
+          background-color: transparent;
+        }
+        @include responsive-style(768px) {
+          box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.07) !important;
+          padding: 10px;
+          margin: 0 auto 16px;
+          border-radius: 4px;
+        }
+      }
+      .dashboard-left-block-wrap-preparation-divider {
+        display: block;
+        width: 100%;
+        height: 1px;
+        margin: 17px 0;
+        background: $cl-graylightest;
+        @include responsive-style(768px) {
+          display: none;
+        }
+      }
+      .dashboard-left-block-wrap-line-text {
+        line-height: $lineheight-normal;
+        font-size: $lms-font-size-m;
+        color: $cl-gray !important;
+        letter-spacing: -0.5px;
       }
     }
     .dashboard-left-block-wrap-subject {

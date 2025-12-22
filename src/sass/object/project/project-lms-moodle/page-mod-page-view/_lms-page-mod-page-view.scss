@@ -37,7 +37,7 @@ $howto-page-width: 680px;
     @include text-xl-black;
     padding: 0 0 10px;
     border-bottom: 1.5px dashed $cl-graylight;
-    margin: 0 0 15px;
+    margin: 0 0 45px;
   }
   h3 {
     @include text-l-black;
@@ -64,7 +64,7 @@ $howto-page-width: 680px;
     }
   }
   .howto-block {
-    padding: 0 0 60px;
+    padding: 0 0 75px;
   }
   .howto-image img {
     max-width: $howto-page-width;
@@ -74,5 +74,25 @@ $howto-page-width: 680px;
   .p-alert {
     color: $cl-alert !important;
     font-weight: bold;
+  }
+  .howto-button a {
+    @include button-size-big;
+    @include button-style-primary;
+    width: 85%;
+    margin: 0 auto 30px;
+    .material-symbols-outlined {
+      font-size: 16px;
+      margin: 3px 0 0 6px;
+      line-height: 1;
+    }
+    &:focus-within {
+      background: transparent;
+      box-shadow: none;
+    }
+    &:hover {
+      text-decoration: none;
+      outline: none;
+      text-decoration: none;
+    }
   }
 }
