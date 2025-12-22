@@ -170,8 +170,8 @@ const ImgSubjectEnglish = "https://waomirai.com/lp/assets/moodle/images/icn_subj
 const ImgSubjectOther = "https://waomirai.com/lp/assets/moodle/images/icn_subject_other.svg"; //アイコン：その他
  
 const ImgModalBadge = "https://waomirai.com/lp/assets/moodle/images/page_badge_sample.png"; //バッジの画像
-const ImgBannerAmazonGiftFreeCampaignPc = "https://go.waomirai.com/l/1026513/2025-10-20/hy5wm/1026513/1760936850Nh1zDBCZ/banner_free_until_26jan_pc.png"; //バッジの画像
-const ImgBannerAmazonGiftFreeCampaignSp = "https://go.waomirai.com/l/1026513/2025-10-20/hy5wf/1026513/1760936849Fhrb3Ywf/banner_free_until_26jan_sp.png"; //バッジの画像
+const ImgBannerAmazonGiftFreeCampaignPc = "https://go.waomirai.com/l/1026513/2025-12-09/j2yq5/1026513/1765339779a9KBJd13/banner_free_until_26jan_pc.png"; //バッジの画像
+const ImgBannerAmazonGiftFreeCampaignSp = "https://go.waomirai.com/l/1026513/2025-12-09/j2yq8/1026513/1765339779zu3eTmW1/banner_free_until_26jan_sp.png"; //バッジの画像
 
 //次アップ
 //2025dec pc https://go.waomirai.com/l/1026513/2025-10-20/hy5wq/1026513/1760936850Q85jpiyV/banner_free_until_25dec_pc.png
