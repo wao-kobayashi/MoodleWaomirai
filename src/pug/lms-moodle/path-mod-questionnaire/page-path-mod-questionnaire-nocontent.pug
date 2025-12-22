@@ -1,17 +1,7 @@
 extends ../_layout_moodle.pug
 block contents
-  - var envClasses = env === 'stg' ? ['ph1'] : env === 'lms' ? [] : ['phlms1']
   - var title = '授業詳細'  // 変数の定義
-  body#page-mod-questionnaire-view(
-    class=[
-      'format-flexsections',
-      'path-mod',
-      'path-mod-questionnaire',
-      'chrome',
-      'dir-ltr',
-      ...envClasses
-    ].join(' ')
-  )
+  body#page-mod-questionnaire-view(class="format-flexsections path-mod path-mod-questionnaire chrome dir-ltr lang-ja_wp yui-skin-sam yui3-skin-sam lms-waomirai-com pagelayout-incourse course-211 context-2404 cmid-1128 cm-type-questionnaire category-43 theme uses-drawers jsenabled")
     .toast-wrapper.mx-auto.py-0.fixed-top(role='status' aria-live='polite')
     #page-wrapper.d-print-block
       div
@@ -375,13 +365,9 @@ block contents
                   nav(aria-label='ナビゲーションバー')
                     ol.breadcrumb
                       li.breadcrumb-item
-                        a(href="https://lms.waomirai.com/course/index.php?categoryid=4") ワオ未来塾 学習ポータル
+                        a(href='https://lms.waomirai.com/course/view.php?id=211#section-2' title='科学') &#x79D1;&#x5B66;&#x30C6;&#x30B9;&#x30C8;
                       li.breadcrumb-item
-                        a(href="https://lms.waomirai.com/course/index.php?categoryid=47") 哲学（思考力）
-                      li.breadcrumb-item
-                        a(href="https://lms.waomirai.com/course/view.php?id=258#section-7", title="哲学 レベル3") 哲学 レベル3
-                      li.breadcrumb-item
-                        span 10月3週目：フィードバック
+                        span 2&#x9031;&#x76EE;&#x3000;&#x5B9F;&#x969B;&#x306B;&#x30DA;&#x30C3;&#x30C8;&#x306B;&#x3059;&#x308B;&#x306A;&#x3089;&#x3069;&#x306E;&#x6050;&#x7ADC;&#xFF1F;
                 .ml-auto.d-flex
                 #course-header
               .d-flex.align-items-center
@@ -444,7 +430,7 @@ block contents
               section#region-main(aria-label='コンテンツ')
                 span#user-notifications.notifications
                 span#maincontent
-                h2 |aaa
+                h2 2&#x9031;&#x76EE;&#x3000;&#x5B9F;&#x969B;&#x306B;&#x30DA;&#x30C3;&#x30C8;&#x306B;&#x3059;&#x308B;&#x306A;&#x3089;&#x3069;&#x306E;&#x6050;&#x7ADC;&#xFF1F;
                 .activity-header(data-for='page-activity-header')
                   span.sr-only &#x5B8C;&#x4E86;&#x8981;&#x4EF6;
                   .activity-information(data-region='activity-information' data-activityname='2週目　実際にペットにするならどの恐竜？')
@@ -455,7 +441,7 @@ block contents
                           span.font-weight-normal &#x5B66;&#x751F;&#x304C;&#x5B8C;&#x4E86;&#x3059;&#x308B;&#x305F;&#x3081;&#x306B;&#x306F;&#x3053;&#x306E;&#x30A2;&#x30F3;&#x30B1;&#x30FC;&#x30C8;&#x306B;&#x56DE;&#x7B54;&#x3057;&#x306A;&#x3051;&#x308C;&#x3070;&#x306A;&#x308A;&#x307E;&#x305B;&#x3093;
                   #intro.activity-description
                     .no-overflow
-                      include parts-lesson.pug
+                          
                 //- .mod-questionnaire-worksheet 
                 //-   .mod-questionnaire-worksheet-icon
                 //-      img(src='https://waomirai.com/lp/assets/moodle/icn-worksheet-wao.svg') 
@@ -474,9 +460,9 @@ block contents
                     h2
                     .mod_questionnaire_flex-container
                       .complete
-                        a.btn.btn-primary(href='page-course-lesson-question.html') 課題を提出する
-                      //- div
-                      //-   a.btn.btn-primary(href='https://lms.waomirai.com/mod/questionnaire/report.php?instance=4&group=0') |あなたの回答を表示する
+                        a.btn.btn-primary(href='page-course-lesson-question.html') &#x30A2;&#x30F3;&#x30B1;&#x30FC;&#x30C8;&#x306B;&#x56DE;&#x7B54;&#x3059;&#x308B; ...
+                      .allresponses
+                        a.btn.btn-primary(href='https://lms.waomirai.com/mod/questionnaire/report.php?instance=4&group=0') &#x3059;&#x3079;&#x3066;&#x306E;&#x56DE;&#x7B54;&#x3092;&#x95B2;&#x89A7;&#x3059;&#x308B;
                   //- #wp-site-status-disclaimer
                   //-   | &#x3042;&#x306A;&#x305F;&#x306E;&#x30B5;&#x30A4;&#x30C8;&#x306F;&#x307E;&#x3060;&#x767B;&#x9332;&#x3055;&#x308C;&#x3066;&#x3044;&#x307E;&#x305B;&#x3093;&#x3002;
                   //-   a(href='https://lms.waomirai.com/admin/registration/index.php') &#x3042;&#x306A;&#x305F;&#x306E;&#x30B5;&#x30A4;&#x30C8;&#x3092;&#x767B;&#x9332;&#x3059;&#x308B;

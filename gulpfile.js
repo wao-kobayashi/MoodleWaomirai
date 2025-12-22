@@ -44,6 +44,7 @@ const JS_FILES = [
     'src/js/02_pages/page-login-index.js',  // login-index (ログイン画面)
     'src/js/02_pages/page-login-confirm.js', // login-confirm (ログイン画面)
     'src/js/02_pages/page-enrol-index.js',  // enrol-index (購入画面)
+    'src/js/02_pages/page-mod-questionnaire-create-lesson.js', // mod-questionnaire (受講ページでのzoom授業生成)
     'src/js/02_pages/page-mod-questionnaire.js', // mod-questionnaire (受講ページ)
     'src/js/02_pages/page-course-index-category.js', // course-index-category （使われていないコース一覧ページ）
     'src/js/02_pages/page-course-view.js', // course-view (コース一覧ページ)
