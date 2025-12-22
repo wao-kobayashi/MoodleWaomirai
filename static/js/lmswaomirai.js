@@ -115,7 +115,7 @@ const DayDisabledFee = 1; // 受講登録手続きを行えない日
 
 const NowDate = new Date(); // 現在の日時
 const DayOfMonth = parseInt(NowDate.toLocaleString('ja-JP', { timeZone: 'Asia/Tokyo', day: '2-digit' }).replace('日', '')); // 現在の日
-const AmazonGiftFreeCampaignEnd = new Date('2025-11-29T23:59:59+09:00'); // 日本時間
+const AmazonGiftFreeCampaignEnd = new Date('2025-12-28T23:59:59+09:00'); // 日本時間
 
 // ==============================
 // Liff系
@@ -154,8 +154,8 @@ const ImgSubjectEnglish = "https://waomirai.com/lp/assets/moodle/images/icn_subj
 const ImgSubjectOther = "https://waomirai.com/lp/assets/moodle/images/icn_subject_other.svg"; //アイコン：その他
  
 const ImgModalBadge = "https://waomirai.com/lp/assets/moodle/images/page_badge_sample.png"; //バッジの画像
-const ImgBannerAmazonGiftFreeCampaignPc = "https://go.waomirai.com/l/1026513/2025-10-20/hy5wm/1026513/1760936850Nh1zDBCZ/banner_free_until_26jan_pc.png"; //バッジの画像
-const ImgBannerAmazonGiftFreeCampaignSp = "https://go.waomirai.com/l/1026513/2025-10-20/hy5wf/1026513/1760936849Fhrb3Ywf/banner_free_until_26jan_sp.png"; //バッジの画像
+const ImgBannerAmazonGiftFreeCampaignPc = "https://go.waomirai.com/l/1026513/2025-12-09/j2yq5/1026513/1765339779a9KBJd13/banner_free_until_26jan_pc.png"; //バッジの画像
+const ImgBannerAmazonGiftFreeCampaignSp = "https://go.waomirai.com/l/1026513/2025-12-09/j2yq8/1026513/1765339779zu3eTmW1/banner_free_until_26jan_sp.png"; //バッジの画像
 
 //次アップ
 //2025dec pc https://go.waomirai.com/l/1026513/2025-10-20/hy5wq/1026513/1760936850Q85jpiyV/banner_free_until_25dec_pc.png
