@@ -367,16 +367,6 @@ li[data-key="courseinfo"] {
             }
           }
 
-          @include responsive-style(960px) {
-            width: auto !important;
-            flex: 1;
-            margin-right: 0px !important;
-            margin-bottom: 0px;
-            .btn-primary {
-              width: auto !important;
-              flex: 1;
-            }
-          }
           @include responsive-style(768px) {
             width: 100%;
           }

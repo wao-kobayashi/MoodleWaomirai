@@ -1,47 +1,49 @@
-.course-lesson-wrapper
-    .course-lesson-date
-          | 哲学レベル1の授業開催日：「火曜日 18:30〜19:15」または「金曜日
-          | 17:30〜18:15」
-          br
-          | ※各授業は同じ内容を週に2回配信します。どちらかをご受講ください。
-    .course-lesson
-      .course-lesson-wrap 
-        .course-lesson-wrap-title 
-          |授業時間になったらボタンを
-          br.c-pc-hidden
-          |押して受講してください
-          br
-          strong
-            |受講には「Zoom」のインストールが必要です。
-            br.c-pc-hidden
-            a(href='https://zoom.us/ja/download', target='_blank')|コチラ
-            |からインストールしてください。
-        .course-lesson-wrap-btn
-          div
-            a.primary(href='https://zoom.us/ja/test', target='_blank') 授業を受講する(Zoom)
-          div
-            a.secondly#openVimeoWindow 授業アーカイブを見る
-      .course-lesson-bg
-            img(src='https://go.waomirai.com/l/1026513/2024-12-03/h8zc7/1026513/1733275158u05sMlor/movie.svg')
-      script.
-          document.getElementById('openVimeoWindow').addEventListener('click', function() {
-          // 現在の画面サイズを取得して全幅・全高のウィンドウを作成
-          const screenWidth = window.screen.width;
-          const screenHeight = window.screen.height;
+#js-lesson-detail-mod-questionnaire
+   img.js-lesson-detail-mod-questionnaire-sample(src='https://go.waomirai.com/l/1026513/2024-12-03/h8zc7/1026513/1733275158u05sMlor/movie.svg')
+//- .course-lesson-wrapper
+//-     .course-lesson-date
+//-           | 哲学レベル1の授業開催日：「火曜日 18:30〜19:15」または「金曜日
+//-           | 17:30〜18:15」
+//-           br
+//-           | ※各授業は同じ内容を週に2回配信します。どちらかをご受講ください。
+//-     .course-lesson
+//-       .course-lesson-wrap 
+//-         .course-lesson-wrap-title 
+//-           |授業時間になったらボタンを
+//-           br.c-pc-hidden
+//-           |押して受講してください
+//-           br
+//-           strong
+//-             |受講には「Zoom」のインストールが必要です。
+//-             br.c-pc-hidden
+//-             a(href='https://zoom.us/ja/download', target='_blank')|コチラ
+//-             |からインストールしてください。
+//-         .course-lesson-wrap-btn
+//-           div
+//-             a.primary(href='https://zoom.us/ja/test', target='_blank') 授業を受講する(Zoom)
+//-           div
+//-             a.secondly#openVimeoWindow 授業アーカイブを見る
+//-       .course-lesson-bg
+//-             img(src='https://go.waomirai.com/l/1026513/2024-12-03/h8zc7/1026513/1733275158u05sMlor/movie.svg')
+//-       script.
+//-           document.getElementById('openVimeoWindow').addEventListener('click', function() {
+//-           // 現在の画面サイズを取得して全幅・全高のウィンドウを作成
+//-           const screenWidth = window.screen.width;
+//-           const screenHeight = window.screen.height;
           
-          // 新しいウィンドウを全画面サイズで開く
-          const newWindow = window.open(
-          '',
-          '_blank',
-          `width=${screenWidth},height=${screenHeight},top=0,left=0`
-          );
+//-           // 新しいウィンドウを全画面サイズで開く
+//-           const newWindow = window.open(
+//-           '',
+//-           '_blank',
+//-           `width=${screenWidth},height=${screenHeight},top=0,left=0`
+//-           );
           
-          // 新しいウィンドウにVimeo埋め込みコードを挿入
-          newWindow.document.open();
-          newWindow.document.write(`
-          <!DOCTYPE html>
-          <div style="padding:56.25% 0 0 0;position:relative;"><iframe src="https://vimeo.com/event/3907969/embed/f898429473/interaction" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;"></iframe></div>
-          `);
-          newWindow.document.close();
-          });
+//-           // 新しいウィンドウにVimeo埋め込みコードを挿入
+//-           newWindow.document.open();
+//-           newWindow.document.write(`
+//-           <!DOCTYPE html>
+//-           <div style="padding:56.25% 0 0 0;position:relative;"><iframe src="https://vimeo.com/event/3907969/embed/f898429473/interaction" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;"></iframe></div>
+//-           `);
+//-           newWindow.document.close();
+//-           });
 
