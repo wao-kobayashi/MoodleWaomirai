@@ -307,14 +307,28 @@ $default-max-width: 1170px; // 最大幅
       margin: 0px 0 40px;
       a {
         display: flex;
+        align-items: center;
         gap: 10px;
         cursor: pointer;
 
-        &:first-child {
-        }
         &:hover {
-          text-decoration: none;
           opacity: 0.7;
+        }
+        &:focus-within {
+          background: transparent;
+          box-shadow: none;
+        }
+        &:hover,
+        &:focus {
+          outline: none;
+          text-decoration: none;
+          background-color: transparent;
+        }
+        @include responsive-style(768px) {
+          box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.07) !important;
+          padding: 10px;
+          margin: 0 auto 16px;
+          border-radius: 4px;
         }
       }
       .dashboard-left-block-wrap-preparation-divider {
@@ -323,6 +337,9 @@ $default-max-width: 1170px; // 最大幅
         height: 1px;
         margin: 17px 0;
         background: $cl-graylightest;
+        @include responsive-style(768px) {
+          display: none;
+        }
       }
       .dashboard-left-block-wrap-line-text {
         line-height: $lineheight-normal;

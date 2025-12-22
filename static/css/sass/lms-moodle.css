@@ -6138,12 +6138,33 @@ html[data-tenantidnumber=lmswaomirai] .pagelayout-mydashboard .dashboard-left .d
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   gap: 10px;
   cursor: pointer;
 }
 html[data-tenantidnumber=lmswaomirai] .pagelayout-mydashboard .dashboard-left .dashboard-left-block-wrap-preparation a:hover {
-  text-decoration: none;
   opacity: 0.7;
+}
+html[data-tenantidnumber=lmswaomirai] .pagelayout-mydashboard .dashboard-left .dashboard-left-block-wrap-preparation a:focus-within {
+  background: transparent;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+html[data-tenantidnumber=lmswaomirai] .pagelayout-mydashboard .dashboard-left .dashboard-left-block-wrap-preparation a:hover, html[data-tenantidnumber=lmswaomirai] .pagelayout-mydashboard .dashboard-left .dashboard-left-block-wrap-preparation a:focus {
+  outline: none;
+  text-decoration: none;
+  background-color: transparent;
+}
+@media screen and (max-width: 768px) {
+  html[data-tenantidnumber=lmswaomirai] .pagelayout-mydashboard .dashboard-left .dashboard-left-block-wrap-preparation a {
+    -webkit-box-shadow: 0px 4px 6px rgba(0, 0, 0, .07) !important;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, .07) !important;
+    padding: 10px;
+    margin: 0 auto 16px;
+    border-radius: 4px;
+  }
 }
 html[data-tenantidnumber=lmswaomirai] .pagelayout-mydashboard .dashboard-left .dashboard-left-block-wrap-preparation .dashboard-left-block-wrap-preparation-divider {
   display: block;
@@ -6151,6 +6172,11 @@ html[data-tenantidnumber=lmswaomirai] .pagelayout-mydashboard .dashboard-left .d
   height: 1px;
   margin: 17px 0;
   background: #efefef;
+}
+@media screen and (max-width: 768px) {
+  html[data-tenantidnumber=lmswaomirai] .pagelayout-mydashboard .dashboard-left .dashboard-left-block-wrap-preparation .dashboard-left-block-wrap-preparation-divider {
+    display: none;
+  }
 }
 html[data-tenantidnumber=lmswaomirai] .pagelayout-mydashboard .dashboard-left .dashboard-left-block-wrap-preparation .dashboard-left-block-wrap-line-text {
   line-height: 1.5;
