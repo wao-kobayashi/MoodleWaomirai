@@ -1,0 +1,15 @@
+extends ../_layout_moodle.pug
+block contents
+  - var envClasses = env === 'stg' ? ['course-244'] : env === 'lms' ? [] : ['course-268']
+  - var title = '科学レベル3'  // 変数の定義
+  body#page-mod-questionnaire-view(
+    class=[
+      'format-flexsections',
+      'path-mod',
+      'path-mod-questionnaire',
+      'chrome',
+      'dir-ltr',
+      ...envClasses
+    ].join(' ')
+  )
+    include parts-page-path-mod-questionnaire-detail.pug

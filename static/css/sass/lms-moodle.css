@@ -7926,6 +7926,33 @@ html[data-tenantidnumber=lmswaomirai] .qn-container input[type=image] {
     gap: 20px;
   }
 }
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-view .js-lesson-detail-mod-questionnaire-dummy {
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+}
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-view .js-lesson-detail-mod-questionnaire-dummy img {
+  border-radius: 8px;
+}
+@media screen and (max-width: 768px) {
+  html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-view .js-lesson-detail-mod-questionnaire-dummy img {
+    height: 280px;
+    -o-object-fit: cover;
+       object-fit: cover;
+  }
+}
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-view .js-lesson-detail-mod-questionnaire-dummy:after {
+  content: "";
+  display: block;
+  position: absolute;
+  z-index: 99;
+  left: 0;
+  top: 0;
+  background: rgba(0, 0, 0, .58);
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+}
 html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-view .course-lesson-date {
   display: block !important;
 }
@@ -8801,28 +8828,6 @@ html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-report div[role=ma
   html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-report div[role=main] .mod_questionnaire_viewpage .mod_questionnaire_flex-container > div:nth-child(3n+3) {
     margin-right: 0px !important;
     margin-bottom: 20px;
-  }
-}
-@media screen and (max-width: 960px) {
-  html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-view div[role=main] .mod_questionnaire_viewpage .mod_questionnaire_flex-container > div,
-  html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-complete div[role=main] .mod_questionnaire_viewpage .mod_questionnaire_flex-container > div,
-  html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-myreport div[role=main] .mod_questionnaire_viewpage .mod_questionnaire_flex-container > div,
-  html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-report div[role=main] .mod_questionnaire_viewpage .mod_questionnaire_flex-container > div {
-    width: auto !important;
-    -webkit-box-flex: 1;
-        -ms-flex: 1;
-            flex: 1;
-    margin-right: 0px !important;
-    margin-bottom: 0px;
-  }
-  html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-view div[role=main] .mod_questionnaire_viewpage .mod_questionnaire_flex-container > div .btn-primary,
-  html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-complete div[role=main] .mod_questionnaire_viewpage .mod_questionnaire_flex-container > div .btn-primary,
-  html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-myreport div[role=main] .mod_questionnaire_viewpage .mod_questionnaire_flex-container > div .btn-primary,
-  html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-report div[role=main] .mod_questionnaire_viewpage .mod_questionnaire_flex-container > div .btn-primary {
-    width: auto !important;
-    -webkit-box-flex: 1;
-        -ms-flex: 1;
-            flex: 1;
   }
 }
 @media screen and (max-width: 768px) {
