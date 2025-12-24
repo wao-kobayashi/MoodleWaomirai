@@ -149,13 +149,13 @@ if (bodyId === "page-mod-questionnaire-view")  {
   function openVimeoWindow(vimeoUrl) {
     const screenWidth = window.screen.width;
     const screenHeight = window.screen.height;
-
+  
     const newWindow = window.open(
       '',
       '_blank',
       `width=${screenWidth},height=${screenHeight},top=0,left=0`
     );
-
+  
     newWindow.document.open();
     newWindow.document.write(`
       <!DOCTYPE html>
@@ -164,12 +164,29 @@ if (bodyId === "page-mod-questionnaire-view")  {
         <meta charset="UTF-8">
         <title>授業アーカイブ</title>
         <style>
-          body { margin: 0; padding: 0; overflow: hidden; }
+          body { 
+            margin: 0; 
+            padding: 0; 
+            overflow: hidden;
+            height: 100vh;
+            width: 100vw;
+          }
+          .video-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+          }
+          .video-container iframe {
+            width: 100%;
+            height: 100%;
+          }
         </style>
       </head>
       <body>
-        <div style="padding:56.25% 0 0 0;position:relative;">
-          <iframe src="${vimeoUrl}" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;"></iframe>
+        <div class="video-container">
+          <iframe src="${vimeoUrl}" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
         </div>
       </body>
       </html>
@@ -203,7 +220,7 @@ if (bodyId === "page-mod-questionnaire-view")  {
     }
 
     // HTMLを生成して挿入
-    // const html = generateLessonHtml(currentViewCourseData, lessonInfo);
+    //現在はZoom(+Vimeo)版を挿入
     const html = generateLessonHtmlZoom(currentViewCourseData, lessonInfo);
     $targetElement.html(html);
 
