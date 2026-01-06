@@ -1922,6 +1922,8 @@ if (bodyId === "page-enrol-index") {
     }
   }
 
+
+
   // ============================
   // 画面下部に料金を固定表示
   // ============================
@@ -2009,6 +2011,22 @@ if (bodyId === "page-enrol-index") {
   if (hasBoughtTrialendSubject || (MAIN_SUBJECTS.includes(subjectCategory) && checkBoughtMainSubject(MAIN_SUBJECTS))) {
     setupSubjectChangeRedirect();
   }
+// ============================
+// 期間限定の経済レベル3/4募集停止の表示
+// ============================
+// economy, twosubjectpack, threesubjectpackの場合に追加HTMLを表示
+if (['economy', 'twosubjectpack', 'threesubjectpack'].includes(subjectCategory)) {
+  const $buttonElement = $(".enrol_fee_payment_region .btn-secondary");
+  if ($buttonElement.length) {
+    // ボタンの直後に追加
+    $buttonElement.after('   <div style="color:#999; font-size:12px; margin:10px 0 10px;">経済レベル3/4は2026年1月〜3月は募集停止中です</div>');
+  }
+}
+//経済のページでレベル3,4を非表示
+if (['economy'].includes(subjectCategory)) {
+  $('.enrol-section-basesubject-thismonth-lesson > div:gt(3)').remove();
+}
+
 }
 // ==============================
 // 受講ページで各教科レベルごとに受講(zoom/vimeo)リンクを表示するスクリプト
@@ -2713,6 +2731,8 @@ if (bodyId === "page-user-edit") { // ページIDが「page-user-edit」の場�
   var AreaSingleCourse = $("#fitem_id_profile_field_1cource_Subject"); // １科目受講の入力エリア
   var AreaTwoCourse = $("#fitem_id_profile_field_2cources_subject"); // ２科目受講の入力エリア
 
+
+
   // 各科目のエリアを配列にまとめて、後で一括で非表示にする
   var AreaElements = [
     AreaPhilosophy,
@@ -2969,6 +2989,14 @@ if (bodyId === "page-user-edit") { // ページIDが「page-user-edit」の場�
       </p>
     `);
   }
+
+// ===========================
+// 期間限定の経済レベル3/4募集停止
+// ===========================
+  ['Level3　（中学生対象）', 'Level4　（高校生対象）'].forEach(function(label) {
+    AreaEconomy.find('option:contains("' + label + '")').remove();
+  });
+  AreaEconomy.find('select').after('<div style="color:#999; font-size:12px; margin:10px 0 -10px;">経済レベル3/4は2026年1月〜3月は募集停止中です</div>');
 }
 
 

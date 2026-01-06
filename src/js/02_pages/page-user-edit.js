@@ -10,6 +10,8 @@ if (bodyId === "page-user-edit") { // ページIDが「page-user-edit」の場�
   var AreaSingleCourse = $("#fitem_id_profile_field_1cource_Subject"); // １科目受講の入力エリア
   var AreaTwoCourse = $("#fitem_id_profile_field_2cources_subject"); // ２科目受講の入力エリア
 
+
+
   // 各科目のエリアを配列にまとめて、後で一括で非表示にする
   var AreaElements = [
     AreaPhilosophy,
@@ -266,5 +268,13 @@ if (bodyId === "page-user-edit") { // ページIDが「page-user-edit」の場�
       </p>
     `);
   }
+
+// ===========================
+// 期間限定の経済レベル3/4募集停止
+// ===========================
+  ['Level3　（中学生対象）', 'Level4　（高校生対象）'].forEach(function(label) {
+    AreaEconomy.find('option:contains("' + label + '")').remove();
+  });
+  AreaEconomy.find('select').after('<div style="color:#999; font-size:12px; margin:10px 0 -10px;">経済レベル3/4は2026年1月〜3月は募集停止中です</div>');
 }
 
