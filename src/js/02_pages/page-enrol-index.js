@@ -293,20 +293,17 @@ if (bodyId === "page-enrol-index") {
     setupSubjectChangeRedirect();
   }
 // ============================
-// 特定科目での追加HTML表示
+// 期間限定の経済レベル3/4募集停止の表示
 // ============================
 // economy, twosubjectpack, threesubjectpackの場合に追加HTMLを表示
 if (['economy', 'twosubjectpack', 'threesubjectpack'].includes(subjectCategory)) {
   const $buttonElement = $(".enrol_fee_payment_region .btn-secondary");
   if ($buttonElement.length) {
-    // 追加するHTMLを定義
-    const additionalHtml = `
-   <div style="color:#999; font-size:12px; margin:10px 0 10px;">経済レベル3/4は2026年1月〜3月は募集停止中です</div>
-    `
     // ボタンの直後に追加
-    $buttonElement.after(additionalHtml);
+    $buttonElement.after('   <div style="color:#999; font-size:12px; margin:10px 0 10px;">経済レベル3/4は2026年1月〜3月は募集停止中です</div>');
   }
 }
+//経済のページでレベル3,4を非表示
 if (['economy'].includes(subjectCategory)) {
   $('.enrol-section-basesubject-thismonth-lesson > div:gt(3)').remove();
 }
