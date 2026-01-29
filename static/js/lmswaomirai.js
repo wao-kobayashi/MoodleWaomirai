@@ -2699,7 +2699,7 @@ function showCampaignModal() {
   createModal({
     title: "おめでとうございます！",
     wrapClass: "c-modal-wrap-wrap-campaign",
-    text: "<b>キャンペーンを<br />適用させていただきます。</b><br /><br />2026年1・2月は無料で受講いただけます。<br />2026年3月も受講いただけたら<br />Amazonギフト券5000円プレゼントいたします。<br />",
+    text: "<b>イベント参加者限定キャンペーンを<br />適用させていただきます。</b><br /><br />2026年1・2月は無料で受講いただけます。<br />2026年3月も受講いただけたら<br />Amazonギフト券5000円プレゼントいたします。<br />",
     buttons: [
       { text: "OKです", class: "btn-primary c-modal-level-setting c-modal-wrap-close-tag" }
     ]
