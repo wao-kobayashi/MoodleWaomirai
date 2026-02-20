@@ -6,7 +6,7 @@ mixin enrol-campaign-banner
 //今月の授業カリキュラム
 mixin enrol-lesson-month
   .enrol-section
-    h2.enrol-title 2025年#{currentMonth}月の授業
+    h2.enrol-title 2026年#{currentMonth}月の授業
     .enrol-subtitle|※授業は各レベルのいずれかを受講可能です。
     // 各教科の授業情報を表示
     .enrol-section-basesubject-thismonth-lesson
@@ -86,14 +86,14 @@ mixin enrol-lesson-year
                 .enrol-section-basesubject-year-lesson-content-child-curriculum-detail-subcontent.c-sp-hidden 
                   |3.
                   span= item.subcontents3
-      .c-pc-hidden
-        .enrol-section-basesubject-year-lesson-content-button
-          if enrolpage.category === 'philosophy'
-            a(href=CurriculumYearPhilosohpy target='_blank')|全ての授業カリキュラム(PDF)
-          else if enrolpage.category === 'science'
-            a(href=CurriculumYearScience, target='_blank')|全ての授業カリキュラム(PDF)
-          else if enrolpage.category === 'economy'
-            a(href=CurriculumYearEconomy, target='_blank')|全ての授業カリキュラム(PDF)
+    //-   .c-pc-hidden
+    //-     .enrol-section-basesubject-year-lesson-content-button
+    //-       if enrolpage.category === 'philosophy'
+    //-         a(href=CurriculumYearPhilosohpy target='_blank')|全ての授業カリキュラム(PDF)
+    //-       else if enrolpage.category === 'science'
+    //-         a(href=CurriculumYearScience, target='_blank')|全ての授業カリキュラム(PDF)
+    //-       else if enrolpage.category === 'economy'
+    //-         a(href=CurriculumYearEconomy, target='_blank')|全ての授業カリキュラム(PDF)
 
 // 年間の授業開催スケジュール
 mixin enrol-lesson-googlecalender

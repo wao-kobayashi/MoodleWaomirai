@@ -115,7 +115,7 @@ const DayDisabledFee = 1; // 受講登録手続きを行えない日
 
 const NowDate = new Date(); // 現在の日時
 const DayOfMonth = parseInt(NowDate.toLocaleString('ja-JP', { timeZone: 'Asia/Tokyo', day: '2-digit' }).replace('日', '')); // 現在の日
-const AmazonGiftFreeCampaignEnd = new Date('2025-12-28T23:59:59+09:00'); // 日本時間
+const AmazonGiftFreeCampaignEnd = new Date('2026-01-31T12:00:00+09:00'); // 日本時間
 
 // ==============================
 // Liff系
@@ -154,8 +154,8 @@ const ImgSubjectEnglish = "https://waomirai.com/lp/assets/moodle/images/icn_subj
 const ImgSubjectOther = "https://waomirai.com/lp/assets/moodle/images/icn_subject_other.svg"; //アイコン：その他
  
 const ImgModalBadge = "https://waomirai.com/lp/assets/moodle/images/page_badge_sample.png"; //バッジの画像
-const ImgBannerAmazonGiftFreeCampaignPc = "https://go.waomirai.com/l/1026513/2025-12-09/j2yq5/1026513/1765339779a9KBJd13/banner_free_until_26jan_pc.png"; //バッジの画像
-const ImgBannerAmazonGiftFreeCampaignSp = "https://go.waomirai.com/l/1026513/2025-12-09/j2yq8/1026513/1765339779zu3eTmW1/banner_free_until_26jan_sp.png"; //バッジの画像
+const ImgBannerAmazonGiftFreeCampaignPc = "https://waomirai.com/lp/assets/moodle/images/banner-free-until-2602-pc.png"; //バッジの画像
+const ImgBannerAmazonGiftFreeCampaignSp = "https://waomirai.com/lp/assets/moodle/images/banner-free-until-2602-sp.png/"; //バッジの画像
 
 //次アップ
 //2025dec pc https://go.waomirai.com/l/1026513/2025-10-20/hy5wq/1026513/1760936850Q85jpiyV/banner_free_until_25dec_pc.png
@@ -1648,14 +1648,8 @@ if (bodyId === "page-login-signup" || bodyId === "page-login-forgot_password") {
       console.log('生成されたユーザID:', userId);
   });
 
-  // 個人情報保護方針と利用規約のリンク設定
-  $('label[for="id_profile_field_kojin_check"]').on('click', function() {
-    window.open("https://www.wao-corp.com/privacy/", '_blank');
-  });
-
-  $('label[for="id_profile_field_termsofservice"]').on('click', function() {
-    window.open("https://go.waomirai.com/terms", '_blank');
-  });
+  $('label[for="id_profile_field_kojin_check"]').on('click', () => window.open("https://waomirai.com/privacy-agreement/", '_blank'));
+  $('label[for="id_profile_field_termsofservice"]').on('click', () => window.open("https://waomirai.com/terms/", '_blank'));
 }
 
 // ログインインデックスページの処理
@@ -2699,7 +2693,7 @@ function showCampaignModal() {
   createModal({
     title: "おめでとうございます！",
     wrapClass: "c-modal-wrap-wrap-campaign",
-    text: "<b>キャンペーンを<br />適用させていただきます。</b><br /><br />2025年11・12月は無料で受講いただけます。<br />2025年12月も受講いただけたら<br />Amazonギフト券5000円プレゼントいたします。<br />",
+    text: "<b>イベント参加者限定キャンペーンを<br />適用させていただきます。</b><br /><br />2026年1・2月は無料で受講いただけます。<br />2026年3月も受講いただけたら<br />Amazonギフト券5000円プレゼントいたします。<br />",
     buttons: [
       { text: "OKです", class: "btn-primary c-modal-level-setting c-modal-wrap-close-tag" }
     ]

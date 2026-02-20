@@ -108,12 +108,6 @@ if (bodyId === "page-login-signup" || bodyId === "page-login-forgot_password") {
       console.log('生成されたユーザID:', userId);
   });
 
-  // 個人情報保護方針と利用規約のリンク設定
-  $('label[for="id_profile_field_kojin_check"]').on('click', function() {
-    window.open("https://www.wao-corp.com/privacy/", '_blank');
-  });
-
-  $('label[for="id_profile_field_termsofservice"]').on('click', function() {
-    window.open("https://go.waomirai.com/terms", '_blank');
-  });
+  $('label[for="id_profile_field_kojin_check"]').on('click', () => window.open("https://waomirai.com/privacy-agreement/", '_blank'));
+  $('label[for="id_profile_field_termsofservice"]').on('click', () => window.open("https://waomirai.com/terms/", '_blank'));
 }
