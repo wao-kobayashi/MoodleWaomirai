@@ -2152,7 +2152,7 @@ if (bodyId === "page-mod-questionnaire-view")  {
         </div>
       </div>
       <div class="course-lesson-bg">
-        <img src="https://go.waomirai.com/l/1026513/2024-12-03/h8zc7/1026513/1733275158u05sMlor/movie.svg">
+        <img src="https://waomirai.com/lp/assets/moodle/images/thumbnail-movie-pc.svg">
       </div>
     </div>
   </div>
@@ -2176,7 +2176,7 @@ if (bodyId === "page-mod-questionnaire-view")  {
         </div>
       </div>
       <div class="course-lesson-bg">
-        <img src="https://go.waomirai.com/l/1026513/2024-12-03/h8zc7/1026513/1733275158u05sMlor/movie.svg">
+        <img src="https://waomirai.com/lp/assets/moodle/images/thumbnail-movie-pc.svg">
       </div>
     </div>
   </div>
