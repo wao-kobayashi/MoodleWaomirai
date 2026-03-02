@@ -2037,6 +2037,22 @@ if (['economy'].includes(subjectCategory)) {
   $('.enrol-section-basesubject-thismonth-lesson > div:gt(3)').remove();
 }
 
+// ----------------------------------------
+// 英語購入者向け：英語の授業ページへ遷移
+// ----------------------------------------
+// 英語の購入方法をstripeで２種類に変更したことにより元々英語購入していた場合でenrolアクセス時にリダイレクトされていたが
+// リダイレクトされないケースが出てきたのでjsで追加しました
+if (checkBoughtMainSubject(["globalenglish"])) {
+  const englishMainSubject = subjects.find(
+    (subject) => subject.key === "globalenglish" && subject.type === "main"
+  );
+
+  if (englishMainSubject) {
+    window.location.href = `https://lms.waomirai.com/course/view.php?id=${englishMainSubject.id}`;
+    return;
+  }
+}
+
 }
 // ==============================
 // 受講ページで各教科レベルごとに受講(zoom/vimeo)リンクを表示するスクリプト
@@ -2152,7 +2168,7 @@ if (bodyId === "page-mod-questionnaire-view")  {
         </div>
       </div>
       <div class="course-lesson-bg">
-        <img src="https://go.waomirai.com/l/1026513/2024-12-03/h8zc7/1026513/1733275158u05sMlor/movie.svg">
+        <img src="https://waomirai.com/lp/assets/moodle/images/thumbnail-movie-pc.svg">
       </div>
     </div>
   </div>
@@ -2176,7 +2192,7 @@ if (bodyId === "page-mod-questionnaire-view")  {
         </div>
       </div>
       <div class="course-lesson-bg">
-        <img src="https://go.waomirai.com/l/1026513/2024-12-03/h8zc7/1026513/1733275158u05sMlor/movie.svg">
+        <img src="https://waomirai.com/lp/assets/moodle/images/thumbnail-movie-pc.svg">
       </div>
     </div>
   </div>
@@ -3000,13 +3016,55 @@ if (bodyId === "page-user-edit") { // ページIDが「page-user-edit」の場�
     `);
   }
 
-// ===========================
-// 期間限定の経済レベル3/4募集停止
-// ===========================
+  // ===========================
+  // 期間限定の経済レベル3/4募集停止
+  // ===========================
   ['Level3　（中学生対象）', 'Level4　（高校生対象）'].forEach(function(label) {
     AreaEconomy.find('option:contains("' + label + '")').remove();
   });
   AreaEconomy.find('select').after('<div style="color:#999; font-size:12px; margin:10px 0 -10px;">経済レベル3/4は2026年1月〜3月は募集停止中です</div>');
+
+  // ===========================
+  // 期間限定の英語レベル1募集停止
+  // ===========================
+  ['Level2'].forEach(function(label) {
+    AreaEnglish.find('option:contains("' + label + '")').remove();
+  });
+  
+
+  // ===========================
+  // プロファイルフィールドの表記変更
+  // ・できればmoodleで変更したいが変更すると既存ダイナミックルールに大きく影響するためjsでの変更
+  // ・valueではなくあくまで見せ方の変更
+  // ===========================
+  // 共通ラベルマップ
+  var commonLabelMap = {
+    'Level1　（小3〜4年生対象）': 'レベル1：小学3年生以上推奨',
+    'Level2　（小5〜6年生対象）': 'レベル2：小学5年生以上推奨',
+    'Level3　（中学生対象）': 'レベル3：中学生以上推奨',
+    'Level4　（高校生対象）': 'レベル4：高校生以上推奨'
+  };
+
+  [AreaEconomy, AreaScience, AreaPhilosophy].forEach(function(area) {
+    area.find('option').each(function() {
+      var currentText = $(this).text();
+      if (commonLabelMap[currentText]) {
+        $(this).text(commonLabelMap[currentText]);
+      }
+    });
+  });
+
+  // AreaEconomyのoption名を変更
+  var EnglishLabelMap = {
+    'Level1　（英語初挑戦の方）': 'Level1'
+  };
+
+  AreaEnglish.find('option').each(function() {
+    var currentText = $(this).text();
+    if (EnglishLabelMap[currentText]) {
+      $(this).text(EnglishLabelMap[currentText]);
+    }
+  });
 }
 
 

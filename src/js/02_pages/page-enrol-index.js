@@ -308,4 +308,20 @@ if (['economy'].includes(subjectCategory)) {
   $('.enrol-section-basesubject-thismonth-lesson > div:gt(3)').remove();
 }
 
+// ----------------------------------------
+// 英語購入者向け：英語の授業ページへ遷移
+// ----------------------------------------
+// 英語の購入方法をstripeで２種類に変更したことにより元々英語購入していた場合でenrolアクセス時にリダイレクトされていたが
+// リダイレクトされないケースが出てきたのでjsで追加しました
+if (checkBoughtMainSubject(["globalenglish"])) {
+  const englishMainSubject = subjects.find(
+    (subject) => subject.key === "globalenglish" && subject.type === "main"
+  );
+
+  if (englishMainSubject) {
+    window.location.href = `https://lms.waomirai.com/course/view.php?id=${englishMainSubject.id}`;
+    return;
+  }
+}
+
 }
