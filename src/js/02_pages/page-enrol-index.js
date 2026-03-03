@@ -205,15 +205,7 @@ if (bodyId === "page-enrol-index") {
 
 
 
-  // ============================
-  // 画面下部に料金を固定表示
-  // ============================
-  // 料金表示部分から価格を取得（「JPY」を含む要素）
-  const SubjectpPrice = $('.enrol_fee_payment_region b:contains("JPY")');
-  // 「JPY」を「¥」に変換して固定表示用のHTMLを生成
-  const SubjectPriceContent = `<div class="c-pc-hidden fixed-subject-price">${SubjectpPrice.text().replace('JPY', '¥')} /月</div>`;
-  // ページ下部に価格を固定表示として追加
-  $("#page.drawers").after(SubjectPriceContent);
+
 
   // ============================
   // 購入ボタンクリック時の処理
@@ -307,5 +299,17 @@ if (['economy', 'twosubjectpack', 'threesubjectpack'].includes(subjectCategory))
 if (['economy'].includes(subjectCategory)) {
   $('.enrol-section-basesubject-thismonth-lesson > div:gt(3)').remove();
 }
+if (['globalenglish'].includes(subjectCategory)) {
+  $('[data-itemid="499"]').closest('.box.py-3.generalbox').remove(); //旧決済：6,600円決済を非表示にする
+}
 
+  // ============================
+  // 画面下部に料金を固定表示
+  // ============================
+  // 料金表示部分から価格を取得（「JPY」を含む要素）
+  const SubjectpPrice = $('.enrol_fee_payment_region b:contains("JPY")');
+  // 「JPY」を「¥」に変換して固定表示用のHTMLを生成
+  const SubjectPriceContent = `<div class="c-pc-hidden fixed-subject-price">${SubjectpPrice.text().replace('JPY', '¥')} /月</div>`;
+  // ページ下部に価格を固定表示として追加
+  $("#page.drawers").after(SubjectPriceContent);
 }
