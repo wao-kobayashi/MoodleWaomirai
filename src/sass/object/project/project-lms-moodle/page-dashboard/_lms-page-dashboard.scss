@@ -938,7 +938,7 @@ $modal-button-height: 55px;
     }
     .description-content-button {
       @include button-size-middle;
-      width: $modal-button-width;
+      width: 300px;
       height: $modal-button-height;
       margin: 0px auto 15px;
       a {
@@ -957,6 +957,9 @@ $modal-button-height: 55px;
         background: $cl-waogreen;
         a {
           color: $cl-white;
+          span {
+            font-size: 12px !important;
+          }
         }
       }
       &.secondly {
@@ -983,6 +986,11 @@ $modal-button-height: 55px;
             margin: 2px 0 0;
           }
         }
+      }
+      &.record a::before {
+        font-family: "Font Awesome 6 Free";
+        font-weight: 900;
+        content: "";
       }
     }
     .description-content-text-eng-note {
