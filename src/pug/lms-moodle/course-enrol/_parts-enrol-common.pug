@@ -39,30 +39,36 @@ mixin enrol-lesson-year
     .enrol-section-basesubject-year-lesson-tab 
       if enrolpage.category === 'globalenglish'
         .enrol-section-basesubject-year-lesson-tab-child.tab-level-1 
-            |レベル1
-            br.c-pc-hidden
-            |(英語初挑戦の方)
+            |レベル
+            span.large|1
+            br
+            span|(英語初挑戦の方)
         .enrol-section-basesubject-year-lesson-tab-child.tab-level-2
-            |レベル2
-            br.c-pc-hidden
-            |(英語が少し話せる方)
+            |レベル
+            span.large|2
+            br
+            span|(英語が少し話せる方)
       else
         .enrol-section-basesubject-year-lesson-tab-child.tab-level-1 
-            |レベル1
-            br.c-pc-hidden
-            |(小1~小4)
+            |レベル
+            span.large|1
+            br
+            span|(小3以上推奨)
         .enrol-section-basesubject-year-lesson-tab-child.tab-level-2
-            |レベル2
-            br.c-pc-hidden
-            |(小5~小6)
+            |レベル
+            span.large|2
+            br
+            span|(小5以上推奨)
         .enrol-section-basesubject-year-lesson-tab-child.tab-level-3 
-            |レベル3
-            br.c-pc-hidden
-            |(中学生)
+            |レベル
+            span.large|3
+            br
+            span|(中学生以上推奨)
         .enrol-section-basesubject-year-lesson-tab-child.tab-level-4 
-            |レベル4
-            br.c-pc-hidden
-            |(高校生)
+            |レベル
+            span.large|4
+            br
+            span|(高校生以上推奨)
     // カリキュラム内容を表示
     .enrol-section-basesubject-year-lesson-content
       //以下はstaticのデータ
@@ -72,8 +78,14 @@ mixin enrol-lesson-year
             .enrol-section-basesubject-year-lesson-content-child-curriculum
               .enrol-section-basesubject-year-lesson-content-child-curriculum-month
                 // 月
-                span.month=  item.month
-                | 月
+                span.year 
+                  if item.month < 3
+                    |2027
+                  else
+                    |2026
+                span
+                    span.month=item.month
+                    span.monthlabel| 月
               .enrol-section-basesubject-year-lesson-content-child-curriculum-detail
                 // カリキュラムのタイトル
                 .enrol-section-basesubject-year-lesson-content-child-curriculum-detail-title= item.title 
