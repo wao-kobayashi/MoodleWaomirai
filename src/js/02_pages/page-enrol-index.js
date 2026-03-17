@@ -292,7 +292,7 @@ if (['economy', 'twosubjectpack', 'threesubjectpack'].includes(subjectCategory))
   const $buttonElement = $(".enrol_fee_payment_region .btn-secondary");
   if ($buttonElement.length) {
     // ボタンの直後に追加
-    $buttonElement.after('   <div style="color:#999; font-size:12px; margin:10px 0 10px;">経済レベル3/4は2026年1月〜3月は募集停止中です</div>');
+    $buttonElement.after('   <div style="color:#999; font-size:12px; margin:10px 0 10px;">※経済レベル3・4は、現在新規入会の受付を停止しております。募集再開の際は、あらためてご案内いたします。</div>');
   }
 }
 //経済のページでレベル3,4を非表示
