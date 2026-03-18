@@ -6919,7 +6919,7 @@ html[data-tenantidnumber=lmswaomirai] .pagelayout-mydashboard .summary-modal-con
   font-size: 16px !important;
   border-radius: 8px;
   line-height: 1;
-  width: 280px;
+  width: 300px;
   height: 55px;
   margin: 0px auto 15px;
 }
@@ -6947,6 +6947,9 @@ html[data-tenantidnumber=lmswaomirai] .pagelayout-mydashboard .summary-modal-con
 html[data-tenantidnumber=lmswaomirai] .pagelayout-mydashboard .summary-modal-container .description-content-button.primary a {
   color: #ffffff;
 }
+html[data-tenantidnumber=lmswaomirai] .pagelayout-mydashboard .summary-modal-container .description-content-button.primary a span {
+  font-size: 12px !important;
+}
 html[data-tenantidnumber=lmswaomirai] .pagelayout-mydashboard .summary-modal-container .description-content-button.secondly {
   background: #ffffff;
   border: 2px solid #005c3f;
@@ -6966,6 +6969,11 @@ html[data-tenantidnumber=lmswaomirai] .pagelayout-mydashboard .summary-modal-con
   background-size: contain; /* 画像をボックス内に収める */
   background-repeat: no-repeat;
   margin: 2px 0 0;
+}
+html[data-tenantidnumber=lmswaomirai] .pagelayout-mydashboard .summary-modal-container .description-content-button.record a::before {
+  font-family: "Font Awesome 6 Free";
+  font-weight: 900;
+  content: "\f130";
 }
 html[data-tenantidnumber=lmswaomirai] .pagelayout-mydashboard .summary-modal-container .description-content-text-eng-note {
   font-size: 12px;

@@ -40,9 +40,9 @@
             }
 
             span {
-              font-size: $lms-font-size-l;
+              font-size: $lms-font-size-m;
               @include responsive-style(768px) {
-                font-size: $lms-font-size-xl;
+                font-size: $lms-font-size-l;
               }
             }
           }
@@ -129,13 +129,24 @@
             border: 1px solid $cl-graylight;
             border-bottom: none;
             background: $cl-graylightest;
-            padding: 12px 30px;
+            padding: 4px 30px 7px;
             cursor: pointer;
             font-size: $lms-font-size-m;
             text-align: center;
             @include responsive-style(768px) {
               padding: 5px 12px;
               font-size: $lms-font-size-s;
+            }
+            .large {
+              @include min-responsive-style(768px) {
+                font-size: $lms-font-size-l !important;
+              }
+            }
+            span {
+              font-size: $lms-font-size-s;
+              @include responsive-style(768px) {
+                font-size: 10px;
+              }
             }
             &.active {
               text-align: center;
@@ -192,6 +203,7 @@
             border-radius: $border-radius-middle;
             align-items: flex-start;
             background: $cl-white;
+            color: $cl-gray;
             border: 2px
               solid
               map-get(
@@ -215,8 +227,8 @@
               text-align: center;
               padding: 8px 0 0;
               width: 45px;
-              height: 45px;
-
+              height: 50px;
+              color: $cl-gray !important;
               background: map-get(
                 $common-course-styles,
                 $style-name,
@@ -227,20 +239,38 @@
                 display: flex;
                 justify-content: center;
                 align-items: center;
+                flex-direction: column;
                 padding: 0;
-                height: 35px;
+                height: 45px;
                 width: 45px;
                 border-radius: $border-radius-middle;
                 font-size: $lms-font-size-m;
               }
+              span.year {
+                display: block;
+                font-size: 10px;
+                margin: 0px 0px 0 0;
+                line-height: 0.8;
+                letter-spacing: 0.3px;
+                color: $cl-gray;
+                @include responsive-style(768px) {
+                  font-size: 10px;
+                  margin: 2px 2px 0 0;
+                }
+              }
               span.month {
                 font-size: $lms-font-size-l;
                 margin: 0 2px 0 0;
+                color: $cl-black !important;
                 @include responsive-style(768px) {
                   font-size: $lms-font-size-l;
-                  margin: -4px 2px 0 0;
+                  margin: 0px 2px 0 0;
                   letter-spacing: -0.3px;
+                  line-height: 1;
                 }
+              }
+              span.monthlabel {
+                color: $cl-black !important;
               }
             }
 
@@ -413,7 +443,10 @@
               // font-size: 0.9rem;
             }
             &-grade {
-              font-size: $lms-font-size-s;
+              font-size: 10px;
+              @include responsive-style(768px) {
+                font-size: 8px !important;
+              }
             }
             // 科目がある場合の強調
             span.none {
