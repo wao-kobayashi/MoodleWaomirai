@@ -50,6 +50,7 @@ const JS_FILES = [
     'src/js/02_pages/page-course-view.js', // course-view (コース一覧ページ)
     'src/js/02_pages/page-user-edit.js',   // user-edit (科目変更ページ)
     'src/js/02_pages/page-user-profile.js',// user-profile (プロフィールページ)
+    'src/js/02_pages/page-badges-criteria_settings.js', // badges-criteria_settings (バッジの条件設定ページ)
     'src/js/02_pages/page-common.js' // サイト共通のイベント登録
 ];
 
