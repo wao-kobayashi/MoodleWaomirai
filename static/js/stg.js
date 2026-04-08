@@ -131,7 +131,7 @@ const DayDisabledFee = 1; // 受講登録手続きを行えない日
 
 const NowDate = new Date(); // 現在の日時
 const DayOfMonth = parseInt(NowDate.toLocaleString('ja-JP', { timeZone: 'Asia/Tokyo', day: '2-digit' }).replace('日', '')); // 現在の日
-const AmazonGiftFreeCampaignEnd = new Date('2026-04-31T12:00:00+09:00'); // 日本時間
+const AmazonGiftFreeCampaignEnd = new Date('2026-01-31T12:00:00+09:00'); // 日本時間
 
 // ==============================
 // Liff系
@@ -221,7 +221,7 @@ const PurchaseRestrictions = [
         //以下本番運用用データ
         { 
         start: '2025-12-29T00:00:00', // 制限開始日時（この時刻から制限開始）
-        end: '2027-12-31T23:59:00',   // 制限終了日時（この時刻になったら制限解除）
+        end: '2025-12-31T23:59:00',   // 制限終了日時（この時刻になったら制限解除）
         // ページ下部に固定表示されるメッセージ（HTML可）
         message: '<div class="disabled-fee-fixed"><span class="icon-disabled-fee-fixed">&#x26a0;&#xfe0f;</span>システムメンテナンス中です(12/29-1/1)<br class="br-disabled-fee-fixed">お手数ですが、メンテナンス終了後に手続きをお願いします。</div>',
         // 購入ボタンクリック時にモーダルで表示されるタイトル（HTML可）
