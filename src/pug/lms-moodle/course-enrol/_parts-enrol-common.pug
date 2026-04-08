@@ -107,12 +107,6 @@ mixin enrol-lesson-year
     //-       else if enrolpage.category === 'economy'
     //-         a(href=CurriculumYearEconomy, target='_blank')|全ての授業カリキュラム(PDF)
 
-// 年間の授業開催スケジュール
-mixin enrol-lesson-googlecalender
- .enrol-section
-    h2.enrol-title 年間の授業開催スケジュール
-    .enrol-section-calender
-
 mixin enrol-howto-register
   .enrol-section
     h2.enrol-title
@@ -183,10 +177,10 @@ mixin enrol-recommend-subject
                               |２科目セット
                           .common-contents-block-cards-course-detail-text
                               |２科目選んで11,000円 (2,200円お得！)
-                  //moodleの仕様でaタグでdivタグ囲むとバグるのでabsluteでリンクを貼る
+                  //Moodleの仕様でaタグでdivタグ囲むとバグるのでabsluteでリンクを貼る
                   .common-contents-block-cards-course-link
                               a(href=link_twosubjectpack)
-                              
+                                    |&nbsp;
           .common-contents-block-cards-course
                   .common-contents-block-cards-course-img.common-contents-block-cards-course-img-overlay
                       .common-contents-block-cards-course-img-detail
@@ -200,6 +194,7 @@ mixin enrol-recommend-subject
                   //moodleの仕様でaタグでdivタグ囲むとバグるのでabsluteでリンクを貼る
                   .common-contents-block-cards-course-link
                             a(href=link_threesubjectpack)
+                              |&nbsp;
     .enrol-recommend-subject-wrap                    
       h3.enrol-recommend-subject-title|単品科目で受講する
     .enrol-index-contents-block-cards
@@ -218,7 +213,7 @@ mixin enrol-recommend-subject
                 //moodleの仕様でaタグでdivタグ囲むとバグるのでabsluteでリンクを貼る
                 .common-contents-block-cards-course-link
                             a(href=link_philosophy)
-                             
+                             |&nbsp;
 
         //- 科学のカード（scienceカテゴリー以外で表示）
         if enrolpage.category !== 'science'
@@ -235,7 +230,7 @@ mixin enrol-recommend-subject
                 //moodleの仕様でaタグでdivタグ囲むとバグるのでabsluteでリンクを貼る
                 .common-contents-block-cards-course-link
                           a(href=link_science)
-                           
+                           |&nbsp;
 
         //- 経済のカード（economyカテゴリー以外で表示）
         if enrolpage.category !== 'economy'
@@ -252,7 +247,7 @@ mixin enrol-recommend-subject
                 //moodleの仕様でaタグでdivタグ囲むとバグるのでabsluteでリンクを貼る
                 .common-contents-block-cards-course-link
                             a(href=link_economy)
-                              
+                              |&nbsp;
         //- 英語のカード（englishカテゴリー、２科目、３科目以外で表示）
         if enrolpage.category !== 'globalenglish' && enrolpage.category !== 'twosubjectpack' && enrolpage.category !== 'threesubjectpack'
             .common-contents-block-cards-course
@@ -267,6 +262,7 @@ mixin enrol-recommend-subject
                 //moodleの仕様でaタグでdivタグ囲むとバグるのでabsluteでリンクを貼る
                 .common-contents-block-cards-course-link
                             a(href=link_english)
+                              |&nbsp;
         //- プログラミングのカード
         //- a(href=link_programming).common-contents-block-cards-course.click-event-subject-comingsoon
         //-     .common-contents-block-cards-course-img.common-contents-block-cards-course-img-overlay
