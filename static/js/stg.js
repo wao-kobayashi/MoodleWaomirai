@@ -235,7 +235,7 @@ const PurchaseRestrictions = [
 // ----------------------------------------
 {
     type: 'monthly', // 制限タイプ：毎月X日
-    day:26, // 制限する日（例：28なら毎月28日）
+    day: DayDisabledFee, // 制限する日（例：28なら毎月28日）
     // 毎月X日に表示されるメッセージ
     message: `<div class="disabled-fee-fixed"><span class="icon-disabled-fee-fixed">&#x26a0;&#xfe0f;</span>毎月${DayDisabledFee}日はシステムメンテナンスのため、受講登録手続きができません。<br class="br-disabled-fee-fixed">お手数ですが、翌日以降に手続きをお願いします。</div>`,
     // 毎月X日のモーダルタイトル
