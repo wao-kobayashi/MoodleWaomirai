@@ -33,6 +33,9 @@ html[data-tenantidnumber=stg] {
   /* マイページ */
   /* 授業詳細 */
   /* 授業購入画面(まだ買っていない) */
+  /* デフォルト: plan-oldを非表示、plan-newを表示 */
+  /* body に course-id-329(6600円受講） がある時: plan-oldを表示、plan-newを非表示 */
+  /* body に course-id-277(管理者）がある時: plan-oldを表示、plan-newを表示 */
   /* ここから英語 ------------------------------------------------ */
 }
 @media screen and (max-width: 3000px) and (min-width: 768px) {
@@ -7752,6 +7755,39 @@ html[data-tenantidnumber=stg] .pagelayout-mydashboard .dashboard-left-block-wrap
     -webkit-transform: scale(1);
             transform: scale(1);
   }
+}
+html[data-tenantidnumber=stg] .summary-modal-container .plan-old {
+  display: none;
+}
+html[data-tenantidnumber=stg] .summary-modal-container .plan-new {
+  display: block;
+}
+html[data-tenantidnumber=stg] .summary-modal-container .eng-admin {
+  display: none;
+}
+html[data-tenantidnumber=stg] body.course-id-329 .summary-modal-container .plan-old {
+  display: block;
+}
+html[data-tenantidnumber=stg] body.course-id-329 .summary-modal-container .plan-new {
+  display: none;
+}
+html[data-tenantidnumber=stg] body.course-id-277 .summary-modal-container .plan-old {
+  display: block !important;
+}
+html[data-tenantidnumber=stg] body.course-id-277 .summary-modal-container .plan-new {
+  display: block !important;
+}
+html[data-tenantidnumber=stg] body.course-id-277 .summary-modal-container .eng-admin {
+  display: block !important;
+  text-align: center;
+  color: #999;
+  font-size: 80%;
+}
+html[data-tenantidnumber=stg] body.course-id-277 .summary-modal-container .eng-admin01 {
+  margin: 0px auto 10px;
+}
+html[data-tenantidnumber=stg] body.course-id-277 .summary-modal-container .eng-admin02 {
+  margin: 28px auto 10px;
 }
 html[data-tenantidnumber=stg] #page-user-edit .align-items-start {
   -webkit-box-align: start !important;
