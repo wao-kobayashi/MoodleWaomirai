@@ -272,12 +272,16 @@ if (bodyId === "page-user-edit") { // ページIDが「page-user-edit」の場�
   // ===========================
   // 期間限定の経済レベル3/4募集停止
   // ===========================
+  ['Level4　（高校生対象）'].forEach(function(label) {
+    AreaScience.find('option:contains("' + label + '")').remove();
+  });
   ['Level3　（中学生対象）', 'Level4　（高校生対象）'].forEach(function(label) {
     AreaEconomy.find('option:contains("' + label + '")').remove();
   });
-  ['Level4　（高校生対象）'].forEach(function(label) {
+  ['Level1　（小3〜4年生対象）','Level3　（中学生対象）','Level4　（高校生対象）'].forEach(function(label) {
     AreaPhilosophy.find('option:contains("' + label + '")').remove();
   });
+  AreaScience.find('select').after('<div style="color:#999; font-size:12px; margin:10px 0 -10px;">※哲学レベル1・2・4は、現在新規入会の受付を停止しております。募集再開の際は、あらためてご案内いたします。</div>');
   AreaEconomy.find('select').after('<div style="color:#999; font-size:12px; margin:10px 0 -10px;">※経済レベル3・4は、現在新規入会の受付を停止しております。募集再開の際は、あらためてご案内いたします。</div>');
   AreaPhilosophy.find('select').after('<div style="color:#999; font-size:12px; margin:10px 0 -10px;">※哲学レベル4は、現在新規入会の受付を停止しております。募集再開の際は、あらためてご案内いたします。</div>');
 
