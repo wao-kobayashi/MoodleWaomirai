@@ -2027,7 +2027,7 @@ if (['economy'].includes(subjectCategory)) {
 // ============================
 // 期間限定の科学レベル4募集停止の表示
 // ============================
-if (['economy'].includes(subjectCategory)) {
+if (['science'].includes(subjectCategory)) {
   const $buttonElement = $(".enrol_fee_payment_region .btn-secondary");
   if ($buttonElement.length) {
     // ボタンの直後に追加
@@ -2041,7 +2041,7 @@ if (['philosophy'].includes(subjectCategory)) {
   const $buttonElement = $(".enrol_fee_payment_region .btn-secondary");
   if ($buttonElement.length) {
     // ボタンの直後に追加
-    $buttonElement.after('   <div style="color:#999; font-size:12px; margin:10px 0 10px;">※哲学レベル1,2,4は、現在新規入会の受付を停止しております。募集再開の際は、あらためてご案内いたします。</div>');
+    $buttonElement.after('   <div style="color:#999; font-size:12px; margin:10px 0 10px;">※哲学は現在レベル3のみ新規入会の受付を行っております。それ以外のレベルについては募集再開の際にあらためてご案内いたします。</div>');
   }
 }
 // ============================
@@ -2051,8 +2051,12 @@ if (['twosubjectpack', 'threesubjectpack'].includes(subjectCategory)) {
   const $buttonElement = $(".enrol_fee_payment_region .btn-secondary");
   if ($buttonElement.length) {
     // ボタンの直後に追加
-    $buttonElement.after('<div style="color:#999; font-size:12px; margin:10px 0 10px;">現在募集中のクラスは以下のとおりです。<br />・哲学　レベル3<br />・経済　レベル1 / 2<br />・科学　レベル1 / 2 / 3<br />上記以外のクラスは、現在新規入会の受付を停止しております。募集再開の際は、あらためてご案内いたします。</div>');
+    $buttonElement.after('<div style="color:#999; font-size:12px; margin:10px 0 10px;">現在募集中の講座<br />・哲学　レベル3<br />・経済　レベル1 / 2<br />・科学　レベル1 / 2 / 3<br />上記以外の講座は、現在新規入会の受付を停止しております。募集再開の際は、あらためてご案内いたします。</div>');
   }
+}
+//科学のページでレベル3,4を非表示
+if (['science'].includes(subjectCategory)) {
+  $('.enrol-section-basesubject-thismonth-lesson > div:gt(5)').remove();
 }
 //経済のページでレベル3,4を非表示
 if (['economy'].includes(subjectCategory)) {
@@ -2060,9 +2064,6 @@ if (['economy'].includes(subjectCategory)) {
 }
 //哲学のページでレベル4を非表示
 if (['philosophy'].includes(subjectCategory)) {
-  // $('.enrol-section-basesubject-thismonth-lesson > div:gt(2)').remove();
-
-  // $('.enrol-section-basesubject-thismonth-lesson > div:gt(4)').remove();
   $('.enrol-section-basesubject-thismonth-lesson > div').filter(' :eq(0),:eq(1),:eq(2),:eq(3),:eq(6),:eq(7)').remove();
 }
 if (['globalenglish'].includes(subjectCategory)) {
@@ -3044,18 +3045,24 @@ if (bodyId === "page-user-edit") { // ページIDが「page-user-edit」の場�
   // ===========================
   // 期間限定の経済レベル3/4募集停止
   // ===========================
+  //科学
   ['Level4　（高校生対象）'].forEach(function(label) {
     AreaScience.find('option:contains("' + label + '")').remove();
   });
+  //経済
   ['Level3　（中学生対象）', 'Level4　（高校生対象）'].forEach(function(label) {
     AreaEconomy.find('option:contains("' + label + '")').remove();
   });
-  ['Level1　（小3〜4年生対象）','Level3　（中学生対象）','Level4　（高校生対象）'].forEach(function(label) {
+  //哲学
+  ['Level1　（小3〜4年生対象）','Level2　（小5〜6年生対象）','Level4　（高校生対象）'].forEach(function(label) {
     AreaPhilosophy.find('option:contains("' + label + '")').remove();
   });
-  AreaScience.find('select').after('<div style="color:#999; font-size:12px; margin:10px 0 -10px;">※哲学レベル1・2・4は、現在新規入会の受付を停止しております。募集再開の際は、あらためてご案内いたします。</div>');
+  //科学
+  AreaScience.find('select').after('<div style="color:#999; font-size:12px; margin:10px 0 -10px;">※科学レベル4は、現在新規入会の受付を停止しております。募集再開の際は、あらためてご案内いたします。</div>');
+  //経済
   AreaEconomy.find('select').after('<div style="color:#999; font-size:12px; margin:10px 0 -10px;">※経済レベル3・4は、現在新規入会の受付を停止しております。募集再開の際は、あらためてご案内いたします。</div>');
-  AreaPhilosophy.find('select').after('<div style="color:#999; font-size:12px; margin:10px 0 -10px;">※哲学レベル4は、現在新規入会の受付を停止しております。募集再開の際は、あらためてご案内いたします。</div>');
+  //哲学
+  AreaPhilosophy.find('select').after('<div style="color:#999; font-size:12px; margin:10px 0 -10px;">※哲学レベル1・2・4は、現在新規入会の受付を停止しております。募集再開の際は、あらためてご案内いたします。</div>');
 
   // ===========================
   // 期間限定の英語レベル2募集停止
