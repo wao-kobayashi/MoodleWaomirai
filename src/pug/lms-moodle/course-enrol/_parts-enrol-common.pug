@@ -33,7 +33,21 @@ mixin enrol-lesson-month
 mixin enrol-lesson-year
  .enrol-section
   h2.enrol-title 年間の授業カリキュラム
-  .enrol-subtitle|※基本的には月ごとのテーマ設定となっていますので、何月に入会しても授業を楽しむことができます。
+  if enrolpage.category === 'philosophy'
+    .enrol-subtitle
+        |※基本的には月ごとのテーマ設定となっていますので、何月に入会しても授業を楽しむことができます。
+        br
+        |※哲学は現在レベル3のみ新規入会の受付を行っております。それ以外のレベルについては募集再開の際にあらためてご案内いたします。
+  else if enrolpage.category === 'science'
+      .enrol-subtitle
+        |※基本的には月ごとのテーマ設定となっていますので、何月に入会しても授業を楽しむことができます。
+        br
+        |※科学レベル4は、現在新規入会の受付を停止しております。募集再開の際は、あらためてご案内いたします。
+  else if enrolpage.category === 'economy'
+      .enrol-subtitle
+        |※基本的には月ごとのテーマ設定となっていますので、何月に入会しても授業を楽しむことができます。
+        br
+        |※経済レベル3・4は、現在新規入会の受付を停止しております。募集再開の際は、あらためてご案内いたします。
   .enrol-section-basesubject-year-lesson
     // レベルごとのタブ部分
     .enrol-section-basesubject-year-lesson-tab 
