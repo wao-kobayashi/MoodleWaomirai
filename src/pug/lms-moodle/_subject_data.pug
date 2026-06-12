@@ -1424,146 +1424,123 @@
   // 曜日と時間割のデータ
   var weekdays = ['時間', '日', '月', '火', '水', '木', '金', '土'];
   var timeslots = {
-    //哲学
-    philosophy: [{
-      time: '17:30 - 18:15', // 時間帯
-      schedule: [
-        { day: '日', subject: null },
-        { day: '月', subject: null },
-        { day: '火', subject: '哲学', level: 2 },
-        { day: '水', subject: null },
-        { day: '木', subject: null },
-        { day: '金', subject: '哲学', level: 1 },
-        { day: '土', subject: null }
-      ]
-      },{
-      time: '18:30 - 19:15', // 時間帯
-      schedule: [
-        { day: '日', subject: null },
-        { day: '月', subject: null },
-        { day: '火', subject: '哲学', level: 1 },
-        { day: '水', subject: null },
-        { day: '木', subject: null },
-        { day: '金', subject: '哲学', level: 2 },
-        { day: '土', subject: null }
-      ]
-    },{
-      time: '19:30 - 20:15', // 時間帯
-      schedule: [
-        { day: '日', subject: null },
-        { day: '月', subject: null },
-        { day: '火', subject: '哲学', level: 4 },
-        { day: '水', subject: null },
-        { day: '木', subject: null },
-        { day: '金', subject: '哲学', level: 3 },
-        { day: '土', subject: null }
-      ]
-    },{
-      time: '20:30 - 21:15', // 時間帯
-      schedule: [
-        { day: '日', subject: null },
-        { day: '月', subject: null },
-        { day: '火', subject: '哲学', level: 3 },
-        { day: '水', subject: null },
-        { day: '木', subject: null },
-        { day: '金', subject: '哲学', level: 4 },
-        { day: '土', subject: null }
-      ]
-    },
+    // 哲学
+    philosophy: [
+      {
+        time: '17:30 - 18:15',
+        schedule: [
+          { day: '日', subject: null },
+          { day: '月', subject: null },
+          { day: '火', subject: null },
+          { day: '水', subject: null },
+          { day: '木', subject: null },
+          { day: '金', subject: null },
+          { day: '土', subject: null }
+        ]
+      },
+      {
+        time: '18:30 - 19:15',
+        schedule: [
+          { day: '日', subject: null },
+          { day: '月', subject: null },
+          { day: '火', subject: null },
+          { day: '水', subject: null },
+          { day: '木', subject: null },
+          { day: '金', subject: null },
+          { day: '土', subject: null }
+        ]
+      },
+      {
+        time: '19:30 - 20:15',
+        schedule: [
+          { day: '日', subject: null },
+          { day: '月', subject: null },
+          { day: '火', subject: '哲学', level: 3 },
+          { day: '水', subject: null },
+          { day: '木', subject: null },
+          { day: '金', subject: null },
+          { day: '土', subject: null }
+        ]
+      }
     ],
-    //科学
-    science: [{
-      time: '17:30 - 18:15', // 時間帯
-      schedule: [
-        { day: '日', subject: null },
-        { day: '月', subject: null },
-        { day: '火', subject: null},
-        { day: '水', subject: '科学', level: 1 },
-        { day: '木', subject: null },
-        { day: '金', subject: '科学', level: 2 },
-        { day: '土', subject: null }
-      ]
-      },{
-      time: '18:30 - 19:15', // 時間帯
-      schedule: [
-        { day: '日', subject: null },
-        { day: '月', subject: null },
-        { day: '火', subject: null },
-        { day: '水', subject: '科学', level: 2  },
-        { day: '木', subject: null },
-        { day: '金', subject: '科学', level: 1 },
-        { day: '土', subject: null }
-      ]
-    },{
-      time: '19:30 - 20:15', // 時間帯
-      schedule: [
-        { day: '日', subject: null },
-        { day: '月', subject: null },
-        { day: '火', subject: null },
-        { day: '水', subject: '科学', level: 3 },
-        { day: '木', subject: null },
-        { day: '金', subject: '科学', level: 4 },
-        { day: '土', subject: null }
-      ]
-    },{
-      time: '20:30 - 21:15', // 時間帯
-      schedule: [
-        { day: '日', subject: null },
-        { day: '月', subject: null },
-        { day: '火', subject: null },
-        { day: '水', subject: '科学', level: 4 },
-        { day: '木', subject: null },
-        { day: '金', subject: '科学', level: 3 },
-        { day: '土', subject: null }
-      ]
-    },
+
+    // 科学
+    science: [
+      {
+        time: '17:30 - 18:15',
+        schedule: [
+          { day: '日', subject: null },
+          { day: '月', subject: null },
+          { day: '火', subject: null },
+          { day: '水', subject: null },
+          { day: '木', subject: null },
+          { day: '金', subject: '科学', level: 2 },
+          { day: '土', subject: null }
+        ]
+      },
+      {
+        time: '18:30 - 19:15',
+        schedule: [
+          { day: '日', subject: null },
+          { day: '月', subject: null },
+          { day: '火', subject: null },
+          { day: '水', subject: null },
+          { day: '木', subject: null },
+          { day: '金', subject: '科学', level: 1 },
+          { day: '土', subject: null }
+        ]
+      },
+      {
+        time: '19:30 - 20:15',
+        schedule: [
+          { day: '日', subject: null },
+          { day: '月', subject: null },
+          { day: '火', subject: null },
+          { day: '水', subject: '科学', level: 3 },
+          { day: '木', subject: null },
+          { day: '金', subject: null },
+          { day: '土', subject: null }
+        ]
+      }
     ],
-    //経済
-    economy: [{
-      time: '17:30 - 18:15', // 時間帯
-      schedule: [
-        { day: '日', subject: null },
-        { day: '月', subject: null },
-        { day: '火', subject: null},
-        { day: '水', subject: '経済', level: 2 },
-        { day: '木', subject: '経済', level: 1 },
-        { day: '金', subject: null },
-        { day: '土', subject: null }
-      ]
-      },{
-      time: '18:30 - 19:15', // 時間帯
-      schedule: [
-        { day: '日', subject: null },
-        { day: '月', subject: null },
-        { day: '火', subject: null },
-        { day: '水', subject: '経済', level: 1 },
-        { day: '木', subject: '経済', level: 2 },
-        { day: '金', subject: null },
-        { day: '土', subject: null }
-      ]
-    },{
-      time: '19:30 - 20:15', // 時間帯
-      schedule: [
-        { day: '日', subject: null },
-        { day: '月', subject: null },
-        { day: '火', subject: null },
-        { day: '水', subject: '経済', level: 4 },
-        { day: '木', subject: '経済', level: 3 },
-        { day: '金', subject: null},
-        { day: '土', subject: null }
-      ]
-    },{
-      time: '20:30 - 21:15', // 時間帯
-      schedule: [
-        { day: '日', subject: null },
-        { day: '月', subject: null },
-        { day: '火', subject: null },
-        { day: '水', subject: '経済', level: 3 },
-        { day: '木', subject: '経済', level: 4 },
-        { day: '金', subject: null },
-        { day: '土', subject: null }
-      ]
-    },
+
+    // 経済
+    economy: [
+      {
+        time: '17:30 - 18:15',
+        schedule: [
+          { day: '日', subject: null },
+          { day: '月', subject: null },
+          { day: '火', subject: null },
+          { day: '水', subject: '経済', level: 2 },
+          { day: '木', subject: '経済', level: 1 },
+          { day: '金', subject: null },
+          { day: '土', subject: null }
+        ]
+      },
+      {
+        time: '18:30 - 19:15',
+        schedule: [
+          { day: '日', subject: null },
+          { day: '月', subject: null },
+          { day: '火', subject: null },
+          { day: '水', subject: '経済', level: 1 },
+          { day: '木', subject: '経済', level: 2 },
+          { day: '金', subject: null },
+          { day: '土', subject: null }
+        ]
+      },
+      {
+        time: '19:30 - 20:15',
+        schedule: [
+          { day: '日', subject: null },
+          { day: '月', subject: null },
+          { day: '火', subject: null },
+          { day: '水', subject: null },
+          { day: '木', subject: null },
+          { day: '金', subject: null },
+          { day: '土', subject: null }
+        ]
+      }
     ]
   };
-
