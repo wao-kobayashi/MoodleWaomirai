@@ -122,30 +122,6 @@ if (bodyId === "page-mod-questionnaire-view")  {
   </div>
     `;
   }
-  // Vimeoのみバージョン（2025年4月~12月のバージョン）
-  function generateLessonHtmlVimeoOnly(courseData, lessonInfo) {
-    return `
-  <div class="course-lesson-wrapper">
-    <div class="course-lesson-date">
-      ${courseData.name}の授業開催日:「${lessonInfo.day1}」または「${lessonInfo.day2}」<br>
-      ※各授業は同じ内容を週に2回配信します。どちらかをご受講ください。
-    </div>
-    <div class="course-lesson">
-      <div class="course-lesson-wrap">
-        <div class="course-lesson-wrap-title">
-          授業時間になったらボタンを<br class="c-pc-hidden">押して受講してください<br>
-        </div>
-        <div class="course-lesson-wrap-btn">
-          <div><a class="primary" data-vimeo-url="${lessonInfo.vimeoUrl}">授業を受講する</a></div>
-        </div>
-      </div>
-      <div class="course-lesson-bg">
-        <img src="https://waomirai.com/lp/assets/moodle/images/thumbnail-movie-pc.svg">
-      </div>
-    </div>
-  </div>
-    `;
-  }
 
   // ==============================
   // Vimeoウィンドウを開く関数
