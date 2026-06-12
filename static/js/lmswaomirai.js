@@ -2113,52 +2113,52 @@ if (bodyId === "page-mod-questionnaire-view")  {
   const lessonData = {
     philosophy: {
       L1: {
-        day1: "火曜日 18:30〜19:15",
-        day2: "金曜日 17:30〜18:15",
+        day1: null,
+        day2: null,
         zoomUrl: "https://us02web.zoom.us/j/88212059130?pwd=NDAdLY6CAqExPaOX79CQzXATdViHxL.1",
         vimeoUrl: "https://vimeo.com/event/4920629/embed/7f5f27273a/interaction"
       },
       L2: {
-        day1: "火曜日 17:30〜18:15",
-        day2: "金曜日 18:30〜19:15",
+        day1: null,
+        day2: null,
         zoomUrl: "https://us02web.zoom.us/j/81840052279?pwd=aZAbt4MRnlFZNaoYTEbIApm52fhxB5.1",
         vimeoUrl: "https://vimeo.com/event/4920670/embed/c70000715a/interaction"
       },
       L3: {
-        day1: "火曜日 20:30〜21:15",
-        day2: "金曜日 19:30〜20:15",
+        day1: "火曜日 19:30〜20:15",
+        day2: null,
         zoomUrl: "https://us02web.zoom.us/j/86009824056?pwd=StlsSrwAaalh8N8qcOpNvNdnyVEFht.1",
         vimeoUrl: "https://vimeo.com/event/4920676/embed/52c21ef6b0/interaction"
       },
       L4: {
-        day1: "火曜日 19:30〜20:15",
-        day2: "金曜日 20:30〜21:15",
+        day1: null,
+        day2: null,
         zoomUrl: "https://us02web.zoom.us/j/87120983927?pwd=rkwsmySK9a159qQJe1lOGEfqiBQNGc.1",
         vimeoUrl: "https://vimeo.com/event/4920679/embed/ab9c66199d/interaction"
       }
     },
     science: {
       L1: {
-        day1: "水曜日 17:30〜18:15",
-        day2: "金曜日 18:30〜19:15",
+        day1: "金曜日 18:30〜19:15",
+        day2: null,
         zoomUrl: "https://us02web.zoom.us/j/89510034444?pwd=7ozebaIqBlIOgieTR49kJRoyrFDbAe.1",
         vimeoUrl: "https://vimeo.com/event/4920693/embed/1419b3b287/interaction"
       },
       L2: {
-        day1: "水曜日 18:30〜19:15",
-        day2: "金曜日 17:30〜18:15",
+        day1: "金曜日 17:30〜18:15",
+        day2: null,
         zoomUrl: "https://us02web.zoom.us/j/89630141873?pwd=a7PRiVpzM6tascsJIhfaeM0IzZzZ4X.1",
         vimeoUrl: "https://vimeo.com/event/4920695/embed/022465a73c/interaction"
       },
       L3: {
         day1: "水曜日 19:30〜20:15",
-        day2: "金曜日 20:30〜21:15",
+        day2: null,
         zoomUrl: "https://us02web.zoom.us/j/87568402622?pwd=abT9rondMMl0evsglKUdvik6Q8bldz.1",
         vimeoUrl: "https://vimeo.com/event/4920700/embed/2352ff8d6a/interaction"
       },
       L4: {
-        day1: "水曜日 20:30〜21:15",
-        day2: "金曜日 19:30〜20:15",
+        day1: null,
+        day2: null,
         zoomUrl: "https://us02web.zoom.us/j/88903613273?pwd=haXeQCLEGTkNDAesgHEkcaUJN3gZhi.1",
         vimeoUrl: "https://vimeo.com/event/4920706/embed/489dacd1a2/interaction"
       }
@@ -2177,14 +2177,14 @@ if (bodyId === "page-mod-questionnaire-view")  {
         vimeoUrl: "https://vimeo.com/event/4920718/embed/84fcf75c13/interaction"
       },
       L3: {
-        day1: "水曜日 20:30〜21:15",
-        day2: "木曜日 19:30〜20:15",
+        day1: null,
+        day2: null,
         zoomUrl: "https://us02web.zoom.us/j/87848451237?pwd=GIkmj2k1fXwaWZF3zACbbrE9sbZX7N.1",
         vimeoUrl: "https://vimeo.com/event/4920725/embed/99a117fd01/interaction"
       },
       L4: {
-        day1: "水曜日 19:30〜20:15",
-        day2: "木曜日 20:30〜21:15",
+        day1: null,
+        day2: null,
         zoomUrl: "https://us02web.zoom.us/j/87011842822?pwd=LAP52Ti6rxfgZ0H8rmbUkrsqY8bo78.1",
         vimeoUrl: "https://vimeo.com/event/4920727/embed/9058c274c5/interaction"
       }
@@ -2197,11 +2197,15 @@ if (bodyId === "page-mod-questionnaire-view")  {
 
   // Zoomバージョン（2026年1月以降のバージョン）
   function generateLessonHtmlZoom(courseData, lessonInfo) {
+    const dateHtml = lessonInfo.day1 && lessonInfo.day2
+      ? `${courseData.name}の授業開催日:「${lessonInfo.day1}」または「${lessonInfo.day2}」<br>※経済の授業は同じ内容を週に2回配信します。どちらかをご受講ください。`
+      : lessonInfo.day1
+      ? `${courseData.name}の授業開催日:「${lessonInfo.day1}」`
+      : '';
     return `
   <div class="course-lesson-wrapper">
     <div class="course-lesson-date">
-      ${courseData.name}の授業開催日:「${lessonInfo.day1}」または「${lessonInfo.day2}」<br>
-      ※各授業は同じ内容を週に2回配信します。どちらかをご受講ください。
+      ${dateHtml}
     </div>
     <div class="course-lesson">
       <div class="course-lesson-wrap">
