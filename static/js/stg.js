@@ -2071,6 +2071,44 @@ if (['globalenglish'].includes(subjectCategory)) {
 }
 
   // ============================
+  // 年間カリキュラム レベルタブの制御
+  // ============================
+  const openLevels = {
+    economy:   [1, 2],
+    science:   [1, 2, 3],
+    philosophy:[3],
+  };
+
+  if (openLevels[subjectCategory]) {
+    const available = openLevels[subjectCategory];
+    const $tabs = $('.enrol-section-basesubject-year-lesson-tab-child');
+
+    // 閉講タブにdisabledスタイルをJSで適用
+    $tabs.each(function () {
+      const level = parseInt($(this).attr('class').match(/tab-level-(\d)/)?.[1]);
+      if (!available.includes(level)) {
+        $(this).addClass('disabled').css({
+          background: '#ccc',
+          color: '#999',
+          cursor: 'not-allowed',
+          opacity: '0.5',
+          pointerEvents: 'none',
+        });
+      }
+    });
+
+    // 初期アクティブタブを設定（哲学はレベル3が最初）
+    const initialLevel = available[0];
+    $('.enrol-section-basesubject-year-lesson-content-child').hide();
+    $(`.tab-level-${initialLevel}`).addClass('active');
+    $(`.content-level${initialLevel}`).css('display', 'grid');
+  } else {
+    // globalenglish等: デフォルトのレベル1を表示
+    $('.tab-level-1').addClass('active');
+    $('.content-level1').css('display', 'grid');
+  }
+
+  // ============================
   // 画面下部に料金を固定表示
   // ============================
   // 料金表示部分から価格を取得（「JPY」を含む要素）
@@ -3239,19 +3277,16 @@ $("[class*='scroll-to-']").on("click", function (e) {
 });
 
 
-// 年間スケジュールのタブ切り替え
-$('.tab-level-1').addClass('active');
-//  1番目のタブを表示
-$('.content-level1').css('display', 'grid');
-
-
+// 年間スケジュールのタブ切り替え（初期化は page-enrol-index.js で科目ごとに行う）
 $('.enrol-section-basesubject-year-lesson-tab-child').click(function() {
+  if ($(this).hasClass('disabled')) return;
+
   var level = $(this).index() + 1;
-  
+
   // タブのアクティブ切り替え
-  $('.enrol-section-basesubject-year-lesson-tab-child').removeClass('active');
+  $('.enrol-section-basesubject-year-lesson-tab-child').not('.disabled').removeClass('active');
   $(this).addClass('active');
-  
+
   // コンテンツの表示切り替え
   $('.enrol-section-basesubject-year-lesson-content-child').hide();
   $('.content-level' + level).css('display', 'grid');
