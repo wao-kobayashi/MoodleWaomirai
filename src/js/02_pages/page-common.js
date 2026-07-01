@@ -66,19 +66,16 @@ $("[class*='scroll-to-']").on("click", function (e) {
 });
 
 
-// 年間スケジュールのタブ切り替え
-$('.tab-level-1').addClass('active');
-//  1番目のタブを表示
-$('.content-level1').css('display', 'grid');
-
-
+// 年間スケジュールのタブ切り替え（初期化は page-enrol-index.js で科目ごとに行う）
 $('.enrol-section-basesubject-year-lesson-tab-child').click(function() {
+  if ($(this).hasClass('disabled')) return;
+
   var level = $(this).index() + 1;
-  
+
   // タブのアクティブ切り替え
-  $('.enrol-section-basesubject-year-lesson-tab-child').removeClass('active');
+  $('.enrol-section-basesubject-year-lesson-tab-child').not('.disabled').removeClass('active');
   $(this).addClass('active');
-  
+
   // コンテンツの表示切り替え
   $('.enrol-section-basesubject-year-lesson-content-child').hide();
   $('.content-level' + level).css('display', 'grid');
