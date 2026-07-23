@@ -259,6 +259,20 @@ $default-max-width: 1170px; // 最大幅
             height: 30px;
           }
         }
+        .dashboard-left-block-worksheet-title-icon-eng {
+          width: 44px;
+          height: 44px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          background: $cl-english-pale;
+          border-radius: $border-radius-full;
+          margin: 0 0px 0 0;
+          img {
+            width: 28px;
+            height: 28px;
+          }
+        }
       }
       .dashboard-left-block-worksheet-text {
         font-size: $lms-font-size-s;
@@ -482,7 +496,7 @@ $default-max-width: 1170px; // 最大幅
       &.globalenglish {
         @include dashboard-left-block-subject-child-card;
         .dashboard-left-block-subject-child-icon {
-          background: #f5dbff;
+          background: $cl-english-pale;
           img {
             width: 36px;
             margin: 2px 0 0;

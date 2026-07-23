@@ -1013,6 +1013,27 @@ if (bodyId === "page-my-index") {
       $("#alert-change-course").show();
   }
 
+  // 英語（グローバル英語）を持っている場合の表示
+  // メイン科目、または英語レベル1・2のいずれかの子科目を持っていれば表示（OR判定）
+  if (
+    checkBoughtMainSubject(["globalenglish"]) ||
+    checkBoughtChildSubject("globalenglish", ["L1", "L2"])
+  ) {
+    $(".hasBoughtMain-Eng").show();
+  }
+
+  // 哲学・科学・経済のいずれかを持っている場合の表示
+  // 2科目セット・3科目セット購入者もこれらの科目を受講しているため対象に含める
+  // メイン科目、または各科目レベル1〜4のいずれかの子科目を持っていれば表示（OR判定）
+  if (
+    checkBoughtMainSubject(["philosophy", "science", "economy", "twosubjectpack", "threesubjectpack"]) ||
+    checkBoughtChildSubject("philosophy", ["L1", "L2", "L3", "L4"]) ||
+    checkBoughtChildSubject("science", ["L1", "L2", "L3", "L4"]) ||
+    checkBoughtChildSubject("economy", ["L1", "L2", "L3", "L4"])
+  ) {
+    $(".hasBoughtMain-ph-sc-ec").show();
+  }
+
 }
 // ==============================
 // ダッシュボードページでのバッジ処理
