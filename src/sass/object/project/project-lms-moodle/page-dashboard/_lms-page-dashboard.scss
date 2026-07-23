@@ -227,7 +227,7 @@ $default-max-width: 1170px; // 最大幅
       padding: 20px 17px 20px !important;
       background: white;
       border-radius: $border-radius-middle;
-      margin: 40px 0 40px;
+      margin: 0px 0 40px;
       .dashboard-left-block-worksheet-title {
         display: flex;
         justify-content: space-between;
@@ -368,6 +368,7 @@ $default-max-width: 1170px; // 最大幅
       flex-wrap: wrap;
       gap: 20px 14px;
       justify-content: flex-start;
+      margin: 0 auto 40px;
       @include responsive-style(768px) {
         gap: 20px;
         padding: 20px 20px 24px !important;

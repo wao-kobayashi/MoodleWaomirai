@@ -6024,7 +6024,7 @@ html[data-tenantidnumber=lmswaomirai] .pagelayout-mydashboard .dashboard-left .d
   padding: 20px 17px 20px !important;
   background: white;
   border-radius: 8px;
-  margin: 40px 0 40px;
+  margin: 0px 0 40px;
 }
 html[data-tenantidnumber=lmswaomirai] .pagelayout-mydashboard .dashboard-left .dashboard-left-block-worksheet .dashboard-left-block-worksheet-title {
   display: -webkit-box;
@@ -6218,6 +6218,7 @@ html[data-tenantidnumber=lmswaomirai] .pagelayout-mydashboard .dashboard-left .d
   -webkit-box-pack: start;
       -ms-flex-pack: start;
           justify-content: flex-start;
+  margin: 0 auto 40px;
 }
 @media screen and (max-width: 768px) {
   html[data-tenantidnumber=lmswaomirai] .pagelayout-mydashboard .dashboard-left .dashboard-left-block-wrap-subject {
