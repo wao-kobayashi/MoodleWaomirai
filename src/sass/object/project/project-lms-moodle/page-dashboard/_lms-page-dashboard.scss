@@ -540,23 +540,56 @@ $default-max-width: 1170px; // 最大幅
         }
       }
     }
-    ul {
+    .dashboard-left-block-links {
       background: white;
       border-radius: $border-radius-middle;
       list-style: none;
-      padding: 24px 12px 12px 10px;
-      li {
-        line-height: 1.35;
-        margin: 0 0 15px;
-        display: flex;
-        &:before {
-          content: "・";
-          color: $cl-graylight;
+      padding: 20px 14px 6px 14px;
+      ul.course-guide {
+        padding: 0 0 6px;
+        border-bottom: 2px solid $cl-graylightest;
+        li {
+          &:before {
+            content: "description";
+            font-family: "Material Symbols Outlined";
+            font-weight: normal;
+            font-style: normal;
+            font-size: 18px;
+            line-height: 1.35 * $lms-font-size-m; // 本文1行分の高さに合わせて上端を揃える
+            letter-spacing: normal;
+            text-transform: none;
+            white-space: nowrap;
+            word-wrap: normal;
+            direction: ltr;
+            flex-shrink: 0;
+            width: 28px;
+            text-align: center;
+            color: $cl-graylight;
+            margin: 3px 4px 0 -4px;
+            -webkit-font-feature-settings: "liga";
+            -webkit-font-smoothing: antialiased;
+          }
         }
+      }
+      li {
+        line-height: 1.75;
+        margin: 0 0 12px;
+        display: flex;
+        align-items: flex-start;
         a {
+          width: calc(100% - 36px);
           color: $cl-waogreen;
           text-decoration: underline;
           font-size: $lms-font-size-m;
+          line-height: 1.6; // 本文1行分の高さに合わせて上端を揃える
+        }
+      }
+      ul.faq-contents li {
+        &:before {
+          width: 25px;
+          content: "・";
+          color: $cl-graylight;
+          margin: -4px 0 0 3px;
         }
       }
     }

@@ -6532,27 +6532,59 @@ html[data-tenantidnumber=stg] .pagelayout-mydashboard .dashboard-left .dashboard
     font-size: 14px;
   }
 }
-html[data-tenantidnumber=stg] .pagelayout-mydashboard .dashboard-left ul {
+html[data-tenantidnumber=stg] .pagelayout-mydashboard .dashboard-left .dashboard-left-block-links {
   background: white;
   border-radius: 8px;
   list-style: none;
-  padding: 24px 12px 12px 10px;
+  padding: 20px 14px 6px 14px;
 }
-html[data-tenantidnumber=stg] .pagelayout-mydashboard .dashboard-left ul li {
-  line-height: 1.35;
-  margin: 0 0 15px;
+html[data-tenantidnumber=stg] .pagelayout-mydashboard .dashboard-left .dashboard-left-block-links ul.course-guide {
+  padding: 0 0 6px;
+  border-bottom: 2px solid #efefef;
+}
+html[data-tenantidnumber=stg] .pagelayout-mydashboard .dashboard-left .dashboard-left-block-links ul.course-guide li:before {
+  content: "description";
+  font-family: "Material Symbols Outlined";
+  font-weight: normal;
+  font-style: normal;
+  font-size: 18px;
+  line-height: 18.9px;
+  letter-spacing: normal;
+  text-transform: none;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+  width: 28px;
+  text-align: center;
+  color: #999;
+  margin: 3px 4px 0 -4px;
+  -webkit-font-feature-settings: "liga";
+  -webkit-font-smoothing: antialiased;
+}
+html[data-tenantidnumber=stg] .pagelayout-mydashboard .dashboard-left .dashboard-left-block-links li {
+  line-height: 1.75;
+  margin: 0 0 12px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
 }
-html[data-tenantidnumber=stg] .pagelayout-mydashboard .dashboard-left ul li:before {
-  content: "・";
-  color: #999;
-}
-html[data-tenantidnumber=stg] .pagelayout-mydashboard .dashboard-left ul li a {
+html[data-tenantidnumber=stg] .pagelayout-mydashboard .dashboard-left .dashboard-left-block-links li a {
+  width: calc(100% - 36px);
   color: #005c3f;
   text-decoration: underline;
   font-size: 14px;
+  line-height: 1.6;
+}
+html[data-tenantidnumber=stg] .pagelayout-mydashboard .dashboard-left .dashboard-left-block-links ul.faq-contents li:before {
+  width: 25px;
+  content: "・";
+  color: #999;
+  margin: -4px 0 0 3px;
 }
 html[data-tenantidnumber=stg] .pagelayout-mydashboard .dashboard-left .dashboard-left-banner-link {
   display: block;
