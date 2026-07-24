@@ -26,7 +26,7 @@
       ///////////////////////
       // 英語受講ガイド
       ///////////////////////
-      .dashboard-left-block-worksheet.hasBoughtMain-Eng(style='display:none;')
+      .dashboard-left-block-worksheet.dashboard-left-engguide(style='display:none;')
         .dashboard-left-block-worksheet-title
           .dashboard-left-block-worksheet-title-text
             |グローバル英語
@@ -38,13 +38,13 @@
             |学習の流れを
             br
             |こちらでご案内しています
-        a(href=guidePdfNormal, target='_blank').dashboard-left-block-worksheet-download
+        a(href=guidePdfEnglish, target='_blank').dashboard-left-block-worksheet-download
             .subject-page-added-note-content-download-text
                 |受講ガイドを見る
       ///////////////////////
       // 授業のメモシート
       ///////////////////////
-      .dashboard-left-block-worksheet.hasBoughtMain-ph-sc-ec(style='display:none;')
+      .dashboard-left-block-worksheet.dashboard-left-worksheet(style='display:none;')
         .dashboard-left-block-worksheet-title
           .dashboard-left-block-worksheet-title-text
             |授業の
@@ -116,13 +116,13 @@
           .dashboard-left-block-title
             |使い方ガイド
           .dashboard-left-block-links
-           ul.course-guide
-            li.course-guide-normal 
+           ul.course-guide(style='display:none;')
+            li.course-guide-normal
               a(href=guidePdfNormal, target='_blank')
                 |哲学 / 科学 / 経済
                 br
-                |受講ガイド
-            li.course-guide-english 
+                |受講ガイド(PDF)
+            li.course-guide-english(style='display:none;')
                a(href=guidePdfEnglish, target='_blank')
                 |グローバル英語
                 br
