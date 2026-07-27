@@ -562,7 +562,7 @@ $default-max-width: 1170px; // 最大幅
             word-wrap: normal;
             direction: ltr;
             flex-shrink: 0;
-            width: 32px;
+            width: 27px;
             text-align: center;
             color: $cl-graylight;
             margin: 3px 4px 0 -4px;
@@ -586,10 +586,10 @@ $default-max-width: 1170px; // 最大幅
       }
       ul.faq-contents li {
         &:before {
-          width: 29px;
+          width: 25px;
           content: "・";
-          color: $cl-graylight;
-          margin: -4px 0 0 3px;
+          color: #999;
+          margin: -4px 0 0 1px;
         }
       }
       ul.faq-contents-eng li {

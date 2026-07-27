@@ -6556,7 +6556,7 @@ html[data-tenantidnumber=stg] .pagelayout-mydashboard .dashboard-left .dashboard
   direction: ltr;
   -ms-flex-negative: 0;
       flex-shrink: 0;
-  width: 32px;
+  width: 27px;
   text-align: center;
   color: #999;
   margin: 3px 4px 0 -4px;
@@ -6581,10 +6581,10 @@ html[data-tenantidnumber=stg] .pagelayout-mydashboard .dashboard-left .dashboard
   line-height: 1.6;
 }
 html[data-tenantidnumber=stg] .pagelayout-mydashboard .dashboard-left .dashboard-left-block-links ul.faq-contents li:before {
-  width: 29px;
+  width: 25px;
   content: "・";
   color: #999;
-  margin: -4px 0 0 3px;
+  margin: -4px 0 0 1px;
 }
 html[data-tenantidnumber=stg] .pagelayout-mydashboard .dashboard-left .dashboard-left-block-links ul.faq-contents-eng li {
   width: 100% !important;
