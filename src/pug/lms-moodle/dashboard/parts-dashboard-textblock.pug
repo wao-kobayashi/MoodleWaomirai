@@ -7,27 +7,44 @@
 //ダッシュボードにコピペするブロック
 .dashboard-textblock
   .dashboard-left
-    .dashboard-left-block
-      ///////////////////////
-      // 現在受講中の科目
-      ///////////////////////
-      .dashboard-left-block-title
-        |お知らせ
-      .dashboard-left-block-wrap.dashboard-left-block-info 
-        a(href=linkHowtoJoin)
-          .dashboard-left-block-wrap.dashboard-left-block-info-img 
-            img(src='https://waomirai.com/lp/assets/moodle/images/img_news_2025dec.png')
-          .dashboard-left-block-wrap.dashboard-left-block-info-text 
-            |【お願い】ライブ授業の配信方法変更に伴いZoomのインストールをお願いします
+      //- .dashboard-left-block
+      //-   ///////////////////////
+      //-   // 現在受講中の科目
+      //-   ///////////////////////
+      //-   .dashboard-left-block-title
+      //-     |お知らせ
+      //-   .dashboard-left-block-wrap.dashboard-left-block-info 
+      //-     a(href=linkHowtoJoin)
+      //-       .dashboard-left-block-wrap.dashboard-left-block-info-img 
+      //-         img(src='https://waomirai.com/lp/assets/moodle/images/img_news_2025dec.png')
+      //-       .dashboard-left-block-wrap.dashboard-left-block-info-text 
+      //-         |【お願い】ライブ授業の配信方法変更に伴いZoomのインストールをお願いします
 
       .dashboard-left-block-title
         |現在受講中の科目
       .dashboard-left-block-wrap.dashboard-left-block-wrap-subject
       ///////////////////////
+      // 英語受講ガイド
+      ///////////////////////
+      .dashboard-left-block-worksheet.dashboard-left-engguide(style='display:none;')
+        .dashboard-left-block-worksheet-title
+          .dashboard-left-block-worksheet-title-text
+            |グローバル英語
+            br.c-sp-hidden
+            |受講ガイド
+          .dashboard-left-block-worksheet-title-icon-eng.c-sp-hidden
+            img(src=IcnGuideEng alt="ワオ未来塾のアイコン") 
+        .dashboard-left-block-worksheet-text 
+            |学習の流れを
+            br
+            |こちらでご案内しています
+        a(href=guidePdfEnglish, target='_blank').dashboard-left-block-worksheet-download
+            .subject-page-added-note-content-download-text
+                |受講ガイドを見る
+      ///////////////////////
       // 授業のメモシート
       ///////////////////////
-
-      .dashboard-left-block-worksheet 
+      .dashboard-left-block-worksheet.dashboard-left-worksheet(style='display:none;')
         .dashboard-left-block-worksheet-title
           .dashboard-left-block-worksheet-title-text
             |授業の
@@ -39,8 +56,6 @@
             |授業中の学びを記録できる
             br
             |印刷用シートです。
-            //- br
-            //- |ご活用いただくとより授業が楽しめます
         .dashboard-left-block-worksheet-download.triger-download-memosheet-modal
             span.material-symbols-outlined
               |download
@@ -87,11 +102,6 @@
                 |当月の課題(問い)を全て
                 br
                 |提出するともらえるバッジです。
-            //- i.icon.fa.fa-solid.fa-circle-exclamation(aria-hidden="true")
-            //-   .tooltip.tooltip-top 
-            //-     |当月の問いを全て提出すると
-            //-     br
-            //-     |もらえるバッジです。
         .dashboard-left-block-wrap.dashboard-left-block-wrap-badge
           .dashboard-left-block-wrap-badge-content
           .dashboard-left-block-wrap-badge-readmore(style='display:none;')
@@ -101,32 +111,45 @@
              span.text
                |全て表示する
 
-    //infoHowtoVisibleがtrueの時に「開校のお知らせ」を表示
-    .dashboard-left-block.dashboard-left-block-guide 
-        .dashboard-left-block-title
-          |使い方ガイド
-        ul.dashboard-left-block-links
-          li 
-            a(href=linkHowtoJoin)
-              |授業の参加方法
-          li 
-            a(href='https://lms.waomirai.com/mod/page/view.php?id=1348')
-              |受講カレンダーに授業予定が表示されません
-          li            
-            a(href='https://lms.waomirai.com/mod/page/view.php?id=1349')
-              |科目の受講レベルを変更したい
-          li 
-            a(href='https://lms.waomirai.com/mod/page/view.php?id=1436')
-              |今受講している科目を別の科目に変更したい
-          li 
-            a(href='https://lms.waomirai.com/mod/page/view.php?id=1350')
-              |受講カレンダーに同じ授業が２つあります
-          li 
-            a(href='https://lms.waomirai.com/mod/page/view.php?id=567')
-              |有料講座を解約するには
-    .dashboard-left-banner
-      a(href="https://waomirai.com/lp/campaign-friend-referral-apply/" target="_blank").dashboard-left-banner-link
-        img(src=ImgBannerFrRef alt="友だちを紹介して一緒に1500円分図書カードもらえる")
+      //infoHowtoVisibleがtrueの時に「開校のお知らせ」を表示
+      .dashboard-left-block.dashboard-left-block-guide 
+          .dashboard-left-block-title
+            |使い方ガイド
+          .dashboard-left-block-links
+           ul.course-guide(style='display:none;')
+            li.course-guide-normal
+              a(href=guidePdfNormal, target='_blank')
+                |哲学 / 科学 / 経済
+                br
+                |受講ガイド(PDF)
+            li.course-guide-english(style='display:none;')
+               a(href=guidePdfEnglish, target='_blank')
+                |グローバル英語
+                br
+                |受講ガイド
+           ul.faq-contents
+            li 
+              a(href=linkHowtoJoin)
+                |授業の参加方法
+            li 
+              a(href='https://lms.waomirai.com/mod/page/view.php?id=1348')
+                |受講カレンダーに授業予定が表示されません
+            li            
+              a(href='https://lms.waomirai.com/mod/page/view.php?id=1349')
+                |科目の受講レベルを変更したい
+            //- li 
+            //-   a(href='https://lms.waomirai.com/mod/page/view.php?id=1436')
+            //-     |今受講している科目を別の科目に変更したい
+            li 
+              a(href='https://lms.waomirai.com/mod/page/view.php?id=1350')
+                |受講カレンダーに同じ授業が２つあります
+            //- li 
+            //-   a(href='https://lms.waomirai.com/mod/page/view.php?id=567')
+            //-     |有料講座を解約するには
+
+      .dashboard-left-banner
+        a(href="https://waomirai.com/lp/campaign-friend-referral-apply/" target="_blank").dashboard-left-banner-link
+          img(src=ImgBannerFrRef alt="友だちを紹介して一緒に1500円分図書カードもらえる")
 
   .dashboard-main
     //ダッシュボードのバナー

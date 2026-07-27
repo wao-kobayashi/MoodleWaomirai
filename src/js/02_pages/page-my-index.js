@@ -545,4 +545,41 @@ if (bodyId === "page-my-index") {
       $("#alert-change-course").show();
   }
 
+  // -----------------------------------------------
+  // 受講状況に応じた受講ガイド・メモシートの表示切り替え
+  // -----------------------------------------------
+  // 英語（グローバル英語）を持っているか
+  // メイン科目、または英語レベル1・2のいずれかの子科目を持っていれば true（OR判定）
+  const hasEnglish =
+    checkBoughtMainSubject(["globalenglish"]) ||
+    checkBoughtChildSubject("globalenglish", ["L1", "L2"]);
+
+  // 哲学・科学・経済（３科）のいずれかを持っているか
+  // 2科目セット・3科目セット購入者もこれらの科目を受講しているため対象に含める
+  // メイン科目、または各科目レベル1〜4のいずれかの子科目を持っていれば true（OR判定）
+  const hasMainThree =
+    checkBoughtMainSubject(["philosophy", "science", "economy", "twosubjectpack", "threesubjectpack"]) ||
+    checkBoughtChildSubject("philosophy", ["L1", "L2", "L3", "L4"]) ||
+    checkBoughtChildSubject("science", ["L1", "L2", "L3", "L4"]) ||
+    checkBoughtChildSubject("economy", ["L1", "L2", "L3", "L4"]);
+
+  if (hasEnglish && !hasMainThree) {
+    // Case1: 英語のみ（３科なし）→ 英語受講ガイドのカードを表示
+    $(".dashboard-left-engguide").show();
+    $(".faq-contents").addClass("faq-contents-eng");
+  } else if (!hasEnglish && hasMainThree) {
+    // Case2: ３科のみ（英語なし）→ 使い方ガイドのガイドリンクとメモシートを表示
+    $(".course-guide").show();
+    $(".dashboard-left-worksheet").show();
+   
+    
+  } else if (hasEnglish && hasMainThree) {
+    // Case3: 英語＋３科 → ガイドリンク（英語リンク含む）とメモシートを表示し、
+    //        受講ガイドの表記を「哲学・科学・経済 受講ガイド」に変更
+    $(".course-guide").show();
+    $(".course-guide-english").show();
+    $(".dashboard-left-worksheet").show();
+    $(".course-guide-normal a").html("哲学・科学・経済<br>受講ガイド");
+  }
+
 }
