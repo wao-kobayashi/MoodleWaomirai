@@ -1591,6 +1591,7 @@ if (bodyId === "page-login-signup" || bodyId === "page-login-forgot_password") {
     id_firstname: "例）太郎", // 名のプレースホルダー
     id_profile_field_furigana: "例）スズキタロウ", // フリガナのプレースホルダー
     id_profile_field_postnumber: "例）0000000", // 郵便番号のプレースホルダー
+    id_profile_field_address: "こちらに住所を入れてください", // 住所のプレースホルダー
     id_profile_field_wao_membersid: "こちらに会員番号を入れてください", // ワオ未来塾会員番号のプレースホルダー
     id_profile_field_wao_schoolname:  "例）能開⚪︎⚪︎校、Axis⚪︎⚪︎校、オンライン家庭教師", // ワオ未来塾校名のプレースホルダー
   };
@@ -1690,11 +1691,13 @@ if (bodyId === "page-login-signup" || bodyId === "page-login-forgot_password") {
   //////////////////////////////
   // ラベル文言を変更し、「ミライノート送付先ご住所」部分は下線付きリンクにする。
   // クリック時はミライノートの案内モーダルを表示する。
-  $("#id_profile_field_address_label")
-    .html('<span class="mirainote-address-link">ミライノート送付先ご住所</span>（哲学・経済・科学受講者のみ）')
-    .after(
-      '<p class="mirainote-address-note">※入会のタイミング以外でのご入力は、ノートが自動送付されませんので、送付希望の旨を事務局までご連絡ください。</p>'
-    );
+  $("#id_profile_field_address_label").html(
+    '<span class="mirainote-address-link">ミライノート送付先ご住所</span>（哲学・経済・科学受講者のみ）'
+  );
+  // 補足テキストはinputの直下（右カラム）に表示する
+  $("#id_profile_field_address").after(
+    '<p class="mirainote-address-note">※入会のタイミング以外でのご入力は、ノートが自動送付されませんので、送付希望の旨を事務局までご連絡ください。</p>'
+  );
 
   // リンククリックでミライノート案内モーダルを表示
   $(document).on("click", ".mirainote-address-link", function () {
@@ -3174,11 +3177,13 @@ if (bodyId === "page-user-edit") { // ページIDが「page-user-edit」の場�
   // ・ラベル文言を変更し、直下に補足テキストを表示する
   // ・こちらはモーダル実装は不要（リンク化なし）
   // ===========================
-  $("#id_profile_field_address_label")
-    .text("ミライノート送付先ご住所（哲学・経済・科学受講者のみ）")
-    .after(
-      '<p class="mirainote-address-note">※入会のタイミング以外でのご入力は、ノートが自動送付されませんので、送付希望の旨を事務局までご連絡ください。</p>'
-    );
+  $("#id_profile_field_address_label").text(
+    "ミライノート送付先ご住所（哲学・経済・科学受講者のみ）"
+  );
+  // 補足テキストはinputの直下（右カラム）に表示する
+  $("#id_profile_field_address").after(
+    '<p class="mirainote-address-note">※入会のタイミング以外でのご入力は、ノートが自動送付されませんので、<br />送付希望の旨を事務局までご連絡ください。</p>'
+  );
 }
 
 

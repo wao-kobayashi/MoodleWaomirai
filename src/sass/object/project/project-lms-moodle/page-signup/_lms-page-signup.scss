@@ -11,6 +11,10 @@ footer {
   margin: 90px 0 0;
 }
 
+.c-modal-wrap-image img {
+  width: 100%;
+}
+
 #page-login-index,
 #page-login-forgot_password {
   // .login-wrapper {
@@ -111,6 +115,9 @@ footer {
     top: -10px;
   }
   #fitem_id_profile_field_postnumber {
+    margin-bottom: 1rem !important;
+  }
+  #fitem_id_profile_field_address {
     margin-bottom: 2rem !important;
   }
   form {
