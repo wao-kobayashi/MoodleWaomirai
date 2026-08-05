@@ -267,6 +267,18 @@ footer {
   .btn-secondary {
     padding: 0 !important;
   }
+  // ミライノート送付先ご住所ラベル内のリンク
+  .mirainote-address-link {
+    text-decoration: underline;
+    cursor: pointer;
+  }
+  // ラベル直下の補足テキスト
+  .mirainote-address-note {
+    color: $cl-graylight;
+    font-size: $lms-font-size-s;
+    line-height: $lineheight-normal;
+    margin: 4px 0 0;
+  }
 }
 
 #page-login-signup {

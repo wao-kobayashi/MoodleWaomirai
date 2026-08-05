@@ -1301,6 +1301,11 @@ html[data-tenantidnumber=stg] .c-modal .c-modal-wrap-wrap-campaign .c-modal-wrap
 html[data-tenantidnumber=stg] .c-modal .c-modal-wrap-badge .c-modal-wrap-button-wrap {
   padding: 5px 0 0;
 }
+html[data-tenantidnumber=stg] .c-modal .c-modal-wrap-mirainote .c-modal-wrap-text {
+  color: #999;
+  font-size: 12px;
+  text-align: center;
+}
 html[data-tenantidnumber=stg] .c-modal-bg {
   position: fixed;
   width: 100%;
@@ -2046,6 +2051,16 @@ html[data-tenantidnumber=stg] #page-login-signup .continuebutton {
 }
 html[data-tenantidnumber=stg] #page-login-signup .btn-secondary {
   padding: 0 !important;
+}
+html[data-tenantidnumber=stg] #page-login-signup .mirainote-address-link {
+  text-decoration: underline;
+  cursor: pointer;
+}
+html[data-tenantidnumber=stg] #page-login-signup .mirainote-address-note {
+  color: #999;
+  font-size: 12px;
+  line-height: 1.5;
+  margin: 4px 0 0;
 }
 html[data-tenantidnumber=stg] #page-login-signup.pagelayout-base #notice {
   max-width: 550px;
@@ -7937,6 +7952,12 @@ html[data-tenantidnumber=stg] #page-user-edit .subject-select-levelset {
   color: #999;
   font-size: 12px;
   margin: 10px 0 0;
+}
+html[data-tenantidnumber=stg] #page-user-edit .mirainote-address-note {
+  color: #999;
+  font-size: 12px;
+  line-height: 1.5;
+  margin: 4px 0 0;
 }
 html[data-tenantidnumber=stg] #page-user-edit .subject-select-levelnotset {
   display: block;

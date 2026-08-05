@@ -1685,6 +1685,30 @@ if (bodyId === "page-login-signup" || bodyId === "page-login-forgot_password") {
       console.log('生成されたユーザID:', userId);
   });
 
+  //////////////////////////////
+  // ミライノート送付先ご住所ラベルの調整
+  //////////////////////////////
+  // ラベル文言を変更し、「ミライノート送付先ご住所」部分は下線付きリンクにする。
+  // クリック時はミライノートの案内モーダルを表示する。
+  $("#id_profile_field_address_label")
+    .html('<span class="mirainote-address-link">ミライノート送付先ご住所</span>（哲学・経済・科学受講者のみ）')
+    .after(
+      '<p class="mirainote-address-note">※入会のタイミング以外でのご入力は、ノートが自動送付されませんので、送付希望の旨を事務局までご連絡ください。</p>'
+    );
+
+  // リンククリックでミライノート案内モーダルを表示
+  $(document).on("click", ".mirainote-address-link", function () {
+    createModal({
+      close: true, // 閉じる（×）ボタンを表示
+      wrapClass: "c-modal-wrap-mirainote",
+      title:
+        "授業でご利用いただける<br>「ミライノート（56ページ）」を、<br>ご自宅に無料でお届けします。",
+      text: "（哲学・科学・経済受講者のみ）",
+      image: ImgModalBadge, // 画像は一旦バッジ画像を使用
+      closetxt: "閉じる", // 閉じるテキスト
+    });
+  });
+
   $('label[for="id_profile_field_kojin_check"]').on('click', () => window.open("https://waomirai.com/privacy-agreement/", '_blank'));
   $('label[for="id_profile_field_termsofservice"]').on('click', () => window.open("https://waomirai.com/terms/", '_blank'));
 }
@@ -3144,6 +3168,17 @@ if (bodyId === "page-user-edit") { // ページIDが「page-user-edit」の場�
       $(this).text(EnglishLabelMap[currentText]);
     }
   });
+
+  // ===========================
+  // ミライノート送付先ご住所ラベルの調整
+  // ・ラベル文言を変更し、直下に補足テキストを表示する
+  // ・こちらはモーダル実装は不要（リンク化なし）
+  // ===========================
+  $("#id_profile_field_address_label")
+    .text("ミライノート送付先ご住所（哲学・経済・科学受講者のみ）")
+    .after(
+      '<p class="mirainote-address-note">※入会のタイミング以外でのご入力は、ノートが自動送付されませんので、送付希望の旨を事務局までご連絡ください。</p>'
+    );
 }
 
 

@@ -77,6 +77,14 @@
     margin: 10px 0 0;
   }
 
+  // ミライノート送付先ご住所ラベル直下の補足テキスト
+  .mirainote-address-note {
+    color: $cl-graylight;
+    font-size: $lms-font-size-s;
+    line-height: $lineheight-normal;
+    margin: 4px 0 0;
+  }
+
   .subject-select-levelnotset {
     display: block;
     background: white;
