@@ -1303,7 +1303,7 @@ html[data-tenantidnumber=lmswaomirai] .c-modal .c-modal-wrap-badge .c-modal-wrap
 }
 html[data-tenantidnumber=lmswaomirai] .c-modal .c-modal-wrap-mirainote .c-modal-wrap-text {
   color: #999;
-  font-size: 12px;
+  font-size: 16px;
   text-align: center;
 }
 html[data-tenantidnumber=lmswaomirai] .c-modal-bg {
@@ -1781,9 +1781,6 @@ html[data-tenantidnumber=lmswaomirai] .login-wrapper {
 html[data-tenantidnumber=lmswaomirai] footer {
   margin: 90px 0 0;
 }
-html[data-tenantidnumber=lmswaomirai] .c-modal-wrap-image img {
-  width: 100%;
-}
 @media (min-width: 768px) {
   html[data-tenantidnumber=lmswaomirai] #page-login-index .login-wrapper,
   html[data-tenantidnumber=lmswaomirai] #page-login-forgot_password .login-wrapper {
@@ -1811,6 +1808,13 @@ html[data-tenantidnumber=lmswaomirai] #page-login-forgot_password .login-form-fo
 }
 html[data-tenantidnumber=lmswaomirai] #page-login-signup {
   background: white;
+}
+html[data-tenantidnumber=lmswaomirai] #page-login-signup .c-modal-wrap-button-wrap {
+  display: none !important;
+}
+html[data-tenantidnumber=lmswaomirai] #page-login-signup .c-modal-wrap-image img {
+  margin: 20px auto 0;
+  width: 100%;
 }
 html[data-tenantidnumber=lmswaomirai] #page-login-signup .btn-generate-userid {
   background: none;

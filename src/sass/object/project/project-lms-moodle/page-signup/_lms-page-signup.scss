@@ -11,10 +11,6 @@ footer {
   margin: 90px 0 0;
 }
 
-.c-modal-wrap-image img {
-  width: 100%;
-}
-
 #page-login-index,
 #page-login-forgot_password {
   // .login-wrapper {
@@ -47,6 +43,13 @@ footer {
 
 #page-login-signup {
   background: white;
+  .c-modal-wrap-button-wrap {
+    display: none !important;
+  }
+  .c-modal-wrap-image img {
+    margin: 20px auto 0;
+    width: 100%;
+  }
   .btn-generate-userid {
     background: none;
     border: none;

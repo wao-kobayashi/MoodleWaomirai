@@ -170,6 +170,7 @@ const ImgSubjectEnglish = "https://waomirai.com/lp/assets/moodle/images/icn_subj
 const ImgSubjectOther = "https://waomirai.com/lp/assets/moodle/images/icn_subject_other.svg"; //アイコン：その他
  
 const ImgModalBadge = "https://waomirai.com/lp/assets/moodle/images/page_badge_sample.png"; //バッジの画像
+const ImgModalNote = "https://waomirai.com/lp/assets/moodle/images/page_note_sample.png"; //バッジの画像
 const ImgBannerAmazonGiftFreeCampaignPc = "https://waomirai.com/lp/assets/moodle/images/banner-free-until-2602-pc.png"; //バッジの画像
 const ImgBannerAmazonGiftFreeCampaignSp = "https://waomirai.com/lp/assets/moodle/images/banner-free-until-2602-sp.png/"; //バッジの画像
 
@@ -1723,7 +1724,7 @@ if (bodyId === "page-login-signup" || bodyId === "page-login-forgot_password") {
       title:
         "授業でご利用いただける<br>「ミライノート（56ページ）」を、<br>ご自宅に無料でお届けします。",
       text: "（哲学・科学・経済受講者のみ）",
-      image: ImgModalBadge, // 画像は一旦バッジ画像を使用
+      image: ImgModalNote, 
       closetxt: "閉じる", // 閉じるテキスト
     });
   });

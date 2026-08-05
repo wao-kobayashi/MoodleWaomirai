@@ -130,7 +130,7 @@ if (bodyId === "page-login-signup" || bodyId === "page-login-forgot_password") {
       title:
         "授業でご利用いただける<br>「ミライノート（56ページ）」を、<br>ご自宅に無料でお届けします。",
       text: "（哲学・科学・経済受講者のみ）",
-      image: ImgModalBadge, // 画像は一旦バッジ画像を使用
+      image: ImgModalNote, 
       closetxt: "閉じる", // 閉じるテキスト
     });
   });
