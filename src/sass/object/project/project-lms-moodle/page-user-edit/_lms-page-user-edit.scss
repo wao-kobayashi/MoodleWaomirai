@@ -77,6 +77,14 @@
     margin: 10px 0 0;
   }
 
+  // ミライノート送付先ご住所ラベル直下の補足テキスト
+  .mirainote-address-note {
+    color: $cl-graylight;
+    font-size: $lms-font-size-s;
+    line-height: $lineheight-normal;
+    margin: 4px 0 0;
+  }
+
   .subject-select-levelnotset {
     display: block;
     background: white;
@@ -117,5 +125,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
+  }
+  #fitem_id_profile_field_address {
+    margin-bottom: 1.5rem !important;
   }
 }

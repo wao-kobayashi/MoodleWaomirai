@@ -298,6 +298,14 @@ body.fixed {
       padding: 5px 0 0;
     }
   }
+  //ミライノート案内モーダルのclass
+  .c-modal-wrap-mirainote {
+    .c-modal-wrap-text {
+      color: $cl-graylight;
+      font-size: $lms-font-size-ml;
+      text-align: center;
+    }
+  }
 }
 
 .c-modal-bg {

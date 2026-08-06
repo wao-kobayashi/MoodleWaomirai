@@ -332,5 +332,18 @@ if (bodyId === "page-user-edit") { // ページIDが「page-user-edit」の場�
       $(this).text(EnglishLabelMap[currentText]);
     }
   });
+
+  // ===========================
+  // ミライノート送付先ご住所ラベルの調整
+  // ・ラベル文言を変更し、直下に補足テキストを表示する
+  // ・こちらはモーダル実装は不要（リンク化なし）
+  // ===========================
+  $("#id_profile_field_address_label").text(
+    "ミライノート送付先ご住所（哲学・経済・科学受講者のみ）"
+  );
+  // 補足テキストはinputの直下（右カラム）に表示する
+  $("#id_profile_field_address").after(
+    '<p class="mirainote-address-note">※入会のタイミング以外でのご入力は、ノートが自動送付されませんので、<br />送付希望の旨を事務局までご連絡ください。</p>'
+  );
 }
 

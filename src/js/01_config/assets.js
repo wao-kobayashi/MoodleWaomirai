@@ -52,6 +52,7 @@ const ImgSubjectEnglish = "https://waomirai.com/lp/assets/moodle/images/icn_subj
 const ImgSubjectOther = "https://waomirai.com/lp/assets/moodle/images/icn_subject_other.svg"; //アイコン：その他
  
 const ImgModalBadge = "https://waomirai.com/lp/assets/moodle/images/page_badge_sample.png"; //バッジの画像
+const ImgModalNote = "https://waomirai.com/lp/assets/moodle/images/page_note_sample.png"; //バッジの画像
 const ImgBannerAmazonGiftFreeCampaignPc = "https://waomirai.com/lp/assets/moodle/images/banner-free-until-2602-pc.png"; //バッジの画像
 const ImgBannerAmazonGiftFreeCampaignSp = "https://waomirai.com/lp/assets/moodle/images/banner-free-until-2602-sp.png/"; //バッジの画像
 

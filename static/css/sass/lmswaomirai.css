@@ -1301,6 +1301,11 @@ html[data-tenantidnumber=lmswaomirai] .c-modal .c-modal-wrap-wrap-campaign .c-mo
 html[data-tenantidnumber=lmswaomirai] .c-modal .c-modal-wrap-badge .c-modal-wrap-button-wrap {
   padding: 5px 0 0;
 }
+html[data-tenantidnumber=lmswaomirai] .c-modal .c-modal-wrap-mirainote .c-modal-wrap-text {
+  color: #999;
+  font-size: 16px;
+  text-align: center;
+}
 html[data-tenantidnumber=lmswaomirai] .c-modal-bg {
   position: fixed;
   width: 100%;
@@ -1804,6 +1809,19 @@ html[data-tenantidnumber=lmswaomirai] #page-login-forgot_password .login-form-fo
 html[data-tenantidnumber=lmswaomirai] #page-login-signup {
   background: white;
 }
+html[data-tenantidnumber=lmswaomirai] #page-login-signup .c-modal-wrap-button-wrap {
+  display: none !important;
+}
+html[data-tenantidnumber=lmswaomirai] #page-login-signup .c-modal-wrap-text {
+  font-size: 13px !important;
+}
+html[data-tenantidnumber=lmswaomirai] #page-login-signup .c-modal-wrap-image {
+  text-align: center;
+}
+html[data-tenantidnumber=lmswaomirai] #page-login-signup .c-modal-wrap-image img {
+  margin: 20px auto 0;
+  width: 90%;
+}
 html[data-tenantidnumber=lmswaomirai] #page-login-signup .btn-generate-userid {
   background: none;
   border: none;
@@ -1873,6 +1891,10 @@ html[data-tenantidnumber=lmswaomirai] #page-login-signup .ml-2.d-flex.align-item
   top: -10px;
 }
 html[data-tenantidnumber=lmswaomirai] #page-login-signup #fitem_id_profile_field_postnumber {
+  margin-bottom: 16px !important;
+  margin-bottom: 1rem !important;
+}
+html[data-tenantidnumber=lmswaomirai] #page-login-signup #fitem_id_profile_field_address {
   margin-bottom: 32px !important;
   margin-bottom: 2rem !important;
 }
@@ -2046,6 +2068,16 @@ html[data-tenantidnumber=lmswaomirai] #page-login-signup .continuebutton {
 }
 html[data-tenantidnumber=lmswaomirai] #page-login-signup .btn-secondary {
   padding: 0 !important;
+}
+html[data-tenantidnumber=lmswaomirai] #page-login-signup .mirainote-address-link {
+  text-decoration: underline;
+  cursor: pointer;
+}
+html[data-tenantidnumber=lmswaomirai] #page-login-signup .mirainote-address-note {
+  color: #999;
+  font-size: 12px;
+  line-height: 1.5;
+  margin: 4px 0 0;
 }
 html[data-tenantidnumber=lmswaomirai] #page-login-signup.pagelayout-base #notice {
   max-width: 550px;
@@ -7938,6 +7970,12 @@ html[data-tenantidnumber=lmswaomirai] #page-user-edit .subject-select-levelset {
   font-size: 12px;
   margin: 10px 0 0;
 }
+html[data-tenantidnumber=lmswaomirai] #page-user-edit .mirainote-address-note {
+  color: #999;
+  font-size: 12px;
+  line-height: 1.5;
+  margin: 4px 0 0;
+}
 html[data-tenantidnumber=lmswaomirai] #page-user-edit .subject-select-levelnotset {
   display: block;
   background: white;
@@ -7983,6 +8021,10 @@ html[data-tenantidnumber=lmswaomirai] #page-user-edit .fixed-scroll {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+}
+html[data-tenantidnumber=lmswaomirai] #page-user-edit #fitem_id_profile_field_address {
+  margin-bottom: 24px !important;
+  margin-bottom: 1.5rem !important;
 }
 html[data-tenantidnumber=lmswaomirai] #page-user-profile .alert-success a {
   color: #1c3f1a !important;

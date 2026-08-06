@@ -1264,6 +1264,11 @@ html[data-tenantid="1"] .c-modal .c-modal-wrap-wrap-campaign .c-modal-wrap-text 
 html[data-tenantid="1"] .c-modal .c-modal-wrap-badge .c-modal-wrap-button-wrap {
   padding: 5px 0 0;
 }
+html[data-tenantid="1"] .c-modal .c-modal-wrap-mirainote .c-modal-wrap-text {
+  color: #999;
+  font-size: 16px;
+  text-align: center;
+}
 html[data-tenantid="1"] .c-modal-bg {
   position: fixed;
   width: 100%;
