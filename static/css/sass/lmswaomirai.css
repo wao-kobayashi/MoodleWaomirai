@@ -1812,9 +1812,15 @@ html[data-tenantidnumber=lmswaomirai] #page-login-signup {
 html[data-tenantidnumber=lmswaomirai] #page-login-signup .c-modal-wrap-button-wrap {
   display: none !important;
 }
+html[data-tenantidnumber=lmswaomirai] #page-login-signup .c-modal-wrap-text {
+  font-size: 13px !important;
+}
+html[data-tenantidnumber=lmswaomirai] #page-login-signup .c-modal-wrap-image {
+  text-align: center;
+}
 html[data-tenantidnumber=lmswaomirai] #page-login-signup .c-modal-wrap-image img {
   margin: 20px auto 0;
-  width: 100%;
+  width: 90%;
 }
 html[data-tenantidnumber=lmswaomirai] #page-login-signup .btn-generate-userid {
   background: none;

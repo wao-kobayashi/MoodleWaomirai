@@ -1723,7 +1723,7 @@ if (bodyId === "page-login-signup" || bodyId === "page-login-forgot_password") {
       wrapClass: "c-modal-wrap-mirainote",
       title:
         "授業でご利用いただける<br>「ミライノート（56ページ）」を、<br>ご自宅に無料でお届けします。",
-      text: "（哲学・科学・経済受講者のみ）",
+      text: "※哲学・科学・経済受講者のみ<br />※入会のタイミング以外でのご入力は、ノートが自動送付されませんので、送付希望の旨を事務局までご連絡ください。",
       image: ImgModalNote, 
       closetxt: "閉じる", // 閉じるテキスト
     });

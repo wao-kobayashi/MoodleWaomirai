@@ -46,9 +46,15 @@ footer {
   .c-modal-wrap-button-wrap {
     display: none !important;
   }
-  .c-modal-wrap-image img {
-    margin: 20px auto 0;
-    width: 100%;
+  .c-modal-wrap-text {
+    font-size: 13px !important;
+  }
+  .c-modal-wrap-image {
+    text-align: center;
+    img {
+      margin: 20px auto 0;
+      width: 90%;
+    }
   }
   .btn-generate-userid {
     background: none;
