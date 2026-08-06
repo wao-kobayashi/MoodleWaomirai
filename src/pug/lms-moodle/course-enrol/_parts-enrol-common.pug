@@ -5,7 +5,7 @@ mixin enrol-campaign-banner
 
 //今月の授業カリキュラム
 mixin enrol-lesson-month
-  //- JS未発火時に古い月を表示しないため、インラインstyleでデフォルト非表示。page-enrol-index-thismonth.js が内容更新後に表示する
+  //- JS未発火時に古い月を表示しないため、インラインstyleでデフォルト非表示。_parts-enrol-ph-sc-ec.pug 末尾のインラインscriptが内容更新後に表示する
   .enrol-section.js-thismonth(style='display:none;')
     h2.enrol-title 2026年#{currentMonth}月の授業
     .enrol-subtitle|※授業は各レベルのいずれかを受講可能です。

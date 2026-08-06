@@ -2294,7 +2294,11 @@ if (bodyId === "page-enrol-index") {
     function onBannerLoaded() {
       loadedBanners++;
       // 全画像が成功したときだけ表示（エラーがあると total に届かず非表示のまま）
-      if (loadedBanners >= totalBanners) $thisMonthSection.css("display", "");
+      if (loadedBanners >= totalBanners) {
+        setTimeout(function () {
+          $thisMonthSection.css("display", "");
+        }, 650);
+      }
     }
 
     if (totalBanners === 0) {
@@ -2305,11 +2309,13 @@ if (bodyId === "page-enrol-index") {
         if (this.complete) {
           // 既に読み込み完了しているケース（キャッシュ等）
           if (this.naturalWidth > 0) {
-            onBannerLoaded(); // 成功
+            setTimeout(onBannerLoaded, 650);
           }
           // naturalWidth === 0 は読み込み失敗 → カウントせず非表示のまま
         } else {
-          $(this).one("load", onBannerLoaded); // 成功時のみカウント
+          $(this).one("load", function () {
+            setTimeout(onBannerLoaded, 650);
+          });
           // error は購読しない（=カウントしない）ので、1枚でも失敗すれば非表示のまま
         }
       });
