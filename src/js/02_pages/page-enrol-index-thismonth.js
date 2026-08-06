@@ -12,6 +12,7 @@ if (bodyId === "page-enrol-index") {
   // until（その日まで）を過ぎたら次の行の月へ自動送りする。上から順に判定。
   // ※現状は8・9月分のみ。10月以降は追記してください（年度末は 2027-03-xx）
   // ------------------------------
+  $(".js-thismonth").show();
   var THISMONTH_SCHEDULE = [
     { until: "2026-08-21", month: 8 }, // 〜8/21 → 8月（画像 month5）
     { until: "2026-09-18", month: 9 }, // 8/22〜9/18 → 9月（画像 month6）
@@ -20,7 +21,7 @@ if (bodyId === "page-enrol-index") {
     { until: "2026-12-19", month: 12 },
     { until: "2027-01-29", month: 1 },
     { until: "2027-02-19", month: 2 },
-    { until: "2027-03-19", month: 3 }
+    { until: "2027-04-30", month: 3 } // 3月末まで
   ];
 
 
@@ -114,5 +115,8 @@ if (bodyId === "page-enrol-index") {
             }
           });
       });
+
+    // 3. 内容更新が完了したのでセクションを表示（JS未発火・データ不備時は非表示のまま＝古い月を出さない）
+
   }
 }
