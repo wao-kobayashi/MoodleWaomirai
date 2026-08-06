@@ -1692,7 +1692,7 @@ if (bodyId === "page-login-signup" || bodyId === "page-login-forgot_password") {
   // ラベル文言を変更し、「ミライノート送付先ご住所」部分は下線付きリンクにする。
   // クリック時はミライノートの案内モーダルを表示する。
   $("#id_profile_field_address_label").html(
-    '<span class="mirainote-address-link">ミライノート送付先ご住所</span>（哲学・経済・科学受講者のみ）'
+    '<span class="mirainote-address-link">ミライノート</span>送付先ご住所（哲学・経済・科学受講者のみ）'
   );
   // 補足テキストはinputの直下（右カラム）に表示する
   $("#id_profile_field_address").after(
