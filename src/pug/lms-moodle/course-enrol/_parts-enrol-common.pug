@@ -8,7 +8,9 @@ mixin enrol-lesson-month
   //- JS未発火時に古い月を表示しないため、インラインstyleでデフォルト非表示。_parts-enrol-ph-sc-ec.pug 末尾のインラインscriptが内容更新後に表示する
   .enrol-section.js-thismonth(style='display:none;')
     h2.enrol-title 2026年#{currentMonth}月の授業
-    .enrol-subtitle|※授業は各レベルのいずれかを受講可能です。
+    //哲学は補足テキスト「なし」、レベルが１個しかないので
+    if enrolpage.category === 'economy' || enrolpage.category === 'science'
+        .enrol-subtitle|※授業は各レベルのいずれかを受講可能です。
     // 各教科の授業情報を表示（テキスト・画像はインラインscriptが年間カリキュラムから当月分に差し替える）
     .enrol-section-basesubject-thismonth-lesson
       each subject in thisMonthLessons[enrolpage.category]
