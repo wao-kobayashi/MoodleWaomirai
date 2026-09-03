@@ -3168,6 +3168,11 @@ if (bodyId === "page-user-edit") { // ページIDが「page-user-edit」の場�
   if (!hasBoughtAdminSubject) {
     $('#region-main #id_category_13').remove();
   }
+    // 科目の購入状態に応じて表示処理を実行
+    if (hasBoughtMainSubject) {
+     alert("メイン科目を購入しています");
+    }
+  
 }
 
 
