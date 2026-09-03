@@ -1597,7 +1597,7 @@ if (bodyId === "page-my-index") { // ダッシュボード以外では一切動�
 // ==============================
 if (bodyId === "page-login-signup" || bodyId === "page-login-forgot_password") {
   // ログインページのタイトルを「新規会員登録」に変更
-  $(".login-heading").text("新規会員登録");
+  $(".login-heading").text("新規アカウント登録");
   $("#id_username_label").append("※好きな文字列で作成いただけます");
   // フォームの各入力フィールドにプレースホルダーを設定
   const placeholders = {
