@@ -21,5 +21,9 @@ if (bodyId === "page-user-edit") { // ページIDが「page-user-edit」の場�
   if (!hasBoughtAdminSubject) {
     $('#region-main #id_category_13').remove();
   }
+  // ===========================
+  // 余計なタイトルの削除
+  // ===========================
+  $('div[role="main"] h2').remove();
 }
 

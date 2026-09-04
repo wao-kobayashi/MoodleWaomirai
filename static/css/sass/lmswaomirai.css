@@ -7912,7 +7912,7 @@ html[data-tenantidnumber=lmswaomirai] #page-user-edit .mform #id_category_10 .fc
   margin: 40px 0 0;
 }
 html[data-tenantidnumber=lmswaomirai] #page-user-edit .mform #id_category_10 .subject-level-note {
-  margin: 20px 0 0 20px;
+  margin: 20px 0 0 24px;
 }
 @media screen and (max-width: 768px) {
   html[data-tenantidnumber=lmswaomirai] #page-user-edit .mform #id_category_10 .subject-level-note {

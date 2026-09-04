@@ -229,8 +229,6 @@ if (bodyId === "page-user-edit") { // ページIDが「page-user-edit」の場�
   const messages = {
     levelSet: (ownedLevels) =>
       `<div class="subject-select-levelset">
-         現在受講中のレベルは ${ownedLevels}です<br>
-         レベルの変更は月末反映となります。即時反映されませんのでご注意ください。
        </div>`,
     levelNotSet:
       '<div class="subject-select-levelnotset">受講レベルを設定してください。</div>',
@@ -339,9 +337,11 @@ if (bodyId === "page-user-edit") { // ページIDが「page-user-edit」の場�
   // ・selectは削除・disabledにせず非表示でDOMに残す（他プロフィール保存時に値を保持するため）
   // ・保有サブレベルがない科目は現行のselect表示のまま
   // ===========================
+  // 管理者ユーザーは科目・レベルを自由に操作できるようにするため、この置き換え処理はスキップする
+  if (!hasBoughtAdminSubject) {
+  // この中で使う一時変数(readonlyConfigs / ownedMainKeys / anySelectHidden など)を
+  // グローバルや他処理へ漏らさないよう、即時実行関数(IIFE)でスコープを閉じる
   (function () {
-    // 「科目変更フォーム」へのリンク付き案内文を生成
-  
 
     // 対象科目（哲学・科学・経済・英語）。英語は他科目と独立して判定する。
     // label / labelText: select非表示時に差し替えるフィールドのラベル
@@ -358,16 +358,22 @@ if (bodyId === "page-user-edit") { // ページIDが「page-user-edit」の場�
     // 1つでもselectを非表示にしたかどうか（案内文を1回だけ表示するためのフラグ）
     var anySelectHidden = false;
 
+    // 各科目(哲学・科学・経済・英語)を順に判定する。
+    // 保有サブレベルがある科目は select を非表示にし、
+    // 「保有レベルのテキスト＋科目変更フォーム誘導」に置き換える。
+    // 保有サブレベルがない科目は現行の select をそのまま残す。
     readonlyConfigs.forEach(function (config) {
       // 保有サブレベルがなければ何もしない（現行のselect表示のまま）
       if (getOwnedSubLevels(config.subject, config.levels).length === 0) {
         return;
       }
 
+      // 英語は2科目セットの対象外。哲学・科学・経済だけをセット判定用(ownedMainKeys)に記録する
       if (config.subject !== "globalenglish") {
         ownedMainKeys.push(config.subject);
       }
 
+      // 対象科目の入力エリア（ラベル＋selectを含むfitem要素）
       var area = config.area;
 
       // 複数回実行時の重複防止
@@ -390,8 +396,8 @@ if (bodyId === "page-user-edit") { // ページIDが「page-user-edit」の場�
       anySelectHidden = true;
       area.find(".subject-select-levelset, .subject-select-levelnotset").hide();
       area.find('div[style*="color:#999"]').hide();
-      // フィールドのラベル文言を差し替える
-      $(config.label).text(config.labelText);
+      // フィールドのラベル文言を差し替える（差し替えたラベルだけ位置を微調整）
+      $(config.label).text(config.labelText).addClass("is-levelchange-label").css("margin-left", "-8px");
       // 保有レベルのテキストと科目変更フォームへの案内を挿入
       select.after(
         '<div class="is-levelchange-readonly" style="margin:-3px 0 0;">' +
@@ -415,7 +421,7 @@ if (bodyId === "page-user-edit") { // ページIDが「page-user-edit」の場�
         anySelectHidden = true;
         AreaTwoCourse.find(".subject-select-levelset, .subject-select-levelnotset").hide();
         // フィールドのラベル文言を差し替える
-        $("#id_profile_field_2cources_subject_label").text("２科目受講科目");
+        $("#id_profile_field_2cources_subject_label").text("受講科目");
         setSelect.after(
           '<div class="is-levelchange-readonly" style="margin:-3px 0 0;">' +
             '<div class="subject-level-current">' + setText + '</div>' +
@@ -428,11 +434,11 @@ if (bodyId === "page-user-edit") { // ページIDが「page-user-edit」の場�
     if (anySelectHidden) {
       $("#id_category_10 > .d-flex").after(`
         <p class="subject-level-note">
-          受講中の科目・レベルを変更する場合は<a href="${UrlSubjectChangeForm}" style="color:rgb(38, 38, 38) !important; text-decoration:underline !important;">科目変更フォーム</a>から申請をお願いします
+          受講中の科目・レベルを変更する場合は<a href="${UrlSubjectChangeForm}" style="color:rgb(38, 38, 38) !important; text-decoration:underline !important; target="_blank">科目変更フォーム</a>から申請をお願いします
         </p>
       `);
     }
   })();
-
+  }
 }
 

@@ -51,6 +51,10 @@
       paymentID: env === 'stg' ? [212, 225] : env === 'lmswaomirai' ? [255, 257] : [0]
     },
     {
+      id: 'ph-register-admin',
+      paymentID: env === 'stg' ? [212, 225,278] : env === 'lmswaomirai' ? [255, 257,277] : [0]
+    },
+    {
       id: 'sc-register',
       paymentID: env === 'stg' ? [211, 223] : env === 'lmswaomirai' ? [265, 266] : [0]
     },
@@ -70,6 +74,16 @@
     {
       id: 'en-register',
       paymentID: env === 'stg' ? [236, 253] : env === 'lmswaomirai' ? [135, 130] : [0]
+    },
+    {
+      //哲学 + 哲学L1 + 英語
+      id: 'ph-register-eng-none',
+      paymentID: env === 'stg' ? [212, 221, 236] : env === 'lmswaomirai' ? [255, 256, 135] : [0]
+    },
+    {
+      //哲学 + 哲学L1 + 英語 + 英語L1
+      id: 'ph-register-eng-register',
+      paymentID: env === 'stg' ? [212, 221, 236, 253] : env === 'lmswaomirai' ? [255, 256, 135, 130] : [0]
     }
 
   ]
