@@ -3495,10 +3495,10 @@ if (bodyId === "page-user-edit") { // ページIDが「page-user-edit」の場�
   // ===========================
   // 共通ラベルマップ
   var commonLabelMap = {
-    'Level1　（小3〜4年生対象）': 'レベル1：小学3年生以上推奨',
-    'Level2　（小5〜6年生対象）': 'レベル2：小学5年生以上推奨',
-    'Level3　（中学生対象）': 'レベル3：中学生以上推奨',
-    'Level4　（高校生対象）': 'レベル4：高校生以上推奨'
+    'Level1　（小3〜4年生対象）': 'レベル1 (小学3年生以上推奨)',
+    'Level2　（小5〜6年生対象）': 'レベル2 (小学5年生以上推奨)',
+    'Level3　（中学生対象）': 'レベル3 (中学生以上推奨)',
+    'Level4　（高校生対象）': 'レベル4 (高校生以上推奨)',
   };
 
   [AreaEconomy, AreaScience, AreaPhilosophy].forEach(function(area) {
