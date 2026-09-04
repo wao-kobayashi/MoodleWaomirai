@@ -346,10 +346,10 @@ if (bodyId === "page-user-edit") { // ページIDが「page-user-edit」の場�
     // 対象科目（哲学・科学・経済・英語）。英語は他科目と独立して判定する。
     // label / labelText: select非表示時に差し替えるフィールドのラベル
     var readonlyConfigs = [
-      { subject: "philosophy",    area: AreaPhilosophy, levels: ["L1", "L2", "L3", "L4"], label: "#id_profile_field_Philosophy_Level_label", labelText: "哲学受講レベル" },
-      { subject: "science",       area: AreaScience,    levels: ["L1", "L2", "L3", "L4"], label: "#id_profile_field_Science_Level_label",    labelText: "科学受講レベル" },
-      { subject: "economy",       area: AreaEconomy,    levels: ["L1", "L2", "L3", "L4"], label: "#id_profile_field_Economy_Level_label",    labelText: "経済受講レベル" },
-      { subject: "globalenglish", area: AreaEnglish,    levels: ["L1", "L2"],             label: "#id_profile_field_English_Level_label",    labelText: "英語受講レベル" },
+      { subject: "philosophy",    area: AreaPhilosophy, levels: ["L1", "L2", "L3", "L4"], label: "#id_profile_field_Philosophy_Level_label", labelText: "【哲学】受講レベル" },
+      { subject: "science",       area: AreaScience,    levels: ["L1", "L2", "L3", "L4"], label: "#id_profile_field_Science_Level_label",    labelText: "【科学】受講レベル" },
+      { subject: "economy",       area: AreaEconomy,    levels: ["L1", "L2", "L3", "L4"], label: "#id_profile_field_Economy_Level_label",    labelText: "【経済】受講レベル" },
+      { subject: "globalenglish", area: AreaEnglish,    levels: ["L1", "L2"],             label: "#id_profile_field_English_Level_label",    labelText: "【英語】受講レベル" },
     ];
 
     // 哲学・科学・経済のうち保有サブレベルがある科目を記録（2科目セット判定用。英語は含めない）
