@@ -344,11 +344,12 @@ if (bodyId === "page-user-edit") { // ページIDが「page-user-edit」の場�
   
 
     // 対象科目（哲学・科学・経済・英語）。英語は他科目と独立して判定する。
+    // label / labelText: select非表示時に差し替えるフィールドのラベル
     var readonlyConfigs = [
-      { subject: "philosophy",    area: AreaPhilosophy, levels: ["L1", "L2", "L3", "L4"] },
-      { subject: "science",       area: AreaScience,    levels: ["L1", "L2", "L3", "L4"] },
-      { subject: "economy",       area: AreaEconomy,    levels: ["L1", "L2", "L3", "L4"] },
-      { subject: "globalenglish", area: AreaEnglish,    levels: ["L1", "L2"] },
+      { subject: "philosophy",    area: AreaPhilosophy, levels: ["L1", "L2", "L3", "L4"], label: "#id_profile_field_Philosophy_Level_label", labelText: "哲学受講レベル" },
+      { subject: "science",       area: AreaScience,    levels: ["L1", "L2", "L3", "L4"], label: "#id_profile_field_Science_Level_label",    labelText: "科学受講レベル" },
+      { subject: "economy",       area: AreaEconomy,    levels: ["L1", "L2", "L3", "L4"], label: "#id_profile_field_Economy_Level_label",    labelText: "経済受講レベル" },
+      { subject: "globalenglish", area: AreaEnglish,    levels: ["L1", "L2"],             label: "#id_profile_field_English_Level_label",    labelText: "英語受講レベル" },
     ];
 
     // 哲学・科学・経済のうち保有サブレベルがある科目を記録（2科目セット判定用。英語は含めない）
@@ -389,6 +390,8 @@ if (bodyId === "page-user-edit") { // ページIDが「page-user-edit」の場�
       anySelectHidden = true;
       area.find(".subject-select-levelset, .subject-select-levelnotset").hide();
       area.find('div[style*="color:#999"]').hide();
+      // フィールドのラベル文言を差し替える
+      $(config.label).text(config.labelText);
       // 保有レベルのテキストと科目変更フォームへの案内を挿入
       select.after(
         '<div class="is-levelchange-readonly">' +
@@ -411,6 +414,8 @@ if (bodyId === "page-user-edit") { // ページIDが「page-user-edit」の場�
         setSelect.hide();
         anySelectHidden = true;
         AreaTwoCourse.find(".subject-select-levelset, .subject-select-levelnotset").hide();
+        // フィールドのラベル文言を差し替える
+        $("#id_profile_field_2cources_subject_label").text("２科目受講科目");
         setSelect.after(
           '<div class="is-levelchange-readonly">' +
             '<div class="subject-level-current">' + setText + '</div>' +
