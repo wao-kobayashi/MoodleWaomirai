@@ -3168,11 +3168,6 @@ if (bodyId === "page-user-edit") { // ページIDが「page-user-edit」の場�
   if (!hasBoughtAdminSubject) {
     $('#region-main #id_category_13').remove();
   }
-    // 科目の購入状態に応じて表示処理を実行
-    if (hasBoughtMainSubject) {
-     alert("メイン科目を購入しています");
-    }
-  
 }
 
 
@@ -3210,7 +3205,7 @@ if (bodyId === "page-user-edit") { // ページIDが「page-user-edit」の場�
   function AlertSubjectSettingFirst() {
     if (!isAlertSubjectSettingFirstShown) { // フラグがfalseの場合のみ実行
       $("#fgroup_id_buttonar").before(
-        `<div id="id_submitbutton-subject">一度受講レベルを設定すると、2回目以降のレベル変更時の反映は当月末になりますのでご注意くださいませ。</div>`
+        `<div id="id_submitbutton-subject">一度受講レベルを設定すると、<br />2回目以降のレベル変更時のフォームでの申請となりますのでご注意くださいませ。</div>`
       );
       //英語と他科目を受講する場合、複数回発火することを防ぐためにフラグをtrueに設定
       isAlertSubjectSettingFirstShown = true; // フラグをtrueに設定
@@ -3429,13 +3424,13 @@ if (bodyId === "page-user-edit") { // ページIDが「page-user-edit」の場�
   //見出し直下にテキストを表示。
   if (hasBoughtMainSubject) {
     //メイン科目持っている時
-    $("#id_category_10 > .d-flex").after(`
-      <p class="subject-level-note">
-        受講科目のレベルを選択してください。<br />
-        選択した科目のレベルを設定しないと授業を受けることができません。<br />
-        一度受講レベルを設定すると、2回目以降のレベル変更時の反映は当月末になりますのでご注意ください。
-      </p>
-    `);
+    // $("#id_category_10 > .d-flex").after(`
+    //   <p class="subject-level-note">
+    //     受講科目のレベルを選択してください。<br />
+    //     選択した科目のレベルを設定しないと授業を受けることができません。<br />
+    //     一度受講レベルを設定すると、2回目以降のレベル変更時の反映は当月末になりますのでご注意ください。
+    //   </p>
+    // `);
     
   } else {
     //メイン科目がない時
@@ -3510,6 +3505,107 @@ if (bodyId === "page-user-edit") { // ページIDが「page-user-edit」の場�
       $(this).text(EnglishLabelMap[currentText]);
     }
   });
+
+  // ===========================
+  // 保有サブレベルがある科目は、selectを非表示にして保有レベルをテキスト表示する
+  // ・レベル変更は「科目変更フォーム」へ誘導する
+  // ・selectは削除・disabledにせず非表示でDOMに残す（他プロフィール保存時に値を保持するため）
+  // ・保有サブレベルがない科目は現行のselect表示のまま
+  // ===========================
+  (function () {
+    // 「科目変更フォーム」へのリンク付き案内文を生成
+    function levelChangeFormNote() {
+      return '<div style="color:#999; font-size:12px; margin:10px 0 -10px;">レベル変更ご希望の場合は<a href="' +
+        UrlSubjectChangeForm +
+        '" style="color:#999; text-decoration:underline !important;">科目変更フォーム</a>からお願いします</div>';
+    }
+
+    // 対象科目（哲学・科学・経済・英語）。英語は他科目と独立して判定する。
+    var readonlyConfigs = [
+      { subject: "philosophy",    area: AreaPhilosophy, levels: ["L1", "L2", "L3", "L4"] },
+      { subject: "science",       area: AreaScience,    levels: ["L1", "L2", "L3", "L4"] },
+      { subject: "economy",       area: AreaEconomy,    levels: ["L1", "L2", "L3", "L4"] },
+      { subject: "globalenglish", area: AreaEnglish,    levels: ["L1", "L2"] },
+    ];
+
+    // 哲学・科学・経済のうち保有サブレベルがある科目を記録（2科目セット判定用。英語は含めない）
+    var ownedMainKeys = [];
+
+    // 1つでもselectを非表示にしたかどうか（案内文を1回だけ表示するためのフラグ）
+    var anySelectHidden = false;
+
+    readonlyConfigs.forEach(function (config) {
+      // 保有サブレベルがなければ何もしない（現行のselect表示のまま）
+      if (getOwnedSubLevels(config.subject, config.levels).length === 0) {
+        return;
+      }
+
+      if (config.subject !== "globalenglish") {
+        ownedMainKeys.push(config.subject);
+      }
+
+      var area = config.area;
+
+      // 複数回実行時の重複防止
+      if (area.find(".is-levelchange-readonly").length > 0) {
+        return;
+      }
+
+      var select = getSelectElement(area);
+      // 表示する保有レベルは、選択中optionの文字列（ラベル変更後）を利用する
+      var levelText = select.find("option:selected").text().trim();
+
+      // 募集停止レベルなどでoptionが削除され選択中optionが取得できない場合は、
+      // selectをそのまま残す（差し替えない）
+      if (!levelText) {
+        return;
+      }
+
+      // selectと、その科目に付随する既存メッセージ（現在受講中のレベル・募集停止注記など）を非表示にする
+      select.hide();
+      anySelectHidden = true;
+      area.find(".subject-select-levelset, .subject-select-levelnotset").hide();
+      area.find('div[style*="color:#999"]').hide();
+      // 保有レベルのテキストと科目変更フォームへの案内を挿入
+      select.after(
+        '<div class="is-levelchange-readonly">' +
+          '<div class="subject-level-current">' + levelText + '</div>' +
+          levelChangeFormNote() +
+        '</div>'
+      );
+    });
+
+    // 2科目セット：哲学・科学・経済のうちちょうど2科目を保有している場合のみ、
+    // セットのselectも非表示にして組み合わせをテキスト表示する（英語は対象外）
+    if (
+      checkBoughtMainSubject(["twosubjectpack"], true) &&
+      ownedMainKeys.length === 2 &&
+      AreaTwoCourse.find(".is-levelchange-readonly").length === 0
+    ) {
+      var setSelect = getSelectElement(AreaTwoCourse);
+      var setText = setSelect.find("option:selected").text().trim();
+
+      if (setText) {
+        setSelect.hide();
+        anySelectHidden = true;
+        AreaTwoCourse.find(".subject-select-levelset, .subject-select-levelnotset").hide();
+        setSelect.after(
+          '<div class="is-levelchange-readonly">' +
+            '<div class="subject-level-current">' + setText + '</div>' +
+          '</div>'
+        );
+      }
+    }
+
+    // 1つでもselectを非表示にした場合、科目変更フォームへの案内を1回だけ表示する
+    if (anySelectHidden) {
+      $("#id_category_10 > .d-flex").after(`
+        <p class="subject-level-note">
+          受講科目・レベルを変更する場合は<a href="${UrlSubjectChangeForm}">科目変更フォーム</a>から申請をお願いします
+        </p>
+      `);
+    }
+  })();
 
 }
 
