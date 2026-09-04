@@ -434,7 +434,7 @@ if (bodyId === "page-user-edit") { // ページIDが「page-user-edit」の場�
     if (anySelectHidden) {
       $("#id_category_10 > .d-flex").after(`
         <p class="subject-level-note">
-          受講中の科目・レベルを変更する場合は<a href="${UrlSubjectChangeForm}" style="color:rgb(38, 38, 38) !important; text-decoration:underline !important; target="_blank">科目変更フォーム</a>から申請をお願いします
+          受講中の科目・レベルを変更する場合は<a href="${UrlSubjectChangeForm}" style=" text-decoration:underline !important; target="_blank">科目変更フォーム</a>から申請をお願いします
         </p>
       `);
     }
