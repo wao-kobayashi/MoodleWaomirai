@@ -3530,11 +3530,7 @@ if (bodyId === "page-user-edit") { // ページIDが「page-user-edit」の場�
   // ===========================
   (function () {
     // 「科目変更フォーム」へのリンク付き案内文を生成
-    function levelChangeFormNote() {
-      return '<div style="color:#999; font-size:12px; margin:10px 0 -10px;">レベル変更ご希望の場合は<a href="' +
-        UrlSubjectChangeForm +
-        '" style="color:#999; text-decoration:underline !important;">科目変更フォーム</a>からお願いします</div>';
-    }
+  
 
     // 対象科目（哲学・科学・経済・英語）。英語は他科目と独立して判定する。
     var readonlyConfigs = [
@@ -3585,8 +3581,7 @@ if (bodyId === "page-user-edit") { // ページIDが「page-user-edit」の場�
       // 保有レベルのテキストと科目変更フォームへの案内を挿入
       select.after(
         '<div class="is-levelchange-readonly">' +
-          '<div class="subject-level-current">' + levelText + '</div>' +
-          levelChangeFormNote() +
+          '<div class="subject-level-current">' + levelText + '</div>'  +
         '</div>'
       );
     });
@@ -3617,7 +3612,7 @@ if (bodyId === "page-user-edit") { // ページIDが「page-user-edit」の場�
     if (anySelectHidden) {
       $("#id_category_10 > .d-flex").after(`
         <p class="subject-level-note">
-          受講科目・レベルを変更する場合は<a href="${UrlSubjectChangeForm}">科目変更フォーム</a>から申請をお願いします
+          受講中の科目・レベルを変更する場合は<a href="${UrlSubjectChangeForm}" style="color:rgb(38, 38, 38) !important; text-decoration:underline !important;">科目変更フォーム</a>から申請をお願いします
         </p>
       `);
     }
