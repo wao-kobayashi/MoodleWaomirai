@@ -3583,7 +3583,7 @@ if (bodyId === "page-user-edit") { // ページIDが「page-user-edit」の場�
       $(config.label).text(config.labelText);
       // 保有レベルのテキストと科目変更フォームへの案内を挿入
       select.after(
-        '<div class="is-levelchange-readonly">' +
+        '<div class="is-levelchange-readonly" style="margin:-3px 0 0;">' +
           '<div class="subject-level-current">' + levelText + '</div>'  +
         '</div>'
       );
@@ -3606,7 +3606,7 @@ if (bodyId === "page-user-edit") { // ページIDが「page-user-edit」の場�
         // フィールドのラベル文言を差し替える
         $("#id_profile_field_2cources_subject_label").text("２科目受講科目");
         setSelect.after(
-          '<div class="is-levelchange-readonly">' +
+          '<div class="is-levelchange-readonly" style="margin:-3px 0 0;">' +
             '<div class="subject-level-current">' + setText + '</div>' +
           '</div>'
         );
