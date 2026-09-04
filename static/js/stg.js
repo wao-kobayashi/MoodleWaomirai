@@ -3523,14 +3523,25 @@ if (bodyId === "page-user-edit") { // ページIDが「page-user-edit」の場�
   });
 
   // ===========================
-  // 保有サブレベルがある科目は、selectを非表示にして保有レベルをテキスト表示する
+  // 保有サブレベルがある科目は、selectを操作不可(disabled)にして選択内容を固定する
   // ・レベル変更は「科目変更フォーム」へ誘導する
-  // ・selectは削除・disabledにせず非表示でDOMに残す（他プロフィール保存時に値を保持するため）
-  // ・保有サブレベルがない科目は現行のselect表示のまま
+  // ・disabledのselectはフォーム送信されないため、同じnameのhidden inputで送信値を保持する
+  //   （他プロフィール保存時に科目・レベル値が消えないようにするため）
+  // ・保有サブレベルがない科目は現行の操作可能なselect表示のまま
   // ===========================
   (function () {
-    // 「科目変更フォーム」へのリンク付き案内文を生成
-  
+    // selectを操作不可(disabled)にし、送信値を保持するhidden inputを添える
+    // （disabledのselectはフォーム送信されないため、値の消失を防ぐ）
+    function disableSelectKeepValue(select) {
+      select.prop("disabled", true).addClass("is-levelchange-disabled");
+      var name = select.attr("name");
+      if (name && select.siblings('input.is-levelchange-keepvalue[name="' + name + '"]').length === 0) {
+        $('<input type="hidden" class="is-levelchange-keepvalue">')
+          .attr("name", name)
+          .val(select.val())
+          .insertAfter(select);
+      }
+    }
 
     // 対象科目（哲学・科学・経済・英語）。英語は他科目と独立して判定する。
     // label / labelText: select非表示時に差し替えるフィールドのラベル
@@ -3544,11 +3555,11 @@ if (bodyId === "page-user-edit") { // ページIDが「page-user-edit」の場�
     // 哲学・科学・経済のうち保有サブレベルがある科目を記録（2科目セット判定用。英語は含めない）
     var ownedMainKeys = [];
 
-    // 1つでもselectを非表示にしたかどうか（案内文を1回だけ表示するためのフラグ）
+    // 1つでもselectを操作不可にしたかどうか（案内文を1回だけ表示するためのフラグ）
     var anySelectHidden = false;
 
     readonlyConfigs.forEach(function (config) {
-      // 保有サブレベルがなければ何もしない（現行のselect表示のまま）
+      // 保有サブレベルがなければ何もしない（現行の操作可能なselect表示のまま）
       if (getOwnedSubLevels(config.subject, config.levels).length === 0) {
         return;
       }
@@ -3559,61 +3570,49 @@ if (bodyId === "page-user-edit") { // ページIDが「page-user-edit」の場�
 
       var area = config.area;
 
-      // 複数回実行時の重複防止
-      if (area.find(".is-levelchange-readonly").length > 0) {
+      // 複数回実行時の重複防止（既に操作不可にしていればスキップ）
+      if (area.find("input.is-levelchange-keepvalue").length > 0) {
         return;
       }
 
       var select = getSelectElement(area);
-      // 表示する保有レベルは、選択中optionの文字列（ラベル変更後）を利用する
-      var levelText = select.find("option:selected").text().trim();
 
-      // 募集停止レベルなどでoptionが削除され選択中optionが取得できない場合は、
-      // selectをそのまま残す（差し替えない）
-      if (!levelText) {
+      // 募集停止レベルなどでoptionが削除され有効な選択肢が選択されていない場合は、
+      // 値を固定できないためselectを操作可能なまま残す
+      if (!select.find("option:selected").val()) {
         return;
       }
 
-      // selectと、その科目に付随する既存メッセージ（現在受講中のレベル・募集停止注記など）を非表示にする
-      select.hide();
+      // selectを操作不可(disabled)にし、送信値を保持する
+      disableSelectKeepValue(select);
       anySelectHidden = true;
+      // その科目に付随する既存メッセージ（現在受講中のレベル・募集停止注記など）を非表示にする
       area.find(".subject-select-levelset, .subject-select-levelnotset").hide();
       area.find('div[style*="color:#999"]').hide();
       // フィールドのラベル文言を差し替える
       $(config.label).text(config.labelText);
-      // 保有レベルのテキストと科目変更フォームへの案内を挿入
-      select.after(
-        '<div class="is-levelchange-readonly">' +
-          '<div class="subject-level-current">' + levelText + '</div>'  +
-        '</div>'
-      );
     });
 
     // 2科目セット：哲学・科学・経済のうちちょうど2科目を保有している場合のみ、
-    // セットのselectも非表示にして組み合わせをテキスト表示する（英語は対象外）
+    // セットのselectも操作不可にする（英語は対象外）
     if (
       checkBoughtMainSubject(["twosubjectpack"], true) &&
       ownedMainKeys.length === 2 &&
-      AreaTwoCourse.find(".is-levelchange-readonly").length === 0
+      AreaTwoCourse.find("input.is-levelchange-keepvalue").length === 0
     ) {
       var setSelect = getSelectElement(AreaTwoCourse);
-      var setText = setSelect.find("option:selected").text().trim();
 
-      if (setText) {
-        setSelect.hide();
+      // 有効な選択肢が選択されている場合のみ操作不可にする
+      if (setSelect.find("option:selected").val()) {
+        disableSelectKeepValue(setSelect);
         anySelectHidden = true;
         AreaTwoCourse.find(".subject-select-levelset, .subject-select-levelnotset").hide();
         // フィールドのラベル文言を差し替える
         $("#id_profile_field_2cources_subject_label").text("２科目受講科目");
-        setSelect.after(
-          '<div class="is-levelchange-readonly">' +
-            '<div class="subject-level-current">' + setText + '</div>' +
-          '</div>'
-        );
       }
     }
 
-    // 1つでもselectを非表示にした場合、科目変更フォームへの案内を1回だけ表示する
+    // 1つでもselectを操作不可にした場合、科目変更フォームへの案内を1回だけ表示する
     if (anySelectHidden) {
       $("#id_category_10 > .d-flex").after(`
         <p class="subject-level-note">
