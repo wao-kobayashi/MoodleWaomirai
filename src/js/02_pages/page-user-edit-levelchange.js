@@ -407,27 +407,14 @@ if (bodyId === "page-user-edit") { // ページIDが「page-user-edit」の場�
     });
 
     // 2科目セット：哲学・科学・経済のうちちょうど2科目を保有している場合のみ、
-    // セットのselectも非表示にして組み合わせをテキスト表示する（英語は対象外）
+    // セット行（受講科目）は各科目のレベル表示があれば見出しのように見えて不要なため、
+    // 行ごと非表示にする（英語は対象外）。selectはDOM内に残るため送信値は保持される。
     if (
       checkBoughtMainSubject(["twosubjectpack"], true) &&
-      ownedMainKeys.length === 2 &&
-      AreaTwoCourse.find(".is-levelchange-readonly").length === 0
+      ownedMainKeys.length === 2
     ) {
-      var setSelect = getSelectElement(AreaTwoCourse);
-      var setText = setSelect.find("option:selected").text().trim();
-
-      if (setText) {
-        setSelect.hide();
-        anySelectHidden = true;
-        AreaTwoCourse.find(".subject-select-levelset, .subject-select-levelnotset").hide();
-        // フィールドのラベル文言を差し替える
-        $("#id_profile_field_2cources_subject_label").text("受講科目");
-        setSelect.after(
-          '<div class="is-levelchange-readonly" style="margin:-3px 0 0;">' +
-            '<div class="subject-level-current">' + setText + '</div>' +
-          '</div>'
-        );
-      }
+      AreaTwoCourse.hide();
+      anySelectHidden = true;
     }
 
     // 1つでもselectを非表示にした場合、科目変更フォームへの案内を1回だけ表示する
