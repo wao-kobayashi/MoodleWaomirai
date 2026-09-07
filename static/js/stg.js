@@ -3618,6 +3618,17 @@ if (bodyId === "page-user-edit") { // ページIDが「page-user-edit」の場�
         </p>
       `);
     }
+
+    // 選択できるselectが1つも残っていない（購入科目がすべて設定済みで非表示）場合、
+    // 受講科目選択カテゴリ枠の並び順・余白を調整する
+    if ($("#id_category_10 select:visible").length === 0) {
+      var categoryEl = document.getElementById("id_category_10");
+      if (categoryEl) {
+        // 既存のインラインスタイルを壊さず !important 付きで指定する
+        categoryEl.style.setProperty("order", "0", "important");
+        categoryEl.style.setProperty("margin", "30px 0 20px", "important");
+      }
+    }
   })();
   }
 }
