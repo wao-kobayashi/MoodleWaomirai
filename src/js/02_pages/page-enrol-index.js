@@ -69,11 +69,22 @@ if (bodyId === "page-enrol-index") {
           }
         }
       } 
-      // タイプ2: 毎月定期メンテナンスの制限チェック
+      // タイプ2: 毎月定期メンテナンスの制限チェック（毎月X日の指定時間帯）
       else if (restriction.type === 'monthly') {
-        // 現在の日付が指定された日（例：1日）と一致するかチェック
-        if (now.getDate() === restriction.day) {
-          // 該当日の場合、その制限情報を返却
+        // 現在（端末ローカル時刻）の「日」と「当日0時からの経過分」を取得
+        const nowMinutes = now.getHours() * 60 + now.getMinutes(); // 当日0時からの経過分
+
+        // 'HH:mm' を当日0時からの経過分に変換（'24:00' は 1440 として終日制限に対応）
+        const toMinutes = (hhmm) => {
+          const [h, m] = hhmm.split(':').map((v) => parseInt(v, 10));
+          return h * 60 + m;
+        };
+        const startMinutes = toMinutes(restriction.startTime);
+        const endMinutes = toMinutes(restriction.endTime);
+
+        // 「指定日」かつ「開始時刻以上・終了時刻未満」の場合に制限
+        if (now.getDate() === restriction.day && nowMinutes >= startMinutes && nowMinutes < endMinutes) {
+          // 該当日時の場合、その制限情報を返却
           return {
             message: restriction.message,       // ページ下部表示用メッセージ
             modalTitle: restriction.modalTitle  // モーダル表示用タイトル
