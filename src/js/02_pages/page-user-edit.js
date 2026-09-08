@@ -14,7 +14,6 @@ if (bodyId === "page-user-edit") { // ページIDが「page-user-edit」の場�
   $("#id_profile_field_address").after(
     '<p class="mirainote-address-note">※入会のタイミング以外でのご入力は、ノートが自動送付されませんので、<br />送付希望の旨を事務局までご連絡ください。</p>'
   );
-
   // ===========================
   // 入会/退会科目の非表示（ユーザのみ）
   // ===========================
