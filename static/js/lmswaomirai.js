@@ -771,12 +771,16 @@ if (bodyId === "page-my-index") {
               // 【スマホ】今月中に開催される授業に追加
               $("#dashboard-main-upcoming-class-scheduled").append($lessonContainer);
             });
-          } else {
-            //授業ない時の処理
-            $("#dashboard-main-upcoming-class-none").show();
-          }
+          } 
         }
     });
+
+       // 全日付の確認後、授業カードが0件の場合だけ「授業なし」を表示
+       const hasUpcomingClasses =
+       $("#dashboard-main-upcoming-class-scheduled")
+         .children(".dashboard-main-class-content-lesson").length > 0;
+ 
+     $("#dashboard-main-upcoming-class-none").toggle(!hasUpcomingClasses);
 
     // -----------------------------------------------
     // ダッシュボードメッセージの設定
@@ -3208,7 +3212,7 @@ if (bodyId === "page-user-edit") { // ページIDが「page-user-edit」の場�
   function AlertSubjectSettingFirst() {
     if (!isAlertSubjectSettingFirstShown) { // フラグがfalseの場合のみ実行
       $("#fgroup_id_buttonar").before(
-        `<div id="id_submitbutton-subject">一度受講レベルを設定すると、<br />2回目以降のレベル変更時のフォームでの申請となりますのでご注意くださいませ。</div>`
+        `<div id="id_submitbutton-subject">一度受講レベルを設定すると、<br />2回目以降のレベル変更はフォームでの申請となりますのでご注意くださいませ。</div>`
       );
       //英語と他科目を受講する場合、複数回発火することを防ぐためにフラグをtrueに設定
       isAlertSubjectSettingFirstShown = true; // フラグをtrueに設定
