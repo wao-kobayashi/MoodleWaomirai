@@ -1130,19 +1130,17 @@
                           case pageid
                             default
                               select#id_profile_field_Philosophy_Level.custom-select(name='profile_field_Philosophy_Level')
-                                option(value='-' selected='') -
+                                option(value='-') -
                                 option(value='Level1　（小3〜4年生対象）') Level1&#x3000;&#xFF08;&#x5C0F;3&#x301C;4&#x5E74;&#x751F;&#x5BFE;&#x8C61;&#xFF09;
                                 option(value='Level2　（小5〜6年生対象）') Level2&#x3000;&#xFF08;&#x5C0F;5&#x301C;6&#x5E74;&#x751F;&#x5BFE;&#x8C61;&#xFF09;
-                                option(value='Level3　（中学生対象）') Level3&#x3000;&#xFF08;&#x4E2D;&#x5B66;&#x751F;&#x5BFE;&#x8C61;&#xFF09;
+                                option(value='Level3　（中学生対象）' selected='') Level3&#x3000;&#xFF08;&#x4E2D;&#x5B66;&#x751F;&#x5BFE;&#x8C61;&#xFF09;
                                 option(value='Level4　（高校生対象）') Level4&#x3000;&#xFF08;&#x9AD8;&#x6821;&#x751F;&#x5BFE;&#x8C61;&#xFF09;
-                            when 'three-register'
-                            when 'ph-register' 
-                            when 'two-register'
+                            when 'three-register'||'ph-register' ||'two-register' 
                               select#id_profile_field_Philosophy_Level.custom-select(name='profile_field_Philosophy_Level')
                                 option(value='-') -
-                                option(value='Level1　（小3〜4年生対象）' selected='') Level1&#x3000;&#xFF08;&#x5C0F;3&#x301C;4&#x5E74;&#x751F;&#x5BFE;&#x8C61;&#xFF09;
+                                option(value='Level1　（小3〜4年生対象）') Level1&#x3000;&#xFF08;&#x5C0F;3&#x301C;4&#x5E74;&#x751F;&#x5BFE;&#x8C61;&#xFF09;
                                 option(value='Level2　（小5〜6年生対象）') Level2&#x3000;&#xFF08;&#x5C0F;5&#x301C;6&#x5E74;&#x751F;&#x5BFE;&#x8C61;&#xFF09;
-                                option(value='Level3　（中学生対象）') Level3&#x3000;&#xFF08;&#x4E2D;&#x5B66;&#x751F;&#x5BFE;&#x8C61;&#xFF09;
+                                option(value='Level3　（中学生対象）' selected='') Level3&#x3000;&#xFF08;&#x4E2D;&#x5B66;&#x751F;&#x5BFE;&#x8C61;&#xFF09;
                                 option(value='Level4　（高校生対象）') Level4&#x3000;&#xFF08;&#x9AD8;&#x6821;&#x751F;&#x5BFE;&#x8C61;&#xFF09;
                           #id_error_profile_field_Philosophy_Level.form-control-feedback.invalid-feedback
                       #fitem_id_profile_field_Science_Level.form-group.row.fitem
@@ -1178,8 +1176,8 @@
                           case pageid
                             default
                               select#id_profile_field_Economy_Level.custom-select(name='profile_field_Economy_Level')
-                                option(value='-' selected='') -
-                                option(value='Level1　（小3〜4年生対象）') Level1&#x3000;&#xFF08;&#x5C0F;3&#x301C;4&#x5E74;&#x751F;&#x5BFE;&#x8C61;&#xFF09;
+                                option(value='-') -
+                                option(value='Level1　（小3〜4年生対象）' selected='') Level1&#x3000;&#xFF08;&#x5C0F;3&#x301C;4&#x5E74;&#x751F;&#x5BFE;&#x8C61;&#xFF09;
                                 option(value='Level2　（小5〜6年生対象）') Level2&#x3000;&#xFF08;&#x5C0F;5&#x301C;6&#x5E74;&#x751F;&#x5BFE;&#x8C61;&#xFF09;
                                 option(value='Level3　（中学生対象）') Level3&#x3000;&#xFF08;&#x4E2D;&#x5B66;&#x751F;&#x5BFE;&#x8C61;&#xFF09;
                                 option(value='Level4　（高校生対象）') Level4&#x3000;&#xFF08;&#x9AD8;&#x6821;&#x751F;&#x5BFE;&#x8C61;&#xFF09;
