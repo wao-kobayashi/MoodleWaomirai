@@ -7950,7 +7950,7 @@ html[data-tenantidnumber=stg] #page-user-edit select#id_profile_field_2cources_s
 html[data-tenantidnumber=stg] #page-user-edit #id_submitbutton-subject {
   left: 0;
   z-index: 9;
-  font-size: 12px;
+  font-size: 16px;
   margin: 15px auto 15px;
   text-align: center;
   color: #f35053;

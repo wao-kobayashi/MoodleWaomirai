@@ -32,7 +32,7 @@ if (bodyId === "page-user-edit") { // ページIDが「page-user-edit」の場�
   function AlertSubjectSettingFirst() {
     if (!isAlertSubjectSettingFirstShown) { // フラグがfalseの場合のみ実行
       $("#fgroup_id_buttonar").before(
-        `<div id="id_submitbutton-subject">一度受講レベルを設定すると、<br />2回目以降のレベル変更時のフォームでの申請となりますのでご注意くださいませ。</div>`
+        `<div id="id_submitbutton-subject">一度受講レベルを設定すると、<br />2回目以降のレベル変更はフォームでの申請となりますのでご注意くださいませ。</div>`
       );
       //英語と他科目を受講する場合、複数回発火することを防ぐためにフラグをtrueに設定
       isAlertSubjectSettingFirstShown = true; // フラグをtrueに設定
