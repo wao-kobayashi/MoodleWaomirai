@@ -10,6 +10,8 @@ const DayChangeCourseBannerStart = 13; // 受講レベル変更・科目変更�
 const DayChangeCourseDeadLine = 20; // 受講レベル変更・科目変更・解約の締切日（DayChangeCourseBannerStartより後の日の設定が必要）
 
 const DayDisabledFee = 1; // 受講登録手続きを行えない日
+const StartTimeDisabledFee = '00:00'; // 受講登録手続きを行えない開始時刻（日本時間, HH:mm形式・同日内）
+const EndTimeDisabledFee = '14:00';   // 受講登録手続きを行えない終了時刻（日本時間, HH:mm形式・この時刻以降は解除。'24:00'で終日）
 
 const NowDate = new Date(); // 現在の日時
 const DayOfMonth = parseInt(NowDate.toLocaleString('ja-JP', { timeZone: 'Asia/Tokyo', day: '2-digit' }).replace('日', '')); // 現在の日
@@ -74,8 +76,8 @@ const ImgBannerAmazonGiftFreeCampaignSp = "https://waomirai.com/lp/assets/moodle
  * 
  * 【優先順位】
  * 1. 特定期間の制限（type: 'period'）← 先に配置
- * 2. 毎月定期メンテナンス（type: 'monthly'）← 後に配置
- * 
+ * 2. 毎月定期メンテナンス（type: 'monthly'・毎月X日の指定時間帯）← 後に配置
+ *
  * 【新しい制限期間の追加方法】
  * periods配列に新しいオブジェクトを追加するだけです：
  * { 
@@ -117,11 +119,14 @@ const PurchaseRestrictions = [
 // 毎月定期メンテナンス(低優先)
 // ----------------------------------------
 {
-    type: 'monthly', // 制限タイプ：毎月X日
-    day: DayDisabledFee, // 制限する日（例：28なら毎月28日）
-    // 毎月X日に表示されるメッセージ
-    message: `<div class="disabled-fee-fixed"><span class="icon-disabled-fee-fixed">&#x26a0;&#xfe0f;</span>毎月${DayDisabledFee}日はシステムメンテナンスのため、受講登録手続きができません。<br class="br-disabled-fee-fixed">お手数ですが、翌日以降に手続きをお願いします。</div>`,
-    // 毎月X日のモーダルタイトル
-    modalTitle: `毎月${DayDisabledFee}日はシステムメンテナンスのため<br />受講登録手続きができません。<br />お手数ですが、翌日以降に<br />手続きをお願いします。`
+    type: 'monthly', // 制限タイプ：毎月X日の指定時間帯
+    day: DayDisabledFee,             // 制限する日（例：28なら毎月28日）
+    startTime: StartTimeDisabledFee, // 制限開始時刻（日本時間, HH:mm。この時刻以上で制限）
+    endTime: EndTimeDisabledFee,     // 制限終了時刻（日本時間, HH:mm。この時刻未満で制限＝時刻ちょうどで解除）
+    // メッセージ・モーダルタイトルは day / startTime / endTime から生成し、日時表記を統一
+    // 例：毎月1日 00:00〜14:00（日本時間）
+    message: `<div class="disabled-fee-fixed"><span class="icon-disabled-fee-fixed">&#x26a0;&#xfe0f;</span>毎月${DayDisabledFee}日 ${StartTimeDisabledFee}〜${EndTimeDisabledFee}は、システムメンテナンスのため受講登録手続きができません。<br class="br-disabled-fee-fixed">お手数ですが終了時刻以降にお手続きください。</div>`,
+    // 毎月X日 指定時間帯のモーダルタイトル
+    modalTitle: `毎月${DayDisabledFee}日 ${StartTimeDisabledFee}〜${EndTimeDisabledFee}は、<br />システムメンテナンスのため受講登録手続きができません。<br />お手数ですが終了時刻以降に<br />お手続きください。`
 }
 ];
