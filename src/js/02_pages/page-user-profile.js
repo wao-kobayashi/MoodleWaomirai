@@ -12,9 +12,10 @@ if (bodyId === "page-user-profile") {
     // ジョブ：ジョブ情報（これはユーザーにとっては不要な情報）
     // Stripe退会するための情報（これはユーザーにとっては不要な情報）
     // 補足：stripeは金額は確認できるようにして、退会するための情報は非表示にしたほうがいいかも
-    const hideKeywords = ['レポート', 'ジョブ', 'Stripe'];
+    const hideKeywords = ['レポート', 'ジョブ', 'Stripe', 'その他','ラーニング'];
 
     // すべてのsectionに対してループ処理
+    
     $('.card').each(function() {
         // 現在のセクション内のh3テキストを取得
         // alert('a');

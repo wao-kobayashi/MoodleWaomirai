@@ -7893,9 +7893,6 @@ html[data-tenantidnumber=stg] #page-user-edit .align-items-start {
 html[data-tenantidnumber=stg] #page-user-edit .collapse:not(.show) {
   display: block !important;
 }
-html[data-tenantidnumber=stg] #page-user-edit #fitem_id_profile_field_2cources_subject {
-  margin-bottom: 30px;
-}
 html[data-tenantidnumber=stg] #page-user-edit .mform {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -7915,7 +7912,7 @@ html[data-tenantidnumber=stg] #page-user-edit .mform #id_category_10 .fcontainer
   margin: 40px 0 0;
 }
 html[data-tenantidnumber=stg] #page-user-edit .mform #id_category_10 .subject-level-note {
-  margin: 20px 0 0 20px;
+  margin: 20px 0 0 24px;
 }
 @media screen and (max-width: 768px) {
   html[data-tenantidnumber=stg] #page-user-edit .mform #id_category_10 .subject-level-note {
@@ -7953,7 +7950,7 @@ html[data-tenantidnumber=stg] #page-user-edit select#id_profile_field_2cources_s
 html[data-tenantidnumber=stg] #page-user-edit #id_submitbutton-subject {
   left: 0;
   z-index: 9;
-  font-size: 12px;
+  font-size: 16px;
   margin: 15px auto 15px;
   text-align: center;
   color: #f35053;
