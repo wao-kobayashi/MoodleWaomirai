@@ -408,7 +408,7 @@ if (bodyId === "page-my-index") {
     if (todayDay >= DayChangeCourseBannerStart && todayDay <= DayChangeCourseDeadLine && !$.cookie(monthlyChangeCourseCookie) && hasBoughtMainSubject) {
       // 条件を満たす場合、モーダルを表示
       createModal({
-        title: "【ご案内】<br />受講レベル及び科目の変更<br />ご解約は当月" + DayChangeCourseDeadLine + "日までに<br />お手続きをお願いします。<br /><br />",
+        title: "【ご案内】<br />来月以降のご契約内容の変更を<br />ご希望の方は当月" + DayChangeCourseDeadLine + "日までに<br />お手続きをお願いします。<br /><br />",
         buttons: [
           // OKボタンを追加
           { text: "確認しました", class: "btn-primary c-modal-wrap-close-tag" }
