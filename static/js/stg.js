@@ -113,7 +113,15 @@ $(document).ready(function () {
 
     //用途
     //国内ユーザーと海外ユーザーで挙動を変えたい部分があるので、この講座を持っている人は海外ユーザーの扱いにする。
-    { id: 321, name: "abroad", key: "abroad",  type: "role"}
+    { id: 321, name: "abroad", key: "abroad",  type: "role"},
+
+    // ==============================
+    // イベント代理登録ユーザー専用の科目（通常ユーザーは購入できない
+    // ==============================
+
+    //用途
+    //イベントで代理登録したユーザーは科目を持っていなくても、科目を持っているユーザーと同じダッシュボード表示にしたいので、この講座を持っている人はイベントユーザーの扱いにする。
+    { id: 334, name: "イベント代理登録ユーザ", key: "event",  type: "role"}
   ]
 
 
@@ -329,6 +337,10 @@ if(hasBoughtAdminSubject){
  // 国内ユーザーと海外ユーザーで挙動を変えたい部分があるので、海外ユーザーの講座を持っている人は海外ユーザーの扱いにする。
 const hasBoughtAbroadSubject= checkGroup((subject) => subject.key === "abroad");
 
+// イベント代理登録ユーザーの講座を持っているかを判定
+// イベントで代理登録したユーザーは科目を持っていなくても、科目なしユーザーとは別の挙動にしたいので、この講座を持っている人はイベントユーザーの扱いにする。
+const hasBoughtEventSubject= checkGroup((subject) => subject.key === "event");
+
 // ==============================
 // 海外ユーザーチェック関数
 // ==============================
@@ -484,8 +496,8 @@ if (bodyId === "page-my-index") {
     $('.dashboard-left').insertAfter('#block-region-content');
   }  
 
-  //科目を何も持っていない時の場合の処理
-  if (!hasBoughtMainSubject && !hasBoughtChildSubject) {
+  //科目を何も持っていない時の場合の処理（イベント代理登録ユーザーは科目ありと同じ扱い）
+  if (!hasBoughtMainSubject && !hasBoughtChildSubject && !hasBoughtEventSubject) {
     // 今日のイベント科目とダッシュボードの未定義科目を表示
     $("#todays-event-subject-none,#dashboard-main-upcoming-class-none").show();
     // 今日の科目PCビューを非表示
