@@ -5968,6 +5968,17 @@ html[data-tenantidnumber=lmswaomirai] .pagelayout-mydashboard .dashboard-textblo
     display: none;
   }
 }
+@media screen and (max-width: 768px) {
+  html[data-tenantidnumber=lmswaomirai] .pagelayout-mydashboard #block-region-content {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+}
 html[data-tenantidnumber=lmswaomirai] .pagelayout-mydashboard .block-region {
   max-width: 920px !important;
   margin-right: auto !important;
@@ -6904,6 +6915,20 @@ html[data-tenantidnumber=lmswaomirai] .pagelayout-mydashboard .maincalendar .d-n
 }
 html[data-tenantidnumber=lmswaomirai] .pagelayout-mydashboard .maincalendar .hidden-desktop {
   display: none !important;
+}
+@media screen and (max-width: 768px) {
+  html[data-tenantidnumber=lmswaomirai] .pagelayout-mydashboard .block_html {
+    -webkit-box-ordinal-group: -1;
+        -ms-flex-order: -2;
+            order: -2;
+  }
+}
+@media screen and (max-width: 768px) {
+  html[data-tenantidnumber=lmswaomirai] .pagelayout-mydashboard .block_calendar_upcoming {
+    -webkit-box-ordinal-group: 0;
+        -ms-flex-order: -1;
+            order: -1;
+  }
 }
 html[data-tenantidnumber=lmswaomirai] .pagelayout-mydashboard .modal .calendar_event_course {
   background: #efefef;

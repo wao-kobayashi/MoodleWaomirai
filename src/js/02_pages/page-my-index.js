@@ -146,10 +146,11 @@ if (bodyId === "page-my-index") {
 
   // エラーハンドリング：どの科目も購入していない場合
   if (!hasBoughtMainSubject && !hasBoughtChildSubject) {      
-      // エラーメッセージの表示
+      // エラーメッセージの表示（イベント期間中のイベント代理登録ユーザーはイベント参加中の表示にする）
+      const message = isEventParticipating ? "哲学イベント参加中" : "受講している科目がありません。";
       const errorHtml = `
           <div class="dashboard-left-block-subject-child">
-              <p>受講している科目がありません。</p>
+              <p>${message}</p>
           </div>
       `;
       $(".dashboard-left-block-wrap.dashboard-left-block-wrap-subject").html(errorHtml);

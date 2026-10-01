@@ -83,6 +83,10 @@ const hasBoughtAbroadSubject= checkGroup((subject) => subject.key === "abroad");
 // イベントで代理登録したユーザーは科目を持っていなくても、科目なしユーザーとは別の挙動にしたいので、この講座を持っている人はイベントユーザーの扱いにする。
 const hasBoughtEventSubject= checkGroup((subject) => subject.key === "event");
 
+// イベント期間中のイベント代理登録ユーザーかを判定
+// 期間はassets.jsのEventPeriodEndで設定
+const isEventParticipating = hasBoughtEventSubject && NowDate <= EventPeriodEnd;
+
 // ==============================
 // 海外ユーザーチェック関数
 // ==============================

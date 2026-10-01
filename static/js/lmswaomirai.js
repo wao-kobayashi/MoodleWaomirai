@@ -126,6 +126,7 @@ const EndTimeDisabledFee = '14:00';   // 受講登録手続きを行えない終
 const NowDate = new Date(); // 現在の日時
 const DayOfMonth = parseInt(NowDate.toLocaleString('ja-JP', { timeZone: 'Asia/Tokyo', day: '2-digit' }).replace('日', '')); // 現在の日
 const AmazonGiftFreeCampaignEnd = new Date('2026-01-31T12:00:00+09:00'); // 日本時間
+const EventPeriodEnd = new Date('2026-12-01T23:59:59+09:00'); // イベント代理登録ユーザーの「イベント参加中」表示の終了日時（日本時間）
 
 // ==============================
 // Liff系
@@ -324,6 +325,10 @@ const hasBoughtAbroadSubject= checkGroup((subject) => subject.key === "abroad");
 // イベント代理登録ユーザーの講座を持っているかを判定
 // イベントで代理登録したユーザーは科目を持っていなくても、科目なしユーザーとは別の挙動にしたいので、この講座を持っている人はイベントユーザーの扱いにする。
 const hasBoughtEventSubject= checkGroup((subject) => subject.key === "event");
+
+// イベント期間中のイベント代理登録ユーザーかを判定
+// 期間はassets.jsのEventPeriodEndで設定
+const isEventParticipating = hasBoughtEventSubject && NowDate <= EventPeriodEnd;
 
 // ==============================
 // 海外ユーザーチェック関数
@@ -616,10 +621,11 @@ if (bodyId === "page-my-index") {
 
   // エラーハンドリング：どの科目も購入していない場合
   if (!hasBoughtMainSubject && !hasBoughtChildSubject) {      
-      // エラーメッセージの表示
+      // エラーメッセージの表示（イベント期間中のイベント代理登録ユーザーはイベント参加中の表示にする）
+      const message = isEventParticipating ? "哲学イベント参加中" : "受講している科目がありません。";
       const errorHtml = `
           <div class="dashboard-left-block-subject-child">
-              <p>受講している科目がありません。</p>
+              <p>${message}</p>
           </div>
       `;
       $(".dashboard-left-block-wrap.dashboard-left-block-wrap-subject").html(errorHtml);

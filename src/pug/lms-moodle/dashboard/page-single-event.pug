@@ -1,0 +1,8 @@
+extends ../_layout_moodle.pug
+block variables
+  - var title = '科目なし（イベント代理登録ユーザ）ダッシュボード | stg'  // 変数の定義
+  - var calender = 'events-none' //カレンダーなし
+  // SubjectIds 配列の定義（イベント代理登録ユーザの科目のみ）
+  - var SubjectIds = env === 'stg' ? [334] : env === 'lmswaomirai' ? [333] : []
+block contents
+  include _parts-main-dashboard.pug

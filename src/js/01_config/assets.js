@@ -16,6 +16,7 @@ const EndTimeDisabledFee = '14:00';   // 受講登録手続きを行えない終
 const NowDate = new Date(); // 現在の日時
 const DayOfMonth = parseInt(NowDate.toLocaleString('ja-JP', { timeZone: 'Asia/Tokyo', day: '2-digit' }).replace('日', '')); // 現在の日
 const AmazonGiftFreeCampaignEnd = new Date('2026-01-31T12:00:00+09:00'); // 日本時間
+const EventPeriodEnd = new Date('2026-12-01T23:59:59+09:00'); // イベント代理登録ユーザーの「イベント参加中」表示の終了日時（日本時間）
 
 // ==============================
 // Liff系
