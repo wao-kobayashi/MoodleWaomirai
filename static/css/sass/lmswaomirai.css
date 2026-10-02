@@ -5993,9 +5993,6 @@ html[data-tenantidnumber=lmswaomirai] .pagelayout-mydashboard .block-region {
     max-width: 100% !important;
   }
 }
-html[data-tenantidnumber=lmswaomirai] .pagelayout-mydashboard .block_calendar_upcoming {
-  display: none !important;
-}
 html[data-tenantidnumber=lmswaomirai] .pagelayout-mydashboard #dashboard-sp-content .dashboard-left {
   position: relative !important;
   width: 100%;
@@ -6926,11 +6923,102 @@ html[data-tenantidnumber=lmswaomirai] .pagelayout-mydashboard .maincalendar .hid
             order: -2;
   }
 }
+@media screen and (min-width: 769px) {
+  html[data-tenantidnumber=lmswaomirai] .pagelayout-mydashboard .block_calendar_upcoming {
+    display: none !important;
+  }
+}
 @media screen and (max-width: 768px) {
   html[data-tenantidnumber=lmswaomirai] .pagelayout-mydashboard .block_calendar_upcoming {
     -webkit-box-ordinal-group: 0;
         -ms-flex-order: -1;
             order: -1;
+    border: none !important;
+    border-radius: 0px;
+  }
+  html[data-tenantidnumber=lmswaomirai] .pagelayout-mydashboard .block_calendar_upcoming .card-body {
+    padding: 20px 15px 48px !important;
+  }
+  html[data-tenantidnumber=lmswaomirai] .pagelayout-mydashboard .block_calendar_upcoming .card-body > .d-flex {
+    display: block !important;
+  }
+  html[data-tenantidnumber=lmswaomirai] .pagelayout-mydashboard .block_calendar_upcoming .card-title, html[data-tenantidnumber=lmswaomirai] .pagelayout-mydashboard .block_calendar_upcoming #dashboard-sp-content .dashboard-left-block .dashboard-left-block-title, html[data-tenantidnumber=lmswaomirai] .pagelayout-mydashboard #dashboard-sp-content .dashboard-left-block .block_calendar_upcoming .dashboard-left-block-title {
+    font-size: 0 !important;
+  }
+  html[data-tenantidnumber=lmswaomirai] .pagelayout-mydashboard .block_calendar_upcoming .card-title::after, html[data-tenantidnumber=lmswaomirai] .pagelayout-mydashboard .block_calendar_upcoming #dashboard-sp-content .dashboard-left-block .dashboard-left-block-title::after, html[data-tenantidnumber=lmswaomirai] .pagelayout-mydashboard #dashboard-sp-content .dashboard-left-block .block_calendar_upcoming .dashboard-left-block-title::after {
+    content: "本日の授業";
+    font-size: 20px;
+  }
+  html[data-tenantidnumber=lmswaomirai] .pagelayout-mydashboard .block_calendar_upcoming .calendarwrapper {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    gap: 15px;
+  }
+  html[data-tenantidnumber=lmswaomirai] .pagelayout-mydashboard .block_calendar_upcoming .calendarwrapper:not(:has(.event.is-today))::before {
+    content: "本日は授業がありません";
+    color: #4d4d4d;
+    font-size: 14px;
+  }
+  html[data-tenantidnumber=lmswaomirai] .pagelayout-mydashboard .block_calendar_upcoming .event.is-upcoming-start {
+    position: relative;
+    margin-top: 60px;
+  }
+  html[data-tenantidnumber=lmswaomirai] .pagelayout-mydashboard .block_calendar_upcoming .event.is-upcoming-start::before {
+    content: "今後開催される授業";
+    position: absolute;
+    top: -48px;
+    left: -4px;
+    padding-left: 14px;
+    border-left: 6px solid #005c3f;
+    border-radius: 4px 0 0 4px;
+    line-height: 25px;
+    font-size: 20px;
+    font-weight: bold;
+    color: #4d4d4d;
+    white-space: nowrap;
+  }
+  html[data-tenantidnumber=lmswaomirai] .pagelayout-mydashboard .block_calendar_upcoming .event {
+    padding: 16px !important;
+    border: none !important;
+    border-radius: 8px;
+    -webkit-box-shadow: 0px 3.5px 7px rgba(0, 0, 0, .18) !important;
+            box-shadow: 0px 3.5px 7px rgba(0, 0, 0, .18) !important;
+  }
+  html[data-tenantidnumber=lmswaomirai] .pagelayout-mydashboard .block_calendar_upcoming .event:has(a[title*=哲学]) {
+    border-left: 4px #fcaf17 solid !important;
+    border-radius: 2px;
+  }
+  html[data-tenantidnumber=lmswaomirai] .pagelayout-mydashboard .block_calendar_upcoming .event:has(a[title*=科学]) {
+    border-left: 4px #b6d43e solid !important;
+    border-radius: 2px;
+  }
+  html[data-tenantidnumber=lmswaomirai] .pagelayout-mydashboard .block_calendar_upcoming .event:has(a[title*=経済]) {
+    border-left: 4px #28afe7 solid !important;
+    border-radius: 2px;
+  }
+  html[data-tenantidnumber=lmswaomirai] .pagelayout-mydashboard .block_calendar_upcoming .event:has(a[title*=英語]) {
+    border-left: 4px #aa68aa solid !important;
+    border-radius: 2px;
+  }
+  html[data-tenantidnumber=lmswaomirai] .pagelayout-mydashboard .block_calendar_upcoming .event:has(a[title*=プログラミング]) {
+    border-left: 4px #ee242c solid !important;
+    border-radius: 2px;
+  }
+  html[data-tenantidnumber=lmswaomirai] .pagelayout-mydashboard .block_calendar_upcoming .activityiconcontainer {
+    display: none !important;
+  }
+  html[data-tenantidnumber=lmswaomirai] .pagelayout-mydashboard .block_calendar_upcoming h4 a {
+    color: #4d4d4d;
+    font-weight: bold;
+  }
+  html[data-tenantidnumber=lmswaomirai] .pagelayout-mydashboard .block_calendar_upcoming .date,
+  html[data-tenantidnumber=lmswaomirai] .pagelayout-mydashboard .block_calendar_upcoming .date a {
+    color: #999;
   }
 }
 html[data-tenantidnumber=lmswaomirai] .pagelayout-mydashboard .modal .calendar_event_course {
@@ -7200,81 +7288,6 @@ html[data-tenantidnumber=lmswaomirai] .pagelayout-mydashboard .dashboard-main .d
     border-radius: 0px;
     padding: 0px 15px 48px !important;
   }
-}
-html[data-tenantidnumber=lmswaomirai] .pagelayout-mydashboard .dashboard-main #todays-event-class-scheduled,
-html[data-tenantidnumber=lmswaomirai] .pagelayout-mydashboard .dashboard-main #dashboard-main-upcoming-class-scheduled {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  gap: 15px;
-}
-html[data-tenantidnumber=lmswaomirai] .pagelayout-mydashboard .dashboard-main .dashboard-main-class-content-lesson {
-  padding: 16px;
-  border-radius: 8px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  gap: 8px;
-  -webkit-box-shadow: 0px 3.5px 7px rgba(0, 0, 0, .18) !important;
-          box-shadow: 0px 3.5px 7px rgba(0, 0, 0, .18) !important;
-}
-html[data-tenantidnumber=lmswaomirai] .pagelayout-mydashboard .dashboard-main .dashboard-main-class-content-lesson.philosophy {
-  border-left: 4px #fcaf17 solid;
-  border-radius: 2px;
-}
-html[data-tenantidnumber=lmswaomirai] .pagelayout-mydashboard .dashboard-main .dashboard-main-class-content-lesson.science {
-  border-left: 4px #b6d43e solid;
-  border-radius: 2px;
-}
-html[data-tenantidnumber=lmswaomirai] .pagelayout-mydashboard .dashboard-main .dashboard-main-class-content-lesson.economy {
-  border-left: 4px #28afe7 solid;
-  border-radius: 2px;
-}
-html[data-tenantidnumber=lmswaomirai] .pagelayout-mydashboard .dashboard-main .dashboard-main-class-content-lesson.english {
-  border-left: 4px #aa68aa solid;
-  border-radius: 2px;
-}
-html[data-tenantidnumber=lmswaomirai] .pagelayout-mydashboard .dashboard-main .dashboard-main-class-content-lesson.programming {
-  border-left: 4px #ee242c solid;
-  border-radius: 2px;
-}
-html[data-tenantidnumber=lmswaomirai] .pagelayout-mydashboard .dashboard-main #todays-event-class-scheduled a {
-  /* 横幅はまちまちなので指定しない */
-  height: 48px;
-  border-radius: 4px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  font-size: 16px !important;
-  border-radius: 8px;
-  line-height: 1;
-  background: #005c3f !important;
-  color: #ffffff !important;
-  border: none !important;
-  outline: none;
-  border: none;
-  width: 100%;
-}
-html[data-tenantidnumber=lmswaomirai] .pagelayout-mydashboard .dashboard-main .dashboard-main-class-content-lesson-title {
-  color: #4d4d4d;
-  font-weight: bold;
-}
-html[data-tenantidnumber=lmswaomirai] .pagelayout-mydashboard .dashboard-main .dashboard-main-class-content-lesson-details span:first-child {
-  margin: 0 10px 0 0;
 }
 html[data-tenantidnumber=lmswaomirai] .pagelayout-mydashboard #dashboard-sp-content {
   width: 100%;

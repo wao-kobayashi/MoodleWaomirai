@@ -12,17 +12,15 @@ if (bodyId === "page-my-index") {
 
   //科目を何も持っていない時の場合の処理（イベント代理登録ユーザーは科目ありと同じ扱い）
   if (!hasBoughtMainSubject && !hasBoughtChildSubject && !hasBoughtEventSubject) {
-    // 今日のイベント科目とダッシュボードの未定義科目を表示
-    $("#todays-event-subject-none,#dashboard-main-upcoming-class-none").show();
+    // 今日のイベント科目の未定義を表示
+    $("#todays-event-subject-none").show();
     // 今日の科目PCビューを非表示
     $("#todays-subject-pc").hide();
   } else {
     //何かしら授業を買っていた場合の処理
     $(".dashboard-main-info").show(); //開講前のお知らせを表示（2025年4月以降は存在しない可能性大）
-    if ($(window).width() >= 768) {
-       // ウィンドウの幅が768px以上の場合、メインの授業部分を非表示
-      $(".dashboard-main-class").hide();
-    }
+    // メインの授業部分を非表示（スマホの本日の授業は直近イベントブロックで表示）
+    $(".dashboard-main-class").hide();
   }
   //////////////////////////
   // 現在受講中の科目処理
@@ -211,7 +209,7 @@ if (bodyId === "page-my-index") {
         const cellYear = parseInt($cell.attr("data-year"), 10);   // その日の年
 
         // -----------------------------------------------
-        // 【スマホ限定】本日の授業を処理
+        // 本日の授業名を取得（表示はメッセージのみ。リンクは「今後開催される授業」の直近イベントブロックを使用）
         // -----------------------------------------------
         // 今日の日付の場合の処理
         if (cellDay === todayDay) {
@@ -231,104 +229,11 @@ if (bodyId === "page-my-index") {
                     var courseName = $(this).text().trim();
                     eventDetails.push(courseName);  // 授業名を配列に追加
                     console.log("今日の授業を検出: " + courseName);
-
-                    // ダッシュボード表示用の要素を作成
-                    // メインコンテナ
-                    var $lessonContainer = $("<div>", { 
-                        class: "dashboard-main-class-content-lesson" 
-                    });
-                    
-                    // 授業タイトル要素
-                    var $lessonTitle = $("<div>", { 
-                        class: "dashboard-main-class-content-lesson-title", 
-                        text: courseName 
-                    });
-                    
-                    // 参加ボタン要素
-                    var $lessonLink = $("<a>", {
-                        class: "dashboard-main-class-content-lesson-button",
-                        href: $(this).attr("href"),  // 元のリンクのURLを保持
-                        text: "授業に参加する"
-                    });
-
-                    // 作成した要素をダッシュボードに追加（先頭に配置）
-                    $lessonContainer
-                        .append($lessonTitle)    // タイトルを追加
-                        .append($lessonLink);    // ボタンを追加
-                    $("#todays-event-class-scheduled").prepend($lessonContainer);
                 });
                 eventFound = true;  // 今日の授業が見つかったことを記録
             }
         }
-
-        // -----------------------------------------------
-        //  【スマホ限定】今月中に開催される授業
-        // -----------------------------------------------
-        // 今日よりも後の日付の場合の処理
-        if (cellDay > todayDay) {
-          const $dayContent = $cell.find('[data-region="day-content"]');
-          console.log("$dayContent:", $dayContent); // 取得したdayContentを確認
-          //授業ある時の処理
-          if ($dayContent.length > 0) {
-            const $events = $dayContent.find('li a[data-action="view-event"]');
-            console.log("$events:", $events); // 取得したeventsを確認
-  
-            $events.each(function () {
-              // 授業名を取得（前後の空白を除去）
-              var courseName = $(this).text().trim();
-  
-              // 科目カテゴリを判別する関数(色付してわかりやすくするため)
-              const getSubjectCategory = (courseName) => {
-                if (courseName.includes("哲学")) return "philosophy";
-                if (courseName.includes("科学")) return "science";
-                if (courseName.includes("経済")) return "economy";
-                if (courseName.includes("英語")) return "english";
-                if (courseName.includes("プログラミング")) return "programming";
-                return "defalut-subject"; // デフォルト: 試験管
-              };
-  
-              // 使用例：科目カテゴリを取得
-              const getSubjectCategoryValue = getSubjectCategory(courseName);
-  
-              // 今日の日付を取得
-              const today = new Date();
-              const currentMonth = today.getMonth() + 1;
-              const todayDay = today.getDate();
-              const todayYear = today.getFullYear();
-  
-              // イベントの日付を作成
-              const eventDate = new Date(todayYear, currentMonth - 1, cellDay); // 月は0から始まるので、cellMonth - 1にする
-  
-              // 日付を「12/27(金)」の形式でフォーマット
-              const dateString = `${currentMonth}/${cellDay}`;
-              const Week = ["(日)", "(月)", "(火)", "(水)", "(木)", "(金)", "(土)"];
-              const dayOfWeek = Week[eventDate.getDay()]; // 曜日を取得
-              console.log(dayOfWeek); // 曜日を表示
-  
-              // 新しいdivを作成
-              var $lessonContainer = $("<div>", {
-                class: "dashboard-main-class-content-lesson " + getSubjectCategoryValue,
-              });
-              var $lessonTitleAndDate = $("<span>", {
-                class: "dashboard-main-class-content-lesson-details",
-              })
-                .append($("<span>", { class: "date", text: dateString + dayOfWeek }))
-                .append($("<span>", { class: "title", text: courseName }));
-              $lessonContainer.append($lessonTitleAndDate);
-  
-              // 【スマホ】今月中に開催される授業に追加
-              $("#dashboard-main-upcoming-class-scheduled").append($lessonContainer);
-            });
-          } 
-        }
     });
-
-       // 全日付の確認後、授業カードが0件の場合だけ「授業なし」を表示
-       const hasUpcomingClasses =
-       $("#dashboard-main-upcoming-class-scheduled")
-         .children(".dashboard-main-class-content-lesson").length > 0;
- 
-     $("#dashboard-main-upcoming-class-none").toggle(!hasUpcomingClasses);
 
     // -----------------------------------------------
     // ダッシュボードメッセージの設定
@@ -340,7 +245,7 @@ if (bodyId === "page-my-index") {
         // 今日の授業がある場合
         // 全ての授業名を「」で囲んで結合
         message = `本日は、「${eventDetails.join("」「")}」の授業があります。`;
-       
+
         console.log("メッセージを更新：授業あり");
     } else {
         // 今日の授業がない場合
@@ -493,12 +398,37 @@ if (bodyId === "page-my-index") {
   }
 
   // ===============================================
+  // 【スマホ限定】直近イベントを「本日の授業」と「今後開催される授業」に分ける
+  // 目的：リンクはMoodleのJSで動くので要素は動かさず、クラスを付けるだけにする（見出しはCSSで表示）
+  // ===============================================
+  function markUpcomingTodayEvents() {
+    const todayString = new Date().toDateString();
+    const $events = $(".block_calendar_upcoming .event");
+
+    $events.each(function () {
+      // 日付リンクのtime（UNIX秒）から本日の予定かを判定
+      const match = ($(this).find(".date a").attr("href") || "").match(/[?&]time=(\d+)/);
+      const isToday = !!match && new Date(parseInt(match[1], 10) * 1000).toDateString() === todayString;
+      $(this).toggleClass("is-today", isToday);
+    });
+
+    // 今後開催される授業の先頭に見出しを出すためのクラス
+    $events.removeClass("is-upcoming-start").not(".is-today").first().addClass("is-upcoming-start");
+  }
+
+  // ===============================================
   // イベントハンドラの設定
   // ===============================================
   // ページ読み込み完了時の処理
   $(document).ready(function () {
     calendarScheduleColorChange();
     updateClassSchedule();  // 授業スケジュールの更新
+    markUpcomingTodayEvents(); // 直近イベントを本日と今後に分ける
+    // Moodleが直近イベントを描き直した時もクラスを付け直す
+    const upcomingBlock = document.querySelector('.block_calendar_upcoming [data-template="core_calendar/upcoming_mini"]');
+    if (upcomingBlock) {
+      new MutationObserver(markUpcomingTodayEvents).observe(upcomingBlock, { childList: true, subtree: true });
+    }
     // カレンダーの前月ボタンを押せるようにする
     $('.pagelayout-mydashboard').addClass('is-previous-enabled');
   });

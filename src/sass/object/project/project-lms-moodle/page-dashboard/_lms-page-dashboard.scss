@@ -156,9 +156,7 @@ $default-max-width: 1170px; // 最大幅
       max-width: 100% !important;
     }
   }
-  .block_calendar_upcoming {
-    display: none !important;
-  }
+
   #dashboard-sp-content {
     .dashboard-left {
       position: relative !important;
@@ -900,9 +898,93 @@ $default-max-width: 1170px; // 最大幅
       order: -2;
     }
   }
+  //直近イベント（Moodle標準ブロック）
+  //リンクはMoodleのJSで動くため、DOMは動かさずCSSで「本日の授業」「今後開催される授業」のカード風に整える（スマホのみ表示）
+  //本日の予定には.is-today、今後の予定の先頭には.is-upcoming-startをJS（page-my-index.js）で付けている
   .block_calendar_upcoming {
+    @include min-responsive-style(769px) {
+      display: none !important;
+    }
     @include responsive-style(768px) {
       order: -1;
+      border: none !important;
+      border-radius: 0px;
+      .card-body {
+        padding: 20px 15px 48px !important;
+      }
+      //見出しを「本日の授業」に差し替え
+      //（::beforeは共通の緑のバーで使用しているので::afterで文言を出す）
+      .card-body > .d-flex {
+        display: block !important;
+      }
+      .card-title {
+        font-size: 0 !important;
+        &::after {
+          content: "本日の授業";
+          font-size: $lms-font-size-l;
+        }
+      }
+      .calendarwrapper {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        //本日の予定がない時
+        &:not(:has(.event.is-today))::before {
+          content: "本日は授業がありません";
+          color: $cl-gray;
+          font-size: $lms-font-size-m;
+        }
+      }
+      //今後開催される授業の見出し（先頭の予定の上に表示）
+      .event.is-upcoming-start {
+        position: relative;
+        margin-top: 60px;
+        &::before {
+          content: "今後開催される授業";
+          position: absolute;
+          top: -48px;
+          left: -4px;
+          padding-left: 14px;
+          border-left: 6px solid $cl-waogreen;
+          border-radius: 4px 0 0 4px;
+          line-height: 25px;
+          font-size: $lms-font-size-l;
+          font-weight: bold;
+          color: $cl-gray;
+          white-space: nowrap;
+        }
+      }
+      .event {
+        padding: 16px !important;
+        border: none !important;
+        border-radius: $border-radius-middle;
+        @include lms-boxshadow;
+        //科目ごとに左線の色を変える（授業名で判定）
+        $upcoming-subject-colors: (
+          "哲学": $cl-philosophy,
+          "科学": $cl-science,
+          "経済": $cl-economy,
+          "英語": $cl-english,
+          "プログラミング": $cl-programming,
+        );
+        @each $name, $color in $upcoming-subject-colors {
+          &:has(a[title*="#{$name}"]) {
+            border-left: 4px $color solid !important;
+            border-radius: 2px;
+          }
+        }
+      }
+      .activityiconcontainer {
+        display: none !important;
+      }
+      h4 a {
+        color: $cl-gray;
+        font-weight: bold;
+      }
+      .date,
+      .date a {
+        color: $cl-graylight;
+      }
     }
   }
 }
@@ -1157,60 +1239,6 @@ $modal-button-height: 55px;
       @include responsive-style(768px) {
         border-radius: 0px;
         padding: 0px 15px 48px !important;
-      }
-    }
-    #todays-event-class-scheduled,
-    #dashboard-main-upcoming-class-scheduled {
-      display: flex;
-      flex-direction: column;
-      gap: 15px;
-    }
-    .dashboard-main-class-content-lesson {
-      padding: 16px;
-      // border: 1px solid $cl-graylight;
-      border-radius: $border-radius-middle;
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-      @include lms-boxshadow;
-      &.philosophy {
-        border-left: 4px $cl-philosophy solid;
-        border-radius: 2px;
-      }
-      &.science {
-        border-left: 4px $cl-science solid;
-        border-radius: 2px;
-      }
-
-      &.economy {
-        border-left: 4px $cl-economy solid;
-        border-radius: 2px;
-      }
-      &.english {
-        border-left: 4px $cl-english solid;
-        border-radius: 2px;
-      }
-      &.programming {
-        border-left: 4px $cl-programming solid;
-        border-radius: 2px;
-      }
-    }
-    #todays-event-class-scheduled {
-      a {
-        @include button-size-middle;
-        @include button-style-primary;
-        outline: none;
-        border: none;
-        width: 100%;
-      }
-    }
-    .dashboard-main-class-content-lesson-title {
-      color: $cl-gray;
-      font-weight: bold;
-    }
-    .dashboard-main-class-content-lesson-details {
-      span:first-child {
-        margin: 0 10px 0 0;
       }
     }
   }
