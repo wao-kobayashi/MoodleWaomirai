@@ -5993,6 +5993,9 @@ html[data-tenantidnumber=lmswaomirai] .pagelayout-mydashboard .block-region {
     max-width: 100% !important;
   }
 }
+html[data-tenantidnumber=lmswaomirai] .pagelayout-mydashboard .block_calendar_upcoming {
+  display: none !important;
+}
 html[data-tenantidnumber=lmswaomirai] .pagelayout-mydashboard #dashboard-sp-content .dashboard-left {
   position: relative !important;
   width: 100%;
