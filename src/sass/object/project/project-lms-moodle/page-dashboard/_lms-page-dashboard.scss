@@ -156,6 +156,9 @@ $default-max-width: 1170px; // 最大幅
       max-width: 100% !important;
     }
   }
+  .block_calendar_upcoming {
+    display: none !important;
+  }
   #dashboard-sp-content {
     .dashboard-left {
       position: relative !important;
