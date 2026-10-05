@@ -10,8 +10,8 @@ if (bodyId === "page-my-index") {
     $('.dashboard-left').insertAfter('#block-region-content');
   }  
 
-  //科目を何も持っていない時の場合の処理
-  if (!hasBoughtMainSubject && !hasBoughtChildSubject) {
+  //科目を何も持っていない時の場合の処理（イベント期間中のイベント代理登録ユーザーは科目ありと同じ扱い）
+  if (!hasBoughtMainSubject && !hasBoughtChildSubject && !isEventParticipating) {
     // 今日のイベント科目とダッシュボードの未定義科目を表示
     $("#todays-event-subject-none,#dashboard-main-upcoming-class-none").show();
     // 今日の科目PCビューを非表示
@@ -146,10 +146,11 @@ if (bodyId === "page-my-index") {
 
   // エラーハンドリング：どの科目も購入していない場合
   if (!hasBoughtMainSubject && !hasBoughtChildSubject) {      
-      // エラーメッセージの表示
+      // エラーメッセージの表示（イベント期間中のイベント代理登録ユーザーはイベント参加中の表示にする）
+      const message = isEventParticipating ? "哲学イベント参加中" : "受講している科目がありません。";
       const errorHtml = `
           <div class="dashboard-left-block-subject-child">
-              <p>受講している科目がありません。</p>
+              <p>${message}</p>
           </div>
       `;
       $(".dashboard-left-block-wrap.dashboard-left-block-wrap-subject").html(errorHtml);

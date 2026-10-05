@@ -113,7 +113,15 @@ $(document).ready(function () {
 
     //用途
     //国内ユーザーと海外ユーザーで挙動を変えたい部分があるので、この講座を持っている人は海外ユーザーの扱いにする。
-    { id: 321, name: "abroad", key: "abroad",  type: "role"}
+    { id: 321, name: "abroad", key: "abroad",  type: "role"},
+
+    // ==============================
+    // イベント代理登録ユーザー専用の科目（通常ユーザーは購入できない
+    // ==============================
+
+    //用途
+    //イベントで代理登録したユーザーは科目を持っていなくても、科目を持っているユーザーと同じダッシュボード表示にしたいので、この講座を持っている人はイベントユーザーの扱いにする。
+    { id: 334, name: "イベント代理登録ユーザ", key: "event",  type: "role"}
   ]
 
 
@@ -134,6 +142,7 @@ const EndTimeDisabledFee = '14:00';   // 受講登録手続きを行えない終
 const NowDate = new Date(); // 現在の日時
 const DayOfMonth = parseInt(NowDate.toLocaleString('ja-JP', { timeZone: 'Asia/Tokyo', day: '2-digit' }).replace('日', '')); // 現在の日
 const AmazonGiftFreeCampaignEnd = new Date('2026-01-31T12:00:00+09:00'); // 日本時間
+const EventPeriodEnd = new Date('2026-12-01T23:59:59+09:00'); // イベント代理登録ユーザーの「イベント参加中」表示の終了日時（日本時間）
 
 // ==============================
 // Liff系
@@ -329,6 +338,14 @@ if(hasBoughtAdminSubject){
  // 国内ユーザーと海外ユーザーで挙動を変えたい部分があるので、海外ユーザーの講座を持っている人は海外ユーザーの扱いにする。
 const hasBoughtAbroadSubject= checkGroup((subject) => subject.key === "abroad");
 
+// イベント代理登録ユーザーの講座を持っているかを判定
+// イベントで代理登録したユーザーは科目を持っていなくても、科目なしユーザーとは別の挙動にしたいので、この講座を持っている人はイベントユーザーの扱いにする。
+const hasBoughtEventSubject= checkGroup((subject) => subject.key === "event");
+
+// イベント期間中のイベント代理登録ユーザーかを判定
+// 期間はassets.jsのEventPeriodEndで設定
+const isEventParticipating = hasBoughtEventSubject && NowDate <= EventPeriodEnd;
+
 // ==============================
 // 海外ユーザーチェック関数
 // ==============================
@@ -484,8 +501,8 @@ if (bodyId === "page-my-index") {
     $('.dashboard-left').insertAfter('#block-region-content');
   }  
 
-  //科目を何も持っていない時の場合の処理
-  if (!hasBoughtMainSubject && !hasBoughtChildSubject) {
+  //科目を何も持っていない時の場合の処理（イベント期間中のイベント代理登録ユーザーは科目ありと同じ扱い）
+  if (!hasBoughtMainSubject && !hasBoughtChildSubject && !isEventParticipating) {
     // 今日のイベント科目とダッシュボードの未定義科目を表示
     $("#todays-event-subject-none,#dashboard-main-upcoming-class-none").show();
     // 今日の科目PCビューを非表示
@@ -620,10 +637,11 @@ if (bodyId === "page-my-index") {
 
   // エラーハンドリング：どの科目も購入していない場合
   if (!hasBoughtMainSubject && !hasBoughtChildSubject) {      
-      // エラーメッセージの表示
+      // エラーメッセージの表示（イベント期間中のイベント代理登録ユーザーはイベント参加中の表示にする）
+      const message = isEventParticipating ? "哲学イベント参加中" : "受講している科目がありません。";
       const errorHtml = `
           <div class="dashboard-left-block-subject-child">
-              <p>受講している科目がありません。</p>
+              <p>${message}</p>
           </div>
       `;
       $(".dashboard-left-block-wrap.dashboard-left-block-wrap-subject").html(errorHtml);
