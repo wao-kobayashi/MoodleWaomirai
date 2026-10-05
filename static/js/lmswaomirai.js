@@ -485,8 +485,8 @@ if (bodyId === "page-my-index") {
     $('.dashboard-left').insertAfter('#block-region-content');
   }  
 
-  //科目を何も持っていない時の場合の処理（イベント代理登録ユーザーは科目ありと同じ扱い）
-  if (!hasBoughtMainSubject && !hasBoughtChildSubject && !hasBoughtEventSubject) {
+  //科目を何も持っていない時の場合の処理（イベント期間中のイベント代理登録ユーザーは科目ありと同じ扱い）
+  if (!hasBoughtMainSubject && !hasBoughtChildSubject && !isEventParticipating) {
     // 今日のイベント科目とダッシュボードの未定義科目を表示
     $("#todays-event-subject-none,#dashboard-main-upcoming-class-none").show();
     // 今日の科目PCビューを非表示
