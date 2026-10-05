@@ -111,6 +111,12 @@ $default-max-width: 1170px; // 最大幅
   .dashboard-textblock::-webkit-scrollbar {
     display: none;
   }
+  .dashboard-textblock {
+    // overflow: hidden;
+    // & {
+    //   display: none;
+    // }
+  }
   .card-title {
     margin: 0 -15px 16px !important;
     padding: 0px 35px 0px;
@@ -134,12 +140,6 @@ $default-max-width: 1170px; // 最大幅
       @include responsive-style(768px) {
         display: none;
       }
-    }
-  }
-  #block-region-content {
-    @include responsive-style(768px) {
-      display: flex;
-      flex-direction: column;
     }
   }
   .block-region {
@@ -890,16 +890,6 @@ $default-max-width: 1170px; // 最大幅
     }
     .hidden-desktop {
       display: none !important;
-    }
-  }
-  .block_html {
-    @include responsive-style(768px) {
-      order: -2;
-    }
-  }
-  .block_calendar_upcoming {
-    @include responsive-style(768px) {
-      order: -1;
     }
   }
 }
