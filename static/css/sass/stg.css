@@ -15135,6 +15135,11 @@ html[data-tenantidnumber=stg] #page-mod-page-view h2 {
   border-bottom: 1.5px dashed #999;
   margin: 0 0 45px;
 }
+@media screen and (max-width: 768px) {
+  html[data-tenantidnumber=stg] #page-mod-page-view h2 {
+    font-size: 28px !important;
+  }
+}
 html[data-tenantidnumber=stg] #page-mod-page-view h3 {
   font-size: 20px;
   color: #262626;
@@ -15198,6 +15203,12 @@ html[data-tenantidnumber=stg] #page-mod-page-view .howto-button a {
   border: none !important;
   width: 85%;
   margin: 0 auto 30px;
+}
+@media screen and (max-width: 768px) {
+  html[data-tenantidnumber=stg] #page-mod-page-view .howto-button a {
+    font-size: 18px !important;
+    height: 54px !important;
+  }
 }
 html[data-tenantidnumber=stg] #page-mod-page-view .howto-button a .material-symbols-outlined {
   font-size: 16px;
