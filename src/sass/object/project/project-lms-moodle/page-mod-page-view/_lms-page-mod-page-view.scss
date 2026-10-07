@@ -38,6 +38,9 @@ $howto-page-width: 680px;
     padding: 0 0 10px;
     border-bottom: 1.5px dashed $cl-graylight;
     margin: 0 0 45px;
+    @include responsive-style(768px) {
+      font-size: 28px !important;
+    }
   }
   h3 {
     @include text-l-black;
@@ -80,6 +83,11 @@ $howto-page-width: 680px;
     @include button-style-primary;
     width: 85%;
     margin: 0 auto 30px;
+    @include responsive-style(768px) {
+      font-size: 18px !important;
+      height: 54px !important;
+    }
+
     .material-symbols-outlined {
       font-size: 16px;
       margin: 3px 0 0 6px;
