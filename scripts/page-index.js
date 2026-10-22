@@ -3,16 +3,17 @@
 // 各ページ Pug の先頭に、出力されないコメント（//-）でメタ情報を書く:
 //   //- @title 1科目購入（哲学）               … 一覧に出すリンク名（無いページは「@title 未設定」に出る）
 //   //- @group １科目購入                       … カテゴリ内の小見出し（省略可）
-//   //- @order 30                             … カテゴリ内の並び順（小さい順、省略時は末尾）
 //   //- @link ?params=htmlCopy 哲学（何も買っていない）htmlコピペ用  … クエリ付きの追加リンクとリンク名（複数可）
 //   //- @hidden                               … 一覧に出さない
 //
 // カテゴリ（h3 見出し）はディレクトリから決まる。対応は下の CATEGORIES で管理する。
+// カテゴリ内の並び順は src/pug/_page-order.js（目次ファイル）に書いた順。
 
 const fs = require('fs');
 const path = require('path');
 
 const SRC = 'src/pug/lms-moodle';
+const ORDER_FILE = path.resolve('src/pug/_page-order.js');
 
 // 一覧に出す順番。moodleIds は開発時の検索・画面識別用に表示する Moodle のページID
 const CATEGORIES = [
@@ -51,8 +52,6 @@ function readMeta(file) {
             meta.links.push({ query, label: label.join(' ') });
         } else if (key === 'hidden') {
             meta.hidden = true;
-        } else if (key === 'order') {
-            meta.order = Number(value);
         } else {
             meta[key] = value;
         }
@@ -62,23 +61,34 @@ function readMeta(file) {
 
 // [{ title, moodleIds, groups: [{ name, links: [{ href, label, untitled }] }] }] を返す
 function collectPageIndex() {
+    // watch 中に目次ファイルが編集されても反映されるよう、毎回読み直す
+    delete require.cache[ORDER_FILE];
+    const order = require(ORDER_FILE);
+
     const categories = CATEGORIES.map((c) => ({ ...c, pages: [] }));
     const others = { dirs: [], title: '未分類', moodleIds: '', pages: [] };
 
-    findPages(SRC).forEach((file) => {
+    const files = findPages(SRC);
+    files.forEach((file) => {
         const meta = readMeta(file);
         if (meta.hidden) return;
         const href = path.relative(SRC, file).split(path.sep).join('/').replace(/\.pug$/, '.html');
         const dir = href.split('/')[0];
         const category = categories.find((c) => c.dirs.includes(dir)) || others;
-        category.pages.push({ href, meta });
+        category.pages.push({ href, meta, order: order.indexOf(href.replace(/\.html$/, '')) });
+    });
+
+    const pagePaths = files.map((file) => path.relative(SRC, file).split(path.sep).join('/').replace(/\.pug$/, ''));
+    order.filter((page) => !pagePaths.includes(page)).forEach((page) => {
+        console.warn(`[page-index] _page-order.js のページが見つかりません: ${page}`);
     });
 
     return [...categories, others].filter((c) => c.pages.length > 0).map((category) => {
-        // @title が無いページは末尾の「@title 未設定」グループにファイル名で出す
+        // 目次ファイルに無いページはその後ろ、@title が無いページは末尾の「@title 未設定」グループにファイル名で出す
+        const rank = (page) => (page.order === -1 ? Infinity : page.order);
         const sorted = category.pages.sort((a, b) =>
             (!a.meta.title - !b.meta.title) ||
-            ((a.meta.order ?? Infinity) - (b.meta.order ?? Infinity)) ||
+            (rank(a) - rank(b)) ||
             a.href.localeCompare(b.href));
 
         const groups = [];

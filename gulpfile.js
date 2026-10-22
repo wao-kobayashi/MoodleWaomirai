@@ -106,7 +106,7 @@ function serve() {
         done();
     }));
     
-    gulp.watch(['src/pug/index.pug','src/pug/index-contact.pug'], gulp.series(pugIndexPage,pugIndexContact,  (done) => {
+    gulp.watch(['src/pug/index.pug','src/pug/_page-order.js','src/pug/index-contact.pug'], gulp.series(pugIndexPage,pugIndexContact,  (done) => {
       browserSync.reload();
       done();
    }));
