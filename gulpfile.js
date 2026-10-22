@@ -14,6 +14,7 @@ const fs = require('fs').promises;
 const replace = require('gulp-replace');
 const path = require('path');
 const { spawn } = require('child_process');
+const { createPugDeps } = require('./scripts/pug-deps');
 const concat = require('gulp-concat');  
 
 // パスの設定
@@ -104,12 +105,6 @@ function serve() {
         done();
     }));
     
-    // パーシャル変更時は stg / lms 両方の全ページを更新
-    gulp.watch(['src/pug/lms-moodle/**/_*.pug'], gulp.series(pugMoodle,  (done) => {
-        browserSync.reload();
-        done();
-    }));
-
     gulp.watch(['src/pug/index.pug','src/pug/index-contact.pug'], gulp.series(pugIndexPage,pugIndexContact,  (done) => {
       browserSync.reload();
       done();
@@ -119,17 +114,31 @@ function serve() {
     browserSync.reload();
     done();
     }));
-    //単体ファイルの時は単体更新
-    gulp.watch(['src/pug/lms-moodle/**/*.pug','!src/pug/lms-moodle/**/_*.pug'])
-        .on('change', file => buildPug([file]).on('exit', () => browserSync.reload()))
-        .on('add', file => buildPug([file]).on('exit', () => browserSync.reload()));
+    // lms-moodle の Pug は、変更ファイルに include / extends で依存しているページだけ更新
+    // （依存関係を特定できないときは全ページ）
+    const pugDeps = createPugDeps('src/pug/lms-moodle');
+    const onPugChange = (removed) => (file) => {
+        const pages = pugDeps.affectedPages(file, { removed });
+        if (pages === null) {
+            console.log('[pug] 依存関係を特定できないため全ページをビルドします');
+        } else if (pages.length === 0) {
+            return; // どのページからも使われていないパーシャル
+        } else {
+            console.log(`[pug] ${pages.length}ページをビルドします`);
+        }
+        buildPug(pages || []).on('exit', () => browserSync.reload());
+    };
+    gulp.watch([srcpaths.pug])
+        .on('change', onPugChange(false))
+        .on('add', onPugChange(false))
+        .on('unlink', onPugChange(true));
     gulp.watch(srcpaths.js, gulp.series(splitJs, (done) => {
         browserSync.reload();
         done();
     }));
 }
 
-// stg, lms専用のPugタスク（scripts/build-pug.js で並列ビルド）
+// stg, lms専用のPugタスク（scripts/build-pug.js で並列ビルド、files が空なら全ページ）
 function buildPug(files = []) {
   return spawn('node', ['scripts/build-pug.js', ...files], { stdio: 'inherit' });
 }
