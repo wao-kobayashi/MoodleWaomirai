@@ -1,6 +1,7 @@
 // lms-moodle の Pug の include / extends 依存関係を管理するモジュール
 // - 起動時に全 Pug を字句解析し「参照先 → 参照元」の逆引きマップを作る
 // - 変更されたファイルから逆方向にたどり、再ビルドが必要なページ（_ で始まらない Pug）を返す
+// - 起動時用に、出力 HTML より新しいソースを持つページも返せる
 // - 安全に特定できない場合は null を返す（呼び出し側で全ページビルドにする）
 
 const fs = require('fs');
@@ -70,7 +71,8 @@ function createPugDeps(srcDir) {
         });
     }
 
-    findPugFiles(path.resolve(srcDir)).forEach(update);
+    const root = path.resolve(srcDir);
+    findPugFiles(root).forEach(update);
 
     // 変更（追加・削除を含む）されたファイルの影響を受けるページを返す。特定できなければ null
     function affectedPages(changedFile, { removed = false } = {}) {
@@ -93,7 +95,34 @@ function createPugDeps(srcDir) {
         return [...visited].filter(isPage).map((f) => path.relative(process.cwd(), f));
     }
 
-    return { affectedPages };
+    // 出力 HTML より新しいソース（ページ本体と、再帰的に参照している Pug）を持つページを返す
+    // outDirs のどれかに出力が無いページも対象。特定できなければ null
+    function stalePages(outDirs) {
+        if (unparsable.size > 0) return null;
+        const mtime = (file, ifMissing) => {
+            try { return fs.statSync(file).mtimeMs; } catch { return ifMissing; }
+        };
+
+        return [...refsOf.keys()].filter(isPage).filter((page) => {
+            const sources = new Set([page]);
+            const queue = [page];
+            while (queue.length > 0) {
+                (refsOf.get(queue.shift()) || []).forEach((ref) => {
+                    if (sources.has(ref)) return;
+                    sources.add(ref);
+                    queue.push(ref);
+                });
+            }
+            // ソースが見つからなければ常に新しい扱い、出力が無ければ常に古い扱い（多めにビルドする側に倒す）
+            const newestSource = Math.max(...[...sources].map((f) => mtime(f, Infinity)));
+            return outDirs.some((dir) => {
+                const out = path.join(dir, path.relative(root, page)).replace(/\.pug$/, '.html');
+                return mtime(out, -Infinity) < newestSource;
+            });
+        }).map((f) => path.relative(process.cwd(), f));
+    }
+
+    return { affectedPages, stalePages };
 }
 
 module.exports = { createPugDeps };

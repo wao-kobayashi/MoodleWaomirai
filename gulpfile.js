@@ -116,9 +116,8 @@ function serve() {
     }));
     // lms-moodle の Pug は、変更ファイルに include / extends で依存しているページだけ更新
     // （依存関係を特定できないときは全ページ）
-    const pugDeps = createPugDeps('src/pug/lms-moodle');
     const onPugChange = (removed) => (file) => {
-        const pages = pugDeps.affectedPages(file, { removed });
+        const pages = getPugDeps().affectedPages(file, { removed });
         if (pages === null) {
             console.log('[pug] 依存関係を特定できないため全ページをビルドします');
         } else if (pages.length === 0) {
@@ -144,6 +143,28 @@ function buildPug(files = []) {
 }
 function pugMoodle() {
   return buildPug();
+}
+
+// 依存関係マップは起動時タスクと watch で共有する
+let pugDeps;
+function getPugDeps() {
+  if (!pugDeps) pugDeps = createPugDeps('src/pug/lms-moodle');
+  return pugDeps;
+}
+
+// 起動時用：出力 HTML より新しいソースを持つページだけビルド（特定できなければ全ページ）
+function pugMoodleStale() {
+  const pages = getPugDeps().stalePages([dstpaths.stg, dstpaths.lmswaomirai]);
+  if (pages === null) {
+    console.log('[pug] 依存関係を特定できないため全ページをビルドします');
+    return buildPug();
+  }
+  if (pages.length === 0) {
+    console.log('[pug] 更新が必要なページはありません');
+    return Promise.resolve();
+  }
+  console.log(`[pug] ${pages.length}ページをビルドします`);
+  return buildPug(pages);
 }
 
 function pugDefalutTenant() {
@@ -182,10 +203,11 @@ function scss() {
 }
 
 // デフォルトタスク
-exports.default = gulp.series(scss, pugMoodle, pugIndexPage, pugIndexContact, serve);
+exports.default = gulp.series(scss, pugMoodleStale, pugIndexPage, pugIndexContact, serve);
 exports.scss = scss;
 exports.splitJs = splitJs;
 exports.pugMoodle = pugMoodle;
+exports.pugMoodleStale = pugMoodleStale;
 exports.pugDefalutTenant = pugDefalutTenant;
 exports.pugIndexPage = pugIndexPage;
 exports.pugAll = gulp.series(pugMoodle, pugDefalutTenant, pugIndexPage, pugIndexContact);
