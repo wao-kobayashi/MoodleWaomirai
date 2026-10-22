@@ -15,6 +15,7 @@ const replace = require('gulp-replace');
 const path = require('path');
 const { spawn } = require('child_process');
 const { createPugDeps } = require('./scripts/pug-deps');
+const { collectPageIndex } = require('./scripts/page-index');
 const concat = require('gulp-concat');  
 
 // パスの設定
@@ -118,6 +119,8 @@ function serve() {
     // （依存関係を特定できないときは全ページ）
     const onPugChange = (removed) => (file) => {
         const pages = getPugDeps().affectedPages(file, { removed });
+        // ページの追加・削除・メタ情報の変更を一覧ページに反映
+        if (!path.basename(file).startsWith('_')) pugIndexPage().on('finish', () => browserSync.reload());
         if (pages === null) {
             console.log('[pug] 依存関係を特定できないため全ページをビルドします');
         } else if (pages.length === 0) {
@@ -174,10 +177,11 @@ function pugDefalutTenant() {
         .pipe(gulp.dest("./moodle-defaluttenant")); 
   }
 
+// 一覧ページ：lms-moodle の各ページのメタ情報から生成したリンク一覧を pageIndex として渡す
 function pugIndexPage() {
   return gulp.src(['src/pug/index.pug'])
       .pipe(plumber())
-      .pipe(pug({ plugins: [pugbem] }))
+      .pipe(pug({ plugins: [pugbem], data: { pageIndex: collectPageIndex() } }))
       .pipe(gulp.dest("./")); 
 }
 function pugIndexContact() {

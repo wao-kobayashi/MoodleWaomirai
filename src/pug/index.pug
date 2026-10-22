@@ -1,367 +1,112 @@
-//
+//- WAO未来塾関連のページ一覧
+//- lms-moodle のリンク一覧は scripts/page-index.js が各ページ先頭のメタ情報（//- @title など）から
+//- 自動生成し、locals の pageIndex として渡される。リンクを追加・変更するときは各ページの Pug を編集する
 doctype html
-html(lang="jp")
+html(lang="ja")
   head
+    meta(charset="UTF-8")
+    title WAO未来塾関連のページ一覧
+    meta(name="viewport", content="width=device-width, initial-scale=1,minimum-scale=1.0, maximum-scale=1.0, user-scalable=no")
+    meta(name="robots", content="noindex,nofollow")
+    meta(name="apple-mobile-web-app-capable", content="yes")
+    meta(name="apple-mobile-web-app-status-bar-style", content="black-translucent")
+    style.
+      /* Moodle Listの基本スタイル */
+      .moodle-list {
+        font-family: Arial, sans-serif;
+        padding-left: 20px;
+        list-style: none;
+      }
+
+      .moodle-list > li {
+        margin-bottom: 10px;
+      }
+
+      /* 階層構造のインデント */
+      .moodle-list li > ul {
+        margin-left: 0px;
+        margin-top:10px;
+      }
+
+      .moodle-list li > ul li {
+        margin-bottom: 5px;
+      }
+
+      /* リンクのスタイル */
+      .moodle-list a {
+        color: #0073e6;
+        text-decoration: none;
+      }
+
+      .moodle-list a:hover {
+        text-decoration: underline;
+      }
+
+      /* セクションごとのスタイル */
+      .moodle-list li > ul > li {
+        font-size: 14px;
+        color: #333;
+      }
+
+      /* セクションタイトルのスタイル */
+      .moodle-list li > ul > li > a {
+        padding-left: 10px;
+      }
+
+      /* 最後のリストアイテムに余白を追加 */
+      .moodle-list li:last-child {
+        margin-bottom: 20px;
+      }
+      h3{
+        margin:0 0 4px;
+      }
+      .moodle-list-category{
+        color:#999;
+        font-size:12px;
+        margin:0 0 4px;
+      }
+      .moodle-list-group{
+        font-size:87%;
+        margin:20px 0 0 20px;
+      }
+      /* @title 未設定のページ */
+      .moodle-list a.is-untitled {
+        color: #c00;
+      }
+
   body
-    heads
-      title WAO未来塾関連のページ一覧
-      link(href="../static/css/application.css?undefined", rel="stylesheet")
-      meta(name="viewport", content="width=device-width, initial-scale=1,minimum-scale=1.0, maximum-scale=1.0, user-scalable=no")
-      meta(charset="UTF-8")
-      meta(name="robots", content="noindex,nofollow")
-      meta(name="apple-mobile-web-app-capable", content="yes")
-      meta(name="apple-mobile-web-app-status-bar-style", content="black-translucent")
-      script(src="https://cdnjs.cloudflare.com/ajax/libs/jQuery-rwdImageMaps/1.6/jquery.rwdImageMaps.min.js")
-      style.
-              /* Moodle Listの基本スタイル */
-        .moodle-list {
-          font-family: Arial, sans-serif;
-          padding-left: 20px;
-          list-style: none;
-        }
-
-        .moodle-list > li {
-          margin-bottom: 10px;
-        }
-
-        /* 階層構造のインデント */
-        .moodle-list li > ul {
-          margin-left: 0px;
-          margin-top:10px;
-        }
-
-        .moodle-list li > ul li {
-          margin-bottom: 5px;
-        }
-
-        /* リンクのスタイル */
-        .moodle-list a {
-          color: #0073e6;
-          text-decoration: none;
-        }
-
-        .moodle-list a:hover {
-          text-decoration: underline;
-        }
-
-        /* セクションごとのスタイル */
-        .moodle-list li > ul > li {
-          font-size: 14px;
-          color: #333;
-        }
-
-        .moodle-list > li > span {
-          font-weight: bold;
-        }
-
-        .moodle-list li > span {
-          font-size: 16px;
-          margin-bottom: 5px;
-          display: block;
-        }
-
-        /* セクションタイトルのスタイル */
-        .moodle-list li > ul > li > a {
-          padding-left: 10px;
-        }
-
-        /* 最後のリストアイテムに余白を追加 */
-        .moodle-list li:last-child {
-          margin-bottom: 20px;
-        }
-        h3{
-          margin:0 0 4px;
-        }
-        .moodle-list-category{
-          color:#999;
-          font-size:12px;
-           margin:0 0 4px;
-        }
-
-      //- モジュール化されたリスト出力部分
-      //- 各セクションは「h3 見出し」+「.moodle-list-category(ID一覧)」+「リンクUL」の構成
-      //- .moodle-list-category には該当セクションに対応するページIDをカンマ区切りで記載し、
-      //- 開発時の検索・画面識別・E2Eテスト時の参照用メタデータとして使う
+    //- 各カテゴリは「h3 見出し」+「.moodle-list-category(ID一覧)」+「小見出しごとのリンクUL」の構成
+    //- .moodle-list-category には該当カテゴリに対応するページIDをカンマ区切りで記載し、
+    //- 開発時の検索・画面識別・E2Eテスト時の参照用メタデータとして使う
     mixin moodleList(environment)
-        h2 
-         |#{environment}
-        ul.moodle-list
-              li
-                h3|moodleログイン
-                .moodle-list-category|#page-login-signup,#page-login-index,#page-login-signup
-                ul
+      h2= environment
+      ul.moodle-list
+        each category in pageIndex
+          li
+            h3= category.title
+            if category.moodleIds
+              .moodle-list-category= category.moodleIds
+            each group in category.groups
+              if group.name
+                .moodle-list-group= group.name
+              ul
+                each link in group.links
                   li
-                    a(href=`${environment}/signup/page-moodle-login.html`) ログイン
-                  li
-                    a(href=`${environment}/signup/page-moodle-forgot-password.html`) パスワード紛失
-                  li 
-                    a(href=`${environment}/signup/page-moodle-signup-input.html`) 入力画面
-                  li 
-                    a(href=`${environment}/signup/page-moodle-signup-temporary.html`) 仮登録
-                  li 
-                    a(href=`${environment}/signup/page-moodle-signup-complate.html`) 完了
-
-              li 
-                h3|ホーム
-                .moodle-list-category|#page-index-guest,#page-index-logged-in-purchased,#page-index-logged-in-perchaced
-                ul
-                  li
-                    a(href=`${environment}/index/page-index-guest.html`) ゲスト
-                  li 
-                    a(href=`${environment}/index/page-index-logged-in-purchased.html`) ログイン済
-                  li 
-                    a(href=`${environment}/index/page-index-logged-in-perchaced.html`) 購入済み
-
-              li
-                h3|ダッシュボード
-                .moodle-list-category|#page-my-index
-                div(style='font-size:87%; margin:20px 0 0 20px;') 
-                    |JSなし、ダッシュボードコピペ用
-                ul
-                  li
-                    a(href=`${environment}/dashboard/page-nojs.html`) JSなし、ダッシュボードコピペ用
-                div(style='font-size:87%; margin:20px 0 0 20px;') 
-                    |何も買っていない
-                ul
-                  li
-                    a(href=`${environment}/dashboard/page-single-none.html`) 何も買っていない
-                  li
-                    a(href=`${environment}/dashboard/page-single-event.html`) 科目なし（イベント代理登録ユーザ）
-                div(style='font-size:87%; margin:0 0 0 20px;') 
-                    |１科目購入
-                ul
-                  li 
-                    a(href=`${environment}/dashboard/page-single-ph.html`) １科目購入（哲学）
-                  li 
-                    a(href=`${environment}/dashboard/page-single-sc.html`) １科目購入（科学）
-                  li 
-                    a(href=`${environment}/dashboard/page-single-ec.html`) １科目購入（経済）
-                  li 
-                    a(href=`${environment}/dashboard/page-single-en.html`) １科目購入（英語）
-                  li 
-                    a(href=`${environment}/dashboard/page-single-pr.html`) １科目購入（プログラミング）
-                  li 
-                    a(href=`${environment}/dashboard/page-single-two.html`) １科目購入（2科目パック）
-                  li 
-                    a(href=`${environment}/dashboard/page-single-three.html`) １科目購入（3科目パック）
-                div(style='font-size:87%; margin:20px 0 0 20px;') 
-                    |サブ科目購入
-                ul
-                  li 
-                    a(href=`${environment}/dashboard/page-multi-sc-sc2.html`) 科学＋科学L2
-                  li 
-                    a(href=`${environment}/dashboard/page-multi-sc-sc2-en.html`) 科学＋科学L2＋英語
-                  li 
-                    a(href=`${environment}/dashboard/page-multi-sc-sc2-ec.html`) 科学＋科学L2＋経済
-                  li 
-                    a(href=`${environment}/dashboard/page-multi-two-sc2-ec2.html`) ２科目＋科学L2＋経済L2
-                  li 
-                    a(href=`${environment}/dashboard/page-multi-three-sc3-ec3-ph3.html`) ３科目＋哲学L3＋科学L3＋経済L3
-                div(style='font-size:87%; margin:20px 0 0 20px;') 
-                    |カレンダー検証
-                ul
-                  li 
-                    a(href=`${environment}/dashboard/page-calender-01none.html`) 01_今日予定なし｜明日以降予定なし
-                  li 
-                    a(href=`${environment}/dashboard/page-calender-02todayonly.html`) 02_今日予定あり｜明日以降予定なし
-                  li 
-                    a(href=`${environment}/dashboard/page-calender-03aftertomorrow.html`) 03_今日予定なし｜明日以降予定あり
-                  li 
-                    a(href=`${environment}/dashboard/page-calender-04today_after.html`) 04_今日予定あり｜明日以降予定あり
-                  li 
-                    a(href=`${environment}/dashboard/page-calender-05modal.html`) 05_今日予定あり｜明日以降予定あり
-              li
-                h3|科目購入
-                .moodle-list-category|#page-enrol-index
-                div(style='font-size:87%; margin:20px 0 0 20px;') 
-                  |哲学
-                ul
-                  li
-                    a(href=`${environment}/course-enrol/page-enrol-ph-none.html?params=htmlCopy`) 哲学（何も買っていない）htmlコピペ用
-                  li
-                    a(href=`${environment}/course-enrol/page-enrol-ph-none.html`) 哲学（何も買っていない）
-                  li
-                    a(href=`${environment}/course-enrol/page-enrol-ph-sc.html`) 哲学（科学購入済）
-                  li
-                    a(href=`${environment}/course-enrol/page-enrol-ph-two.html`) 哲学（2科目セット購入済）
-                  li
-                    a(href=`${environment}/course-enrol/page-enrol-ph-three.html`) 哲学（3科目セット購入済）
-                  li
-                    a(href=`${environment}/course-enrol/page-enrol-ph-trialend.html`) 哲学（初月無料終了）
-                div(style='font-size:87%; margin:20px 0 0 20px;') 
-                  |科学
-                ul
-                  li
-                    a(href=`${environment}/course-enrol/page-enrol-sc-none.html?params=htmlCopy`) 科学（何も買っていない）htmlコピペ用
-                  li
-                    a(href=`${environment}/course-enrol/page-enrol-sc-none.html`) 科学（何も買っていない）
-
-                div(style='font-size:87%; margin:20px 0 0 20px;') 
-                  |経済
-                ul
-                  li
-                    a(href=`${environment}/course-enrol/page-enrol-ec-none.html?params=htmlCopy`) 経済（何も買っていない）htmlコピペ用
-                  li
-                    a(href=`${environment}/course-enrol/page-enrol-ec-none.html`) 経済（何も買っていない）
-
-                div(style='font-size:87%; margin:20px 0 0 20px;') 
-                  |英語
-                ul
-                  li
-                    a(href=`${environment}/course-enrol/page-enrol-en.html`) 英語（何も買っていない）
-                  li
-                    a(href=`${environment}/course-enrol/page-enrol-en-trialend.html`) 英語（初月無料終了）
-                div(style='font-size:87%; margin:20px 0 0 20px;') 
-                  |2科目パック
-                ul
-                  li
-                    a(href=`${environment}/course-enrol/page-enrol-two-none.html?params=htmlCopy`) 2科目パック（何も買っていない）htmlコピペ用
-                  li
-                    a(href=`${environment}/course-enrol/page-enrol-two-none.html`) 2科目パック（何も買っていない）
-                  li
-                    a(href=`${environment}/course-enrol/page-enrol-two-sc.html`) 2科目パック（科学購入済）
-                  li
-                    a(href=`${environment}/course-enrol/page-enrol-two-ec.html`) 2科目パック（経済購入済）
-                  li
-                    a(href=`${environment}/course-enrol/page-enrol-two-three.html`) 2科目パック（3科目セット購入済）
-                div(style='font-size:87%; margin:20px 0 0 20px;') 
-                  |3科目パック
-                ul
-                  li
-                    a(href=`${environment}/course-enrol/page-enrol-three-none.html?params=htmlCopy`) 3科目パック（何も買っていない）htmlコピペ用
-                  li
-                    a(href=`${environment}/course-enrol/page-enrol-three-none.html`) 3科目パック（何も買っていない）
-                  li
-                    a(href=`${environment}/course-enrol/page-enrol-three-sc.html`) 3科目パック（科学購入済）
-                  li
-                    a(href=`${environment}/course-enrol/page-enrol-three-ec.html`) 3科目パック（経済購入済）
-                  li
-                    a(href=`${environment}/course-enrol/page-enrol-three-two.html`) 3科目パック（2科目セット購入済）
-                  li
-                    a(href=`${environment}/course-enrol/page-enrol-three-trialend.html`) 3科目パック（初月無料終了)
-              li
-                h3|購入した後の科目ページ（course-view-topics）
-                .moodle-list-category|#page-course-view-topics
-                include lms-moodle/page-course-view-topics/_id-user-edit.pug
-                ul
-                  each item in useredit
-                    li
-                      a(href=`${environment}/page-course-view-topics/${item.id}.html`) #{item.SubjectPageTitle}
-              li
-                h3|授業受講
-                .moodle-list-category|#page-mod-questionnaire-view
-                ul
-                  li
-                    a(href=`${environment}/path-mod-questionnaire/page-path-mod-questionnaire-detail-ph-level1.html`) 授業受講｜哲学 レベル1
-                  li
-                    a(href=`${environment}/path-mod-questionnaire/page-path-mod-questionnaire-detail-sc-level3.html`) 授業受講｜科学 レベル3
-                  li
-                    a(href=`${environment}/path-mod-questionnaire/page-path-mod-questionnaire-detail-nocontent.html`) 授業受講｜コンテンツなし
-                  li
-                    a(href=`${environment}/path-mod-questionnaire/page-path-mod-questionnaire-archive.html`) 授業受講のアーカイブ
-                  li
-                    a(href=`${environment}/path-mod-questionnaire/page-path-mod-questionnaire-question-english.html`) 授業受講の質問（英語）
-                  li
-                    a(href=`${environment}/path-mod-questionnaire/page-path-mod-questionnaire-question-science.html`) 授業受講の質問（科学）
-                  li
-                    a(href=`${environment}/path-mod-questionnaire/page-path-mod-questionnaire-finish-english.html`) 質問回答後（英語）
-                  li
-                    a(href=`${environment}/path-mod-questionnaire/page-path-mod-questionnaire-finish-science.html`) 質問回答後（科学）
-                  li
-                    a(href=`${environment}/path-mod-questionnaire/parts-lesson.html`) 授業受講のパーツ（開発用）
-
-              li
-                |講座の受講ヘルプページ
-                ul
-                  li
-                    a(href=`${environment}/page-mod-page-view/page-help-01-how-to-attend-class-with-zoom.html`)  01_授業参加の流れとZoomの準備について
-                  li
-                    a(href=`${environment}/page-mod-page-view/page-help-01-how-to-attend-class.html`)  01_授業の参加方法
-                  li
-                    a(href=`${environment}/page-mod-page-view/page-help-02-course-calendar-empty.html`)  02_科目を購入しましたがカレンダーに授業予定が表示されません
-                  li
-                    a(href=`${environment}/page-mod-page-view/page-help-03-change-levels.html`)  03_授業レベルの変更方法
-                  li
-                    a(href=`${environment}/page-mod-page-view/page-help-04-watch-archive-class.html`)  04_アーカイブ動画の見方(使っていない)
-                  li
-                    a(href=`${environment}/page-mod-page-view/page-help-05-which-class-to-attend.html`)  05_１週間に同じ授業が２つあります。どれに参加すればいいですか？
-              li
-                h3|授業レベル設定ロジック
-                .moodle-list-category|#page-user-edit
-                div(style='font-size:87%; margin:20px 0 0 20px;') 
-                  | 何も買っていない
-                ul
-                  li
-                    a(href=`${environment}/page-user-edit/page-user-edit-template.html`) 何も買っていない
-                div(style='font-size:87%; margin:20px 0 0 20px;') 
-                  | サブ科目設定なし
-                ul
-                  li
-                    a(href=`${environment}/page-user-edit/ph-none.html`) 哲学
-                  li
-                    a(href=`${environment}/page-user-edit/sc-none.html`) 科学
-                  li
-                    a(href=`${environment}/page-user-edit/ec-none.html`) 経済
-                  li
-                    a(href=`${environment}/page-user-edit/en-none.html`) 英語
-                  //- li
-                  //-   a(href=`${environment}/page-user-edit/ph-and-sc.html`) 哲学＋科学
-                  //- li
-                  //-   a(href=`${environment}/page-user-edit/ph-and-ec.html`) 哲学＋経済
-                  //- li
-                  //-   a(href=`${environment}/page-user-edit/sc-and-ec.html`) 科学＋経済
-                  //- li
-                  //-   a(href=`${environment}/page-user-edit/sc-and-ec-and-ph.html`) 科学＋経済＋科学
-                  li
-                    a(href=`${environment}/page-user-edit/two-none.html`) 2科目セット
-                  li
-                    a(href=`${environment}/page-user-edit/three-none.html`) 3科目セット
-
-                div(style='font-size:87%; margin:20px 0 0 20px;') 
-                  h3| すでに登録
-                ul
-                  li
-                    a(href=`${environment}/page-user-edit/ph-register.html`) 哲学
-                  li
-                    a(href=`${environment}/page-user-edit/sc-register.html`) 科学
-                  li
-                    a(href=`${environment}/page-user-edit/ec-register.html`) 経済
-                  li
-                    a(href=`${environment}/page-user-edit/two-register.html`) 2科目セット
-                  li
-                    a(href=`${environment}/page-user-edit/three-register.html`) 3科目セット
-                  li
-                    a(href=`${environment}/page-user-edit/en-register.html`) 英語
-                  li
-                    a(href=`${environment}/page-user-edit/ph-register-eng-none.html`) 哲学＋哲学L1＋英語
-                  li
-                    a(href=`${environment}/page-user-edit/ph-register-eng-register.html`) 哲学＋哲学L1＋英語＋英語L1
-
-              li
-                h3|設定関連
-                .moodle-list-category|#page-mypage,#page-user-setting
-                ul
-                  li
-                    a(href=`${environment}/mypage/page-mypage.html`) マイページ
-                  li 
-                    a(href=`${environment}/setting/page-user-setting.html`) ユーザ設定
+                    a(href=`${environment}/${link.href}`, class=link.untitled ? 'is-untitled' : undefined)= link.label
 
     div(style="display:flex;width:calc(70% + 40px); margin:0 auto;display: grid;grid-template-columns: repeat(2, 1fr);grid-template-rows: 1fr;grid-column-gap: 30px;")
 
       div(style="padding:10px 20px 30px; box-shadow:0 5px 10px #ccc;")
-        block content
-          +moodleList('moodle-lms')
+        +moodleList('moodle-lms')
       div(style="padding:10px 20px 30px; box-shadow:0 5px 10px #ccc; position:relative;")
         div(style="position:absolute; width:100%; height:100%; font-size:16px; color:#fff; background:rgba(0,0,0,0.7); left:0; top:0; text-align:center;") <p style="margin:45px 0 0;">今は使わなさそう</p>
-        block content
-          +moodleList('moodle-stg')
+        +moodleList('moodle-stg')
     div(style="display:flex;width:calc(70% + 40px); margin:0 auto;")
-          div(style="padding:10px 20px 30px; margin:45px auto 45px; box-shadow:0 5px 10px #ccc; width:100%;")
-              h2 defalut-tenant(テスト)
-              ul.moodle-list
-                    li
-                      h3|moodleログイン
-                      .moodle-list-category|
-                      ul
-                        li
-                          a(href=`moodle-defaluttenant/index.html`) ログイン
+      div(style="padding:10px 20px 30px; margin:45px auto 45px; box-shadow:0 5px 10px #ccc; width:100%;")
+        h2 defalut-tenant(テスト)
+        ul.moodle-list
+          li
+            h3 moodleログイン
+            ul
+              li
+                a(href=`moodle-defaluttenant/index.html`) ログイン
