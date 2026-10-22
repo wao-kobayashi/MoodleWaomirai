@@ -12,9 +12,8 @@ const cssnext = require('postcss-cssnext');
 const rename = require('gulp-rename');
 const fs = require('fs').promises;
 const replace = require('gulp-replace');
-const data = require('gulp-data');
 const path = require('path');
-const newer = require('gulp-newer');
+const { spawn } = require('child_process');
 const concat = require('gulp-concat');  
 
 // パスの設定
@@ -61,7 +60,7 @@ async function splitJs(done) {
         const lmsVariableJsContent = await fs.readFile(path.resolve('src/js/00_lms-variable.js'), 'utf8');
 
         // stg.js 用
-        gulp.src(JS_FILES) 
+        const stgStream = gulp.src(JS_FILES) 
         .pipe(concat('moodle-combined.js'))
         .pipe(replace(/^/, `${stgVariableJsContent}\n`))
         .pipe(replace(/$/,
@@ -71,7 +70,7 @@ async function splitJs(done) {
         .pipe(gulp.dest(dstpaths.js));
 
         // lms.js作成
-        gulp.src(JS_FILES)  
+        const lmsStream = gulp.src(JS_FILES)  
             .pipe(concat('moodle-combined.js'))
             .pipe(replace(/^/, `${lmsVariableJsContent}\n`))
             .pipe(replace(/$/,
@@ -80,6 +79,10 @@ async function splitJs(done) {
             .pipe(rename('lmswaomirai.js'))
             .pipe(gulp.dest(dstpaths.js));
 
+        // 両方の書き出しが終わってから完了にする
+        await Promise.all([stgStream, lmsStream].map(stream => new Promise((resolve, reject) => {
+            stream.on('finish', resolve).on('error', reject);
+        })));
         done();
     } catch (err) {
         console.error('Error reading files:', err);
@@ -101,7 +104,8 @@ function serve() {
         done();
     }));
     
-    gulp.watch(['src/pug/lms-moodle/**/_*.pug'], gulp.series(pugLms,  (done) => {
+    // パーシャル変更時は stg / lms 両方の全ページを更新
+    gulp.watch(['src/pug/lms-moodle/**/_*.pug'], gulp.series(pugMoodle,  (done) => {
         browserSync.reload();
         done();
     }));
@@ -116,52 +120,21 @@ function serve() {
     done();
     }));
     //単体ファイルの時は単体更新
-    gulp.watch(['src/pug/lms-moodle/**/*.pug','!src/pug/lms-moodle/**/_*.pug'], gulp.series(pugStgSingle,pugLmsSingle,  (done) => {
-        browserSync.reload();
-        done();
-    }));
+    gulp.watch(['src/pug/lms-moodle/**/*.pug','!src/pug/lms-moodle/**/_*.pug'])
+        .on('change', file => buildPug([file]).on('exit', () => browserSync.reload()))
+        .on('add', file => buildPug([file]).on('exit', () => browserSync.reload()));
     gulp.watch(srcpaths.js, gulp.series(splitJs, (done) => {
         browserSync.reload();
         done();
     }));
 }
 
-// stg, lms専用のPugタスク
-function pugEnvTask(envValue, outputPath) {
-  return gulp.src(['src/pug/lms-moodle/**/*.pug', '!src/pug/lms-moodle/**/_*.pug'])
-      .pipe(plumber())
-      .pipe(data(() => ({ env: envValue })))  // 'env'に値を渡す
-      .pipe(pug({ plugins: [pugbem] }))
-      .pipe(gulp.dest(outputPath));  // 出力先を動的に変更
+// stg, lms専用のPugタスク（scripts/build-pug.js で並列ビルド）
+function buildPug(files = []) {
+  return spawn('node', ['scripts/build-pug.js', ...files], { stdio: 'inherit' });
 }
-function pugEnvTaskSingle(envValue, outputPath) {
-  return gulp.src(['src/pug/lms-moodle/**/*.pug', '!src/pug/lms-moodle/**/_*.pug'])
-      .pipe(plumber())
-      .pipe(newer({
-        dest: outputPath,
-        ext: '.html'  // 出力ファイルの拡張子を明示
-      }))
-      .pipe(data(() => ({ env: envValue })))  // 'env'に値を渡す
-      .pipe(pug({ plugins: [pugbem] }))
-      .pipe(gulp.dest(outputPath));  // 出力先を動的に変更
-}
-
-// stg用Pugタスク
-function pugStg() {
-  return pugEnvTask('stg', dstpaths.stg);
-}
-// stg用Pugタスク
-function pugLms() {
-  return pugEnvTask('lmswaomirai', dstpaths.lmswaomirai);
-}
-
-// stg用Pugタスク
-function pugStgSingle() {
-  return pugEnvTaskSingle('stg', dstpaths.stg);
-}
-// stg用Pugタスク
-function pugLmsSingle() {
-  return pugEnvTaskSingle('lmswaomirai', dstpaths.lmswaomirai);
+function pugMoodle() {
+  return buildPug();
 }
 
 function pugDefalutTenant() {
@@ -200,11 +173,10 @@ function scss() {
 }
 
 // デフォルトタスク
-exports.default = gulp.series(scss, serve, pugStg, pugLms, pugIndexPage, pugIndexContact);
+exports.default = gulp.series(scss, pugMoodle, pugIndexPage, pugIndexContact, serve);
 exports.scss = scss;
 exports.splitJs = splitJs;
-exports.pugStg = pugStg;
-exports.pugLms = pugLms;
+exports.pugMoodle = pugMoodle;
 exports.pugDefalutTenant = pugDefalutTenant;
 exports.pugIndexPage = pugIndexPage;
-exports.pugAll = gulp.series(pugStg, pugLms, pugDefalutTenant, pugIndexPage, pugIndexContact);
+exports.pugAll = gulp.series(pugMoodle, pugDefalutTenant, pugIndexPage, pugIndexContact);
