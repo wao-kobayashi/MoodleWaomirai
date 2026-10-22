@@ -6,306 +6,107 @@ html(lang="ja")
   head
     meta(charset="UTF-8")
     title WAO未来塾関連のページ一覧
-    meta(name="viewport", content="width=device-width, initial-scale=1")
+    meta(name="viewport", content="width=device-width, initial-scale=1,minimum-scale=1.0, maximum-scale=1.0, user-scalable=no")
     meta(name="robots", content="noindex,nofollow")
+    meta(name="apple-mobile-web-app-capable", content="yes")
+    meta(name="apple-mobile-web-app-status-bar-style", content="black-translucent")
     style.
-      :root {
-        --bg: #fff;
-        --text: #1f2328;
-        --sub: #8b949e;
-        --border: #e6e8eb;
-        --line: #d0d7de;
-        --accent: #2563eb;
-        --accent-soft: #f0f5ff;
-        --warn: #c2410c;
-      }
-      * { box-sizing: border-box; }
-      body {
-        margin: 0;
-        background: var(--bg);
-        color: var(--text);
-        font: 14px/1.6 -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Noto Sans JP", sans-serif;
-      }
-      a { color: inherit; text-decoration: none; }
-
-      /* ヘッダー（スクロールしても上部に固定） */
-      .header {
-        position: sticky;
-        top: 0;
-        z-index: 1;
-        background: rgb(255 255 255 / 0.92);
-        backdrop-filter: blur(8px);
-        border-bottom: 1px solid var(--border);
-      }
-      .header-inner {
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 14px 24px;
-        display: flex;
-        flex-wrap: wrap;
-        align-items: center;
-        gap: 12px 20px;
-      }
-      .header-title {
-        margin: 0 auto 0 0;
-        font-size: 16px;
-        font-weight: 600;
-      }
-
-      /* 環境の切り替え */
-      .env-switch {
-        display: inline-flex;
-        border: 1px solid var(--border);
-        border-radius: 8px;
-        overflow: hidden;
-      }
-      .env-switch button {
-        border: 0;
-        padding: 6px 14px;
-        background: var(--bg);
-        color: var(--text);
-        font: inherit;
-        font-size: 13px;
-        cursor: pointer;
-      }
-      .env-switch button + button { border-left: 1px solid var(--border); }
-      .env-switch button[aria-pressed="true"] {
-        background: var(--accent);
-        color: #fff;
-      }
-
-      /* 絞り込み */
-      .filter {
-        width: 240px;
-        max-width: 100%;
-        padding: 7px 12px;
-        border: 1px solid var(--border);
-        border-radius: 8px;
-        background: var(--bg);
-        color: var(--text);
-        font: inherit;
-      }
-      .filter:focus {
-        outline: 2px solid var(--accent);
-        outline-offset: -1px;
-      }
-
-      /* カテゴリごとのリスト（1列） */
-      .main {
-        max-width: 960px;
-        margin: 0 auto;
-        padding: 24px;
-      }
-      .env-panel[hidden] { display: none; }
-      .env-note {
-        margin: 0 0 16px;
-        color: var(--sub);
-        font-size: 13px;
-      }
-      .category {
-        margin: 0 0 32px;
-      }
-      .category-title {
-        margin: 0;
-        padding-bottom: 6px;
-        border-bottom: 1px solid var(--border);
-        font-size: 15px;
-        font-weight: 600;
-      }
-      .category-count {
-        margin-left: 6px;
-        color: var(--sub);
-        font-size: 12px;
-        font-weight: 400;
-      }
-      .category-ids {
-        margin: 4px 0 0;
-        color: var(--sub);
-        font: 11px/1.5 ui-monospace, SFMono-Regular, Menlo, monospace;
-        word-break: break-all;
-      }
-      /* ツリー表示：カテゴリ → 小見出し → ページを罫線でつなぐ */
-      .tree {
-        margin: 0;
-        padding: 0;
+      /* Moodle Listの基本スタイル */
+      .moodle-list {
+        font-family: Arial, sans-serif;
+        padding-left: 20px;
         list-style: none;
       }
-      .category > .tree { margin-top: 8px; }
-      .tree .tree { margin-left: 7px; }
-      .tree li {
-        position: relative;
-        padding-left: 20px;
+
+      .moodle-list > li {
+        margin-bottom: 10px;
       }
-      /* 縦線（最後の子は横線の位置まで） */
-      .tree li::before {
-        content: '';
-        position: absolute;
-        left: 0;
-        top: 0;
-        bottom: 0;
-        border-left: 1px solid var(--line);
+
+      /* 階層構造のインデント */
+      .moodle-list li > ul {
+        margin-left: 0px;
+        margin-top:10px;
       }
-      .tree li.is-last::before { bottom: auto; height: 16px; }
-      /* 横線 */
-      .tree li::after {
-        content: '';
-        position: absolute;
-        left: 0;
-        top: 16px;
-        width: 14px;
-        border-top: 1px solid var(--line);
+
+      .moodle-list li > ul li {
+        margin-bottom: 5px;
       }
-      .group-name {
-        display: block;
-        padding: 5px 0;
-        font-weight: 600;
-        line-height: 22px;
+
+      /* リンクのスタイル */
+      .moodle-list a {
+        color: #0073e6;
+        text-decoration: none;
       }
-      /* 1ページ1行：左にリンク名、右にパス */
-      .tree a {
-        display: flex;
-        gap: 16px;
-        align-items: baseline;
-        padding: 5px 8px;
-        border-radius: 6px;
-        line-height: 22px;
-        white-space: nowrap;
+
+      .moodle-list a:hover {
+        text-decoration: underline;
       }
-      .tree a:hover {
-        background: var(--accent-soft);
-        color: var(--accent);
+
+      /* セクションごとのスタイル */
+      .moodle-list li > ul > li {
+        font-size: 14px;
+        color: #333;
       }
-      .link-label {
-        flex: 1;
-        min-width: 0;
-        overflow: hidden;
-        text-overflow: ellipsis;
+
+      /* セクションタイトルのスタイル */
+      .moodle-list li > ul > li > a {
+        padding-left: 10px;
       }
-      .link-path {
-        flex-shrink: 1;
-        min-width: 0;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        color: var(--sub);
-        font: 11px ui-monospace, SFMono-Regular, Menlo, monospace;
+
+      /* 最後のリストアイテムに余白を追加 */
+      .moodle-list li:last-child {
+        margin-bottom: 20px;
       }
-      @media (max-width: 600px) {
-        .link-path { display: none; }
+      h3{
+        margin:0 0 4px;
+      }
+      .moodle-list-category{
+        color:#999;
+        font-size:12px;
+        margin:0 0 4px;
+      }
+      .moodle-list-group{
+        font-size:87%;
+        margin:20px 0 0 20px;
       }
       /* @title 未設定のページ */
-      .tree a.is-untitled { color: var(--warn); }
-      .no-result {
-        color: var(--sub);
-        text-align: center;
-        padding: 40px 0;
+      .moodle-list a.is-untitled {
+        color: #c00;
       }
 
   body
-    header.header
-      .header-inner
-        h1.header-title WAO未来塾 ページ一覧
-        input#filter.filter(type="search", placeholder="絞り込み（/ キー）", aria-label="ページを絞り込む")
-        .env-switch(role="group", aria-label="表示する環境")
-          button(type="button", data-env="moodle-lms", aria-pressed="true") 本番（lms）
-          button(type="button", data-env="moodle-stg", aria-pressed="false") stg
-          button(type="button", data-env="other", aria-pressed="false") その他
-
-    mixin pageLink(environment, link)
-      li.tree-page
-        a(href=`${environment}/${link.href}`, class=link.untitled ? 'is-untitled' : undefined)
-          span.link-label= link.label
-          span.link-path= link.href
-
-    //- 各カテゴリは「見出し」+「ページID一覧」+「小見出しごとのリンク」の構成
-    //- .category-ids には該当カテゴリに対応するページIDをカンマ区切りで記載し、
+    //- 各カテゴリは「h3 見出し」+「.moodle-list-category(ID一覧)」+「小見出しごとのリンクUL」の構成
+    //- .moodle-list-category には該当カテゴリに対応するページIDをカンマ区切りで記載し、
     //- 開発時の検索・画面識別・E2Eテスト時の参照用メタデータとして使う
     mixin moodleList(environment)
-      .categories
+      h2= environment
+      ul.moodle-list
         each category in pageIndex
-          section.category
-            h2.category-title
-              | #{category.title}
-              span.category-count= category.groups.reduce((n, group) => n + group.links.length, 0)
+          li
+            h3= category.title
             if category.moodleIds
-              p.category-ids= category.moodleIds
-            //- 小見出しがあるページはその下にぶら下げ、無いページはカテゴリ直下に並べる
-            ul.tree
-              each group in category.groups
-                if group.name
-                  li.tree-group
-                    span.group-name= group.name
-                    ul.tree
-                      each link in group.links
-                        +pageLink(environment, link)
-                else
-                  each link in group.links
-                    +pageLink(environment, link)
+              .moodle-list-category= category.moodleIds
+            each group in category.groups
+              if group.name
+                .moodle-list-group= group.name
+              ul
+                each link in group.links
+                  li
+                    a(href=`${environment}/${link.href}`, class=link.untitled ? 'is-untitled' : undefined)= link.label
 
-    main.main
-      .env-panel(data-env="moodle-lms")
+    div(style="display:flex;width:calc(70% + 40px); margin:0 auto;display: grid;grid-template-columns: repeat(2, 1fr);grid-template-rows: 1fr;grid-column-gap: 30px;")
+
+      div(style="padding:10px 20px 30px; box-shadow:0 5px 10px #ccc;")
         +moodleList('moodle-lms')
-      .env-panel(data-env="moodle-stg", hidden)
-        p.env-note stg 環境のページです（現在はほとんど使っていません）
+      div(style="padding:10px 20px 30px; box-shadow:0 5px 10px #ccc; position:relative;")
+        div(style="position:absolute; width:100%; height:100%; font-size:16px; color:#fff; background:rgba(0,0,0,0.7); left:0; top:0; text-align:center;") <p style="margin:45px 0 0;">今は使わなさそう</p>
         +moodleList('moodle-stg')
-      .env-panel(data-env="other", hidden)
-        .categories
-          section.category
-            h2.category-title defalut-tenant（テスト）
-            ul.tree
-              li.tree-page
-                a(href="moodle-defaluttenant/index.html")
-                  span.link-label ログイン
-                  span.link-path moodle-defaluttenant/index.html
-      p.no-result(hidden) 該当するページがありません
-
-    script.
-      (function () {
-        var buttons = document.querySelectorAll('.env-switch button');
-        var panels = document.querySelectorAll('.env-panel');
-        var filter = document.getElementById('filter');
-        var noResult = document.querySelector('.no-result');
-
-        // 選んだ環境はブラウザに記憶する（使えない環境では毎回本番を表示）
-        function showEnv(env) {
-          buttons.forEach(function (b) { b.setAttribute('aria-pressed', String(b.dataset.env === env)); });
-          panels.forEach(function (p) { p.hidden = p.dataset.env !== env; });
-          try { localStorage.setItem('pageIndexEnv', env); } catch (e) {}
-          applyFilter();
-        }
-
-        // 入力した文字をリンク名かパスに含むページだけ表示し、空になった小見出し・カテゴリは隠す
-        function applyFilter() {
-          var q = filter.value.trim().toLowerCase();
-          var panel = document.querySelector('.env-panel:not([hidden])');
-          panel.querySelectorAll('.tree-page').forEach(function (li) {
-            var a = li.querySelector('a');
-            li.hidden = !!q && (a.textContent + ' ' + a.getAttribute('href')).toLowerCase().indexOf(q) === -1;
-          });
-          panel.querySelectorAll('.tree-group, .category').forEach(function (el) {
-            el.hidden = !el.querySelector('.tree-page:not([hidden])');
-          });
-          // ツリーの縦線を、表示中の最後の項目で止める
-          panel.querySelectorAll('.tree').forEach(function (tree) {
-            var items = Array.prototype.filter.call(tree.children, function (li) { return !li.hidden; });
-            Array.prototype.forEach.call(tree.children, function (li) {
-              li.classList.toggle('is-last', li === items[items.length - 1]);
-            });
-          });
-          noResult.hidden = !!panel.querySelector('.tree-page:not([hidden])');
-        }
-
-        buttons.forEach(function (b) {
-          b.addEventListener('click', function () { showEnv(b.dataset.env); });
-        });
-        filter.addEventListener('input', applyFilter);
-        document.addEventListener('keydown', function (e) {
-          if (e.key === '/' && document.activeElement !== filter) {
-            e.preventDefault();
-            filter.focus();
-          }
-        });
-
-        var saved = null;
-        try { saved = localStorage.getItem('pageIndexEnv'); } catch (e) {}
-        showEnv(saved && document.querySelector('.env-panel[data-env="' + saved + '"]') ? saved : 'moodle-lms');
-      })();
+    div(style="display:flex;width:calc(70% + 40px); margin:0 auto;")
+      div(style="padding:10px 20px 30px; margin:45px auto 45px; box-shadow:0 5px 10px #ccc; width:100%;")
+        h2 defalut-tenant(テスト)
+        ul.moodle-list
+          li
+            h3 moodleログイン
+            ul
+              li
+                a(href=`moodle-defaluttenant/index.html`) ログイン
