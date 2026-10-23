@@ -1,167 +1,40 @@
+//- 科目マスタ（科目キー → コースID）を読み込み
+include ../../_course-master.pug
 -
   // enrolpages配列の定義。この配列は登録ページの設定を格納。
+  // - course    … このページの科目（科目マスタのキー）
+  // - purchased … 購入済みとして扱う科目（科目マスタのキー、書いた順に class へ出力）
   var enrolpages = [
-    {
-      id: 'page-enrol-ph-none',
-      template: 'enrol',
-      category: 'philosophy',
-      SubjectPageTitle: '哲学',
-      courseID: env === 'stg' ? 212 : env === 'lmswaomirai' ? 255 : 0,
-      paymentID: env === 'stg' ? [] : env === 'lmswaomirai' ? [] : [0],
-      categoryID: env === 'stg' ? 'category-51' : env === 'lmswaomirai' ? 'category-47' : ''
-    },
-    {
-      id: 'page-enrol-ph-sc',
-      template: 'enrol',
-      category: 'philosophy',
-      SubjectPageTitle: '哲学(科学購入済)',
-      courseID: env === 'stg' ? 212 : env === 'lmswaomirai' ? 255 : 0,
-      paymentID: env === 'stg' ? [211] : env === 'lmswaomirai' ? [265] : [0],
-      categoryID: env === 'stg' ? 'category-51' : env === 'lmswaomirai' ? 'category-47' : ''
-    },
-    {
-      id: 'page-enrol-ph-two',
-      template: 'enrol',
-      category: 'philosophy',
-      SubjectPageTitle: '哲学(2科目セット)',
-      courseID: env === 'stg' ? 212 : env === 'lmswaomirai' ? 255 : 0,
-      paymentID: env === 'stg' ? [228] : env === 'lmswaomirai' ? [270] : [0],
-      categoryID: env === 'stg' ? 'category-51' : env === 'lmswaomirai' ? 'category-47' : ''
-    },
-    {
-      id: 'page-enrol-ph-three',
-      template: 'enrol',
-      category: 'philosophy',
-      SubjectPageTitle: '哲学(3科目セット)',
-      courseID: env === 'stg' ? 212 : env === 'lmswaomirai' ? 255 : 0,
-      paymentID: env === 'stg' ? [229] : env === 'lmswaomirai' ? [271] : [0],
-      categoryID: env === 'stg' ? 'category-51' : env === 'lmswaomirai' ? 'category-47' : ''
-    },
-      {
-      id: 'page-enrol-ph-trialend',
-      template: 'enrol',
-      category: 'philosophy',
-      SubjectPageTitle: '哲学｜初月無料終了',
-      courseID: env === 'stg' ? 212 : env === 'lmswaomirai' ? 255 : 0,
-      paymentID: env === 'stg' ? [324] : env === 'lmswaomirai' ? [323] : [0],
-      categoryID: env === 'stg' ? 'category-51' : env === 'lmswaomirai' ? 'category-47' : ''
-    },
-    {
-      id: 'page-enrol-sc-none',
-      template: 'enrol',
-      category: 'science',
-      SubjectPageTitle: '科学',
-      courseID: env === 'stg' ? 211 : env === 'lmswaomirai' ? 265 : 0,
-      paymentID: env === 'stg' ? [] : env === 'lmswaomirai' ? [] : [0],
-      categoryID: env === 'stg' ? 'category-52' : env === 'lmswaomirai' ? 'category-49' : ''
-    },
-    {
-      id: 'page-enrol-ec-none',
-      template: 'enrol',
-      category: 'economy',
-      SubjectPageTitle: '経済',
-      courseID: env === 'stg' ? 213 : env === 'lmswaomirai' ? 260 : 0,
-      paymentID: env === 'stg' ? [] : env === 'lmswaomirai' ? [] : [0],
-      categoryID: env === 'stg' ? 'category-53' : env === 'lmswaomirai' ? 'category-48' : ''
-    },
-    {
-      id: 'page-enrol-en',
-      template: 'enrol',
-      category: 'globalenglish',
-      SubjectPageTitle: 'グローバル英語',
-      courseID: env === 'stg' ? 236 : env === 'lmswaomirai' ? 135 : 0,
-      paymentID: env === 'stg' ? [] : env === 'lmswaomirai' ? [] : [0],
-      categoryID: env === 'stg' ? 'category-54' : env === 'lmswaomirai' ? 'category-50' : ''
-    },
-    {
-      id: 'page-enrol-en-trialend',
-      template: 'enrol',
-      category: 'globalenglish',
-      SubjectPageTitle: 'グローバル英語｜初月無料終了',
-      courseID: env === 'stg' ? 236 : env === 'lmswaomirai' ? 135 : 0,
-      paymentID: env === 'stg' ? [236,324] : env === 'lmswaomirai' ? [135,255,323] : [0],
-      categoryID: env === 'stg' ? 'category-54' : env === 'lmswaomirai' ? 'category-50' : ''
-    },
-    {
-      id: 'page-enrol-two-none',
-      template: 'enrol',
-      category: 'twosubjectpack',
-      SubjectPageTitle: '2科目セット',
-      courseID: env === 'stg' ? 228 : env === 'lmswaomirai' ? 270 : 0,
-      paymentID: env === 'stg' ? [] : env === 'lmswaomirai' ? [] : [0],
-      categoryID: env === 'stg' ? '' : env === 'lmswaomirai' ? '' : ''
-    },
-    {
-      id: 'page-enrol-two-sc',
-      template: 'enrol',
-      category: 'twosubjectpack',
-      SubjectPageTitle: '2科目セット(科学購入済)',
-      courseID: env === 'stg' ? 228 : env === 'lmswaomirai' ? 270 : 0,
-      paymentID: env === 'stg' ? [211] : env === 'lmswaomirai' ? [265] : [0],
-      categoryID: env === 'stg' ? '' : env === 'lmswaomirai' ? '' : ''
-    },
-    {
-      id: 'page-enrol-two-ec',
-      template: 'enrol',
-      category: 'twosubjectpack',
-      SubjectPageTitle: '2科目セット(経済購入済)',
-      courseID: env === 'stg' ? 228 : env === 'lmswaomirai' ? 270 : 0,
-      paymentID: env === 'stg' ? [213] : env === 'lmswaomirai' ? [260] : [0],
-      categoryID: env === 'stg' ? '' : env === 'lmswaomirai' ? '' : ''
-    },
-    {
-      id: 'page-enrol-two-three',
-      template: 'enrol',
-      category: 'twosubjectpack',
-      SubjectPageTitle: '2科目セット(3科目セット購入済)',
-      courseID: env === 'stg' ? 228 : env === 'lmswaomirai' ? 270 : 0,
-      paymentID: env === 'stg' ? [229] : env === 'lmswaomirai' ? [271] : [0],
-      categoryID: env === 'stg' ? '' : env === 'lmswaomirai' ? '' : ''
-    },
-    {
-      id: 'page-enrol-three-none',
-      template: 'enrol',
-      SubjectPageTitle: '3科目セット',
-      category: 'threesubjectpack',
-      courseID: env === 'stg' ? 229 : env === 'lmswaomirai' ? 271 : 0,
-      paymentID: env === 'stg' ? [] : env === 'lmswaomirai' ? [] : [0],
-      categoryID: env === 'stg' ? '' : env === 'lmswaomirai' ? '' : ''
-    },
-    {
-      id: 'page-enrol-three-sc',
-      template: 'enrol',
-      SubjectPageTitle: '3科目セット(科学購入済)',
-      category: 'threesubjectpack',
-      courseID: env === 'stg' ? 229 : env === 'lmswaomirai' ? 271 : 0,
-      paymentID: env === 'stg' ? [211] : env === 'lmswaomirai' ? [265] : [0],
-      categoryID: env === 'stg' ? '' : env === 'lmswaomirai' ? '' : ''
-    },
-    {
-      id: 'page-enrol-three-ec',
-      template: 'enrol',
-      SubjectPageTitle: '3科目セット(経済購入済)',
-      category: 'threesubjectpack',
-      courseID: env === 'stg' ? 229 : env === 'lmswaomirai' ? 271 : 0,
-      paymentID: env === 'stg' ? [213] : env === 'lmswaomirai' ? [260] : [0],
-      categoryID: env === 'stg' ? '' : env === 'lmswaomirai' ? '' : ''
-    },
-    {
-      id: 'page-enrol-three-two',
-      template: 'enrol',
-      category: 'threesubjectpack',
-      SubjectPageTitle: '3科目セット(2科目セット購入済)',
-      courseID: env === 'stg' ? 229 : env === 'lmswaomirai' ? 271 : 0,
-      paymentID: env === 'stg' ? [228] : env === 'lmswaomirai' ? [270] : [0],
-      categoryID: env === 'stg' ? '' : env === 'lmswaomirai' ? '' : ''
-    }
-    ,
-    {
-      id: 'page-enrol-three-trialend',
-      template: 'enrol',
-      category: 'threesubjectpack',
-      SubjectPageTitle: '3科目セット(2科目セット購入済)',
-      courseID: env === 'stg' ? 229 : env === 'lmswaomirai' ? 271 : 0,
-      paymentID: env === 'stg' ? [324] : env === 'lmswaomirai' ? [323] : [0],
-      categoryID: env === 'stg' ? '' : env === 'lmswaomirai' ? '' : ''
-    }
-  ]
+    // 哲学
+    { id: 'page-enrol-ph-none',        SubjectPageTitle: '哲学',                           course: 'philosophy',       purchased: [] },
+    { id: 'page-enrol-ph-sc',          SubjectPageTitle: '哲学(科学購入済)',               course: 'philosophy',       purchased: ['science'] },
+    { id: 'page-enrol-ph-two',         SubjectPageTitle: '哲学(2科目セット)',              course: 'philosophy',       purchased: ['twosubjectpack'] },
+    { id: 'page-enrol-ph-three',       SubjectPageTitle: '哲学(3科目セット)',              course: 'philosophy',       purchased: ['threesubjectpack'] },
+    { id: 'page-enrol-ph-trialend',    SubjectPageTitle: '哲学｜初月無料終了',             course: 'philosophy',       purchased: ['trialend'] },
+    // 科学・経済
+    { id: 'page-enrol-sc-none',        SubjectPageTitle: '科学',                           course: 'science',          purchased: [] },
+    { id: 'page-enrol-ec-none',        SubjectPageTitle: '経済',                           course: 'economy',          purchased: [] },
+    // グローバル英語
+    { id: 'page-enrol-en',             SubjectPageTitle: 'グローバル英語',                 course: 'globalenglish',    purchased: [] },
+    { id: 'page-enrol-en-trialend',    SubjectPageTitle: 'グローバル英語｜初月無料終了',   course: 'globalenglish',    purchased: ['globalenglish', 'philosophy', 'trialend'] },
+    // 2科目セット
+    { id: 'page-enrol-two-none',       SubjectPageTitle: '2科目セット',                    course: 'twosubjectpack',   purchased: [] },
+    { id: 'page-enrol-two-sc',         SubjectPageTitle: '2科目セット(科学購入済)',        course: 'twosubjectpack',   purchased: ['science'] },
+    { id: 'page-enrol-two-ec',         SubjectPageTitle: '2科目セット(経済購入済)',        course: 'twosubjectpack',   purchased: ['economy'] },
+    { id: 'page-enrol-two-three',      SubjectPageTitle: '2科目セット(3科目セット購入済)', course: 'twosubjectpack',   purchased: ['threesubjectpack'] },
+    // 3科目セット
+    { id: 'page-enrol-three-none',     SubjectPageTitle: '3科目セット',                    course: 'threesubjectpack', purchased: [] },
+    { id: 'page-enrol-three-sc',       SubjectPageTitle: '3科目セット(科学購入済)',        course: 'threesubjectpack', purchased: ['science'] },
+    { id: 'page-enrol-three-ec',       SubjectPageTitle: '3科目セット(経済購入済)',        course: 'threesubjectpack', purchased: ['economy'] },
+    { id: 'page-enrol-three-two',      SubjectPageTitle: '3科目セット(2科目セット購入済)', course: 'threesubjectpack', purchased: ['twosubjectpack'] },
+    { id: 'page-enrol-three-trialend', SubjectPageTitle: '3科目セット(2科目セット購入済)', course: 'threesubjectpack', purchased: ['trialend'] }
+  ];
+
+  // 科目キーから、各パーツが使う値（category / courseID / paymentID / categoryID）を組み立てる
+  enrolpages.forEach(function (page) {
+    page.template = 'enrol';
+    page.category = page.course;
+    page.courseID = courseIdOf(page.course);
+    page.paymentID = page.purchased.map(courseIdOf);
+    page.categoryID = categoryIdOf(page.course);
+  });
