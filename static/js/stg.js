@@ -2967,6 +2967,30 @@ $(".open-modal-badge").click(function() {
   });
 });
 
+//////////////////////////////////////
+// 回答フォームにページ区切りがある場合のボタン調整
+// （#phpesp_response .surveyPage がある時のみ発火）
+//////////////////////////////////////
+$(function () {
+  var $surveyPage = $('#phpesp_response .surveyPage');
+  if (!$surveyPage.length) return;
+
+  // 「保存」ボタンを非表示
+  $('.control-button-save').hide();
+
+  // コントロールボタンの並び
+  $('.mod_questionnaire_controlbuttons').each(function () {
+    this.style.setProperty('flex-direction', 'row', 'important');
+    this.style.setProperty('justify-content', 'flex-start', 'important');
+  });
+
+  // 「次へ」ボタンの配色
+  $('.control-button-next').each(function () {
+    this.style.setProperty('background', '#005c3f', 'important');
+    this.style.setProperty('color', 'white', 'important');
+  });
+});
+
 // // ==============================
 // // カテゴリページの処理
 // // ==============================

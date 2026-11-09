@@ -66,6 +66,10 @@ li[data-key="courseinfo"] {
 #page-mod-questionnaire-complete,
 #page-mod-questionnaire-myreport,
 #page-mod-questionnaire-report {
+  //目次は消す
+  .surveyPage {
+    display: none !important;
+  }
   img {
     width: 100%;
   }

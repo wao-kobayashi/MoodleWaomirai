@@ -8113,6 +8113,12 @@ html[data-tenantidnumber=stg] #page-mod-questionnaire-view .activity-description
 html[data-tenantidnumber=stg] li[data-key=courseinfo] {
   display: none !important;
 }
+html[data-tenantidnumber=stg] #page-mod-questionnaire-view .surveyPage,
+html[data-tenantidnumber=stg] #page-mod-questionnaire-complete .surveyPage,
+html[data-tenantidnumber=stg] #page-mod-questionnaire-myreport .surveyPage,
+html[data-tenantidnumber=stg] #page-mod-questionnaire-report .surveyPage {
+  display: none !important;
+}
 html[data-tenantidnumber=stg] #page-mod-questionnaire-view img,
 html[data-tenantidnumber=stg] #page-mod-questionnaire-complete img,
 html[data-tenantidnumber=stg] #page-mod-questionnaire-myreport img,
