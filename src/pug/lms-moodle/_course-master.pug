@@ -1,0 +1,67 @@
+-
+  // ==============================
+  // 科目マスタ
+  // ==============================
+  // Moodle のコースID（stg / 本番）とカテゴリIDを科目ごとにまとめたもの。
+  // ページ側のデータでは、ここのキー（philosophy など）で科目を指定する。
+  // レベル別の子科目は levels に持ち、'philosophy.L1' のように「科目キー.レベル」で指定する。
+  // キーと ID は JS 側（src/js/00_stg-variable.js / 00_lms-variable.js）の subjects と揃えている。
+  var COURSES = {
+    philosophy: {
+      name: '哲学', stg: 212, lms: 255, category: { stg: 'category-51', lms: 'category-47' },
+      levels: {
+        L1: { stg: 221, lms: 256 },
+        L2: { stg: 225, lms: 257 },
+        L3: { stg: 242, lms: 258 },
+        L4: { stg: 243, lms: 259 }
+      }
+    },
+    science: {
+      name: '科学', stg: 211, lms: 265, category: { stg: 'category-52', lms: 'category-49' },
+      levels: {
+        L1: { stg: 223, lms: 266 },
+        L2: { stg: 222, lms: 267 },
+        L3: { stg: 244, lms: 268 },
+        L4: { stg: 245, lms: 269 }
+      }
+    },
+    economy: {
+      name: '経済', stg: 213, lms: 260, category: { stg: 'category-53', lms: 'category-48' },
+      levels: {
+        L1: { stg: 226, lms: 261 },
+        L2: { stg: 227, lms: 262 },
+        L3: { stg: 246, lms: 263 },
+        L4: { stg: 247, lms: 264 }
+      }
+    },
+    globalenglish: {
+      name: 'グローバル英語', stg: 236, lms: 135, category: { stg: 'category-54', lms: 'category-50' },
+      levels: {
+        L1: { stg: 253, lms: 130 },
+        L2: { stg: 254, lms: 138 }
+      }
+    },
+    twosubjectpack:   { name: '2科目セット', stg: 228, lms: 270 },
+    threesubjectpack: { name: '3科目セット', stg: 229, lms: 271 },
+    trialend:         { name: '初月無料終了（フラグ）', stg: 324, lms: 323 }
+  };
+
+  // 'philosophy' または 'philosophy.L1' から科目（子科目）の定義を返す
+  function courseOf(key) {
+    var parts = key.split('.');
+    var course = COURSES[parts[0]];
+    return parts[1] ? course.levels[parts[1]] : course;
+  }
+
+  // 環境（stg / lmswaomirai）に応じたコースIDを返す
+  function courseIdOf(key) {
+    var course = courseOf(key);
+    return env === 'stg' ? course.stg : env === 'lmswaomirai' ? course.lms : 0;
+  }
+
+  // 環境に応じたカテゴリIDを返す（カテゴリの無い科目は空文字）
+  function categoryIdOf(key) {
+    var category = courseOf(key).category;
+    if (!category) return '';
+    return env === 'stg' ? category.stg : env === 'lmswaomirai' ? category.lms : '';
+  }

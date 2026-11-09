@@ -1,12 +1,15 @@
+//- @title 3科目パック（何も買っていない）
+//- @group 3科目パック
+//- @link ?params=htmlCopy 3科目パック（何も買っていない）htmlコピペ用
 
 extends ../_layout_moodle.pug
 block variables
   - var title = '３科目セット'
   //- - var pageid = 'page-enrol-en'
   - var pageid = 'page-enrol-three-none'
-  include _enrol_meta
+  include _parts/_enrol_meta
 block contents
   //共通パーツ
-  include _parts-enrol-common
+  include _parts/_parts-enrol-common
   //３科目のページ
-  include _parts-enrol-three
+  include _parts/_parts-enrol-three

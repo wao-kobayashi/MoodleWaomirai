@@ -3,7 +3,7 @@ include _assets.pug
 html(dir="ltr", lang="ja", xml:lang="ja", data-tenantid=(env == 'stg' ? '2' : '3'), data-tenantidnumber=env)
   head
     //course用のページIDを読み込
-    include course-enrol/_id_enrolpages.pug
+    include course-enrol/_parts/_id_enrolpages.pug
     block variables 
     //- - var additionalClasses = [courseIDClass, ...paymentIDClasses].join(' ')
     //- title #{status}
