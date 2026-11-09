@@ -8113,6 +8113,12 @@ html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-view .activity-des
 html[data-tenantidnumber=lmswaomirai] li[data-key=courseinfo] {
   display: none !important;
 }
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-view .surveyPage,
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-complete .surveyPage,
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-myreport .surveyPage,
+html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-report .surveyPage {
+  display: none !important;
+}
 html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-view img,
 html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-complete img,
 html[data-tenantidnumber=lmswaomirai] #page-mod-questionnaire-myreport img,
