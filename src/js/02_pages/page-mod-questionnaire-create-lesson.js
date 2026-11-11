@@ -23,7 +23,7 @@ if (bodyId === "page-mod-questionnaire-view")  {
       L3: {
         day1: "火曜日 19:30〜20:15",
         day2: null,
-        zoomUrl: "https://us02web.zoom.us/j/86009824056?pwd=StlsSrwAaalh8N8qcOpNvNdnyVEFht.1",
+        zoomUrl: "https://us02web.zoom.us/j/88135034300?pwd=WqVR9SwHD1lNrcU07CAL1VbRkbx7XQ.1",
         vimeoUrl: "https://vimeo.com/event/4920676/embed/52c21ef6b0/interaction"
       },
       L4: {
