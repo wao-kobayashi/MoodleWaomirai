@@ -601,6 +601,21 @@ li[data-key="courseinfo"] {
       }
     }
   }
+  // 受講ボタンが表示されない場合の予備Zoomリンク（.mod-questionnaire-worksheet のデザインを流用）
+  .mod-questionnaire-zoom-link {
+    a.mod-questionnaire-worksheet-download {
+      color: $cl-waogreen !important;
+      text-decoration: none !important;
+      -webkit-tap-highlight-color: transparent !important;
+      &:hover,
+      &:active,
+      &:focus {
+        color: $cl-waogreen !important;
+        text-decoration: none !important;
+        outline: none !important;
+      }
+    }
+  }
   .homelink a {
     background: $cl-white !important;
     border: 1.5px solid $cl-waogreen !important;

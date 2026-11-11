@@ -9324,6 +9324,28 @@ html[data-tenantidnumber=stg] #page-mod-questionnaire-report .mod-questionnaire-
   margin: 3px 0 0 0;
   line-height: 1;
 }
+html[data-tenantidnumber=stg] #page-mod-questionnaire-view .mod-questionnaire-zoom-link a.mod-questionnaire-worksheet-download,
+html[data-tenantidnumber=stg] #page-mod-questionnaire-complete .mod-questionnaire-zoom-link a.mod-questionnaire-worksheet-download,
+html[data-tenantidnumber=stg] #page-mod-questionnaire-myreport .mod-questionnaire-zoom-link a.mod-questionnaire-worksheet-download,
+html[data-tenantidnumber=stg] #page-mod-questionnaire-report .mod-questionnaire-zoom-link a.mod-questionnaire-worksheet-download {
+  color: #005c3f !important;
+  text-decoration: none !important;
+  -webkit-tap-highlight-color: transparent !important;
+}
+html[data-tenantidnumber=stg] #page-mod-questionnaire-view .mod-questionnaire-zoom-link a.mod-questionnaire-worksheet-download:hover, html[data-tenantidnumber=stg] #page-mod-questionnaire-view .mod-questionnaire-zoom-link a.mod-questionnaire-worksheet-download:active, html[data-tenantidnumber=stg] #page-mod-questionnaire-view .mod-questionnaire-zoom-link a.mod-questionnaire-worksheet-download:focus,
+html[data-tenantidnumber=stg] #page-mod-questionnaire-complete .mod-questionnaire-zoom-link a.mod-questionnaire-worksheet-download:hover,
+html[data-tenantidnumber=stg] #page-mod-questionnaire-complete .mod-questionnaire-zoom-link a.mod-questionnaire-worksheet-download:active,
+html[data-tenantidnumber=stg] #page-mod-questionnaire-complete .mod-questionnaire-zoom-link a.mod-questionnaire-worksheet-download:focus,
+html[data-tenantidnumber=stg] #page-mod-questionnaire-myreport .mod-questionnaire-zoom-link a.mod-questionnaire-worksheet-download:hover,
+html[data-tenantidnumber=stg] #page-mod-questionnaire-myreport .mod-questionnaire-zoom-link a.mod-questionnaire-worksheet-download:active,
+html[data-tenantidnumber=stg] #page-mod-questionnaire-myreport .mod-questionnaire-zoom-link a.mod-questionnaire-worksheet-download:focus,
+html[data-tenantidnumber=stg] #page-mod-questionnaire-report .mod-questionnaire-zoom-link a.mod-questionnaire-worksheet-download:hover,
+html[data-tenantidnumber=stg] #page-mod-questionnaire-report .mod-questionnaire-zoom-link a.mod-questionnaire-worksheet-download:active,
+html[data-tenantidnumber=stg] #page-mod-questionnaire-report .mod-questionnaire-zoom-link a.mod-questionnaire-worksheet-download:focus {
+  color: #005c3f !important;
+  text-decoration: none !important;
+  outline: none !important;
+}
 html[data-tenantidnumber=stg] #page-mod-questionnaire-view .homelink a,
 html[data-tenantidnumber=stg] #page-mod-questionnaire-complete .homelink a,
 html[data-tenantidnumber=stg] #page-mod-questionnaire-myreport .homelink a,

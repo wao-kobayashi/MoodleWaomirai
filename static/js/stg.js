@@ -2553,7 +2553,7 @@ if (bodyId === "page-mod-questionnaire-view")  {
       L3: {
         day1: "火曜日 19:30〜20:15",
         day2: null,
-        zoomUrl: "https://us02web.zoom.us/j/86009824056?pwd=StlsSrwAaalh8N8qcOpNvNdnyVEFht.1",
+        zoomUrl: "https://us02web.zoom.us/j/88135034300?pwd=WqVR9SwHD1lNrcU07CAL1VbRkbx7XQ.1",
         vimeoUrl: "https://vimeo.com/event/4920676/embed/52c21ef6b0/interaction"
       },
       L4: {
@@ -2654,6 +2654,26 @@ if (bodyId === "page-mod-questionnaire-view")  {
   }
 
   // ==============================
+  // 受講ボタンが表示されない場合の予備Zoomリンクエリアを生成する関数
+  // （デザインはメモシートの .mod-questionnaire-worksheet と共通）
+  // ==============================
+  function generateZoomFallbackHtml(lessonInfo) {
+    return `
+  <div class="mod-questionnaire-worksheet mod-questionnaire-zoom-link">
+    <div class="mod-questionnaire-worksheet-icon">
+      <img src="${ImgSubjectOther}">
+    </div>
+    <div class="mod-questionnaire-worksheet-text">
+      授業の受講ボタン(zoom)が表示されない場合は<br>こちらのボタンからご参加ください
+    </div>
+    <a class="mod-questionnaire-worksheet-download" href="${lessonInfo.zoomUrl}" target="_blank">
+      <span class="mod-questionnaire-worksheet-download-text">授業を受講する(Zoom)</span>
+    </a>
+  </div>
+    `;
+  }
+
+  // ==============================
   // Vimeoウィンドウを開く関数
   // ==============================
   function openVimeoWindow(vimeoUrl) {
@@ -2708,13 +2728,6 @@ if (bodyId === "page-mod-questionnaire-view")  {
   // メイン処理
   // ==============================
   $(document).ready(function() {
-    const $targetElement = $("#js-lesson-detail-mod-questionnaire");
-    
-    // 対象要素が存在しない場合は処理を終了
-    if ($targetElement.length === 0) {
-      return;
-    }
-
     // currentViewCourseDataが存在し、必要な情報が揃っているか確認
     if (!currentViewCourseData || !currentViewCourseData.key || !currentViewCourseData.level) {
       console.warn("授業情報を取得できませんでした。");
@@ -2726,6 +2739,20 @@ if (bodyId === "page-mod-questionnaire-view")  {
 
     if (!lessonInfo) {
       console.warn(`授業情報が見つかりません: ${currentViewCourseData.key} ${currentViewCourseData.level}`);
+      return;
+    }
+
+    // 受講ボタンが表示されない場合の予備Zoomリンクを .activity-header の直後に挿入
+    // （授業ブロックの有無に関係なく表示するため、#js-lesson-detail のチェックより前で実行）
+    const $activityHeader = $(".activity-header").first();
+    if (lessonInfo.zoomUrl && $activityHeader.length && !$(".mod-questionnaire-zoom-link").length) {
+      $activityHeader.after(generateZoomFallbackHtml(lessonInfo));
+    }
+
+    const $targetElement = $("#js-lesson-detail-mod-questionnaire");
+
+    // 対象要素が存在しない場合は処理を終了
+    if ($targetElement.length === 0) {
       return;
     }
 
