@@ -566,7 +566,7 @@ li[data-key="courseinfo"] {
       height: 36px;
       border: 1.5px solid $cl-waogreen;
       border-radius: $border-radius-small;
-      padding: 0 12px 0 15px;
+      padding: 0 15px 4px 18px;
       cursor: pointer;
       @include responsive-style(768px) {
         grid-column: span 2 / span 2;
@@ -604,13 +604,17 @@ li[data-key="courseinfo"] {
   // 受講ボタンが表示されない場合の予備Zoomリンク（.mod-questionnaire-worksheet のデザインを流用）
   .mod-questionnaire-zoom-link {
     a.mod-questionnaire-worksheet-download {
-      color: $cl-waogreen !important;
+      // 授業ブロックの受講ボタン(.course-lesson-wrap-btn .primary)と同じオレンジ
+      background: $cl-main-orange !important;
+      border-color: $cl-main-orange !important;
+      color: $cl-white !important;
+      font-weight: bold;
       text-decoration: none !important;
       -webkit-tap-highlight-color: transparent !important;
       &:hover,
       &:active,
       &:focus {
-        color: $cl-waogreen !important;
+        color: $cl-white !important;
         text-decoration: none !important;
         outline: none !important;
       }
