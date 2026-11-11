@@ -2655,19 +2655,18 @@ if (bodyId === "page-mod-questionnaire-view")  {
 
   // ==============================
   // 受講ボタンが表示されない場合の予備Zoomリンクエリアを生成する関数
-  // （デザインはメモシートの .mod-questionnaire-worksheet と共通）
   // ==============================
   function generateZoomFallbackHtml(lessonInfo) {
     return `
-  <div class="mod-questionnaire-worksheet mod-questionnaire-zoom-link">
-    <div class="mod-questionnaire-worksheet-icon">
+  <div class="mod-questionnaire-zoom-link">
+    <div class="mod-questionnaire-zoom-link-icon">
       <img src="${ImgSubjectOther}">
     </div>
-    <div class="mod-questionnaire-worksheet-text">
-      授業の受講ボタン(zoom)が表示されない場合は<br>こちらのボタンからご参加ください
+    <div class="mod-questionnaire-zoom-link-text">
+      授業の受講ボタン(Zoom)が表示されない場合は<br>こちらのボタンからご参加ください
     </div>
-    <a class="mod-questionnaire-worksheet-download" href="${lessonInfo.zoomUrl}" target="_blank">
-      <span class="mod-questionnaire-worksheet-download-text">授業を受講する(Zoom)</span>
+    <a class="mod-questionnaire-zoom-link-btn" href="${lessonInfo.zoomUrl}" target="_blank">
+      授業を受講する(Zoom)
     </a>
   </div>
     `;
@@ -2751,8 +2750,9 @@ if (bodyId === "page-mod-questionnaire-view")  {
 
     const $targetElement = $("#js-lesson-detail-mod-questionnaire");
 
-    // 対象要素が存在しない場合は処理を終了
+    // 対象要素が存在しない場合は nozoom クラスを付けて処理を終了
     if ($targetElement.length === 0) {
+      $(".path-mod-questionnaire, .mod-questionnaire-zoom-link").addClass("nozoom");
       return;
     }
 
