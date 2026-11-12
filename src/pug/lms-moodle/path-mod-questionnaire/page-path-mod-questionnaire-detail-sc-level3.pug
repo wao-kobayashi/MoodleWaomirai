@@ -3,6 +3,7 @@ extends ../_layout_moodle.pug
 block contents
   - var envClasses = env === 'stg' ? ['course-244'] : env === 'lms' ? [] : ['course-268']
   - var title = '科学レベル3'  // 変数の定義
+  - var content = 'no-content'
   body#page-mod-questionnaire-view(
     class=[
       'format-flexsections',
