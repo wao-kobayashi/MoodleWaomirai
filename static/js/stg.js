@@ -515,6 +515,29 @@ if (bodyId === "page-my-index") {
       $(".dashboard-main-class").hide();
     }
   }
+
+  // -----------------------------------------------
+  // イベント代理登録ユーザー向け 受講カレンダー案内モーダル
+  // -----------------------------------------------
+  // モーダルの表示条件：
+  // 1. イベント期間中のイベント代理登録ユーザーであること（isEventParticipating）
+  // 2. 非表示設定用のクッキーが存在しないこと（初回表示時にセットし、365日間は再表示しない）
+  const eventUserCalendarCookie = 'hideEventUserCalendarAlert';
+  if (isEventParticipating && !$.cookie(eventUserCalendarCookie)) {
+    createModal({
+      wrapClass: "c-modal-wrap-event-calendar",
+      title: "哲学イベントは「受講カレンダー」から<br />から参加できます",
+      // text: "ダッシュボードの受講カレンダーから、<br />参加する授業の日時を確認できます。",
+      image: "https://lms.waomirai.com/pluginfile.php/4791/mod_page/content/45/img-howto-lesson-01.png",
+      close: true,
+      buttons: [
+        { text: "OKです", class: "btn-primary c-modal-wrap-close-tag" }
+      ]
+    });
+    // 非表示設定用のクッキーを設定（1年で期限切れとなる）
+    $.cookie(eventUserCalendarCookie, "true", { expires: 365 });
+  }
+
   //////////////////////////
   // 現在受講中の科目処理
   //////////////////////////

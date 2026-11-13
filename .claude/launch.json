@@ -1,0 +1,6 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    { "name": "static", "runtimeExecutable": "npx", "runtimeArgs": ["browser-sync", "start", "--server", "--port", "3123", "--no-open", "--no-notify"], "port": 3123 }
+  ]
+}
