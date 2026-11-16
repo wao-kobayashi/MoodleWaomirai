@@ -35,7 +35,7 @@ if (bodyId === "page-my-index") {
   if (isEventParticipating && !$.cookie(eventUserCalendarCookie)) {
     createModal({
       wrapClass: "c-modal-wrap-event-calendar",
-      title: "哲学イベントは「受講カレンダー」から<br />から参加できます",
+      title: "哲学イベントは「受講カレンダー」から<br />参加できます",
       // text: "ダッシュボードの受講カレンダーから、<br />参加する授業の日時を確認できます。",
       image: "https://lms.waomirai.com/pluginfile.php/4791/mod_page/content/45/img-howto-lesson-01.png",
       close: true,
