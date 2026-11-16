@@ -1301,6 +1301,19 @@ html[data-tenantidnumber=stg] .c-modal .c-modal-wrap-wrap-campaign .c-modal-wrap
 html[data-tenantidnumber=stg] .c-modal .c-modal-wrap-badge .c-modal-wrap-button-wrap {
   padding: 5px 0 0;
 }
+html[data-tenantidnumber=stg] .c-modal .c-modal-wrap-event-calendar .c-modal-wrap-text {
+  text-align: center;
+}
+html[data-tenantidnumber=stg] .c-modal .c-modal-wrap-event-calendar .c-modal-wrap-image {
+  margin: 16px auto 0;
+}
+html[data-tenantidnumber=stg] .c-modal .c-modal-wrap-event-calendar .c-modal-wrap-image img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid #999;
+  border-radius: 8px;
+}
 html[data-tenantidnumber=stg] .c-modal .c-modal-wrap-mirainote .c-modal-wrap-text {
   color: #999;
   font-size: 16px;
